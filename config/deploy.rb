@@ -1,9 +1,9 @@
 # config valid only for current version of Capistrano
 lock "3.11.0"
 
-set :application, 'natgeo'
+set :application, 'pp-live-report'
 
-set :repo_url, 'https://github.com/unepwcmc/natgeo.git'
+set :repo_url, 'https://github.com/unepwcmc/pp-live-report.git'
 
 set :nvm_type, :user # or :system, depends on your nvm setup
 set :nvm_node, 'v9.0.0'

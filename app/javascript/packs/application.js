@@ -10,6 +10,8 @@ Vue.use(TurbolinksAdapter)
 import store from '../store/store.js'
 
 // vue components
+import NavBurger from '../components/nav/NavBurger'
+import NavLink from '../components/nav/NavLink'
 
 // create event hub and export so that it can be imported into .vue files
 export const eventHub = new Vue()
@@ -20,6 +22,9 @@ document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#v-app',
     store,
-    components: {}
+    components: {
+      NavBurger,
+      NavLink
+    }
   })
 })

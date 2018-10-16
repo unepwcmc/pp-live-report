@@ -4,17 +4,18 @@
 .nav {
 
 //--------------------------------------------------
-// burger nav
+// burger nav 
 //--------------------------------------------------
   &--burger {
+  
     .nav {
       &__burger {
-        
+        display: block;
+
+        @include breakpoint($medium) { display: none; }
       }
 
       &__pane {
-        background-color: $grey;
-        padding: rem-calc(18 0);
         width: 100%;
 
         position: fixed;
@@ -27,18 +28,27 @@
 
         transition: transform .4s ease-in-out;
 
-        @include breakpoint($small) { width: rem-calc(280); }
+        @include breakpoint($medium) { 
+          width: auto;
 
-        &.active { transform: translateX(0); }
+          position: initial;
+
+          transform: initial;
+          transition: initial;
+        }
+
+        &--active { transform: translateX(0); }
       }
-      
+    
         &__close {
-          
+          @include breakpoint($medium) { display: none; }
         }
 
-        &__a {
-          
-        }
+        &__li {}
+
+          &__a {
+            &.nav--active { font-weight: bold; }
+          }
     }
   }
 }

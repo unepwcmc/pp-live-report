@@ -1,10 +1,25 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+// libraries
+import Vue from 'vue/dist/vue.esm'
+import TurbolinksAdapter from 'vue-turbolinks'
 
-console.log('Hello World from Webpacker')
+Vue.config.productionTip = false
+
+Vue.use(TurbolinksAdapter)
+
+// store
+import store from '../store/store.js'
+
+// vue components
+
+// create event hub and export so that it can be imported into .vue files
+export const eventHub = new Vue()
+
+// create vue instance and attach to the DOM
+// document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '#v-app',
+    store,
+    components: {}
+  })
+})

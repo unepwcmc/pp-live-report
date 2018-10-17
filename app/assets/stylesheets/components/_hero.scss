@@ -1,0 +1,39 @@
+//--------------------------------------------------
+// hero
+//--------------------------------------------------
+.hero {
+
+//--------------------------------------------------
+// home page hero
+//--------------------------------------------------
+  &--home {
+    background-color: $black;
+    border-top: solid rem-calc(8) $primary;
+    color: $white;
+
+    .hero {
+      &__intro {
+        @include breakpoint($small) { width: rem-calc(590); }
+      }
+    }
+  }
+
+//--------------------------------------------------
+// chapter hero
+//--------------------------------------------------
+  &--chapter {
+    background-color: $black;
+    color: $white;
+
+    .hero {
+      &__intro {
+        @include breakpoint($small) { width: rem-calc(590); }
+      }
+
+      &__subtitle { 
+        @include breakpoint($small) { font-size: rem-calc(20); }
+      }
+    }
+  }
+
+}

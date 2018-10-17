@@ -13,6 +13,19 @@ body {
 }
 
 h1 {
+  margin: 0; 
+
+  @include breakpoint($small) { 
+    font-size: rem-calc(70); 
+    width: rem-calc(590);
+  }
+
+  .heading--home {
+    @include breakpoint($small) { 
+      font-size: rem-calc(100); 
+      width: 70%;
+    }
+  }
 }
 
 h2 {

@@ -1,11 +1,13 @@
 <template>
   <div :class="classes">
     <button class="button nav__burger icon--burger" @click="toggleNavPane">NAV</button>
-
-    <ul class="nav__pane ul-unstyled" :class="{ 'nav__pane--active': isActive }">
+    
+    <div class="nav__pane" :class="{ 'active': isActive }">
       <button class="button nav__close icon--close" @click="toggleNavPane">X</button>
-      <slot></slot>
-    </ul>
+      <ul class="nav__ul ul-unstyled">
+        <slot></slot>
+      </ul>
+    </div>
   </div>
 </template>
 

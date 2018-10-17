@@ -1,4 +1,8 @@
 <header class="hero--home">
-  hero home
-  <%= render 'partials/topbar' %>  
+  <%= render 'partials/topbar' %>
+  
+  <div class="container">
+    <h1><%= site_title %></h1>
+    <p class="hero__tagline center-margin"><%= @data['intro'] %></p>
+  </div>
 </header>

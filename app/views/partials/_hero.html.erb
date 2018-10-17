@@ -1,4 +1,9 @@
-<header class="hero">
-  hero
+<header class="hero--chapter">
   <%= render 'partials/topbar' %>
+
+  <div class="container">
+    <p class="hero__subtitle">Chapter <%= @chapter_number %></p>
+    <h1><%= @data['title'] %></h1>
+    <p class="hero__intro"><%= @data['intro'] %></p>
+  </div>
 </header>

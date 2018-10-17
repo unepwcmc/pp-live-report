@@ -1,6 +1,13 @@
-<div class="topbar">
-  topbar
+<div class="topbar flex flex-h-between">
+  <p>
+    <%= link_to root_path, title: site_title do %>
+      <%= image_tag '', alt: site_title + ' logo' %>
+    <% end %>
+    | Digital Report
+  <p>
   
-  <%= render 'partials/social-sharing' %>
-  <%= render 'partials/nav' %>
+  <div class="flex">
+    <%= render 'partials/social-sharing' %>
+    <%= render 'partials/nav' %>
+  </div>
 </div>

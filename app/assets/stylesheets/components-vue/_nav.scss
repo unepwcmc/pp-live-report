@@ -11,44 +11,43 @@
     .nav {
       &__burger {
         display: block;
-
-        @include breakpoint($medium) { display: none; }
       }
 
       &__pane {
+        background-color: $black;
+        overflow-y: scroll;
         width: 100%;
 
         position: fixed;
         top: 0;
+        right: 0;
         bottom: 0;
-        left: 0;
         z-index: 2000;
 
-        transform: translateX(-100%);
+        transform: translateX(100%);
 
-        transition: transform .4s ease-in-out;
+        transition: transform .3s ease-in-out;
 
         @include breakpoint($medium) { 
+          padding: rem-calc(118 36 45 50);
           width: auto;
-
-          position: initial;
-
-          transform: initial;
-          transition: initial;
         }
 
-        &--active { transform: translateX(0); }
+        &.active { transform: translateX(0); }
       }
     
         &__close {
-          @include breakpoint($medium) { display: none; }
+          
         }
 
-        &__li {}
+        &__ul { }
 
-          &__a {
-            &.nav--active { font-weight: bold; }
-          }
+          &__li { margin-bottom: rem-calc(60); }
+
+            &__a {
+              color: $white;
+              .nav--active & { font-weight: bold; }
+            }
     }
   }
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'partials/head' %>
+  </head>
+
+  <body>
+      <div id="v-app">
+        <%= render 'partials/hero' %>
+        
+        <%= yield %>
+      </div>
+
+      <%= render 'partials/footer' %>
+  </body>
+</html>

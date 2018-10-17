@@ -1,4 +1,5 @@
 class ChaptersController < ApplicationController
+  layout 'chapter'
 
   def chapter_1
     

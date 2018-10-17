@@ -12,6 +12,7 @@ import store from '../store/store.js'
 // vue components
 import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
+import SocialShare from '../components/social/SocialShare'
 
 // create event hub and export so that it can be imported into .vue files
 export const eventHub = new Vue()
@@ -24,7 +25,8 @@ document.addEventListener('turbolinks:load', () => {
     store,
     components: {
       NavBurger,
-      NavLink
+      NavLink,
+      SocialShare
     }
   })
 })

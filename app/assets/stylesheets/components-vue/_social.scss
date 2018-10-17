@@ -2,5 +2,48 @@
 // social
 //--------------------------------------------------
 .social {
+//--------------------------------------------------
+// social
+//--------------------------------------------------
+  &--share {
+    position: relative;
 
+    .social {
+      &__trigger {
+        display: block;
+
+        @include breakpoint($small) { display: none; }
+      }
+
+      &__target {
+        display: none;
+        position: absolute;
+
+        @include breakpoint($small) { 
+          display: block;
+          position: initial;
+        }
+
+        &.active { 
+          display: block;
+        }
+      }
+      
+        &__icon {
+          background-position: center;
+          background-repeat: no-repeat;
+          width: rem-calc(58); height: rem-calc(48);
+
+          display: block;
+
+          &:hover { opacity: .75; }
+
+          @include breakpoint($small) { display: inline-block; }
+
+          &--facebook { background-image: image-url('icons/facebook.svg'); }
+          &--email { background-image: image-url('icons/email.svg'); }
+          &--twitter { background-image: image-url('icons/twitter.svg'); }
+        }
+    }
+  }  
 }

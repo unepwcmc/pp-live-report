@@ -1,9 +1,9 @@
 <template>
-  <div :class="classes">
-    <button class="button nav__burger icon--burger" @click="toggleNavPane">NAV</button>
+  <div class="nav--burger" :class="classes">
+    <button class="nav__trigger icon--burger" @click="toggle">NAV</button>
     
-    <div class="nav__pane" :class="{ 'active': isActive }">
-      <button class="button nav__close icon--close" @click="toggleNavPane">X</button>
+    <div class="nav__target" :class="{ 'active': isActive }">
+      <button class="nav__close icon--close" @click="toggle">X</button>
       <ul class="nav__ul ul-unstyled">
         <slot></slot>
       </ul>
@@ -26,7 +26,7 @@
     },
 
     methods: {
-      toggleNavPane () {
+      toggle () {
         this.isActive = !this.isActive
       }
     }

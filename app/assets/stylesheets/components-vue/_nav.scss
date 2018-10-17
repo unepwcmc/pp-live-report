@@ -9,11 +9,11 @@
   &--burger {
   
     .nav {
-      &__burger {
+      &__trigger {
         display: block;
       }
 
-      &__pane {
+      &__target{
         background-color: $black;
         overflow-y: scroll;
         width: 100%;

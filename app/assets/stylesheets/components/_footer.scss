@@ -2,4 +2,18 @@
 // footer
 //--------------------------------------------------
 .footer {
+  background-color: $black;
+  color: $white;
+
+  @include breakpoint($small) { height: rem-calc(109); }
+
+  &__a {
+    text-decoration: none;
+    @include breakpoint($small) { margin-left: rem-calc(38); }
+  }
+
+    &__logo {
+      opacity: .55;
+      width: auto; height: rem-calc(44);
+    }
 }

@@ -1,3 +1,21 @@
-<footer class="footer">
-  footer
+<footer class="footer gutters flex flex-v-center flex-h-between">
+   <span>ProtectedPlanet 2014-2018. All rights reserved</span>
+
+   <div class="">
+     <%= link_to 'https://protectedplanet.net/', title: 'Visit Protected Planet', target: '_blank', class: 'footer__a' do %>
+      <%= image_tag '', alt: 'Protected Planet logo', class: 'footer__logo' %>
+     <% end %>
+
+     <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
+      <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017+white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
+     <% end %>
+
+     <%= link_to 'https://www.iucn.org/', title: 'Visit IUCN', target: '_blank', class: 'footer__a' do %>
+      <%= image_tag '', alt: 'IUCN logo', class: 'footer__logo' %>
+     <% end %>
+
+     <%= link_to '', title: 'Visit National Geographic', target: '_blank', class: 'footer__a' do %>
+      <%= image_tag 'https://www.nationalgeographic.com/', alt: 'National Geographic logo', class: 'footer__logo' %>
+     <% end %>
+   </div>
 </footer>

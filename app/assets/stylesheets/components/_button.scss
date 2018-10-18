@@ -14,7 +14,10 @@
 // styles
 //--------------------------------------------------
   &--cta {
-
+    background-color: $primary;
+    color: $black;
+    padding: rem-calc(10 16);
+    text-decoration: none;
   } 
 
   &--disabled {

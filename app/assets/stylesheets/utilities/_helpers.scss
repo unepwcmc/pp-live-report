@@ -67,6 +67,7 @@ strong, .bold { font-weight: $bold; }
 //--------------------------------------------------
 // backgrounds
 //--------------------------------------------------
+.bg-green-light { background-color: $green-light; }
 .bg-overlay {
   position: relative;
   z-index: 0;

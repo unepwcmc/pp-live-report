@@ -1,0 +1,11 @@
+<div class="bg-green-light">
+  <div class="pagination container flex flex-column flex-center">
+    <span><%= @chapter_number %> / 10</span>
+    <% if @next_chapter_title %>
+      <%= link_to @next_chapter_link, title: @next_chapter_title, class: 'pagination__next' do %>
+        <%= @next_chapter_title %>
+        ->
+      <% end %>
+    <% end %>
+  </div>
+</div>

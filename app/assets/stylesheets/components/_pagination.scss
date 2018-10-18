@@ -1,0 +1,15 @@
+//--------------------------------------------------
+// pagination
+//--------------------------------------------------
+.pagination {
+  font-size: rem-calc(25);
+  font-weight: $light;
+  height: rem-calc(200);
+
+  &__next {
+    border-top: solid rem-calc(1) $black;
+    font-weight: $bold;
+    margin-top: rem-calc(18);
+    padding-top: rem-calc(14);
+  }
+}

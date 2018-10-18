@@ -10,6 +10,8 @@ Vue.use(TurbolinksAdapter)
 import store from '../store/store.js'
 
 // vue components
+import Accordion from '../components/accordion/Accordion'
+import AccordionItem from '../components/accordion/AccordionItem'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
@@ -25,6 +27,8 @@ document.addEventListener('turbolinks:load', () => {
     el: '#v-app',
     store,
     components: {
+      Accordion,
+      AccordionItem,
       CarouselFixed,
       NavBurger,
       NavLink,

@@ -10,6 +10,7 @@ Vue.use(TurbolinksAdapter)
 import store from '../store/store.js'
 
 // vue components
+import CarouselFixed from '../components/carousel/CarouselFixed'
 import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
 import SocialShare from '../components/social/SocialShare'
@@ -24,6 +25,7 @@ document.addEventListener('turbolinks:load', () => {
     el: '#v-app',
     store,
     components: {
+      CarouselFixed,
       NavBurger,
       NavLink,
       SocialShare

@@ -14,7 +14,7 @@
     position: relative;
 
     .content {
-      &__desc {
+      &__text {
         color: $white;
         font-size: rem-calc(40);
         margin: 0 auto;
@@ -26,6 +26,28 @@
         left: 50%;
 
         transform: translateX(-50%);
+      }
+    }
+  }
+
+//--------------------------------------------------
+// next steps
+//--------------------------------------------------
+  &--next-steps {
+    background-color: $grey-dark;
+    color: $white;
+
+    @include breakpoint($medium) { padding: rem-calc(130 0 120 0); }
+
+    .content {
+      &__title {
+        font-size: rem-calc(100);
+      }
+
+      &__text {
+        font-size: rem-calc(20);
+        margin: 0 auto;
+        width: rem-calc(590);
       }
     }
   }

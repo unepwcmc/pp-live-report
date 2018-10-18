@@ -1,0 +1,32 @@
+//--------------------------------------------------
+// content
+//--------------------------------------------------
+.content {
+
+//--------------------------------------------------
+// extra-large
+//--------------------------------------------------
+  &--x-large {
+    background-color: $grey-dark;
+    color: $grey;
+    font-size: rem-calc(300);
+
+    position: relative;
+
+    .content {
+      &__desc {
+        color: $white;
+        font-size: rem-calc(40);
+        margin: 0 auto;
+        width: 100%;
+        max-width: rem-calc(1000);
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

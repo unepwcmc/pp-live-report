@@ -5,7 +5,7 @@
     <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
   <% end %>
 
-  <!-- <chart-legend <%= @stacked_row_charts[:legend].to_json %>></chart-legend> -->
+  <chart-legend :rows="<%= @stacked_row_charts[:legend].to_json %>"></chart-legend>
 </div>
 
 <%= render '/partials/cta' %>

@@ -13,6 +13,7 @@ import store from '../store/store.js'
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
 import CarouselFixed from '../components/carousel/CarouselFixed'
+import ChartLegend from '../components/charts/ChartLegend'
 import ChartRow from '../components/charts/ChartRow'
 import ChartRowStacked from '../components/charts/ChartRowStacked'
 import NavBurger from '../components/nav/NavBurger'
@@ -32,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
       Accordion,
       AccordionItem,
       CarouselFixed,
+      ChartLegend,
       ChartRow,
       ChartRowStacked,
       NavBurger,

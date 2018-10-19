@@ -7,10 +7,14 @@
         <span><strong>{{ row.label }}</strong> {{ row.percent}}%</span>
       </p>
     </div>
+    
+    <chart-legend v-if="legend" rows="legend"></chart-legend>
   </div>
 </template>
 
 <script>
+  import ChartLegend from './ChartLegend'
+
   export default {
     name: 'chart-row-stacked',
 
@@ -19,6 +23,9 @@
       rows: {
         type: Array,
         required: true
+      },
+      legend: {
+        type: Array
       }
     }
   }

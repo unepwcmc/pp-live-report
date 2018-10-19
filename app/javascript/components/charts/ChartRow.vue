@@ -1,6 +1,6 @@
 <template>
   <div class="chart--row">
-    <h4 class=""chart__title>{{ title }}</h4>
+    <h4 v-if="title" class="chart__title">{{ title }}</h4>
 
     <div class="chart__chart">
       <p v-for="row in rows" class="chart__row flex flex-v-center flex-h-between">
@@ -17,11 +17,11 @@
     name: 'chart-row',
 
     props: {
+      title: String,
       rows: {
         type: Array,
         required: true
-      },
-      title: String
+      }
     }
   }
 </script>

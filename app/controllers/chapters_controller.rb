@@ -105,6 +105,68 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
     @shared = YAML.load(File.open("#{Rails.root}/lib/data/content/shared.yml", 'r'))
+
+    #TODO replace with real data
+    @stacked_row_charts = {
+      legend: [
+        {
+          title: "1."
+        },
+        {
+          title: "2."
+        },
+        {
+          title: "3."
+        },
+        {
+          title: "4."
+        }
+      ],
+      charts: [
+        {
+          chart_title: "Terrestrial",
+          rows: [
+            {
+              percent: 10,
+              label: "1."
+            },
+            {
+              percent: 30,
+              label: "2."
+            },
+            {
+              percent: 35,
+              label: "3."
+            },
+            {
+              percent: 25,
+              label: "4."
+            }
+          ]
+        },
+        {
+          chart_title: "Marine",
+          rows: [
+            {
+              percent: 5,
+              label: "1."
+            },
+            {
+              percent: 25,
+              label: "2."
+            },
+            {
+              percent: 40,
+              label: "3."
+            },
+            {
+              percent: 30,
+              label: "4."
+            }
+          ]
+        }
+      ]
+    }
   end
 
   def chapter_6

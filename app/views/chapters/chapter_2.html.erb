@@ -1,1 +1,1 @@
-<%= render '/partials/cta' %>
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

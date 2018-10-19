@@ -1,10 +1,10 @@
 <div class="cta--protected-planet">
   <div class="container cta__container">
     <div class="cta__content">
-      <h3><%= @shared['cta_protected_planet_title'] %></h3>
-      <p><%= @shared['cta_protected_planet_intro'] %></p>
+      <h3><%= title %></h3>
+      <p><%= text %></p>
     </div>
     
-    <%= link_to @shared['cta_protected_planet_title'], @shared['cta_protected_planet_url'], title: "Visit #{@shared['cta_protected_planet_title']}", target: '_blank', class: 'cta__link button--cta' %>
+    <%= link_to 'Explore', url, title: "Visit #{title}", target: '_blank', class: 'cta__link button--cta' %>
   </div>
 </div>

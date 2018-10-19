@@ -1,1 +1,3 @@
-<%= render '/partials/cta' %>
+<% @data['ctas'].each do |cta| %>
+  <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>
+<% end %>

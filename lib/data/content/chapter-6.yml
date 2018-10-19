@@ -1,3 +1,12 @@
 title: "Page title"
 subtitle: "Chapter six"
 intro: "Lorem ipsum"
+ctas:
+  -
+    cta_title: "Measuring equity"
+    cta_text: "Lorem ipsum"
+    cta_url: "http://protectedplanet.net"
+  -
+    cta_title: "Community-led governance assessment in the Mara North Community Conservancy in Kenya"
+    cta_text: "Lorem ipsum"
+    cta_url: "http://protectedplanet.net"

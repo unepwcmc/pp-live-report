@@ -1,6 +1,15 @@
 title: "Page title"
 subtitle: "Chapter nine"
 intro: "Lorem ipsum"
+ctas:
+  -
+    cta_title: "Human Footprint: Areas under intense human pressure"
+    cta_text: "Lorem ipsum"
+    cta_url: "http://protectedplanet.net"
+  -
+    cta_title: "PANORAMA – Solutions for a Healthy Planet"
+    cta_text: "Lorem ipsum"
+    cta_url: "http://protectedplanet.net"
 accordion:
   -
     title: "Global Coverage"

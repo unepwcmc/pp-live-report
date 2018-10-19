@@ -2,11 +2,11 @@
   <div class="chart--row-stacked">
     <h3 v-if="title" class="chart__title">{{ title }}</h3>
 
-    <div class="chart__chart flex">
-      <p v-for="row in rows" class="chart__bar flex flex-v-center" :style="{ width: row.percent + '%' }">
+    <ul class="chart__chart ul-unstyled flex">
+      <li v-for="row in rows" class="chart__bar flex flex-v-center" :style="{ width: row.percent + '%' }">
         <span><strong>{{ row.label }}</strong> {{ row.percent}}%</span>
-      </p>
-    </div>
+      </li>
+    </ul>
     
     <chart-legend v-if="legend" rows="legend"></chart-legend>
   </div>

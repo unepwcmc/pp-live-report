@@ -1,9 +1,9 @@
 <template>
-  <div class="chart--legend flex">
-    <p v-for="row in rows" class="chart__legend-item flex">
+  <ul class="chart--legend ul-unstyled flex">
+    <li v-for="row in rows" class="chart__legend-item flex">
       <span class="chart__legend-key"></span>{{ row.title }}
-    </p>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script>

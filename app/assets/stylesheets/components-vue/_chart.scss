@@ -2,5 +2,40 @@
 // chart
 //--------------------------------------------------
 .chart {
+  
+//--------------------------------------------------
+// row chart
+//--------------------------------------------------
+  &--row {
+    width: 48%;
 
+    .chart {
+      &__chart {
+
+      }
+
+        &__row {
+          border: solid rem-calc(1) $grey;
+          width: 100%; height: rem-calc(64);
+
+          position: relative;
+        }
+
+          &__bar {
+            background-color: $green;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+          }
+
+          &__percent {}
+
+          &__label {
+
+          }
+    }
+  }
 }

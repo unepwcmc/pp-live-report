@@ -1,1 +1,13 @@
+<div class="container">
+  <% @row_charts.each do |item| %>
+    <h3><%= item[:title] %></h3>
+    
+    <div class="flex flex-wrap flex-h-between">
+      <% item[:charts].each do |chart| %>
+        <chart-row title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <%= render '/partials/cta' %>

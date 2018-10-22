@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="lines">
-      <div class="issues-chart__svg">
-        <svg width="100%" height="100%" viewBox="0 0 1000 550" xmlns="http://www.w3.org/2000/svg">
+      <div class="issues-chart__svg" style="width:100%;">
+        <svg width="100%" height="100%" viewBox="-220 0 1000 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
           <!--
           Offset first path point ever so slightly so it gets a bounding box
           http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
@@ -12,17 +12,14 @@
           <circle v-if="!isFirstYear()" cx="60" :cy="normaliseValue(getFirstValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/>
           <circle cx="200" :cy="normaliseValue(getSecondValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/>
           <circle v-if="!isLastYear()" cx="340" :cy="normaliseValue(getThirdValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/> -->
+          <rect x="0" y="0" width="890" height="500" fill="#EBEBEB" />
 
-          <rect x="220" y="0" width="890" height="500" fill="#EBEBEB" />
+            <rect x="0" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
 
-          <rect x="220" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
-
-          <path v-for="line in lines" :d="getPath(line.datapoints)" fill="none" stroke="#1D7DA6" stroke-width="6" />
-
-          <g>
-            <text v-for="y in yAxis" :x="offsetX" :y="y.coord">{{ y.labelText }}</text>
-            <text v-for="x in xAxis" :x="x.coord" :y="maxSvgY">{{ x.labelText }}</text>
-          </g>
+            <path v-for="line, index in lines" :d="getPath(line.datapoints)" fill="none" :stroke="colors[index]" stroke-width="6" />
+          
+            <text v-for="y in yAxis" :x="-30" :y="y.coord">{{ y.labelText }}</text>
+            <text v-for="x in xAxis" :x="x.coord" :y="maxSvgY + 30">{{ x.labelText }}</text>
         </svg>
       </div>
     </div>
@@ -42,6 +39,10 @@
 
     data () {
       return {
+        x: {
+          precision: 1,
+        },
+        colors: ['#1D7DA6', '#03B0DA', '#71A32B'],
         precision: 10,
         maxSvgX: 890,
         maxSvgY: 500,
@@ -81,7 +82,7 @@
           console.log(x)
           array.push({
             coord: this.normaliseX(x),
-            labelText: Math.round(x/this.precision)*this.precision
+            labelText: Math.round(x/this.x.precision)*this.x.precision
           })
 
           x += incrementor
@@ -139,11 +140,11 @@
       },
 
       normaliseX (value) {
-        return (this.maxSvgX - ((value - this.minX) / (this.maxX - this.minX)) * this.maxSvgX) + this.offsetX
+        return (this.maxSvgX - ((value - this.minX) / (this.maxX - this.minX)) * this.maxSvgX)
       },
 
       normaliseY (value) {
-        return (this.maxSvgY- ((value - this.minY) / (this.maxY - this.minY)) * this.maxSvgY) + this.offsetY
+        return (this.maxSvgY- ((value - this.minY) / (this.maxY - this.minY)) * this.maxSvgY)
       }
     }
   }

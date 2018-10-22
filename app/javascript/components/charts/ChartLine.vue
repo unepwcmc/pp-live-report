@@ -2,24 +2,17 @@
   <div>
     <div v-if="lines">
       <div class="issues-chart__svg" style="width:100%;">
-        <svg width="100%" height="100%" viewBox="-220 0 1000 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-          <!--
-          Offset first path point ever so slightly so it gets a bounding box
-          http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
-          -->
-          <!-- <path :d="getPath()" fill="none" stroke="url(#lineGradient)" stroke-width="4"/>
+        <svg width="100%" height="100%" viewBox="-110 0 1000 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
 
-          <circle v-if="!isFirstYear()" cx="60" :cy="normaliseValue(getFirstValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/>
-          <circle cx="200" :cy="normaliseValue(getSecondValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/>
-          <circle v-if="!isLastYear()" cx="340" :cy="normaliseValue(getThirdValue().issuesReported)" r="4" fill="#4D6B89" stroke="#fff" stroke-width="2"/> -->
           <rect x="0" y="0" width="890" height="500" fill="#EBEBEB" />
+          <rect x="0" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
 
-            <rect x="0" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
-
-            <path v-for="line, index in lines" :d="getPath(line.datapoints)" fill="none" :stroke="colors[index]" stroke-width="6" />
+          <path v-for="line, index in lines" :d="getPath(line.datapoints)" fill="none" :stroke="colors[index]" stroke-width="6" />
           
-            <text v-for="y in yAxis" :x="-30" :y="y.coord">{{ y.labelText }}</text>
-            <text v-for="x in xAxis" :x="x.coord" :y="maxSvgY + 30">{{ x.labelText }}</text>
+          <text v-for="y in yAxis" :x="-10" :y="y.coord" text-anchor="end">{{ y.labelText }}</text>
+          <text v-for="x in xAxis" :x="x.coord" :y="maxSvgY + 30" text-anchor="middle">{{ x.labelText }}</text>
+
+          <circle cx="0" cy="0" fill="red" r="2"></circle>
         </svg>
       </div>
     </div>

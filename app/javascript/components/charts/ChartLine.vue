@@ -2,17 +2,37 @@
   <div>
     <div v-if="lines">
       <div class="issues-chart__svg" style="width:100%;">
-        <svg width="100%" height="100%" viewBox="-110 0 1000 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+        <svg width="100%" height="100%" viewBox="-110 0 1030 570" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
 
-          <rect x="0" y="0" width="890" height="500" fill="#EBEBEB" />
-          <rect x="0" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
+          <rect 
+            :x="-x.chartPadding/2"
+            :y="-y.chartPadding/2" 
+            :width="x.chartWidth + x.chartPadding" 
+            :height="y.chartHeight + y.chartPadding" 
+            fill="#EBEBEB" />
 
-          <path v-for="line, index in lines" :d="getPath(line.datapoints)" fill="none" :stroke="colors[index]" stroke-width="6" />
+          <rect :x="normaliseX(2018)" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
           
-          <text v-for="y in yAxis" :x="-10" :y="y.coord" text-anchor="end">{{ y.labelText }}</text>
-          <text v-for="x in xAxis" :x="x.coord" :y="maxSvgY + 30" text-anchor="middle">{{ x.labelText }}</text>
+          <path v-for="line, index in lines" 
+            :d="getPath(line.datapoints)" 
+            fill="none" 
+            :stroke="colors[index]" 
+            stroke-width="6" />
+          
+          <text v-for="y in yAxis" 
+            :x="-x.chartPadding" 
+            :y="y.coord" 
+            text-anchor="end">{{ y.labelText }}</text>
 
-          <circle cx="0" cy="0" fill="red" r="2"></circle>
+          <text v-for="x in xAxis" 
+            :x="x.coord" 
+            :y="y.chartHeight + y.chartPadding" 
+            text-anchor="middle">{{ x.labelText }}</text>
+
+          <!-- <circle cx="0" cy="0" fill="red" r="2"></circle> -->
+
+          <chart-line-target :minX="normaliseX(this.minX)" :maxX="normaliseX(this.maxX)" :y="normaliseY(40)" title="Marine target (17%)"></chart-line-target>
+          <chart-line-target :minX="normaliseX(this.minX)" :maxX="normaliseX(this.maxX)" :y="normaliseY(33)" title="Terrestrial target (10%)"></chart-line-target>
         </svg>
       </div>
     </div>
@@ -20,8 +40,12 @@
 </template>
 
 <script>
+  import ChartLineTarget from './ChartLineTarget'
+
   export default {
     name: 'chart-line',
+
+    components: { ChartLineTarget },
 
     props: {
       lines: {
@@ -34,15 +58,19 @@
       return {
         x: {
           precision: 1,
+          chartWidth: 890,
+          chartPadding: 50
+        },
+        y: {
+          precision: 1,
+          chartHeight: 500,
+          chartPadding: 50
         },
         colors: ['#1D7DA6', '#03B0DA', '#71A32B'],
-        precision: 10,
-        maxSvgX: 890,
-        maxSvgY: 500,
         offsetX: 220,
         offsetY: 0,
         minX: 0,
-        maxX: 0,
+        maxX: 2022,
         minY: 0,
         maxY: 0
       }
@@ -51,12 +79,12 @@
     computed: {
       yAxis () {
         let array = [], y = 0
-        const incrementor = this.maxY / 8
+        const incrementor = (this.maxY - this.minY) / 8
 
-        while( y < this.maxY ) {
+        while( y < this.maxY + incrementor) {
           array.push({
             coord: this.normaliseY(y),
-            labelText: Math.round(y/this.precision)*this.precision
+            labelText: Math.round(y/this.y.precision)*this.y.precision
           })
 
           y += incrementor
@@ -69,13 +97,13 @@
 
       xAxis () {
         let array = [], x = this.minX
-        const incrementor = (this.maxX - this.minX)/ 7
+        const incrementor = (this.maxX - this.minX)/ 6
 
-        while( x < this.maxX ) {
+        while( x < this.maxX + incrementor) {
           console.log(x)
           array.push({
             coord: this.normaliseX(x),
-            labelText: Math.round(x/this.x.precision)*this.x.precision
+            labelText: Math.ceil(x/this.x.precision)*this.x.precision
           })
 
           x += incrementor
@@ -89,7 +117,7 @@
 
     created () {
       this.minX = this.getMinValue('x')
-      this.maxX = this.getMaxValue('x')
+      // this.maxX = this.getMaxValue('x')
       this.maxY = this.getMaxValue('y')
     },
 
@@ -100,7 +128,7 @@
         dataset.forEach((point, index) => {
           let command = index == 0 ? 'M' : 'L'
 
-          path += `${command} ${this.normaliseX(point.x)} ${this.normaliseY(point.y)}`
+          path += ` ${command} ${this.normaliseX(point.x)} ${this.normaliseY(point.y)}`
         })
 
         console.log('path', path)
@@ -133,11 +161,11 @@
       },
 
       normaliseX (value) {
-        return (this.maxSvgX - ((value - this.minX) / (this.maxX - this.minX)) * this.maxSvgX)
+        return (((value - this.minX) / (this.maxX - this.minX)) * this.x.chartWidth)
       },
 
       normaliseY (value) {
-        return (this.maxSvgY- ((value - this.minY) / (this.maxY - this.minY)) * this.maxSvgY)
+        return (this.y.chartHeight- ((value - this.minY) / (this.maxY - this.minY)) * this.y.chartHeight)
       }
     }
   }

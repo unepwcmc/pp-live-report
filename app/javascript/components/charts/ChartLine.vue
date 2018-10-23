@@ -2,7 +2,7 @@
   <div>
     <div v-if="lines">
       <div class="issues-chart__svg" style="width:100%;">
-        <svg width="100%" height="100%" viewBox="-110 0 1030 570" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+        <svg width="100%" height="100%" viewBox="-110 -30 1030 590" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
 
           <rect 
             :x="-x.chartPadding/2"
@@ -21,7 +21,7 @@
           
           <text v-for="y in yAxis" 
             :x="-x.chartPadding" 
-            :y="y.coord" 
+            :y="y.coord"
             text-anchor="end">{{ y.labelText }}</text>
 
           <text v-for="x in xAxis" 
@@ -30,9 +30,16 @@
             text-anchor="middle">{{ x.labelText }}</text>
 
           <!-- <circle cx="0" cy="0" fill="red" r="2"></circle> -->
-
-          <chart-line-target :minX="normaliseX(this.minX)" :maxX="normaliseX(this.maxX)" :y="normaliseY(40)" title="Marine target (17%)"></chart-line-target>
-          <chart-line-target :minX="normaliseX(this.minX)" :maxX="normaliseX(this.maxX)" :y="normaliseY(33)" title="Terrestrial target (10%)"></chart-line-target>
+          
+          <template v-if="targets">
+            <chart-line-target v-for="target, index in targets"
+              :minX="normaliseX(minX)" 
+              :maxX="normaliseX(maxX)" 
+              :y="normaliseY(target.y)" 
+              :title="target.title"
+              :colour="targetColors[index]">
+            </chart-line-target>
+          </template>
         </svg>
       </div>
     </div>
@@ -51,7 +58,8 @@
       lines: {
         type: Array,
         required: true
-      }
+      },
+      targets: Array
     },
 
     data () {
@@ -67,6 +75,7 @@
           chartPadding: 50
         },
         colors: ['#1D7DA6', '#03B0DA', '#71A32B'],
+        targetColors: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)'],
         offsetX: 220,
         offsetY: 0,
         minX: 0,

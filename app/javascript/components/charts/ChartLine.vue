@@ -32,8 +32,8 @@
 
         <template v-if="targets">
           <chart-line-target v-for="target, index in targets"
-            :minX="normaliseX(minX)" 
-            :maxX="normaliseX(maxX)" 
+            :minX="normaliseX(x.min)" 
+            :maxX="normaliseX(x.max)" 
             :y="normaliseY(target.y)" 
             :title="target.title"
             :colour="targetColours[index]">
@@ -70,30 +70,28 @@
         x: {
           precision: 1,
           chartWidth: 890,
-          chartPadding: 50
+          chartPadding: 50,
+          min:0,
+          max: 2022
         },
         y: {
           precision: 1,
           chartHeight: 500,
-          chartPadding: 50
+          chartPadding: 50,
+          min: 0,
+          max: 0
         },
         colours: ['#1D7DA6', '#03B0DA', '#71A32B', '#CCCBCB'],
-        targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)'],
-        offsetX: 220,
-        offsetY: 0,
-        minX: 0,
-        maxX: 2022,
-        minY: 0,
-        maxY: 0
+        targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },
 
     computed: {
       yAxis () {
         let array = [], y = 0
-        const incrementor = (this.maxY - this.minY) / 8
+        const incrementor = (this.y.max - this.y.min) / 8
 
-        while( y < this.maxY + incrementor) {
+        while( y < this.y.max + incrementor) {
           array.push({
             coord: this.normaliseY(y),
             labelText: Math.round(y/this.y.precision)*this.y.precision
@@ -106,10 +104,10 @@
       },
 
       xAxis () {
-        let array = [], x = this.minX
-        const incrementor = (this.maxX - this.minX)/ 6
+        let array = [], x = this.x.min
+        const incrementor = (this.x.max - this.x.min)/ 6
 
-        while( x < this.maxX + incrementor) {
+        while( x < this.x.max + incrementor) {
           array.push({
             coord: this.normaliseX(x),
             labelText: Math.ceil(x/this.x.precision)*this.x.precision
@@ -123,9 +121,9 @@
     },
 
     created () {
-      this.minX = this.getMinValue('x')
-      // this.maxX = this.getMaxValue('x')
-      this.maxY = this.getMaxValue('y')
+      this.x.min = this.getMinValue('x')
+      // this.x.max = this.getMaxValue('x')
+      this.y.max = this.getMaxValue('y')
     },
 
     methods: {
@@ -172,11 +170,11 @@
       },
 
       normaliseX (value) {
-        return (((value - this.minX) / (this.maxX - this.minX)) * this.x.chartWidth)
+        return (((value - this.x.min) / (this.x.max - this.x.min)) * this.x.chartWidth)
       },
 
       normaliseY (value) {
-        return (this.y.chartHeight- ((value - this.minY) / (this.maxY - this.minY)) * this.y.chartHeight)
+        return (this.y.chartHeight- ((value - this.y.min) / (this.y.max - this.y.min)) * this.y.chartHeight)
       }
     }
   }

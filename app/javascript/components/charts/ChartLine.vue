@@ -72,14 +72,16 @@
           chartWidth: 890,
           chartPadding: 50,
           min:0,
-          max: 2022
+          max: 2022,
+          axisMarks: 6
         },
         y: {
           precision: 1,
           chartHeight: 500,
           chartPadding: 50,
           min: 0,
-          max: 0
+          max: 0,
+          axisMarks: 8
         },
         colours: ['#1D7DA6', '#03B0DA', '#71A32B', '#CCCBCB'],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
@@ -88,35 +90,11 @@
 
     computed: {
       yAxis () {
-        let array = [], y = 0
-        const incrementor = (this.y.max - this.y.min) / 8
-
-        while( y < this.y.max + incrementor) {
-          array.push({
-            coord: this.normaliseY(y),
-            labelText: Math.round(y/this.y.precision)*this.y.precision
-          })
-
-          y += incrementor
-        }
-
-        return array
+        return this.getAxis('y')
       },
 
       xAxis () {
-        let array = [], x = this.x.min
-        const incrementor = (this.x.max - this.x.min)/ 6
-
-        while( x < this.x.max + incrementor) {
-          array.push({
-            coord: this.normaliseX(x),
-            labelText: Math.ceil(x/this.x.precision)*this.x.precision
-          })
-
-          x += incrementor
-        }
-
-        return array
+        return this.getAxis('x')
       }
     },
 
@@ -143,6 +121,22 @@
         let middle = dataset[Math.floor(dataset.length/2)]
 
         return { x: this.normaliseX(middle.x), y: this.normaliseY(middle.y) }
+      },
+
+      getAxis (axis) {
+        let array = [], n = this[axis].min
+        const incrementor = (this[axis].max - this[axis].min)/ this[axis].axisMarks
+
+        while( n < this[axis].max + incrementor) {
+          array.push({
+            coord: this[`normalise${axis.toUpperCase()}`](n),
+            labelText: Math.ceil(n/this[axis].precision)*this[axis].precision
+          })
+
+          n += incrementor
+        }
+
+        return array
       },
 
       getMaxValue (prop) {

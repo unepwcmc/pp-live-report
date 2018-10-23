@@ -13,12 +13,6 @@
 
           <rect :x="normaliseX(2018)" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
           
-          <path v-for="line, index in lines" 
-            :d="getPath(line.datapoints)" 
-            fill="none" 
-            :stroke="colors[index]" 
-            stroke-width="6" />
-          
           <text v-for="y in yAxis" 
             :x="-x.chartPadding" 
             :y="y.coord"
@@ -29,15 +23,21 @@
             :y="y.chartHeight + y.chartPadding" 
             text-anchor="middle">{{ x.labelText }}</text>
 
-          <!-- <circle cx="0" cy="0" fill="red" r="2"></circle> -->
-          
+          <chart-line-dataset 
+            v-for="line, index in lines"
+            :index="index"
+            :path="getPath(line.datapoints)"
+            :middle="getPathMiddle(line.datapoints)"
+            :colour="colours[index]">
+          </chart-line-dataset>
+
           <template v-if="targets">
             <chart-line-target v-for="target, index in targets"
               :minX="normaliseX(minX)" 
               :maxX="normaliseX(maxX)" 
               :y="normaliseY(target.y)" 
               :title="target.title"
-              :colour="targetColors[index]">
+              :colour="targetColours[index]">
             </chart-line-target>
           </template>
         </svg>
@@ -47,12 +47,13 @@
 </template>
 
 <script>
+  import ChartLineDataset from './ChartLineDataset'
   import ChartLineTarget from './ChartLineTarget'
 
   export default {
     name: 'chart-line',
 
-    components: { ChartLineTarget },
+    components: { ChartLineTarget, ChartLineDataset },
 
     props: {
       lines: {
@@ -74,8 +75,8 @@
           chartHeight: 500,
           chartPadding: 50
         },
-        colors: ['#1D7DA6', '#03B0DA', '#71A32B'],
-        targetColors: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)'],
+        colours: ['#1D7DA6', '#03B0DA', '#71A32B'],
+        targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)'],
         offsetX: 220,
         offsetY: 0,
         minX: 0,
@@ -99,8 +100,6 @@
           y += incrementor
         }
 
-        console.log(array)
-
         return array
       },
 
@@ -109,7 +108,6 @@
         const incrementor = (this.maxX - this.minX)/ 6
 
         while( x < this.maxX + incrementor) {
-          console.log(x)
           array.push({
             coord: this.normaliseX(x),
             labelText: Math.ceil(x/this.x.precision)*this.x.precision
@@ -117,8 +115,6 @@
 
           x += incrementor
         }
-
-        console.log(array)
 
         return array
       }
@@ -140,9 +136,13 @@
           path += ` ${command} ${this.normaliseX(point.x)} ${this.normaliseY(point.y)}`
         })
 
-        console.log('path', path)
-
         return path
+      },
+
+      getPathMiddle (dataset) {
+        let middle = dataset[Math.floor(dataset.length/2)]
+
+        return { x: this.normaliseX(middle.x), y: this.normaliseY(middle.y) }
       },
 
       getMaxValue (prop) {

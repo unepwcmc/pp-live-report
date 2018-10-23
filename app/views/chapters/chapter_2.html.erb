@@ -1,1 +1,6 @@
+<div class="container">
+  <chart-area :datasets="<%= @global_area_chart[:datasets].to_json %>"></chart-area>
+  <chart-area :datasets="<%= @pa_area_chart[:datasets].to_json %>"></chart-area>
+</div>
+
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

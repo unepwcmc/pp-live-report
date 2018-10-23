@@ -25,6 +25,57 @@
   }
 
 //--------------------------------------------------
+// area chart
+//--------------------------------------------------
+  &--area {
+    margin-bottom: rem-calc(20);
+
+    .chart {
+      &__chart {}
+
+        &__dataset {
+          position: relative;
+
+          &:first-child { 
+            .chart__bar { 
+              border-top-left-radius: rem-calc(2); 
+              border-bottom-left-radius: rem-calc(2); 
+            }
+          }
+
+          &:last-child { 
+            .chart__bar { 
+              border-top-right-radius: rem-calc(2); 
+              border-bottom-right-radius: rem-calc(2); 
+            }
+          }
+        }
+
+          &__bar {
+            position: relative;
+
+            &-land { background-color: $chart-green; }
+            &-marine { background-color: $chart-blue; }
+            &-pa { 
+              background-color: $chart-navy; 
+
+              position: absolute;
+              top: rem-calc(20);
+              left: rem-calc(20);
+            }
+          }
+
+          &__label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+          }
+    }
+  }
+
+//--------------------------------------------------
 // column chart
 //--------------------------------------------------
   &--column {

@@ -13,6 +13,58 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
+
+    @global_area_chart = {
+      datasets: [
+        {
+          title: "Ocean",
+          class: "marine",
+          percent: 70
+        },
+        {
+          title: "Land",
+          class: "land",
+          percent: 30
+        }
+      ]
+    }
+
+    @pa_area_chart = {
+      legend: [
+        {
+          title: "1. Proportion of cover by protected areas"
+        }
+      ],
+      datasets: [
+        {
+          title: "ABNJ",
+          percent: 30,
+          class: "marine",
+          protected_areas: {
+            title: "1.",
+            percent: 5
+          }
+        },
+        {
+          title: "EEZ",
+          percent: 40,
+          class: "marine",
+          protected_areas: {
+            title: "1.",
+            percent: 10
+          }
+        },
+        {
+          title: "Land",
+          class: "land",
+          percent: 30,
+          protected_areas: {
+            title: "1.",
+            percent: 20
+          }
+        },
+      ]
+    }
   end
 
   def chapter_3

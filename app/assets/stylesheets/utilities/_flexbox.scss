@@ -30,10 +30,10 @@
 .flex-h-center { justify-content: center; }
 .flex-h-between { justify-content: space-between; }
 .flex-h-around { justify-content: space-around; }
-
 .flex-h-end { 
   justify-content: flex-end; 
-  margin-left: auto;
+
+  &.flex-row { margin-left: auto; }
 }
 
 //--------------------------------------------------

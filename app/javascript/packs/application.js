@@ -13,6 +13,7 @@ import store from '../store/store.js'
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
 import CarouselFixed from '../components/carousel/CarouselFixed'
+import ChartColumn from '../components/charts/ChartColumn'
 import ChartLine from '../components/charts/ChartLine'
 import ChartLegend from '../components/charts/ChartLegend'
 import ChartRow from '../components/charts/ChartRow'
@@ -34,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
       Accordion,
       AccordionItem,
       CarouselFixed,
+      ChartColumn,
       ChartLegend,
       ChartLine,
       ChartRow,

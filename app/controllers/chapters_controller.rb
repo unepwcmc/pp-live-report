@@ -214,6 +214,37 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
+
+    @column_chart = [
+      {
+        label: 'Africa',
+        percent: 76
+      },
+      {
+        label: 'Asia & Pacific',
+        percent: 87
+      },
+      {
+        label: 'Europe',
+        percent: 43
+      },
+      {
+        label: 'Latin America & Caribbean',
+        percent: 20
+      },
+      {
+        label: 'North America',
+        percent: 46
+      },
+      {
+        label: 'Polar',
+        percent: 53
+      },
+      {
+        label: 'West Asia',
+        percent: 45
+      },
+    ].to_json
   end
 
   def chapter_7

@@ -23,6 +23,33 @@
         }
     }
   }
+
+//--------------------------------------------------
+// column chart
+//--------------------------------------------------
+  &--column {
+    .chart {
+      &__chart {
+        height: rem-calc(390);
+      }
+
+        &__column {
+          &:nth-child(2) { .chart__bar { background-color: $chart-yellow; }}
+          &:nth-child(3) { .chart__bar { background-color: $chart-orange; }}
+          &:nth-child(4) { .chart__bar { background-color: $chart-blue; }}
+          &:nth-child(5) { .chart__bar { background-color: $chart-pink; }}
+          &:nth-child(6) { .chart__bar { background-color: $chart-green; }}
+          &:nth-child(7) { .chart__bar { background-color: $chart-teal; }}
+        }
+
+          &__bar {
+            background-color: $chart-purple;
+            width: 100%;
+
+            display: block;
+          }
+    }
+  }
   
 //--------------------------------------------------
 // row chart

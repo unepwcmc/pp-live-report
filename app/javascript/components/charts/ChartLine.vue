@@ -116,6 +116,7 @@
       },
 
       getPathMiddle (dataset) {
+        //used to add circle to a dataset with key used in the legend
         let middle = dataset[Math.floor(dataset.length/2)]
 
         return { x: this.normaliseX(middle.x), y: this.normaliseY(middle.y) }
@@ -150,11 +151,14 @@
       },
 
       normaliseX (value) {
+        // subtract the min value incase the axis doesn't start at 0
         return (((value - this.x.min) / (this.x.max - this.x.min)) * this.x.chartWidth)
       },
 
       normaliseY (value) {
-        return (this.y.chartHeight- ((value - this.y.min) / (this.y.max - this.y.min)) * this.y.chartHeight)
+        // y origin is at the top so subtract axis value from height
+        // subtract the min value incase the axis doesn't start at 0
+        return (this.y.chartHeight - ((value - this.y.min) / (this.y.max - this.y.min)) * this.y.chartHeight)
       }
     }
   }

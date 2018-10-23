@@ -1,3 +1,7 @@
 <div class="container">
-  <chart-line :lines="<%= @line_chart[:lines].to_json %>" :targets="<%= @line_chart[:targets].to_json %>"></chart-line>
+  <chart-line 
+    :lines="<%= @line_chart[:lines].to_json %>" 
+    :targets="<%= @line_chart[:targets].to_json %>"
+    :legend="<%= @line_chart[:legend].to_json %>">
+  </chart-line>
 </div>

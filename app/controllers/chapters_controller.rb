@@ -26,15 +26,12 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: [
         {
-          title: "ABNJ",
           datapoints: [{ x: 1990, y: 0 }, { x: 1995, y: 10 }, { x: 2000, y: 20 }, { x: 2005, y: 30 }, { x: 2010, y: 40 }, { x: 2015, y: 50 }, { x: 2020, y: 60 }]
         },
         {
-          title: "EEZ",
           datapoints: [{ x: 1990, y: 20 }, { x: 1995, y: 40 }, { x: 2000, y: 20 }, { x: 2005, y: 40 }, { x: 2010, y: 20 }, { x: 2015, y: 40 }, { x: 2020, y: 20 }]
         },
         {
-          title: "Land",
           datapoints: [{ x: 1990, y: 14 }, { x: 1995, y: 23 }, { x: 2000, y: 34 }, { x: 2005, y: 56 }, { x: 2010, y: 43 }, { x: 2015, y: 23 }, { x: 2020, y: 32 }]
         }
       ],
@@ -46,6 +43,20 @@ class ChaptersController < ApplicationController
         {
           y: 36,
           title: "Terrestrial target (17%)"
+        }
+      ],
+      legend: [
+        {
+          title: "1. ABNJ"
+        },
+        {
+          title: "2. EEZ"
+        },
+        {
+          title: "3. Land"
+        },
+        {
+          title: "4. Commitments"
         }
       ]
     }

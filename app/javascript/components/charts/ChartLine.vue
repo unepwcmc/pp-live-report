@@ -1,66 +1,68 @@
 <template>
   <div>
-    <div v-if="lines">
-      <div class="issues-chart__svg" style="width:100%;">
-        <svg width="100%" height="100%" viewBox="-110 -30 1030 590" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+    <div v-if="lines" class="issues-chart__svg" style="width:100%;">
+      <svg width="100%" height="100%" viewBox="-110 -30 1030 590" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
 
-          <rect 
-            :x="-x.chartPadding/2"
-            :y="-y.chartPadding/2" 
-            :width="x.chartWidth + x.chartPadding" 
-            :height="y.chartHeight + y.chartPadding" 
-            fill="#EBEBEB" />
+        <rect 
+          :x="-x.chartPadding/2"
+          :y="-y.chartPadding/2" 
+          :width="x.chartWidth + x.chartPadding" 
+          :height="y.chartHeight + y.chartPadding" 
+          fill="#EBEBEB" />
 
-          <rect :x="normaliseX(2018)" y="0" width="120px" height="440" fill="#CCCBCB" rx="4" ry="4" />
-          
-          <text v-for="y in yAxis" 
-            :x="-x.chartPadding" 
-            :y="y.coord"
-            text-anchor="end">{{ y.labelText }}</text>
+        <rect :x="normaliseX(2018)" y="0" width="120px" height="440" :fill="colours[3]" rx="4" ry="4" />
+        
+        <text v-for="y in yAxis" 
+          :x="-x.chartPadding" 
+          :y="y.coord"
+          text-anchor="end">{{ y.labelText }}</text>
 
-          <text v-for="x in xAxis" 
-            :x="x.coord" 
-            :y="y.chartHeight + y.chartPadding" 
-            text-anchor="middle">{{ x.labelText }}</text>
+        <text v-for="x in xAxis" 
+          :x="x.coord" 
+          :y="y.chartHeight + y.chartPadding" 
+          text-anchor="middle">{{ x.labelText }}</text>
 
-          <chart-line-dataset 
-            v-for="line, index in lines"
-            :index="index"
-            :path="getPath(line.datapoints)"
-            :middle="getPathMiddle(line.datapoints)"
-            :colour="colours[index]">
-          </chart-line-dataset>
+        <chart-line-dataset 
+          v-for="line, index in lines"
+          :index="index"
+          :path="getPath(line.datapoints)"
+          :middle="getPathMiddle(line.datapoints)"
+          :colour="colours[index]">
+        </chart-line-dataset>
 
-          <template v-if="targets">
-            <chart-line-target v-for="target, index in targets"
-              :minX="normaliseX(minX)" 
-              :maxX="normaliseX(maxX)" 
-              :y="normaliseY(target.y)" 
-              :title="target.title"
-              :colour="targetColours[index]">
-            </chart-line-target>
-          </template>
-        </svg>
-      </div>
+        <template v-if="targets">
+          <chart-line-target v-for="target, index in targets"
+            :minX="normaliseX(minX)" 
+            :maxX="normaliseX(maxX)" 
+            :y="normaliseY(target.y)" 
+            :title="target.title"
+            :colour="targetColours[index]">
+          </chart-line-target>
+        </template>
+      </svg>
     </div>
+
+    <chart-legend v-if="legend" :rows="legend" :colours="colours"></chart-legend>
   </div>  
 </template>
 
 <script>
   import ChartLineDataset from './ChartLineDataset'
   import ChartLineTarget from './ChartLineTarget'
+  import ChartLegend from './ChartLegend'
 
   export default {
     name: 'chart-line',
 
-    components: { ChartLineTarget, ChartLineDataset },
+    components: { ChartLineTarget, ChartLineDataset, ChartLegend },
 
     props: {
       lines: {
         type: Array,
         required: true
       },
-      targets: Array
+      targets: Array,
+      legend: Array
     },
 
     data () {
@@ -75,7 +77,7 @@
           chartHeight: 500,
           chartPadding: 50
         },
-        colours: ['#1D7DA6', '#03B0DA', '#71A32B'],
+        colours: ['#1D7DA6', '#03B0DA', '#71A32B', '#CCCBCB'],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)'],
         offsetX: 220,
         offsetY: 0,

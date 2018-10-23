@@ -2,7 +2,6 @@
   <div>
     <div v-if="lines" class="issues-chart__svg" style="width:100%;">
       <svg width="100%" height="100%" viewBox="-110 -30 1030 590" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-
         <rect 
           :x="-x.chartPadding/2"
           :y="-y.chartPadding/2" 
@@ -99,9 +98,8 @@
     },
 
     created () {
-      this.x.min = this.getMinValue('x')
-      // this.x.max = this.getMaxValue('x')
-      this.y.max = this.getMaxValue('y')
+      this.x.min = this.getMinMax('min', 'x')
+      this.y.max = this.getMinMax('max', 'y')
     },
 
     methods: {
@@ -139,28 +137,16 @@
         return array
       },
 
-      getMaxValue (prop) {
-        let maxArray = []
+      getMinMax(type, prop) {
+        let array = []
 
         this.lines.forEach(line => {
-          maxArray.push(Math.max(...line.datapoints.map((t) => {
+          array.push(Math[type](...line.datapoints.map((t) => {
             return t[prop]
           })))
         }) 
 
-        return Math.max(...maxArray)
-      },
-
-      getMinValue (prop) {
-        let minArray = []
-
-        this.lines.forEach(line => {
-          minArray.push(Math.min(...line.datapoints.map((t) => {
-            return t[prop]
-          })))
-        }) 
-
-        return Math.min(...minArray)
+        return Math.max(...array)
       },
 
       normaliseX (value) {

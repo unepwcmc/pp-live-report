@@ -3,4 +3,8 @@
   <p class="content__text"><%= @data['achi_text'].html_safe %></p>
 </div>
 
+<div class="container">
+  <chart-doughnut :dataset="<%= @doughnut_chart %>"></chart-doughnut>
+</div>
+
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

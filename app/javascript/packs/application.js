@@ -15,6 +15,7 @@ import AccordionItem from '../components/accordion/AccordionItem'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
+import ChartDoughnut from '../components/charts/ChartDoughnut'
 import ChartLine from '../components/charts/ChartLine'
 import ChartLegend from '../components/charts/ChartLegend'
 import ChartRow from '../components/charts/ChartRow'
@@ -38,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
       CarouselFixed,
       ChartArea,
       ChartColumn,
+      ChartDoughnut,
       ChartLegend,
       ChartLine,
       ChartRow,

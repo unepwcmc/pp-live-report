@@ -6,6 +6,60 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['title']
     @next_chapter_link = chapter_2_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
+
+    @doughnut_chart = [
+      {
+        title: "1"
+      },
+      {
+        title: "2"
+      },
+      {
+        title: "3"
+      },
+      {
+        title: "4"
+      },
+      {
+        title: "5"
+      },
+      {
+        title: "6"
+      },
+      {
+        title: "7"
+      },
+      {
+        title: "8"
+      },
+      {
+        title: "9"
+      },
+      {
+        title: "10"
+      },
+      {
+        title: "11"
+      },
+      {
+        title: "12"
+      },
+      {
+        title: "13"
+      },
+      {
+        title: "14"
+      },
+      {
+        title: "15"
+      },
+      {
+        title: "16"
+      },
+      {
+        title: "17"
+      }
+    ].to_json
   end
 
   def chapter_2

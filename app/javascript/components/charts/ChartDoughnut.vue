@@ -1,19 +1,15 @@
 <template>
   <div class="chart--doughnut">
-    <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-      <path d="M 50 50 l 0 20 A 30 30 0 0 0 80 40 l -20 0 A 10 10 0 0 1 50 50 Z" fill="#565656" stroke="#ff0000"/>
-      
-      <g transform="rotate(90)" transform-origin="50 40">
-        <path d="M 50 50 l 0 20 A 30 30 0 0 0 80 40 l -20 0 A 10 10 0 0 1 50 50 Z" stroke="#00ff00" />
-      </g>
+    <svg width="100%" height="100%" viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" transform="rotate(-90)">
+      <circle cx="0" cy="0" :r="radius" :fill="colours.grey"></circle>
+      <circle :cx="getX()" :cy="getY()" r="4"></circle>
 
-      <g transform="rotate(180)" transform-origin="50 40">
-        <path d="M 50 50 l 0 20 A 30 30 0 0 0 80 40 l -20 0 A 10 10 0 0 1 50 50 Z" stroke="#00ff00" />
-      </g>
+      <circle :cx="getInnerX(0)" :cy="getInnerY(0)" r="4"></circle>
 
-      <g transform="rotate(270)" transform-origin="50 40">
-        <path d="M 50 50 l 0 20 A 30 30 0 0 0 80 40 l -20 0 A 10 10 0 0 1 50 50 Z" stroke="#00ff00" />
-      </g>
+      <path :d="getArcPath(0, 20)" fill="#565656" stroke="#ff0000"/>
+      <path :d="getArcPath(30, 33)" fill="#565656" stroke="#ff0000"/>
+      <path :d="getArcPath(40, 60)" fill="#565656" stroke="#ff0000"/>
+      <path :d="getArcPath(80, 82)" fill="#565656" stroke="#ff0000"/>
     </svg>
   </div>  
 </template>
@@ -26,6 +22,61 @@
       dataset: {
         type: Array,
         required: true
+      }
+    },
+
+    data () {
+      return {
+        radius: 300,
+        radiusInner: 0,
+        pieceLength: 130,
+        colours: {
+          grey: '#D8D8D8'
+        }
+      }
+    },
+
+    created () {
+      this.radiusInner = this.radius - this.pieceLength
+    },
+
+    methods: {
+      getArcPath (start, end) {
+        const startX = this.getX(start),
+          startY = this.getY(start),
+          endX = this.getX(end),
+          endY = this.getY(end),
+          innerStartX = this.getInnerX(end),
+          innerStartY = this.getInnerY(end),
+          smallEndX = this.getInnerX(start),
+          smallEndY = this.getInnerY(start)
+
+        const sweepFlag = start > 50 ? 0 : 1
+        const sweepFlagInner = start > 50 ? 1 : 0
+
+        const d = `M ${startX} ${startY} A ${this.radius} ${this.radius} 0 0 ${sweepFlag} ${endX} ${endY} L ${innerStartX} ${innerStartY} A ${this.radiusInner} ${this.radiusInner} 0 0 ${sweepFlagInner} ${smallEndX} ${smallEndY} Z`
+
+        return d
+      },
+
+      getInnerX (percent) {
+        // to find x coordinate on a circle r.cos(θ)
+        return this.radiusInner * Math.cos((percent/100) * 2 * Math.PI)
+      },
+
+      getInnerY (percent) {
+        // to find x coordinate on a circle r.sin(θ)
+        return this.radiusInner * Math.sin((percent/100) * 2 * Math.PI)
+      },
+
+      getX (percent) {
+        // to find x coordinate on a circle r.cos(θ)
+        return this.radius * Math.cos((percent/100) * 2 * Math.PI)
+      },
+
+      getY (percent) {
+        // to find x coordinate on a circle r.sin(θ)
+        return this.radius * Math.sin((percent/100) * 2 * Math.PI)
       }
     }
   }  

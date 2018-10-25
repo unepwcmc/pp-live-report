@@ -1,15 +1,21 @@
 <template>
   <div class="chart--doughnut">
     <svg width="100%" height="100%" viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" transform="rotate(-90)">
-      <circle cx="0" cy="0" :r="radius" :fill="colours.grey"></circle>
-      <circle :cx="getX()" :cy="getY()" r="4"></circle>
+      <circle cx="0" cy="0" :r="radiusBackground" :fill="colours.grey"></circle>
+      
+      <g v-for="dataset, index in datasets"> 
+        <path :d="getArcPath(index)" fill="#565656" stroke="#ffffff" stroke-width="3" />
 
-      <circle :cx="getInnerX(0)" :cy="getInnerY(0)" r="4"></circle>
-
-      <path :d="getArcPath(0, 20)" fill="#565656" stroke="#ff0000"/>
-      <path :d="getArcPath(30, 33)" fill="#565656" stroke="#ff0000"/>
-      <path :d="getArcPath(40, 60)" fill="#565656" stroke="#ff0000"/>
-      <path :d="getArcPath(80, 82)" fill="#565656" stroke="#ff0000"/>
+        <text 
+          fill="white"
+          :x="getTextX(index)" 
+          :y="getTextY(index)" 
+          text-anchor="middle" 
+          :transform-origin="`${getTextX(index)} ${getTextY(index)}`"
+          :transform="getTextRotation(index)">
+          {{ dataset.title }}
+        </text>
+      </g>
     </svg>
   </div>  
 </template>
@@ -19,7 +25,7 @@
     name: 'chart-doughnut',
 
     props: {
-      dataset: {
+      datasets: {
         type: Array,
         required: true
       }
@@ -27,8 +33,11 @@
 
     data () {
       return {
-        radius: 300,
+        radiusBackground: 300,
+        radiusOuter: 286,
         radiusInner: 0,
+        radiusText: 240,
+        piecePercentage: 0,
         pieceLength: 130,
         colours: {
           grey: '#D8D8D8'
@@ -37,12 +46,16 @@
     },
 
     created () {
-      this.radiusInner = this.radius - this.pieceLength
+      this.radiusInner = this.radiusOuter - this.pieceLength
+      this.piecePercentage = 100/this.datasets.length
     },
 
     methods: {
-      getArcPath (start, end) {
-        const startX = this.getX(start),
+      getArcPath (index) {
+        const 
+          start = this.piecePercentage * (index - 1) + .5,
+          end = this.piecePercentage * index - .5,
+          startX = this.getX(start),
           startY = this.getY(start),
           endX = this.getX(end),
           endY = this.getY(end),
@@ -51,10 +64,10 @@
           smallEndX = this.getInnerX(start),
           smallEndY = this.getInnerY(start)
 
-        const sweepFlag = start > 50 ? 0 : 1
-        const sweepFlagInner = start > 50 ? 1 : 0
+        const sweepFlag = start > 50 ? 1 : 1
+        const sweepFlagInner = start > 50 ? 0 : 0
 
-        const d = `M ${startX} ${startY} A ${this.radius} ${this.radius} 0 0 ${sweepFlag} ${endX} ${endY} L ${innerStartX} ${innerStartY} A ${this.radiusInner} ${this.radiusInner} 0 0 ${sweepFlagInner} ${smallEndX} ${smallEndY} Z`
+        const d = `M ${startX} ${startY} A ${this.radiusOuter} ${this.radiusOuter} 0 0 1 ${endX} ${endY} L ${innerStartX} ${innerStartY} A ${this.radiusInner} ${this.radiusInner} 0 0 0 ${smallEndX} ${smallEndY} Z`
 
         return d
       },
@@ -71,12 +84,30 @@
 
       getX (percent) {
         // to find x coordinate on a circle r.cos(θ)
-        return this.radius * Math.cos((percent/100) * 2 * Math.PI)
+        return this.radiusOuter * Math.cos((percent/100) * 2 * Math.PI)
       },
 
       getY (percent) {
         // to find x coordinate on a circle r.sin(θ)
-        return this.radius * Math.sin((percent/100) * 2 * Math.PI)
+        return this.radiusOuter * Math.sin((percent/100) * 2 * Math.PI)
+      },
+
+      getTextX (index) {
+        const percentage = this.piecePercentage * (index - .5) 
+
+        return this.radiusText * Math.cos((percentage/100) * 2 * Math.PI)
+      },
+
+      getTextY (index) {
+        const percentage = this.piecePercentage * (index - .5) 
+
+        return this.radiusText * Math.sin((percentage/100) * 2 * Math.PI)
+      },
+
+      getTextRotation (index) {
+        const percentage = this.piecePercentage * (index - .5) 
+        // add 90 degrees to allow for the SVG tag rotation
+        return `rotate(${((percentage/100) * 360) + 90})`
       }
     }
   }  

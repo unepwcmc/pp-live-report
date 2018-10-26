@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-  <chart-doughnut :datasets="<%= @doughnut_chart %>"></chart-doughnut>
+  <chart-doughnut :datasets="<%= @doughnut_chart %>" smallprint="<%= @smallprint %>"></chart-doughnut>
 </div>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

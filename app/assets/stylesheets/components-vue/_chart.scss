@@ -114,23 +114,37 @@
       &__segment {
         cursor: pointer;
 
-        &:hover {
+        transition: transform ease .1s;
+
+        &:hover { 
+          transform: scale(1.015, 1.015);
+        }
+
+        &.active {
+          transform: scale(1.15, 1.15);
+
           .chart__segment-text { font-weight: bold; }
         }
       }
+
+        &__segment-path { 
+          stroke-width: 4;
+        }
 
       &__side {
         width: 40%;
       }
 
         &__panel {
-          background-color: $grey-light;
           border-radius: 2px;
-          margin-top: rem-calc(14);
+          color: $white;
+          margin-top: rem-calc(54);
           margin-left: rem-calc(26);
           padding: rem-calc(52 36);
 
           height: 90%;
+
+          transition: background-color ease .1s;
         }
     }
   }

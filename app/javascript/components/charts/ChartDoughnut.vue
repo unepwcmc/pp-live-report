@@ -15,11 +15,11 @@
           <text 
             class="chart__segment-text"
             fill="white"
-            :x="getTextX(index)" 
-            :y="getTextY(index)" 
+            :x="getTextPosition(index, 'x')" 
+            :y="getTextPosition(index, 'y')" 
             text-anchor="middle"
             font-size="25px"
-            :transform-origin="`${getTextX(index)} ${getTextY(index)}`"
+            :transform-origin="`${getTextPosition(index, 'x')} ${getTextPosition(index, 'y')}`"
             :transform="getTextRotation(index)">
             {{ index + 1 }}
           </text>
@@ -59,15 +59,14 @@
       return {
         radiusBackground: 300,
         radiusOuter: 286,
-        radiusInner: 0,
+        radiusInner: 160,
         radiusText: 240,
-        piecePercentage: 0,
-        pieceLength: 130,
+        segmentWidth: 0,
         colours: {
           grey: '#ededed',
         },
         active: {
-          title: 'test',
+          title: '',
           description: '',
           url: '',
           colour: ''
@@ -76,13 +75,8 @@
     },
 
     created () {
-      this.radiusInner = this.radiusOuter - this.pieceLength
-      this.piecePercentage = 100/this.datasets.length
-
-      this.active.title = this.datasets[0].title
-      this.active.description = this.datasets[0].description
-      this.active.url = this.datasets[0].url
-      this.active.colour = this.datasets[0].colour
+      this.segmentWidth = 100/this.datasets.length
+      this.clickSegment(this.datasets[0])
     },
 
     methods: {
@@ -93,69 +87,47 @@
         this.active.colour = dataset.colour
       },
 
-      getStrokeWidth (title) {
-        return title == this.active.title ? 5 : 0
-      },
-
       getSegmentStatus (title) {
         return title == this.active.title
       },
 
       getArcPath (index) {
         const 
-          start = this.piecePercentage * (index - 1) + .5,
-          end = this.piecePercentage * index - .5,
-          startX = this.getX(start),
-          startY = this.getY(start),
-          endX = this.getX(end),
-          endY = this.getY(end),
-          innerStartX = this.getInnerX(end),
-          innerStartY = this.getInnerY(end),
-          smallEndX = this.getInnerX(start),
-          smallEndY = this.getInnerY(start)
+          start = this.segmentWidth * (index - 1) + .5,
+          end = this.segmentWidth * index - .5,
+          outerStartX = this.getCoord(start, 'x', this.radiusOuter),
+          outerStartY = this.getCoord(start, 'y', this.radiusOuter),
+          outerEndX = this.getCoord(end, 'x', this.radiusOuter),
+          outerEndY = this.getCoord(end, 'y', this.radiusOuter),
+          innerStartX = this.getCoord(end, 'x', this.radiusInner),
+          innerStartY = this.getCoord(end, 'y', this.radiusInner),
+          innerEndX = this.getCoord(start, 'x', this.radiusInner),
+          innerEndY = this.getCoord(start, 'y', this.radiusInner)
 
-        const sweepFlag = start > 50 ? 1 : 1
-        const sweepFlagInner = start > 50 ? 0 : 0
-
-        const d = `M ${startX} ${startY} A ${this.radiusOuter} ${this.radiusOuter} 0 0 1 ${endX} ${endY} L ${innerStartX} ${innerStartY} A ${this.radiusInner} ${this.radiusInner} 0 0 0 ${smallEndX} ${smallEndY} Z`
+        const d = `M ${outerStartX} ${outerStartY} 
+          A ${this.radiusOuter} ${this.radiusOuter} 0 0 1 ${outerEndX} ${outerEndY} 
+          L ${innerStartX} ${innerStartY} 
+          A ${this.radiusInner} ${this.radiusInner} 0 0 0 ${innerEndX} ${innerEndY} 
+          Z`
 
         return d
       },
 
-      getInnerX (percent) {
-        // to find x coordinate on a circle r.cos(θ)
-        return this.radiusInner * Math.cos((percent/100) * 2 * Math.PI)
+      getCoord (percent, coord, radius) {
+        const trig = coord == 'x' ? 'cos' : 'sin'
+
+        return radius * Math[trig]((percent/100) * 2 * Math.PI)
       },
 
-      getInnerY (percent) {
-        // to find x coordinate on a circle r.sin(θ)
-        return this.radiusInner * Math.sin((percent/100) * 2 * Math.PI)
-      },
+      getTextPosition (index, coord) {
+        const percentage = this.segmentWidth * (index - .5),
+          trig = coord == 'x' ? 'cos' : 'sin'
 
-      getX (percent) {
-        // to find x coordinate on a circle r.cos(θ)
-        return this.radiusOuter * Math.cos((percent/100) * 2 * Math.PI)
-      },
-
-      getY (percent) {
-        // to find x coordinate on a circle r.sin(θ)
-        return this.radiusOuter * Math.sin((percent/100) * 2 * Math.PI)
-      },
-
-      getTextX (index) {
-        const percentage = this.piecePercentage * (index - .5) 
-
-        return this.radiusText * Math.cos((percentage/100) * 2 * Math.PI)
-      },
-
-      getTextY (index) {
-        const percentage = this.piecePercentage * (index - .5) 
-
-        return this.radiusText * Math.sin((percentage/100) * 2 * Math.PI)
+        return this.radiusText * Math[trig](percentage/100 * 2 * Math.PI) 
       },
 
       getTextRotation (index) {
-        const percentage = this.piecePercentage * (index - .5) 
+        const percentage = this.segmentWidth * (index - .5) 
         
         return `rotate(${((percentage/100) * 360) + 90})`
       }

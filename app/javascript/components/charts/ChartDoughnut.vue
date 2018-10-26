@@ -1,22 +1,38 @@
 <template>
-  <div class="chart--doughnut">
-    <svg width="100%" height="100%" viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" transform="rotate(-90)">
+  <div class="chart--doughnut flex">
+    <svg class="chart__chart" width="100%" height="100%" viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
       <circle cx="0" cy="0" :r="radiusBackground" :fill="colours.grey"></circle>
       
-      <g v-for="dataset, index in datasets"> 
-        <path :d="getArcPath(index)" fill="#565656" stroke="#ffffff" stroke-width="3" />
+      <g transform="rotate(-26)">
+        <g class="chart__segment" v-for="dataset, index in datasets" @click="clickSegment(dataset)"> 
+          <path :d="getArcPath(index)" fill="#565656" stroke="#ffffff" stroke-width="3" />
 
-        <text 
-          fill="white"
-          :x="getTextX(index)" 
-          :y="getTextY(index)" 
-          text-anchor="middle" 
-          :transform-origin="`${getTextX(index)} ${getTextY(index)}`"
-          :transform="getTextRotation(index)">
-          {{ dataset.title }}
-        </text>
+          <text 
+            class="chart__segment-text"
+            :class
+            fill="white"
+            :x="getTextX(index)" 
+            :y="getTextY(index)" 
+            text-anchor="middle" 
+            :transform-origin="`${getTextX(index)} ${getTextY(index)}`"
+            :transform="getTextRotation(index)">
+            {{ index + 1 }}
+          </text>
+        </g>
+      </g>
+
+      <g x="0" y="0">
+        <text text-anchor="middle">SDG {{ active.title }}</text>
       </g>
     </svg>
+
+    <div class="chart__side">
+      <div class="chart__panel">
+        <h3>{{ active.title }}</h3>
+        <p>{{ active.description }}</p>
+        <a :href="active.url" title="Link to SDG website" target="_blank">Link to SDG website</a>
+      </div>
+    </div>
   </div>  
 </template>
 
@@ -41,6 +57,11 @@
         pieceLength: 130,
         colours: {
           grey: '#D8D8D8'
+        },
+        active: {
+          title: 'test',
+          description: '',
+          url: ''
         }
       }
     },
@@ -51,6 +72,12 @@
     },
 
     methods: {
+      clickSegment (dataset) {
+        this.active.title = dataset.title
+        this.active.description = dataset.description
+        this.active.url = dataset.url
+      },
+
       getArcPath (index) {
         const 
           start = this.piecePercentage * (index - 1) + .5,
@@ -106,7 +133,7 @@
 
       getTextRotation (index) {
         const percentage = this.piecePercentage * (index - .5) 
-        // add 90 degrees to allow for the SVG tag rotation
+        
         return `rotate(${((percentage/100) * 360) + 90})`
       }
     }

@@ -101,6 +101,39 @@
           }
     }
   }
+
+//--------------------------------------------------
+// column chart
+//--------------------------------------------------
+  &--doughnut {
+    .chart {
+      &__chart{
+        width: 60%;
+      }
+
+      &__segment {
+        cursor: pointer;
+
+        &:hover {
+          .chart__segment-text { font-weight: bold; }
+        }
+      }
+
+      &__side {
+        width: 40%;
+      }
+
+        &__panel {
+          background-color: $grey-light;
+          border-radius: 2px;
+          margin-top: rem-calc(14);
+          margin-left: rem-calc(26);
+          padding: rem-calc(52 36);
+
+          height: 90%;
+        }
+    }
+  }
   
 //--------------------------------------------------
 // row chart

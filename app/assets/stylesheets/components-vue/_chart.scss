@@ -55,7 +55,10 @@
             position: relative;
 
             &-land { background-color: $chart-green; }
-            &-marine { background-color: $chart-blue; }
+            &-marine { 
+              background-color: $chart-blue; 
+              border-right: solid $white 1px;
+            }
             &-pa { 
               background-color: $chart-navy; 
 
@@ -72,6 +75,12 @@
 
             transform: translate(-50%, -50%);
           }
+
+      &__legend-item {
+        &:first-child {
+          .chart__legend-key { background-color: $chart-navy; }
+        }
+      }
     }
   }
 

@@ -1,6 +1,15 @@
 <div class="container">
-  <chart-area :datasets="<%= @global_area_chart[:datasets].to_json %>"></chart-area>
-  <chart-area :datasets="<%= @pa_area_chart[:datasets].to_json %>"></chart-area>
+  <h3><%= @data['area_chart_1_title'] %></h3>
+  <p><%= @data['area_chart_1_description'] %></p>
+  <div <%= @global_area_chart[:id] %>>
+    <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
+  </div>
+
+  <h3><%= @data['area_chart_1_title'] %></h3>
+  <p><%= @data['area_chart_1_description'] %></p>
+  <div <%= @marine_area_chart[:id] %>>
+    <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
+  </div>
 </div>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

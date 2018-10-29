@@ -122,21 +122,36 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
 
     @global_area_chart = {
+      id: "global-area-chart",
+      legend: [
+        {
+          title: "1. Proportion of cover by protected areas"
+        }
+      ],
       datasets: [
         {
           title: "Ocean",
           class: "marine",
-          percent: 70
+          percent: 71,
+          protected_areas: {
+            title: "1.",
+            percent: 7.44
+          }
         },
         {
           title: "Land",
           class: "land",
-          percent: 30
+          percent: 29,
+          protected_areas: {
+            title: "1.",
+            percent: 15
+          }
         }
       ]
     }
 
-    @pa_area_chart = {
+    @marine_area_chart = {
+      id: "marine-area-chart",
       legend: [
         {
           title: "1. Proportion of cover by protected areas"
@@ -145,30 +160,27 @@ class ChaptersController < ApplicationController
       datasets: [
         {
           title: "ABNJ",
-          percent: 30,
+          percent: 61,
           class: "marine",
           protected_areas: {
             title: "1.",
-            percent: 5
+            percent: 17.3
           }
         },
         {
           title: "EEZ",
-          percent: 40,
+          percent: 39,
           class: "marine",
           protected_areas: {
             title: "1.",
-            percent: 10
+            percent: 1.18
           }
         },
         {
           title: "Land",
           class: "land",
-          percent: 30,
-          protected_areas: {
-            title: "1.",
-            percent: 20
-          }
+          percent: 29,
+          active: false
         },
       ]
     }

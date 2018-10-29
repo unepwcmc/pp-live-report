@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <chart-legend v-if="legend" :legend="legend"></chart-legend>
+    <chart-legend v-if="legend" :rows="legend"></chart-legend>
   </div>
 </template>
 
@@ -29,7 +29,11 @@
         type: Array,
         required: true
       },
-      legend: Array
+      id: {
+        type: String,
+        required: true
+      },
+      legend: Array,
     },
 
     data () {
@@ -40,8 +44,7 @@
     },
 
     mounted () {
-      console.log(document.getElementsByClassName('chart--area')[0])
-      // this.chartWidth = document.getElementsByClassName('chart--area')[0].clientWidth
+      this.chartWidth = document.querySelector(`[${this.id}]`).clientWidth
     },
 
     methods: {
@@ -49,8 +52,12 @@
         return `width: ${percent}%`
       },
 
-      getPaSize (parentWidth, paPercent) {
-        console.log(this.chartWidth)
+      getPaSize (parentPercent, paPercent) {
+        const parentArea = this.chartWidth * this.height * (parentPercent/100),
+          paArea = parentArea * (paPercent/100),
+          paAreaLength = Math.round(Math.sqrt(paArea))
+
+        return { width: `${paAreaLength}px`, height: `${paAreaLength}px` }
       }
     }
   }

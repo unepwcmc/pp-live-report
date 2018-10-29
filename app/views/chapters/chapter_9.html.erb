@@ -1,21 +1,12 @@
-
-<div class="container">
-  <accordion>
-    <% @data['accordion'].each_with_index do |item, index| %>
-      <accordion-item id="accordion-item-<%= index %>" title="<%= item['title'] %>">
-        <%= item['content'] %>
-      </accordion-item>
-    <% end %>
-  </accordion>
+<div>
+  <p>Lorem ipsum</p>
 </div>
 
-<div class="content--next-steps">
-  <div class="container">
-    <h2 class="content__title"><%= @data['next_steps_title'] %></h2>
-    <p class="content__text"><%= @data['next_steps_text'] %></p>
-  </div>
+<div class="container">
+  <h1>MAP</h1>
 </div>
 
 <% @data['ctas'].each do |cta| %>
   <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>
 <% end %>
+

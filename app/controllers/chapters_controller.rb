@@ -184,15 +184,7 @@ class ChaptersController < ApplicationController
         },
       ]
     }
-  end
 
-  def chapter_3
-    @chapter_number = 3
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['title']
-    @next_chapter_link = chapter_4_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
-
-    
     #TODO replace with real data
     @line_chart = {
       lines: [
@@ -228,6 +220,39 @@ class ChaptersController < ApplicationController
         },
         {
           title: "4. Commitments"
+        }
+      ]
+    }
+  end
+
+  def chapter_3
+    @chapter_number = 3
+    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['title']
+    @next_chapter_link = chapter_4_path
+    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
+
+    #TODO replace with real data
+    @line_chart = {
+      lines: [
+        {
+          datapoints: [{ x: 1990, y: 0 }, { x: 1995, y: 10 }, { x: 2000, y: 20 }, { x: 2005, y: 30 }, { x: 2010, y: 40 }, { x: 2015, y: 50 }, { x: 2020, y: 60 }]
+        },
+        {
+          datapoints: [{ x: 1990, y: 20 }, { x: 1995, y: 40 }, { x: 2000, y: 20 }, { x: 2005, y: 40 }, { x: 2010, y: 20 }, { x: 2015, y: 40 }, { x: 2020, y: 20 }]
+        },
+        {
+          datapoints: [{ x: 1990, y: 14 }, { x: 1995, y: 23 }, { x: 2000, y: 34 }, { x: 2005, y: 56 }, { x: 2010, y: 43 }, { x: 2015, y: 23 }, { x: 2020, y: 32 }]
+        }
+      ],
+      legend: [
+        {
+          title: "1. ABNJ"
+        },
+        {
+          title: "2. EEZ"
+        },
+        {
+          title: "3. Land"
         }
       ]
     }
@@ -376,8 +401,35 @@ class ChaptersController < ApplicationController
 
     #TODO replace with real data and update variable name
     @column_chart = [
-
-    ]
+      {
+        label: 'Africa',
+        percent: 76
+      },
+      {
+        label: 'Asia & Pacific',
+        percent: 87
+      },
+      {
+        label: 'Europe',
+        percent: 43
+      },
+      {
+        label: 'Latin America & Caribbean',
+        percent: 20
+      },
+      {
+        label: 'North America',
+        percent: 46
+      },
+      {
+        label: 'Polar',
+        percent: 53
+      },
+      {
+        label: 'West Asia',
+        percent: 45
+      },
+    ].to_json
   end
 
   def chapter_6
@@ -416,6 +468,68 @@ class ChaptersController < ApplicationController
         percent: 45
       },
     ].to_json
+
+    #TODO replace with real data and update variable name
+    @stacked_row_charts = {
+      legend: [
+        {
+          title: "1."
+        },
+        {
+          title: "2."
+        },
+        {
+          title: "3."
+        },
+        {
+          title: "4."
+        }
+      ],
+      charts: [
+        {
+          chart_title: "Terrestrial",
+          rows: [
+            {
+              percent: 10,
+              label: "1."
+            },
+            {
+              percent: 30,
+              label: "2."
+            },
+            {
+              percent: 35,
+              label: "3."
+            },
+            {
+              percent: 25,
+              label: "4."
+            }
+          ]
+        },
+        {
+          chart_title: "Marine",
+          rows: [
+            {
+              percent: 5,
+              label: "1."
+            },
+            {
+              percent: 25,
+              label: "2."
+            },
+            {
+              percent: 40,
+              label: "3."
+            },
+            {
+              percent: 30,
+              label: "4."
+            }
+          ]
+        }
+      ]
+    }
   end
 
   def chapter_7

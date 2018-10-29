@@ -1,4 +1,8 @@
 <div class="container">
+  <h1>MAP</h1>
+</div>
+
+<div class="container">
   <h2></h2>
   
   <% @stacked_row_charts[:charts].each do |chart| %>
@@ -9,7 +13,9 @@
 
   <h2></h2>
   
-  <!-- <chart-column :rows="<%#= chart[:rows].to_json %>"></chart-column> -->
+  <chart-column :columns="<%= @column_chart %>"></chart-column>
+
+  <chart-column :columns="<%= @column_chart %>"></chart-column>
 </div>
 
 <% @data['ctas'].each do |cta| %>

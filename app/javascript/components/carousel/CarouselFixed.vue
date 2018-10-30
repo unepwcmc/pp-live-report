@@ -1,17 +1,17 @@
 <template>
   <div class="carousel--fixed">
+    <div class="carousel__slide">
+      <p class="carousel__subtitle">{{ subtitle}}</p>
+      <h2 class="heading--carousel carousel__title">{{ title }}</h2>
+      <p class="carousel__intro">{{ intro}}</p>
+      <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
+    </div>
+
     <div class="carousel__nav flex flex-column flex-v-end">
       <div v-for="slide, index in slides" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
         <span class="carousel__nav-text">{{ slide.title }}</span>
-        <button @click="changeSlide(index)" class="carousel__nav-button button--plain flex flex-center"> {{ index + 1 }}</button>
+        <button @click="changeSlide(index)" class="carousel__nav-button button--plain"> {{ index + 1 }}</button>
       </div>
-    </div>
-
-    <div class="carousel__slide">
-      <p>{{ subtitle}}</p>
-      <h2 class="carousel__title">{{ title }}</h2>
-      <p class="carousel__intro">{{ intro}}</p>
-      <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
     </div>
   </div>  
 </template>

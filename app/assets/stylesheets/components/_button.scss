@@ -27,6 +27,13 @@
     &:hover { background-color: $grey-light; }
   }
 
+  &--reset {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
   //--------------------------------------------------
   // margin
   //--------------------------------------------------

@@ -1,7 +1,10 @@
 <template>
   <div class="carousel--fixed">
     <div class="carousel__nav flex flex-column flex-v-end">
-      <button v-for="slide, index in slides" @click="changeSlide(index)" class="carousel__nav-item">{{ slide.title }}</button>
+      <div v-for="slide, index in slides" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
+        <span class="carousel__nav-text">{{ slide.title }}</span>
+        <button @click="changeSlide(index)" class="carousel__nav-button button--plain flex flex-center"> {{ index + 1 }}</button>
+      </div>
     </div>
 
     <div class="carousel__slide">
@@ -26,31 +29,35 @@
 
     data () {
       return {
-        index: 0,
+        activeIndex: 0,
       }
     },
 
     computed: {
       title () {
-        return this.slides[this.index]['title']
+        return this.slides[this.activeIndex]['title']
       },
 
       subtitle () {
-        return this.slides[this.index]['subtitle']
+        return this.slides[this.activeIndex]['subtitle']
       },
 
       intro () {
-        return this.slides[this.index]['intro']
+        return this.slides[this.activeIndex]['intro']
       },
 
       url () {
-        return this.slides[this.index]['url']
+        return this.slides[this.activeIndex]['url']
       }
     },
 
     methods: {
       changeSlide (index) {
-        this.index = index
+        this.activeIndex = index
+      },
+
+      isActive (index) {
+        return this.activeIndex == index
       }
     }
   }

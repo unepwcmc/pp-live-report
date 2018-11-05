@@ -4,8 +4,8 @@ set :branch, "develop"
 
 server "web-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
-set :application, "natgeo"
-set :server_name, "natgeo.web-staging.linode.unep-wcmc.org"
+set :application, "pp-live-report"
+set :server_name, "pp-live-report.web-staging.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 

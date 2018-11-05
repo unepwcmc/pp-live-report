@@ -1,16 +1,20 @@
 <template>
   <div class="carousel--fixed">
     <div class="carousel__slide">
-      <p class="carousel__subtitle">{{ subtitle}}</p>
-      <h2 class="heading--carousel carousel__title">{{ title }}</h2>
-      <p class="carousel__intro">{{ intro}}</p>
-      <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
+      <transition name="change-slide">
+        <div>
+          <p class="carousel__subtitle">{{ subtitle}}</p>
+          <h2 class="heading--carousel carousel__title">{{ title }}</h2>
+          <p class="carousel__intro">{{ intro}}</p>
+          <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
+        </div>
+      </transition>
     </div>
 
     <div class="carousel__nav flex flex-column flex-v-end">
       <div v-for="slide, index in slides" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
         <span class="carousel__nav-text">{{ slide.title }}</span>
-        <button @click="changeSlide(index)" class="carousel__nav-button button--plain"> {{ index + 1 }}</button>
+        <button @click="changeSlide(index)" class="carousel__nav-button button--plain flex flex-center"> {{ index + 1 }}</button>
       </div>
     </div>
   </div>  
@@ -30,6 +34,12 @@
     data () {
       return {
         activeIndex: 0,
+      }
+    },
+
+    watch: {
+      activeIndex () {
+
       }
     },
 
@@ -62,3 +72,14 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .slide-change-enter-active,
+  .slide-change-leave-active {
+    transition: opacity 0.25s ease-out;
+  }
+
+  .slide-change-enter, .slide-change-leave-to {
+    opacity: 0;
+  }
+</style>

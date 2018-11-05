@@ -10,10 +10,18 @@
     background-color: $black;
     border-top: solid rem-calc(8) $primary;
     color: $white;
+    height: 100vh;
 
     .hero {
       &__intro {
         @include breakpoint($small) { width: rem-calc(590); }
+      }
+
+      &__intro {
+        font-size: rem-calc(20);
+        font-weight: $light;
+        line-height: 1.5;
+        width: 48%;
       }
     }
   }

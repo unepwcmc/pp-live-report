@@ -1,4 +1,4 @@
-<div class="topbar--primary flex flex-h-between">
+<div class="topbar--primary flex flex-h-between gutters">
   <p>
     <%= link_to root_path, title: site_title do %>
       <%= image_tag '', alt: site_title + ' logo' %>
@@ -6,7 +6,7 @@
     | Digital Report
   <p>
   
-  <div class="flex">
+  <div class="flex flex-v-center">
     <%= render 'partials/social-sharing' %>
     <%= render 'partials/nav' %>
   </div>

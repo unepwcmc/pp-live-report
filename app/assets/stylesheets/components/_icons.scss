@@ -2,11 +2,10 @@
 // icons
 //--------------------------------------------------
 .icon {
+  &--arrow-right {
+    background-image: url('icons/arrow-right.svg');
+    width: rem-calc(27); height: rem-calc(19);
 
-//--------------------------------------------------
-// social
-//--------------------------------------------------
-  &--social {
-    
+    display: inline-block;
   }
 }

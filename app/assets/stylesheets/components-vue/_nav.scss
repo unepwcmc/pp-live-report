@@ -89,6 +89,9 @@
   
     .nav {
       &__trigger {
+        background-image: url('icons/burger.svg');
+        cursor: pointer;
+        width: rem-calc(50); height: rem-calc(37);
         display: block;
       }
 

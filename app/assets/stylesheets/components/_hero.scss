@@ -34,13 +34,13 @@
     background-color: $black;
     color: $white;
     padding-top: rem-calc(24);
-    height: rem-calc(460);
-
-    .chapter-1 & { height: rem-calc(600); }
+    padding-bottom: rem-calc(50);
 
     .hero {
       &__intro {
-        @include breakpoint($small) { width: rem-calc(590); }
+        @include breakpoint($small) { 
+          width: rem-calc(590); 
+        }
       }
 
       &__subtitle { 

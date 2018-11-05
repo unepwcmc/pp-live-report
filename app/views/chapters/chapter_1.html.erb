@@ -1,10 +1,12 @@
 <div class="content--x-large">
-  <%= @data['achi_target'] %>
-  <p class="content__text"><%= @data['achi_text'].html_safe %></p>
+  <div class="container--medium">
+    <p class="content__background"><%= @data['achi_target'] %></p>
+    <p class="content__text"><%= @data['achi_text'].html_safe %></p>
+  </div>
 </div>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
 
-<div class="container">
+<div class="container--medium">
   <chart-doughnut :datasets="<%= @doughnut_chart %>" smallprint="<%= @smallprint %>"></chart-doughnut>
 </div>

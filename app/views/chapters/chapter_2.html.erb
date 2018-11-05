@@ -2,7 +2,7 @@
   <h1>MAP</h1>
 </div>
 
-<div class="container">
+<div class="container--medium">
   <h3><%= @data['area_chart_1_title'] %></h3>
   <p><%= @data['area_chart_1_description'] %></p>
   <div <%= @global_area_chart[:id] %>>
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container--medium">
   <chart-line 
     :lines="<%= @line_chart[:lines].to_json %>" 
     :targets="<%= @line_chart[:targets].to_json %>"
@@ -25,7 +25,7 @@
 </div>
 
 
-<div class="container">
+<div class="container--medium">
   <h1>MAP</h1>
 </div>
 

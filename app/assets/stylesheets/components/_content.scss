@@ -8,24 +8,34 @@
 //--------------------------------------------------
   &--x-large {
     background-color: $grey-dark;
-    color: $grey;
-    font-size: rem-calc(300);
+    overflow: hidden;
+    padding: rem-calc(82 0 100 0);
 
     position: relative;
+    z-index: 1;
 
     .content {
       &__text {
         color: $white;
-        font-size: rem-calc(40);
-        margin: 0 auto;
-        width: 100%;
-        max-width: rem-calc(1000);
+        font-size: rem-calc(30);
+        font-weight: $light;
+        padding-top: rem-calc(24);
+
+        z-index: 1;
+      }
+
+      &__background {
+        color: $grey;
+        font-size: rem-calc(300);
+        font-weight: $fw-black;
+        line-height: 0.8;
+        margin: 0;
+        width: 80%;
 
         position: absolute;
-        top: 0;
-        left: 50%;
-
-        transform: translateX(-50%);
+        top: rem-calc(70);
+        right: -46%;
+        z-index: -1;
       }
     }
   }

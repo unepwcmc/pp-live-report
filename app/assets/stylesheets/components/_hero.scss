@@ -10,6 +10,7 @@
     background-color: $black;
     border-top: solid rem-calc(8) $primary;
     color: $white;
+    padding-top: rem-calc(24);
     height: 100vh;
 
     .hero {
@@ -32,6 +33,10 @@
   &--chapter {
     background-color: $black;
     color: $white;
+    padding-top: rem-calc(24);
+    height: rem-calc(460);
+
+    .chapter-1 & { height: rem-calc(600); }
 
     .hero {
       &__intro {
@@ -43,5 +48,4 @@
       }
     }
   }
-
 }

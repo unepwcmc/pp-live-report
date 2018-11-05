@@ -13,6 +13,8 @@ body {
 }
 
 h1 {
+  font-weight: $light;
+  line-height: 1.1;
   margin: 0; 
 
   @include breakpoint($small) { 
@@ -23,6 +25,7 @@ h1 {
   &.heading--home {
     @include breakpoint($small) { 
       font-size: rem-calc(100);
+      font-weight: $bold;
       line-height: 1.1;
       margin-bottom: rem-calc(50);
       width: 70%;

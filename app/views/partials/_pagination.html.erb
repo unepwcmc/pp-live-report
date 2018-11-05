@@ -3,7 +3,7 @@
     <span><%= @chapter_number %> / 10</span>
     <% if @next_chapter_title %>
       <%= link_to @next_chapter_link, title: @next_chapter_title, class: 'pagination__next' do %>
-        <%= @next_chapter_title %>
+        <%= @chapter_number.to_i + 1 %>. <%= @next_chapter_title %>
       <% end %>
     <% end %>
   </div>

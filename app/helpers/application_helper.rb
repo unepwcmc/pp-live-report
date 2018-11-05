@@ -45,4 +45,8 @@ module ApplicationHelper
 
     link_to '', href, title: title, class: 'social__icon social__icon--email', target: '_self'
   end
+
+  def active_nav_item?(test_path)
+    request.fullpath == test_path
+  end
 end

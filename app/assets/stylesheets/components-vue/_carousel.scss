@@ -23,12 +23,8 @@
       }
 
         &__nav-item {
-          color: $white;
-          font-size: rem-calc(20);
-          font-weight: $light;
+          @extend %nav__item;
           padding-bottom: 26px;
-
-          position: relative;
 
           &.active {
             font-weight: $normal;
@@ -36,75 +32,30 @@
             .carousel__nav-text { display: inline-block; }
 
             .carousel__nav-button {
-              background-color: $green;
-              color: $grey-dark;
-              font-weight: $bold;
-
-              &:before { 
-                transform: scale(1.5);
-              }
+              @extend %nav__button-active;
             }
           }
 
           &::after {
-            background-color: $grey;
-            content: '';
-            width: rem-calc(3); height: rem-calc(26);
-
-            position: absolute;
-            bottom: 0;
+            height: rem-calc(26);
+            
             left: 50%;
 
             transform: translateX(-50%);
           }
-
-          &:last-child::after {
-            content: none;
-          }
         }
 
           &__nav-text { 
-            font-weight: $light;
-            padding-right: rem-calc(30);
+            @extend %nav__text;
             text-align: right;
             width: rem-calc(260);
 
-            display: none; 
-            position: absolute;
-            top: rem-calc(4);
+            display: none;
             left: rem-calc(-250);
           }
 
           &__nav-button {
-            background-color: $grey;
-            border: none;
-            border-radius: 100%;
-            color: inherit;
-            cursor: pointer;
-            font-size: inherit;
-            font-weight: inherit;
-            outline: none;
-            padding-top: rem-calc(5);
-            width: rem-calc(31); height: rem-calc(31);
-
-            position: relative;
-
-            &:before {
-              background-color: $grey;
-              border-radius: 100%;
-              content: ''; 
-              width: rem-calc(31); height: rem-calc(31);
-
-              display: block;
-
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              
-              transform-origin: center center;
-              transition: transform .3s ease-in-out;
-            }
+            @extend %nav__button;
           }
 
       &__slide {

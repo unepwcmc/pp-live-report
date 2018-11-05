@@ -1,4 +1,83 @@
 //--------------------------------------------------
+// reusable vertical nav styling
+// - used in burger nav
+// - used in fixed carousel
+//--------------------------------------------------
+%nav {
+  &__item {
+    color: $white;
+    font-size: rem-calc(20);
+    font-weight: $light;
+
+    position: relative;
+
+    &::after {
+      background-color: $grey;
+      content: '';
+      width: rem-calc(3);
+
+      position: absolute;
+      bottom: 0;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+    &__text {
+      font-weight: $light;
+      padding-right: rem-calc(30);
+
+      position: absolute;
+      top: rem-calc(4);
+    }
+
+    &__button {
+      background-color: $grey;
+      border: none;
+      border-radius: 100%;
+      color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      font-weight: inherit;
+      outline: none;
+      padding-top: rem-calc(5);
+      width: rem-calc(31); height: rem-calc(31);
+
+      position: relative;
+
+      &:before {
+        background-color: $grey;
+        border-radius: 100%;
+        content: ''; 
+        width: rem-calc(31); height: rem-calc(31);
+
+        display: block;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        
+        transform-origin: center center;
+        transition: transform .3s ease-in-out;
+      }
+    }
+
+    &__button-active {
+      background-color: $green;
+      color: $grey-dark;
+      font-weight: $bold;
+
+      &:before { 
+        transform: scale(1.5);
+      }
+    }
+  
+}
+
+//--------------------------------------------------
 // nav
 //--------------------------------------------------
 .nav {
@@ -30,24 +109,66 @@
 
         @include breakpoint($medium) { 
           padding: rem-calc(118 36 45 50);
-          width: auto;
+          width: rem-calc(415);
         }
 
         &.active { transform: translateX(0); }
       }
     
         &__close {
-          
+          position: absolute;
+          top: rem-calc(25);
+          right: rem-calc(25);
         }
 
         &__ul { }
 
-          &__li { margin-bottom: rem-calc(60); }
+          &__li {
+            @extend %nav__item;
+            @extend .flex;
+            @extend .flex-h-end;
+            padding-bottom: rem-calc(60); 
+
+            position: relative;
+
+            &.active {
+              .nav__button {
+                @extend %nav__button-active;
+              }
+            }
+
+            &::after {
+              height: rem-calc(60);
+
+              right: 0;
+
+              transform: translateX(-14px);
+            }
+          }
 
             &__a {
               color: $white;
-              .nav--active & { font-weight: bold; }
+              text-decoration: none;
             }
+
+              &__text {
+                @extend %nav__text;
+
+                left: 0;
+
+                .active & { font-weight: bold; }
+              }
+
+              &__button {
+                @extend %nav__button;
+                @extend .flex;
+                @extend .flex-center;
+                text-decoration: none;
+
+                &::after {
+                  height: rem-calc(60);
+                }
+              }
     }
   }
 }

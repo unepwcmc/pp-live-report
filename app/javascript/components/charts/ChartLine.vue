@@ -9,8 +9,6 @@
           :height="y.chartHeight + y.chartPadding" 
           fill="#EBEBEB" />
 
-        <rect :x="normaliseX(2018)" y="0" width="120px" height="440" :fill="colours[3]" rx="4" ry="4" />
-        
         <text v-for="y in yAxis" 
           :x="-x.chartPadding" 
           :y="y.coord"
@@ -30,13 +28,22 @@
         </chart-line-dataset>
 
         <template v-if="targets">
-          <chart-line-target v-for="target, index in targets"
+          <chart-line-target-y v-for="target, index in targets"
             :minX="normaliseX(x.min)" 
             :maxX="normaliseX(x.max)" 
             :y="normaliseY(target.y)" 
             :title="target.title"
             :colour="targetColours[index]">
-          </chart-line-target>
+          </chart-line-target-y>
+        </template>
+
+        <template v-if="commitments">
+          <chart-line-target-x v-for="commitment, index in commitments"
+            :minY="normaliseY(y.min)" 
+            :maxY="normaliseY(y.max)" 
+            :x="normaliseX(commitment.x)"
+            :line="commitment.line">
+          </chart-line-target-x>
         </template>
       </svg>
     </div>
@@ -47,13 +54,14 @@
 
 <script>
   import ChartLineDataset from './ChartLineDataset'
-  import ChartLineTarget from './ChartLineTarget'
+  import ChartLineTargetX from './ChartLineTargetX'
+  import ChartLineTargetY from './ChartLineTargetY'
   import ChartLegend from './ChartLegend'
 
   export default {
     name: 'chart-line',
 
-    components: { ChartLineTarget, ChartLineDataset, ChartLegend },
+    components: { ChartLineTargetX, ChartLineTargetY, ChartLineDataset, ChartLegend },
 
     props: {
       lines: {
@@ -61,6 +69,7 @@
         required: true
       },
       targets: Array,
+      commitments: Array,
       legend: Array
     },
 

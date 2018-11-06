@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'chart-line-target',
+    name: 'chart-line-target-x',
 
     props: {
       minX: {

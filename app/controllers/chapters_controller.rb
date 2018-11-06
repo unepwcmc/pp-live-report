@@ -225,6 +225,12 @@ class ChaptersController < ApplicationController
           title: "Terrestrial target (17%)"
         }
       ],
+      commitments: [
+        {
+          x: 2018,
+          line: true
+        }
+      ],
       legend: [
         {
           title: "ABNJ"
@@ -236,7 +242,8 @@ class ChaptersController < ApplicationController
           title: "Land"
         },
         {
-          title: "Commitments"
+          title: "Commitments",
+          line: true
         }
       ]
     }

@@ -295,6 +295,7 @@ class ChaptersController < ApplicationController
         charts: [
           {
             chart_title: "Terrestrial",
+            theme: "green",
             rows: [
               {
                 percent: 42.6,
@@ -308,6 +309,7 @@ class ChaptersController < ApplicationController
           },
           {
             chart_title: "Marine",
+            theme: "blue",
             rows: [
               {
                 percent: 28.6,
@@ -326,6 +328,7 @@ class ChaptersController < ApplicationController
         charts: [
           {
             chart_title: "Terrestrial",
+            theme: "green",
             rows: [
               {
                 percent: 42.6,
@@ -339,6 +342,7 @@ class ChaptersController < ApplicationController
           },
           {
             chart_title: "Marine",
+            theme: "blue",
             rows: [
               {
                 percent: 28.6,

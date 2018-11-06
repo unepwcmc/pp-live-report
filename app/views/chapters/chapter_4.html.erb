@@ -8,7 +8,7 @@
       
       <div class="flex flex-wrap flex-h-between">
         <% item[:charts].each do |chart| %>
-          <chart-row title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
+          <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
         <% end %>
       </div>
     <% end %>

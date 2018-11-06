@@ -18,8 +18,9 @@
 // font
 //--------------------------------------------------
 .light { font-weight: $light;}
-.normal { font-weight: normal; }
+.normal { font-weight: $normal; }
 strong, .bold { font-weight: $bold; }
+.fw-black { font-weight: $fw-black; }
 .italic { font-style: italic; }
 
 //--------------------------------------------------

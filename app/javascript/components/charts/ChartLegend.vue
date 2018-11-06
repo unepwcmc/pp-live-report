@@ -1,7 +1,9 @@
 <template>
   <ul class="chart--legend ul-unstyled flex">
-    <li v-for="row, index in rows" class="chart__legend-item flex">
-      <span class="chart__legend-key" :style="style(index)"></span>{{ row.title }}
+    <li v-for="row, index in rows" class="chart__legend-item flex flex-v-center">
+      <span class="chart__legend-key" :style="style(index)"></span>
+      <span class="chart__legend-text fw-black">{{ index + 1 }}.</span> 
+      <span class="chart__legend-text">{{ row.title }}</span>
     </li>
   </ul>
 </template>

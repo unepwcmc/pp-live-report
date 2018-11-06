@@ -142,7 +142,7 @@ class ChaptersController < ApplicationController
       id: "global-area-chart",
       legend: [
         {
-          title: "1. Proportion of cover by protected areas"
+          title: "Proportion of cover by protected areas"
         }
       ],
       datasets: [
@@ -171,7 +171,7 @@ class ChaptersController < ApplicationController
       id: "marine-area-chart",
       legend: [
         {
-          title: "1. Proportion of cover by protected areas"
+          title: "Proportion of cover by protected areas"
         }
       ],
       datasets: [
@@ -227,16 +227,16 @@ class ChaptersController < ApplicationController
       ],
       legend: [
         {
-          title: "1. ABNJ"
+          title: "ABNJ"
         },
         {
-          title: "2. EEZ"
+          title: "EEZ"
         },
         {
-          title: "3. Land"
+          title: "Land"
         },
         {
-          title: "4. Commitments"
+          title: "Commitments"
         }
       ]
     }

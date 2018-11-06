@@ -144,26 +144,30 @@ blockquote {
   
   &--small {
     @extend .gutters;
+    margin: 0 auto;
 
-    @include breakpoint($small) { 
-      margin: 0 auto;
+    @include breakpoint($small) { width: 60%; }
+    @include breakpoint($medium) { width: 50%; }
+
+    @include breakpoint($large) { 
       padding-right: 0;
       padding-left: 0;
-      width: 50%; 
+      width: $small-container; 
     }
-    @include breakpoint($medium) { width: $small-container; }
   }
   
   &--medium {
     @extend .gutters;
+    margin: 0 auto;
 
-    @include breakpoint($small) { 
-      margin: 0 auto;
+    @include breakpoint($small) { width: 90%; }
+    @include breakpoint($medium) { width: 83%; }
+
+    @include breakpoint($large) { 
       padding-right: 0;
       padding-left: 0;
-      width: 83%; 
+      width: $medium-container; 
     }
-    @include breakpoint($medium) { width: $medium-container; }
   }
 }
 

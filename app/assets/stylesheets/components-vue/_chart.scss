@@ -196,7 +196,9 @@
 //--------------------------------------------------
   &--row {
     margin-bottom: rem-calc(28);
-    width: 48%;
+    width: 100%;
+    
+    @include breakpoint($small) { width: 48%; }
 
     .chart {
       &__chart {

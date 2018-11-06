@@ -1,5 +1,5 @@
 <template>
-  <div class="chart--doughnut flex">
+  <div class="chart--doughnut flex flex-h-between">
     <svg class="chart__chart" width="100%" height="100%" viewBox="-340 -340 680 680" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
       <circle cx="0" cy="0" :r="radiusBackground" :fill="colours.grey"></circle>
       
@@ -11,7 +11,7 @@
           :class="{ 'active': getSegmentStatus(dataset.title) }"> 
 
           <path class="chart__segment-path" :d="getArcPath(index)" :fill="dataset.colour" stroke="#ffffff" />
-
+          
           <text 
             class="chart__segment-text"
             fill="white"
@@ -24,21 +24,25 @@
             {{ index + 1 }}
           </text>
         </g>
-      </g>
+      </g>      
 
       <g x="0" y="0">
-        <text text-anchor="middle">{{ active.title }}</text>
+        <image :xlink:href="active.icon" width="120px" height="120px" transform="translate(-60, -100)"></image>
+        
+        <foreignObject transform="translate(-130, 30)" width="260" height="60">
+          <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 25px; font-weight: 300; text-align: center;">{{ active.title }}</p>
+        </foreignObject>
       </g>
     </svg>
 
     <div class="chart__side">
       <div class="chart__panel" :style="{ 'background-color': active.colour}">
-        <h3>{{ active.title }}</h3>
+        <h3 class="heading--doughnut-chart">{{ active.title }}</h3>
         <p>{{ active.description }}</p>
-        <a :href="active.url" title="Link to SDG website" target="_blank">Link to SDG website</a>
+        <a :href="active.url" title="Link to SDG website" target="_blank" class="button--link">Link to SDG website</a>
       </div>
 
-      <p v-if="smallprint">{{ smallprint }}</p>
+      <p v-if="smallprint" class="chart__smallprint">{{ smallprint }}</p>
     </div>
   </div>  
 </template>
@@ -69,7 +73,8 @@
           title: '',
           description: '',
           url: '',
-          colour: ''
+          colour: '',
+          icon: ''
         }
       }
     },
@@ -85,6 +90,7 @@
         this.active.description = dataset.description
         this.active.url = dataset.url
         this.active.colour = dataset.colour
+        this.active.icon = dataset.icon
       },
 
       getSegmentStatus (title) {

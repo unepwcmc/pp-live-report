@@ -13,7 +13,7 @@
 $white: #ffffff;
 
 $grey-light: #f4f4f4;
-$grey: #3C3C3C;
+$grey: #2A2A2A;
 $grey-dark: #202020;
 
 $black: #000000;
@@ -45,9 +45,11 @@ $body-font-color: $black;
 
 $body-line-height: 1.4;
 
+$thin: 100;
 $light: 300;
 $normal: 400;
-$bold: 500;
+$medium: 500;
+$bold: 700;
 $fw-black: 900;
 
 $button-font-size-small: rem-calc(18);
@@ -65,6 +67,8 @@ $large: 1248px;
 // dimensions
 //--------------------------------------------------
 $site-width: rem-calc($large);
+$small-container: calc(#{$site-width} * .5);
+$medium-container: calc(#{$site-width} * .83);
 
 //--------------------------------------------------
 // padding

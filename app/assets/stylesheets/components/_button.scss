@@ -16,7 +16,10 @@
   &--cta {
     background-color: $primary;
     color: $black;
-    padding: rem-calc(10 16);
+    font-size: rem-calc(25);
+    font-weight: $normal;
+    line-height: 1;
+    padding: rem-calc(19 27);
     text-decoration: none;
   } 
 
@@ -25,6 +28,18 @@
     cursor: not-allowed;
 
     &:hover { background-color: $grey-light; }
+  }
+
+  &--download {
+    color: white;
+    font-weight: $light;
+    text-decoration: none;
+    width: rem-calc(108);
+  }
+
+  &--link {
+    color: $white;
+    font-weight: $medium;
   }
 
   &--reset {

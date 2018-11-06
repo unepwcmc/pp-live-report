@@ -117,7 +117,7 @@
   &--doughnut {
     .chart {
       &__chart{
-        width: 60%;
+        width: 67%;
       }
 
       &__segment {
@@ -141,20 +141,26 @@
         }
 
       &__side {
-        width: 40%;
+        margin-top: rem-calc(48);
+        width: 33%;
       }
 
         &__panel {
           border-radius: 2px;
           color: $white;
-          margin-top: rem-calc(54);
-          margin-left: rem-calc(26);
+          margin-bottom: rem-calc(18);
           padding: rem-calc(52 36);
 
-          height: 90%;
+          height: 80%;
 
           transition: background-color ease .1s;
         }
+
+          &__smallprint {
+            font-size: rem-calc(14);
+            font-style: italic;
+            font-weight: $medium;
+          }
     }
   }
   

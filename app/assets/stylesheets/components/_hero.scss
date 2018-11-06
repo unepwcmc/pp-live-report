@@ -14,15 +14,15 @@
     height: 100vh;
 
     .hero {
-      &__intro {
-        @include breakpoint($small) { width: rem-calc(590); }
-      }
-
+      &__content { margin-top: 10%; }
+      
       &__intro {
         font-size: rem-calc(20);
         font-weight: $light;
         line-height: 1.5;
         width: 48%;
+
+        @include breakpoint($small) { width: $small-container; }
       }
     }
   }
@@ -38,13 +38,22 @@
 
     .hero {
       &__intro {
+        font-size: rem-calc(20); 
+        font-weight: $light; 
+
         @include breakpoint($small) { 
-          width: rem-calc(590); 
+          margin-top: rem-calc(20);
+          width: 50%; 
         }
       }
 
       &__subtitle { 
-        @include breakpoint($small) { font-size: rem-calc(20); }
+        font-size: rem-calc(20); 
+        font-weight: $light; 
+        
+        @include breakpoint($small) { 
+          margin-top: rem-calc(30);
+        }
       }
     }
   }

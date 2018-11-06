@@ -37,6 +37,8 @@
 
           display: block;
 
+          &:first-child { margin-left: rem-calc(35); }
+
           &:hover { opacity: .75; }
 
           @include breakpoint($small) { display: inline-block; }

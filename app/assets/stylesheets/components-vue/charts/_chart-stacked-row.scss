@@ -1,0 +1,24 @@
+//--------------------------------------------------
+// stacked row chart
+//--------------------------------------------------
+  &--row-stacked {
+    .chart {
+      &__chart {
+        width: 100%; height: rem-calc(86);
+      }
+
+        &__bar {
+          background-color: $chart-purple;
+
+          height: 100%;
+
+          &:nth-child(2) { background-color: $chart-yellow; }
+          &:nth-child(3) { background-color: $chart-green; }
+          &:nth-child(4) { background-color: $chart-blue; }
+        }
+
+        &__percent {}
+
+        &__label {}
+    }
+  }

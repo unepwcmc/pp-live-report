@@ -2,9 +2,13 @@
   <div class="chart--column">
     <div class="chart__chart flex flex-h-between">
       <div v-for="column, index in columns" class="chart__column flex flex-column flex-h-end" :style="{ width: width }">
-        <span class="chart__percent"><strong>{{ index + 1 }}.</strong> {{ column.percent }}%</span>
+        <span class="chart__percent flex flex-center flex-vs-center">{{ column.percent }}%</span>
         <span class="chart__bar" :style="{ height: column.percent + '%' }"></span> 
-        <span class="chart__label"><strong>{{ index + 1 }}.</strong> {{ column.label }}</span>
+
+        <p class="chart__label">
+          <span class="chart__label-index">{{ index + 1 }}.</span>
+          <span class="fw-black">{{ column.label }}</span>
+        </p>
       </div>
     </div>
   </div>

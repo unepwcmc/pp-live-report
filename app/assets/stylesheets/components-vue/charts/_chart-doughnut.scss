@@ -1,0 +1,52 @@
+//--------------------------------------------------
+// doughnut chart
+//--------------------------------------------------
+  &--doughnut {
+    .chart {
+      &__chart{
+        width: 67%;
+      }
+
+      &__segment {
+        cursor: pointer;
+
+        transition: transform ease .1s;
+
+        &:hover { 
+          transform: scale(1.015, 1.015);
+        }
+
+        &.active {
+          transform: scale(1.15, 1.15);
+
+          .chart__segment-text { font-weight: bold; }
+        }
+      }
+
+        &__segment-path { 
+          stroke-width: 4;
+        }
+
+      &__side {
+        margin-top: rem-calc(48);
+        width: 33%;
+      }
+
+        &__panel {
+          border-radius: 2px;
+          color: $white;
+          margin-bottom: rem-calc(18);
+          padding: rem-calc(52 36);
+
+          height: 80%;
+
+          transition: background-color ease .1s;
+        }
+
+          &__smallprint {
+            font-size: rem-calc(14);
+            font-style: italic;
+            font-weight: $medium;
+          }
+    }
+  }

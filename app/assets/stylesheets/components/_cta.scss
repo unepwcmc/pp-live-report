@@ -7,6 +7,9 @@
 // protected planet cta
 //--------------------------------------------------
   &--protected-planet {
+    background-color: $black;
+    color: $white;
+    
     @include breakpoint($small) {
       height: rem-calc(386);
     }

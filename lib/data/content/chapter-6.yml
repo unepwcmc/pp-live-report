@@ -1,6 +1,9 @@
 title: "Page title"
 subtitle: "Chapter six"
 intro: "Lorem ipsum"
+column_chart_title: "Governance types, governance quality, and equity"
+column_chart_intro: "The diversity of governance types for protected areas in any national system provides an indication of the recognition of the diverse actors involved in these conservation efforts, although it does not itself inform an understanding of whether this is good governance or equitable management."
+stacked_row_chart_title: "Percentage of protected areas under each IUCN governance type per region"
 ctas:
   -
     cta_title: "Measuring equity"

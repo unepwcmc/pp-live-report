@@ -1,6 +1,10 @@
 title: "Page title"
 subtitle: "Chapter five"
 intro: "Lorem ipsum"
+map_title: "Percentage of the total coverage in protected areas that is assessed for management effectiveness per country"
+stacked_row_chart_title: "Percentage of countries with varying levels of progress towards the 60% management effectiveness assessment target"
+column_chart_title: "Percentage coverage of all protected areas per region assessed for management effectiveness"
+column_chart_2_title: "Number of reported management effectiveness assessments within UN Environment regions, including repeat assessments of the same site"
 ctas:
   -
     cta_title: "The IUCN Green List of Protected and Conserved Areas"
@@ -10,4 +14,3 @@ ctas:
     cta_title: "IUCN World Heritage Outlook: Tracking conservation in the planet's most outstanding natural places"
     cta_text: "Lorem ipsum"
     cta_url: "http://protectedplanet.net"
-    

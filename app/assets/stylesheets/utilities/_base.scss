@@ -34,7 +34,9 @@ h1 {
 }
 
 h2 {
-  margin: 0;
+  font-size: rem-calc(40);
+  font-weight: $light;
+  margin: rem-calc(0 0 14 0);
 
   &.heading--carousel {
     font-size: rem-calc(70);
@@ -43,6 +45,7 @@ h2 {
 }
 
 h3 {
+  margin: 0;
 }
 
 h4 {
@@ -50,6 +53,7 @@ h4 {
 
 p {
   line-height: $body-line-height;
+  margin-top: 0;
 }
 
 a {

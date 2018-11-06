@@ -1,22 +1,39 @@
-<div class="container">
-  <h1>MAP</h1>
-</div>
-
-<div class="container--medium">
-  <h2></h2>
+<section class="section-padding">
   
-  <% @stacked_row_charts[:charts].each do |chart| %>
-    <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
-  <% end %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
 
-  <chart-legend :rows="<%= @stacked_row_charts[:legend].to_json %>"></chart-legend>
+  <div class="container--medium">
+    <h1>MAP</h1>
+  </div>
+</section>
 
-  <h2></h2>
-  
-  <chart-column :columns="<%= @column_chart %>"></chart-column>
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'] } %>
 
-  <chart-column :columns="<%= @column_chart %>"></chart-column>
-</div>
+  <div class="container--medium">
+    <% @stacked_row_charts[:charts].each do |chart| %>
+      <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
+    <% end %>
+
+    <chart-legend :rows="<%= @stacked_row_charts[:legend].to_json %>"></chart-legend>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'] } %>
+
+  <div class="container--medium">
+    <chart-column :columns="<%= @column_chart %>"></chart-column>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_2_title'] } %>
+
+  <div class="container--medium">
+    <chart-column :columns="<%= @column_chart %>"></chart-column>
+  </div>
+</section>
 
 <% @data['ctas'].each do |cta| %>
   <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>

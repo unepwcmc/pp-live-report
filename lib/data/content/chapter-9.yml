@@ -1,6 +1,8 @@
 title: "Page title"
 subtitle: "Chapter nine"
 intro: "Lorem ipsum"
+content: "Aichi Target 11 requires that protected and conserved areas be ‘integrated into the wider landscape and seascape’ i.e. that the design and management of protected areas, corridors and the surrounding matrix fosters a connected, functional ecological network. Protected areas throughout the world are coming under widespread human pressures that have profound impacts on biodiversity and ecosystem services. The map below highlights the current level of protection of the earth’s remaining areas of low human impact."
+map_title: "The earth’s remaining areas of low human impact and Protected Areas"
 ctas:
   -
     cta_title: "Human Footprint: Areas under intense human pressure"

@@ -2,31 +2,47 @@
   <h1>MAP</h1>
 </div>
 
-<div class="container--medium">
-  <h3><%= @data['area_chart_1_title'] %></h3>
-  <p><%= @data['area_chart_1_description'] %></p>
-  <div <%= @global_area_chart[:id] %>>
-    <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['area_charts_title'] } %>
+
+  <div class="container--medium">
+    <h3><%= @data['area_chart_1_title'] %></h3>
+    <p><%= @data['area_chart_1_description'] %></p>
+    <div <%= @global_area_chart[:id] %>>
+      <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
+    </div>
   </div>
 
-  <h3><%= @data['area_chart_1_title'] %></h3>
-  <p><%= @data['area_chart_1_description'] %></p>
-  <div <%= @marine_area_chart[:id] %>>
-    <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
+  <div class="container--medium">
+    <h3><%= @data['area_chart_2_title'] %></h3>
+    <p><%= @data['area_chart_2_description'] %></p>
+    <div <%= @marine_area_chart[:id] %>>
+      <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="container--medium">
-  <chart-line 
-    :lines="<%= @line_chart[:lines].to_json %>" 
-    :targets="<%= @line_chart[:targets].to_json %>"
-    :legend="<%= @line_chart[:legend].to_json %>">
-  </chart-line>
-</div>
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
 
+  <div class="container--medium">
+    <chart-line 
+      :lines="<%= @line_chart[:lines].to_json %>" 
+      :targets="<%= @line_chart[:targets].to_json %>"
+      :legend="<%= @line_chart[:legend].to_json %>">
+    </chart-line>
+  </div>
+</section>
 
-<div class="container--medium">
-  <h1>MAP</h1>
-</div>
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <h1>MAP</h1>
+  </div>
+</section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

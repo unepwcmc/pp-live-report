@@ -1,17 +1,27 @@
-<div class="container">
-  <h1>MAP</h1>
-</div>
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'] } %>
 
-<div class="container--medium">
-  <% @row_charts.each do |item| %>
-    <h3><%= item[:title] %></h3>
-    
-    <div class="flex flex-wrap flex-h-between">
-      <% item[:charts].each do |chart| %>
-        <chart-row title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+  <div class="container--medium">
+    <% @row_charts.each do |item| %>
+      <h3><%= item[:title] %></h3>
+      
+      <div class="flex flex-wrap flex-h-between">
+        <% item[:charts].each do |chart| %>
+          <chart-row title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+
+  <div class="container--medium">
+    <h1>MAP</h1>
+  </div>
+</section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

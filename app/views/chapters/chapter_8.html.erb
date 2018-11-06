@@ -1,5 +1,7 @@
-<div class="container">
-  <p>Lorem ipsum</p>
-</div>
+<section class="section-padding">
+  <div class="container--small">
+    <%= @data['content'].html_safe %>
+  </div>
+</section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

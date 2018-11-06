@@ -1,10 +1,22 @@
-<div class="container">
-  <chart-column :columns="<%= @column_chart %>"></chart-column>
-</div>
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'] } %>
 
-<% @stacked_row_charts[:charts].each do |chart| %>
-  <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
-<% end %>
+  <div class="container--medium">
+    <chart-column :columns="<%= @column_chart %>"></chart-column>
+  </div>
+</section>
+
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'] } %>
+
+  <div class="container--medium">
+    <% @stacked_row_charts[:charts].each do |chart| %>
+      <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
+    <% end %>
+  </div>
+</section>
 
 <% @data['ctas'].each do |cta| %>
   <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>

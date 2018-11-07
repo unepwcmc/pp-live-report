@@ -1,0 +1,21 @@
+//--------------------------------------------------
+// line chart
+//--------------------------------------------------
+  &--line {
+
+    .chart {
+      &__scrollable {
+        @include breakpoint-down($small) { 
+          overflow-x: auto;
+
+          display: flex;
+        }
+      }
+
+        &__chart {
+          @include breakpoint-down($small) { min-width: 260%; }
+        }
+
+          &__svg { display: block; }
+    }
+  }

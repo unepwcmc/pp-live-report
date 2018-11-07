@@ -16,15 +16,19 @@
 // stacked row chart
 //--------------------------------------------------
   &--row-stacked {
-    margin-bottom: rem-calc(40);
+    margin-bottom: rem-calc(20);
+
+    @include breakpoint($medium) { margin-bottom: rem-calc(40); }
 
     .chart {
       &__chart {
-
-        margin-top: rem-calc(46);
+        margin-top: rem-calc(28);
         width: 100%; height: rem-calc(32);
 
-        @include breakpoint($medium) { height: rem-calc(86); }
+        @include breakpoint($medium) { 
+          margin-top: rem-calc(46);
+          height: rem-calc(86); 
+        }
       }
 
         &__bar {
@@ -32,13 +36,9 @@
 
           position: relative;
 
-          &.chart-theme--blue {
-            @include bars($theme-blue);
-          }
-
-          &.chart-theme--green {
-            @include bars($theme-green);
-          }
+          &.chart-theme--blue { @include bars($theme-blue); }
+          &.chart-theme--green { @include bars($theme-green); }
+          &.chart-theme--rainbow { @include bars($theme-rainbow); }
         }
 
           &__label {

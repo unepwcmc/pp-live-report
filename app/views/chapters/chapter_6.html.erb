@@ -13,8 +13,14 @@
 
   <div class="container--medium">
     <% @stacked_row_charts[:charts].each do |chart| %>
-      <chart-row-stacked title="<%= chart[:chart_title] %>" :rows="<%= chart[:rows].to_json %>"></chart-row-stacked>
+      <chart-row-stacked 
+        title="<%= chart[:chart_title] %>" 
+        :rows="<%= chart[:rows].to_json %>"
+        theme="<%= @stacked_row_charts[:theme] %>">          
+      </chart-row-stacked>
     <% end %>
+
+  <chart-legend :rows="<%= @stacked_row_charts[:legend].to_json %>" theme="<%= @stacked_row_charts[:theme] %>"></chart-legend>
   </div>
 </section>
 

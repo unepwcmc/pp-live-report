@@ -501,23 +501,24 @@ class ChaptersController < ApplicationController
 
     #TODO replace with real data and update variable name
     @stacked_row_charts = {
+      theme: 'rainbow',
       legend: [
         {
-          title: "1."
+          title: "Government "
         },
         {
-          title: "2."
+          title: "Indigenous peoples and local communties"
         },
         {
-          title: "3."
+          title: "Shared"
         },
         {
-          title: "4."
+          title: "Not Reported"
         }
       ],
       charts: [
         {
-          chart_title: "Terrestrial",
+          chart_title: "ABNJ",
           rows: [
             {
               percent: 10,
@@ -538,7 +539,7 @@ class ChaptersController < ApplicationController
           ]
         },
         {
-          chart_title: "Marine",
+          chart_title: "West Asia",
           rows: [
             {
               percent: 5,

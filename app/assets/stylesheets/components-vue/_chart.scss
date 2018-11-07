@@ -29,6 +29,7 @@
 
         &.theme--blue { @include chart-key($theme-blue); }
         &.theme--green { @include chart-key($theme-green); }
+        &.theme--rainbow { @include chart-key($theme-rainbow); }
       }
 
         &__legend-key {

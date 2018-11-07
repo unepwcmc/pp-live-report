@@ -1,22 +1,31 @@
 <template>
   <div>
     <div v-if="lines" class="issues-chart__svg" style="width:100%;">
-      <svg width="100%" height="100%" viewBox="-110 -30 1030 590" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+      <svg width="100%" height="100%" :viewBox="`-110 -80 ${svg.width} ${svg.height}`" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <rect 
-          :x="-x.chartPadding/2"
-          :y="-y.chartPadding/2" 
-          :width="x.chartWidth + x.chartPadding" 
-          :height="y.chartHeight + y.chartPadding" 
+          :x="-110"
+          :y="-30" 
+          :width="svg.width" 
+          :height="svg.height - svg.paddingTop" 
           fill="#EBEBEB" />
+
+        <text v-if="axis" x="-110" y="-90" font-size="18">
+          <tspan v-for="t in axis.y" x="-110" :dy="24">{{ t }}</tspan>
+        </text>
 
         <text v-for="y in yAxis" 
           :x="-x.chartPadding" 
-          :y="y.coord"
-          text-anchor="end">{{ y.labelText }}</text>
+          :y="y.coord "
+          text-anchor="end"
+          font-size="18"
+          font-weight="300"
+          transform="translate(0, 5)">{{ y.labelText }}</text>
 
         <text v-for="x in xAxis" 
           :x="x.coord" 
           :y="y.chartHeight + y.chartPadding" 
+          font-size="18"
+          font-weight="300"
           text-anchor="middle">{{ x.labelText }}</text>
 
         <chart-line-dataset 
@@ -42,7 +51,8 @@
             :minY="normaliseY(y.min)" 
             :maxY="normaliseY(y.max)" 
             :x="normaliseX(commitment.x)"
-            :line="commitment.line">
+            :line="commitment.line"
+            :label="commitment.label">
           </chart-line-target-x>
         </template>
       </svg>
@@ -69,16 +79,22 @@
         required: true
       },
       targets: Array,
+      axis: Object,
       commitments: Array,
       legend: Array
     },
 
     data () {
       return {
+        svg: {
+          width: 1030,
+          height: 650,
+          paddingTop: 50
+        },
         x: {
           precision: 1,
           chartWidth: 890,
-          chartPadding: 50,
+          chartPadding: 24,
           min:0,
           max: 2022,
           axisMarks: 6
@@ -86,7 +102,7 @@
         y: {
           precision: 1,
           chartHeight: 500,
-          chartPadding: 50,
+          chartPadding: 34,
           min: 0,
           max: 0,
           axisMarks: 8

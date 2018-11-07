@@ -7,7 +7,7 @@
       stroke-width="6" />
 
     <circle :cx="middle.x" :cy="middle.y" :fill="colour" r="18">{{ index + 1 }}</circle>
-    <text :x="middle.x" :y="middle.y" text-anchor="middle" dominant-baseline="middle">{{ index + 1 }}</text>
+    <text :x="middle.x" :y="middle.y" text-anchor="middle" dominant-baseline="middle" font-size="18" font-weight="900" fill="white">{{ index + 1 }}</text>
   </g>
 </template>
 

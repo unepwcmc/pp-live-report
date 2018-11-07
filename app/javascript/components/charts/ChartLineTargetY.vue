@@ -1,6 +1,6 @@
 <template>
   <g>
-    <text v-if="title" :x="minX" :y="y - 10">{{ title }}</text>
+    <text v-if="title" :x="minX" :y="y - 10" font-size="18" font-weight="300">{{ title }}</text>
     <path :d="path" :stroke="colour" stroke-width="4" stroke-linecap="round" />
   </g>
 </template>

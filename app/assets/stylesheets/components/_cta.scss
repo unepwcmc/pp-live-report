@@ -2,52 +2,38 @@
 // cta
 //--------------------------------------------------
 .cta {
+  background-color: $black;
+  padding: rem-calc(40 0 50 0);
+  color: $white;
 
-//--------------------------------------------------
-// protected planet cta
-//--------------------------------------------------
-  &--protected-planet {
-    background-color: $black;
-    color: $white;
+  @include breakpoint($small) { min-height: rem-calc(300); }
+  @include breakpoint($medium) { min-height: rem-calc(386); }
+  
+  &__content {
+    padding-bottom: rem-calc(12);
+    position: relative;
+
+    @include breakpoint($small) { font-size: rem-calc(20); }
+  }
     
-    @include breakpoint($small) {
-      height: rem-calc(386);
+    &__title {
+      @include breakpoint($medium) { width: 50%; }
     }
 
-    .cta {
-      &__container {
-        @include breakpoint($small) {
-          height: 100%;
-          
-          position: relative;
-        }
+    &__text {
+      font-weight: $light;
+      line-height: 1.3;
+
+      @include breakpoint($medium) { width: 50%; }
+    }
+
+    &__link {
+      @include breakpoint($medium) { 
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        transform: translateY(-50%);
       }
-        &__content {
-          @include breakpoint($small) { 
-            font-size: rem-calc(20);
-            width: 50%;
-
-            position: absolute;
-            top: 50%;
-
-            transform: translateY(-50%);
-          }
-        }
-
-          &__text {
-            font-weight: $light;
-            line-height: 1.3;
-          }
-
-        &__link {
-          @include breakpoint($small) { 
-            position: absolute;
-            top: 50%;
-            right: 0;
-
-            transform: translateY(-50%);
-          }
-        }
-      }
-  }
+    }
 }

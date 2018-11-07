@@ -1,10 +1,10 @@
-<div class="cta--protected-planet">
-  <div class="container cta__container">
+<div class="cta flex flex-v-center">
+  <div class="container">
     <div class="cta__content">
-      <h3 class="heading--cta"><%= title %></h3>
+      <h3 class="cta__title heading--cta"><%= title %></h3>
       <p class="cta__text"><%= text %></p>
+
+      <%= link_to 'Explore', url, title: "Visit #{title}", target: '_blank', class: 'cta__link button--cta' %>
     </div>
-    
-    <%= link_to 'Explore', url, title: "Visit #{title}", target: '_blank', class: 'cta__link button--cta' %>
   </div>
 </div>

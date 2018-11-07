@@ -59,9 +59,12 @@ h3 {
   }
 
   &.heading--cta {
-    font-size: rem-calc(40);
+    font-size: rem-calc(25);
     font-weight: $light;
     margin-bottom: rem-calc(12);
+
+    @include breakpoint($small) { font-size: rem-calc(30); }
+    @include breakpoint($medium) { font-size: rem-calc(40); }
   }
 
   &.heading--doughnut-chart {
@@ -83,8 +86,6 @@ p {
   font-weight: $light;
   line-height: $body-line-height;
   margin-top: 0;
-
-  @include breakpoint($small) { font-size: rem-calc(18); }
 }
 
 a {

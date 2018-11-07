@@ -16,11 +16,31 @@
   &--cta {
     background-color: $primary;
     color: $black;
-    font-size: rem-calc(25);
+    font-size: rem-calc(20);
     font-weight: $normal;
     line-height: 1;
-    padding: rem-calc(19 27);
+    padding: rem-calc(17 27);
     text-decoration: none;
+
+    display: inline-block;
+
+    @include breakpoint($small) {
+      font-size: rem-calc(25);
+      padding: rem-calc(19 31);
+    }
+
+    &::after {
+      background-image: url('icons/arrow-right.svg');
+      content: '';
+      margin-left: rem-calc(10);
+      width: rem-calc(20); height: rem-calc(14);
+
+      display: inline-block;
+
+      transform: translateY(1px);
+
+      @include breakpoint($small) {  }
+    }
   } 
 
   &--disabled {

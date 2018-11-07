@@ -49,10 +49,18 @@
 //--------------------------------------------------
 
   &--column {
+    @include breakpoint-down($small) { 
+      overflow-x: auto;
+
+      display: flex;
+    }
+
     .chart {
       &__chart {
         height: rem-calc(390);
         margin-bottom: rem-calc(84);
+
+        @include breakpoint-down($small) { min-width: 260%; }
       }
 
         &__column {

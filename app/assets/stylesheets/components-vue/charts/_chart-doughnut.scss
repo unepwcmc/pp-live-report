@@ -4,13 +4,18 @@
   &--doughnut {
     .chart {
       &__chart{
-        width: 67%;
+        width: 100%;
+
+        @include breakpoint($small) { width: 60%; }
+        @include breakpoint($medium) { width: 67%; }
       }
 
       &__segment {
         cursor: pointer;
 
         transition: transform ease .1s;
+
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 
         &:hover { 
           transform: scale(1.015, 1.015);
@@ -28,19 +33,38 @@
         }
 
       &__side {
-        margin-top: rem-calc(48);
-        width: 33%;
+        display: none;
+        
+        @include breakpoint($small) {
+          margin-top: rem-calc(18);
+          width: 40%;
+
+          display: block;
+        }
+
+        @include breakpoint($medium) { 
+          margin-top: rem-calc(48);
+          width: 33%; 
+        }
       }
 
         &__panel {
           border-radius: 2px;
           color: $white;
+          font-size: rem-calc(14);
           margin-bottom: rem-calc(18);
-          padding: rem-calc(52 36);
+          padding: rem-calc(26 22);
 
-          height: 80%;
+          height: 75%;
 
           transition: background-color ease .1s;
+
+          @include breakpoint($medium) { 
+            font-size: rem-calc(18);
+            padding: rem-calc(52 36); 
+
+            height: 80%;
+          }
         }
 
           &__smallprint {

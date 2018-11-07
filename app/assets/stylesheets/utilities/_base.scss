@@ -174,7 +174,6 @@ blockquote {
     @extend .gutters;
     margin: 0 auto;
 
-    @include breakpoint($small) { width: 90%; }
     @include breakpoint($medium) { width: 83%; }
 
     @include breakpoint($large) { 

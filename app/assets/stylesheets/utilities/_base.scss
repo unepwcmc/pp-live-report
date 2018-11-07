@@ -117,12 +117,12 @@ blockquote {
   padding-left: rem-calc($gutter-small);
   width: 100%;
 
-  @include breakpoint($medium){ 
+  @include breakpoint($small){ 
     padding-right: rem-calc($gutter-medium);
     padding-left: rem-calc($gutter-medium);
   }
 
-  @include breakpoint($large){ 
+  @include breakpoint($medium){ 
     padding-right: rem-calc($gutter-large);
     padding-left: rem-calc($gutter-large);
   }
@@ -137,14 +137,14 @@ blockquote {
 
 .gutter--left {
   padding-left: $gutter-small;
-  @include breakpoint($medium) { padding-left: $gutter-medium; }
-  @include breakpoint($large) { padding-left: $gutter-large; }
+  @include breakpoint($small) { padding-left: $gutter-medium; }
+  @include breakpoint($medium) { padding-left: $gutter-large; }
 }
 
 .gutter--right {
   padding-right: $gutter-small;
-  @include breakpoint($medium) { padding-right: $gutter-medium; }
-  @include breakpoint($large) { padding-right: $gutter-large; }
+  @include breakpoint($small) { padding-right: $gutter-medium; }
+  @include breakpoint($medium) { padding-right: $gutter-large; }
 }
 
 .gutters {

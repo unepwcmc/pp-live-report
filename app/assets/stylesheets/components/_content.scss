@@ -9,19 +9,32 @@
   &--x-large {
     background-color: $grey-dark;
     overflow: hidden;
-    padding: rem-calc(82 0 100 0);
+    padding: rem-calc(24 0 36 0);
 
     position: relative;
     z-index: 1;
 
+    @include breakpoint($small) { padding: rem-calc(40 0 60 0); }
+    @include breakpoint($medium) { padding: rem-calc(82 0 100 0); }
+
     .content {
       &__text {
         color: $white;
-        font-size: rem-calc(30);
+        font-size: rem-calc(18);
         font-weight: $light;
-        padding-top: rem-calc(24);
+        padding-top: rem-calc(10);
 
         z-index: 1;
+
+        @include breakpoint($small) { 
+          font-size: rem-calc(20); 
+          padding-top: rem-calc(14);
+        }
+
+        @include breakpoint($medium) { 
+          font-size: rem-calc(30); 
+          padding-top: rem-calc(24);
+        }
       }
 
       &__background {

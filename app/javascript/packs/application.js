@@ -20,6 +20,8 @@ import ChartLine from '../components/charts/ChartLine'
 import ChartLegend from '../components/charts/ChartLegend'
 import ChartRow from '../components/charts/ChartRow'
 import ChartRowStacked from '../components/charts/ChartRowStacked'
+import MapInfographic from '../components/map/MapInfographic'
+import MapStatistics from '../components/map/MapStatistics'
 import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
 import SocialShare from '../components/social/SocialShare'
@@ -44,6 +46,8 @@ document.addEventListener('turbolinks:load', () => {
       ChartLine,
       ChartRow,
       ChartRowStacked,
+      MapInfographic,
+      MapStatistics,
       NavBurger,
       NavLink,
       SocialShare

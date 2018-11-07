@@ -1,6 +1,6 @@
 <template>
-  <ul class="chart--legend ul-unstyled flex">
-    <li v-for="row, index in rows" class="chart__legend-item flex flex-v-center">
+  <ul class="chart--legend ul-unstyled flex flex-wrap">
+    <li v-for="row, index in rows" class="chart__legend-item flex flex-v-center" :class="themeClass">
       <span v-if="row.line" class="chart__legend-key" :style="lineStyle"></span>
       <span v-else class="chart__legend-key" :style="style(index)"></span>
       <span class="chart__legend-text fw-black">{{ index + 1 }}.</span> 
@@ -18,6 +18,7 @@
         type: Array,
         required: true
       },
+      theme: String,
       colours: Array
     },
 
@@ -28,6 +29,12 @@
           'background-color': 'transparent',
           'height': 0
         }
+      }
+    },
+
+    computed: {
+      themeClass () {
+        return `theme--${this.theme}`
       }
     },
 

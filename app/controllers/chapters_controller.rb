@@ -369,21 +369,22 @@ class ChaptersController < ApplicationController
     @stacked_row_charts = {
       legend: [
         {
-          title: "1."
+          title: "Over 60%"
         },
         {
-          title: "2."
+          title: "30-60%"
         },
         {
-          title: "3."
+          title: "10-30%"
         },
         {
-          title: "4."
+          title: "Under 10%"
         }
       ],
       charts: [
         {
           chart_title: "Terrestrial",
+          theme: "green",
           rows: [
             {
               percent: 10,
@@ -405,6 +406,7 @@ class ChaptersController < ApplicationController
         },
         {
           chart_title: "Marine",
+          theme: "blue",
           rows: [
             {
               percent: 5,

@@ -25,6 +25,16 @@
           width: 100%; height: rem-calc(64);
 
           position: relative;
+
+          &.chart-theme--blue {
+            &:nth-child(1) { .chart__bar { background-color: $chart-blue-light; } }
+            &:nth-child(2) { .chart__bar { background-color: $chart-blue; } }
+          }
+
+          &.chart-theme--green {
+            &:nth-child(1) { .chart__bar { background-color: $chart-green-light; } }
+            &:nth-child(2) { .chart__bar { background-color: $chart-green; } }
+          }
         }
 
           &__bar {

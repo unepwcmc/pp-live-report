@@ -4,24 +4,61 @@
 .chart {
 
 //--------------------------------------------------
-// chart themes
+// chart legend
 //--------------------------------------------------
-  &__row {
-    &.chart-theme--green {
-      &:nth-child(1) { .chart__bar { background-color: $chart-green-light; } }
-      &:nth-child(2) { .chart__bar { background-color: $chart-green; } }
-    }
+  @mixin chart-key($theme) {
+    @for $i from 1 through length($theme) {
+      $colour: nth($theme, $i);
 
-    &.chart-theme--blue {
-      &:nth-child(1) { .chart__bar { background-color: $chart-blue-light; } }
-      &:nth-child(2) { .chart__bar { background-color: $chart-blue; } }
-    }    
+      &:nth-child(#{$i}) { .chart__legend-key { background-color: $colour; } }
+    }
+  }
+
+  &--legend {
+    margin-top: rem-calc(26);
+
+    .chart {
+      &__legend-item {
+        margin-bottom: rem-calc(14);
+        width: 50%;
+
+        @include breakpoint($medium) { 
+          margin-right: rem-calc(18);
+          width: auto; 
+        }
+
+        &.theme--blue { @include chart-key($theme-blue); }
+        &.theme--green { @include chart-key($theme-green); }
+      }
+
+        &__legend-key {
+          border-radius: rem-calc(2);
+          margin-right: rem-calc(10);
+          width: rem-calc(15); height: rem-calc(15);
+
+          display: block;
+
+          transform: translateY(-2px);
+
+          @include breakpoint($medium) {
+            width: rem-calc(28); height: rem-calc(28);
+          }
+        }
+
+        &__legend-text {
+          font-size: rem-calc(14);
+          font-weight: $light;
+          margin-right: rem-calc(6);
+          display: inline-block;
+
+          @include breakpoint($medium) { font-size: rem-calc(18); }
+        }
+    }
   }
 
 //--------------------------------------------------
 // charts
 //--------------------------------------------------
-  @import './charts/chart-legend';
   @import './charts/chart-area';
   @import './charts/chart-column';
   @import './charts/chart-doughnut';

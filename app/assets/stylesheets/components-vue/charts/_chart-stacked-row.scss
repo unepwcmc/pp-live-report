@@ -1,24 +1,88 @@
+@mixin bars ($theme) {
+  @for $i from 1 through length($theme) {
+    $colour: nth($theme, $i);
+
+    &:nth-child(#{$i}) { 
+      background-color: $colour; 
+
+      .chart__label::after {
+        background-color: $colour;
+      }
+    }
+  }
+}
+
 //--------------------------------------------------
 // stacked row chart
 //--------------------------------------------------
   &--row-stacked {
+    margin-bottom: rem-calc(40);
+
     .chart {
       &__chart {
-        width: 100%; height: rem-calc(86);
+
+        margin-top: rem-calc(46);
+        width: 100%; height: rem-calc(32);
+
+        @include breakpoint($medium) { height: rem-calc(86); }
       }
 
         &__bar {
-          background-color: $chart-purple;
-
           height: 100%;
 
-          &:nth-child(2) { background-color: $chart-yellow; }
-          &:nth-child(3) { background-color: $chart-green; }
-          &:nth-child(4) { background-color: $chart-blue; }
+          position: relative;
+
+          &.chart-theme--blue {
+            @include bars($theme-blue);
+          }
+
+          &.chart-theme--green {
+            @include bars($theme-green);
+          }
         }
 
-        &__percent {}
+          &__label {
+            font-size: rem-calc(14);
+            width: max-content;
 
-        &__label {}
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            @include breakpoint($medium) { 
+              font-size: rem-calc(20); 
+              padding-left: rem-calc(10);
+              
+              bottom: calc(100% + 12px);
+              left: 0;
+
+              transform: none;
+            }
+
+            &::after {
+              background-color: black;
+              content: '';
+              width: rem-calc(2); height: rem-calc(6);
+
+              display: block;
+              position: absolute;
+              top: calc(100% - 2px);
+              left: 50%;
+
+              @include breakpoint($medium) { 
+                width: rem-calc(4); height: rem-calc(14);
+              }
+            }
+          }
+
+            &__index {}
+
+            &__percent {
+              font-weight: $fw-black;
+            }
     }
   }
+
+

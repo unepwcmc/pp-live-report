@@ -2,9 +2,19 @@
 // pagination
 //--------------------------------------------------
 .pagination {
-  font-size: rem-calc(25);
-  font-weight: $bold;
-  height: rem-calc(200);
+  font-size: rem-calc(20);
+  font-weight: $medium;
+  height: rem-calc(134);
+
+  @include breakpoint($small) {
+    font-size: rem-calc(25);
+    height: rem-calc(166);
+  }
+
+  @include breakpoint($medium) {
+    font-size: rem-calc(25);
+    height: rem-calc(200);
+  }
 
   &__next {
     border-top: solid rem-calc(1) $black;
@@ -16,5 +26,10 @@
 
   &__icon {
     margin-left: rem-calc(18); 
+    width: rem-calc(21); height: rem-calc(15);
+
+    @include breakpoint($small) {
+      width: rem-calc(27); height: rem-calc(19);
+    }
   }
 }

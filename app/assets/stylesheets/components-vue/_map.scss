@@ -7,6 +7,9 @@
 // infographic map
 //--------------------------------------------------
   &--infographic {
-    height: rem-calc(480);
+    height: rem-calc(180);
+
+    @include breakpoint($small) { height: rem-calc(300); }
+    @include breakpoint($medium) { height: rem-calc(480); }
   }
 }

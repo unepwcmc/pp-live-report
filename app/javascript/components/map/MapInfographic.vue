@@ -25,7 +25,7 @@
         groupTotal: 2,
         min: 0,
         max: 0,
-        colourRange: ['#423781', '#E3E1EC'],
+        colourRange: ['#E3E1EC', '#423781'],
         paletteScale: '',
         legendColours: [],
         dataset: {},
@@ -56,10 +56,16 @@
       },
 
       createDataset () {
+        let countries = this.countries
+        
+        countries.sort((a, b) => {
+          return a[1] - b[1]
+        })
+
         let dataset = [],
           legendColours = [this.defaultFill]
 
-        this.countries.forEach(country => {
+        countries.forEach(country => {
           let iso = country[0],
             value = country[1],
             colour = this.paletteScale(value)

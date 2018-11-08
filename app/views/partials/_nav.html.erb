@@ -3,8 +3,8 @@
     <nav-link 
       href="<%= chapter[:url] %>" 
       :current-page="<%= active_nav_item? chapter[:url] %>" 
-      subtitle="Chapter <%= index + 1 %>"
-      title="<%= chapter[:title] %>">
+      title="<%= chapter[:title] %>"
+      subtitle="<%= chapter[:subtitle] %>">
       <span class="nav__button flex flex-center"><%= index + 1 %></span>
     </nav-link>
   <% end %>

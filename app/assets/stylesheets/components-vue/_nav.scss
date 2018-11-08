@@ -98,6 +98,7 @@
       &__target{
         background-color: $black;
         overflow-y: scroll;
+        padding: rem-calc(100 20 45 24);
         width: 100%;
 
         position: fixed;
@@ -138,6 +139,8 @@
               .nav__button {
                 @extend %nav__button-active;
               }
+
+              .nav__title { font-weight: $bold; }
             }
 
             &::after {
@@ -166,8 +169,6 @@
                   font-size: rem-calc(25);
                   line-height: 1.2;
                   display: block;
-
-                  .active & { font-weight: $bold; }
                 }
 
                 &__subtitle {

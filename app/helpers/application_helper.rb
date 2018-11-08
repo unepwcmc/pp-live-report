@@ -58,6 +58,7 @@ module ApplicationHelper
 
       @main_nav.push({
         'title': data['title'],
+        'subtitle': data['subtitle'],
         'url': send("chapter_#{i}_path")
       })
     end 

@@ -2,5 +2,12 @@
 // accordion
 //--------------------------------------------------
 .accordion {
-  
+
+  &-item {
+    border: solid 1px $grey-dark;
+    margin-bottom: rem-calc(8);
+    padding: rem-calc(14 14);
+  }
+
+    &__title {}
 }

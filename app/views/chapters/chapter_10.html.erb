@@ -1,11 +1,16 @@
-<section>
-  <%= render partial: 'partials/component-title', locals: { title: @data['accordion_title'] } %>
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['accordion_title'], intro: @data['accordion_intro'] } %>
 
   <div class="container--medium">
     <accordion>
       <% @data['accordion'].each_with_index do |item, index| %>
+      <%= item.inspect %>
         <accordion-item id="accordion-item-<%= index %>" title="<%= item['title'] %>">
-          <%= item['content'] %>
+          <% item['content'].each do |content| %>
+            <%= content.inspect %>
+            <p class="medium"><%= content['title'] %></p>
+            <p><%= content['text'] %></p>
+          <% end %>
         </accordion-item>
       <% end %>
     </accordion>

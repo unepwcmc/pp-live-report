@@ -72,6 +72,12 @@ h3 {
     font-weight: $light;
     margin-bottom: rem-calc(30); 
   }
+
+  &.heading--accordion {
+    font-size: rem-calc(20);
+    font-weight: $light;
+    margin: 0;
+  }
 }
 
 h4 {

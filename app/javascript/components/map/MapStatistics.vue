@@ -6,16 +6,22 @@
       <h2 class="heading--map">{{ title }}</h2>
 
       <div v-for="layer in layers" class="map__panel-layer">
-        <p class="flex no-margin">
-          <span class="map__panel-layer-percentage">{{ layer.percentage }}%</span>
-          <span class="map__panel-layer-title">{{ layer.title }}</span>
-        </p>
+        <div class="flex flex-v-center">
+          <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
+            <span class="map__panel-layer-button"></span>  
+            <span class="map__panel-layer-percentage">{{ layer.percentage }}%</span>
+          </p>
+          <p class="map__panel-layer-title no-margin">{{ layer.title }}</p>
+        </div>
 
         <template v-if="layer.sublayers">
-          <p v-for="sublayer in layer.sublayers" class="flex no-margin map__panel-sublayer">
-            <span class="map__panel-sublayer-percentage">{{ sublayer.percentage }}%</span>
-            <span class="map__panel-layer-title">{{ sublayer.title }}</span>
-          </p>
+          <div v-for="sublayer in layer.sublayers" class="flex flex-v-center map__panel-sublayer">
+            <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
+              <span class="map__panel-sublayer-button"></span>  
+              <span class="map__panel-sublayer-percentage">{{ sublayer.percentage }}%</span>
+            </p>
+            <p class="map__panel-layer-title no-margin">{{ sublayer.title }}</p>
+          </div>
         </template>
       </div>
 

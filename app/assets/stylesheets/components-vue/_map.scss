@@ -1,12 +1,9 @@
 //--------------------------------------------------
 // map mixins
 //--------------------------------------------------
-@mixin layer-percentage($font-size) {
-  font-size: $font-size;
+@mixin layer-percentage {
   font-weight: $bold;
   margin-right: rem-calc(12);
-  text-align: right;
-  width: 30%;
 
   display: inline-block;
   position: relative;
@@ -41,6 +38,8 @@
         color: $white;
         padding-top: rem-calc(18);
         padding-bottom: rem-calc(16);
+
+        @include breakpoint($medium) { width: rem-calc(440); }
       }
 
         &__panel-layer {
@@ -48,6 +47,8 @@
           font-size: rem-calc(14);
           margin-bottom: rem-calc(8);
           padding: rem-calc(16 14);
+
+          @include breakpoint($small) { font-size: rem-calc(18); }
         } 
 
         &__panel-sublayer {
@@ -58,56 +59,38 @@
             width: 70%;
           }
 
-          &__panel-layer-percentage {
-            @include layer-percentage(rem-calc(20));
-
-            &::before {
-              background-color: $grey;
-              border: solid 2px $white;
-              border-radius: 100%;
-              content: '';
-              width: rem-calc(26); height: rem-calc(26);
-
-              display: block;
-              position: absolute;
-              top: 0;
+          &__panel-layer-stat {
+            align-self: flex-start;
+            text-align: right;
+            width: 40%;
+            
+            @include breakpoint($small) { 
+              align-self: center;
+              width: rem-calc(144); 
             }
 
-            &::after {
-              background-color: $green;
-              border: solid 2px $white;
-              border-radius: 100%;
-              content: '';
-              width: rem-calc(16); height: rem-calc(16);
-
-              display: block;
-              position: absolute;
-              top: rem-calc(5);
-              left: rem-calc(5);
+            @include breakpoint($medium) { 
+              align-self: flex-start;
+              width: rem-calc(156); 
             }
           }
+          
+          &__panel-layer-button {
+            background-color: $grey;
+            border: solid 2px $white;
+            border-radius: 100%;
+            margin-right: rem-calc(14);
+            width: rem-calc(30); height: rem-calc(30);
 
-          &__panel-sublayer-percentage {
-            @include layer-percentage(rem-calc(15));
-
-            &::before {
-              background-color: $grey;
-              border: solid 1px $white;
+            display: block;
+            position: relative;
+            
+            &::after {
+              background-color: $green;
+              border: solid 2px $white;
               border-radius: 100%;
               content: '';
               width: rem-calc(16); height: rem-calc(16);
-
-              display: block;
-              position: absolute;
-              top: 0;
-            }
-
-            &::after {
-              background-color: $green;
-              border: solid 1px $white;
-              border-radius: 100%;
-              content: '';
-              width: rem-calc(10); height: rem-calc(10);
 
               display: block;
               position: absolute;
@@ -116,9 +99,49 @@
             }
           }
 
+          &__panel-layer-percentage {
+            @include layer-percentage;
+            font-size: rem-calc(20);
+
+            @include breakpoint($small) { font-size: rem-calc(40); }
+          }
+
+          &__panel-sublayer-button {
+            background-color: $grey;
+            border: solid 1px $white;
+            border-radius: 100%;
+            margin-right: rem-calc(10);
+            width: rem-calc(22); height: rem-calc(22);
+
+            display: block;
+            position: relative;
+            
+            &::after {
+              background-color: $green;
+              border: solid 1px $white;
+              border-radius: 100%;
+              content: '';
+              width: rem-calc(14); height: rem-calc(14);
+
+              display: block;
+              position: absolute;
+              top: rem-calc(2);
+              left: rem-calc(2);
+            }
+          }
+
+          &__panel-sublayer-percentage {
+            @include layer-percentage;
+            font-size: rem-calc(15);
+
+            @include breakpoint($small) { font-size: rem-calc(30); }
+          }
+
         &__source {
           font-size: rem-calc(14);
           font-style: italic;
+
+          @include breakpoint($small) { font-size: rem-calc(18); }
         }      
     }
   }

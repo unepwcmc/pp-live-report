@@ -77,6 +77,9 @@ h3 {
     font-size: rem-calc(20);
     font-weight: $light;
     margin: 0;
+
+    @include breakpoint($small) { font-size: rem-calc(30); }
+    @include breakpoint($medium) { font-size: rem-calc(40); }
   }
 }
 
@@ -90,7 +93,6 @@ h4 {
 
 p {
   font-weight: $light;
-  line-height: $body-line-height;
   margin-top: 0;
 }
 

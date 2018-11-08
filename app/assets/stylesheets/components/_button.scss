@@ -30,7 +30,7 @@
     }
 
     &::after {
-      background-image: url('icons/arrow-right.svg');
+      background-image: image-url('icons/arrow-right.svg');
       content: '';
       margin-left: rem-calc(10);
       width: rem-calc(20); height: rem-calc(14);

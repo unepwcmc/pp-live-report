@@ -2,7 +2,7 @@
   <div class="accordion-item">
     <a class="accordion-item__title flex flex-h-between" @click="toggleAccordionContent()">
       <h3 class="heading--accordion">{{ title }}</h3>
-      <i class="accordion-item__icon">{{ arrow }}</i>
+      <i class="accordion-item__icon" :class="{ 'active': isActive }">{{ arrow }}</i>
     </a>
     
     <transition name="accordion-toggle">
@@ -33,12 +33,6 @@
     data () {
       return {
         isActive: this.open
-      }
-    },
-
-    computed: {
-      arrow () {
-        return this.isActive ? '-' : '+'
       }
     },
 

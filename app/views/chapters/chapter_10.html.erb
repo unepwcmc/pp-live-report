@@ -4,11 +4,9 @@
   <div class="container--medium">
     <accordion>
       <% @data['accordion'].each_with_index do |item, index| %>
-      <%= item.inspect %>
         <accordion-item id="accordion-item-<%= index %>" title="<%= item['title'] %>">
           <% item['content'].each do |content| %>
-            <%= content.inspect %>
-            <p class="medium"><%= content['title'] %></p>
+            <p class="accordion-item__content-title"><%= content['title'] %></p>
             <p><%= content['text'] %></p>
           <% end %>
         </accordion-item>

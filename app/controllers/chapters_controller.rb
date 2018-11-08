@@ -138,6 +138,30 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
 
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: "Terrestrial Protected Areas",
+          percentage: 10
+        },
+        {
+          title: "Marine & Coastal Protected Areas",
+          percentage: 10,
+          sublayers: [
+            {
+              title: "Exclusive Economic Zones (EEZ)",
+              percentage: 10,
+            },
+            {
+              title: "Areas beyond National Jurisdiction (ABNJ)",
+              percentage: 10,
+            }
+          ]
+        }
+      ]
+    }
+
     @global_area_chart = {
       id: "global-area-chart",
       legend: [

@@ -8,7 +8,7 @@
   @include breakpoint($medium) { margin-top: rem-calc(50); }
 
   &-item {
-    border: solid 1px $grey-dark;
+    border: solid 1px $grey-xdark;
     margin-bottom: rem-calc(8);
     padding: rem-calc(14 26 14 14);
 

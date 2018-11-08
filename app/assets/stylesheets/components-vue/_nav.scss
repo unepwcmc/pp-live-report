@@ -12,7 +12,7 @@
     position: relative;
 
     &::after {
-      background-color: $grey;
+      background-color: $grey-dark;
       content: '';
       width: rem-calc(3);
 
@@ -34,7 +34,7 @@
     }
 
     &__button {
-      background-color: $grey;
+      background-color: $grey-dark;
       border: none;
       border-radius: 100%;
       color: inherit;
@@ -48,7 +48,7 @@
       position: relative;
 
       &:before {
-        background-color: $grey;
+        background-color: $grey-dark;
         border-radius: 100%;
         content: ''; 
         width: rem-calc(31); height: rem-calc(31);
@@ -67,7 +67,7 @@
 
     &__button-active {
       background-color: $green;
-      color: $grey-dark;
+      color: $grey-xdark;
       font-weight: $bold;
 
       &:before { 

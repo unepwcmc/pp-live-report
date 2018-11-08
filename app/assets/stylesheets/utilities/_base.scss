@@ -46,6 +46,12 @@ h2 {
     font-size: rem-calc(70);
     font-weight: $light;
   }
+
+  &.map {
+    font-size: rem-calc(20);
+
+    @include breakpoint($small) { font-size: rem-calc(25); }
+  }
 }
 
 h3 {

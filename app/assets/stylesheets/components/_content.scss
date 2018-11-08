@@ -7,7 +7,7 @@
 // extra-large
 //--------------------------------------------------
   &--x-large {
-    background-color: $grey-dark;
+    background-color: $grey-xdark;
     overflow: hidden;
     padding: rem-calc(24 0 36 0);
 
@@ -38,7 +38,7 @@
       }
 
       &__background {
-        color: $grey;
+        color: $grey-dark;
         font-size: rem-calc(300);
         font-weight: $fw-black;
         line-height: 0.8;
@@ -57,7 +57,7 @@
 // next steps
 //--------------------------------------------------
   &--next-steps {
-    background-color: $grey-dark;
+    background-color: $grey-xdark;
     color: $white;
     padding: rem-calc(50 0 40 0);
 

@@ -43,7 +43,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <map-infographic></map-infographic>
+    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
   </div>
 </section>
 

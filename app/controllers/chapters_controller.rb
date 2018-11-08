@@ -251,6 +251,23 @@ class ChaptersController < ApplicationController
         }
       ]
     }
+
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        }, 
+        {
+          title: '0 - 10%'
+        }, 
+        {
+          title: '10% - 50%'
+        }, 
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
   end
 
   def chapter_3

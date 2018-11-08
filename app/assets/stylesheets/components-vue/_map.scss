@@ -28,9 +28,14 @@
 // statistics map
 //--------------------------------------------------
   &--statistics {
+    position: relative;
+
     .map {
       &__map {
         width: 100%; height: rem-calc(210);
+
+        @include breakpoint($small) { height: rem-calc(400); }
+        @include breakpoint($medium) { height: rem-calc(668); }
       }
 
       &__panel {
@@ -39,7 +44,15 @@
         padding-top: rem-calc(18);
         padding-bottom: rem-calc(16);
 
-        @include breakpoint($medium) { width: rem-calc(440); }
+        @include breakpoint($medium) { 
+          width: rem-calc(440); 
+
+          position: absolute;
+          top: calc(668px * .5);
+          right: 0;
+
+          transform: translateY(-50%);
+        }
       }
 
         &__panel-layer {

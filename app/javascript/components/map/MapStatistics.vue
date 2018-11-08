@@ -62,7 +62,7 @@
 
         let map = new mapboxgl.Map({
           container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v9'
+          style: 'mapbox://styles/unepwcmc/cjo95gdrg0qzh2roan77pelcj'
         })
       }
     }

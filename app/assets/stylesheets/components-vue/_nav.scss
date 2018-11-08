@@ -90,9 +90,14 @@
     .nav {
       &__trigger {
         background-image: image-url('icons/burger.svg');
+        background-size: cover;
         cursor: pointer;
-        width: rem-calc(50); height: rem-calc(37);
+        width: rem-calc(30); height: rem-calc(22); 
         display: block;
+
+        @include breakpoint($medium) { 
+          width: rem-calc(50); height: rem-calc(37);
+        }
       }
 
       &__target{

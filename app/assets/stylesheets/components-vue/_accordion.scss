@@ -2,6 +2,10 @@
 // accordion
 //--------------------------------------------------
 .accordion {
+  margin-top: rem-calc(20);
+
+  @include breakpoint($small) { margin-top: rem-calc(30); }
+  @include breakpoint($medium) { margin-top: rem-calc(50); }
 
   &-item {
     border: solid 1px $grey-dark;

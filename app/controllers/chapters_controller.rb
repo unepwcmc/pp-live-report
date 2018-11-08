@@ -8,7 +8,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
 
     @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
-    
+
     @doughnut_chart = [
       {
         title: "No poverty",
@@ -219,7 +219,7 @@ class ChaptersController < ApplicationController
         y: ["Area", "(Million km2)"]
       },
       targets: [
-        { 
+        {
           y: 40,
           title: "Marine target (10%)"
         },
@@ -256,13 +256,13 @@ class ChaptersController < ApplicationController
       legend: [
         {
           title: 'Data deficient'
-        }, 
+        },
         {
           title: '0 - 10%'
-        }, 
+        },
         {
           title: '10% - 50%'
-        }, 
+        },
         {
           title: '50% - 100%'
         }
@@ -608,7 +608,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
   end
 
-  def chater_10
+  def chapter_10
     @chapter_number = 10
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))
   end

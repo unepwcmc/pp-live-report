@@ -3,7 +3,7 @@
 //--------------------------------------------------
 .icon {
   &--arrow-right {
-    background-image: url('icons/arrow-right.svg');
+    background-image: image-url('icons/arrow-right.svg');
     width: rem-calc(27); height: rem-calc(19);
 
     display: inline-block;

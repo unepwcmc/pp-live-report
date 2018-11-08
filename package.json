@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "datamaps": "^0.5.9",
+    "dotenv": "^6.1.0",
     "es6-promise": "^4.2.5",
     "vue": "^2.5.17",
     "vue-loader": "14.2.2",

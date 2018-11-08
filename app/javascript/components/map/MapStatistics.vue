@@ -43,9 +43,22 @@
       source: String
     },
 
+    data () {
+      return {
+        mapbox: {
+          accessToken: process.env.MAPBOX_TOKEN,
+          // baseUrl: 'https://api.mapbox.com/geocoding/v5/mapbox.places'
+        },
+      }
+    },
+
+    mounted () {
+      this.createMap()
+    },
+
     methods: {
       createMap () {
-        mapboxgl.accessToken = 'undefined'
+        mapboxgl.accessToken = this.mapbox.accessToken
 
         let map = new mapboxgl.Map({
           container: 'map',

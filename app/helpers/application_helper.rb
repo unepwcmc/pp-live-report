@@ -49,4 +49,19 @@ module ApplicationHelper
   def active_nav_item?(test_path)
     request.fullpath == test_path
   end
+
+  def main_nav
+    @main_nav = Array.new
+
+    (1..10).each do |i|
+      data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
+
+      @main_nav.push({
+        'title': data['title'],
+        'url': send("chapter_#{i}_path")
+      })
+    end 
+    
+    @main_nav = @main_nav
+  end
 end

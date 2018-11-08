@@ -1,8 +1,10 @@
 <template>
   <li class="nav__li" :class="[{ 'active': currentPage }, classes]">
     <a :href="href" class="nav__a" :class="[iconClass]">
-      <span class="nav__text">{{ text }}</span>
-      <span class="nav__title">{{ title }}</span>
+      <p class="nav__text">
+        <span class="nav__subtitle">{{ subtitle }}</span>
+        <span class="nav__title">{{ title }}</span>
+      </p>
       <slot></slot>
     </a>
   </li>
@@ -13,8 +15,15 @@
     name: 'nav-link',
 
     props: {
-      href: { required: true },
-      text: { required: true },
+      href: { 
+        type: String,
+        required: true 
+      },
+      title: { 
+        type: String,
+        required: true 
+      },
+      subtitle: String,
       icon: String,
       currentPage: Boolean,
       classes: String

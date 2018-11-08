@@ -1,82 +1,11 @@
 <nav-burger classes="nav--burger">
-  <nav-link 
-    href="<%= chapter_1_path %>" 
-    :current-page="<%= active_nav_item? chapter_1_path %>" 
-    text="Chapter 1"
-    title="">
-    <span class="nav__button flex flex-center">1</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_2_path %>" 
-    :current-page="<%= active_nav_item? chapter_2_path %>" 
-    text="Chapter 2"
-    title="">
-    <span class="nav__button flex flex-center">2</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_3_path %>" 
-    :current-page="<%= active_nav_item? chapter_3_path %>" 
-    text="Chapter 3"
-    title="">
-    <span class="nav__button flex flex-center">3</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_4_path %>" 
-    :current-page="<%= active_nav_item? chapter_4_path %>" 
-    text="Chapter 4"
-    title="">
-    <span class="nav__button flex flex-center">4</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_5_path %>" 
-    :current-page="<%= active_nav_item? chapter_5_path %>" 
-    text="Chapter 5"
-    title="">
-    <span class="nav__button flex flex-center">5</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_6_path %>" 
-    :current-page="<%= active_nav_item? chapter_6_path %>" 
-    text="Chapter 6"
-    title="">
-    <span class="nav__button flex flex-center">6</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_7_path %>" 
-    :current-page="<%= active_nav_item? chapter_7_path %>" 
-    text="Chapter 7"
-    title="">
-    <span class="nav__button flex flex-center">7</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_8_path %>" 
-    :current-page="<%= active_nav_item? chapter_8_path %>" 
-    text="Chapter 8"
-    title="">
-    <span class="nav__button flex flex-center">8</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_9_path %>" 
-    :current-page="<%= active_nav_item? chapter_9_path %>" 
-    text="Chapter 9"
-    title="">
-    <span class="nav__button flex flex-center">9</span>
-  </nav-link>
-
-  <nav-link 
-    href="<%= chapter_10_path %>" 
-    :current-page="<%= active_nav_item? chapter_10_path %>" 
-    text="Chapter 10"
-    title="">
-    <span class="nav__button flex flex-center">10</span>
-  </nav-link>
-
+  <% main_nav.each_with_index do |chapter, index| %>
+    <nav-link 
+      href="<%= chapter[:url] %>" 
+      :current-page="<%= active_nav_item? chapter[:url] %>" 
+      subtitle="Chapter <%= index + 1 %>"
+      title="<%= chapter[:title] %>">
+      <span class="nav__button flex flex-center"><%= index + 1 %></span>
+    </nav-link>
+  <% end %>
 </nav-burger>

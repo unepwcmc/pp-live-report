@@ -130,7 +130,7 @@
             @extend %nav__item;
             @extend .flex;
             @extend .flex-h-end;
-            padding-bottom: rem-calc(60); 
+            padding-bottom: rem-calc(110); 
 
             position: relative;
 
@@ -141,7 +141,7 @@
             }
 
             &::after {
-              height: rem-calc(60);
+              height: rem-calc(110);
 
               right: 0;
 
@@ -156,11 +156,24 @@
 
               &__text {
                 @extend %nav__text;
-
+                padding-right: rem-calc(44);
+                
+                top: rem-calc(-26);
                 left: 0;
-
-                .active & { font-weight: bold; }
               }
+
+                &__title {
+                  font-size: rem-calc(25);
+                  line-height: 1.2;
+                  display: block;
+
+                  .active & { font-weight: $bold; }
+                }
+
+                &__subtitle {
+                  font-size: rem-calc(18);
+                  font-weight: $thin;
+                }
 
               &__button {
                 @extend %nav__button;

@@ -7,7 +7,11 @@
   <p>
   
   <div class="flex flex-v-center">
-    <%= link_to 'Full report PDF download', '', title: 'Download the full report PDF', target: '_blank', class: 'button--download' %>
+    <%= link_to '', title: 'Download the full report PDF', target: '_blank', class: 'button--download' do %>
+      <i class="icon--download"></i>
+      <span class="button--download__text">Full report PDF download</span>
+    <% end %>
+
     <%= render 'partials/social-sharing' %>
     <%= render 'partials/nav' %>
   </div>

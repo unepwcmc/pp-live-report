@@ -108,6 +108,14 @@ h4 {
 p {
   font-weight: $light;
   margin-top: 0;
+
+  &.p--main {
+    font-size: rem-calc(16);
+    font-weight: $light;
+    line-height: 1.6;
+
+    @include breakpoint($medium) { font-size: rem-calc(18); }
+  }
 }
 
 a {

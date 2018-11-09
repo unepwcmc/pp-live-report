@@ -9,27 +9,38 @@
   &--fixed {
     color: $white;
     background-color: rgba($black, 0.8);
+    padding-right: rem-calc(70);
     width: 100%; height: 100vh;
 
     position: relative;
+
+    @include breakpoint($small) { padding-right: 0; }
 
     .carousel {
       &__nav {
         position: absolute;
         top: 50%;
-        right: rem-calc(30);
+        right: $gutter-small;
 
         transform: translateY(-50%);
+
+        @include breakpoint($small) { right: rem-calc(30); }
       }
 
         &__nav-item {
           @extend %nav__item;
           padding-bottom: 26px;
 
+          &:last-child { padding-bottom: 0; }
+
           &.active {
             font-weight: $normal;
 
-            .carousel__nav-text { display: inline-block; }
+            .carousel__nav-text { 
+              display: none;
+
+              @include breakpoint($medium) { display: inline-block; }
+            }
 
             .carousel__nav-button {
               @extend %nav__button-active;
@@ -60,26 +71,44 @@
 
       &__slide {
         @extend .gutters;
-        font-size: rem-calc(20);
+        font-size: rem-calc(16);
         font-weight: $light;
-        width: 100%;
-        max-width: $site-width;
+        padding-top: rem-calc(50);
+        padding-bottom: rem-calc(40);
 
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        @include breakpoint($small) { 
+          font-size: rem-calc(20);
+          padding-top: 0;
+          padding-right: rem-calc(100);
+          padding-bottom: 0;
+          width: 100%;
 
-        transform: translate(-50%, -50%);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+
+          transform: translate(-50%, -50%);
+        }
+
+        @include breakpoint($medium) {
+          max-width: $site-width;
+        }
       }
 
         &__title {
-          width: 50%;
+          @include breakpoint($medium) { width: 50%; } 
         }
 
-        &__subtitle { margin: rem-calc(0 0 8 2); }
+        &__subtitle { 
+          font-size: rem-calc(18);
+          margin: rem-calc(0 0 8 2); 
+
+          @include breakpoint($medium) { font-size: rem-calc(20); }
+        }
+
 
         &__intro {
-          width: 50%;
+          @include breakpoint($medium) { width: 50%; } 
         }
     }
   }

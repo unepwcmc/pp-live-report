@@ -23,12 +23,17 @@ h1 {
   }
 
   &.heading--home {
+    font-size: rem-calc(40);
+    font-weight: $bold;
+    line-height: 1.1;
+    margin-bottom: rem-calc(20);
+
     @include breakpoint($small) { 
-      font-size: rem-calc(100);
-      font-weight: $bold;
-      line-height: 1.1;
+      font-size: rem-calc(70);
       margin-bottom: rem-calc(50);
     }
+
+    @include breakpoint($medium) { font-size: rem-calc(100); }
   }
 }
 
@@ -43,8 +48,11 @@ h2 {
   }
 
   &.heading--carousel {
-    font-size: rem-calc(70);
+    font-size: rem-calc(25);
     font-weight: $light;
+
+    @include breakpoint($small) { font-size: rem-calc(60); }
+    @include breakpoint($medium) { font-size: rem-calc(70); }
   }
 
   &.map {

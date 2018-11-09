@@ -11,19 +11,40 @@
     border-top: solid rem-calc(8) $primary;
     color: $white;
     padding-top: rem-calc(24);
-    height: 100vh;
+    padding-bottom: rem-calc(50);
+    
+    @include breakpoint($small) { height: 100vh; }
 
     .hero {
       &__content { margin-top: 10%; }
       
       &__intro {
-        font-size: rem-calc(20);
+        font-size: rem-calc(16);
         font-weight: $light;
         line-height: 1.5;
-        width: 48%;
 
-        @include breakpoint($small) { width: $small-container; }
+        @include breakpoint($small) { font-size: rem-calc(20); }
+
+        @include breakpoint($medium) { width: $small-container; }
       }
+
+      &__last-updated {
+        font-size: rem-calc(20);
+        margin: 0;
+
+        position: absolute;
+        bottom: rem-calc(0);
+        left: $gutter-small;
+
+        @include breakpoint($small) { bottom: rem-calc(26); left: $gutter-medium; }
+        @include breakpoint($medium) { left: $gutter-large; }
+      }
+
+        &__last-updated-date {
+          font-size: rem-calc(28);
+
+          display: block;
+        }
     }
   }
 

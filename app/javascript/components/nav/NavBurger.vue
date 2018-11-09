@@ -3,7 +3,7 @@
     <span class="nav__trigger" @click="toggle"></span>
     
     <div class="nav__target" :class="{ 'active': isActive }">
-      <button class="nav__close icon--close" @click="toggle">X</button>
+      <span class="nav__close icon--close" @click="toggle"></span>
       <ul class="nav__ul ul-unstyled">
         <slot></slot>
       </ul>

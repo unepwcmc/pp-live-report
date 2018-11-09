@@ -95,9 +95,8 @@
         width: rem-calc(30); height: rem-calc(22); 
         display: block;
 
-        @include breakpoint($medium) { 
-          width: rem-calc(50); height: rem-calc(37);
-        }
+        @include breakpoint($small) { width: rem-calc(46); height: rem-calc(34); }
+        @include breakpoint($medium) { width: rem-calc(50); height: rem-calc(37); }
       }
 
       &__target{
@@ -125,9 +124,16 @@
       }
     
         &__close {
+          background-image: image-url('icons/close.svg');
+          background-size: cover;
+          cursor: pointer;
+          width: rem-calc(19); height: rem-calc(19);
+
           position: absolute;
           top: rem-calc(25);
           right: rem-calc(25);
+
+          @include breakpoint($small) { width: rem-calc(29); height: rem-calc(29); }
         }
 
         &__ul { }

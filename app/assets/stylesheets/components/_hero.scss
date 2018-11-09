@@ -61,6 +61,7 @@
       &__intro {
         font-size: rem-calc(20); 
         font-weight: $light; 
+        line-height: 1.3;
 
         @include breakpoint($small) { 
           margin-top: rem-calc(20);

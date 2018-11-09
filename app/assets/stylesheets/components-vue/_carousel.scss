@@ -108,7 +108,12 @@
 
 
         &__intro {
-          @include breakpoint($medium) { width: 50%; } 
+          line-height: 1.3;
+
+          @include breakpoint($medium) { 
+            font-size: rem-calc(20);
+            width: 50%; 
+          } 
         }
     }
   }

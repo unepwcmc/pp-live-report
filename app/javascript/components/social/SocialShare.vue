@@ -1,6 +1,6 @@
 <template>
   <div class="social--share" :class="classes">
-    <button class="social--share social__trigger" @click="toggle">Share</button>
+    <span class="social--share social__trigger icon--share" @click="toggle"></span>
     
     <div class="social__target" :class="{ 'active': isActive }">
       <slot></slot>

@@ -11,7 +11,7 @@
     border-top: solid rem-calc(8) $primary;
     color: $white;
     padding-top: rem-calc(24);
-    padding-bottom: rem-calc(50);
+    padding-bottom: rem-calc(20);
     
     @include breakpoint($small) { height: 100vh; }
 
@@ -29,21 +29,25 @@
       }
 
       &__last-updated {
-        font-size: rem-calc(20);
-        margin: 0;
+        font-size: rem-calc(14);
+        margin: rem-calc(60 0 0 $gutter-small);
 
-        position: absolute;
-        bottom: rem-calc(0);
-        left: $gutter-small;
-
-        @include breakpoint($small) { bottom: rem-calc(26); left: $gutter-medium; }
+        @include breakpoint($small) { 
+          font-size: rem-calc(20);
+          
+          position: absolute;
+          bottom: rem-calc(26); 
+          left: $gutter-medium; 
+        }
         @include breakpoint($medium) { left: $gutter-large; }
       }
 
         &__last-updated-date {
-          font-size: rem-calc(28);
+          font-size: rem-calc(20);
 
           display: block;
+
+          @include breakpoint($small) { font-size: rem-calc(28); }
         }
     }
   }

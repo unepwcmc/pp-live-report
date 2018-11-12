@@ -1,10 +1,8 @@
 <div class="topbar--primary flex flex-h-between gutters">
-  <p>
-    <%= link_to root_path, title: site_title do %>
-      <%= image_tag '', alt: site_title + ' logo' %>
-    <% end %>
-    | Digital Report
-  <p>
+  <%= link_to root_path, title: site_title, class: 'topbar__site-link flex flex-v-center' do %>
+    <%= image_tag 'logos/logo-protected-planet.svg', alt: site_title + ' logo', class: "topbar__logo" %>
+    <span class="topbar__logo-text">Digital Report</span>
+  <% end %>
   
   <div class="flex flex-v-center">
     <%= link_to '', title: 'Download the full report PDF', target: '_blank', class: 'button--download' do %>

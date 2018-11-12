@@ -10,10 +10,13 @@
     background-color: $black;
     border-top: solid rem-calc(8) $primary;
     color: $white;
-    padding-top: rem-calc(24);
+    padding-top: rem-calc(12);
     padding-bottom: rem-calc(20);
     
-    @include breakpoint($small) { height: 100vh; }
+    @include breakpoint($small) { 
+      padding-top: rem-calc(24);
+      height: 100vh; 
+    }
 
     .hero {
       &__content { margin-top: 10%; }

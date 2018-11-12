@@ -2,11 +2,31 @@
 // topbar
 //--------------------------------------------------
 .topbar {
-  
-//--------------------------------------------------
-// primary topbar
-//--------------------------------------------------
-  &--primary {
-    
+  &__site-link {
+    color: $white;
+    text-decoration: none;
   }
+  
+    &__logo {
+      border-right: solid 1px $white;
+      margin-right: rem-calc(6);
+      opacity: .8;
+      padding-right: rem-calc(8);
+      width: auto; height: rem-calc(22);
+
+      @include breakpoint($small) { 
+        margin-right: rem-calc(12);
+        padding-right: rem-calc(14);
+        height: rem-calc(50); 
+      }
+
+      @include breakpoint($medium) { height: rem-calc(55); }
+    }
+
+    &__logo-text {
+      font-size: rem-calc(10);
+      white-space: nowrap;
+
+      @include breakpoint($small) { font-size: rem-calc(16); }
+    }
 }

@@ -2,18 +2,52 @@
 // footer
 //--------------------------------------------------
 .footer {
+  align-items: flex-start;
   background-color: $black;
+  flex-direction: column;
+  font-size: rem-calc(12);
   color: $white;
+  padding-top: rem-calc(20);
+  padding-bottom: rem-calc(20);
 
-  @include breakpoint($small) { height: rem-calc(109); }
+  display: flex;
 
-  &__a {
-    text-decoration: none;
-    @include breakpoint($small) { margin-left: rem-calc(38); }
+  @include breakpoint($small) { 
+    align-items: center;
+    flex-direction: row;
+    font-size: rem-calc(14);
+    height: rem-calc(84); 
   }
 
-    &__logo {
-      opacity: .55;
-      width: auto; height: rem-calc(44);
+  @include breakpoint($medium) { 
+    font-size: rem-calc(16);
+    height: rem-calc(109); 
+  }
+
+  &__partner-logos {
+    margin-top: rem-calc(10);
+
+    @include breakpoint($small) {
+      align-items: center;
+      display: flex;
     }
+  }
+
+    &__a {
+      margin: rem-calc(4 12 4 0);
+      text-decoration: none;
+
+      display: inline-block;
+
+      @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
+      @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
+    }
+
+      &__logo {
+        opacity: .55;
+        width: auto; height: rem-calc(20);
+
+        @include breakpoint($small) { height: rem-calc(28); }
+        @include breakpoint($medium) { height: rem-calc(44); }
+      }
 }

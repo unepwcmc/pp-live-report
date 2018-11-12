@@ -1,71 +1,73 @@
-title: "Last Chapter"
+title: "Conclusions and Recommendations"
 subtitle: "Chapter ten"
-intro: "Lorem ipsum"
-accordion_title: "Summary of progress towards each element of Aichi Target 11 and recommendations"
+intro: "Since the Aichi Biodiversity Targets were agreed in 2010, there has been significant progress towards achieving elements of Target 11 in terms of land and sea coverage. However, a significant amount of work still needs to be done to achieve other elements of the target. "
+accordion_title: "Summary of key progress towards each element of Aichi Target 11 and recommendations"
 accordion_intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
 accordion:
   -
     title: "Global Coverage"
     content: 
       -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        title: "Progress at the global level in 2018"
+        text: "Protected area coverage (Chapter 2) has increased significantly, with almost 15% of terrestrial areas and over 7% of marine areas protected, mainly within EEZs. With concerted efforts from governments to implement national commitments, this quantitative element is on track to be achieved."
       -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        title: "Recommendations"
+        text: "Recent efforts to expand protected area networks to reach these global goals should be enhanced, and in particular mechanisms agreed for the protection of ABNJs. In particular, identification and recognition of OECMs (see below) is likely to increase both coverage and ecological representativeness and should not be seen in isolation. If implemented strategically, improving coverage will also contribute to enhance other qualitative elements of Aichi Target 11, such as connectivity and integration into the wider landscape and seascape."
   -
     title: "Areas of importance for Biodiversity & ecosystem services"
     content: 
       -
-        title: "Lorem Ipsum"
+        title: "Progress at the global level in 2018"
+        text: "There has been some progress in protecting areas that are important for biodiversity and ecosystem services (Chapter 3). Currently, on average, almost half of each terrestrial, freshwater and marine Key Biodiversity Areas lie within protected areas.
+Significant steps are required to address the conservation of further important areas, and many countries have made commitments to do so.
+"
+      -
+        title: "Recommendations"
+        text: "Any newly designated protected or conserved areas need to be targeted towards documented areas of importance for biodiversity, such as Key Biodiversity Areas. The protection of threatened and rare species should be enhanced, and ecosystem services should be better identified, mapped and protected. The recognition OECMs will likely improve understanding of the status of coverage of these priority areas."
+  -
+    title: "Title"
+    content: 
+      -
+        title: "Progress at the global level in 2018"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
       -
-        title: "Lorem Ipsum"
+        title: "Recommendations"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   -
     title: "Title"
     content: 
       -
-        title: "Lorem Ipsum"
+        title: "Progress at the global level in 2018"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
       -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-  -
-    title: "Title"
-    content: 
-      -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-      -
-        title: "Lorem Ipsum"
+        title: "Recommendations"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   -
     title: "Title"
     content: 
       -
-        title: "Lorem Ipsum"
+        title: "Progress at the global level in 2018"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
       -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-  -
-    title: "Title"
-    content: 
-      -
-        title: "Lorem Ipsum"
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-      -
-        title: "Lorem Ipsum"
+        title: "Recommendations"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   -
     title: "Title"
     content: 
       -
-        title: "Lorem Ipsum"
+        title: "Progress at the global level in 2018"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
       -
-        title: "Lorem Ipsum"
+        title: "Recommendations"
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+  -
+    title: "Title"
+    content: 
+      -
+        title: "Progress at the global level in 2018"
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+      -
+        title: "Recommendations"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   -
     title: "Title"
@@ -74,4 +76,4 @@ accordion:
         title: "Lorem Ipsum"
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
 next_steps_title: "Next steps looking post-2020"
-next_steps_text: "In 2020, governments will agree a new global biodiversity framework that will replace the Strategic Plan for Biodiversity 2011-2020 and its Aichi Biodiversity Targets. This new framework will provide both the context and the level of ambition for action to address concerns regarding biodiversity, including protected areas, until at least 2030. The Convention has already agreed a 2050 Vision of ‘Living in harmony with nature’, which provides context for the post-2020 global framework. In developing a post-2020 strategy, Target 11 will be reviewed and State Parties will assess whether this target is still adequate and, if not, what space needs to be conserved and how in order to sustain humans and the rest of life on Earth."
+next_steps_text: "In 2020, governments will agree a new global biodiversity framework. This framework will provide both the context and the level of ambition for action to address threats to biodiversity, including in relation to protected and conserved areas. The Convention has already agreed a 2050 Vision of ‘Living in harmony with nature’, which provides context for the post-2020 global framework. In developing a post-2020 strategy, Aichi Target 11 will be reviewed and Parties to the CBD are anticipated to agree on new targets and measures for area-based conservation."

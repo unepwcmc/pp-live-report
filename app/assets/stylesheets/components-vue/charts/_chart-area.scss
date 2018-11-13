@@ -27,14 +27,26 @@
 
           &__bar {
             position: relative;
-
-            &-land { background-color: $chart-green; }
-            &-marine { 
-              background-color: $chart-blue; 
+        
+            &-abnj { 
+              background-color: $chart-abnj; 
               border-right: solid $white 1px;
             }
+
+            &-eez { 
+              background-color: $chart-eez; 
+              border-right: solid $white 1px;
+            }
+
+            &-land { background-color: $chart-land; }
+
+            &-marine { 
+              background-color: $chart-marine; 
+              border-right: solid $white 1px;
+            }
+
             &-pa { 
-              background-color: $chart-navy; 
+              background-color: $chart-blue-xdark; 
 
               position: absolute;
               top: rem-calc(20);
@@ -44,15 +56,15 @@
 
           &__label {
             position: absolute;
-            top: 50%;
+            bottom: rem-calc(10);
             left: 50%;
 
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
           }
 
       &__legend-item {
         &:first-child {
-          .chart__legend-key { background-color: $chart-navy; }
+          .chart__legend-key { background-color: $chart-blue-xdark; }
         }
       }
     }

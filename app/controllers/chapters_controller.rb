@@ -54,6 +54,7 @@ class ChaptersController < ApplicationController
           title: "Ocean",
           class: "marine",
           percent: 71,
+          cssPercent: 71,
           protected_areas: {
             title: "1.",
             percent: 7.44
@@ -63,6 +64,7 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
+          cssPercent: 29,
           protected_areas: {
             title: "1.",
             percent: 15
@@ -82,7 +84,8 @@ class ChaptersController < ApplicationController
         {
           title: "ABNJ",
           percent: 61,
-          class: "marine",
+          cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
+          class: "abnj",
           protected_areas: {
             title: "1.",
             percent: 17.3
@@ -91,7 +94,8 @@ class ChaptersController < ApplicationController
         {
           title: "EEZ",
           percent: 39,
-          class: "marine",
+          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
+          class: "eez",
           protected_areas: {
             title: "1.",
             percent: 1.18
@@ -101,7 +105,12 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
-          active: false
+          cssPercent: 29,
+          active: false,
+          protected_areas: {
+            title: "1.",
+            percent: 15
+          }
         },
       ]
     }

@@ -109,7 +109,7 @@
           max: 0,
           axisMarks: 8
         },
-        colours: ['#1D7DA6', '#03B0DA', '#71A32B', '#CCCBCB'],
+        colours: ['#207D94', '#6FD9F2', '#86BF37', '#CCCBCB'],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },

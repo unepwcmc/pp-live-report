@@ -1,13 +1,15 @@
 <template>
   <div class="chart--area">
     <div class="chart__chart flex">
-      <div v-for="dataset in datasets" class="chart__dataset" :style="style(dataset.percent)">
-        <div class="chart__bar" :class="['chart__bar-' + dataset.class]" :style="{ height: height + 'px' }"></div>
-        <span class="chart__label">{{ dataset.title }} {{dataset.percent }}%</span>
+      <div v-for="dataset in datasets" class="chart__dataset" :style="style(dataset.cssPercent)">
+        <div class="chart__bar" :class="['chart__bar-' + dataset.class]" :style="{ height: height + 'px' }">
+          <p class="chart__label no-margin">{{ dataset.title }} <span class="chart__label-percentage">{{dataset.percent }}%</span></p>
+        </div>
 
         <div v-if="dataset.protected_areas">
-          <div class="chart__bar chart__bar-pa" :style="getPaSize(dataset.percent, dataset.protected_areas.percent)"></div>
-          <span class="chart__label">{{ dataset.title }} {{dataset.percent }}%</span>
+          <div class="chart__bar chart__bar-pa" :style="getPaSize(dataset.cssPercent, dataset.protected_areas.percent)">
+            <p class="chart__label-pa no-margin">{{ dataset.protected_areas.title }} <span class="chart__label-percentage">{{dataset.protected_areas.percent }}%</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -50,6 +52,10 @@
     methods: {
       style (percent) {
         return `width: ${percent}%`
+      },
+
+      getNestedDatasetWidth () {
+
       },
 
       getPaSize (parentPercent, paPercent) {

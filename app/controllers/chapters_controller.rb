@@ -9,127 +9,7 @@ class ChaptersController < ApplicationController
 
     @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
-    @doughnut_chart = [
-      {
-        title: "No poverty",
-        colour: "#E5243B",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-01.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Zero hunger",
-        colour: "#DDA63A",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-02.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Good Health and Well-being",
-        colour: "#4C9F38",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-03.png'),
-        description: "The link between biodiversity and human health is increasingly recognized. By protecting ecosystems, protected areas help mitigate the spread and impact of pollution. For instance, protecting forests help regulate water flow and improve water quality. Medicines are also be derived from biodiversity. Finally, by offering recreational opportunities, protected areas also contribute to enhancing physical and mental well-being.",
-        url: "http://google.com"
-      },
-      {
-        title: "Quality education",
-        colour: "#C5192D",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-04.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Gender equality",
-        colour: "#FF3A21",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-05.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Clean water and sanitation",
-        colour: "#26BDE2",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-06.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Affordable and clean energy",
-        colour: "#FCC30B",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-07.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Decent work and economic growth",
-        colour: "#A21942",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-08.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Industry, innovation and infrastructure",
-        colour: "#FD6925",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-09.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Reduced inequalities",
-        colour: "#DD1367",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-10.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Sustainable cites and communities",
-        colour: "#FD9D24",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-11.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Responsible consumption and production",
-        colour: "#BF8B2E",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-12.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Climate action",
-        colour: "#3F7E44",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-13.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Life below water",
-        colour: "#0A97D9",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-14.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Life on land",
-        colour: "#56C02B",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-15.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Peace, justice and strong institutions",
-        colour: "#00689D",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-16.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      },
-      {
-        title: "Partnerships for the goals",
-        colour: "#19486A",
-        icon: ActionController::Base.helpers.image_url('icons/sdg-goal-17.png'),
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        url: "http://google.com"
-      }
-    ].to_json
+    @doughnut_chart = @data['doughnut_chart_data'].to_json
   end
 
   def chapter_2
@@ -174,6 +54,7 @@ class ChaptersController < ApplicationController
           title: "Ocean",
           class: "marine",
           percent: 71,
+          cssPercent: 71,
           protected_areas: {
             title: "1.",
             percent: 7.44
@@ -183,6 +64,7 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
+          cssPercent: 29,
           protected_areas: {
             title: "1.",
             percent: 15
@@ -202,7 +84,8 @@ class ChaptersController < ApplicationController
         {
           title: "ABNJ",
           percent: 61,
-          class: "marine",
+          cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
+          class: "abnj",
           protected_areas: {
             title: "1.",
             percent: 17.3
@@ -211,7 +94,8 @@ class ChaptersController < ApplicationController
         {
           title: "EEZ",
           percent: 39,
-          class: "marine",
+          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
+          class: "eez",
           protected_areas: {
             title: "1.",
             percent: 1.18
@@ -221,7 +105,12 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
-          active: false
+          cssPercent: 29,
+          active: false,
+          protected_areas: {
+            title: "1.",
+            percent: 15
+          }
         },
       ]
     }

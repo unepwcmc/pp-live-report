@@ -40,11 +40,18 @@ $chart-purple: #423781;
 $chart-teal: #227190;
 $chart-yellow: #F7BA02;
 
+$chart-land: $chart-green;
+$chart-marine: #03B0DA;
+$chart-abnj: #207D94;
+$chart-eez: #6FD9F2;
+
 $accent: green;
 
 $theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light;
 $theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light;
 $theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue;
+
+$black-gradient: linear-gradient(268.14deg, rgba(255,255,255,0) 0%, #000000 100%);
 
 //--------------------------------------------------
 // fonts
@@ -116,3 +123,17 @@ $radius-button: 0;
 $topbarHeightSmall: rem-calc(47);
 $topbarHeightMedium: rem-calc(60);
 $topbarHeightLarge: rem-calc(93);
+
+//--------------------------------------------------
+// images
+//--------------------------------------------------
+$chapter-image-1: image-url('hero/hero-1-yellowstone-national-geographic-2411738-cr-michael-nichols-min.jpg');
+$chapter-image-2: image-url('hero/hero-2-masai-mara-national-park-kenya-min.jpg');
+$chapter-image-3: image-url('hero/hero-3-pitcairn-national-geographic-ccM4-2193956-credit-enric-sala-min.jpg');
+$chapter-image-4: image-url('hero/hero-4-reach-waterfall-jamaica-min.jpg');
+$chapter-image-5: image-url('hero/hero-5-slovenia-min.jpg');
+$chapter-image-6: image-url('hero/hero-6-guanaco-torres-del-paine-chile-gregoire-dubois-min.jpg');
+$chapter-image-7: image-url('hero/hero-7-amboseli-national-park-kenya-min.jpg');
+$chapter-image-8: image-url('hero/hero-8-landscape-kyrghistan-min.jpg');
+$chapter-image-9: image-url('hero/hero-9-canal-des-pangalanes-madagascar-min.jpg');
+$chapter-image-10: image-url('hero/hero-10-yosemite-national-geographic-1428759-cr-jimmy-chin-min.jpg');

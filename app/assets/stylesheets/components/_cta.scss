@@ -2,7 +2,7 @@
 // cta
 //--------------------------------------------------
 .cta {
-  background-color: $black;
+  @include background-overlay($black-gradient);
   padding: rem-calc(40 0 50 0);
   color: $white;
 

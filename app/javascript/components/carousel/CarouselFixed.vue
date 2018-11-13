@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel--fixed">
+  <div class="carousel--fixed" :class="`chapter-${this.activeIndex + 1}`">
     <div class="carousel__slide">
       <transition name="change-slide">
         <div>
@@ -34,12 +34,6 @@
     data () {
       return {
         activeIndex: 0,
-      }
-    },
-
-    watch: {
-      activeIndex () {
-
       }
     },
 

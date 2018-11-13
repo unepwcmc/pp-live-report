@@ -7,16 +7,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
 
-  .chapter-1 & { background-image: image-url('hero/hero-1-yellowstone-national-geographic-2411738-cr-michael-nichols-min.jpg'); }
-  .chapter-2 & { background-image: image-url('hero/hero-2-masai-mara-national-park-kenya-min.jpg'); }
-  .chapter-3 & { background-image: image-url('hero/hero-3-pitcairn-national-geographic-ccM4-2193956-credit-enric-sala-min.jpg'); }
-  .chapter-4 & { background-image: image-url('hero/hero-4-reach-waterfall-jamaica-min.jpg'); }
-  .chapter-5 & { background-image: image-url('hero/hero-5-slovenia-min.jpg'); }
-  .chapter-6 & { background-image: image-url('hero/hero-6-guanaco-torres-del-paine-chile-gregoire-dubois-min.jpg'); }
-  .chapter-7 & { background-image: image-url('hero/hero-7-amboseli-national-park-kenya-min.jpg'); }
-  .chapter-8 & { background-image: image-url('hero/hero-8-landscape-kyrghistan-min.jpg'); }
-  .chapter-9 & { background-image: image-url('hero/hero-9-canal-des-pangalanes-madagascar-min.jpg'); }
-  .chapter-10 & { background-image: image-url('hero/hero-10-yosemite-national-geographic-1428759-cr-jimmy-chin-min.jpg'); }
+  .chapter-1 & { background-image: $chapter-image-1; }
+  .chapter-2 & { background-image: $chapter-image-2; }
+  .chapter-3 & { background-image: $chapter-image-3; }
+  .chapter-4 & { background-image: $chapter-image-4; }
+  .chapter-5 & { background-image: $chapter-image-5; }
+  .chapter-6 & { background-image: $chapter-image-6; }
+  .chapter-7 & { background-image: $chapter-image-7; }
+  .chapter-8 & { background-image: $chapter-image-8; }
+  .chapter-9 & { background-image: $chapter-image-9; }
+  .chapter-10 & { background-image: $chapter-image-10; }
 }

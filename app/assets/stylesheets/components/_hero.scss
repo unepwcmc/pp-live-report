@@ -6,6 +6,7 @@
 // home page hero
 //--------------------------------------------------
   &--home {
+    @include background-overlay($black-gradient);
     border-top: solid rem-calc(8) $primary;
     color: $white;
     padding-top: rem-calc(12);
@@ -57,6 +58,7 @@
 // chapter hero
 //--------------------------------------------------
   &--chapter {
+    @include background-overlay($black-gradient);
     color: $white;
     padding-top: rem-calc(24);
     padding-bottom: rem-calc(50);

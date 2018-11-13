@@ -70,14 +70,14 @@ i { font-style: normal; }
 // backgrounds
 //--------------------------------------------------
 .bg-green-light { background-color: $green-light; }
-.bg-overlay {
+
+@mixin background-overlay($background) {
   position: relative;
   z-index: 0;
 
   &:before {
-    background: linear-gradient(268.14deg, rgba(255,255,255,0) 0%, #000000 100%);
+    background: $background;
     content: '';
-    opacity: .62;
     position: absolute;
     top: 0;
     right: 0;

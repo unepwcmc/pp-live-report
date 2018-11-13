@@ -1,15 +1,16 @@
-title: "Page title"
-subtitle: "Chapter six"
-intro: "Lorem ipsum"
+title: "Equitably Managed"
+menu_title: "Equitably Managed"
+subtitle: "Chapter 6"
+intro: "The equitable management of protected areas is a key aspect of Aichi Target 11. A framework for understanding equity in protected areas has been developed, and several methodologies have been proposed to enable the assessment of equitable management in all its dimensions. Despite these advances, assessments have been implemented in only a limited number of protected areas, and conclusions cannot yet be drawn on a broad scale. Addressing this lack of assessment at system and site scales is a priority leading up to 2020 and beyond."
 column_chart_title: "Governance types, governance quality, and equity"
 column_chart_intro: "The diversity of governance types for protected areas in any national system provides an indication of the recognition of the diverse actors involved in these conservation efforts, although it does not itself inform an understanding of whether this is good governance or equitable management."
 stacked_row_chart_title: "Percentage of protected areas under each IUCN governance type per region"
 ctas:
   -
     cta_title: "Measuring equity"
-    cta_text: "Lorem ipsum"
+    cta_text: "Here we present some current initiatives investigating ways to assess equity in the governance and management of protected areas."
     cta_url: "http://protectedplanet.net"
   -
-    cta_title: "Community-led governance assessment in the Mara North Community Conservancy in Kenya"
-    cta_text: "Lorem ipsum"
+    cta_title: "Case Study: Community-led governance assessment in the Mara North Community Conservancy in Kenya"
+    cta_text: "This case study presents findings of a governance assessment led by local communities with a focus on equity."
     cta_url: "http://protectedplanet.net"

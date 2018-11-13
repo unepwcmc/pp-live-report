@@ -4,7 +4,7 @@
     <%= render 'partials/head' %>
   </head>
 
-  <body class="<%= 'chapter-${chapter_number}' %>">
+  <body class="<%= "chapter-#{@chapter_number}" %>">
       <div id="v-app" v-cloak>
         <%= render 'partials/hero' %>
         

@@ -75,8 +75,9 @@ i { font-style: normal; }
   z-index: 0;
 
   &:before {
-    background-color: rgba(black, 0.3);
+    background: linear-gradient(268.14deg, rgba(255,255,255,0) 0%, #000000 100%);
     content: '';
+    opacity: .62;
     position: absolute;
     top: 0;
     right: 0;

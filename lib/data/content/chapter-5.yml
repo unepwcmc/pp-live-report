@@ -3,14 +3,13 @@ menu_title: "Effectively Managed"
 subtitle: "Chapter 5"
 intro: "There is good evidence that protected areas that are effectively managed will lead to improved biodiversity outcomes. According to data reported in the Global Database on Protected Areas Management Effectiveness (GD-PAME), only 21,743 protected areas have an evaluation of management effectiveness reported, which is equivalent to about 20% of the area of all protected areas in the WDPA. The lack of systematic reporting and repeat assessments, and the existence of multiple tools makes an analysis of trends on this element of the Target difficult to assess.  "
 map_title: "Percentage of the total coverage in protected areas that is assessed for management effectiveness per country"
+cta_title: "The IUCN Green List of Protected and Conserved Areas"
+cta_text: "The IUCN Green List is a global programme to recognise and increase the number of protected and conserved areas that are equitably governed and effectively managed and deliver positive conservation outcomes."
+cta_url: "https://protectedplanet.net/c/green-list"
 stacked_row_chart_title: "Percentage of countries with varying levels of progress towards the 60% management effectiveness assessment target"
 column_chart_title: "Percentage coverage of all protected areas per region assessed for management effectiveness"
 column_chart_2_title: "Number of reported management effectiveness assessments within UN Environment regions, including repeat assessments of the same site"
 ctas:
-  -
-    cta_title: "The IUCN Green List of Protected and Conserved Areas"
-    cta_text: "The IUCN Green List is a global programme to recognise and increase the number of protected and conserved areas that are equitably governed and effectively managed and deliver positive conservation outcomes."
-    cta_url: "https://protectedplanet.net/c/green-list"
   -
     cta_title: "IUCN World Heritage Outlook: Tracking conservation in the planet's most outstanding natural places"
     cta_text: "The IUCN World Heritage Outlook 2 tracks changes in the conservation prospects of the 241 natural World Heritage sites."

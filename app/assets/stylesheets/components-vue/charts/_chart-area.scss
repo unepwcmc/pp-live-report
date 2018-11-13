@@ -55,12 +55,23 @@
           }
 
           &__label {
+            font-weight: $light;
             position: absolute;
             bottom: rem-calc(10);
             left: 50%;
 
             transform: translateX(-50%);
           }
+            &__label-pa {
+              font-weight: $light;
+              white-space: nowrap;
+
+              position: absolute;
+              top: 0;
+              left: calc(100% + 10px);
+            }
+
+            &__label-percentage { font-weight: $fw-black; }
 
       &__legend-item {
         &:first-child {

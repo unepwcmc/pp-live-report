@@ -18,6 +18,6 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['doughnut_chart_title'], intro: @data['doughnut_chart_intro'].html_safe } %>
   
   <div class="container--medium">
-    <chart-doughnut :datasets="<%= @doughnut_chart %>" smallprint="<%= @smallprint %>"></chart-doughnut>
+    <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @smallprint %>"></chart-doughnut>
   </div>
 </section>

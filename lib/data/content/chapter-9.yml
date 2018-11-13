@@ -3,6 +3,8 @@ menu_title: "Wider integration"
 subtitle: "Chapter 9"
 intro: "Integrating protected and conserved areas into the wider landscape and seascape requires sound spatial and natural resource planning that maintains biodiversity values, while also contributing towards harmonized sectoral development. Tracking progress for this element remains difficult because very few countries have developed spatial plans to improve this integration and incorporated these plans into relevant laws and policies."
 content: "Aichi Target 11 requires that protected and conserved areas be ‘integrated into the wider landscape and seascape’ i.e. that the design and management of protected areas, corridors and the surrounding matrix fosters a connected, functional ecological network”. Protected areas throughout the world are coming under widespread human pressures that have profound impacts on biodiversity and ecosystem services. "
+ctas:
+  -
     cta_title: "Human Footprint: Areas under intense human pressure"
     cta_text: "One way to assess how protected areas can be linked into the wider land and seascape is to map areas of varying levels of human footprint. Here, we present a global assessment of human pressures on terrestrial protected areas."
     cta_url: "http://protectedplanet.net"

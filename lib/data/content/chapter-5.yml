@@ -10,8 +10,8 @@ ctas:
   -
     cta_title: "The IUCN Green List of Protected and Conserved Areas"
     cta_text: "The IUCN Green List is a global programme to recognise and increase the number of protected and conserved areas that are equitably governed and effectively managed and deliver positive conservation outcomes."
-    cta_url: "http://protectedplanet.net"
+    cta_url: "https://protectedplanet.net/c/green-list"
   -
     cta_title: "IUCN World Heritage Outlook: Tracking conservation in the planet's most outstanding natural places"
     cta_text: "The IUCN World Heritage Outlook 2 tracks changes in the conservation prospects of the 241 natural World Heritage sites."
-    cta_url: "http://protectedplanet.net"
+    cta_url: "https://www.worldheritageoutlook.iucn.org/home-page"

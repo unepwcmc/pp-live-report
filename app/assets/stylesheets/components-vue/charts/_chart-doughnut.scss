@@ -32,6 +32,10 @@
           stroke-width: 4;
         }
 
+        &__segment-text { 
+          // transform-box: view-box;
+        }
+
       &__side {
         display: none;
         

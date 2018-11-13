@@ -19,8 +19,8 @@
             :y="getTextPosition(index, 'y')" 
             text-anchor="middle"
             font-size="25px"
-            :transform-origin="`${getTextPosition(index, 'x')} ${getTextPosition(index, 'y')}`"
-            :transform="getTextRotation(index)">
+            :transform="getTextRotation(index)"
+            :style="getTextTransformOrigin(index)">
             {{ index + 1 }}
           </text>
         </g>
@@ -75,7 +75,7 @@
           url: '',
           colour: '',
           icon: ''
-        }
+        },
       }
     },
 
@@ -136,6 +136,18 @@
         const percentage = this.segmentWidth * (index - .5) 
         
         return `rotate(${((percentage/100) * 360) + 90})`
+      },
+
+      getTextTransformOrigin (index) {
+        const x = this.getTextPosition(index, 'x'),
+          y = this.getTextPosition(index, 'y'),
+          style = {
+            'transform-origin': `${x}px ${y}px`,
+            '-webkit-transform-origin': `${x}px ${y}px`,
+            '-ms-transform-origin': `${x}px ${y}px`
+          }
+
+        return style
       }
     }
   }  

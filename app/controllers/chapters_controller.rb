@@ -9,7 +9,18 @@ class ChaptersController < ApplicationController
 
     @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
-    @doughnut_chart = @data['doughnut_chart_data'].to_json
+    doughnut_chart = @data['doughnut_chart_data']
+    @doughnut_chart = []
+
+    doughnut_chart.each do |item|
+      @doughnut_chart.push({
+        'title': item['title'],
+        'colour': item['colour'],
+        'icon': ActionController::Base.helpers.image_url(item['icon']),
+        'description': item['description'],
+        'url': item['url']
+      })
+    end
   end
 
   def chapter_2

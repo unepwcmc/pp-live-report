@@ -1,13 +1,14 @@
 <div class="content--x-large">
   <div class="container--medium">
-    <p class="content__background"><%= @data['achi_target'] %></p>
-    <p class="content__text"><%= @data['achi_text'].html_safe %></p>
+    <%= image_tag @data['aichi_image'], alt: "#{@data['aichi_target']} logo", class: 'content__icon' %>
+    <p class="content__background"><%= @data['aichi_target'] %></p>
+    <p class="content__text"><%= @data['aichi_text'].html_safe %></p>
   </div>
 </div>
 
 <section class="section-padding">
   <div class="container--small">
-    <p><%= @data['achi_text_2'].html_safe %></p>
+    <p><%= @data['aichi_text_2'].html_safe %></p>
   </div>
 </section>
 

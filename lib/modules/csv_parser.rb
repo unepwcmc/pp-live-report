@@ -65,6 +65,43 @@ module CsvParser
     gov_types
   end
 
+  def self.biogeographical_regions
+    csv_file = file_reader('PPR-chapter4.csv')
+    region_type = ''
+    data = {}
+
+    CSV.parse(csv_file, headers: true) do |row|
+      unit = row["Biogeographical Unit"]
+      if ['Ecoregions', 'Realms'].include?(unit)
+        region_type = unit
+        data[region_type] = []
+        next
+      end
+
+      keys = (row.to_h.keys - ["Biogeographical Unit"])
+      chart_rows = keys.map do |key|
+        {
+          percent: row[key].split("%").first.to_f,
+          label: key
+        }
+      end
+      chart = {
+        chart_title: unit,
+        theme: unit == 'Terrestrial' ? 'green' : 'blue',
+        rows: chart_rows
+      }
+
+      data[region_type] << chart
+    end
+
+    data.map do |title, charts|
+      {
+        title: title,
+        charts: charts
+      }
+    end
+  end
+
   def self.file_reader(file_name)
     File.read("#{Rails.root}/lib/data/file/#{file_name}")
   end

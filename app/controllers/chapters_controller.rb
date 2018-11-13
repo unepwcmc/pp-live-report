@@ -259,76 +259,6 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
 
-    #TODO replace with real data
-    @row_charts = [
-      {
-        title: "Ecoregions",
-        charts: [
-          {
-            chart_title: "Terrestrial",
-            theme: "green",
-            rows: [
-              {
-                percent: 42.6,
-                label: "2016"
-              },
-              {
-                percent: 30.6,
-                label: "2018"
-              }
-            ]
-          },
-          {
-            chart_title: "Marine",
-            theme: "blue",
-            rows: [
-              {
-                percent: 28.6,
-                label: "2016"
-              },
-              {
-                percent: 39.2,
-                label: "2018"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: "Realms",
-        charts: [
-          {
-            chart_title: "Terrestrial",
-            theme: "green",
-            rows: [
-              {
-                percent: 42.6,
-                label: "2016"
-              },
-              {
-                percent: 30.6,
-                label: "2018"
-              }
-            ]
-          },
-          {
-            chart_title: "Marine",
-            theme: "blue",
-            rows: [
-              {
-                percent: 28.6,
-                label: "2016"
-              },
-              {
-                percent: 39.2,
-                label: "2018"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-
     @map = {
       legend: [
         {
@@ -345,6 +275,7 @@ class ChaptersController < ApplicationController
         }
       ]
     }
+    @row_charts = CsvParser.biogeographical_regions
   end
 
   def chapter_5
@@ -353,7 +284,6 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
-<<<<<<< HEAD
     @map = {
       legend: [
         {
@@ -371,12 +301,9 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    #TODO replace with real data and update variable name
-=======
     progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
     terrestrial = progress_level_data['Land']
     marine = progress_level_data['Marine']
->>>>>>> add remaining data
     @stacked_row_charts = {
       legend: [
         {

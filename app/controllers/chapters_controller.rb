@@ -28,25 +28,30 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
+    global_data = CsvParser.global_coverage_stats
+    land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
+    eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
+    abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
     @mapbox = {
       source: "(Source text)",
       layers: [
         {
           title: "Terrestrial Protected Areas",
-          percentage: 10
+          percentage: land_percentage
         },
         {
           title: "Marine & Coastal Protected Areas",
-          percentage: 10,
+          percentage: sea_percentage,
           sublayers: [
             {
               title: "Exclusive Economic Zones (EEZ)",
-              percentage: 10,
+              percentage: eez_percentage
             },
             {
               title: "Areas beyond National Jurisdiction (ABNJ)",
-              percentage: 10,
+              percentage: abnj_percentage
             }
           ]
         }
@@ -68,7 +73,7 @@ class ChaptersController < ApplicationController
           cssPercent: 71,
           protected_areas: {
             title: "1.",
-            percent: 7.44
+            percent: sea_percentage
           }
         },
         {
@@ -78,7 +83,7 @@ class ChaptersController < ApplicationController
           cssPercent: 29,
           protected_areas: {
             title: "1.",
-            percent: 15
+            percent: land_percentage
           }
         }
       ]
@@ -99,7 +104,7 @@ class ChaptersController < ApplicationController
           class: "abnj",
           protected_areas: {
             title: "1.",
-            percent: 17.3
+            percent: abnj_percentage
           }
         },
         {
@@ -109,7 +114,7 @@ class ChaptersController < ApplicationController
           class: "eez",
           protected_areas: {
             title: "1.",
-            percent: 1.18
+            percent: eez_percentage
           }
         },
         {
@@ -120,23 +125,23 @@ class ChaptersController < ApplicationController
           active: false,
           protected_areas: {
             title: "1.",
-            percent: 15
+            percent: land_percentage
           }
         },
       ]
     }
 
-    #TODO replace with real data
+    timeseries_data = CsvParser.timeseries
     @line_chart = {
       lines: [
         {
-          datapoints: [{ x: 1990, y: 0 }, { x: 1995, y: 10 }, { x: 2000, y: 20 }, { x: 2005, y: 30 }, { x: 2010, y: 40 }, { x: 2015, y: 50 }, { x: 2020, y: 60 }]
+          datapoints: [{ x: 1990, y: timeseries_data['1990']['ABNJ'] }, { x: 1995, y: timeseries_data['1995']['ABNJ'] }, { x: 2000, y: timeseries_data['2000']['ABNJ'] }, { x: 2005, y: timeseries_data['2005']['ABNJ'] }, { x: 2010, y: timeseries_data['2010']['ABNJ'] }, { x: 2015, y: timeseries_data['2015']['ABNJ'] }, { x: 2020, y: 60 }]
         },
         {
-          datapoints: [{ x: 1990, y: 20 }, { x: 1995, y: 40 }, { x: 2000, y: 20 }, { x: 2005, y: 40 }, { x: 2010, y: 20 }, { x: 2015, y: 40 }, { x: 2020, y: 20 }]
+          datapoints: [{ x: 1990, y: timeseries_data['1990']['EEZ'] }, { x: 1995, y: timeseries_data['1995']['EEZ'] }, { x: 2000, y: timeseries_data['2000']['EEZ'] }, { x: 2005, y: timeseries_data['2005']['EEZ'] }, { x: 2010, y: timeseries_data['2010']['EEZ'] }, { x: 2015, y: timeseries_data['2015']['EEZ'] }, { x: 2020, y: 20 }]
         },
         {
-          datapoints: [{ x: 1990, y: 14 }, { x: 1995, y: 23 }, { x: 2000, y: 34 }, { x: 2005, y: 56 }, { x: 2010, y: 43 }, { x: 2015, y: 23 }, { x: 2020, y: 32 }]
+          datapoints: [{ x: 1990, y: timeseries_data['1990']['Land'] }, { x: 1995, y: timeseries_data['1995']['Land'] }, { x: 2000, y: timeseries_data['2000']['Land'] }, { x: 2005, y: timeseries_data['2005']['Land'] }, { x: 2010, y: timeseries_data['2010']['Land'] }, { x: 2015, y: timeseries_data['2015']['Land'] }, { x: 2020, y: 32 }]
         }
       ],
       axis: {
@@ -175,6 +180,7 @@ class ChaptersController < ApplicationController
         }
       ]
     }
+    byebug
 
     @map = {
       legend: [

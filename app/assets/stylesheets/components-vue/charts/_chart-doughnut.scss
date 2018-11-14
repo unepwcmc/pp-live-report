@@ -3,51 +3,59 @@
 //--------------------------------------------------
   &--doughnut {
     .chart {
-      &__chart{
-        width: 100%;
+      &__wrapper-ie11 { // do not remove - this is required to set the sizing for ie11
+        padding-bottom: 67%;
+        width: 67%;
 
-        @include breakpoint($small) { width: 60%; }
-        @include breakpoint($medium) { width: 67%; }
+        position: relative;
       }
 
-      &__segment {
-        cursor: pointer;
+        &__chart{
+          width: 100%;
 
-        transition: transform ease .1s;
-
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
-
-        &:hover { 
-          transform: scale(1.015, 1.015);
+          @include breakpoint($small) {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
         }
 
-        &.active {
-          transform: scale(1.15, 1.15);
+        &__segment {
+          cursor: pointer;
 
-          .chart__segment-text { font-weight: bold; }
-        }
-      }
+          transition: transform ease .1s;
 
-        &__segment-path { 
-          stroke-width: 4;
+          -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+
+          &:hover { 
+            transform: scale(1.015, 1.015);
+          }
+
+          &.active {
+            transform: scale(1.15, 1.15);
+
+            .chart__segment-text { font-weight: bold; }
+          }
         }
 
-        &__segment-text { 
-          transform-box: view-box;
-        }
+          &__segment-path { 
+            stroke-width: 4;
+          }
+
+          &__segment-text { 
+            transform-box: view-box;
+          }
 
       &__side {
         display: none;
         
         @include breakpoint($small) {
-          margin-top: rem-calc(18);
           width: 40%;
 
           display: block;
         }
 
         @include breakpoint($medium) { 
-          margin-top: rem-calc(48);
           width: 33%; 
         }
       }

@@ -77,6 +77,11 @@
 
         @include breakpoint($small) { 
           margin-top: rem-calc(20);
+          width: 85%; 
+        }
+
+        @include breakpoint($medium) { 
+          margin-top: rem-calc(20);
           width: 50%; 
         }
       }

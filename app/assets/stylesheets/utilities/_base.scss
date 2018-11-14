@@ -136,9 +136,11 @@ a {
 }
 
 ul {
+  font-weight: $light;
 }
 
 li {  
+  margin-bottom: rem-calc(10);
 }
 
 blockquote {
@@ -245,14 +247,14 @@ blockquote {
 //--------------------------------------------------
 .section-padding--top {
   padding-top: $section-padding-top-small;
-  @include breakpoint($medium) { padding-top: $section-padding-top-medium; }
-  @include breakpoint($large) { padding-top: $section-padding-top-large; }
+  @include breakpoint($small) { padding-top: $section-padding-top-medium; }
+  @include breakpoint($medium) { padding-top: $section-padding-top-large; }
 }
 
 .section-padding--bottom {
   padding-bottom: $section-padding-bottom-small;
-  @include breakpoint($medium) { padding-bottom: $section-padding-bottom-medium; }
-  @include breakpoint($large) { padding-bottom: $section-padding-bottom-large; }
+  @include breakpoint($small) { padding-bottom: $section-padding-bottom-medium; }
+  @include breakpoint($medium) { padding-bottom: $section-padding-bottom-large; }
 }
 
 .section-padding {

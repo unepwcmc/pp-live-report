@@ -204,6 +204,24 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
 
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: "Fully within Protected Area's",
+          percentage: 10
+        },
+        {
+          title: "Partially within Protected Area's",
+          percentage: 10
+        },
+        {
+          title: "Outside Protected Area's",
+          percentage: 10
+        }
+      ]
+    }
+
     #TODO replace with real data
     @line_chart = {
       lines: [
@@ -309,6 +327,23 @@ class ChaptersController < ApplicationController
         ]
       }
     ]
+
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        },
+        {
+          title: '0 - 10%'
+        },
+        {
+          title: '10% - 50%'
+        },
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
   end
 
   def chapter_5
@@ -316,6 +351,23 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
+
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        },
+        {
+          title: '0 - 10%'
+        },
+        {
+          title: '10% - 50%'
+        },
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
 
     #TODO replace with real data and update variable name
     @stacked_row_charts = {
@@ -520,6 +572,47 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_8_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
+
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: '<4'
+        },
+        {
+          title: '<4% - 8%'
+        },
+        {
+          title: '<8% - 12%'
+        },
+        {
+          title: '<12% - 17%'
+        },
+        {
+          title: '<17% - 25%'
+        },
+        {
+          title: '>25%'
+        }
+      ]
+    }
+
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        },
+        {
+          title: '0 - 10%'
+        },
+        {
+          title: '10% - 50%'
+        },
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
   end
 
   def chapter_8
@@ -534,6 +627,18 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_10_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
+
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: 'Protected Areas'
+        },
+        {
+          title: 'Areas of low human impact'
+        }
+      ]
+    }
   end
 
   def chapter_10

@@ -2,14 +2,20 @@ title: "Equitably Managed"
 menu_title: "Equitably Managed"
 subtitle: "Chapter 6"
 intro: "The equitable management of protected areas is a key aspect of Aichi Target 11. A framework for understanding equity in protected areas has been developed, and several methodologies have been proposed to enable the assessment of equitable management in all its dimensions. Despite these advances, assessments have been implemented in only a limited number of protected areas, and conclusions cannot yet be drawn on a broad scale. Addressing this lack of assessment at system and site scales is a priority leading up to 2020 and beyond."
-column_chart_title: "Governance types, governance quality, and equity"
-column_chart_intro: "The diversity of governance types for protected areas in any national system provides an indication of the recognition of the diverse actors involved in these conservation efforts, although it does not itself inform an understanding of whether this is good governance or equitable management."
+content: "Equity in protected areas can be understood as a combination of three interlinked elements:
+1. Recognition equity relates to acknowledgement and respect for stakeholders, as well as their social and cultural diversity, and their values, rights and beliefs.
+2. Procedural equity relates to how decisions about the protected area are made, and the extent to which stakeholders are able to participate. 
+3. Distributive equity is associated with the distribution of benefits and burdens."
+cta_title: "Measuring equity"
+cta_text: "Here we present some current initiatives investigating ways to assess equity in the governance and management of protected areas."
+cta_url: "http://protectedplanet.net"
+content: "The diversity of governance types of protected areas provides an indication of the recognition of the diverse actors involved in these conservation efforts, although it does not itself inform an understanding of whether this is good governance or equitable management. Protected areas under all IUCN governance types can be reported to the WDPA, but non-government types are currently under-reported, with 82% of recorded protected areas managed by government agencies."
 stacked_row_chart_title: "Percentage of protected areas under each IUCN governance type per region"
+stacked_row_chart_intro: "Number and percentage of protected area reported in the WDPA under each IUCN governance type."
+column_chart_title: "Governance types, governance quality, and equity"
+column_chart_intro: "Looking beyond governance type, assessments of governance quality in protected areas can provide insights on whether sites are equitably managed."
+
 ctas:
-  -
-    cta_title: "Measuring equity"
-    cta_text: "Here we present some current initiatives investigating ways to assess equity in the governance and management of protected areas."
-    cta_url: "http://protectedplanet.net"
   -
     cta_title: "Case Study: Community-led governance assessment in the Mara North Community Conservancy in Kenya"
     cta_text: "This case study presents findings of a governance assessment led by local communities with a focus on equity."

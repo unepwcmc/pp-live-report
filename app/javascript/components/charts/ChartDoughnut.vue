@@ -12,17 +12,19 @@
 
           <path class="chart__segment-path" :d="getArcPath(index)" :fill="dataset.colour" stroke="#ffffff" />
           
-          <text 
-            class="chart__segment-text"
-            fill="white"
-            :x="getTextPosition(index, 'x')" 
-            :y="getTextPosition(index, 'y')" 
-            text-anchor="middle"
-            font-size="25px"
-            :transform="getTextRotation(index)"
-            :style="getTextTransformOrigin(index)">
-            {{ index + 1 }}
-          </text>
+          <g :style="getTextTranslate(index)"> 
+            <text 
+              class="chart__segment-text"
+              fill="black"
+              x="0" 
+              y="0" 
+              text-anchor="middle"
+              font-size="25px"
+              :style="getTextRotation(index)"
+              >
+              {{ index + 1 }}
+            </text>
+          </g>
         </g>
       </g>      
 
@@ -132,19 +134,21 @@
         return this.radiusText * Math[trig](percentage/100 * 2 * Math.PI) 
       },
 
-      getTextRotation (index) {
-        const percentage = this.segmentWidth * (index - .5) 
-        
-        return `rotate(${((percentage/100) * 360) + 90})`
+      getTextTranslate (index) {
+        const x = this.getTextPosition(index, 'x'),
+          y = this.getTextPosition(index, 'y')
+
+        const style = {
+          'transform': `translate(${x}px, ${y}px)`,
+        }
+
+        return style
       },
 
-      getTextTransformOrigin (index) {
-        const x = this.getTextPosition(index, 'x'),
-          y = this.getTextPosition(index, 'y'),
-          style = {
-            'transform-origin': `${x}px ${y}px`,
-            '-webkit-transform-origin': `${x}px ${y}px`,
-            '-ms-transform-origin': `${x}px ${y}px`
+      getTextRotation (index) {
+        const percentage = this.segmentWidth * (index - .5),
+           style = {
+            'transform': `rotateZ(${((percentage/100) * 360) + 90}deg)`,
           }
 
         return style

@@ -70,7 +70,10 @@ class ChaptersController < ApplicationController
           title: "Ocean",
           class: "marine",
           percent: 71,
+<<<<<<< HEAD
           cssPercent: 71,
+=======
+>>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: sea_percentage
@@ -80,7 +83,10 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
+<<<<<<< HEAD
           cssPercent: 29,
+=======
+>>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: land_percentage
@@ -100,8 +106,12 @@ class ChaptersController < ApplicationController
         {
           title: "ABNJ",
           percent: 61,
+<<<<<<< HEAD
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
+=======
+          class: "marine",
+>>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: abnj_percentage
@@ -110,8 +120,12 @@ class ChaptersController < ApplicationController
         {
           title: "EEZ",
           percent: 39,
+<<<<<<< HEAD
           cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
           class: "eez",
+=======
+          class: "marine",
+>>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: eez_percentage
@@ -132,18 +146,16 @@ class ChaptersController < ApplicationController
     }
 
     timeseries_data = CsvParser.timeseries
+    lines = []
+    %w[ABNJ EEZ Land].each do |type|
+      datapoints = []
+      ('1990'..'2018').each do |year|
+        datapoints << { x: year, y: timeseries_data[year][type].round(2) }
+      end
+      lines << { datapoints: datapoints }
+    end
     @line_chart = {
-      lines: [
-        {
-          datapoints: [{ x: 1990, y: timeseries_data['1990']['ABNJ'] }, { x: 1995, y: timeseries_data['1995']['ABNJ'] }, { x: 2000, y: timeseries_data['2000']['ABNJ'] }, { x: 2005, y: timeseries_data['2005']['ABNJ'] }, { x: 2010, y: timeseries_data['2010']['ABNJ'] }, { x: 2015, y: timeseries_data['2015']['ABNJ'] }, { x: 2020, y: 60 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: timeseries_data['1990']['EEZ'] }, { x: 1995, y: timeseries_data['1995']['EEZ'] }, { x: 2000, y: timeseries_data['2000']['EEZ'] }, { x: 2005, y: timeseries_data['2005']['EEZ'] }, { x: 2010, y: timeseries_data['2010']['EEZ'] }, { x: 2015, y: timeseries_data['2015']['EEZ'] }, { x: 2020, y: 20 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: timeseries_data['1990']['Land'] }, { x: 1995, y: timeseries_data['1995']['Land'] }, { x: 2000, y: timeseries_data['2000']['Land'] }, { x: 2005, y: timeseries_data['2005']['Land'] }, { x: 2010, y: timeseries_data['2010']['Land'] }, { x: 2015, y: timeseries_data['2015']['Land'] }, { x: 2020, y: 32 }]
-        }
-      ],
+      lines: lines,
       axis: {
         y: ["Area", "(Million km2)"]
       },
@@ -224,18 +236,16 @@ class ChaptersController < ApplicationController
     }
 
     kba_data = CsvParser.kba_timeseries
+    lines = []
+    ['Terrestrial KBAs', 'Marine KBAs', 'Freshwater KBAs'].each do |type|
+      datapoints = []
+      ('2000'..'2018').each do |year|
+        datapoints << { x: year, y: kba_data[year][type] }
+      end
+      lines << { datapoints: datapoints }
+    end
     @line_chart = {
-      lines: [
-        {
-          datapoints: [{ x: 2000, y: kba_data['2000']['Terrestrial KBAs'] }, { x: 2005, y: kba_data['2005']['Terrestrial KBAs'] }, { x: 2010, y: kba_data['2010']['Terrestrial KBAs'] }, { x: 2015, y: kba_data['2015']['Terrestrial KBAs'] }, { x: 2020, y: 60 }]
-        },
-        {
-          datapoints: [{ x: 2000, y: kba_data['2000']['Marine KBAs'] }, { x: 2005, y: kba_data['2005']['Marine KBAs'] }, { x: 2010, y: kba_data['2010']['Marine KBAs'] }, { x: 2015, y: kba_data['2015']['Marine KBAs'] }, { x: 2020, y: 20 }]
-        },
-        {
-          datapoints: [{ x: 2000, y: kba_data['2000']['Freshwater KBAs'] }, { x: 2005, y: kba_data['2005']['Freshwater KBAs'] }, { x: 2010, y: kba_data['2010']['Freshwater KBAs'] }, { x: 2015, y: kba_data['2015']['Freshwater KBAs'] }, { x: 2020, y: 32 }]
-        }
-      ],
+      lines: lines,
       axis: {
         y: ["Area", "(Million km2)"]
       },

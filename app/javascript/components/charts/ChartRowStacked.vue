@@ -4,10 +4,7 @@
 
     <ul class="chart__chart ul-unstyled flex">
       <li v-for="row in rows" class="chart__bar flex flex-v-center" :class="themeClass" :style="{ width: row.percent + '%' }">
-        <p class="chart__label no-margin">
-          <span class="chart__index">{{ row.label }}</span>
-          <span class="chart__percent">{{ row.percent}}%</span>
-        </p>
+        <span v-if="row.percent > 0" class="chart__percent">{{ row.percent}}%</span>
       </li>
     </ul>
     

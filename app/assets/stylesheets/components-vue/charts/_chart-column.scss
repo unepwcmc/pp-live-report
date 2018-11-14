@@ -3,9 +3,7 @@
 //--------------------------------------------------
 @mixin column_chart_column($colour) {
   .chart__percent {
-    border: solid rem-calc(2) $colour;
-
-    &::before { border-top: 13px solid $colour; }
+    @include chart-tooltip('bottom', $colour); 
   }
 
   .chart__bar {
@@ -48,43 +46,12 @@
           &:nth-child(7) { @include column_chart_column($chart-blue); }
         }
 
-          &__percent {
-            background-color: white;
-            border-radius: $radius-global;
-            font-size: rem-calc(18);
-            font-weight: $fw-black;
-            padding: rem-calc(0 4 0 4);
-            width: auto; height: rem-calc(30);
-            min-width: rem-calc(40);
-
+          &__percent { 
             position: relative;
             top: rem-calc(-14);
-
-            &::before {
-              border-right: 13px solid transparent;
-              border-left: 13px solid transparent;
-              content: '';
-              width: 0; height: 0;
-
-              position: absolute;
-              top: 100%;
-            }
-
-            &::after {
-              border-top: 10px solid $white;
-              border-right: 10px solid transparent;
-              border-left: 10px solid transparent;
-              content: '';
-              width: 0; height: 0;
-
-              position: absolute;
-              top: 100%;
-            }
           }
 
-          &__bar {
-            
-          }
+          &__bar { }
 
           &__label {
             padding-left: rem-calc(18);

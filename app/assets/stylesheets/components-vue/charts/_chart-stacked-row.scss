@@ -4,9 +4,10 @@
 
     &:nth-child(#{$i}) { 
       background-color: $colour; 
-
-      .chart__label::after {
-        background-color: $colour;
+      
+      .chart__percent {
+        @if $i%2 != 0 { @include chart-tooltip('bottom', $colour); }
+        @if $i%2 == 0 { @include chart-tooltip('top', $colour); }
       }
     }
   }
@@ -16,22 +17,22 @@
 // stacked row chart
 //--------------------------------------------------
   &--row-stacked {
-    margin-bottom: rem-calc(20);
+    margin-bottom: rem-calc(60);
 
-    @include breakpoint($small) { margin-bottom: rem-calc(40); }
+    @include breakpoint($small) { margin-bottom: rem-calc(70); }
 
     .chart {
       &__chart {
-        margin-top: rem-calc(28);
+        margin-top: rem-calc(44);
         width: 100%; height: rem-calc(32);
 
         @include breakpoint($small) { 
-          margin-top: rem-calc(46);
           height: rem-calc(86); 
         }
       }
 
         &__bar {
+          margin-bottom: 0;
           height: 100%;
 
           position: relative;
@@ -39,49 +40,23 @@
           &.chart-theme--blue { @include bars($theme-blue); }
           &.chart-theme--green { @include bars($theme-green); }
           &.chart-theme--rainbow { @include bars($theme-rainbow); }
+
+          &:nth-child(even) {
+            .chart__percent {
+              bottom: unset;
+              top: calc(100% + 14px);
+            }
+          }
         }
 
-          &__label {
-            font-size: rem-calc(14);
-            width: max-content;
-
+          &__percent {
             position: absolute;
-            bottom: calc(100% + 4px);
+
+            bottom: calc(100% + 14px);
             left: 50%;
 
             transform: translateX(-50%);
-
-            @include breakpoint($small) { 
-              font-size: rem-calc(20); 
-              padding-left: rem-calc(10);
-              
-              bottom: calc(100% + 12px);
-              left: 0;
-
-              transform: none;
-            }
-
-            &::after {
-              background-color: black;
-              content: '';
-              width: rem-calc(2); height: rem-calc(6);
-
-              display: block;
-              position: absolute;
-              top: calc(100% - 2px);
-              left: 50%;
-
-              @include breakpoint($small) { 
-                width: rem-calc(4); height: rem-calc(14);
-              }
-            }
           }
-
-            &__index {}
-
-            &__percent {
-              font-weight: $fw-black;
-            }
     }
   }
 

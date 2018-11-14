@@ -454,6 +454,7 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_6
+    values = ['194.836', '7.632', '13.105', '1.377', '21.613']
     @column_chart = []
     @chapter_number = 6
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
@@ -462,9 +463,10 @@ class ChaptersController < ApplicationController
 
     governance_types_data = CsvParser.governance_type
 
-    governance_types_data.each do |data|
+    governance_types_data.each_with_index do |data, index|
       @column_chart << {
         label: data.keys.first.to_s,
+        value: values[index],
         percent: data.values.first
       }
     end

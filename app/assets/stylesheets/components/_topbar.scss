@@ -10,7 +10,7 @@
       opacity: .8;
       width: auto; height: rem-calc(22);
 
-      @include breakpoint($small) { height: rem-calc(50); }
-      @include breakpoint($medium) { height: rem-calc(55); }
+      @include breakpoint($small) { height: rem-calc(44); }
+      @include breakpoint($medium) { height: rem-calc(48); }
     }
 }

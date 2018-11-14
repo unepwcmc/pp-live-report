@@ -47,9 +47,9 @@ $chart-eez: #6FD9F2;
 
 $accent: green;
 
-$theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light;
-$theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light;
-$theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue;
+$theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
+$theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;
+$theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue $grey-light;
 
 $black-gradient: linear-gradient(268.14deg, rgba(255,255,255,0) 0%, #000000 100%);
 

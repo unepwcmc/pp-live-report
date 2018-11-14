@@ -200,6 +200,24 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
 
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: "Fully within Protected Area's",
+          percentage: 10
+        },
+        {
+          title: "Partially within Protected Area's",
+          percentage: 10
+        },
+        {
+          title: "Outside Protected Area's",
+          percentage: 10
+        }
+      ]
+    }
+
     #TODO replace with real data
     @line_chart = {
       lines: [

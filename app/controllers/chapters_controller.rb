@@ -623,6 +623,18 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_10_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
+
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: 'Protected Areas'
+        },
+        {
+          title: 'Areas of low human impact'
+        }
+      ]
+    }
   end
 
   def chapter_10

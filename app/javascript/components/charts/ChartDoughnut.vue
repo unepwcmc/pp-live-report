@@ -42,7 +42,7 @@
     <div class="chart__side">
       <div class="chart__panel" :style="{ 'background-color': active.colour}">
         <h3 class="heading--doughnut-chart">{{ active.title }}</h3>
-        <p>{{ active.description }}</p>
+        <p class="chart__panel-text">{{ active.description }}</p>
         <a :href="active.url" title="Link to SDG website" target="_blank" class="button--link">Link to SDG website</a>
       </div>
 

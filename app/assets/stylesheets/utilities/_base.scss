@@ -92,9 +92,14 @@ h3 {
   }
 
   &.heading--doughnut-chart {
-    font-size: rem-calc(25);
+    font-size: rem-calc(18);
     font-weight: $light;
-    margin-bottom: rem-calc(30); 
+    margin-bottom: rem-calc(14); 
+
+    @include breakpoint($small) { 
+      font-size: rem-calc(25);
+      margin-bottom: rem-calc(30);
+    }
   }
 
   &.heading--accordion {

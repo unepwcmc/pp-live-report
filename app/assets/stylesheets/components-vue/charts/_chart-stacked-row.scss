@@ -57,6 +57,12 @@
 
             transform: translateX(-50%);
           }
+      
+      &__legend {
+        margin-top: rem-calc(70);
+
+        @include breakpoint($small) { margin-top: rem-calc(90); }
+      }      
     }
   }
 

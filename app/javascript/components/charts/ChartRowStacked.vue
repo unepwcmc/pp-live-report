@@ -8,7 +8,7 @@
       </li>
     </ul>
     
-    <chart-legend v-if="legend" :rows="legend" :theme="theme"></chart-legend>
+    <chart-legend v-if="legend" :rows="legend" :theme="theme" class="chart__legend"></chart-legend>
   </div>
 </template>
 

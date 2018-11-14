@@ -1,62 +1,64 @@
 <template>
   <div class="chart--line">
-    <div class="chart__scrollable">
-      <div v-if="lines" class="chart__chart" style="width:100%;">
-        <svg width="100%" height="100%" :viewBox="`-110 -80 ${svg.width} ${svg.height}`" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="chart__svg">
-          <rect 
-            :x="-110"
-            :y="-30" 
-            :width="svg.width" 
-            :height="svg.height - svg.paddingTop" 
-            fill="#EBEBEB" />
+    <div class="chart__wrapper-ie11">
+      <div class="chart__scrollable">
+        <div v-if="lines" class="chart__chart" style="width:100%;">
+          <svg width="100%" height="100%" :viewBox="`-110 -80 ${svg.width} ${svg.height}`" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="chart__svg">
+            <rect 
+              :x="-110"
+              :y="-30" 
+              :width="svg.width" 
+              :height="svg.height - svg.paddingTop" 
+              fill="#EBEBEB" />
 
-          <text v-if="axis" x="-110" y="-90" font-size="18">
-            <tspan v-for="t in axis.y" x="-110" :dy="24">{{ t }}</tspan>
-          </text>
+            <text v-if="axis" x="-110" y="-90" font-size="18">
+              <tspan v-for="t in axis.y" x="-110" :dy="24">{{ t }}</tspan>
+            </text>
 
-          <text v-for="y in yAxis" 
-            :x="-x.chartPadding" 
-            :y="y.coord "
-            text-anchor="end"
-            font-size="18"
-            font-weight="300"
-            transform="translate(0, 5)">{{ y.labelText }}</text>
+            <text v-for="y in yAxis" 
+              :x="-x.chartPadding" 
+              :y="y.coord "
+              text-anchor="end"
+              font-size="18"
+              font-weight="300"
+              transform="translate(0, 5)">{{ y.labelText }}</text>
 
-          <text v-for="x in xAxis" 
-            :x="x.coord" 
-            :y="y.chartHeight + y.chartPadding" 
-            font-size="18"
-            font-weight="300"
-            text-anchor="middle">{{ x.labelText }}</text>
+            <text v-for="x in xAxis" 
+              :x="x.coord" 
+              :y="y.chartHeight + y.chartPadding" 
+              font-size="18"
+              font-weight="300"
+              text-anchor="middle">{{ x.labelText }}</text>
 
-          <chart-line-dataset 
-            v-for="line, index in lines"
-            :index="index"
-            :path="getPath(line.datapoints)"
-            :middle="getPathMiddle(line.datapoints)"
-            :colour="colours[index]">
-          </chart-line-dataset>
+            <chart-line-dataset 
+              v-for="line, index in lines"
+              :index="index"
+              :path="getPath(line.datapoints)"
+              :middle="getPathMiddle(line.datapoints)"
+              :colour="colours[index]">
+            </chart-line-dataset>
 
-          <template v-if="targets">
-            <chart-line-target-y v-for="target, index in targets"
-              :minX="normaliseX(x.min)" 
-              :maxX="normaliseX(x.max)" 
-              :y="normaliseY(target.y)" 
-              :title="target.title"
-              :colour="targetColours[index]">
-            </chart-line-target-y>
-          </template>
+            <template v-if="targets">
+              <chart-line-target-y v-for="target, index in targets"
+                :minX="normaliseX(x.min)" 
+                :maxX="normaliseX(x.max)" 
+                :y="normaliseY(target.y)" 
+                :title="target.title"
+                :colour="targetColours[index]">
+              </chart-line-target-y>
+            </template>
 
-          <template v-if="commitments">
-            <chart-line-target-x v-for="commitment, index in commitments"
-              :minY="normaliseY(y.min)" 
-              :maxY="normaliseY(y.max)" 
-              :x="normaliseX(commitment.x)"
-              :line="commitment.line"
-              :label="commitment.label">
-            </chart-line-target-x>
-          </template>
-        </svg>
+            <template v-if="commitments">
+              <chart-line-target-x v-for="commitment, index in commitments"
+                :minY="normaliseY(y.min)" 
+                :maxY="normaliseY(y.max)" 
+                :x="normaliseX(commitment.x)"
+                :line="commitment.line"
+                :label="commitment.label">
+              </chart-line-target-x>
+            </template>
+          </svg>
+        </div>
       </div>
     </div>
 

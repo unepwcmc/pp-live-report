@@ -7,8 +7,6 @@ cta_title: "Case Study: Wildlife migratory corridors and dispersal areas in Keny
 cta_text: "This example shows how connectivity areas can be identified and provides recommendations on how to best address the impacts of human pressure on these corridors."
 cta_url: "http://protectedplanet.net"
 content_2: "At the global level, a new indicator, “Protected Connected” (ProtConn), was recently developed to quantify the degree to which national terrestrial protected area systems are well designed to promote connectivity. This study found that on average 7.5% of the terrestrial surface of the planet is covered by protected connected lands, which is about half of the global protected area coverage (14.7%), and that 30% of the countries currently meet the connectivity element of Aichi Target 11."
-map_title: "Protected Connected Land"
-static_map_title: "Map of ‘Protected Connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
-map_title: "Protected Connected Land"
+map_title: Map of ‘Protected Connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
 static_map_title: "Recommended priorities for countries in order to enhance protected area connectivity on land."
 

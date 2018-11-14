@@ -454,7 +454,7 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_6
-    @governance_chart = []
+    @column_chart = []
     @chapter_number = 6
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
@@ -463,12 +463,12 @@ class ChaptersController < ApplicationController
     governance_types_data = CsvParser.governance_type
 
     governance_types_data.each do |data|
-      @governance_chart << {
+      @column_chart << {
         label: data.keys.first.to_s,
         percent: data.values.first
       }
     end
-    @governance_chart = @governance_chart.to_json
+    @column_chart = @column_chart.to_json
 
     country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
     legend = []

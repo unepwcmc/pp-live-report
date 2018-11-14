@@ -34,19 +34,23 @@ class ChaptersController < ApplicationController
       layers: [
         {
           title: "Terrestrial Protected Areas",
-          percentage: 10
+          percentage: 10,
+          tables: ['terrestrial_poly', 'terrestrial_line'] #TODO UPDATE
         },
         {
           title: "Marine & Coastal Protected Areas",
           percentage: 10,
+          tables: ['marine_poly', 'marine_line'], #TODO UPDATE
           sublayers: [
             {
               title: "Exclusive Economic Zones (EEZ)",
               percentage: 10,
+              tables: ['eez_poly', 'eez_line'] #TODO UPDATE
             },
             {
               title: "Areas beyond National Jurisdiction (ABNJ)",
               percentage: 10,
+              tables: ['abnj_poly', 'abnj_line'] #TODO UPDATE
             }
           ]
         }

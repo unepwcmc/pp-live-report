@@ -6,7 +6,7 @@
       <h2 class="heading--map">{{ title }}</h2>
 
       <div v-for="layer in layers" class="map__panel-layer">
-        <div class="flex flex-v-center">
+        <div class="flex flex-v-center" @click="toggleLayer(layer.tables)">
           <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
             <span class="map__panel-layer-button"></span>  
             <span class="map__panel-layer-percentage">{{ layer.percentage }}%</span>
@@ -15,7 +15,7 @@
         </div>
 
         <template v-if="layer.sublayers">
-          <div v-for="sublayer in layer.sublayers" class="flex flex-v-center map__panel-sublayer">
+          <div v-for="sublayer in layer.sublayers" class="flex flex-v-center map__panel-sublayer" @click="toggleLayer(layer.tables)">
             <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
               <span class="map__panel-sublayer-button"></span>  
               <span class="map__panel-sublayer-percentage">{{ sublayer.percentage }}%</span>
@@ -49,7 +49,13 @@
         mapboxToken: process.env.MAPBOX_TOKEN,
         cartoUsername: process.env.CARTO_USERNAME,
         cartoApiKey: process.env.CARTO_API_KEY,
-        wdpaTables: [process.env.WDPA_POLY_TABLE, process.env.WDPA_POINT_TABLE]
+        wdpaTables: [process.env.WDPA_POLY_TABLE, process.env.WDPA_POINT_TABLE],
+        themes: {
+          land: '#86BF37',
+          marine: '#03B0DA',
+          eez: '#7AB6FF',
+          abnj: '#3FD18B'
+        }
       }
     },
 
@@ -73,8 +79,9 @@
 
         this.map = map
 
-        // this.addTiles()
+        this.addTiles()
       },
+
       addTiles () {
         let tiles = new cartodb.Tiles({
           user_name: this.cartoUsername,
@@ -85,19 +92,19 @@
               sql: this.generateSQL(this.wdpaTables),
               cartocss: '#layer {polygon-fill: #ff00ff}'
             },
-            {
-              sql: this.generateSQL(this.tables),
-              cartocss: '#layer {polygon-fill: #ff00ff}'
-            }
+            // {
+            //   sql: this.generateSQL(this.tables),
+            //   cartocss: '#layer {polygon-fill: #ff00ff}'
+            // }
           ],
           extra_params: { map_key: this.cartoApiKey }
         })
 
         tiles.getTiles(object => {
-          this.addLayer(tiles, 'layer0', 'wdpa', this.themes.wdpa, false)
-          this.addLayer(tiles, 'layer0', 'wdpa-points', this.themes.wdpa, true)
-          this.addLayer(tiles, 'layer1', 'habitat', this.themes[this.theme], false)
-          this.addLayer(tiles, 'layer1', 'habitat-points', this.themes[this.theme], true)
+          this.addLayer(tiles, 'layer0', 'wdpa', this.themes.land, false)
+          this.addLayer(tiles, 'layer0', 'wdpa-points', this.themes.land, true)
+          // this.addLayer(tiles, 'layer1', 'habitat', this.themes[this.theme], false)
+          // this.addLayer(tiles, 'layer1', 'habitat-points', this.themes[this.theme], true)
         })
       },
 
@@ -133,7 +140,11 @@
         const sql = sqlArray.join(' UNION ALL ')
 
         return sql
+      },
+
+      toggleLayer (tables) {
+        console.log('toggle layer', tables)
       }
     }
   }
-</script>
+</script>4

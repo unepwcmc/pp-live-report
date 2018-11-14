@@ -38,7 +38,7 @@ module CsvParser
     CSV.parse(csv_file, headers: true) do |row|
       type = row[0]
       row = row.to_hash.except!(column)
-      prog_lev[type] = row.each { |k, v| row[k] = v.to_f.round(2) }
+      prog_lev[type] = row.each { |k, v| row[k] = v.to_f.round }
     end
     prog_lev
   end

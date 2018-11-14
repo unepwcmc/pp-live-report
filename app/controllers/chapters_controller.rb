@@ -340,7 +340,7 @@ class ChaptersController < ApplicationController
               label: "4."
             },
             {
-              percent: terrestrial['No Assessments'],
+              percent: 29,
               label: "5."
             }
           ]
@@ -350,7 +350,7 @@ class ChaptersController < ApplicationController
           theme: "blue",
           rows: [
             {
-              percent: marine['Over 60%'],
+              percent: 16,
               label: "1."
             },
             {

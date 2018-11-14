@@ -70,10 +70,7 @@ class ChaptersController < ApplicationController
           title: "Ocean",
           class: "marine",
           percent: 71,
-<<<<<<< HEAD
           cssPercent: 71,
-=======
->>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: sea_percentage
@@ -83,10 +80,7 @@ class ChaptersController < ApplicationController
           title: "Land",
           class: "land",
           percent: 29,
-<<<<<<< HEAD
           cssPercent: 29,
-=======
->>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: land_percentage
@@ -106,12 +100,8 @@ class ChaptersController < ApplicationController
         {
           title: "ABNJ",
           percent: 61,
-<<<<<<< HEAD
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
-=======
-          class: "marine",
->>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: abnj_percentage
@@ -120,12 +110,8 @@ class ChaptersController < ApplicationController
         {
           title: "EEZ",
           percent: 39,
-<<<<<<< HEAD
           cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
           class: "eez",
-=======
-          class: "marine",
->>>>>>> fix timeseries data displayed
           protected_areas: {
             title: "1.",
             percent: eez_percentage
@@ -496,7 +482,7 @@ class ChaptersController < ApplicationController
       theme: 'rainbow',
       legend: legend,
       charts: data_array
-    }.to_json
+    }
   end
 
   def chapter_7

@@ -136,9 +136,11 @@ a {
 }
 
 ul {
+  font-weight: $light;
 }
 
 li {  
+  margin-bottom: rem-calc(10);
 }
 
 blockquote {

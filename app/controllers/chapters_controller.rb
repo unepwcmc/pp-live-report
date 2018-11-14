@@ -348,6 +348,23 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        },
+        {
+          title: '0 - 10%'
+        },
+        {
+          title: '10% - 50%'
+        },
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
+
     #TODO replace with real data and update variable name
     @stacked_row_charts = {
       legend: [

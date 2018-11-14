@@ -1,11 +1,13 @@
 <section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <h1>MAP</h1>
+    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
   </div>
 </section>
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 
 <section class="section-padding">
   <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'] } %>
@@ -40,6 +42,4 @@
   </div>
 </section>
 
-<% @data['ctas'].each do |cta| %>
-  <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>
-<% end %>
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

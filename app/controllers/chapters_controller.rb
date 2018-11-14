@@ -568,6 +568,47 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_8_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
+
+    @mapbox = {
+      source: "(Source text)",
+      layers: [
+        {
+          title: '<4'
+        },
+        {
+          title: '<4% - 8%'
+        },
+        {
+          title: '<8% - 12%'
+        },
+        {
+          title: '<12% - 17%'
+        },
+        {
+          title: '<17% - 25%'
+        },
+        {
+          title: '>25%'
+        }
+      ]
+    }
+
+    @map = {
+      legend: [
+        {
+          title: 'Data deficient'
+        },
+        {
+          title: '0 - 10%'
+        },
+        {
+          title: '10% - 50%'
+        },
+        {
+          title: '50% - 100%'
+        }
+      ]
+    }
   end
 
   def chapter_8

@@ -1,19 +1,24 @@
 <section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
-
-  <div class="container--medium">
-    <h1>MAP</h1>
-  </div>
-</section>
-
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
-
-  <div class="container--medium">
-    <h1>MAP</h1>
+  <div class="container--small">
+    <p><%= @data['content_1'] %></p>
   </div>
 </section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_2'] %></p>
+  </div>
+</section>
+
+<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
+  </div>
+</section>

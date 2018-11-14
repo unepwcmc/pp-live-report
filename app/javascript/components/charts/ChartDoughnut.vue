@@ -15,7 +15,7 @@
           <g :style="getTextTranslate(index)"> 
             <text 
               class="chart__segment-text"
-              fill="black"
+              fill="white"
               x="0" 
               y="0" 
               text-anchor="middle"

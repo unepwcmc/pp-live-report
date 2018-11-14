@@ -378,31 +378,38 @@ class ChaptersController < ApplicationController
     @column_chart = [
       {
         label: 'Africa',
-        percent: column_chart_data['Africa']
+        percent: column_chart_data['Africa'],
+        value: "#{column_chart_data['Africa']}%"
       },
       {
         label: 'Asia & Pacific',
-        percent: column_chart_data['Asia + Pacific']
+        percent: column_chart_data['Asia + Pacific'],
+        value: "#{column_chart_data['Asia + Pacific']}%"
       },
       {
         label: 'Europe',
-        percent: column_chart_data['Europe']
+        percent: column_chart_data['Europe'],
+        value: "#{column_chart_data['Europe']}%"
       },
       {
         label: 'Latin America & Caribbean',
-        percent: column_chart_data['Latin America + Caribbean']
+        percent: column_chart_data['Latin America + Caribbean'],
+        value: "#{column_chart_data['Latin America + Caribbean']}%"
       },
       {
         label: 'North America',
-        percent: column_chart_data['North America']
+        percent: column_chart_data['North America'],
+        value: "#{column_chart_data['North America']}%"
       },
       {
         label: 'Polar',
-        percent: column_chart_data['Polar']
+        percent: column_chart_data['Polar'],
+        value: "#{column_chart_data['Polar']}%"
       },
       {
         label: 'West Asia',
-        percent: column_chart_data['West Asia']
+        percent: column_chart_data['West Asia'],
+        value: "#{column_chart_data['West Asia']}%"
       }
     ].to_json
 
@@ -410,31 +417,38 @@ class ChaptersController < ApplicationController
     @column_chart_2 = [
       {
         label: 'Africa',
-        percent: column_chart_data_2['Africa']
+        percent: 13,
+        value: column_chart_data_2['Africa']
       },
       {
         label: 'Asia & Pacific',
-        percent: column_chart_data_2['Asia + Pacific']
+        percent: 38,
+        value: column_chart_data_2['Asia + Pacific']
       },
       {
         label: 'Europe',
-        percent: column_chart_data_2['Europe']
+        percent: 92,
+        value: column_chart_data_2['Europe']
       },
       {
         label: 'Latin America & Caribbean',
-        percent: column_chart_data_2['Latin America + Caribbean']
+        percent: 14,
+        value: column_chart_data_2['Latin America + Caribbean']
       },
       {
         label: 'North America',
-        percent: column_chart_data_2['North America']
+        percent: 0.089,
+        value: column_chart_data_2['North America']
       },
       {
         label: 'Polar',
-        percent: column_chart_data_2['Polar']
+        percent: 0,
+        value: column_chart_data_2['Polar']
       },
       {
         label: 'West Asia',
-        percent: column_chart_data_2['West Asia']
+        percent: 0.033,
+        value: column_chart_data_2['West Asia']
       }
     ].to_json
   end

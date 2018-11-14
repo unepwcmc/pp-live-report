@@ -156,7 +156,7 @@ class ChaptersController < ApplicationController
         {
           x: 2018,
           line: true,
-          label: "4"
+          label: ["Future", "Commitments"]
         }
       ],
       legend: [
@@ -168,10 +168,6 @@ class ChaptersController < ApplicationController
         },
         {
           title: "Land"
-        },
-        {
-          title: "Commitments",
-          line: true
         }
       ]
     }

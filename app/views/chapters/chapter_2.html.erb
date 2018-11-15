@@ -1,10 +1,10 @@
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
-
 <section class="section-padding">
   <div class="container--small">
     <p><%= @data['content'] %></p>
   </div>
 </section>
+
+<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
 
 <section class="section-padding">
 
@@ -29,7 +29,7 @@
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
 
   <div class="container--medium">
     <chart-line 

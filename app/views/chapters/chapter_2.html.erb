@@ -4,7 +4,21 @@
   </div>
 </section>
 
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+
+  <div class="container--medium">
+    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
+      :colours="['#339900', '#004da8']">
+  </chart-legend>
+  </div>
+</section>
+
+<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
 
 <section class="section-padding">
 
@@ -47,7 +61,13 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+
+    <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Data Deficient' }, { title: '<5%' }, { title: '5% – 10%' }, { title: '10% - 17%' }, { title: '>17% ' }]"
+      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
   </div>
 </section>
 

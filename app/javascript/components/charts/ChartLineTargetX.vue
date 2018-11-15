@@ -27,7 +27,7 @@
         required: true
       },
       line: Boolean,
-      label: String,
+      label: Array,
       colour: {
         type: String,
         default: '#000000'

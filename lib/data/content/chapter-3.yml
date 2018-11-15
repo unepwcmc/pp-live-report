@@ -9,9 +9,9 @@ content_1:
     "While protected area coverage of KBAs in marine areas had tripled between 2010 and 2018 (5% to 15.9%), there was slower progress in the inclusion of terrestrial and freshwater KBAs into the global protected area network since 2000 (Terrestrial: 43.3 % to 46.6%; Freshwater: 41.1 % to 43.5%)."
 map_title: "Key Biodiversity Areas"
 map_description: "Map of Key Biodiversity Areas fully within (green), partially within (orange) or outside (red) protected areas on land and in the ocean (within EEZ)."
-cta_title: "Assessing the contribution of protected areas to ecosystem services"
-cta_text: "This article explores the extent to which particular ecosystem services are provided by protected areas."
-cta_url: "http://protectedplanet.net"
+cta_title_1: "Assessing the contribution of protected areas to ecosystem services"
+cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
+cta_url_1: "http://protectedplanet.net"
 line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
 content_2:
   -
@@ -22,6 +22,6 @@ content_2:
     "Another approach is based on the ‘Evolutionary Distinctiveness’ (the unique contribution of a species to total evolutionary history) and ‘Global Endangerment’ (extinction risk derived from the IUCN Red List) of species. A total of 1,261 or 43% of all EDGE species are found in 2,803 KBAs in 21 Biodiversity Hotspots, with 14% of these sites with EDGE species being fully within protected areas and 35% partially within protected areas. "
   -
     "There is currently no global dataset or analysis that provides a measure of how well protected areas cover ‘areas of particular importance for ecosystem services’, which constitutes a clear gap to be addressed to fully report progress in the achievement of Aichi Target 11."
-cta_title: "Protected areas’ contribution to climate change mitigation, with a case study in Paraguay"
-cta_text: "This case study in Paraguay describes the REDD+ mechanism and provides an example of the contribution of protected areas’ to climate change mitigation."
-cta_url: "http://protectedplanet.net"
+cta_title_2: "Protected areas’ contribution to climate change mitigation, with a case study in Paraguay"
+cta_text_2: "This case study in Paraguay describes the REDD+ mechanism and provides an example of the contribution of protected areas’ to climate change mitigation."
+cta_url_2: "http://protectedplanet.net"

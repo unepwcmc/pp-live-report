@@ -1,10 +1,19 @@
 <section class="section-padding">
   <div class="container--small">
-    <p><%= @data['content_1'] %></p>
+    <% @data['content_1'].each do |p| %>
+      <p><%= p %></p>
+    <% end %>
   </div>
 </section>
 
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_description'] } %>
+</section>
+
 <map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 
 <section class="section-padding">
   
@@ -28,6 +37,4 @@
   </div>
 </section>
 
-<% @data['ctas'].each do |cta| %>
-  <%= render partial: '/partials/cta', locals: { title: cta['cta_title'], text: cta['cta_text'], url: cta['cta_url'] } %>
-<% end %>
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

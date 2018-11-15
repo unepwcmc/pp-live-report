@@ -14,6 +14,19 @@
   </div>
 </section>
 
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
+<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+
+  <div class="container--medium">
+    <%= image_tag 'maps/map-chapter-9.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <chart-legend 
+      :rows="[{ title: 'Wild' }, { title: 'Not Wild' }, { title: 'Protected areas' }]"
+      :colours="['#99cc99', '#ffcc66', '#336600']">
+    </chart-legend>
+  </div>
+</section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

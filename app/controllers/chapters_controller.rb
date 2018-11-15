@@ -30,7 +30,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
     global_data = CsvParser.global_coverage_stats
     land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
-    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %'].to_f.round(1)
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
@@ -147,11 +147,11 @@ class ChaptersController < ApplicationController
       },
       targets: [
         {
-          y: 40,
+          y: 36,
           title: "Marine target (10%)"
         },
         {
-          y: 36,
+          y: 23,
           title: "Terrestrial target (17%)"
         }
       ],
@@ -320,19 +320,19 @@ class ChaptersController < ApplicationController
           theme: "green",
           rows: [
             {
-              percent: terrestrial['Over 60%'],
+              percent: terrestrial['Over 60%'].to_f.round,
               label: "1."
             },
             {
-              percent: terrestrial['30-60%'],
+              percent: terrestrial['30-60%'].to_f.round,
               label: "2."
             },
             {
-              percent: terrestrial['10-30%'],
+              percent: terrestrial['10-30%'].to_f.round,
               label: "3."
             },
             {
-              percent: terrestrial['Under 10%'],
+              percent: terrestrial['Under 10%'].to_f.round,
               label: "4."
             },
             {
@@ -350,19 +350,19 @@ class ChaptersController < ApplicationController
               label: "1."
             },
             {
-              percent: marine['30-60%'],
+              percent: marine['30-60%'].to_f.round,
               label: "2."
             },
             {
-              percent: marine['10-30%'],
+              percent: marine['10-30%'].to_f.round,
               label: "3."
             },
             {
-              percent: marine['Under 10%'],
+              percent: marine['Under 10%'].to_f.round,
               label: "4."
             },
             {
-              percent: marine['No Assessments'],
+              percent: marine['No Assessments'].to_f.round,
               label: "5."
             }
           ]
@@ -481,7 +481,7 @@ class ChaptersController < ApplicationController
       count = 1
       hash.each do |_, value|
         rows << {
-          percent: value,
+          percent: value.round(1),
           label: "#{count}."
         }
         count += 1

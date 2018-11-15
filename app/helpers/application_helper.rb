@@ -53,7 +53,7 @@ module ApplicationHelper
   def main_nav
     @main_nav = Array.new
 
-    (1..10).each do |i|
+    (3..4).each do |i|
       data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
 
       @main_nav.push({

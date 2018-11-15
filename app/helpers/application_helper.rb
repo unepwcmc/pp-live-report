@@ -61,7 +61,7 @@ module ApplicationHelper
       data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
 
       @main_nav.push({
-        'title': data['title'],
+        'title': data['menu_title'],
         'subtitle': data['subtitle'],
         'url': send("chapter_#{i}_path")
       })

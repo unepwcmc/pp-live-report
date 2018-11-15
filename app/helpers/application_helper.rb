@@ -11,10 +11,6 @@ module ApplicationHelper
     content_for?(:title) ? content_for(:title) : site_title
   end
 
-  def title_meta_tag(page_title)
-    page_title == nil ? site_title: "#{page_title} | #{site_title}"
-  end
-
   def url_encode text
     ERB::Util.url_encode(text)
   end
@@ -57,11 +53,11 @@ module ApplicationHelper
   def main_nav
     @main_nav = Array.new
 
-    (3..4).each do |i|
+    (1..10).each do |i|
       data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
 
       @main_nav.push({
-        'title': data['menu_title'],
+        'title': data['title'],
         'subtitle': data['subtitle'],
         'url': send("chapter_#{i}_path")
       })

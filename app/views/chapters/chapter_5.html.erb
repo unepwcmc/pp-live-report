@@ -9,7 +9,13 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+    <%= image_tag 'maps/map-chapter-5.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+
+    <chart-legend 
+      :rows="[{ title: 'No Assessments' }, { title: 'Under 10%' }, { title: '10 – 30%' }, { title: '30 – 60%' }, { title: 'Over 60%' }]"
+      :colours="['#ffffff', '#ffff99', '#ffcc66', '#cc9999', '#996600']">
+    </chart-legend>
   </div>
 </section>
 

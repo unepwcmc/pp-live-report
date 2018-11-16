@@ -23,7 +23,7 @@
 
     .chart {
       &__chart {
-        margin-top: rem-calc(44);
+        margin-top: rem-calc(54);
         width: 100%; height: rem-calc(32);
 
         @include breakpoint($small) { 

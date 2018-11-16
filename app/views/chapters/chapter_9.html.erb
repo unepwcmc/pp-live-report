@@ -21,7 +21,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
 
   <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-9.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-9.jpg' %>
     <chart-legend 
       :rows="[{ title: 'Wild' }, { title: 'Not Wild' }, { title: 'Protected areas' }]"
       :colours="['#99cc99', '#ffcc66', '#336600']">

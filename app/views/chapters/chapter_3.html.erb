@@ -13,7 +13,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_description'] } %>
 
   <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-3-key-biodiversity-areas.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-3-key-biodiversity-areas.jpg' %>
 
     <chart-legend 
       :rows="[{ title: 'Fully within protected areas' }, { title: 'Partially within protected areas' }, { title: 'Outside protected areas' }]"

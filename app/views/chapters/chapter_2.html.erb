@@ -9,7 +9,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
 
   <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg' %>
 
     <chart-legend 
       :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
@@ -63,7 +63,7 @@
   <div class="container--medium">
     <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
 
-    <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg' %>
 
     <chart-legend 
       :rows="[{ title: 'Data Deficient' }, { title: '<5%' }, { title: '5% – 10%' }, { title: '10% - 17%' }, { title: '>17% ' }]"
@@ -72,3 +72,18 @@
 </section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+
+    <%= image_tag 'maps/map-chapter-2.jpg' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Data Deficient' }, { title: '<3%' }, { title: '3% – 6%' }, { title: '6% – 6%' }, { title: '>10%' }]"
+      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
+  </div>
+</section>

@@ -24,5 +24,8 @@
       <% end %>
     </div>
   </div>
-  <p class="footer__citation gutters no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
+  <div>
+    <p class="footer__citation gutters no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
+    <p class="footer__citation gutters no-margin"><%= @data['photo_credits'] %></p>
+  </div>
 </footer>

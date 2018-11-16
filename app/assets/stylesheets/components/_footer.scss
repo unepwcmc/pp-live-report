@@ -61,6 +61,6 @@
     padding-bottom: rem-calc(8);
     width: 100%;
 
-    @include breakpoint($small) { font-size: rem-calc(14); }
+    @include breakpoint($small) { font-size: rem-calc(12); }
   }
 }

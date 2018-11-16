@@ -39,22 +39,22 @@
         }
 
         @include breakpoint($medium) { 
-          font-size: rem-calc(30); 
+          font-size: rem-calc(22); 
           padding-top: rem-calc(24);
         }
       }
 
       &__background {
         color: $grey-dark;
-        font-size: rem-calc(300);
+        font-size: rem-calc(200);
         font-weight: $fw-black;
-        line-height: 0.8;
+        line-height: 0.9;
         margin: 0;
-        width: 70%;
+        width: 62%;
 
         position: absolute;
-        top: rem-calc(70);
-        right: -35%;
+        top: rem-calc(60);
+        right: -30%;
         z-index: -1;
       }
     }

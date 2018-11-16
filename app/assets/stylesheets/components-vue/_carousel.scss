@@ -39,6 +39,7 @@
         transform: translateY(-50%);
 
         @include breakpoint($small) { right: rem-calc(30); }
+        @include breakpoint($medium) { right: rem-calc(80); }
       }
 
         &__nav-item {

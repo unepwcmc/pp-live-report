@@ -6,7 +6,7 @@
 
 <section class="section-padding">
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'], intro: @data['static_map_description'] } %>
 
   <div class="container--medium">
     <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
@@ -22,7 +22,7 @@
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'], intro: @data['stacked_row_chart_description'] } %>
 
   <div class="container--medium">
     <% @stacked_row_charts[:charts].each do |chart| %>
@@ -39,7 +39,13 @@
 </section>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'] } %>
+  <div class="container--small">
+    <p><%= @data['content_2'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'], intro: @data['column_chart_description'] } %>
 
   <div class="container--medium">
     <chart-column :columns="<%= @column_chart %>"></chart-column>
@@ -47,7 +53,13 @@
 </section>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_2_title'] } %>
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_2_title'], intro: @data['column_chart_2_description'] } %>
 
   <div class="container--medium">
     <chart-column :columns="<%= @column_chart_2 %>"></chart-column>

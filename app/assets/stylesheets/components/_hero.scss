@@ -17,7 +17,7 @@
     
     @include breakpoint($small) { 
       padding-top: rem-calc(24);
-      min-height: 100vh;
+      min-height: 100vh; 
     }
 
     .hero {

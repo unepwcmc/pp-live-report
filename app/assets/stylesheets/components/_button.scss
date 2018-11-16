@@ -1,4 +1,31 @@
 //--------------------------------------------------
+// buttons mixins
+//--------------------------------------------------
+@mixin button-cta {
+  background-color: $primary;
+  color: $black;
+  font-size: rem-calc(20);
+  font-weight: $normal;
+  line-height: 1;
+  padding: rem-calc(17 27);
+  text-decoration: none;
+
+  display: inline-block;
+
+  @include breakpoint($small) {
+    font-size: rem-calc(25);
+    padding: rem-calc(19 31);
+  }
+
+  &::after {
+    content: '';
+    margin-left: rem-calc(10);
+
+    display: inline-block;
+  }
+}
+
+//--------------------------------------------------
 // buttons
 //--------------------------------------------------
 .button {
@@ -7,34 +34,26 @@
 // styles
 //--------------------------------------------------
   &--cta {
-    background-color: $primary;
-    color: $black;
-    font-size: rem-calc(20);
-    font-weight: $normal;
-    line-height: 1;
-    padding: rem-calc(17 27);
-    text-decoration: none;
-
-    display: inline-block;
-
-    @include breakpoint($small) {
-      font-size: rem-calc(25);
-      padding: rem-calc(19 31);
-    }
+    @include button-cta;
 
     &::after {
       background-image: image-url('icons/arrow-right.svg');
-      content: '';
-      margin-left: rem-calc(10);
       width: rem-calc(20); height: rem-calc(14);
 
-      display: inline-block;
-
       transform: translateY(1px);
-
-      @include breakpoint($small) {  }
     }
-  } 
+  }
+
+  &--cta-external {
+    @include button-cta;
+
+    &::after {
+      background-image: image-url('icons/external-link.svg');
+      width: rem-calc(23); height: rem-calc(23);
+
+      transform: translateY(3px);
+    }
+  }
 
   &--download {
     @extend .flex;

@@ -143,7 +143,7 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: lines,
       axis: {
-        y: ["Area", "(Million km2)"]
+        y: ["Area", "(Million km²)"]
       },
       targets: [
         {
@@ -229,7 +229,7 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: lines,
       axis: {
-        y: ["Area", "(Million km2)"]
+        y: ["Area", "(Million km²)"]
       },
       legend: [
         {

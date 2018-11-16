@@ -19,7 +19,7 @@
 
   <div class="container--medium">
     
-    <%= image_tag 'maps/map-chapter-7a.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-7a.jpg', class: 'map--image' %>
     <chart-legend 
       :rows="[{ title: '< 4%' }, { title: '4 – 8%' }, { title: '8 – 12%' }, { title: '12% – 17%' }, { title: '17 – 25%' }, { title: '> 25%' }]"
       :colours="['#ff9966', '#cccc99', '#ffffcc', '#ffff66', '#ccff66', '#669933']">
@@ -34,7 +34,7 @@
   <div class="container--medium">
     <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
 
-    <%= image_tag 'maps/map-chapter-7b.jpg', alt: 'Map of the Spatial distribution of the world’s protected areas' %>
+    <%= image_tag 'maps/map-chapter-7b.jpg', class: 'map--image' %>
     <chart-legend 
       :rows="[{ title: 'A1. General increase of PA coverage' }, { title: 'A2. Targeted designation of connecting PAs' }, { title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)' }, { title: 'B1. Permeability of unprotected lands between PAs' }, { title: 'B2. Coordinated management of adjacent PAs in the country' }, { title: 'B3. No specific priority other than PA management effectiveness for connectivity' }, { title: 'C. Coordinated management of transboundary PA linkages' }]"
       :colours="['#cc99cc', '#ffcc99', '#ccccff', '#66ccff', '#99cc66', '#ffffcc', '#ffffff']">

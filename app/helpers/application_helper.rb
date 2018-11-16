@@ -1,10 +1,10 @@
 module ApplicationHelper
   def site_title 
-    'Protected Planet Report 2018'
+    'Protected Planet Digital Report'
   end
 
   def site_description
-    'Protected Planet Reports are biennial landmark publications that assess the state of protected areas around the world. They are based on the data contained in the World Database on Protected Areas (WDPA), jointly managed by UNEP-WCMC and IUCM, as well as other relevant resources.'
+    'Protected Planet Digital Report assesses the state of protected areas around the world.'
   end
 
   def page_title
@@ -21,6 +21,14 @@ module ApplicationHelper
 
   def encoded_home_url
     url_encode(request.base_url)
+  end
+
+  def social_image
+    image_url('social.jpg')
+  end
+
+  def social_image_alt
+    'Guanaco Torres del Paine Chile Gregoire Dubois'
   end
 
   def create_sharing_facebook_link

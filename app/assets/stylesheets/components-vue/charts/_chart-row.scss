@@ -40,6 +40,11 @@
             &:nth-child(1) { .chart__bar { background-color: $chart-green-light; } }
             &:nth-child(2) { .chart__bar { background-color: $chart-green; } }
           }
+
+          &.chart-theme--pelagic {
+            &:nth-child(1) { .chart__bar { background-color: #87dbdb; } }
+            &:nth-child(2) { .chart__bar { background-color: #339999; } }
+          }
         }
 
           &__bar {

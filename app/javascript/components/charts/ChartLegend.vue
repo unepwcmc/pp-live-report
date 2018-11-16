@@ -40,10 +40,14 @@
 
     methods: {
       style (index) {
-        let styling = ''
+        let styling = {}
 
         if(this.colours) {
-          styling = `background-color: ${this.colours[index]}`
+          const colour = this.colours[index]
+
+          styling['background-color'] = this.colours[index]
+
+          if(colour == '#ffffff') { styling['border'] = 'solid 1px #cccccc' } 
         }
 
         return styling

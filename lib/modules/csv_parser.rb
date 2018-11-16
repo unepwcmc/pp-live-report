@@ -72,7 +72,7 @@ module CsvParser
 
     CSV.parse(csv_file, headers: true) do |row|
       unit = row["Biogeographical Unit"]
-      if ['Ecoregions', 'Realms'].include?(unit)
+      if ['Ecoregions', 'Realms', 'Biomes', 'Provinces'].include?(unit)
         region_type = unit
         data[region_type] = []
         next

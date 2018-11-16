@@ -24,6 +24,8 @@ strong, .bold { font-weight: $bold; }
 .italic { font-style: italic; }
 i { font-style: normal; }
 
+.smallprint { font-size: rem-calc(12); }
+
 //--------------------------------------------------
 // dimensions
 //--------------------------------------------------

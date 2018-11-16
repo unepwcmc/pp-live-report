@@ -85,9 +85,17 @@ module CsvParser
           label: key
         }
       end
+      theme = case unit
+              when 'Terrestrial'
+                'green'
+              when 'Pelagic'
+                'pelagic'
+              else
+                'blue'
+              end
       chart = {
         chart_title: unit,
-        theme: unit == 'Terrestrial' ? 'green' : 'blue',
+        theme: theme,
         rows: chart_rows
       }
 

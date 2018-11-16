@@ -135,7 +135,7 @@ class ChaptersController < ApplicationController
     lines = []
     %w[ABNJ EEZ Land].each do |type|
       datapoints = []
-      ('1990'..'2018').each do |year|
+      ('1990'..'2020').each do |year|
         datapoints << { x: year, y: timeseries_data[year][type].round(2) }
       end
       lines << { datapoints: datapoints }

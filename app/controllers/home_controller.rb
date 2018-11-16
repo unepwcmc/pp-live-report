@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/home.yml", 'r'))
 
-    @last_updated_date = '03/08/2018'
+    @last_updated_date = 'July 2018'
 
     @chapters = Array.new
 

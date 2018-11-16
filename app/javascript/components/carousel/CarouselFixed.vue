@@ -1,5 +1,6 @@
 <template>
   <div class="carousel--fixed" :class="[{ 'animate': changingSlide }, `chapter-${this.activeIndex + 1}`]">
+    <span class="carousel__overlay bg-overlay"></span>
     <div class="carousel__slide">
       <div class="carousel__content" :class="{ 'animate': changingSlide }" ref="animated-slide">
         <p class="carousel__subtitle">{{ subtitle}}</p>

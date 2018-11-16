@@ -21,7 +21,12 @@
     }
 
     .hero {
-      &__content { margin-top: 10%; }
+      &__content { 
+        margin-top: 10%; 
+        
+        @include breakpoint($small) { margin-top: 30%; }
+        @include breakpoint($medium) { margin-top: 10%; }
+      }
       
       &__intro {
         font-size: rem-calc(16);

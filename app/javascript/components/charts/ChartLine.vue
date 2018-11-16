@@ -100,7 +100,7 @@
           chartWidth: 890,
           chartPadding: 24,
           min:0,
-          max: 2022,
+          max: 0,
           axisMarks: 6
         },
         y: {
@@ -128,6 +128,7 @@
 
     created () {
       this.x.min = this.getMinMax('min', 'x')
+      this.x.max = this.getMinMax('max', 'x')
       this.y.max = this.getMinMax('max', 'y')
     },
 
@@ -175,6 +176,10 @@
             return t[prop]
           })))
         }) 
+
+        console.log('lines', this.lines)
+        console.log('prop', prop)
+        console.log('array', array)
 
         return Math.max(...array)
       },

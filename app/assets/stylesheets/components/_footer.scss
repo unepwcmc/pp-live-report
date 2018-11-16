@@ -46,11 +46,11 @@
       }
 
         &__logo {
-          opacity: .55;
+          opacity: .4;
           width: auto; height: rem-calc(20);
 
-          @include breakpoint($small) { height: rem-calc(28); }
-          @include breakpoint($medium) { height: rem-calc(44); }
+          @include breakpoint($small) { height: rem-calc(24); }
+          @include breakpoint($medium) { height: rem-calc(36); }
         }
 
   &__citation {

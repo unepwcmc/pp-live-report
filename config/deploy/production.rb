@@ -1,3 +1,16 @@
+set :stage, :production
+set :branch, "develop"
+
+
+server "web-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
+
+set :application, "pp-live-report"
+set :server_name, "pp-live-report.web-production.linode.unep-wcmc.org"
+set :sudo_user, "wcmc"
+set :app_port, "80"
+
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

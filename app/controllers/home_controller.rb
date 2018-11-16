@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/home.yml", 'r'))
 
-    @last_updated_date = '03/08/2018'
+    @last_updated_date = 'July 2018'
 
     @chapters = Array.new
 
@@ -12,7 +12,7 @@ class HomeController < ApplicationController
       data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
 
       @chapters.push({
-        'title': data['title'],
+        'title': data['menu_title'],
         'subtitle': data['subtitle'],
         'intro': data['intro'],
         'url': send("chapter_#{i}_path")

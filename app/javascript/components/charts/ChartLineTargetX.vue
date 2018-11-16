@@ -3,7 +3,9 @@
     <path v-if="line" :d="path" stroke="#871313" stroke-width="1" stroke-linecap="round" stroke-dasharray="4" />
     <path v-else :d="path" :stroke="colour" stroke-width="4" stroke-linecap="round" />
 
-    <text :x="x + 10" :y="maxY + 10" text-anchor="middle" dominant-baseline="middle" font-size="18" font-weight="900">{{ label }}</text>
+    <text v-if="label" :x="x + 10" :y="maxY + 10" font-size="18" font-weight="300">
+      <tspan v-for="t in label" :x="x + 10" :dy="24">{{ t }}</tspan>
+    </text>
   </g>
 </template>
 
@@ -25,7 +27,7 @@
         required: true
       },
       line: Boolean,
-      label: String,
+      label: Array,
       colour: {
         type: String,
         default: '#000000'

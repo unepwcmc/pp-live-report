@@ -28,29 +28,30 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
+    global_data = CsvParser.global_coverage_stats
+    land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %'].to_f.round(1)
+    eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
+    abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
     @mapbox = {
       source: "(Source text)",
       layers: [
         {
           title: "Terrestrial Protected Areas",
-          percentage: 10,
-          tables: ['terrestrial_poly', 'terrestrial_line'] #TODO UPDATE
+          percentage: land_percentage
         },
         {
           title: "Marine & Coastal Protected Areas",
-          percentage: 10,
-          tables: ['marine_poly', 'marine_line'], #TODO UPDATE
+          percentage: sea_percentage,
           sublayers: [
             {
               title: "Exclusive Economic Zones (EEZ)",
-              percentage: 10,
-              tables: ['eez_poly', 'eez_line'] #TODO UPDATE
+              percentage: eez_percentage
             },
             {
               title: "Areas beyond National Jurisdiction (ABNJ)",
-              percentage: 10,
-              tables: ['abnj_poly', 'abnj_line'] #TODO UPDATE
+              percentage: abnj_percentage
             }
           ]
         }
@@ -72,7 +73,7 @@ class ChaptersController < ApplicationController
           cssPercent: 71,
           protected_areas: {
             title: "1.",
-            percent: 7.44
+            percent: sea_percentage
           }
         },
         {
@@ -82,7 +83,7 @@ class ChaptersController < ApplicationController
           cssPercent: 29,
           protected_areas: {
             title: "1.",
-            percent: 15
+            percent: land_percentage
           }
         }
       ]
@@ -103,7 +104,7 @@ class ChaptersController < ApplicationController
           class: "abnj",
           protected_areas: {
             title: "1.",
-            percent: 17.3
+            percent: abnj_percentage
           }
         },
         {
@@ -113,7 +114,7 @@ class ChaptersController < ApplicationController
           class: "eez",
           protected_areas: {
             title: "1.",
-            percent: 1.18
+            percent: eez_percentage
           }
         },
         {
@@ -124,35 +125,33 @@ class ChaptersController < ApplicationController
           active: false,
           protected_areas: {
             title: "1.",
-            percent: 15
+            percent: land_percentage
           }
         },
       ]
     }
 
-    #TODO replace with real data
+    timeseries_data = CsvParser.timeseries
+    lines = []
+    %w[ABNJ EEZ Land].each do |type|
+      datapoints = []
+      ('1990'..'2018').each do |year|
+        datapoints << { x: year, y: timeseries_data[year][type].round(2) }
+      end
+      lines << { datapoints: datapoints }
+    end
     @line_chart = {
-      lines: [
-        {
-          datapoints: [{ x: 1990, y: 0 }, { x: 1995, y: 10 }, { x: 2000, y: 20 }, { x: 2005, y: 30 }, { x: 2010, y: 40 }, { x: 2015, y: 50 }, { x: 2020, y: 60 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: 20 }, { x: 1995, y: 40 }, { x: 2000, y: 20 }, { x: 2005, y: 40 }, { x: 2010, y: 20 }, { x: 2015, y: 40 }, { x: 2020, y: 20 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: 14 }, { x: 1995, y: 23 }, { x: 2000, y: 34 }, { x: 2005, y: 56 }, { x: 2010, y: 43 }, { x: 2015, y: 23 }, { x: 2020, y: 32 }]
-        }
-      ],
+      lines: lines,
       axis: {
-        y: ["Area", "(Million km2)"]
+        y: ["Area", "(Million km²)"]
       },
       targets: [
         {
-          y: 40,
+          y: 36,
           title: "Marine target (10%)"
         },
         {
-          y: 36,
+          y: 23,
           title: "Terrestrial target (17%)"
         }
       ],
@@ -160,7 +159,7 @@ class ChaptersController < ApplicationController
         {
           x: 2018,
           line: true,
-          label: "4"
+          label: ["Future", "Commitments"]
         }
       ],
       legend: [
@@ -172,10 +171,6 @@ class ChaptersController < ApplicationController
         },
         {
           title: "Land"
-        },
-        {
-          title: "Commitments",
-          line: true
         }
       ]
     }
@@ -222,31 +217,29 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    #TODO replace with real data
+    kba_data = CsvParser.kba_timeseries
+    lines = []
+    ['Terrestrial KBAs', 'Marine KBAs', 'Freshwater KBAs'].each do |type|
+      datapoints = []
+      ('2000'..'2018').each do |year|
+        datapoints << { x: year, y: kba_data[year][type] }
+      end
+      lines << { datapoints: datapoints }
+    end
     @line_chart = {
-      lines: [
-        {
-          datapoints: [{ x: 1990, y: 0 }, { x: 1995, y: 10 }, { x: 2000, y: 20 }, { x: 2005, y: 30 }, { x: 2010, y: 40 }, { x: 2015, y: 50 }, { x: 2020, y: 60 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: 20 }, { x: 1995, y: 40 }, { x: 2000, y: 20 }, { x: 2005, y: 40 }, { x: 2010, y: 20 }, { x: 2015, y: 40 }, { x: 2020, y: 20 }]
-        },
-        {
-          datapoints: [{ x: 1990, y: 14 }, { x: 1995, y: 23 }, { x: 2000, y: 34 }, { x: 2005, y: 56 }, { x: 2010, y: 43 }, { x: 2015, y: 23 }, { x: 2020, y: 32 }]
-        }
-      ],
+      lines: lines,
       axis: {
-        y: ["Area", "(Million km2)"]
+        y: ["Area", "(Million km²)"]
       },
       legend: [
         {
-          title: "1. ABNJ"
+          title: "Terrestrial"
         },
         {
-          title: "2. EEZ"
+          title: "Marine"
         },
         {
-          title: "3. Land"
+          title: "Freshwater"
         }
       ]
     }
@@ -257,76 +250,6 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
-
-    #TODO replace with real data
-    @row_charts = [
-      {
-        title: "Ecoregions",
-        charts: [
-          {
-            chart_title: "Terrestrial",
-            theme: "green",
-            rows: [
-              {
-                percent: 42.6,
-                label: "2016"
-              },
-              {
-                percent: 30.6,
-                label: "2018"
-              }
-            ]
-          },
-          {
-            chart_title: "Marine",
-            theme: "blue",
-            rows: [
-              {
-                percent: 28.6,
-                label: "2016"
-              },
-              {
-                percent: 39.2,
-                label: "2018"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: "Realms",
-        charts: [
-          {
-            chart_title: "Terrestrial",
-            theme: "green",
-            rows: [
-              {
-                percent: 42.6,
-                label: "2016"
-              },
-              {
-                percent: 30.6,
-                label: "2018"
-              }
-            ]
-          },
-          {
-            chart_title: "Marine",
-            theme: "blue",
-            rows: [
-              {
-                percent: 28.6,
-                label: "2016"
-              },
-              {
-                percent: 39.2,
-                label: "2018"
-              }
-            ]
-          }
-        ]
-      }
-    ]
 
     @map = {
       legend: [
@@ -344,6 +267,7 @@ class ChaptersController < ApplicationController
         }
       ]
     }
+    @row_charts = CsvParser.biogeographical_regions
   end
 
   def chapter_5
@@ -369,7 +293,9 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    #TODO replace with real data and update variable name
+    progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+    terrestrial = progress_level_data['Land']
+    marine = progress_level_data['Marine']
     @stacked_row_charts = {
       legend: [
         {
@@ -383,6 +309,9 @@ class ChaptersController < ApplicationController
         },
         {
           title: "Under 10%"
+        },
+        {
+          title: 'No Assessments'
         }
       ],
       charts: [
@@ -391,20 +320,24 @@ class ChaptersController < ApplicationController
           theme: "green",
           rows: [
             {
-              percent: 10,
+              percent: terrestrial['Over 60%'].to_f.round,
               label: "1."
             },
             {
-              percent: 30,
+              percent: terrestrial['30-60%'].to_f.round,
               label: "2."
             },
             {
-              percent: 35,
+              percent: terrestrial['10-30%'].to_f.round,
               label: "3."
             },
             {
-              percent: 25,
+              percent: terrestrial['Under 10%'].to_f.round,
               label: "4."
+            },
+            {
+              percent: 29,
+              label: "5."
             }
           ]
         },
@@ -413,157 +346,154 @@ class ChaptersController < ApplicationController
           theme: "blue",
           rows: [
             {
-              percent: 5,
+              percent: 16,
               label: "1."
             },
             {
-              percent: 25,
+              percent: marine['30-60%'].to_f.round,
               label: "2."
             },
             {
-              percent: 40,
+              percent: marine['10-30%'].to_f.round,
               label: "3."
             },
             {
-              percent: 30,
+              percent: marine['Under 10%'].to_f.round,
               label: "4."
+            },
+            {
+              percent: marine['No Assessments'].to_f.round,
+              label: "5."
             }
           ]
         }
       ]
     }
 
-    #TODO replace with real data and update variable name
+    column_chart_data = CsvParser.country_perc('Figure 12 PAME_JUL18_REGIONAL.csv', 'PER_PAME_COVERAGE')
     @column_chart = [
       {
         label: 'Africa',
-        percent: 76
+        percent: column_chart_data['Africa'],
+        value: "#{column_chart_data['Africa']}%"
       },
       {
         label: 'Asia & Pacific',
-        percent: 87
+        percent: column_chart_data['Asia + Pacific'],
+        value: "#{column_chart_data['Asia + Pacific']}%"
       },
       {
         label: 'Europe',
-        percent: 43
+        percent: column_chart_data['Europe'],
+        value: "#{column_chart_data['Europe']}%"
       },
       {
         label: 'Latin America & Caribbean',
-        percent: 20
+        percent: column_chart_data['Latin America + Caribbean'],
+        value: "#{column_chart_data['Latin America + Caribbean']}%"
       },
       {
         label: 'North America',
-        percent: 46
+        percent: column_chart_data['North America'],
+        value: "#{column_chart_data['North America']}%"
       },
       {
         label: 'Polar',
-        percent: 53
+        percent: column_chart_data['Polar'],
+        value: "#{column_chart_data['Polar']}%"
       },
       {
         label: 'West Asia',
-        percent: 45
+        percent: column_chart_data['West Asia'],
+        value: "#{column_chart_data['West Asia']}%"
+      }
+    ].to_json
+
+    column_chart_data_2 = CsvParser.country_perc('Figure_13.csv', 'Count of PAME evaluations')
+    @column_chart_2 = [
+      {
+        label: 'Africa',
+        percent: 13,
+        value: column_chart_data_2['Africa']
       },
+      {
+        label: 'Asia & Pacific',
+        percent: 38,
+        value: column_chart_data_2['Asia + Pacific']
+      },
+      {
+        label: 'Europe',
+        percent: 92,
+        value: column_chart_data_2['Europe']
+      },
+      {
+        label: 'Latin America & Caribbean',
+        percent: 14,
+        value: column_chart_data_2['Latin America + Caribbean']
+      },
+      {
+        label: 'North America',
+        percent: 0.089,
+        value: column_chart_data_2['North America']
+      },
+      {
+        label: 'Polar',
+        percent: 0,
+        value: column_chart_data_2['Polar']
+      },
+      {
+        label: 'West Asia',
+        percent: 0.033,
+        value: column_chart_data_2['West Asia']
+      }
     ].to_json
   end
 
   def chapter_6
+    values = ['194.836', '7.632', '13.105', '1.377', '21.613']
+    @column_chart = []
     @chapter_number = 6
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['menu_title']
+    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
 
-    @column_chart = [
-      {
-        label: 'Africa',
-        percent: 76
-      },
-      {
-        label: 'Asia & Pacific',
-        percent: 87
-      },
-      {
-        label: 'Europe',
-        percent: 43
-      },
-      {
-        label: 'Latin America & Caribbean',
-        percent: 20
-      },
-      {
-        label: 'North America',
-        percent: 46
-      },
-      {
-        label: 'Polar',
-        percent: 53
-      },
-      {
-        label: 'West Asia',
-        percent: 45
-      },
-    ].to_json
+    governance_types_data = CsvParser.governance_type
 
-    #TODO replace with real data and update variable name
+    governance_types_data.each_with_index do |data, index|
+      @column_chart << {
+        label: data.keys.first.to_s,
+        value: values[index],
+        percent: data.values.first
+      }
+    end
+    @column_chart = @column_chart.to_json
+
+    country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
+    legend = []
+    country_governance_data.first.second.keys.each do |gov|
+      legend << { title: gov }
+    end
+    data_array = []
+    country_governance_data.each do |k, hash|
+      charts = {}
+      rows = []
+      charts[:chart_title] = k
+      count = 1
+      hash.each do |_, value|
+        rows << {
+          percent: value.round(1),
+          label: "#{count}."
+        }
+        count += 1
+      end
+      charts[:rows] = rows
+      data_array << charts
+    end
+
     @stacked_row_charts = {
       theme: 'rainbow',
-      legend: [
-        {
-          title: "Government "
-        },
-        {
-          title: "Indigenous peoples and local communties"
-        },
-        {
-          title: "Shared"
-        },
-        {
-          title: "Not Reported"
-        }
-      ],
-      charts: [
-        {
-          chart_title: "ABNJ",
-          rows: [
-            {
-              percent: 10,
-              label: "1."
-            },
-            {
-              percent: 30,
-              label: "2."
-            },
-            {
-              percent: 35,
-              label: "3."
-            },
-            {
-              percent: 25,
-              label: "4."
-            }
-          ]
-        },
-        {
-          chart_title: "West Asia",
-          rows: [
-            {
-              percent: 5,
-              label: "1."
-            },
-            {
-              percent: 25,
-              label: "2."
-            },
-            {
-              percent: 40,
-              label: "3."
-            },
-            {
-              percent: 30,
-              label: "4."
-            }
-          ]
-        }
-      ]
+      legend: legend,
+      charts: data_array
     }
   end
 

@@ -1,44 +1,48 @@
 <template>
-  <div class="chart--doughnut flex flex-h-between">
-    <svg class="chart__chart" width="100%" height="100%" viewBox="-340 -340 680 680" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-      <circle cx="0" cy="0" :r="radiusBackground" :fill="colours.grey"></circle>
-      
-      <g transform="rotate(-26)">
-
-        <g v-for="dataset, index in datasets" 
-          @click="clickSegment(dataset)"
-          class="chart__segment"
-          :class="{ 'active': getSegmentStatus(dataset.title) }"> 
-
-          <path class="chart__segment-path" :d="getArcPath(index)" :fill="dataset.colour" stroke="#ffffff" />
-          
-          <text 
-            class="chart__segment-text"
-            fill="white"
-            :x="getTextPosition(index, 'x')" 
-            :y="getTextPosition(index, 'y')" 
-            text-anchor="middle"
-            font-size="25px"
-            :transform="getTextRotation(index)"
-            :style="getTextTransformOrigin(index)">
-            {{ index + 1 }}
-          </text>
-        </g>
-      </g>      
-
-      <g x="0" y="0">
-        <image :xlink:href="active.icon" width="120px" height="120px" transform="translate(-60, -100)"></image>
+  <div class="chart--doughnut flex flex-v-start flex-h-between">
+    <div class="chart__wrapper-ie11">
+      <svg class="chart__chart" width="100%" height="100%" viewBox="-340 -340 680 680" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+        <circle cx="0" cy="0" :r="radiusBackground" :fill="colours.grey"></circle>
         
-        <foreignObject transform="translate(-130, 30)" width="260" height="60">
-          <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 25px; font-weight: 300; text-align: center;">{{ active.title }}</p>
-        </foreignObject>
-      </g>
-    </svg>
+        <g transform="rotate(-26)">
+
+          <g v-for="dataset, index in datasets" 
+            @click="clickSegment(dataset)"
+            class="chart__segment"
+            :class="{ 'active': getSegmentStatus(dataset.title) }"> 
+
+            <path class="chart__segment-path" :d="getArcPath(index)" :fill="dataset.colour" stroke="#ffffff" />
+            
+            <g :style="getTextTranslate(index)"> 
+              <text 
+                class="chart__segment-text"
+                fill="white"
+                x="0" 
+                y="0" 
+                text-anchor="middle"
+                font-size="25px"
+                :style="getTextRotation(index)"
+                >
+                {{ index + 1 }}
+              </text>
+            </g>
+          </g>
+        </g>      
+
+        <g x="0" y="0">
+          <image :xlink:href="active.icon" width="120px" height="120px" transform="translate(-60, -100)"></image>
+          
+          <foreignObject transform="translate(-130, 30)" width="260" height="100">
+            <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 25px; font-weight: 300; text-align: center;">{{ active.title }}</p>
+          </foreignObject>
+        </g>
+      </svg>
+    </div>
 
     <div class="chart__side">
       <div class="chart__panel" :style="{ 'background-color': active.colour}">
         <h3 class="heading--doughnut-chart">{{ active.title }}</h3>
-        <p>{{ active.description }}</p>
+        <p class="chart__panel-text">{{ active.description }}</p>
         <a :href="active.url" title="Link to SDG website" target="_blank" class="button--link">Link to SDG website</a>
       </div>
 
@@ -132,19 +136,21 @@
         return this.radiusText * Math[trig](percentage/100 * 2 * Math.PI) 
       },
 
-      getTextRotation (index) {
-        const percentage = this.segmentWidth * (index - .5) 
-        
-        return `rotate(${((percentage/100) * 360) + 90})`
+      getTextTranslate (index) {
+        const x = this.getTextPosition(index, 'x'),
+          y = this.getTextPosition(index, 'y')
+
+        const style = {
+          'transform': `translate(${x}px, ${y}px)`,
+        }
+
+        return style
       },
 
-      getTextTransformOrigin (index) {
-        const x = this.getTextPosition(index, 'x'),
-          y = this.getTextPosition(index, 'y'),
-          style = {
-            'transform-origin': `${x}px ${y}px`,
-            '-webkit-transform-origin': `${x}px ${y}px`,
-            '-ms-transform-origin': `${x}px ${y}px`
+      getTextRotation (index) {
+        const percentage = this.segmentWidth * (index - .5),
+           style = {
+            'transform': `rotateZ(${((percentage/100) * 360) + 90}deg)`,
           }
 
         return style

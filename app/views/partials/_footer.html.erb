@@ -1,25 +1,31 @@
-<footer class="footer gutters flex flex-v-center flex-h-between">
-  <span>ProtectedPlanet 2014-2018. All rights reserved.</span>
+<footer>
+  <div class="footer__main gutters flex flex-v-center flex-h-between">
+    <span>Protected Planet <%= Date.today.year %>. All rights reserved.</span>
+    
+    <div class="footer__partner-logos">
+      <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017+white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
+      <% end %>
 
-  <div class="footer__partner-logos">
-    <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
-      <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017+white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
-    <% end %>
+      <%= link_to 'https://www.iucn.org/', title: 'Visit IUCN', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'logos/logo-iucn.svg', alt: 'IUCN logo', class: 'footer__logo' %>
+      <% end %>
 
-    <%= link_to 'https://www.iucn.org/', title: 'Visit IUCN', target: '_blank', class: 'footer__a' do %>
-      <%= image_tag 'logos/logo-iucn.svg', alt: 'IUCN logo', class: 'footer__logo' %>
-    <% end %>
+      <%= link_to 'https://www.iucn.org/commissions/world-commission-protected-areas', title: 'Visit World Commission on Protected Areas', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'logos/logo-wcpa.svg', alt: 'World Commission on Protected Areas logo', class: 'footer__logo' %>
+      <% end %>
 
-    <%= link_to 'https://www.iucn.org/commissions/world-commission-protected-areas', title: 'Visit World Commission on Protected Areas', target: '_blank', class: 'footer__a' do %>
-      <%= image_tag 'logos/logo-wcpa.svg', alt: 'World Commission on Protected Areas logo', class: 'footer__logo' %>
-    <% end %>
+      <%= link_to 'https://www.nationalgeographic.org', title: 'Visit National Geographic', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'logos/logo-national-geographic.svg', alt: 'National Geographic logo', class: 'footer__logo' %>
+      <% end %>
 
-    <%= link_to 'https://www.nationalgeographic.org', title: 'Visit National Geographic', target: '_blank', class: 'footer__a' do %>
-      <%= image_tag 'logos/logo-national-geographic.svg', alt: 'National Geographic logo', class: 'footer__logo' %>
-    <% end %>
-
-    <%= link_to 'https://protectedplanet.net/', title: 'Visit Protected Planet', target: '_blank', class: 'footer__a' do %>
-      <%= image_tag 'logos/logo-protected-planet.svg', alt: 'Protected Planet logo', class: 'footer__logo' %>
-    <% end %>
+      <%= link_to 'https://protectedplanet.net/', title: 'Visit Protected Planet', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'logos/logo-protected-planet.svg', alt: 'Protected Planet logo', class: 'footer__logo' %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <p class="footer__citation gutters no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
+    <p class="footer__citation gutters no-margin"><%= @data['photo_credits'] %></p>
   </div>
 </footer>

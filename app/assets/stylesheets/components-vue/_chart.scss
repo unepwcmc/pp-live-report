@@ -1,4 +1,58 @@
 //--------------------------------------------------
+// shared chart mixins
+//--------------------------------------------------
+@mixin chart-tooltip($arrow, $colour) {
+  @extend .flex;
+  @extend .flex-center;
+  background-color: white;
+  border: solid rem-calc(2) $colour;
+  border-radius: $radius-global;
+  font-size: rem-calc(18);
+  font-weight: $fw-black;
+  padding: rem-calc(0 4 0 4);
+  width: auto; height: rem-calc(30);
+  min-width: rem-calc(40);
+
+  &::before {
+    border-right: 13px solid transparent;
+    border-left: 13px solid transparent;
+    content: '';
+    width: 0; height: 0;
+
+    position: absolute;
+    
+    @if $arrow == 'bottom' {
+      border-top: 13px solid $colour; 
+      top: 100%;
+    }
+
+    @if $arrow == 'top' {
+      border-bottom: 13px solid $colour; 
+      bottom: 100%;
+    }
+  }
+
+  &::after {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    content: '';
+    width: 0; height: 0;
+
+    position: absolute;
+
+    @if $arrow == 'bottom' { 
+      border-top: 10px solid $white; 
+      top: 100%;
+    }
+
+    @if $arrow == 'top' { 
+      border-bottom: 10px solid $white; 
+      bottom: 100%;
+    }
+  }
+}
+
+//--------------------------------------------------
 // chart
 //--------------------------------------------------
 .chart {
@@ -19,9 +73,8 @@
 
     .chart {
       &__legend-item {
-        margin-bottom: rem-calc(14);
-        width: 50%;
-
+        margin-bottom: rem-calc(14);      
+  
         @include breakpoint($small) { 
           margin-right: rem-calc(18);
           width: auto; 

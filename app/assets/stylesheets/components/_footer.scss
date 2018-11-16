@@ -2,52 +2,65 @@
 // footer
 //--------------------------------------------------
 .footer {
-  align-items: flex-start;
-  background-color: $black;
-  flex-direction: column;
-  font-size: rem-calc(12);
-  color: $white;
-  padding-top: rem-calc(20);
-  padding-bottom: rem-calc(20);
+  &__main {
+    align-items: flex-start;
+    background-color: $black;
+    flex-direction: column;
+    font-size: rem-calc(12);
+    color: $white;
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
 
-  display: flex;
+    display: flex;
 
-  @include breakpoint($small) { 
-    align-items: center;
-    flex-direction: row;
-    font-size: rem-calc(14);
-    height: rem-calc(84); 
-  }
-
-  @include breakpoint($medium) { 
-    font-size: rem-calc(16);
-    height: rem-calc(109); 
-  }
-
-  &__partner-logos {
-    margin-top: rem-calc(10);
-
-    @include breakpoint($small) {
+    @include breakpoint($small) { 
       align-items: center;
-      display: flex;
+      flex-direction: row;
+      font-size: rem-calc(14);
+      height: rem-calc(84); 
+    }
+
+    @include breakpoint($medium) { 
+      font-size: rem-calc(16);
+      height: rem-calc(109); 
     }
   }
 
-    &__a {
-      margin: rem-calc(4 12 4 0);
-      text-decoration: none;
+    &__partner-logos {
+      margin-top: rem-calc(10);
 
-      display: inline-block;
-
-      @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
-      @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
+      @include breakpoint($small) {
+        align-items: center;
+        display: flex;
+      }
     }
 
-      &__logo {
-        opacity: .55;
-        width: auto; height: rem-calc(20);
+      &__a {
+        margin: rem-calc(4 12 4 0);
+        text-decoration: none;
 
-        @include breakpoint($small) { height: rem-calc(28); }
-        @include breakpoint($medium) { height: rem-calc(44); }
+        display: inline-block;
+
+        @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
+        @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
       }
+
+        &__logo {
+          opacity: .4;
+          width: auto; height: rem-calc(20);
+
+          @include breakpoint($small) { height: rem-calc(24); }
+          @include breakpoint($medium) { height: rem-calc(36); }
+        }
+
+  &__citation {
+    background-color: $grey-dark;
+    color: $grey-light;
+    font-size: rem-calc(10);
+    padding-top: rem-calc(8);
+    padding-bottom: rem-calc(8);
+    width: 100%;
+
+    @include breakpoint($small) { font-size: rem-calc(12); }
+  }
 }

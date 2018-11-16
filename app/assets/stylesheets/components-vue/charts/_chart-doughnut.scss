@@ -2,60 +2,68 @@
 // doughnut chart
 //--------------------------------------------------
   &--doughnut {
+    flex-wrap: wrap;
+
+    @include breakpoint($small) { flex-wrap: nowrap; }
+
     .chart {
-      &__chart{
+      &__wrapper-ie11 { // do not remove - this is required to set the sizing for ie11
         width: 100%;
 
-        @include breakpoint($small) { width: 60%; }
-        @include breakpoint($medium) { width: 67%; }
-      }
+        @include breakpoint($small) {
+          padding-bottom: 67%;
+          width: 67%;
 
-      &__segment {
-        cursor: pointer;
-
-        transition: transform ease .1s;
-
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
-
-        &:hover { 
-          transform: scale(1.015, 1.015);
-        }
-
-        &.active {
-          transform: scale(1.15, 1.15);
-
-          .chart__segment-text { font-weight: bold; }
+          position: relative;
         }
       }
 
-        &__segment-path { 
-          stroke-width: 4;
+        &__chart{
+          width: 100%;
+
+          @include breakpoint($small) {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
         }
 
-        &__segment-text { 
-          // transform-box: view-box;
+        &__segment {
+          cursor: pointer;
+
+          transition: transform ease .1s;
+
+          -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+
+          &:hover { 
+            transform: scale(1.015, 1.015);
+          }
+
+          &.active {
+            transform: scale(1.15, 1.15);
+
+            .chart__segment-text { font-weight: bold; }
+          }
         }
+
+          &__segment-path { 
+            stroke-width: 4;
+          }
+
+          &__segment-text { 
+            transform-box: view-box;
+          }
 
       &__side {
-        display: none;
-        
-        @include breakpoint($small) {
-          margin-top: rem-calc(18);
-          width: 40%;
+        width: 100%;
 
-          display: block;
-        }
-
-        @include breakpoint($medium) { 
-          margin-top: rem-calc(48);
-          width: 33%; 
-        }
+        @include breakpoint($small) { width: 40%; }
+        @include breakpoint($medium) { width: 33%; }
       }
 
         &__panel {
           border-radius: 2px;
           color: $white;
-          font-size: rem-calc(14);
           margin-bottom: rem-calc(18);
           padding: rem-calc(26 22);
 
@@ -71,10 +79,18 @@
           }
         }
 
-          &__smallprint {
+          &__panel-text {
             font-size: rem-calc(14);
+
+            @include breakpoint($medium) { font-size: rem-calc(18); }
+          }
+
+          &__smallprint {
+            font-size: rem-calc(12);
             font-style: italic;
             font-weight: $medium;
+
+            @include breakpoint($small) { font-size: rem-calc(14); }
           }
     }
   }

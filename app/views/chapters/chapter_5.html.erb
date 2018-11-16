@@ -1,24 +1,36 @@
 <section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content'] %></p>
+  </div>
+</section>
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'], intro: @data['static_map_description'] } %>
 
   <div class="container--medium">
-    <map-infographic :legend="<%= @map[:legend].to_json %>"></map-infographic>
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+    <%= image_tag 'maps/map-chapter-5.jpg', class: 'map--image' %>
+
+    <chart-legend 
+      :rows="[{ title: 'No Assessments' }, { title: 'Under 10%' }, { title: '10 – 30%' }, { title: '30 – 60%' }, { title: 'Over 60%' }]"
+      :colours="['#ffffff', '#ffff99', '#ffcc66', '#cc9999', '#996600']">
+    </chart-legend>
   </div>
 </section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'], intro: @data['stacked_row_chart_description'] } %>
 
   <div class="container--medium">
     <% @stacked_row_charts[:charts].each do |chart| %>
 
-      <chart-row-stacked 
-        title="<%= chart[:chart_title] %>" 
-        :rows="<%= chart[:rows].to_json %>" 
-        theme="<%= chart[:theme] %>" 
+      <chart-row-stacked
+        title="<%= chart[:chart_title] %>"
+        :rows="<%= chart[:rows].to_json %>"
+        theme="<%= chart[:theme] %>"
         :legend="<%= @stacked_row_charts[:legend].to_json %>">
       </chart-row-stacked>
 
@@ -27,7 +39,13 @@
 </section>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'] } %>
+  <div class="container--small">
+    <p><%= @data['content_2'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'], intro: @data['column_chart_description'] } %>
 
   <div class="container--medium">
     <chart-column :columns="<%= @column_chart %>"></chart-column>
@@ -35,10 +53,16 @@
 </section>
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_2_title'] } %>
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_2_title'], intro: @data['column_chart_2_description'] } %>
 
   <div class="container--medium">
-    <chart-column :columns="<%= @column_chart %>"></chart-column>
+    <chart-column :columns="<%= @column_chart_2 %>"></chart-column>
   </div>
 </section>
 

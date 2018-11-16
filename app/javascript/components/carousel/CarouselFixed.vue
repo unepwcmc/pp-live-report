@@ -1,14 +1,12 @@
 <template>
-  <div class="carousel--fixed" :class="`chapter-${this.activeIndex + 1}`">
+  <div class="carousel--fixed" :class="[{ 'animate': changingSlide }, `chapter-${this.activeIndex + 1}`]">
     <div class="carousel__slide">
-      <transition name="change-slide">
-        <div>
-          <p class="carousel__subtitle">{{ subtitle}}</p>
-          <h2 class="heading--carousel carousel__title">{{ title }}</h2>
-          <p class="carousel__intro">{{ intro}}</p>
-          <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
-        </div>
-      </transition>
+      <div class="carousel__content" :class="{ 'animate': changingSlide }" ref="animated-slide">
+        <p class="carousel__subtitle">{{ subtitle}}</p>
+        <h2 class="heading--carousel carousel__title">{{ title }}</h2>
+        <p class="carousel__intro">{{ intro}}</p>
+        <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
+      </div>
     </div>
 
     <div class="carousel__nav flex flex-column flex-v-end">
@@ -34,6 +32,8 @@
     data () {
       return {
         activeIndex: 0,
+        changingSlide: false,
+        endEvent: ''
       }
     },
 
@@ -55,25 +55,40 @@
       }
     },
 
+    mounted () {
+      this.endEvent = this.getEndEvent()
+    },
+
     methods: {
       changeSlide (index) {
-        this.activeIndex = index
+        this.changingSlide = true
+
+        this.$refs['animated-slide'].addEventListener(this.endEvent, () => {
+          this.activeIndex = index
+          this.changingSlide = false
+        }, false)
       },
 
       isActive (index) {
         return this.activeIndex == index
+      },
+
+      getEndEvent () {
+        const el = document.createElement("fakeelement")
+
+        const animations = {
+          'animation'      : 'animationend',
+          'OAnimation'     : 'oAnimationEnd',
+          'MozAnimation'   : 'animationend',
+          'WebkitAnimation': 'webkitAnimationEnd'
+        }
+
+        for (let a in animations){
+          if (el.style[a] !== undefined){
+            return animations[a];
+          }
+        }
       }
     }
   }
 </script>
-
-<style lang="scss">
-  .slide-change-enter-active,
-  .slide-change-leave-active {
-    transition: opacity 0.25s ease-out;
-  }
-
-  .slide-change-enter, .slide-change-leave-to {
-    opacity: 0;
-  }
-</style>

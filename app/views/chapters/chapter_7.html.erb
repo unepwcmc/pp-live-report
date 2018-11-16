@@ -15,7 +15,7 @@
 <!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
 
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_intro'] } %>
 
   <div class="container--medium">
     
@@ -28,8 +28,14 @@
 </section>
 
 <section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'], intro: @data['static_map_intro'] } %>
 
   <div class="container--medium">
     <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->

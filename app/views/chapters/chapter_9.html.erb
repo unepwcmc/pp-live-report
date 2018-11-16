@@ -18,7 +18,7 @@
 
 <section class="section-padding">
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_intro'] } %>
 
   <div class="container--medium">
     <%= image_tag 'maps/map-chapter-9.jpg', class: 'map--image' %>
@@ -26,6 +26,12 @@
       :rows="[{ title: 'Wild' }, { title: 'Not Wild' }, { title: 'Protected areas' }]"
       :colours="['#99cc99', '#ffcc66', '#336600']">
     </chart-legend>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
   </div>
 </section>
 

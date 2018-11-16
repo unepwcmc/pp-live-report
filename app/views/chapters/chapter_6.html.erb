@@ -14,6 +14,21 @@
 
 <section class="section-padding">
 
+  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'], intro: @data['column_chart_intro'] } %>
+
+  <div class="container--medium">
+    <chart-column :columns="<%= @column_chart %>"></chart-column>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+
   <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'], intro: @data['stacked_row_chart_intro'] } %>
 
   <div class="container--medium">
@@ -30,11 +45,8 @@
 </section>
 
 <section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'], intro: @data['column_chart_intro'] } %>
-
-  <div class="container--medium">
-    <chart-column :columns="<%= @column_chart %>"></chart-column>
+  <div class="container--small">
+    <p><%= @data['content_4'] %></p>
   </div>
 </section>
 

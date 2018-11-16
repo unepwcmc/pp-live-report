@@ -40,7 +40,7 @@
 
     data () {
       return {
-        height: 178,
+        height: 180,
         chartWidth: 0
       }
     },

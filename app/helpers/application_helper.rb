@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def social_image_alt
-    'Forest'
+    'Guanaco Torres del Paine Chile Gregoire Dubois'
   end
 
   def create_sharing_facebook_link

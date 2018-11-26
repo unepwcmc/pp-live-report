@@ -141,7 +141,11 @@ a {
 }
 
 ul {
+  font-size: rem-calc(16);
   font-weight: $light;
+  padding-left: rem-calc(16);
+
+  @include breakpoint($medium) { font-size: rem-calc(18); }
 }
 
 li {  

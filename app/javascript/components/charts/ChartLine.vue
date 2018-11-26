@@ -111,7 +111,20 @@
           max: 0,
           axisMarks: 8
         },
-        colours: ['#207D94', '#6FD9F2', '#86BF37', '#CCCBCB'],
+        colours: [
+          {
+            line: '#207D94',
+            text: '#ffffff'
+          },
+          {
+            line: '#6FD9F2',
+            text: '#000000'
+          },
+          {
+            line: '#86BF37',
+            text: '#000000'
+          }
+        ],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },
@@ -176,11 +189,7 @@
             return t[prop]
           })))
         }) 
-
-        console.log('lines', this.lines)
-        console.log('prop', prop)
-        console.log('array', array)
-
+      
         return Math.max(...array)
       },
 

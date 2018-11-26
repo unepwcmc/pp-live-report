@@ -10,7 +10,7 @@
   &-item {
     border: solid 1px $grey-xdark;
     margin-bottom: rem-calc(8);
-    padding: rem-calc(14 26 0 14);
+    padding: rem-calc(14 36 0 14);
 
     position: relative;
 
@@ -32,7 +32,7 @@
 
       &__icon {
         background-image: image-url('icons/arrow-down.svg');
-        background-size: 100%;
+        background-size: cover;
         width: rem-calc(14); height: rem-calc(20);
 
         display: block;

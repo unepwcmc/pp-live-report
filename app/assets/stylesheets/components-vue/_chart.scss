@@ -73,10 +73,10 @@
 
     .chart {
       &__legend-item {
-        margin-bottom: rem-calc(14);      
+        margin-right: rem-calc(18);
+        margin-bottom: rem-calc(14);
   
         @include breakpoint($small) { 
-          margin-right: rem-calc(18);
           width: auto; 
         }
 

@@ -2,16 +2,12 @@
   <div class="accordion-item">
     <a class="accordion-item__title flex flex-h-between" @click="toggleAccordionContent()">
       <h3 class="heading--accordion">{{ title }}</h3>
-      <i class="accordion-item__icon" :class="{ 'active': isActive }">{{ arrow }}</i>
+      <i class="accordion-item__icon" :class="{ 'active': isActive }"></i>
     </a>
     
-    <transition name="accordion-toggle">
-      <div v-show="isActive" class="accordion-item__content-wrapper">
-        <div class="accordion-item__content">
-          <slot></slot>
-        </div>
-      </div>
-    </transition>
+    <div class="accordion-item__content" :class="{ 'active': isActive }" @click="toggleAccordionContent()">
+      <slot></slot>
+    </div>
   </div>  
 </template>
 
@@ -45,32 +41,21 @@
 </script>
 
 <style lang="scss">
-  @keyframes open {
-    from { max-height: 0; }
-    to { max-height: 500px; }
-  }
-
-  @keyframes close {
-    from { max-height: 500px; }
-    to { max-height: 0; }
-  }
-
-  .accordion-toggle-enter-active {
-    animation: open .5s forwards ease-in;
-  }
-
-  .accordion-toggle-leave-active {
-    animation: close .5s forwards ease-out;
-  }
-
   .accordion-item {
     &__title {
       cursor: pointer;
     }
 
-    &__content-wrapper {
+    &__content {
+      cursor: pointer;
+      max-height: 88px;
       overflow: hidden;
-      height: auto;
+
+      transition: max-height .5s ease-in-out;
+
+      &.active {
+        max-height: 500px;
+      }
     }
   }
 </style>

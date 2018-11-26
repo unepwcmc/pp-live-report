@@ -21,6 +21,7 @@
   &--column {
     @include breakpoint-down($small) { 
       overflow-x: auto;
+      overflow-y: hidden;
 
       display: flex;
     }

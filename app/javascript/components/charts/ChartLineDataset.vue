@@ -3,11 +3,11 @@
     <path 
       :d="path" 
       fill="none" 
-      :stroke="colour" 
+      :stroke="colour.line" 
       stroke-width="6" />
 
-    <circle :cx="middle.x" :cy="middle.y" :fill="colour" r="18">{{ index + 1 }}</circle>
-    <text :x="middle.x" :y="middle.y" text-anchor="middle" dominant-baseline="middle" font-size="18" font-weight="900" fill="white">{{ index + 1 }}</text>
+    <circle :cx="middle.x" :cy="middle.y" :fill="colour.line" r="18">{{ index + 1 }}</circle>
+    <text :x="middle.x" :y="middle.y" :fill="colour.text" text-anchor="middle" dominant-baseline="middle" font-size="18" font-weight="900">{{ index + 1 }}</text>
   </g>
 </template>
 
@@ -25,7 +25,7 @@
         required: true
       },
       colour: {
-        type: String,
+        type: Object,
         required: true
       },
       middle: {

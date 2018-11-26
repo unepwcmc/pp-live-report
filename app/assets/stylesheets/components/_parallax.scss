@@ -2,11 +2,12 @@
 // parallax
 //--------------------------------------------------
 .parallax {
-  background-attachment: fixed;
   background-image: image-url('hero/hero-ras-mohammed-coral-reefs-min.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include breakpoint($medium) { background-attachment: fixed; }
 
   .chapter-1 & { background-image: $chapter-image-1; }
   .chapter-2 & { background-image: $chapter-image-2; }

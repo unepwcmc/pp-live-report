@@ -16,17 +16,20 @@
     components: { ChartLegend },
 
     props: {
-      legend: Array,
       countries: {
         type: Array,
         required: true
-      }
+      },
+      includeDeficiant: {
+        type: Boolean,
+        default: false
+      },
+      legend: Array,
     },
 
     data () {
       return {
         defaultFill: '#dedede',
-        groupTotal: 2,
         min: 0,
         max: 0,
         colourRange: ['#E3E1EC', '#423781'],
@@ -49,6 +52,7 @@
           element: this.$refs.map,
           fills: { defaultFill: this.defaultFill },
           data: this.dataset,
+          projection: 'mercator',
           geographyConfig: {
             popupOnHover: false,
             highlightOnHover: false
@@ -63,8 +67,8 @@
           return a[1] - b[1]
         })
 
-        let dataset = [],
-          legendColours = [this.defaultFill]
+        let dataset = []
+        let legendColours = this.includeDeficiant ? [this.defaultFill] : []
 
         countries.forEach(country => {
           let iso = country[0],

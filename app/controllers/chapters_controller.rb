@@ -176,23 +176,16 @@ class ChaptersController < ApplicationController
     }
 
     @map_infographic = {
-      countries: [["USA",30],["FRA",63], ["RUS",6], ["CHN",6]],
+      data: {
+        includeDeficiant: true,
+        countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]]
+      },
       legend: [
-        {
-          title: 'Data deficient'
-        },
-        {
-          title: '< 5%'
-        },
-        {
-          title: '5% - 10%'
-        },
-        {
-          title: '10% - 17%'
-        },
-        {
-          title: '> 17%'
-        }
+        { title: 'Data deficient' },
+        { title: 'Under 5%' },
+        { title: '5% - 10%' },
+        { title: '10% - 17%' },
+        { title: 'Over 17%' }
       ]
     }
   end
@@ -281,18 +274,22 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
+      countries: [["USA",30],["FRA",63], ["RUS",6], ["CHN",6]],
       legend: [
         {
-          title: 'Data deficient'
+          title: 'No Assessments'
         },
         {
-          title: '0 - 10%'
+          title: 'Under 10%'
         },
         {
-          title: '10% - 50%'
+          title: '10% - 30%'
         },
         {
-          title: '50% - 100%'
+          title: '30% - 60%'
+        },
+        {
+          title: 'Over 60%'
         }
       ]
     }
@@ -507,43 +504,53 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_8_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
-    @mapbox = {
-      source: "(Source text)",
-      layers: [
+    @map_1 = {
+      countries: [["USA",30],["FRA",63], ["RUS",6], ["CHN",12]],
+      legend: [
         {
-          title: '<4'
+          title: 'Under 4%'
         },
         {
-          title: '<4% - 8%'
+          title: '4% - 8%'
         },
         {
-          title: '<8% - 12%'
+          title: '8% - 12%'
         },
         {
-          title: '<12% - 17%'
+          title: '12% - 17%'
         },
         {
-          title: '<17% - 25%'
+          title: '17% - 25%'
         },
         {
-          title: '>25%'
+          title: 'Over 25%'
         }
       ]
     }
 
-    @map = {
+    @map_2 = {
+      countries: [["USA",30],["FRA",63], ["RUS",6], ["CHN",12]],
       legend: [
         {
-          title: 'Data deficient'
+          title: 'A1. General increase of PA coverage'
         },
         {
-          title: '0 - 10%'
+          title: 'A2. Targeted designation of connecting PAs'
         },
         {
-          title: '10% - 50%'
+          title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)'
         },
         {
-          title: '50% - 100%'
+          title: 'B1. Permeability of unprotected lands between PAs'
+        },
+        {
+          title: 'B2. Coordinated management of adjacent PAs in the country'
+        },
+        {
+          title: 'B3. No specific priority other than PA management effectiveness for connectivity'
+        },
+        {
+          title: 'C. Coordinated management of transboundary PA linkages'
         }
       ]
     }
@@ -566,10 +573,13 @@ class ChaptersController < ApplicationController
       source: "(Source text)",
       layers: [
         {
-          title: 'Protected Areas'
+          title: 'Wild'
         },
         {
-          title: 'Areas of low human impact'
+          title: 'Not wild'
+        },
+        {
+          title: 'Protected areas'
         }
       ]
     }

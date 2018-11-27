@@ -175,19 +175,23 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    @map = {
+    @map_infographic = {
+      countries: [["USA",30],["FRA",63], ["RUS",6], ["CHN",6]],
       legend: [
         {
           title: 'Data deficient'
         },
         {
-          title: '0 - 10%'
+          title: '< 5%'
         },
         {
-          title: '10% - 50%'
+          title: '5% - 10%'
         },
         {
-          title: '50% - 100%'
+          title: '10% - 17%'
+        },
+        {
+          title: '> 17%'
         }
       ]
     }

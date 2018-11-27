@@ -18,7 +18,7 @@
   </div>
 </section>
 
-<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
+<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
 
 <section class="section-padding">
 
@@ -61,7 +61,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+    <map-infographic :legend="<%= @map_infographic[:legend].to_json %>" :countries="<%= @map_infographic[:countries].to_json %>"></map-infographic>
 
     <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', class: 'map--image' %>
 

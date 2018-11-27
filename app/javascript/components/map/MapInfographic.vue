@@ -16,7 +16,11 @@
     components: { ChartLegend },
 
     props: {
-      legend: Array
+      legend: Array,
+      countries: {
+        type: Array,
+        required: true
+      }
     },
 
     data () {
@@ -28,10 +32,7 @@
         colourRange: ['#E3E1EC', '#423781'],
         paletteScale: '',
         legendColours: [],
-        dataset: {},
-        countries: [
-          ["USA",30],["FRA",63], ["RUS",6]
-        ]
+        dataset: {}
       }
     },
 

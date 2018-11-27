@@ -12,12 +12,11 @@
   </div>
 </section>
 
-<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
-
 <section class="section-padding">
   <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_intro'] } %>
 
   <div class="container--medium">
+    <map-infographic :countries="<%= @map_1[:countries].to_json %>" :legend="<%= @map_1[:legend].to_json %>"></map-infographic>
     
     <%= image_tag 'maps/map-chapter-7a.jpg', class: 'map--image' %>
     <chart-legend 
@@ -40,7 +39,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'], intro: @data['static_map_intro'] } %>
 
   <div class="container--medium">
-    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+    <map-infographic :countries="<%= @map_2[:countries].to_json %>" :legend="<%= @map_2[:legend].to_json %>"></map-infographic>
 
     <%= image_tag 'maps/map-chapter-7b.jpg', class: 'map--image' %>
     <chart-legend 

@@ -6,30 +6,22 @@
     align-items: flex-start;
     background-color: $black;
     flex-direction: column;
-    font-size: rem-calc(12);
     color: $white;
     padding-top: rem-calc(20);
     padding-bottom: rem-calc(20);
 
     display: flex;
 
-    @include breakpoint($small) { 
+    @include breakpoint($medium) { 
       align-items: center;
       flex-direction: row;
-      font-size: rem-calc(14);
-      height: rem-calc(84); 
-    }
-
-    @include breakpoint($medium) { 
-      font-size: rem-calc(16);
-      height: rem-calc(109); 
     }
   }
 
     &__partner-logos {
-      margin-top: rem-calc(10);
+      margin-top: rem-calc(20);
 
-      @include breakpoint($small) {
+      @include breakpoint($medium) {
         align-items: center;
         display: flex;
       }
@@ -43,6 +35,10 @@
 
         @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
         @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
+
+        &:first-child {
+          @include breakpoint($small) { margin-left: 0; }
+        }
       }
 
         &__logo {
@@ -53,14 +49,30 @@
           @include breakpoint($medium) { height: rem-calc(36); }
         }
 
-  &__citation {
-    background-color: $grey-dark;
-    color: $grey-light;
+  &__photo-credits {
     font-size: rem-calc(10);
-    padding-top: rem-calc(8);
-    padding-bottom: rem-calc(8);
-    width: 100%;
+    line-height: 1.2;
+    margin-bottom: rem-calc(8);
+    max-width: rem-calc(600);
 
     @include breakpoint($small) { font-size: rem-calc(12); }
+  }
+
+  &__citation {
+    font-size: rem-calc(10);
+    line-height: 1.2;
+    margin-bottom: rem-calc(8);
+    opacity: .6;
+    max-width: rem-calc(600);
+
+    @include breakpoint($small) { font-size: rem-calc(12); }
+  }
+
+  &__copyright {
+    font-size: rem-calc(10);
+    font-weight: $light;
+    line-height: 1.2;
+    opacity: .6;
+    max-width: rem-calc(600);
   }
 }

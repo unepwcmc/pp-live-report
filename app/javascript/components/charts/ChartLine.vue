@@ -3,16 +3,16 @@
     <div class="chart__wrapper-ie11">
       <div class="chart__scrollable">
         <div v-if="lines" class="chart__chart" style="width:100%;">
-          <svg width="100%" height="100%" :viewBox="`-110 -80 ${svg.width} ${svg.height}`" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="chart__svg">
+          <svg width="100%" height="100%" :viewBox="`-70 -80 ${svg.width} ${svg.height}`" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="chart__svg">
             <rect 
-              :x="-110"
+              :x="-70"
               :y="-30" 
               :width="svg.width" 
               :height="svg.height - svg.paddingTop" 
               fill="#EBEBEB" />
 
-            <text v-if="axis" x="-110" y="-90" font-size="18">
-              <tspan v-for="t in axis.y" x="-110" :dy="24">{{ t }}</tspan>
+            <text v-if="axis" x="-70" y="-90" font-size="18">
+              <tspan v-for="t in axis.y" x="-70" :dy="24">{{ t }}</tspan>
             </text>
 
             <text v-for="y in yAxis" 
@@ -111,7 +111,20 @@
           max: 0,
           axisMarks: 8
         },
-        colours: ['#207D94', '#6FD9F2', '#86BF37', '#CCCBCB'],
+        colours: [
+          {
+            line: '#207D94',
+            text: '#ffffff'
+          },
+          {
+            line: '#6FD9F2',
+            text: '#000000'
+          },
+          {
+            line: '#86BF37',
+            text: '#000000'
+          }
+        ],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },
@@ -176,11 +189,7 @@
             return t[prop]
           })))
         }) 
-
-        console.log('lines', this.lines)
-        console.log('prop', prop)
-        console.log('array', array)
-
+      
         return Math.max(...array)
       },
 

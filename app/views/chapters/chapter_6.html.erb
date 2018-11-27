@@ -31,7 +31,9 @@
 
   <%= render partial: 'partials/component-title', locals: { title: @data['stacked_row_chart_title'], intro: @data['stacked_row_chart_intro'] } %>
 
-  <div class="container--medium">
+  <div class="container--medium section-padding--top">
+    <chart-legend :rows="<%= @stacked_row_charts[:legend].to_json %>" theme="<%= @stacked_row_charts[:theme] %>"></chart-legend>
+
     <% @stacked_row_charts[:charts].each do |chart| %>
       <chart-row-stacked
         title="<%= chart[:chart_title] %>"

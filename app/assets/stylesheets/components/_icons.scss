@@ -4,6 +4,7 @@
 .icon {
   &--arrow-right {
     background-image: image-url('icons/arrow-right.svg');
+    background-size: cover;
     width: rem-calc(27); height: rem-calc(19);
 
     display: inline-block;

@@ -17,7 +17,7 @@
     
     @include breakpoint($small) { 
       padding-top: rem-calc(24);
-      height: 100vh; 
+      min-height: 100vh; 
     }
 
     .hero {
@@ -26,6 +26,16 @@
         
         @include breakpoint($small) { margin-top: 30%; }
         @include breakpoint($medium) { margin-top: 10%; }
+      }
+
+      &__subtitle {
+        font-size: rem-calc(20);
+        font-weight: $bold;
+        line-height: 1.4;
+        margin-bottom: rem-calc(14);
+
+        @include breakpoint($medium) { font-size: rem-calc(25); }
+        @include breakpoint($medium) { width: $small-container; }
       }
       
       &__intro {

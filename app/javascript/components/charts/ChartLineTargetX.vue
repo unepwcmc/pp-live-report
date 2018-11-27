@@ -1,9 +1,9 @@
 <template>
   <g>
-    <path v-if="line" :d="path" stroke="#871313" stroke-width="1" stroke-linecap="round" stroke-dasharray="4" />
+    <path v-if="line" :d="path" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 8" />
     <path v-else :d="path" :stroke="colour" stroke-width="4" stroke-linecap="round" />
 
-    <text v-if="label" :x="x + 10" :y="maxY + 10" font-size="18" font-weight="300">
+    <text v-if="label" :x="x + 10" :y="`50%`" font-size="16" font-weight="300">
       <tspan v-for="t in label" :x="x + 10" :dy="24">{{ t }}</tspan>
     </text>
   </g>

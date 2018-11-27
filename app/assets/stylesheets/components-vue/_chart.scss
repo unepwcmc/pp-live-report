@@ -39,6 +39,9 @@
     width: 0; height: 0;
 
     position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
 
     @if $arrow == 'bottom' { 
       border-top: 10px solid $white; 
@@ -69,14 +72,14 @@
   }
 
   &--legend {
-    margin-top: rem-calc(26);
+    margin: rem-calc(26 0);
 
     .chart {
       &__legend-item {
-        margin-bottom: rem-calc(14);      
+        margin-right: rem-calc(18);
+        margin-bottom: rem-calc(14);
   
         @include breakpoint($small) { 
-          margin-right: rem-calc(18);
           width: auto; 
         }
 

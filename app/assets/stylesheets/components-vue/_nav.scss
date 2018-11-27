@@ -145,9 +145,7 @@
             @extend .flex;
             @extend .flex-h-end;
             margin-bottom: 0;
-            padding-bottom: rem-calc(110); 
-
-            position: relative;
+            padding-bottom: rem-calc(110);
 
             &.active {
               .nav__button {

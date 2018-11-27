@@ -7,19 +7,23 @@
 
       <div v-for="layer in layers" class="map__panel-layer">
         <div class="flex flex-v-center" @click="toggleLayer(layer.tables)">
-          <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
-            <span class="map__panel-layer-button"></span>  
-            <span class="map__panel-layer-percentage">{{ layer.percentage }}%</span>
-          </p>
+          <div class="map__panel-layer-stat">
+            <p class="map__panel-layer-percentage no-margin">
+              <span class="map__panel-layer-button"></span>  
+              {{ layer.percentage }}%
+            </p>
+          </div>
           <p class="map__panel-layer-title no-margin">{{ layer.title }}</p>
         </div>
 
         <template v-if="layer.sublayers">
           <div v-for="sublayer in layer.sublayers" class="flex flex-v-center map__panel-sublayer" @click="toggleLayer(layer.tables)">
-            <p class="map__panel-layer-stat no-margin flex flex-v-center flex-h-end">
-              <span class="map__panel-sublayer-button"></span>  
-              <span class="map__panel-sublayer-percentage">{{ sublayer.percentage }}%</span>
-            </p>
+            <div class="map__panel-layer-stat">
+              <p class="map__panel-sublayer-percentage no-margin">
+                <span class="map__panel-sublayer-button"></span>
+                {{ sublayer.percentage }}%
+              </p>
+            </div>
             <p class="map__panel-layer-title no-margin">{{ sublayer.title }}</p>
           </div>
         </template>

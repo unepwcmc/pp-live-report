@@ -9,6 +9,30 @@
   position: relative;
 }
 
+@mixin layer-button($border-width) {
+  background-color: $grey;
+  border: solid #{$border-width} $white;
+  border-radius: 100%;
+  margin-right: rem-calc(14);
+
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+
+  transform: translateY(-50%);
+
+  &::after {
+    background-color: $green;
+    border: solid #{$border-width} $white;
+    border-radius: 100%;
+    content: '';
+
+    display: block;
+    position: absolute;
+  }
+}
+
 //--------------------------------------------------
 // map
 //--------------------------------------------------
@@ -60,7 +84,7 @@
           background-color: $grey;
           font-size: rem-calc(14);
           margin-bottom: rem-calc(8);
-          padding: rem-calc(16 14);
+          padding: rem-calc(16 14 16 8);
 
           @include breakpoint($small) { font-size: rem-calc(18); }
         } 
@@ -76,38 +100,26 @@
           &__panel-layer-stat {
             align-self: flex-start;
             text-align: right;
-            width: 40%;
+            width: 50%;
             
             @include breakpoint($small) { 
               align-self: center;
-              width: rem-calc(144); 
+              width: rem-calc(170); 
             }
 
             @include breakpoint($medium) { 
               align-self: flex-start;
-              width: rem-calc(156); 
+              width: rem-calc(220); 
             }
           }
           
           &__panel-layer-button {
-            background-color: $grey;
-            border: solid 2px $white;
-            border-radius: 100%;
-            margin-right: rem-calc(14);
+            @include layer-button(2px);
             width: rem-calc(30); height: rem-calc(30);
-
-            display: block;
-            position: relative;
             
             &::after {
-              background-color: $green;
-              border: solid 2px $white;
-              border-radius: 100%;
-              content: '';
               width: rem-calc(16); height: rem-calc(16);
 
-              display: block;
-              position: absolute;
               top: rem-calc(3);
               left: rem-calc(3);
             }
@@ -121,24 +133,12 @@
           }
 
           &__panel-sublayer-button {
-            background-color: $grey;
-            border: solid 1px $white;
-            border-radius: 100%;
-            margin-right: rem-calc(10);
+            @include layer-button(1px);
             width: rem-calc(22); height: rem-calc(22);
-
-            display: block;
-            position: relative;
             
             &::after {
-              background-color: $green;
-              border: solid 1px $white;
-              border-radius: 100%;
-              content: '';
               width: rem-calc(14); height: rem-calc(14);
 
-              display: block;
-              position: absolute;
               top: rem-calc(2);
               left: rem-calc(2);
             }

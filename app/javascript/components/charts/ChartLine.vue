@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <chart-legend v-if="legend" :rows="legend" :colours="colours"></chart-legend>
+    <chart-legend v-if="legend" :rows="legend" :colours="legendColours"></chart-legend>
   </div>  
 </template>
 
@@ -125,6 +125,7 @@
             text: '#000000'
           }
         ],
+        legendColours: ['#207D94', '#6FD9F2', '#86BF37'],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },

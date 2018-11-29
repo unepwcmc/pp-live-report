@@ -176,12 +176,9 @@ class ChaptersController < ApplicationController
     }
 
     @map_infographic = {
-      data: {
-        includeDeficiant: true,
-        countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]]
-      },
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
       legend: [
-        { title: 'Data deficient' },
+        { title: 'Data deficient', value: 'default' },
         { title: 'Under 5%', value: 1 },
         { title: '5% - 10%', value: 2 },
         { title: '10% - 17%', value: 3 },
@@ -274,16 +271,13 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
-      data: {
-        includeDeficiant: true,
-        countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]]
-      },
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
       legend: [
-        { title: 'No Assessments'},
-        { title: 'Under 10%'},
-        { title: '10% - 30%'},
-        { title: '30% - 60%'},
-        { title: 'Over 60%'}
+        { title: 'No Assessments', value: 'default' },
+        { title: 'Under 10%', value: 1 },
+        { title: '10% - 30%', value: 2 },
+        { title: '30% - 60%', value: 3 },
+        { title: 'Over 60%', value: 4 }
       ]
     }
 
@@ -498,33 +492,27 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
     @map_1 = {
-      data: {
-        includeDeficiant: true,
-        countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]]
-      },
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
       legend: [
-        { title: 'Under 4%'},
-        { title: '4% - 8%'},
-        { title: '8% - 12%'},
-        { title: '12% - 17%'},
-        { title: '17% - 25%'},
-        { title: 'Over 25%'}
+        { title: 'Under 4%', value: 'default' },
+        { title: '4% - 8%', value: 1 },
+        { title: '8% - 12%', value: 2 },
+        { title: '12% - 17%', value: 3 },
+        { title: '17% - 25%', value: 4 },
+        { title: 'Over 25%', value: 5 }
       ]
     }
 
     @map_2 = {
-      data: {
-        includeDeficiant: true,
-        countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]]
-      },
+      countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]],
       legend: [
-        { title: 'A1. General increase of PA coverage' },
-        { title: 'A2. Targeted designation of connecting PAs' },
-        { title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)' },
-        { title: 'B1. Permeability of unprotected lands between PAs' },
-        { title: 'B2. Coordinated management of adjacent PAs in the country' },
-        { title: 'B3. No specific priority other than PA management effectiveness for connectivity' },
-        { title: 'C. Coordinated management of transboundary PA linkages' }
+        { title: 'A1. General increase of PA coverage', value: 1 },
+        { title: 'A2. Targeted designation of connecting PAs', value: 2 },
+        { title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)', value: 3 },
+        { title: 'B1. Permeability of unprotected lands between PAs', value: 4 },
+        { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
+        { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
+        { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
       ]
     }
   end

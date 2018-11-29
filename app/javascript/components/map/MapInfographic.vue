@@ -86,7 +86,9 @@
         console.log(this.includeDeficiant)
 
         this.legend.forEach(item => {
-          if(item.value) { legendColours.push(this.paletteScale(item.value)) }
+          let colour = item.value == 'default' ? this.defaultFill : this.paletteScale(item.value)
+
+          legendColours.push(colour)
         })
 
         this.legendColours = legendColours

@@ -61,11 +61,9 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
 
   <div class="container--medium">
-    <%= @map_infographic[:data][:includeDeficiant].to_json %>
     <map-infographic 
-      :countries="<%= @map_infographic[:data][:countries].to_json %>" 
-      :legend="<%= @map_infographic[:legend].to_json %>"
-      :include-deficiant="<%= @map_infographic[:data][:includeDeficiant].to_json %>">
+      :countries="<%= @map_infographic[:countries].to_json %>" 
+      :legend="<%= @map_infographic[:legend].to_json %>">
     </map-infographic>
 
     <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', class: 'map--image' %>

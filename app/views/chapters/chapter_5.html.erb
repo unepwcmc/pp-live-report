@@ -10,9 +10,8 @@
 
   <div class="container--medium">
     <map-infographic 
-      :countries="<%= @map[:data][:countries].to_json %>" 
-      :legend="<%= @map[:legend].to_json %>"
-      :includeDeficiant="<%= @map[:data][:countries].to_json %>">
+      :countries="<%= @map[:countries].to_json %>" 
+      :legend="<%= @map[:legend].to_json %>">
     </map-infographic>
 
     <%= image_tag 'maps/map-chapter-5.jpg', class: 'map--image' %>

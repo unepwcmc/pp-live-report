@@ -182,11 +182,11 @@ class ChaptersController < ApplicationController
       },
       legend: [
         { title: 'Data deficient' },
-        { title: 'Under 5%' },
-        { title: '5% - 10%' },
-        { title: '10% - 17%' },
-        { title: 'Over 17%' }
-      ]
+        { title: 'Under 5%', value: 1 },
+        { title: '5% - 10%', value: 2 },
+        { title: '10% - 17%', value: 3 },
+        { title: 'Over 17%', value: 4 }
+      ],
     }
   end
 

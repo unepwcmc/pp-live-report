@@ -43,6 +43,7 @@
       this.getMinMax()
       this.createPaletteScale()
       this.createDataset()
+      this.createLegendColours()
       this.createMap()
     },
 
@@ -68,7 +69,6 @@
         })
 
         let dataset = []
-        let legendColours = this.includeDeficiant ? [this.defaultFill] : []
 
         countries.forEach(country => {
           let iso = country[0],
@@ -76,10 +76,19 @@
             colour = this.paletteScale(value)
 
           dataset[iso] = { fillColor: colour }
-          legendColours.push(colour)
         })
 
         this.dataset = dataset
+      },
+
+      createLegendColours () {
+        let legendColours = this.includeDeficiant ? [this.defaultFill] : []
+        console.log(this.includeDeficiant)
+
+        this.legend.forEach(item => {
+          if(item.value) { legendColours.push(this.paletteScale(item.value)) }
+        })
+
         this.legendColours = legendColours
       },
 

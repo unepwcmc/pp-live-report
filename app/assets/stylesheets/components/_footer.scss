@@ -43,10 +43,16 @@
 
         &__logo {
           opacity: .4;
-          width: auto; height: rem-calc(20);
+           width: auto; height: rem-calc(20); 
 
           @include breakpoint($small) { height: rem-calc(24); }
-          @include breakpoint($medium) { height: rem-calc(36); }
+          @include breakpoint($medium) { 
+            width: rem-calc(110); height: rem-calc(36); // width: auto; doesn't work in IE11
+          }
+
+          &.logo--iucn { 
+            @include breakpoint($medium) { width: rem-calc(40); } // width: auto; doesn't work in IE11
+          }
         }
 
   &__photo-credits {

@@ -82,8 +82,7 @@
       },
 
       createLegendColours () {
-        let legendColours = this.includeDeficiant ? [this.defaultFill] : []
-        console.log(this.includeDeficiant)
+        let legendColours = []
 
         this.legend.forEach(item => {
           let colour = item.value == 'default' ? this.defaultFill : this.paletteScale(item.value)

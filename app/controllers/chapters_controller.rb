@@ -534,13 +534,16 @@ class ChaptersController < ApplicationController
       source: "(Source text)",
       layers: [
         {
-          title: 'Wild'
+          title: 'Wild',
+          percentage: 10.3 # TODO
         },
         {
-          title: 'Not wild'
+          title: 'Not wild',
+          percentage: 20 # TODO
         },
         {
-          title: 'Protected areas'
+          title: 'Protected areas',
+          percentage: 30.9 # TODO
         }
       ]
     }

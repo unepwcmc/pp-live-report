@@ -9,7 +9,12 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'], intro: @data['static_map_description'] } %>
 
   <div class="container--medium">
-    <map-infographic :countries="<%= @map[:countries].to_json %>" :legend="<%= @map[:legend].to_json %>"></map-infographic>
+    <map-infographic 
+      :countries="<%= @map[:data][:countries].to_json %>" 
+      :legend="<%= @map[:legend].to_json %>"
+      :includeDeficiant="<%= @map[:data][:countries].to_json %>">
+    </map-infographic>
+
     <%= image_tag 'maps/map-chapter-5.jpg', class: 'map--image' %>
 
     <chart-legend 

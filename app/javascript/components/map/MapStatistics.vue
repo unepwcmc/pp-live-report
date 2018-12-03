@@ -6,7 +6,7 @@
       <h2 class="heading--map">{{ title }}</h2>
 
       <div v-for="layer in layers" class="map__panel-layer">
-        <div class="flex flex-v-center" @click="toggleLayer(layer.tables)">
+        <map-statistics-toggle>
           <div class="map__panel-layer-stat">
             <p class="map__panel-layer-percentage no-margin">
               <span class="map__panel-layer-button"></span>  
@@ -14,10 +14,10 @@
             </p>
           </div>
           <p class="map__panel-layer-title no-margin">{{ layer.title }}</p>
-        </div>
+        </map-statistics-toggle>
 
         <template v-if="layer.sublayers">
-          <div v-for="sublayer in layer.sublayers" class="flex flex-v-center map__panel-sublayer" @click="toggleLayer(layer.tables)">
+          <map-statistics-toggle v-for="sublayer in layer.sublayers" class="map__panel-sublayer">
             <div class="map__panel-layer-stat">
               <p class="map__panel-sublayer-percentage no-margin">
                 <span class="map__panel-sublayer-button"></span>
@@ -25,7 +25,7 @@
               </p>
             </div>
             <p class="map__panel-layer-title no-margin">{{ sublayer.title }}</p>
-          </div>
+          </map-statistics-toggle>
         </template>
       </div>
 
@@ -35,8 +35,12 @@
 </template>
 
 <script>
+  import MapStatisticsToggle from './MapStatisticsToggle'
+
   export default {
     name: 'map-statistics',
+
+    components: { MapStatisticsToggle },
 
     props: {
       title: String,
@@ -95,11 +99,7 @@
             {
               sql: this.generateSQL(this.wdpaTables),
               cartocss: '#layer {polygon-fill: #ff00ff}'
-            },
-            // {
-            //   sql: this.generateSQL(this.tables),
-            //   cartocss: '#layer {polygon-fill: #ff00ff}'
-            // }
+            }
           ],
           extra_params: { map_key: this.cartoApiKey }
         })
@@ -107,8 +107,6 @@
         tiles.getTiles(object => {
           this.addLayer(tiles, 'layer0', 'wdpa', this.themes.land, false)
           this.addLayer(tiles, 'layer0', 'wdpa-points', this.themes.land, true)
-          // this.addLayer(tiles, 'layer1', 'habitat', this.themes[this.theme], false)
-          // this.addLayer(tiles, 'layer1', 'habitat-points', this.themes[this.theme], true)
         })
       },
 

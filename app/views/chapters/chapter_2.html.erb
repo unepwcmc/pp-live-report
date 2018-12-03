@@ -1,0 +1,89 @@
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content'].html_safe %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
+
+  <div class="container--medium">
+    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg', class: 'map--image' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
+      :colours="['#339900', '#004da8']">
+  </chart-legend>
+  </div>
+</section>
+
+<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['area_charts_title'], intro: @data['area_chart_1_description'] } %>
+
+  <div class="container--medium section-padding--top">
+    <h3><%= @data['area_chart_1_title'] %></h3>
+    <p><%= @data['area_chart_1_description'] %></p>
+    <div <%= @global_area_chart[:id] %>>
+      <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
+    </div>
+  </div>
+
+  <div class="container--medium">
+    <h3><%= @data['area_chart_2_title'] %></h3>
+    <p><%= @data['area_chart_2_description'] %></p>
+    <div <%= @marine_area_chart[:id] %>>
+      <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
+
+  <div class="container--medium">
+    <chart-line 
+      :lines="<%= @line_chart[:lines].to_json %>" 
+      :targets="<%= @line_chart[:targets].to_json %>"
+      :commitments="<%= @line_chart[:commitments].to_json %>"
+      :legend="<%= @line_chart[:legend].to_json %>"
+      :axis="<%= @line_chart[:axis].to_json %>">
+    </chart-line>
+  </div>
+</section>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+
+    <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', class: 'map--image' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Data Deficient' }, { title: '<5%' }, { title: '5% – 10%' }, { title: '10% - 17%' }, { title: '>17% ' }]"
+      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
+  </div>
+</section>
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+
+    <%= image_tag 'maps/map-chapter-2.jpg', class: 'map--image' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Data Deficient' }, { title: '<3%' }, { title: '3% – 6%' }, { title: '6% - 10%' }, { title: '>10%' }]"
+      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
+  </div>
+</section>

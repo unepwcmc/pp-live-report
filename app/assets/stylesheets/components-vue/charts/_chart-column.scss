@@ -1,0 +1,68 @@
+//--------------------------------------------------
+// column chart mixins
+//--------------------------------------------------
+@mixin column_chart_column($colour) {
+  .chart__percent {
+    @include chart-tooltip('bottom', $colour); 
+  }
+
+  .chart__bar {
+    background-color: $colour;
+    width: 100%;
+
+    display: block;
+  }
+}
+
+//--------------------------------------------------
+// column chart mixins
+//--------------------------------------------------
+
+  &--column {
+    @include breakpoint-down($small) { 
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      display: flex;
+    }
+
+    .chart {
+      &__chart {
+        height: rem-calc(390);
+        margin-top: rem-calc(20);
+        margin-bottom: rem-calc(84);
+
+        @include breakpoint-down($small) { min-width: 260%; }
+      }
+
+        &__column {
+          position: relative;
+          
+          &:nth-child(1) { @include column_chart_column($chart-teal); }
+          &:nth-child(2) { @include column_chart_column($chart-purple); }
+          &:nth-child(3) { @include column_chart_column($chart-pink); }
+          &:nth-child(4) { @include column_chart_column($chart-orange); }
+          &:nth-child(5) { @include column_chart_column($chart-yellow); }
+          &:nth-child(6) { @include column_chart_column($chart-green); }
+          &:nth-child(7) { @include column_chart_column($chart-blue); }
+        }
+
+          &__percent { 
+            position: relative;
+            top: rem-calc(-14);
+          }
+
+          &__bar { }
+
+          &__label {
+            padding-left: rem-calc(18);
+            position: absolute;
+            top: calc(100% + 10px);
+          }
+
+            &__label-index {
+              position: absolute;
+              left: 0;
+            }
+    }
+  }

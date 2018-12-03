@@ -1,0 +1,125 @@
+//--------------------------------------------------
+// shared chart mixins
+//--------------------------------------------------
+@mixin chart-tooltip($arrow, $colour) {
+  @extend .flex;
+  @extend .flex-center;
+  background-color: white;
+  border: solid rem-calc(2) $colour;
+  border-radius: $radius-global;
+  font-size: rem-calc(18);
+  font-weight: $fw-black;
+  padding: rem-calc(0 4 0 4);
+  width: auto; height: rem-calc(30);
+  min-width: rem-calc(40);
+
+  &::before {
+    border-right: 13px solid transparent;
+    border-left: 13px solid transparent;
+    content: '';
+    width: 0; height: 0;
+
+    position: absolute;
+    
+    @if $arrow == 'bottom' {
+      border-top: 13px solid $colour; 
+      top: 100%;
+    }
+
+    @if $arrow == 'top' {
+      border-bottom: 13px solid $colour; 
+      bottom: 100%;
+    }
+  }
+
+  &::after {
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    content: '';
+    width: 0; height: 0;
+
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    @if $arrow == 'bottom' { 
+      border-top: 10px solid $white; 
+      top: 100%;
+    }
+
+    @if $arrow == 'top' { 
+      border-bottom: 10px solid $white; 
+      bottom: 100%;
+    }
+  }
+}
+
+//--------------------------------------------------
+// chart
+//--------------------------------------------------
+.chart {
+
+//--------------------------------------------------
+// chart legend
+//--------------------------------------------------
+  @mixin chart-key($theme) {
+    @for $i from 1 through length($theme) {
+      $colour: nth($theme, $i);
+
+      &:nth-child(#{$i}) { .chart__legend-key { background-color: $colour; } }
+    }
+  }
+
+  &--legend {
+    margin: rem-calc(26 0);
+
+    .chart {
+      &__legend-item {
+        margin-right: rem-calc(18);
+        margin-bottom: rem-calc(14);
+  
+        @include breakpoint($small) { 
+          width: auto; 
+        }
+
+        &.theme--blue { @include chart-key($theme-blue); }
+        &.theme--green { @include chart-key($theme-green); }
+        &.theme--rainbow { @include chart-key($theme-rainbow); }
+      }
+
+        &__legend-key {
+          border-radius: rem-calc(2);
+          margin-right: rem-calc(10);
+          width: rem-calc(15); height: rem-calc(15);
+
+          display: block;
+
+          transform: translateY(-2px);
+
+          @include breakpoint($small) {
+            width: rem-calc(28); height: rem-calc(28);
+          }
+        }
+
+        &__legend-text {
+          font-size: rem-calc(14);
+          font-weight: $light;
+          margin-right: rem-calc(6);
+          display: inline-block;
+
+          @include breakpoint($small) { font-size: rem-calc(18); }
+        }
+    }
+  }
+
+//--------------------------------------------------
+// charts
+//--------------------------------------------------
+  @import './charts/chart-area';
+  @import './charts/chart-column';
+  @import './charts/chart-doughnut';
+  @import './charts/chart-line';
+  @import './charts/chart-row';
+  @import './charts/chart-stacked-row';
+}

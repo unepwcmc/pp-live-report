@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'partials/head' %>
+  </head>
+
+  <body>
+      <div id="v-app" v-cloak>
+
+        <div class="parallax"></div>
+
+        <%= render 'partials/hero-home' %>
+
+        <%= yield %>
+
+        <%= render 'partials/footer' %>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<div class="topbar--primary flex flex-h-between gutters">
+  <%= link_to root_path, title: site_title, class: 'topbar__site-link' do %>
+    <%= image_tag 'logos/logo-protected-planet-digital-report.svg', alt: site_title + ' logo', class: "topbar__logo" %>
+  <% end %>
+  
+  <div class="flex flex-v-center">
+    <%= link_to "pdf/Protected_Planet_Report_2018.pdf", title: 'Download the full report PDF', target: '_blank', class: 'button--download' do %>
+      <i class="icon--download"></i>
+      <span class="button--download__text">Full report PDF download</span>
+    <% end %>
+
+    <%= render 'partials/social-sharing' %>
+    <%= render 'partials/nav' %>
+  </div>
+</div>

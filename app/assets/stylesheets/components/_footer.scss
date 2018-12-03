@@ -1,0 +1,84 @@
+//--------------------------------------------------
+// footer
+//--------------------------------------------------
+.footer {
+  &__main {
+    align-items: flex-start;
+    background-color: $black;
+    flex-direction: column;
+    color: $white;
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+
+    display: flex;
+
+    @include breakpoint($medium) { 
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+    &__partner-logos {
+      margin-top: rem-calc(20);
+
+      @include breakpoint($medium) {
+        align-items: center;
+        display: flex;
+      }
+    }
+
+      &__a {
+        margin: rem-calc(4 12 4 0);
+        text-decoration: none;
+
+        display: inline-block;
+
+        @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
+        @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
+
+        &:first-child {
+          @include breakpoint($small) { margin-left: 0; }
+        }
+      }
+
+        &__logo {
+          opacity: .4;
+           width: auto; height: rem-calc(20); 
+
+          @include breakpoint($small) { height: rem-calc(24); }
+          @include breakpoint($medium) { 
+            width: rem-calc(110); height: rem-calc(36); // width: auto; doesn't work in IE11
+          }
+
+          &.logo--iucn { 
+            @include breakpoint($medium) { width: rem-calc(40); } // width: auto; doesn't work in IE11
+          }
+        }
+
+  &__photo-credits {
+    font-size: rem-calc(10);
+    line-height: 1.2;
+    margin-bottom: rem-calc(8);
+    max-width: rem-calc(600);
+
+    @include breakpoint($small) { font-size: rem-calc(12); }
+  }
+
+  &__citation {
+    font-size: rem-calc(10);
+    line-height: 1.2;
+    margin-bottom: rem-calc(8);
+    opacity: .6;
+    max-width: rem-calc(600);
+
+    @include breakpoint($small) { font-size: rem-calc(12); }
+  }
+
+  &__copyright {
+    font-size: rem-calc(10);
+    font-weight: $light;
+    line-height: 1.2;
+    opacity: .6;
+    max-width: rem-calc(600);
+  }
+}

@@ -1,0 +1,140 @@
+//--------------------------------------------------
+// variables
+//--------------------------------------------------
+// - colours
+// - fonts
+// - dimensions
+// - breakpoins
+// - padding
+//
+//--------------------------------------------------
+// colours
+//--------------------------------------------------
+$white: #ffffff;
+
+$grey-xlight: #f4f4f4;
+$grey-light: #d8d8d8;
+$grey: #3A3A3A;
+$grey-dark: #2A2A2A;
+$grey-xdark: #202020;
+
+$black: #000000;
+
+$green-light: #9DC37E;
+$green: #71A32B;
+
+$primary: $green;
+$secondary: blue;
+
+$chart-blue-light: #96D6E6;
+$chart-blue: #53CCF7;
+$chart-blue-dark: #2179A7;
+$chart-blue-xdark: #133151;
+$chart-green-light: #BFD2A5;
+$chart-green: #86BF37;
+$chart-green-dark: #587828;
+$chart-green-xdark: #2E3A1C;
+$chart-navy: #2179A7;
+$chart-orange: #E9624D;
+$chart-pink: #9A014F;
+$chart-purple: #423781;
+$chart-teal: #227190;
+$chart-yellow: #F7BA02;
+
+$chart-land: $chart-green;
+$chart-marine: #03B0DA;
+$chart-abnj: #207D94;
+$chart-eez: #6FD9F2;
+
+$accent: green;
+
+$theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
+$theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;
+$theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue $grey-light;
+
+$black-gradient: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%);
+
+//--------------------------------------------------
+// fonts
+//--------------------------------------------------
+$font-museo: 'MuseoSans', sans-serif;
+
+$body-font: $font-museo;
+$body-font-color: $black;
+
+$body-line-height: 1.4;
+
+$thin: 100;
+$light: 300;
+$normal: 400;
+$fw-medium: 500;
+$bold: 700;
+$fw-black: 900;
+
+$button-font-size-small: rem-calc(18);
+$button-font-size-medium: rem-calc(18);
+
+//--------------------------------------------------
+// breakpoints
+//--------------------------------------------------
+// must be in px!
+$small: 720px;
+$medium: 960px;
+$large: 1248px;
+
+//--------------------------------------------------
+// dimensions
+//--------------------------------------------------
+$site-width: rem-calc($large);
+$small-container: calc(#{$site-width} * .5);
+$medium-container: calc(#{$site-width} * .83);
+
+//--------------------------------------------------
+// padding
+//--------------------------------------------------
+$gutter-small: rem-calc(15);
+$gutter-medium: rem-calc(24);
+$gutter-large: rem-calc(24);
+
+$page-padding-top-small: rem-calc(14);
+$page-padding-top-medium: rem-calc(26);
+$page-padding-top-large: rem-calc(30);
+
+$page-padding-bottom-small: rem-calc(32);
+$page-padding-bottom-medium: rem-calc(60);
+$page-padding-bottom-large: rem-calc(100);
+
+$section-padding-top-small: rem-calc(20);
+$section-padding-top-medium: rem-calc(50);
+$section-padding-top-large: rem-calc(50);
+
+$section-padding-bottom-small: rem-calc(30);
+$section-padding-bottom-medium: rem-calc(60);
+$section-padding-bottom-large: rem-calc(60);
+
+//--------------------------------------------------
+// style
+//--------------------------------------------------
+$radius-global: rem-calc(2);
+$radius-button: 0;
+
+//--------------------------------------------------
+// topbar
+//--------------------------------------------------
+$topbarHeightSmall: rem-calc(47);
+$topbarHeightMedium: rem-calc(60);
+$topbarHeightLarge: rem-calc(93);
+
+//--------------------------------------------------
+// images
+//--------------------------------------------------
+$chapter-image-1: image-url('hero/hero-1-yellowstone-national-geographic-2411738-cr-michael-nichols-min.jpg');
+$chapter-image-2: image-url('hero/hero-2-masai-mara-national-park-kenya-min.jpg');
+$chapter-image-3: image-url('hero/hero-3-pitcairn-national-geographic-ccM4-2193956-credit-enric-sala-min.jpg');
+$chapter-image-4: image-url('hero/hero-4-reach-waterfall-jamaica-min.jpg');
+$chapter-image-5: image-url('hero/hero-5-slovenia-min.jpg');
+$chapter-image-6: image-url('hero/hero-6-guanaco-torres-del-paine-chile-gregoire-dubois-min.jpg');
+$chapter-image-7: image-url('hero/hero-7-amboseli-national-park-kenya-min.jpg');
+$chapter-image-8: image-url('hero/hero-8-landscape-kyrghistan-min.jpg');
+$chapter-image-9: image-url('hero/hero-9-canal-des-pangalanes-madagascar-min.jpg');
+$chapter-image-10: image-url('hero/hero-10-yosemite-national-geographic-1428759-cr-jimmy-chin-min.jpg');

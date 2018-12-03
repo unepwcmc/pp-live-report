@@ -1,0 +1,92 @@
+//--------------------------------------------------
+// social
+//--------------------------------------------------
+.social {
+//--------------------------------------------------
+// social
+//--------------------------------------------------
+  &--share {
+    position: relative;
+
+    .social {
+      &__trigger {
+        margin: rem-calc(0 20 0 17);
+
+        display: block;
+        
+        @include breakpoint($small) { margin: rem-calc(0 30 0 22); }
+        @include breakpoint($medium) { display: none; }
+      }
+
+      &__target {
+        @include breakpoint_down($medium) { 
+          background-color: $grey;
+          border-radius: 2px;
+          padding: rem-calc(14 12);
+          display: none;
+          position: absolute;
+          top: rem-calc(40);
+          left: 50%;
+
+          transform: translateX(-50%);
+        }
+        
+        @include breakpoint($small) { top: rem-calc(50); }
+
+        @include breakpoint($medium) { 
+          display: block;
+          position: initial;
+        }
+
+        &::before {
+          @include breakpoint_down($medium) { 
+            border-right: rem-calc(12) solid transparent;
+            border-bottom: rem-calc(12) solid $grey;
+            border-left: rem-calc(12) solid transparent;
+            content: '';
+            width: 0; height: 0; 
+
+            position: absolute;
+            top: rem-calc(-12);
+            left: 50%;
+
+            transform: translateX(-50%);
+          }
+        }
+
+        &.active { 
+          display: block;
+        }
+      }
+      
+        &__icon {
+          background-position: center;
+          background-repeat: no-repeat;
+          margin-top: rem-calc(26);
+          width: rem-calc(30); height: rem-calc(26);
+
+          display: block;
+
+          &:first-child { 
+            margin-top: 0;
+
+            @include breakpoint($medium) { 
+              margin-left: rem-calc(24); 
+            }
+          }
+
+          &:hover { opacity: .75; }
+
+          @include breakpoint($medium) { 
+            margin-top: 0;
+            margin-right: rem-calc(35);
+            display: inline-block; 
+          }
+
+          &--facebook { background-image: image-url('icons/facebook.svg'); }
+          &--email { background-image: image-url('icons/email.svg'); }
+          &--twitter { background-image: image-url('icons/twitter.svg'); }
+        }
+    }
+  }  
+}

@@ -1,10 +1,56 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+// libraries
+import Vue from 'vue/dist/vue.esm'
+import TurbolinksAdapter from 'vue-turbolinks'
 
-console.log('Hello World from Webpacker')
+Vue.config.productionTip = false
+
+Vue.use(TurbolinksAdapter)
+
+// store
+import store from '../store/store.js'
+
+// vue components
+import Accordion from '../components/accordion/Accordion'
+import AccordionItem from '../components/accordion/AccordionItem'
+import CarouselFixed from '../components/carousel/CarouselFixed'
+import ChartArea from '../components/charts/ChartArea'
+import ChartColumn from '../components/charts/ChartColumn'
+import ChartDoughnut from '../components/charts/ChartDoughnut'
+import ChartLine from '../components/charts/ChartLine'
+import ChartLegend from '../components/charts/ChartLegend'
+import ChartRow from '../components/charts/ChartRow'
+import ChartRowStacked from '../components/charts/ChartRowStacked'
+import MapInfographic from '../components/map/MapInfographic'
+import MapStatistics from '../components/map/MapStatistics'
+import NavBurger from '../components/nav/NavBurger'
+import NavLink from '../components/nav/NavLink'
+import SocialShare from '../components/social/SocialShare'
+
+// create event hub and export so that it can be imported into .vue files
+export const eventHub = new Vue()
+
+// create vue instance and attach to the DOM
+// document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '#v-app',
+    store,
+    components: {
+      Accordion,
+      AccordionItem,
+      CarouselFixed,
+      ChartArea,
+      ChartColumn,
+      ChartDoughnut,
+      ChartLegend,
+      ChartLine,
+      ChartRow,
+      ChartRowStacked,
+      MapInfographic,
+      MapStatistics,
+      NavBurger,
+      NavLink,
+      SocialShare
+    }
+  })
+})

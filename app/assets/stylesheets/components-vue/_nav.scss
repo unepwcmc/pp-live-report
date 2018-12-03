@@ -1,0 +1,203 @@
+//--------------------------------------------------
+// reusable vertical nav styling
+// - used in burger nav
+// - used in fixed carousel
+//--------------------------------------------------
+%nav {
+  &__item {
+    color: $white;
+    font-size: rem-calc(20);
+    font-weight: $light;
+
+    position: relative;
+
+    &::after {
+      background-color: $grey-dark;
+      content: '';
+      width: rem-calc(3);
+
+      position: absolute;
+      bottom: 0;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+    &__text {
+      font-weight: $light;
+      padding-right: rem-calc(30);
+
+      position: absolute;
+      top: rem-calc(4);
+    }
+
+    &__button {
+      background-color: $grey-dark;
+      border: none;
+      border-radius: 100%;
+      color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      font-weight: inherit;
+      outline: none;
+      padding-top: rem-calc(5);
+      width: rem-calc(31); height: rem-calc(31);
+
+      position: relative;
+
+      &:before {
+        background-color: $grey-dark;
+        border-radius: 100%;
+        content: ''; 
+        width: rem-calc(31); height: rem-calc(31);
+
+        display: block;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        
+        transform-origin: center center;
+        transition: transform .3s ease-in-out;
+      }
+    }
+
+    &__button-active {
+      background-color: $green;
+      color: $grey-xdark;
+      font-weight: $bold;
+
+      &:before { 
+        transform: scale(1.5);
+      }
+    }
+  
+}
+
+//--------------------------------------------------
+// nav
+//--------------------------------------------------
+.nav {
+
+//--------------------------------------------------
+// burger nav 
+//--------------------------------------------------
+  &--burger {
+  
+    .nav {
+      &__trigger {
+        background-image: image-url('icons/burger.svg');
+        background-size: cover;
+        cursor: pointer;
+        width: rem-calc(30); height: rem-calc(22); 
+        display: block;
+
+        @include breakpoint($small) { width: rem-calc(46); height: rem-calc(34); }
+        @include breakpoint($medium) { width: rem-calc(50); height: rem-calc(37); }
+      }
+
+      &__target{
+        background-color: $black;
+        overflow-y: scroll;
+        margin-left: rem-calc(10);
+        padding: rem-calc(100 20 45 24);
+        width: 100%;
+
+        position: fixed;
+        top: 0;
+        right: rem-calc(-10);
+        bottom: 0;
+        z-index: 2000;
+
+        transform: translateX(100%);
+
+        transition: transform .3s ease-in-out;
+        
+        @include breakpoint($small) { 
+          box-shadow: 0 0 6px 2px rgba($grey-xdark, 0.8);
+          width: rem-calc(415); 
+        }
+        @include breakpoint($medium) { padding: rem-calc(118 36 45 50); }
+
+        &.active { transform: translateX(-10px); }
+      }
+    
+        &__close {
+          background-image: image-url('icons/close.svg');
+          background-size: cover;
+          cursor: pointer;
+          width: rem-calc(19); height: rem-calc(19);
+
+          position: absolute;
+          top: rem-calc(25);
+          right: rem-calc(25);
+
+          @include breakpoint($small) { width: rem-calc(29); height: rem-calc(29); }
+        }
+
+        &__ul { }
+
+          &__li {
+            @extend %nav__item;
+            @extend .flex;
+            @extend .flex-h-end;
+            margin-bottom: 0;
+            padding-bottom: rem-calc(110);
+
+            &.active {
+              .nav__button {
+                @extend %nav__button-active;
+              }
+
+              .nav__title { font-weight: $bold; }
+            }
+
+            &::after {
+              height: rem-calc(110);
+
+              right: 0;
+
+              transform: translateX(-14px);
+            }
+          }
+
+            &__a {
+              color: $white;
+              text-decoration: none;
+            }
+
+              &__text {
+                @extend %nav__text;
+                padding-right: rem-calc(44);
+                
+                top: rem-calc(-26);
+                left: 0;
+              }
+
+                &__title {
+                  font-size: rem-calc(25);
+                  line-height: 1.2;
+                  display: block;
+                }
+
+                &__subtitle {
+                  font-size: rem-calc(18);
+                  font-weight: $thin;
+                }
+
+              &__button {
+                @extend %nav__button;
+                @extend .flex;
+                @extend .flex-center;
+                text-decoration: none;
+
+                &::after {
+                  height: rem-calc(60);
+                }
+              }
+    }
+  }
+}

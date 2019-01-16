@@ -30,7 +30,7 @@
       &__chart {
         height: rem-calc(390);
         margin-top: rem-calc(20);
-        margin-bottom: rem-calc(84);
+        margin-bottom: rem-calc(140);
 
         @include breakpoint-down($small) { min-width: 260%; }
       }

@@ -14,7 +14,9 @@
     <chart-legend 
       :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
       :colours="['#339900', '#004da8']">
-  </chart-legend>
+    </chart-legend>
+    
+    <span class="smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
 
@@ -38,6 +40,8 @@
     <div <%= @marine_area_chart[:id] %>>
       <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
     </div>
+
+    <span class="smallprint"><%= @data['area_chart_2_smallprint'] %></span>
   </div>
 </section>
 
@@ -53,6 +57,8 @@
       :legend="<%= @line_chart[:legend].to_json %>"
       :axis="<%= @line_chart[:axis].to_json %>">
     </chart-line>
+
+    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 
@@ -71,7 +77,28 @@
     <chart-legend 
       :rows="[{ title: 'Data Deficient' }, { title: '<5%' }, { title: '5% – 10%' }, { title: '10% - 17%' }, { title: '>17% ' }]"
       :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
+    </chart-legend>
+
+    <span class="smallprint"><%= @data['static_map_smallprint'] %></span>
   </div>
 </section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+
+  <div class="container--medium">
+    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+
+    <%= image_tag 'maps/map-chapter-2.jpg', class: 'map--image' %>
+
+    <chart-legend 
+      :rows="[{ title: 'Data Deficient' }, { title: '<3%' }, { title: '3% – 6%' }, { title: '6% - 10%' }, { title: '>10%' }]"
+      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
+    </chart-legend>
+
+    <span class="smallprint"><%= @data['static_map_smallprint_2'] %></span>
+  </div>
+</section>

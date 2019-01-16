@@ -20,6 +20,12 @@
       :rows="[{ title: 'No Assessments' }, { title: 'Under 10%' }, { title: '10 – 30%' }, { title: '30 – 60%' }, { title: 'Over 60%' }]"
       :colours="['#ffffff', '#ffff99', '#ffcc66', '#cc9999', '#996600']">
     </chart-legend>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
 
@@ -39,6 +45,12 @@
       </chart-row-stacked>
 
     <% end %>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['stacked_row_chart_smallprint'] %></span>
   </div>
 </section>
 
@@ -53,6 +65,12 @@
 
   <div class="container--medium">
     <chart-column :columns="<%= @column_chart %>"></chart-column>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['column_chart_smallprint'] %></span>
   </div>
 </section>
 
@@ -67,6 +85,12 @@
 
   <div class="container--medium">
     <chart-column :columns="<%= @column_chart_2 %>"></chart-column>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['column_chart_2_smallprint'] %></span>
   </div>
 </section>
 

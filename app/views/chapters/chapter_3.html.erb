@@ -18,7 +18,13 @@
     <chart-legend 
       :rows="[{ title: 'Fully within protected areas' }, { title: 'Partially within protected areas' }, { title: 'Outside protected areas' }]"
       :colours="['#339900', '#ff9900', '#990000']">
-  </chart-legend>
+    </chart-legend>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
 
@@ -35,6 +41,12 @@
       :legend="<%= @line_chart[:legend].to_json %>"
       :axis="<%= @line_chart[:axis].to_json %>">
     </chart-line>
+
+    <span class="smallprint
+smallprint
+smallprint
+smallprint
+smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 

@@ -16,7 +16,7 @@
       :colours="['#339900', '#004da8']">
     </chart-legend>
     
-    <span class="map__source"><%= @data['map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
 
@@ -41,7 +41,7 @@
       <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
     </div>
 
-    <span class="map__source"><%= @data['area_chart_2_smallprint'] %></span>
+    <span class="smallprint"><%= @data['area_chart_2_smallprint'] %></span>
   </div>
 </section>
 
@@ -58,7 +58,7 @@
       :axis="<%= @line_chart[:axis].to_json %>">
     </chart-line>
 
-    <span class="map__source"><%= @data['line_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 
@@ -76,7 +76,7 @@
       :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
     </chart-legend>
 
-    <span class="map__source"><%= @data['static_map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['static_map_smallprint'] %></span>
   </div>
 </section>
 
@@ -96,6 +96,6 @@
       :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
     </chart-legend>
 
-    <span class="map__source"><%= @data['static_map_smallprint_2'] %></span>
+    <span class="smallprint"><%= @data['static_map_smallprint_2'] %></span>
   </div>
 </section>

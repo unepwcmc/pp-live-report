@@ -179,7 +179,7 @@ blockquote {
 // site structure
 //--------------------------------------------------
 .site-width { 
-  @include breakpoint($medium){ width: $site-width; }
+  @include breakpoint($large){ width: $site-width; }
 }
 
 .gutter--left {
@@ -220,7 +220,7 @@ blockquote {
   &--medium {
     @extend .gutters;
     margin: 0 auto;
-
+    
     @include breakpoint($medium) { width: 83%; }
 
     @include breakpoint($large) { 

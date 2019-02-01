@@ -99,7 +99,7 @@ class ChaptersController < ApplicationController
       datasets: [
         {
           title: "ABNJ",
-          percent: 61,
+          percent: 43,
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
           protected_areas: {
@@ -109,8 +109,8 @@ class ChaptersController < ApplicationController
         },
         {
           title: "EEZ",
-          percent: 39,
-          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
+          percent: 28,
+          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
           class: "eez",
           protected_areas: {
             title: "1.",

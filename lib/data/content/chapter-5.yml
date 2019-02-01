@@ -14,7 +14,7 @@ stacked_row_chart_description: "Percentage of countries with varying levels of p
 stacked_row_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
 content_2: "In terms of regional differences in coverage of protected areas assessed for management effectiveness, no regions meet the 60% assessment target. Only Africa and North America have more than 30% of the total area of their protected area network assessed." 
 column_chart_title: "Percentage coverage of management effectiveness assessments per region"
-column_chart_description: "Percentage coverage of all protected areas per region assessed for management effectiveness using different PAME tools."
+column_chart_description: "Percentage coverage of all protected areas per region assessed for management effectiveness using different Protected Area Management Effectiveness (PAME) tools."
 column_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
 content_3: "In terms of the number of records regionally, the highest number is found in Europe, where many small protected areas are found, many of them having been repeatedly assessed and hence driving up the numbers of reported assessments." 
 column_chart_2_title: "Number of management effectiveness assessments by region"

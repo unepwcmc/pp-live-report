@@ -9,7 +9,7 @@ accordion:
     title: "Global Coverage"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "Protected area coverage (Chapter 2) has increased significantly, with almost 15% of terrestrial areas and over 7% of marine areas protected, mainly within EEZs. With concerted efforts from governments to implement national commitments, this quantitative element is on track to be achieved."
       -
         title: "Recommendations"
@@ -18,7 +18,7 @@ accordion:
     title: "Areas of Importance for Biodiversity and Ecosystem Services"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "There has been some progress in protecting areas that are important for biodiversity and ecosystem services (Chapter 3). Currently, on average, almost half of each terrestrial, freshwater and marine Key Biodiversity Areas lie within protected areas.Significant steps are required to address the conservation of further important areas, and many countries have made commitments to do so."
       -
         title: "Recommendations"
@@ -27,7 +27,7 @@ accordion:
     title: "Ecologically  Representative"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "The ecological representation of protected areas across terrestrial and marine ecoregions is variable (Chapter 4). However, the coverage of some ecological regions has improved, particularly in the ocean, mostly due to the recent rapid expansion of the marine protected area network, including the declaration of several very large MPAs."
       -
         title: "Recommendations"
@@ -36,7 +36,7 @@ accordion:
     title: "Effectively Managed"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "Management effectiveness (Chapter 5) has now been assessed and reported in GD-PAME for about 20% of the global coverage of all protected areas in the WDPA. It is however difficult to track progress on this element of the target given the lack of systematic reporting, the absence of consistent data and the diversity of tools being used to assess effectiveness. "
       -
         title: "Recommendations"
@@ -45,7 +45,7 @@ accordion:
     title: "Equitably Managed"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "Some progress has been made on measuring protected area equity (Chapter 6), with a number of methodologies recently developed. However, only a very small sample of protected areas have been assessed, and this remains a priority for further development and application. The importance of gender equality should also be taken into consideration in protected area governance and management."
       -
         title: "Recommendations"
@@ -54,7 +54,7 @@ accordion:
     title: "Well-Connected Systems"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "Some interesting initiatives have been implemented to enhance connectivity between protected areas. Some metrics have also been developed to measure connectivity at the global level, and one study has shown that 30% of countries currently meet the connectivity element of Aichi Target 11. However, due to ongoing habitats destruction and fragmentation, there remain important challenges in strengthening connectivity across systems of protected and conserved areas (Chapter 7)."
       -
         title: "Recommendations"
@@ -63,7 +63,7 @@ accordion:
     title: "Other Effective Area-Based Conservation Measures"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "A definition and criteria for identification of Other Effective Area-Based Conservation Measures (Chapter 8) will be reviewed at the CBD COP14 These areas are likely to play an increasingly important role in the protection of biodiversity and ecosystem services, and in enhancing connectivity."
       -
         title: "Recommendations"
@@ -72,7 +72,7 @@ accordion:
     title: "Integrated in the Wider Landscape and Seascape"
     content: 
       -
-        title: "Progress at the global level in 2018"
+        title: "Progress at the global level"
         text: "Few countries have developed spatial plans that take into account protected and conserved areas, and have incorporated these plans into relevant policies. However, tracking progress for this element remains difficult and greater efforts still need to be invested in mainstreaming biodiversity conservation, including strengthening integration of protected and conserved areas in the wider landscape and seascape (Chapter 9)."
       -
         title: "Recommendations"

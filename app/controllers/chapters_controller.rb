@@ -30,7 +30,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
     global_data = CsvParser.global_coverage_stats
     land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
-    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %'].to_f.round(1)
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
@@ -113,7 +113,7 @@ class ChaptersController < ApplicationController
       datasets: [
         {
           title: "ABNJ",
-          percent: 61,
+          percent: 43,
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
           protected_areas: {
@@ -123,8 +123,8 @@ class ChaptersController < ApplicationController
         },
         {
           title: "EEZ",
-          percent: 39,
-          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
+          percent: 28,
+          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
           class: "eez",
           protected_areas: {
             title: "1.",

@@ -6,27 +6,12 @@
   </div>
 </section>
 
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
-
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_description'] } %>
-
-  <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-3-key-biodiversity-areas.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Fully within protected areas' }, { title: 'Partially within protected areas' }, { title: 'Outside protected areas' }]"
-      :colours="['#339900', '#ff9900', '#990000']">
-    </chart-legend>
-
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['map_smallprint'] %></span>
-  </div>
-</section>
+<map-statistics 
+  id="<%= @mapbox[:id] %>"
+  title="<%= @data['map_title'] %>" 
+  :layers="<%= @mapbox[:layers].to_json %>" 
+  source="<%= @data['map_smallprint'] %>">
+</map-statistics>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 

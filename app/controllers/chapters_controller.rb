@@ -246,19 +246,29 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
 
     @mapbox = {
+      id: 'kba',
       source: "(Source text)",
       layers: [
         {
+          id: 'inside',
           title: "Fully within Protected Area's",
-          percentage: 10
+          wmsUrl: '',
+          percentage: 11.1,
+          colour: '#339900' ,
         },
         {
+          id: 'partial',
           title: "Partially within Protected Area's",
-          percentage: 10
+          wmsUrl: '',
+          percentage: 11.1,
+          colour: '#ff9900',
         },
         {
+          id: 'outside',
           title: "Outside Protected Area's",
-          percentage: 10
+          wmsUrl: '',
+          percentage: 11.1,
+          colour: '#990000',
         }
       ]
     }

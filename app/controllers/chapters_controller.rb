@@ -54,7 +54,7 @@ class ChaptersController < ApplicationController
             {
               id: "eez",
               title: "Exclusive Economic Zones (EEZ)",
-              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 2 AND iso3 <> 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 2 AND iso3 <> 'ABNJ'",
+              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ') UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ')",
               percentage: eez_percentage,
               colour: "#6FD9F2"
             },

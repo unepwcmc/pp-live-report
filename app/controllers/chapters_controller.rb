@@ -30,7 +30,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
     global_data = CsvParser.global_coverage_stats
     land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
-    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %'].to_f.round(1)
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 

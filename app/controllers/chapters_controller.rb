@@ -38,20 +38,33 @@ class ChaptersController < ApplicationController
       source: "(Source text)",
       layers: [
         {
+          id: "terrestrial",
           title: "Terrestrial Protected Areas",
-          percentage: land_percentage
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0',
+          percentage: land_percentage,
+          colour: "#86BF37"
         },
         {
+          id: "marine",
           title: "Marine & Coastal Protected Areas",
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
           percentage: sea_percentage,
+          colour: "#133151",
           sublayers: [
             {
+              id: "eez",
               title: "Exclusive Economic Zones (EEZ)",
-              percentage: eez_percentage
+              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 2 AND iso3 <> 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 2 AND iso3 <> 'ABNJ'",
+              percentage: eez_percentage,
+              colour: "#6FD9F2"
             },
             {
+              id: "abnj",
               title: "Areas beyond National Jurisdiction (ABNJ)",
-              percentage: abnj_percentage
+              type: 'carto',
+              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE iso3 = 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE iso3 = 'ABNJ'",
+              percentage: abnj_percentage,
+              colour: "#207D94"
             }
           ]
         }

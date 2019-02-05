@@ -21,19 +21,18 @@
   right: 100%;
 
   transform: translateY(-50%);
+}
 
-  &::after {
-    background-color: $green;
-    border: solid #{$border-width} $white;
-    border-radius: 100%;
-    content: '';
+@mixin layer-button-inner($border-width) {
+  background-color: $green;
+  border: solid #{$border-width} $white;
+  border-radius: 100%;
 
-    display: block;
-    position: absolute;
+  display: block;
+  position: absolute;
 
-    transform: scale(0);
-    transition: transform .2s ease-in-out;
-  }
+  transform: scale(0);
+  transition: transform .2s ease-in-out;
 }
 
 //--------------------------------------------------
@@ -87,8 +86,8 @@
           cursor: pointer;
 
           &.active { 
-            .map__panel-layer-button::after,
-            .map__panel-sublayer-button::after { 
+            .map__panel-layer-button-inner,
+            .map__panel-sublayer-button-inner { 
               transform: scale(1);
             } 
           }
@@ -131,14 +130,15 @@
             &__panel-layer-button {
               @include layer-button(2px);
               width: rem-calc(30); height: rem-calc(30);
-              
-              &::after {
-                width: rem-calc(16); height: rem-calc(16);
+            }
+
+              &__panel-layer-button-inner {
+                @include layer-button-inner(2px);
+                width: rem-calc(20); height: rem-calc(20);
 
                 top: rem-calc(3);
                 left: rem-calc(3);
               }
-            }
 
             &__panel-layer-percentage {
               @include layer-percentage;
@@ -150,14 +150,15 @@
             &__panel-sublayer-button {
               @include layer-button(1px);
               width: rem-calc(22); height: rem-calc(22);
-              
-              &::after {
-                width: rem-calc(14); height: rem-calc(14);
+            }
+
+              &__panel-sublayer-button-inner {
+                @include layer-button-inner(1px);
+                width: rem-calc(16); height: rem-calc(16);
 
                 top: rem-calc(2);
                 left: rem-calc(2);
               }
-            }
 
             &__panel-sublayer-percentage {
               @include layer-percentage;

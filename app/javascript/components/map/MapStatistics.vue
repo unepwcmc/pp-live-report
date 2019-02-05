@@ -8,10 +8,12 @@
       <div v-for="layer in layers" class="map__panel-layer">
         <map-statistics-toggle>
           <div class="map__panel-layer-stat">
-            <p class="map__panel-layer-percentage no-margin">
-              <span class="map__panel-layer-button"></span>  
+            <div class="map__panel-layer-percentage">
+              <p class="map__panel-layer-button">
+                <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
+              </p>
               {{ layer.percentage }}%
-            </p>
+            </div>
           </div>
           <p class="map__panel-layer-title no-margin">{{ layer.title }}</p>
         </map-statistics-toggle>
@@ -19,10 +21,12 @@
         <template v-if="layer.sublayers">
           <map-statistics-toggle v-for="sublayer in layer.sublayers" class="map__panel-sublayer">
             <div class="map__panel-layer-stat">
-              <p class="map__panel-sublayer-percentage no-margin">
-                <span class="map__panel-sublayer-button"></span>
+              <div class="map__panel-sublayer-percentage">
+                <p class="map__panel-sublayer-button">
+                  <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
+                </p>
                 {{ sublayer.percentage }}%
-              </p>
+              </div>
             </div>
             <p class="map__panel-layer-title no-margin">{{ sublayer.title }}</p>
           </map-statistics-toggle>
@@ -87,26 +91,44 @@
 
         this.map = map
 
-        this.addTiles()
+        if(this.layers.length > 0) {
+          this.createLayers() 
+        }
       },
 
-      addTiles () {
+      createLayers () {
+        this.layers.forEach(layer => {
+          if(layer.sql) { this.addTiles(layer) }
+          if(layer.wmsUrl) { this.createRasterLayer(layer) }
+
+          if(layer.sublayers) {
+            layer.sublayers.forEach(sublayer => {
+              if(layer.sql) { this.addTiles(sublayer) }
+              if(layer.wmsUrl) { this.createRasterLayer(sublayer) }
+            })
+          }
+        })
+      },
+
+      addTiles (layer) {
         let tiles = new cartodb.Tiles({
           user_name: this.cartoUsername,
           tiler_protocol: 'https',
           tiler_port: '443',
           sublayers: [
             {
-              sql: this.generateSQL(this.wdpaTables),
+              sql: layer.sql,
               cartocss: '#layer {polygon-fill: #ff00ff}'
             }
           ],
           extra_params: { map_key: this.cartoApiKey }
         })
 
+        console.log('layer', layer.sql)
+
         tiles.getTiles(object => {
-          this.addLayer(tiles, 'layer0', 'wdpa', this.themes.land, false)
-          this.addLayer(tiles, 'layer0', 'wdpa-points', this.themes.land, true)
+          this.addLayer(tiles, 'layer0', layer.id + '-polys', layer.colour, false)
+          this.addLayer(tiles, 'layer0', layer.id + '-points', layer.colour, true)
         })
       },
 

@@ -4,7 +4,12 @@
   </div>
 </section>
 
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @data['map_smallprint'] %>"></map-statistics>
+<map-statistics 
+  id="<%= @mapbox[:id] %>"
+  title="<%= @data['map_title'] %>" 
+  :layers="<%= @mapbox[:layers].to_json %>" 
+  source="<%= @data['map_smallprint'] %>"
+></map-statistics>
 
 <section class="section-padding">
 

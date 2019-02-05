@@ -8,7 +8,9 @@
 
 <section class="section-padding">
   <div class="container--small">
-    <p class="no-margin"><%= @data['aichi_text_2'].html_safe %></p>
+    <% @data['aichi_text_2'].each do |t| %>
+      <p class="content__text"><%= t.html_safe %></p>
+    <% end %>
   </div>
 </section>
 

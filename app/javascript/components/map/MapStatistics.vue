@@ -6,7 +6,7 @@
       <h2 class="heading--map">{{ title }}</h2>
 
       <div v-for="layer in layers" class="map__panel-layer">
-        <map-statistics-toggle>
+        <map-statistics-toggle :ids="getIds(layer)">
           <div class="map__panel-layer-stat">
             <div class="map__panel-layer-percentage">
               <p class="map__panel-layer-button">
@@ -19,7 +19,7 @@
         </map-statistics-toggle>
 
         <template v-if="layer.sublayers">
-          <map-statistics-toggle v-for="sublayer in layer.sublayers" class="map__panel-sublayer">
+          <map-statistics-toggle v-for="sublayer in layer.sublayers" :ids="getIds(sublayer)" class="map__panel-sublayer">
             <div class="map__panel-layer-stat">
               <div class="map__panel-sublayer-percentage">
                 <p class="map__panel-sublayer-button">
@@ -40,6 +40,8 @@
 
 <script>
   import MapStatisticsToggle from './MapStatisticsToggle'
+
+  import { eventHub } from "../../packs/application.js";
 
   export default {
     name: 'map-statistics',
@@ -72,6 +74,7 @@
     },
 
     mounted () {
+      eventHub.$on('toggleLayer', this.toggleLayer)
       this.createMap()
     },
 
@@ -124,8 +127,6 @@
           extra_params: { map_key: this.cartoApiKey }
         })
 
-        console.log('layer', layer.sql)
-
         tiles.getTiles(object => {
           this.addLayer(tiles, 'layer0', layer.id + '-polys', layer.colour, false)
           this.addLayer(tiles, 'layer0', layer.id + '-points', layer.colour, true)
@@ -154,20 +155,28 @@
         this.map.addLayer(options)
       },
 
-      generateSQL (tables) {
-        let sqlArray = []
+      toggleLayer (ids) {
+        ids.forEach(id => {
+          if(this.map.getLayer(id)) {
+            const visibility = this.map.getLayoutProperty(id, 'visibility'),
+              newVisibility = visibility == 'none' ? 'visible' : 'none'
 
-        tables.forEach(table => {
-          sqlArray.push(`SELECT cartodb_id, the_geom, the_geom_webmercator FROM ${table}`)
+            this.map.setLayoutProperty(id, "visibility", newVisibility);
+          }
         })
-
-        const sql = sqlArray.join(' UNION ALL ')
-
-        return sql
       },
 
-      toggleLayer (tables) {
-        console.log('toggle layer', tables)
+      getIds (layer) {
+        let ids = []
+
+        if(layer.sql) {
+          ids.push(layer.id + '-polys')
+          ids.push(layer.id + '-points')
+        } else {
+          ids.push(layer.id)
+        }
+
+        return ids
       }
     }
   }

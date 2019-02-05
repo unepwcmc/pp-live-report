@@ -5,8 +5,17 @@
 </template>
 
 <script>
+  import { eventHub } from "../../packs/application.js";
+
   export default {
     name: 'map-statistics-toggle',
+
+    props: {
+      ids: {
+        type: Array,
+        required: true
+      }
+    },
 
     data () {
       return {
@@ -16,9 +25,8 @@
 
     methods: {
       toggleLayer () {
+        eventHub.$emit('toggleLayer', this.ids)
         this.isActive = !this.isActive
-
-        // TODO hide and show the actual layer on the map
       }
     }
   }

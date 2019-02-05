@@ -4,23 +4,7 @@
   </div>
 </section>
 
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
-
-  <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
-      :colours="['#339900', '#004da8']">
-    </chart-legend>
-    
-    <span class="smallprint"><%= @data['map_smallprint'] %></span>
-  </div>
-</section>
-
-<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @mapbox[:source] %>"></map-statistics>
+<map-statistics title="<%= @data['map_title'] %>" :layers="<%= @mapbox[:layers].to_json %>" source="<%= @data['map_smallprint'] %>"></map-statistics>
 
 <section class="section-padding">
 

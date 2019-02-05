@@ -35,6 +35,7 @@ class ChaptersController < ApplicationController
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
     @mapbox = {
+      id: "map_1",
       source: "(Source text)",
       layers: [
         {
@@ -197,6 +198,44 @@ class ChaptersController < ApplicationController
         { title: '10% - 17%', value: 3 },
         { title: 'Over 17%', value: 4 }
       ],
+    }
+
+    @mapbox_2 = {
+      id: "map_2",
+      source: "(Source text)",
+      layers: [
+        {
+          id: "terrestrial",
+          title: "Terrestrial Protected Areas",
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0',
+          percentage: land_percentage,
+          colour: "#86BF37"
+        },
+        {
+          id: "marine",
+          title: "Marine & Coastal Protected Areas",
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
+          percentage: sea_percentage,
+          colour: "#133151",
+          sublayers: [
+            {
+              id: "eez",
+              title: "Exclusive Economic Zones (EEZ)",
+              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ') UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ')",
+              percentage: eez_percentage,
+              colour: "#6FD9F2"
+            },
+            {
+              id: "abnj",
+              title: "Areas beyond National Jurisdiction (ABNJ)",
+              type: 'carto',
+              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE iso3 = 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE iso3 = 'ABNJ'",
+              percentage: abnj_percentage,
+              colour: "#207D94"
+            }
+          ]
+        }
+      ]
     }
   end
 
@@ -544,19 +583,26 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
 
     @mapbox = {
+      id: "map",
       source: "(Source text)",
       layers: [
         {
+          id: 'wild',
           title: 'Wild',
-          percentage: 10.3 # TODO
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image', 
+          percentage: 11.1 # TODO
         },
         {
+          id: 'not-wild',
           title: 'Not wild',
-          percentage: 20 # TODO
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          percentage: 11.1 # TODO
         },
         {
+          id: 'protected-areas',
           title: 'Protected areas',
-          percentage: 30.9 # TODO
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          percentage: 11.1 # TODO
         }
       ]
     }

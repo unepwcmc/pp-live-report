@@ -1,6 +1,6 @@
 <template>
   <div class="map--statistics">
-    <div id="map" class="map__map"></div>  
+    <div :id="id" class="map__map"></div>  
 
     <div class="map__panel gutters">
       <h2 class="heading--map">{{ title }}</h2>
@@ -49,6 +49,10 @@
     components: { MapStatisticsToggle },
 
     props: {
+      id: {
+        type: String,
+        required: true
+      },
       title: String,
       layers: {
         type: Array,
@@ -83,7 +87,7 @@
         mapboxgl.accessToken = this.mapboxToken
 
         let map = new mapboxgl.Map({
-          container: 'map',
+          container: this.id,
           style: 'mapbox://styles/unepwcmc/cjo95gdrg0qzh2roan77pelcj',
           center: [0.000000, -0.000000],
           zoom: 1.3
@@ -101,19 +105,19 @@
 
       createLayers () {
         this.layers.forEach(layer => {
-          if(layer.sql) { this.addTiles(layer) }
+          if(layer.sql) { this.createVectorTiles(layer) }
           if(layer.wmsUrl) { this.createRasterLayer(layer) }
 
           if(layer.sublayers) {
             layer.sublayers.forEach(sublayer => {
-              if(layer.sql) { this.addTiles(sublayer) }
+              if(layer.sql) { this.createVectorTiles(sublayer) }
               if(layer.wmsUrl) { this.createRasterLayer(sublayer) }
             })
           }
         })
       },
 
-      addTiles (layer) {
+      createVectorTiles (layer) {
         let tiles = new cartodb.Tiles({
           user_name: this.cartoUsername,
           tiler_protocol: 'https',
@@ -153,6 +157,30 @@
         }
 
         this.map.addLayer(options)
+      },
+
+      createRasterLayer (layer) {
+        let options = {
+          'id': layer.id,
+          'type': 'raster',
+          'minzoom': 0,
+          'maxzoom': 10,
+          'source': {
+            'type': 'raster',
+            'tiles': [layer.wmsUrl],
+            'tileSize': 1000 // TODO Fix up tileSize when correct tiles are supplied
+          },
+          'paint': {
+            'raster-hue-rotate': 0
+          }
+        }
+        
+        const addLayer = setInterval(() => {
+          if(this.map.isStyleLoaded()) {
+            this.map.addLayer(options)
+            clearTimeout(addLayer)
+          }
+        }, 1000)
       },
 
       toggleLayer (ids) {

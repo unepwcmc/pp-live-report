@@ -7,28 +7,20 @@
 
       <div v-for="layer in layers" class="map__panel-layer">
         <map-statistics-toggle :ids="getIds(layer)">
-          <div class="map__panel-layer-stat no-select">
-            <div class="map__panel-layer-percentage">
-              <p class="map__panel-layer-button">
-                <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
-              </p>
-              {{ layer.percentage }}%
-            </div>
-          </div>
-          <p class="map__panel-layer-title no-margin">{{ layer.title }}</p>
+          <p class="map__panel-layer-button">
+            <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
+          </p>    
+          <span class="map__panel-layer-text-large">{{ layer.text_large }}</span>
+          <span>{{ layer.text_small }}</span>
         </map-statistics-toggle>
 
         <template v-if="layer.sublayers">
           <map-statistics-toggle v-for="sublayer in layer.sublayers" :ids="getIds(sublayer)" class="map__panel-sublayer">
-            <div class="map__panel-layer-stat no-select">
-              <div class="map__panel-sublayer-percentage">
-                <p class="map__panel-sublayer-button">
-                  <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
-                </p>
-                {{ sublayer.percentage }}%
-              </div>
-            </div>
-            <p class="map__panel-layer-title no-margin">{{ sublayer.title }}</p>
+            <p class="map__panel-sublayer-button">
+              <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
+            </p>
+            <span class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
+            <span>{{ sublayer.text_small }}</span>
           </map-statistics-toggle>
         </template>
       </div>

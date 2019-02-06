@@ -9,7 +9,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_intro'] } %>
 
   <div class="container--medium">
-    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+   
     <%= image_tag 'maps/map-chapter-4-protected-coverage.jpg', class: 'map--image' %>
     
     <h3>Terrestrial</h3>
@@ -31,6 +31,13 @@ smallprint
 smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
+
+<map-statistics 
+  id="<%= @mapbox[:id] %>" 
+  title="<%= @data['map_title'] %>" 
+  :layers="<%= @mapbox[:layers].to_json %>" 
+  source="<%= @data['map_source'] %>">
+</map-statistics>
 
 <section class="section-padding">
   <div class="container--small">

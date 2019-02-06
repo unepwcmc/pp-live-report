@@ -1,5 +1,5 @@
 <template>
-  <div @click="toggleLayer" class="map__panel-toggle flex flex-v-center" :class="{ 'active': isActive }">
+  <div @click="toggleLayer" class="map__panel-toggle no-select" :class="{ 'active': isActive }">
     <slot></slot>
   </div>
 </template>

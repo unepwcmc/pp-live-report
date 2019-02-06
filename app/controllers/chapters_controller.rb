@@ -40,31 +40,31 @@ class ChaptersController < ApplicationController
       layers: [
         {
           id: "terrestrial",
-          title: "Terrestrial Protected Areas",
+          text_large: land_percentage + '%',
+          text_small: "Terrestrial Protected Areas",
           sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0',
-          percentage: land_percentage,
           colour: "#86BF37"
         },
         {
           id: "marine",
-          title: "Marine & Coastal Protected Areas",
+          text_large: sea_percentage + '%',
+          text_small: "Marine & Coastal Protected Areas",
           sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
-          percentage: sea_percentage,
           colour: "#133151",
           sublayers: [
             {
               id: "eez",
-              title: "Exclusive Economic Zones (EEZ)",
+              text_large: eez_percentage + '%',
+              text_small: "Exclusive Economic Zones (EEZ)",
               sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ') UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ')",
-              percentage: eez_percentage,
               colour: "#6FD9F2"
             },
             {
               id: "abnj",
-              title: "Areas beyond National Jurisdiction (ABNJ)",
+              text_large: abnj_percentage + '%',
+              text_small: "Areas beyond National Jurisdiction (ABNJ)",
               type: 'carto',
               sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE iso3 = 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE iso3 = 'ABNJ'",
-              percentage: abnj_percentage,
               colour: "#207D94"
             }
           ]
@@ -200,40 +200,39 @@ class ChaptersController < ApplicationController
       ],
     }
 
-    @mapbox_2 = {
-      id: "map_2",
-      source: "(Source text)",
+    @map_3 = {
+      id: "map_3",
       layers: [
         {
-          id: "terrestrial",
-          title: "Terrestrial Protected Areas",
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0',
-          percentage: land_percentage,
-          colour: "#86BF37"
+          id: 'over-ten',
+          text_large: 'Over 10%',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: ''
         },
         {
-          id: "marine",
-          title: "Marine & Coastal Protected Areas",
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
-          percentage: sea_percentage,
-          colour: "#133151",
-          sublayers: [
-            {
-              id: "eez",
-              title: "Exclusive Economic Zones (EEZ)",
-              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ') UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ')",
-              percentage: eez_percentage,
-              colour: "#6FD9F2"
-            },
-            {
-              id: "abnj",
-              title: "Areas beyond National Jurisdiction (ABNJ)",
-              type: 'carto',
-              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE iso3 = 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE iso3 = 'ABNJ'",
-              percentage: abnj_percentage,
-              colour: "#207D94"
-            }
-          ]
+          id: 'six-to-ten',
+          text_large: '6% - 10%',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: ''
+        },
+        {
+          id: 'three-to-six',
+          text_large: '3% – 6%',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D,
+          &bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: ''
+        },
+        {
+          id: 'less-than-3',
+          text_large: 'Under 3%',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: ''
+        },
+        {
+          id: 'data-deficient',
+          text_large: 'Data deficient',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: ''
         }
       ]
     }
@@ -307,22 +306,27 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
 
-    @map = {
-      legend: [
+    @map_1 = {
+      id: "map_1",
+      layers: [
         {
-          title: 'Data deficient'
+          id: 'wild',
+          title: 'Data deficient',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
         },
         {
-          title: '0 - 10%'
+          id: 'not-wild',
+          title: 'Not wild',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
         },
         {
-          title: '10% - 50%'
-        },
-        {
-          title: '50% - 100%'
+          id: 'protected-areas',
+          title: 'Protected areas',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
         }
       ]
     }
+
     @row_charts = CsvParser.biogeographical_regions
   end
 

@@ -7,10 +7,11 @@
 </section>
 
 <map-statistics 
-  id="<%= @mapbox[:id] %>"
-  title="<%= @data['map_title'] %>" 
-  :layers="<%= @mapbox[:layers].to_json %>" 
-  source="<%= @data['map_smallprint'] %>">
+  id="<%= @map_1[:id] %>"
+  title="<%= @data['map_1_title'] %>" 
+  description="<%= @data['map_1_description'] %>" 
+  :layers="<%= @map_1[:layers].to_json %>" 
+  source="<%= @data['map_1_source'] %>">
 </map-statistics>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>

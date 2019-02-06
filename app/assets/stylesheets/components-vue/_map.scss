@@ -80,6 +80,10 @@
         }
       }
 
+        &__panel-description {
+          line-height: 1.2;
+        }
+
         &__panel-toggle {
           cursor: pointer;
           
@@ -152,10 +156,10 @@
               }
 
           &__source {
-            font-size: rem-calc(14);
+            font-size: rem-calc(12);
             font-style: italic;
 
-            @include breakpoint($small) { font-size: rem-calc(18); }
+            @include breakpoint($small) { font-size: rem-calc(14); }
           }      
     }
   }

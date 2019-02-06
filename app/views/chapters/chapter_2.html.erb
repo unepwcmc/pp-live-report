@@ -6,9 +6,9 @@
 
 <map-statistics 
   id="<%= @mapbox[:id] %>"
-  title="<%= @data['map_title'] %>" 
+  title="<%= @data['map_1_title'] %>" 
   :layers="<%= @mapbox[:layers].to_json %>" 
-  source="<%= @data['map_smallprint'] %>"
+  source="<%= @data['map_1_source'] %>"
 ></map-statistics>
 
 <section class="section-padding">
@@ -51,7 +51,7 @@
 
 <section class="section-padding">
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'] } %>
 
   <div class="container--medium">
     <map-infographic 
@@ -59,7 +59,7 @@
       :legend="<%= @map_infographic[:legend].to_json %>">
     </map-infographic>
 
-    <span class="smallprint"><%= @data['static_map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['map_2_source'] %></span>
   </div>
 </section>
 

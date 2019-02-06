@@ -4,6 +4,7 @@
 
     <div class="map__panel gutters">
       <h2 class="heading--map">{{ title }}</h2>
+      <p v-if="description" class="map__panel-description">{{ description }}</p>
 
       <div v-for="layer in layers" class="map__panel-layer">
         <map-statistics-toggle :ids="getIds(layer)">
@@ -46,6 +47,7 @@
         required: true
       },
       title: String,
+      description: String,
       layers: {
         type: Array,
         required: true

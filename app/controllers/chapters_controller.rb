@@ -244,29 +244,28 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
 
-    @mapbox = {
+    @map_1 = {
       id: 'kba',
-      source: "(Source text)",
       layers: [
         {
           id: 'inside',
-          title: "Fully within Protected Area's",
+          text_large: '11.1%',
+          text_small: "Fully within Protected Area's",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch3_fg6/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          percentage: 11.1,
           colour: '#339900' ,
         },
         {
           id: 'partial',
-          title: "Partially within Protected Area's",
+          text_large: '11.1%',
+          text_small: "Partially within Protected Area's",
           wmsUrl: '',
-          percentage: 11.1,
           colour: '#ff9900',
         },
         {
           id: 'outside',
-          title: "Outside Protected Area's",
+          text_large: '11.1%',
+          text_small: "Outside Protected Area's",
           wmsUrl: '',
-          percentage: 11.1,
           colour: '#990000',
         }
       ]

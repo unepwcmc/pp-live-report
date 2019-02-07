@@ -319,13 +319,13 @@ class ChaptersController < ApplicationController
             },
             {
               id: 'five-to-ten',
-              text_large: '5 - 10%',
+              text_large: '5% - 10%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: ''
             },
             {
               id: 'ten-to-seventeen',
-              text_large: '10 - 17%',
+              text_large: '10% - 17%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: ''
             },
@@ -348,19 +348,95 @@ class ChaptersController < ApplicationController
             },
             {
               id: 'three-to-six',
-              text_large: '3 - 6%',
+              text_large: '3% - 6%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: ''
             },
             {
               id: 'six-to-ten',
-              text_large: '6 - 10%',
+              text_large: '6% - 10%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: ''
             },
             {
               id: 'over-ten',
               text_large: 'Over 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            }
+          ]
+        }
+      ]
+    }
+
+    @map_2 = {
+      id: "map_2",
+      tabs: [
+        {
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'under-ten',
+              text_large: 'Under -10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'ten-to-five',
+              text_large: '-10% - -5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'five-to-zero',
+              text_large: '-5% - 0%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'zero-to-five',
+              text_large: '0% - 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'over-five',
+              text_large: 'Over 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            }
+          ]
+        },
+        {
+          title: 'Marine',
+          layers: [
+            {
+              id: 'under-five',
+              text_large: 'Under -5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'five-to-zero',
+              text_large: '-5% - 0%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'zero-to-two',
+              text_large: '0% - 2.5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'two-to-five',
+              text_large: '2.5% - 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'over-five',
+              text_large: 'Over 5%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: ''
             }

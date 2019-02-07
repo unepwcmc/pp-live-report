@@ -34,7 +34,7 @@ class ChaptersController < ApplicationController
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
-    @mapbox = {
+    @map_1 = {
       id: "map_1",
       source: "(Source text)",
       layers: [
@@ -189,8 +189,8 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    @map_infographic = {
-      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
+    @map_2 = {
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]], #TODO LUCA - provide correct data
       legend: [
         { title: 'Data deficient', value: 'default' },
         { title: 'Under 5%', value: 1 },
@@ -200,6 +200,7 @@ class ChaptersController < ApplicationController
       ],
     }
 
+    #TODO STACY - update wms links and add colours
     @map_3 = {
       id: "map_3",
       layers: [
@@ -244,6 +245,7 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
 
+    #TODO STACY  - update wms links and colours
     @map_1 = {
       id: 'kba',
       layers: [
@@ -305,6 +307,7 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
 
+    #TODO STACY - update wms links and add colours
     @map_1 = {
       id: "map_1",
       tabs: [
@@ -369,6 +372,7 @@ class ChaptersController < ApplicationController
       ]
     }
 
+    #TODO STACY - update wms links and add colours
     @map_2 = {
       id: "map_2",
       tabs: [
@@ -455,7 +459,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
-      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]], #TODO LUCA - provide correct data
       legend: [
         { title: 'No Assessments', value: 'default' },
         { title: 'Under 10%', value: 1 },
@@ -676,7 +680,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
     @map_1 = {
-      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]],
+      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]], #TODO LUCA - provide correct data
       legend: [
         { title: 'Under 4%', value: 'default' },
         { title: '4% - 8%', value: 1 },
@@ -688,7 +692,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]],
+      countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]], #TODO LUCA - provide correct data
       legend: [
         { title: 'A1. General increase of PA coverage', value: 1 },
         { title: 'A2. Targeted designation of connecting PAs', value: 2 },
@@ -714,27 +718,27 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_10_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
 
-    @mapbox = {
-      id: "map",
+    @map_1 = {
+      id: "map_1",
       source: "(Source text)",
       layers: [
         {
           id: 'wild',
-          title: 'Wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image', 
-          percentage: 11.1 # TODO
+          text_large: '11.1%', #TODO  LUCA - provide correct percentage
+          text_small: 'Wild',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
         },
         {
           id: 'not-wild',
-          title: 'Not wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          percentage: 11.1 # TODO
+          text_large: '11.1%', #TODO LUCA - provide correct percentage
+          text_small: 'Not wild',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
         },
         {
           id: 'protected-areas',
-          title: 'Protected areas',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          percentage: 11.1 # TODO
+          text_large: '11.1%', #TODO LUCA - provide correct percentage
+          text_small: 'Protected areas',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
         }
       ]
     }

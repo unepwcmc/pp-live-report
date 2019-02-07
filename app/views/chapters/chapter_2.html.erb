@@ -5,9 +5,9 @@
 </section>
 
 <map-statistics 
-  id="<%= @mapbox[:id] %>"
+  id="<%= @map_1[:id] %>"
   title="<%= @data['map_1_title'] %>" 
-  :layers="<%= @mapbox[:layers].to_json %>" 
+  :layers="<%= @map_1[:layers].to_json %>" 
   source="<%= @data['map_1_source'] %>"
 ></map-statistics>
 
@@ -55,8 +55,8 @@
 
   <div class="container--medium">
     <map-infographic 
-      :countries="<%= @map_infographic[:countries].to_json %>" 
-      :legend="<%= @map_infographic[:legend].to_json %>">
+      :countries="<%= @map_2[:countries].to_json %>" 
+      :legend="<%= @map_2[:legend].to_json %>">
     </map-infographic>
 
     <span class="smallprint"><%= @data['map_2_source'] %></span>

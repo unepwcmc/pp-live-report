@@ -9,49 +9,13 @@
       <template v-if="tabs">
         <tabs>
           <tab v-for="tab, index in tabs" :id="`tab-${index}`" :title="tab.title">
-            <div v-for="layer in tab.layers" class="map__panel-layer">
-              <map-statistics-toggle :ids="getIds(layer)">
-                <p class="map__panel-layer-button">
-                  <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
-                </p>    
-                <span class="map__panel-layer-text-large">{{ layer.text_large }}</span>
-                <span>{{ layer.text_small }}</span>
-              </map-statistics-toggle>
-
-              <template v-if="layer.sublayers">
-                <map-statistics-toggle v-for="sublayer in layer.sublayers" :ids="getIds(sublayer)" class="map__panel-sublayer">
-                  <p class="map__panel-sublayer-button">
-                    <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
-                  </p>
-                  <span class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
-                  <span>{{ sublayer.text_small }}</span>
-                </map-statistics-toggle>
-              </template>
-            </div>
+            <map-statistics-toggles :layers="tab.layers"></map-statistics-toggles>
           </tab>
         </tabs>
       </template>
 
       <template v-else>
-        <div v-for="layer in allLayers" class="map__panel-layer">
-            <map-statistics-toggle :ids="getIds(layer)">
-              <p class="map__panel-layer-button">
-                <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
-              </p>    
-              <span class="map__panel-layer-text-large">{{ layer.text_large }}</span>
-              <span>{{ layer.text_small }}</span>
-            </map-statistics-toggle>
-
-            <template v-if="layer.sublayers">
-              <map-statistics-toggle v-for="sublayer in layer.sublayers" :ids="getIds(sublayer)" class="map__panel-sublayer">
-                <p class="map__panel-sublayer-button">
-                  <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
-                </p>
-                <span class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
-                <span>{{ sublayer.text_small }}</span>
-              </map-statistics-toggle>
-            </template>
-          </div>
+        <map-statistics-toggles :layers="layers"></map-statistics-toggles>
       </template>
 
       <span class="map__source">{{ source }}</span>
@@ -60,16 +24,16 @@
 </template>
 
 <script>
-  import MapStatisticsToggle from './MapStatisticsToggle'
-  import Tabs from '../tabs/Tabs'
+  import MapStatisticsToggles from './MapStatisticsToggles'
   import Tab from '../tabs/Tab'
+  import Tabs from '../tabs/Tabs'
 
   import { eventHub } from "../../packs/application.js";
 
   export default {
     name: 'map-statistics',
 
-    components: { MapStatisticsToggle, Tabs, Tab },
+    components: { MapStatisticsToggles, Tab, Tabs },
 
     props: {
       id: {
@@ -220,19 +184,6 @@
             this.map.setLayoutProperty(id, "visibility", newVisibility);
           }
         })
-      },
-
-      getIds (layer) {
-        let ids = []
-
-        if(layer.sql) {
-          ids.push(layer.id + '-polys')
-          ids.push(layer.id + '-points')
-        } else {
-          ids.push(layer.id)
-        }
-
-        return ids
       }
     }
   }

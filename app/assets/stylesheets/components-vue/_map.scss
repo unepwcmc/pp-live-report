@@ -4,7 +4,7 @@
 @mixin text-large {
   font-weight: $bold;
   margin-right: rem-calc(12);
-  min-width: rem-calc(110);
+  min-width: rem-calc(90);
   
   display: inline-block;
   position: relative;
@@ -89,7 +89,7 @@
           
           align-items: center;
           display: grid;
-          grid-template-columns: rem-calc(50) auto auto;
+          grid-template-columns: rem-calc(50) auto 1fr;
 
           &.active { 
             .map__panel-layer-button-inner,
@@ -101,7 +101,7 @@
 
           &__panel-layer {
             background-color: $grey;
-            font-size: rem-calc(14);
+            font-size: rem-calc(16);
             margin-bottom: rem-calc(8);
             padding: rem-calc(16 14 16 8);
 
@@ -115,14 +115,14 @@
 
             &__panel-layer-text-large {
               @include text-large; 
-              font-size: rem-calc(14);
+              font-size: rem-calc(22);
 
               @include breakpoint($small) { font-size: rem-calc(26); }
             }
 
             &__panel-sublayer-text-large {
               @include text-large; 
-              font-size: rem-calc(12);
+              font-size: rem-calc(18);
 
               align-items: stretch;
 

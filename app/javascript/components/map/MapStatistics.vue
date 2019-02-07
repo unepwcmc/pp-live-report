@@ -6,9 +6,34 @@
       <h2 class="heading--map">{{ title }}</h2>
       <p v-if="description" class="map__panel-description">{{ description }}</p>
       
-      <tabs>
-        <tab v-for="tab, index in tabs" :id="`tab-${index}`" :title="tab.title">
-          <div v-for="layer in tab.layers" class="map__panel-layer">
+      <template v-if="tabs">
+        <tabs>
+          <tab v-for="tab, index in tabs" :id="`tab-${index}`" :title="tab.title">
+            <div v-for="layer in tab.layers" class="map__panel-layer">
+              <map-statistics-toggle :ids="getIds(layer)">
+                <p class="map__panel-layer-button">
+                  <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
+                </p>    
+                <span class="map__panel-layer-text-large">{{ layer.text_large }}</span>
+                <span>{{ layer.text_small }}</span>
+              </map-statistics-toggle>
+
+              <template v-if="layer.sublayers">
+                <map-statistics-toggle v-for="sublayer in layer.sublayers" :ids="getIds(sublayer)" class="map__panel-sublayer">
+                  <p class="map__panel-sublayer-button">
+                    <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
+                  </p>
+                  <span class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
+                  <span>{{ sublayer.text_small }}</span>
+                </map-statistics-toggle>
+              </template>
+            </div>
+          </tab>
+        </tabs>
+      </template>
+
+      <template v-else>
+        <div v-for="layer in allLayers" class="map__panel-layer">
             <map-statistics-toggle :ids="getIds(layer)">
               <p class="map__panel-layer-button">
                 <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
@@ -27,8 +52,7 @@
               </map-statistics-toggle>
             </template>
           </div>
-        </tab>
-      </tabs>
+      </template>
 
       <span class="map__source">{{ source }}</span>
     </div>
@@ -54,10 +78,8 @@
       },
       title: String,
       description: String,
-      tabs: {
-        type: Array,
-        required: true
-      },
+      tabs: Array,
+      layers: Array,
       source: String
     },
 
@@ -68,7 +90,7 @@
         cartoUsername: process.env.CARTO_USERNAME,
         cartoApiKey: process.env.CARTO_API_KEY,
         wdpaTables: [process.env.WDPA_POLY_TABLE, process.env.WDPA_POINT_TABLE],
-        layers: []
+        allLayers: []
       }
     },
 
@@ -80,9 +102,13 @@
 
     methods: {
       getAllLayers () {
-        this.tabs.forEach(tab => {
-          this.layers = this.layers.concat(tab.layers)
-        })
+        if(this.tabs) {
+          this.tabs.forEach(tab => {
+            this.allLayers = this.allLayers.concat(tab.layers)
+          })
+        } else {
+          this.allLayers = this.allLayers.concat(this.layers)
+        }
       },
 
       createMap () {
@@ -100,13 +126,13 @@
 
         this.map = map
 
-        if(this.layers.length > 0) {
+        if(this.allLayers.length > 0) {
           this.createLayers() 
         }
       },
 
       createLayers () {
-        this.layers.forEach(layer => {
+        this.allLayers.forEach(layer => {
           if(layer.sql) { this.createVectorTiles(layer) }
           if(layer.wmsUrl) { this.createRasterLayer(layer) }
 

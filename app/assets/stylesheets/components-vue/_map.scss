@@ -115,18 +115,18 @@
 
             &__panel-layer-text-large {
               @include text-large; 
-              font-size: rem-calc(18);
+              font-size: rem-calc(14);
 
-              @include breakpoint($small) { font-size: rem-calc(34); }
+              @include breakpoint($small) { font-size: rem-calc(26); }
             }
 
             &__panel-sublayer-text-large {
               @include text-large; 
-              font-size: rem-calc(14);
+              font-size: rem-calc(12);
 
               align-items: stretch;
 
-              @include breakpoint($small) { font-size: rem-calc(28); }
+              @include breakpoint($small) { font-size: rem-calc(24); }
             }
             
             &__panel-layer-button {

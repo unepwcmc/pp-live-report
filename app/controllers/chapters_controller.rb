@@ -307,21 +307,64 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: "map_1",
-      layers: [
+      tabs: [
         {
-          id: 'wild',
-          title: 'Data deficient',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'under-5',
+              text_large: 'Under 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'five-to-ten',
+              text_large: '5 - 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'ten-to-seventeen',
+              text_large: '10 - 17%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'over-seventeen',
+              text_large: 'Over 17%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            }
+          ]
         },
         {
-          id: 'not-wild',
-          title: 'Not wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
-        },
-        {
-          id: 'protected-areas',
-          title: 'Protected areas',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image'
+          title: 'Marine',
+          layers: [
+            {
+              id: 'under-3',
+              text_large: 'Under 3%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'three-to-six',
+              text_large: '3 - 6%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'six-to-ten',
+              text_large: '6 - 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            },
+            {
+              id: 'over-ten',
+              text_large: 'Over 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: ''
+            }
+          ]
         }
       ]
     }

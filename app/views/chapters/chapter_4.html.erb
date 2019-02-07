@@ -24,19 +24,16 @@
       :colours="['#ffffff', '#99cccc', '#669999', '#666699']">
     </chart-legend>
 
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['map_smallprint'] %></span>
   </div>
 </section>
 
 <map-statistics 
-  id="<%= @mapbox[:id] %>" 
-  title="<%= @data['map_title'] %>" 
-  :layers="<%= @mapbox[:layers].to_json %>" 
-  source="<%= @data['map_source'] %>">
+  id="<%= @map_1[:id] %>" 
+  title="<%= @data['map_1_title'] %>" 
+  description="<%= @data['map_1_description'] %>" 
+  :tabs="<%= @map_1[:tabs].to_json %>" 
+  source="<%= @data['map_1_source'] %>">
 </map-statistics>
 
 <section class="section-padding">
@@ -66,11 +63,7 @@ smallprint"><%= @data['map_smallprint'] %></span>
       :colours="['#669966', '#ffffcc', '#99cccc', '#669999', '#666699']">
     </chart-legend> 
 
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['static_map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['static_map_smallprint'] %></span>
   </div>
 </section>
 
@@ -89,11 +82,7 @@ smallprint"><%= @data['static_map_smallprint'] %></span>
       </div>
     <% end %>
 
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['row_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['row_chart_smallprint'] %></span>
   </div>
 </section>
 

@@ -24,8 +24,7 @@
       &__content { 
         margin-top: 10%; 
         
-        @include breakpoint($small) { margin-top: 30%; }
-        @include breakpoint($medium) { margin-top: 10%; }
+        @include breakpoint($medium) { margin-top: 6%; }
       }
 
       &__subtitle {

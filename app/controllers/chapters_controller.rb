@@ -3,6 +3,7 @@ class ChaptersController < ApplicationController
 
   def chapter_1
     @chapter_number = 1
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_2_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
@@ -25,12 +26,13 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
+    @chapter_last_updated = 'January 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
     global_data = CsvParser.global_coverage_stats
     land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
-    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %'].to_f.round(1)
+    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
@@ -99,7 +101,7 @@ class ChaptersController < ApplicationController
       datasets: [
         {
           title: "ABNJ",
-          percent: 61,
+          percent: 43,
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
           protected_areas: {
@@ -109,8 +111,8 @@ class ChaptersController < ApplicationController
         },
         {
           title: "EEZ",
-          percent: 39,
-          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(abnj)]
+          percent: 28,
+          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
           class: "eez",
           protected_areas: {
             title: "1.",
@@ -195,6 +197,7 @@ class ChaptersController < ApplicationController
 
   def chapter_3
     @chapter_number = 3
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
@@ -247,6 +250,7 @@ class ChaptersController < ApplicationController
 
   def chapter_4
     @chapter_number = 4
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
@@ -272,6 +276,7 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @chapter_number = 5
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
@@ -453,6 +458,7 @@ class ChaptersController < ApplicationController
     values = ['194.836', '7.632', '13.105', '1.377', '21.613']
     @column_chart = []
     @chapter_number = 6
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
@@ -499,6 +505,7 @@ class ChaptersController < ApplicationController
 
   def chapter_7
     @chapter_number = 7
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_8_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
@@ -547,6 +554,7 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @chapter_number = 8
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_9_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))
@@ -554,6 +562,7 @@ class ChaptersController < ApplicationController
 
   def chapter_9
     @chapter_number = 9
+    @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_10_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
@@ -573,6 +582,7 @@ class ChaptersController < ApplicationController
 
   def chapter_10
     @chapter_number = 10
+    @chapter_last_updated = 'July 2018'
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))
   end
 end

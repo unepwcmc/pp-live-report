@@ -24,8 +24,7 @@
       &__content { 
         margin-top: 10%; 
         
-        @include breakpoint($small) { margin-top: 30%; }
-        @include breakpoint($medium) { margin-top: 10%; }
+        @include breakpoint($medium) { margin-top: 6%; }
       }
 
       &__subtitle {
@@ -110,6 +109,10 @@
           font-size: rem-calc(20); 
           margin-top: rem-calc(34);
         }
+      }
+
+      &__date {
+        margin: rem-calc(36 0 0 0);
       }
     }
   }

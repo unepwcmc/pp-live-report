@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-for="layer, index in layers" class="map__panel-layer">
-      <map-statistics-toggle :ids="getIds(layer, index)">
+    <div v-for="layer in layers" class="map__panel-layer">
+      <map-statistics-toggle :ids="getIds(layer)">
         <p class="map__panel-layer-button">
           <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
         </p>    
@@ -38,14 +38,14 @@
     },
 
     methods: {
-      getIds (layer, index) {
+      getIds (layer) {
         let ids = []
 
         if(layer.sql) {
-          ids.push(layer.id + '-polys-' + index)
-          ids.push(layer.id + '-points-' + index)
+          ids.push(layer.id + '-polys')
+          ids.push(layer.id + '-points')
         } else {
-          ids.push(layer.id + '-' + index)
+          ids.push(layer.id)
         }
 
         return ids

@@ -681,8 +681,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
     @map_1 = {
-      # countries: CsvMapParser.categ_country_stats('chapt 5 filename.csv'),
-      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]], #TODO LUCA - provide correct data
+      countries: CsvMapParser.categ_country_stats('Ch7_Figure_14_categorical.csv'),
       legend: [
         { title: 'Under 4%', value: 'default' },
         { title: '4% - 8%', value: 1 },

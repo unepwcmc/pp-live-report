@@ -460,8 +460,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
-      # countries: CsvMapParser.categ_country_stats('chapt 5 filename.csv'),
-      countries: [['USA', 1], ['FRA', 1], ['RUS', 2], ['CHN', 2], ['PAK', 2], ['PRK', 3], ['PRC', 3],  ['IND', 3], ['GBR', 4]], #TODO LUCA - provide correct data
+      countries: CsvMapParser.categ_country_stats('Ch5_Figure_10_categorical.csv'),
       legend: [
         { title: 'No Assessments', value: 'default' },
         { title: 'Under 10%', value: 1 },
@@ -694,7 +693,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      # countries: CsvMapParser.categ_country_stats('chapt 5 filename.csv'),
+      # countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_categorical.csv'),
       countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]], #TODO LUCA - provide correct data
       legend: [
         { title: 'A1. General increase of PA coverage', value: 1 },

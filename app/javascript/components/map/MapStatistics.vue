@@ -160,7 +160,7 @@
           'source': {
             'type': 'raster',
             'tiles': [layer.wmsUrl],
-            'tileSize': 1000 // TODO Fix up tileSize when correct tiles are supplied
+            'tileSize': 64
           },
           'paint': {
             'raster-hue-rotate': 0

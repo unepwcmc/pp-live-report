@@ -373,6 +373,35 @@ class ChaptersController < ApplicationController
               colour: '#453385'
             }
           ]
+        },
+        {
+          title: 'Province',
+          layers: [
+            {
+              id: 'under-3' + random_number,
+              text_large: 'Under 3%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#a59cc4'
+            },
+            {
+              id: 'three-to-six' + random_number,
+              text_large: '3% - 6%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#8479af'
+            },
+            {
+              id: 'six-to-ten' + random_number,
+              text_large: '6% - 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#64579a'
+            },
+            {
+              id: 'over-ten' + random_number,
+              text_large: 'Over 10%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#453385'
+            }
+          ]
         }
       ]
     }
@@ -447,6 +476,41 @@ class ChaptersController < ApplicationController
               id: 'over-five' + random_number,
               text_large: 'Over 5%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#453385'
+            }
+          ]
+        },
+        {
+          title: 'Province',
+          layers: [
+            {
+              id: 'under-five' + random_number,
+              text_large: 'Under -5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#A6A6A6'
+            },
+            {
+              id: 'five-to-zero' + random_number,
+              text_large: '-5% - 0%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#a59cc4'
+            },
+            {
+              id: 'zero-to-two' + random_number,
+              text_large: '0% - 2.5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#8479af'
+            },
+            {
+              id: 'two-to-five' + random_number,
+              text_large: '2.5% - 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              colour: '#64579a'
+            },
+            {
+              id: 'over-five' + random_number,
+              text_large: 'Over 5%',
+              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
               colour: '#453385'
             }
           ]

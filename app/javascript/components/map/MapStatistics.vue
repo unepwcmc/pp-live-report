@@ -163,6 +163,7 @@
             'tileSize': 64
           },
           'paint': {
+            'raster-opacity': 0.8,
             'raster-hue-rotate': 0
           }
         }

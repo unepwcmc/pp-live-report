@@ -814,7 +814,7 @@ class ChaptersController < ApplicationController
           id: 'protected-areas' + random_number,
           text_large: '11.1%', #TODO LUCA - provide correct percentage
           text_small: 'Protected areas',
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly UNION SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point',
           colour: '#86bf37'
         }
       ]

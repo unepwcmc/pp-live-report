@@ -800,19 +800,22 @@ class ChaptersController < ApplicationController
           id: 'wild' + random_number,
           text_large: '11.1%', #TODO  LUCA - provide correct percentage
           text_small: 'Wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg4/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: '#2179a7'
         },
         {
           id: 'not-wild' + random_number,
           text_large: '11.1%', #TODO LUCA - provide correct percentage
           text_small: 'Not wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch2_fg5/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          colour: '#E9624D'
         },
         {
           id: 'protected-areas' + random_number,
           text_large: '11.1%', #TODO LUCA - provide correct percentage
           text_small: 'Protected areas',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/wdpa/pplive_ch4_fg8/MapServer/export?transparent=true&format=png32&bbox=%7Bbbox-epsg-3857%7D&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image' #TODO Stacy - update wms link
+          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
+          colour: '#86bf37'
         }
       ]
     }

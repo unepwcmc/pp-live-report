@@ -99,6 +99,20 @@
           }
         }
 
+        &__panel-sections {
+          margin-bottom: rem-calc(14);
+          overflow-y: scroll;
+          height: rem-calc(320);
+        }
+          &__panel-section {
+            margin-bottom: rem-calc(20);
+          }
+
+          &__panel-section-title {
+            font-size: rem-calc(22);
+            font-weight: $bold;
+          }
+
           &__panel-layer {
             background-color: $grey;
             font-size: rem-calc(16);
@@ -116,6 +130,7 @@
             &__panel-layer-text-large {
               @include text-large; 
               font-size: rem-calc(22);
+              height: 1em;
 
               @include breakpoint($small) { font-size: rem-calc(26); }
             }

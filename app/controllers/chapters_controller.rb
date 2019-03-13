@@ -314,7 +314,7 @@ class ChaptersController < ApplicationController
     #TODO STACY - update wms links and add colours
     @map_1 = {
       id: "map_1",
-      tabs: [
+      sections: [
         {
           title: 'Terrestrial',
           layers: [
@@ -322,25 +322,25 @@ class ChaptersController < ApplicationController
               id: 'under-5' + random_number,
               text_large: 'Under 5%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#a59cc4'
+              colour: '#edf8e9'
             },
             {
               id: 'five-to-ten' + random_number,
               text_large: '5% - 10%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#8479af'
+              colour: '#bae4b3'
             },
             {
               id: 'ten-to-seventeen' + random_number,
               text_large: '10% - 17%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#64579a'
+              colour: '#74c476'
             },
             {
               id: 'over-seventeen' + random_number,
               text_large: 'Over 17%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#453385'
+              colour: '#31a354'
             }
           ]
         },
@@ -351,25 +351,25 @@ class ChaptersController < ApplicationController
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#a59cc4'
+              colour: '#eff3ff'
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#8479af'
+              colour: '#bdd7e7'
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#64579a'
+              colour: '#6baed6'
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
               wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#453385'
+              colour: '#547fa3'
             }
           ]
         },
@@ -408,7 +408,7 @@ class ChaptersController < ApplicationController
     #TODO STACY - update wms links and add colours
     @map_2 = {
       id: "map_2",
-      tabs: [
+      sections: [
         {
           title: 'Terrestrial',
           layers: [

@@ -6,12 +6,13 @@
       <h2 class="heading--map">{{ title }}</h2>
       <p v-if="description" class="map__panel-description">{{ description }}</p>
       
-      <template v-if="tabs">
-        <tabs>
-          <tab v-for="tab, index in tabs" :id="`tab-${index}`" :title="tab.title">
-            <map-statistics-toggles :layers="tab.layers"></map-statistics-toggles>
-          </tab>
-        </tabs>
+      <template v-if="sections">
+        <div class="map__panel-sections">
+          <div class="map__panel-section" v-for="section in sections">
+            <h3 class="map__panel-section-title">{{ section.title }}</h3>
+            <map-statistics-toggles :layers="section.layers"></map-statistics-toggles>
+          </div>
+        </div>
       </template>
 
       <template v-else>
@@ -25,15 +26,13 @@
 
 <script>
   import MapStatisticsToggles from './MapStatisticsToggles'
-  import Tab from '../tabs/Tab'
-  import Tabs from '../tabs/Tabs'
 
   import { eventHub } from "../../packs/application.js";
 
   export default {
     name: 'map-statistics',
 
-    components: { MapStatisticsToggles, Tab, Tabs },
+    components: { MapStatisticsToggles },
 
     props: {
       id: {
@@ -42,7 +41,7 @@
       },
       title: String,
       description: String,
-      tabs: Array,
+      sections: Array,
       layers: Array,
       source: String
     },
@@ -66,9 +65,9 @@
 
     methods: {
       getAllLayers () {
-        if(this.tabs) {
-          this.tabs.forEach(tab => {
-            this.allLayers = this.allLayers.concat(tab.layers)
+        if(this.sections) {
+          this.sections.forEach(section => {
+            this.allLayers = this.allLayers.concat(section.layers)
           })
         } else {
           this.allLayers = this.allLayers.concat(this.layers)

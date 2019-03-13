@@ -798,21 +798,18 @@ class ChaptersController < ApplicationController
       layers: [
         {
           id: 'wild' + random_number,
-          text_large: '11.1%', #TODO  LUCA - provide correct percentage
           text_small: 'Wild',
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#2179a7'
         },
         {
           id: 'not-wild' + random_number,
-          text_large: '11.1%', #TODO LUCA - provide correct percentage
           text_small: 'Not wild',
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#E9624D'
         },
         {
           id: 'protected-areas' + random_number,
-          text_large: '11.1%', #TODO LUCA - provide correct percentage
           text_small: 'Protected areas',
           sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly UNION SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point',
           colour: '#86bf37'

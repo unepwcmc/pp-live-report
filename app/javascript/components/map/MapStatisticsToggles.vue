@@ -5,7 +5,7 @@
         <p class="map__panel-layer-button">
           <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
         </p>    
-        <span class="map__panel-layer-text-large">{{ layer.text_large }}</span>
+        <span v-if="layer.text_large" class="map__panel-layer-text-large">{{ layer.text_large }}</span>
         <span>{{ layer.text_small }}</span>
       </map-statistics-toggle>
 

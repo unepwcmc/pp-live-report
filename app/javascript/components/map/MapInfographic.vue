@@ -73,8 +73,6 @@
             value = country[1],
             colour = this.palette[value-1]
 
-            console.log(colour)
-
           dataset[iso] = { fillColor: colour }
         })
 

@@ -44,3 +44,15 @@
     <p class="smallprint"><%= @data['map_2_source'] %></p>
   </div>
 </section>
+
+<section class="section-padding">
+
+  <div class="container--medium">
+    <map-infographic 
+      :countries="<%= @map_3[:countries].to_json %>" 
+      :legend="<%= @map_3[:legend].to_json %>">
+    </map-infographic>
+
+    <p class="smallprint"><%= @data['map_3_source'] %></p>
+  </div>
+</section>

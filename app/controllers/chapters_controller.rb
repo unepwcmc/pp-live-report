@@ -764,7 +764,7 @@ class ChaptersController < ApplicationController
 
     @map_2 = {
       # countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_categorical.csv'),
-      countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6], ['PRC', 7],  ['IND', 7], ['GBR', 7]], #TODO LUCA - provide correct data
+      countries: [['USA', 1], ['FRA', 2], ['RUS', 3], ['CHN', 4], ['PAK', 5], ['PRK', 6]], #TODO LUCA - provide correct data
       legend: [
         { title: 'A1. General increase of PA coverage', value: 1 },
         { title: 'A2. Targeted designation of connecting PAs', value: 2 },
@@ -772,6 +772,13 @@ class ChaptersController < ApplicationController
         { title: 'B1. Permeability of unprotected lands between PAs', value: 4 },
         { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
         { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
+      ]
+    }
+
+    @map_3 = {
+      # countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_categorical.csv'),
+      countries: [['PRC', 7],  ['IND', 7], ['GBR', 7]],
+      legend: [
         { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
       ]
     }

@@ -32,8 +32,7 @@
         defaultFill: '#dedede',
         min: 0,
         max: 0,
-        colourRange: ['#E3E1EC', '#423781'],
-        paletteScale: '',
+        palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781'],
         legendColours: [],
         dataset: {}
       }
@@ -41,7 +40,6 @@
 
     mounted () {
       this.getMinMax()
-      this.createPaletteScale()
       this.createDataset()
       this.createLegendColours()
       this.createMap()
@@ -73,7 +71,9 @@
         countries.forEach(country => {
           let iso = country[0],
             value = country[1],
-            colour = this.paletteScale(value)
+            colour = this.palette[value-1]
+
+            console.log(colour)
 
           dataset[iso] = { fillColor: colour }
         })
@@ -85,18 +85,12 @@
         let legendColours = []
 
         this.legend.forEach(item => {
-          let colour = item.value == 'default' ? this.defaultFill : this.paletteScale(item.value)
+          let colour = item.value == 'default' ? this.defaultFill : this.palette[item.value-1]
 
           legendColours.push(colour)
         })
 
         this.legendColours = legendColours
-      },
-
-      createPaletteScale () {
-        this.paletteScale = d3.scale.linear()
-          .domain([this.min, this.max])
-          .range(this.colourRange)
       },
 
       getMinMax () {

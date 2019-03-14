@@ -247,6 +247,7 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
+    @percentage = CsvMapParser.percentage_stats('Ch3_map_percentage.csv')
 
     #TODO STACY  - update wms links and colours
     @map_1 = {
@@ -254,21 +255,21 @@ class ChaptersController < ApplicationController
       layers: [
         {
           id: 'inside-' + random_number,
-          text_large: '11.1%',
+          text_large: @percentage['Within'],
           text_small: "Fully within Protected Area's",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#2179a7' ,
         },
         {
           id: 'partial-' + random_number,
-          text_large: '11.1%',
+          text_large: @percentage['Partially'],
           text_small: "Partially within Protected Area's",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#E9624D',
         },
         {
           id: 'outside-' + random_number,
-          text_large: '11.1%',
+          text_large: @percentage['Outside'],
           text_small: "Outside Protected Area's",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#86bf37',

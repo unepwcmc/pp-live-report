@@ -210,13 +210,13 @@ class ChaptersController < ApplicationController
         {
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#453385'
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#64579a'
         },
         {
@@ -228,13 +228,13 @@ class ChaptersController < ApplicationController
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#a59cc4'
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
           colour: '#A6A6A6'
         }
       ]

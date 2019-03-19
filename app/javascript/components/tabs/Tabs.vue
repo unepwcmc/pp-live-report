@@ -19,16 +19,23 @@
 </template>
 
 <script>
+import { eventHub } from '../../packs/application'
+
   export default {
     name: 'tabs',
     
     props: {
-      initActiveId: String
+      initActiveId: String,
+      id: {
+        type: String,
+        default: 'tabs-unidentified'
+      }
     },
     
     data () {
       return {
-        children: []
+        children: [],
+        selectedId: ''
       }
     },
     
@@ -42,6 +49,13 @@
         this.children.forEach(child => {
           child.isActive = child.id === selectedChild.id
         })
+
+        this.selectedId = selectedChild.id
+        this.emitChangeTab()
+      },
+
+      emitChangeTab () {
+        eventHub.$emit('change-tab', {tabGroup: this.id, tab: this.selectedId})
       },
 
       initTabs () {
@@ -49,6 +63,10 @@
           child.isActive = this.initActiveId ? 
             child.tabId === this.initActiveId :
             index === 0
+
+          if (child.isActive) {
+            this.selectedId = child.tabId
+          }
         })
       },
 

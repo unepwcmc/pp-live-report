@@ -1,21 +1,21 @@
 <template>
   <div class="map--statistics">
-    <div :id="id" class="map__map"></div>  
+    <div :id="id" class="map__map"></div>
 
     <div class="map__panel gutters">
       <h2 class="heading--map">{{ title }}</h2>
       <p v-if="description" class="map__panel-description">{{ description }}</p>
       
       <template v-if="tabs">
-        <tabs>
-          <tab v-for="tab, index in tabs" :id="`tab-${index}`" :title="tab.title">
-            <map-statistics-toggles :layers="tab.layers"></map-statistics-toggles>
+        <tabs :id="`tabs-${id}`">
+          <tab v-for="tab, index in tabs" :id="getTabId(index)" :title="tab.title">
+            <map-statistics-toggles :map-id="id" :parent-tab-id="getTabId(index)" :layers="tab.layers"></map-statistics-toggles>
           </tab>
         </tabs>
       </template>
 
       <template v-else>
-        <map-statistics-toggles :layers="layers"></map-statistics-toggles>
+        <map-statistics-toggles :map-id="id" :layers="layers"></map-statistics-toggles>
       </template>
 
       <span class="map__source">{{ source }}</span>
@@ -54,17 +54,29 @@
         cartoUsername: process.env.CARTO_USERNAME,
         cartoApiKey: process.env.CARTO_API_KEY,
         wdpaTables: [process.env.WDPA_POLY_TABLE, process.env.WDPA_POINT_TABLE],
-        allLayers: []
+        allLayers: [],
+        isLoading: true
+      }
+    },
+
+    computed: {
+      initialLayers () {
+        return this.tabs ? this.tabs[0].layers : this.allLayers
       }
     },
 
     mounted () {
-      eventHub.$on('toggleLayer', this.toggleLayer)
+      eventHub.$on('hideLayers', this.hideLayers)
+      eventHub.$on('showLayers', this.showLayers)
       this.getAllLayers()
       this.createMap()
     },
 
     methods: {
+      getTabId (index) {
+        return `tab-${index}`
+      },
+
       getAllLayers () {
         if(this.tabs) {
           this.tabs.forEach(tab => {
@@ -73,6 +85,16 @@
         } else {
           this.allLayers = this.allLayers.concat(this.layers)
         }
+      },
+
+      getLayerById (id) {
+        let layer = null
+
+        this.allLayers.forEach(l => {
+          if (l.id === id) { layer = l }
+        })
+
+        return layer
       },
 
       createMap () {
@@ -88,25 +110,57 @@
         map.scrollZoom.disable()
         map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left')
 
-        this.map = map
+        map.on("load", () => {
+          this.createInitialLayers()
+          
+          setTimeout(() => {
+            eventHub.$emit("map-loaded", this.id)
+          }, 1000)
+        })
 
-        if(this.allLayers.length > 0) {
-          this.createLayers() 
+        // let timeoutHandle = {}
+        // let isLoading = false
+        // const resetLoadingTimeout = () => {
+        //   clearTimeout(timeoutHandle)
+        //   timeoutHandle = setTimeout(() => {
+        //     isLoading = false
+        //     eventHub.$emit("map-loading-end", this.id)
+        //   }, 800)
+        // }
+        
+        // map.on("sourcedataloading", () => {
+        //   if (!isLoading) { 
+        //     isLoading = true
+        //     eventHub.$emit("map-loading-start", this.id)
+        //     resetLoadingTimeout()
+        //   } else {
+        //     resetLoadingTimeout()
+        //   }
+        // })
+
+        this.map = map
+      },
+
+      createInitialLayers () {
+        if (this.initialLayers.length) {
+          this.createLayers(this.initialLayers)
         }
       },
 
-      createLayers () {
-        this.allLayers.forEach(layer => {
-          if(layer.sql) { this.createVectorTiles(layer) }
-          if(layer.wmsUrl) { this.createRasterLayer(layer) }
+      createLayers (layers) {
+        layers.forEach(layer => { this.createLayer(layer) })
+      },
 
-          if(layer.sublayers) {
-            layer.sublayers.forEach(sublayer => {
-              if(layer.sql) { this.createVectorTiles(sublayer) }
-              if(layer.wmsUrl) { this.createRasterLayer(sublayer) }
-            })
-          }
-        })
+      createLayer (layer) {
+        if(layer.sql) { this.createVectorTiles(layer) }
+        if(layer.wmsUrl) { this.createRasterLayer(layer) }
+
+        if(layer.sublayers) {
+          layer.sublayers.forEach(sublayer => {
+            if(layer.sql) { this.createVectorTiles(sublayer) }
+            if(layer.wmsUrl) { this.createRasterLayer(sublayer) }
+          })
+        }
       },
 
       createVectorTiles (layer) {
@@ -167,25 +221,31 @@
             'raster-hue-rotate': 0
           }
         }
-        
-        const addLayer = setInterval(() => {
-          if(this.map.isStyleLoaded()) {
-            this.map.addLayer(options)
-            clearTimeout(addLayer)
-          }
-        }, 1000)
+
+        this.map.addLayer(options)
       },
 
-      toggleLayer (ids) {
-        ids.forEach(id => {
-          if(this.map.getLayer(id)) {
-            const visibility = this.map.getLayoutProperty(id, 'visibility'),
-              newVisibility = visibility == 'none' ? 'visible' : 'none'
+      hideLayers (ids) {
+        this.setVisibilityOfLayers(ids, false)
+      },
 
+      showLayers (ids) {
+        this.setVisibilityOfLayers(ids, true)
+      },
+
+      setVisibilityOfLayers (ids, isVisible) {
+        if (ids.mapId !== this.id) { return }
+
+        const newVisibility = isVisible ? 'visible' : 'none'
+
+        ids.layerIds.forEach(id => {
+          if(this.map.getLayer(id)) {
             this.map.setLayoutProperty(id, "visibility", newVisibility);
+          } else if (isVisible && this.getLayerById(id)) {
+            this.createLayer(this.getLayerById(id))
           }
         })
       }
     }
   }
-</script>4
+</script>

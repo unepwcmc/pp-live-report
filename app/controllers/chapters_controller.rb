@@ -256,23 +256,23 @@ class ChaptersController < ApplicationController
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
-          text_small: "Fully within Protected Area's",
+          text_small: "Fully within Protected Areas",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          colour: '#2179a7' ,
+          colour: '#2179a7',
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
-          text_small: "Partially within Protected Area's",
+          text_small: "Partially within Protected Areas",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          colour: '#E9624D',
+          colour: '#86bf37',
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
-          text_small: "Outside Protected Area's",
+          text_small: "Outside Protected Areas",
           wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-          colour: '#86bf37',
+          colour: '#E9624D',
         }
       ]
     }
@@ -315,6 +315,7 @@ class ChaptersController < ApplicationController
     #TODO STACY - update wms links and add colours
     @map_1 = {
       id: "map_1",
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
           title: 'Terrestrial',
@@ -322,26 +323,26 @@ class ChaptersController < ApplicationController
             {
               id: 'under-5' + random_number,
               text_large: 'Under 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#a59cc4'
+              colour: '#a59cc4',
+              source_layer: 'Ch4_Fg8_tcat1_noATA'
             },
             {
               id: 'five-to-ten' + random_number,
               text_large: '5% - 10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#8479af'
+              colour: '#8479af',
+              source_layer: 'Ch4_Fg8_tcat2'
             },
             {
               id: 'ten-to-seventeen' + random_number,
               text_large: '10% - 17%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#64579a'
+              colour: '#64579a',
+              source_layer: 'Ch4_Fg8_tcat3'
             },
             {
               id: 'over-seventeen' + random_number,
               text_large: 'Over 17%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_tcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#453385'
+              colour: '#453385',
+              source_layer: 'Ch4_Fg8_tcat4'
             }
           ]
         },
@@ -351,26 +352,26 @@ class ChaptersController < ApplicationController
             {
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#a59cc4'
+              colour: '#a59cc4',
+              source_layer: 'Ch4_Fg8_mcat5'
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#8479af'
+              colour: '#8479af',
+              source_layer: 'Ch4_Fg8_mcat6'
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#64579a'
+              colour: '#64579a',
+              source_layer: 'Ch4_Fg8_mcat7'
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#453385'
+              colour: '#453385',
+              source_layer: 'Ch4_Fg8_mcat8'
             }
           ]
         },
@@ -380,26 +381,26 @@ class ChaptersController < ApplicationController
             {
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#a59cc4'
+              colour: '#a59cc4',
+              source_layer: 'Ch4_Fg8_mcat9'
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#8479af'
+              colour: '#8479af',
+              source_layer: 'Ch4_Fg8_mcat10'
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#64579a'
+              colour: '#64579a',
+              source_layer: 'Ch4_Fg8_mcat11'
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg8_pcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
-              colour: '#453385'
+              colour: '#453385',
+              source_layer: 'Ch4_Fg8_mcat12'
             }
           ]
         }

@@ -99,7 +99,7 @@ export default {
     createMap () {
       mapboxgl.accessToken = this.mapboxToken
 
-      let map = new mapboxgl.Map({
+      const map = new mapboxgl.Map({
         container: this.id,
         style: 'mapbox://styles/unepwcmc/cjo95gdrg0qzh2roan77pelcj',
         center: [0.000000, -0.000000],
@@ -144,7 +144,7 @@ export default {
     },
 
     addCartoVectorLayer (layer) {
-      let tiles = new cartodb.Tiles({
+      const tiles = new cartodb.Tiles({
         user_name: this.cartoUsername,
         tiler_protocol: 'https',
         tiler_port: '443',
@@ -164,17 +164,18 @@ export default {
     },
 
     addVectorLayerByUrl (layer) {
-      this.addVectorLayer([this.tilesUrl], layer.source_layer, layer.id, layer.colour, false)
+      this.addVectorLayer([this.tilesUrl], layer.source_layer, layer.id, layer.colour, false, layer.filter_id)
     },
 
-    addVectorLayer (tiles, source, id, colour, point) {
-      let options = {
+    addVectorLayer (tiles, source, id, colour, point, filterId) {
+      const options = {
         'id': id,
         'source': {
           'type': 'vector',
           'tiles': tiles
         },
-        'source-layer': source
+        'source-layer': source,
+        'filter': filterId ? ['==', '_symbol', filterId] : ['all']
       }
 
       if(point){
@@ -190,7 +191,7 @@ export default {
     },
 
     addRasterLayer (layer) {
-      let options = {
+      const options = {
         'id': layer.id,
         'type': 'raster',
         'minzoom': 0,

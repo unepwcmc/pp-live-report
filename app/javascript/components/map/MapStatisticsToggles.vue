@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="layer in layers" class="map__panel-layer">
-      <map-statistics-toggle :map-id="mapId" :parent-tab-id="parentTabId" :ids="getIds(layer)">
+      <map-statistics-toggle :map-id="mapId" :parent-tab-id="parentTabId" :ids="getMapboxLayerIds(layer)">
         <p class="map__panel-layer-button">
           <span class="map__panel-layer-button-inner" :style="{ 'background-color': layer.colour }"></span>
         </p>    
@@ -10,7 +10,7 @@
       </map-statistics-toggle>
 
       <template v-if="layer.sublayers">
-        <map-statistics-toggle v-for="sublayer in layer.sublayers" :map-id="mapId" :parent-tab-id="parentTabId" :ids="getIds(sublayer)" class="map__panel-sublayer">
+        <map-statistics-toggle v-for="sublayer in layer.sublayers" :map-id="mapId" :parent-tab-id="parentTabId" :ids="getMapboxLayerIds(sublayer)" class="map__panel-sublayer">
           <p class="map__panel-sublayer-button">
             <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
           </p>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import { getMapboxLayerIds } from './map-helpers'
   import MapStatisticsToggle from './MapStatisticsToggle'
 
   export default {
@@ -40,17 +41,8 @@
     },
 
     methods: {
-      getIds (layer) {
-        let ids = []
-
-        if(layer.sql) {
-          ids.push(layer.id + '-polys')
-          ids.push(layer.id + '-points')
-        } else {
-          ids.push(layer.id)
-        }
-
-        return ids
+      getMapboxLayerIds (layer) {
+        return getMapboxLayerIds(layer)
       }
     }
   }

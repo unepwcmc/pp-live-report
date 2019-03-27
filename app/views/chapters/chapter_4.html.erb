@@ -4,14 +4,14 @@
   </div>
 </section>
 
-<map-statistics 
+ <map-statistics 
   id="<%= @map_1[:id] %>" 
   title="<%= @data['map_1_title'] %>" 
   description="<%= @data['map_1_description'] %>" 
   :tabs="<%= @map_1[:tabs].to_json %>"
   tiles-url="<%= @map_1[:tiles_url] %>" 
   source="<%= @data['map_1_source'] %>">
-</map-statistics>
+</map-statistics> 
 
 <section class="section-padding">
   <div class="container--small">
@@ -20,10 +20,11 @@
 </section>
 
  <map-statistics 
-  id="<%= @map_2[:id] %>" 
-  title="<%= @data['map_2_title'] %>" 
-  description="<%= @data['map_2_description'] %>" 
-  :tabs="<%= @map_2[:tabs].to_json %>" 
+  id="<%= @map_2[:id] %>"
+  title="<%= @data['map_2_title'] %>"
+  description="<%= @data['map_2_description'] %>"
+  :tabs="<%= @map_2[:tabs].to_json %>"
+  tiles-url="<%= @map_2[:tiles_url] %>"
   source="<%= @data['map_2_source'] %>">
 </map-statistics> 
 

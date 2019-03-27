@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { getMapboxLayerId, getLayerIdFromMapboxLayerId } from './map-helpers'
 import MapStatisticsToggles from './MapStatisticsToggles'
 import Tab from '../tabs/Tab'
 import Tabs from '../tabs/Tabs'
@@ -52,8 +53,6 @@ export default {
     return {
       map: {},
       mapboxToken: process.env.MAPBOX_TOKEN,
-      cartoUsername: process.env.CARTO_USERNAME,
-      cartoApiKey: process.env.CARTO_API_KEY,
       allLayers: []
     }
   },
@@ -74,6 +73,10 @@ export default {
   methods: {
     getTabId (index) {
       return `tab-${index}`
+    },
+
+    getLayerIdFromMapboxLayerId (mapboxLayerId) {
+      return getLayerIdFromMapboxLayerId(mapboxLayerId)
     },
 
     getAllLayers () {
@@ -99,111 +102,72 @@ export default {
     createMap () {
       mapboxgl.accessToken = this.mapboxToken
 
-      const map = new mapboxgl.Map({
+      this.map = new mapboxgl.Map({
         container: this.id,
         style: 'mapbox://styles/unepwcmc/cjo95gdrg0qzh2roan77pelcj',
         center: [0.000000, -0.000000],
         zoom: 1.3
       })
 
-      map.scrollZoom.disable()
-      map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left')
-      map.on("load", () => { this.createInitialLayers() })
-
-      this.map = map
+      this.map.scrollZoom.disable()
+      this.map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left')
+      this.map.on("load", () => { this.addInitialLayers() })
     },
 
-    createInitialLayers () {
+    addInitialLayers () {
       if (this.initialLayers.length) {
-        this.createLayers(this.initialLayers)
-      }
-    },
-
-    createLayers (layers) {
-      layers.forEach(layer => { this.createLayerAndSubLayers(layer) })
-    },
-
-    createLayerAndSubLayers (layer) {
-      this.createLayer(layer)
-
-      if(layer.sublayers) {
-        layer.sublayers.forEach(sublayer => {
-          this.createLayer(sublayer)
+        this.initialLayers.forEach(layer => { 
+          this.addLayerAndSubLayers(layer) 
         })
       }
     },
 
-    createLayer (layer) {
-      if (layer.sql) { 
-        this.addCartoVectorLayer(layer) 
-      } else if (layer.wmsUrl) {
-        this.addRasterLayer(layer)
-      } else if (layer.source_layer && this.tilesUrl) {
-        this.addVectorLayerByUrl(layer)
+    addLayerAndSubLayers (layer) {
+      this.addLayer(layer)
+
+      if(layer.sublayers) {
+        layer.sublayers.forEach(sublayer => {
+          this.addLayer(sublayer)
+        })
       }
     },
 
-    addCartoVectorLayer (layer) {
-      const tiles = new cartodb.Tiles({
-        user_name: this.cartoUsername,
-        tiler_protocol: 'https',
-        tiler_port: '443',
-        sublayers: [
-          {
-            sql: layer.sql,
-            cartocss: '#layer {polygon-fill: #ff00ff}'
-          }
-        ],
-        extra_params: { map_key: this.cartoApiKey }
-      })
-
-      tiles.getTiles(object => {
-        this.addVectorLayer(tiles.mapProperties.mapProperties.metadata.tilejson.vector.tiles, 'layer0', layer.id + '-polys', layer.colour, false)
-        this.addVectorLayer(tiles.mapProperties.mapProperties.metadata.tilejson.vector.tiles, 'layer0', layer.id + '-points', layer.colour, true)
-      })
+    addLayer (layer) {  
+      if (layer.source_layers && this.tilesUrl) {
+        Object.keys(layer.source_layers).forEach(layerType => {
+          this.addMapboxLayer({
+            tiles: [this.tilesUrl],
+            layerType,
+            layer
+          })
+        })
+      }
     },
 
-    addVectorLayerByUrl (layer) {
-      this.addVectorLayer([this.tilesUrl], layer.source_layer, layer.id, layer.colour, false, layer.filter_id)
-    },
-
-    addVectorLayer (tiles, source, id, colour, point, filterId) {
+    addMapboxLayer ({tiles, layerType, layer}) {
       const options = {
-        'id': id,
+        'id': getMapboxLayerId(layer, layerType),
         'source': {
           'type': 'vector',
           'tiles': tiles
         },
-        'source-layer': source,
-        'filter': filterId ? ['==', '_symbol', filterId] : ['all']
+        'source-layer': layer.source_layers[layerType],
+        'filter': layer.filter_id ? ['==', '_symbol', layer.filter_id] : ['all']
       }
 
-      if(point){
+      if (layerType === 'point') {
         options['type'] = 'circle'
-        options['paint'] = { 'circle-radius': 2, 'circle-color': colour, 'circle-opacity': .8 }
-        options['filter'] = ['==', '$type', 'Point']
+        options['paint'] = { 
+          'circle-radius': 2,
+          'circle-color': layer.colour,
+          'circle-opacity': .8
+        }
       } else {
         options['type'] = 'fill'
-        options['paint'] = { 'fill-color': colour, 'fill-opacity': .8, 'fill-outline-color': 'transparent' }
-      }
-
-      this.map.addLayer(options)
-    },
-
-    addRasterLayer (layer) {
-      const options = {
-        'id': layer.id,
-        'type': 'raster',
-        'minzoom': 0,
-        'maxzoom': 10,
-        'source': {
-          'type': 'raster',
-          'tiles': [layer.wmsUrl],
-          'tileSize': 64
-        },
-        'paint': {
-          'raster-opacity': 0.8,
-          'raster-hue-rotate': 0
+        options['paint'] = {
+          'fill-color': layer.colour,
+          'fill-opacity': .8,
+          'fill-outline-color': 'transparent'
         }
       }
 
@@ -223,11 +187,13 @@ export default {
 
       const newVisibility = isVisible ? 'visible' : 'none'
 
-      ids.layerIds.forEach(id => {
-        if(this.map.getLayer(id)) {
-          this.map.setLayoutProperty(id, "visibility", newVisibility);
-        } else if (isVisible && this.getLayerById(id)) {
-          this.createLayer(this.getLayerById(id))
+      ids.layerIds.forEach(mapboxLayerId => {
+        if(this.map.getLayer(mapboxLayerId)) {
+          this.map.setLayoutProperty(mapboxLayerId, "visibility", newVisibility);
+        } else if (isVisible) {
+          const baseLayer = this.getLayerById(this.getLayerIdFromMapboxLayerId(mapboxLayerId))
+
+          if(baseLayer) { this.addLayer(baseLayer) }
         }
       })
     }

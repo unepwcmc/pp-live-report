@@ -6,7 +6,8 @@
 
 <map-statistics 
   id="<%= @map_1[:id] %>"
-  title="<%= @data['map_1_title'] %>" 
+  title="<%= @data['map_1_title'] %>"
+  tiles-url="<%= @map_1[:tiles_url] %>" 
   :layers="<%= @map_1[:layers].to_json %>" 
   source="<%= @data['map_1_source'] %>"
 ></map-statistics>
@@ -69,5 +70,6 @@
   id="<%= @map_3[:id] %>"
   title="<%= @data['map_3_title'] %>" 
   :layers="<%= @map_3[:layers].to_json %>" 
+  tiles-url="<%= @map_3[:tiles_url] %>"
   source="<%= @data['map_3_source'] %>"
 ></map-statistics>

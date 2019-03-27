@@ -39,35 +39,34 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: "map_1",
-      source: "(Source text)",
+      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
           id: "terrestrial-" + random_number,
           text_large: land_percentage + '%',
           text_small: "Terrestrial Protected Areas",
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::int = 0 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::int = 0',
+          source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
           colour: "#86BF37"
         },
         {
           id: "marine-" + random_number,
           text_large: sea_percentage + '%',
           text_small: "Marine & Coastal Protected Areas",
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE marine::INT = 1 OR marine::INT = 2 UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE marine::INT = 1 OR marine::INT = 2',
+          source_layers: {poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast'},
           colour: "#133151",
           sublayers: [
             {
               id: "eez-" + random_number,
               text_large: eez_percentage + '%',
               text_small: "Exclusive Economic Zones (EEZ)",
-              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ') UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE (marine::INT = 1 AND iso3 <> 'ABNJ') OR (marine::INT = 2 AND iso3 <> 'ABNJ')",
+              source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
               colour: "#6FD9F2"
             },
             {
               id: "abnj-" + random_number,
               text_large: abnj_percentage + '%',
               text_small: "Areas beyond National Jurisdiction (ABNJ)",
-              type: 'carto',
-              sql: "SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly WHERE iso3 = 'ABNJ' UNION ALL SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point WHERE iso3 = 'ABNJ'",
+              source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
               colour: "#207D94"
             }
           ]
@@ -203,38 +202,43 @@ class ChaptersController < ApplicationController
       ],
     }
 
-    #TODO STACY - update wms links and add colours
     @map_3 = {
       id: "map_3",
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/Ch2_Fg5/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 6,
           colour: '#453385'
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 5,
           colour: '#64579a'
         },
         {
           id: 'three-to-six-' + random_number,
           text_large: '3% – 6%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 4,
           colour: '#8479af'
         },
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 3,
           colour: '#a59cc4'
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch2_fg5_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 2,
           colour: '#A6A6A6'
         }
       ]
@@ -249,29 +253,29 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
     @percentage = CsvMapParser.percentage_stats('Ch3_map_percentage.csv')
 
-    #TODO STACY  - update wms links and colours
     @map_1 = {
       id: 'kba',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
           text_small: "Fully within Protected Areas",
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'KBAs_fully_within' },
           colour: '#2179a7',
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
           text_small: "Partially within Protected Areas",
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'KBAs_partially_within' },
           colour: '#86bf37',
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
           text_small: "Outside Protected Areas",
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch3_fg6_cat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'KBAs_not_within' },
           colour: '#E9624D',
         }
       ]
@@ -312,7 +316,6 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
 
-    #TODO STACY - update wms links and add colours
     @map_1 = {
       id: "map_1",
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8/VectorTileServer/tile/{z}/{y}/{x}.pbf',
@@ -324,25 +327,25 @@ class ChaptersController < ApplicationController
               id: 'under-5' + random_number,
               text_large: 'Under 5%',
               colour: '#a59cc4',
-              source_layer: 'Ch4_Fg8_tcat1_noATA'
+              source_layers: { poly: 'Ch4_Fg8_tcat1_noATA' }
             },
             {
               id: 'five-to-ten' + random_number,
               text_large: '5% - 10%',
               colour: '#8479af',
-              source_layer: 'Ch4_Fg8_tcat2'
+              source_layers: { poly: 'Ch4_Fg8_tcat2' }
             },
             {
               id: 'ten-to-seventeen' + random_number,
               text_large: '10% - 17%',
               colour: '#64579a',
-              source_layer: 'Ch4_Fg8_tcat3'
+              source_layers: { poly: 'Ch4_Fg8_tcat3' }
             },
             {
               id: 'over-seventeen' + random_number,
               text_large: 'Over 17%',
               colour: '#453385',
-              source_layer: 'Ch4_Fg8_tcat4'
+              source_layers: { poly: 'Ch4_Fg8_tcat4' }
             }
           ]
         },
@@ -353,25 +356,25 @@ class ChaptersController < ApplicationController
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
               colour: '#a59cc4',
-              source_layer: 'Ch4_Fg8_mcat5'
+              source_layers: { poly: 'Ch4_Fg8_mcat5' }
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
               colour: '#8479af',
-              source_layer: 'Ch4_Fg8_mcat6'
+              source_layers: { poly: 'Ch4_Fg8_mcat6' }
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
               colour: '#64579a',
-              source_layer: 'Ch4_Fg8_mcat7'
+              source_layers: { poly: 'Ch4_Fg8_mcat7' }
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
               colour: '#453385',
-              source_layer: 'Ch4_Fg8_mcat8'
+              source_layers: { poly: 'Ch4_Fg8_mcat8' }
             }
           ]
         },
@@ -382,34 +385,34 @@ class ChaptersController < ApplicationController
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
               colour: '#a59cc4',
-              source_layer: 'Ch4_Fg8_mcat9'
+              source_layers: { poly: 'Ch4_Fg8_mcat9' }
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
               colour: '#8479af',
-              source_layer: 'Ch4_Fg8_mcat10'
+              source_layers: { poly: 'Ch4_Fg8_mcat10' }
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
               colour: '#64579a',
-              source_layer: 'Ch4_Fg8_mcat11'
+              source_layers: { poly: 'Ch4_Fg8_mcat11' }
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
               colour: '#453385',
-              source_layer: 'Ch4_Fg8_mcat12'
+              source_layers: { poly: 'Ch4_Fg8_mcat12' }
             }
           ]
         }
       ]
     }
 
-    #TODO STACY - update wms links and add colours
     @map_2 = {
-      id: "map_2",
+      id: 'map_2',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg9/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
           title: 'Terrestrial',
@@ -417,31 +420,36 @@ class ChaptersController < ApplicationController
             {
               id: 'under-ten' + random_number,
               text_large: 'Under -10%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_tcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 2,
               colour: '#A6A6A6'
             },
             {
               id: 'ten-to-five' + random_number,
               text_large: '-10% - -5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_tcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 3,
               colour: '#a59cc4'
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_tcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 4,
               colour: '#8479af'
             },
             {
               id: 'zero-to-five' + random_number,
               text_large: '0% - 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_tcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_tcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 6,
               colour: '#453385'
             }
           ]
@@ -452,31 +460,36 @@ class ChaptersController < ApplicationController
             {
               id: 'under-five' + random_number,
               text_large: 'Under -5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 2,
               colour: '#A6A6A6'
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 3,
               colour: '#a59cc4'
             },
             {
               id: 'zero-to-two' + random_number,
               text_large: '0% - 2.5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 4,
               colour: '#8479af'
             },
             {
               id: 'two-to-five' + random_number,
               text_large: '2.5% - 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_mcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 6,
               colour: '#453385'
             }
           ]
@@ -487,31 +500,36 @@ class ChaptersController < ApplicationController
             {
               id: 'under-five' + random_number,
               text_large: 'Under -5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 2,
               colour: '#A6A6A6'
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 3,
               colour: '#a59cc4'
             },
             {
               id: 'zero-to-two' + random_number,
               text_large: '0% - 2.5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat3/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 4,
               colour: '#8479af'
             },
             {
               id: 'two-to-five' + random_number,
               text_large: '2.5% - 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat4/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over 5%',
-              wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch4_fg9_pcat5/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 6,
               colour: '#453385'
             }
           ]
@@ -801,24 +819,24 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: "map_1",
-      source: "(Source text)",
+      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
           id: 'wild' + random_number,
           text_small: 'Wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat1/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
           colour: '#2179a7'
         },
         {
           id: 'not-wild' + random_number,
           text_small: 'Not wild',
-          wmsUrl: 'https://gis.unep-wcmc.org/server/rest/services/pplive/pplive_ch9_bx16_cat2/MapServer/export?dpi=12&transparent=true&format=png32&layers=show%3A0&bbox={bbox-epsg-3857}&bboxSR=EPSG:3857&imageSR=EPSG:3857&size=256,256&f=image',
+          source_layers: { poly: 'LWPv2_Low_Impact_notwild' },
           colour: '#E9624D'
         },
         {
           id: 'protected-areas' + random_number,
           text_small: 'Protected areas',
-          sql: 'SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_poly UNION SELECT cartodb_id, the_geom, the_geom_webmercator FROM wdpa_point',
+          source_layers: {poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019'},
           colour: '#86bf37'
         }
       ]

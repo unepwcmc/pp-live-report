@@ -17,7 +17,8 @@
 <map-statistics 
   id="<%= @map_1[:id] %>" 
   title="<%= @data['map_title'] %>" 
-  :layers="<%= @map_1[:layers].to_json %>" 
+  :layers="<%= @map_1[:layers].to_json %>"
+  tiles-url="<%= @map_1[:tiles_url] %>"
   source="<%= @data['map_smallprint'] %>">
 </map-statistics>
 

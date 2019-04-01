@@ -88,8 +88,7 @@
           cursor: pointer;
           
           align-items: center;
-          display: grid;
-          grid-template-columns: rem-calc(50) auto 1fr;
+          display: flex;
 
           &.active { 
             .map__panel-layer-button-inner,
@@ -123,6 +122,7 @@
               @include text-large; 
               font-size: rem-calc(22);
               height: 1em;
+              width: auto;
 
               @include breakpoint($small) { font-size: rem-calc(26); }
             }
@@ -134,6 +134,16 @@
               align-items: stretch;
 
               @include breakpoint($small) { font-size: rem-calc(24); }
+            }
+
+            &__panel-layer-text {
+              width: 50%;
+
+              display: inline-block;
+            }
+
+            &__panel-button-wrapper {
+              width: rem-calc(50);
             }
             
             &__panel-layer-button {

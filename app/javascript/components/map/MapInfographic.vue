@@ -50,13 +50,18 @@
         let map = new Datamap({
           element: this.$refs.map,
           fills: { defaultFill: this.defaultFill },
+          responsive: true,
           data: this.dataset,
           projection: 'mercator',
           geographyConfig: {
             popupOnHover: false,
             highlightOnHover: false
           }
-        })  
+        })
+        
+        window.addEventListener('resize', () => {
+          map.resize()
+        })
       },
 
       createDataset () {

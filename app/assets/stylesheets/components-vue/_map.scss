@@ -144,6 +144,8 @@
 
             &__panel-button-wrapper {
               width: rem-calc(50);
+
+              flex-shrink: 0;
             }
             
             &__panel-layer-button {

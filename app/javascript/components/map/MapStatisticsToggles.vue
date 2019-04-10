@@ -8,7 +8,7 @@
           </p>
         </div>
         <span v-if="layer.text_large" class="map__panel-layer-text-large">{{ layer.text_large }}</span>
-        <span class="map__panel-layer-text">{{ layer.text_small }}</span>
+        <span v-if="layer.text_small" class="map__panel-layer-text">{{ layer.text_small }}</span>
       </map-statistics-toggle>
 
       <template v-if="layer.sublayers">
@@ -18,8 +18,8 @@
               <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>
             </p>
           </div>
-          <span class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
-          <span class="map__panel-layer-text">{{ sublayer.text_small }}</span>
+          <span v-if="sublayer.text_large" class="map__panel-sublayer-text-large">{{ sublayer.text_large }}</span>
+          <span v-if="sublayer.text_small" class="map__panel-layer-text">{{ sublayer.text_small }}</span>
         </map-statistics-toggle>
       </template>
     </div>

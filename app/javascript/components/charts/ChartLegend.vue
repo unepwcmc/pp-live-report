@@ -3,7 +3,7 @@
     <li v-for="row, index in rows" class="chart__legend-item flex flex-v-center" :class="themeClass">
       <span v-if="row.line" class="chart__legend-key" :style="lineStyle"></span>
       <span v-else class="chart__legend-key" :style="style(index)"></span>
-      <span class="chart__legend-text fw-black">{{ index + 1 }}.</span> 
+      <span v-if="showNumbers" class="chart__legend-text fw-black">{{ index + 1 }}.</span> 
       <span class="chart__legend-text">{{ row.title }}</span>
     </li>
   </ul>
@@ -17,6 +17,10 @@
       rows: {
         type: Array,
         required: true
+      },
+      showNumbers: {
+        type: Boolean,
+        default: false
       },
       theme: String,
       colours: Array

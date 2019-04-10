@@ -440,14 +440,14 @@ class ChaptersController < ApplicationController
             },
             {
               id: 'zero-to-five' + random_number,
-              text_large: '0% - 5%',
+              text_large: '0% - +5%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
-              text_large: 'Over 5%',
+              text_large: 'Over +5%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 6,
               colour: '#453385'
@@ -473,21 +473,21 @@ class ChaptersController < ApplicationController
             },
             {
               id: 'zero-to-two' + random_number,
-              text_large: '0% - 2.5%',
+              text_large: '0% - +2.5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 4,
               colour: '#8479af'
             },
             {
               id: 'two-to-five' + random_number,
-              text_large: '2.5% - 5%',
+              text_large: '2.5% - +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
-              text_large: 'Over 5%',
+              text_large: 'Over +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 6,
               colour: '#453385'
@@ -513,21 +513,21 @@ class ChaptersController < ApplicationController
             },
             {
               id: 'zero-to-two' + random_number,
-              text_large: '0% - 2.5%',
+              text_large: '0% - +2.5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 4,
               colour: '#8479af'
             },
             {
               id: 'two-to-five' + random_number,
-              text_large: '2.5% - 5%',
+              text_large: '+2.5% - +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 5,
               colour: '#64579a'
             },
             {
               id: 'over-five' + random_number,
-              text_large: 'Over 5%',
+              text_large: 'Over +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 6,
               colour: '#453385'

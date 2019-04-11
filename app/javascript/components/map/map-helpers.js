@@ -12,3 +12,16 @@ export const getMapboxLayerIds = layer => {
 
   return ids
 }
+
+export const getFirstSymbolLayerId = map => {
+  let firstSymbolId = ''
+
+  for (const layer of map.getStyle().layers) {
+    if (layer.type === 'symbol') {
+      firstSymbolId = layer.id
+      break
+    }
+  }
+
+  return firstSymbolId
+}

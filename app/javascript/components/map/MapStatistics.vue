@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getMapboxLayerId, getLayerIdFromMapboxLayerId } from './map-helpers'
+import { getMapboxLayerId, getLayerIdFromMapboxLayerId, getFirstSymbolLayerId } from './map-helpers'
 import MapStatisticsToggles from './MapStatisticsToggles'
 import Tab from '../tabs/Tab'
 import Tabs from '../tabs/Tabs'
@@ -53,7 +53,8 @@ export default {
     return {
       map: {},
       mapboxToken: process.env.MAPBOX_TOKEN,
-      allLayers: []
+      allLayers: [],
+      firstSymbolLayerId: ''
     }
   },
 
@@ -111,7 +112,10 @@ export default {
 
       this.map.scrollZoom.disable()
       this.map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left')
-      this.map.on("load", () => { this.addInitialLayers() })
+      this.map.on("load", () => { 
+        this.firstSymbolLayerId = getFirstSymbolLayerId(this.map)
+        this.addInitialLayers() 
+      })
     },
 
     addInitialLayers () {
@@ -171,7 +175,7 @@ export default {
         }
       }
 
-      this.map.addLayer(options)
+      this.map.addLayer(options, this.firstSymbolLayerId)
     },
 
     hideLayers (ids) {

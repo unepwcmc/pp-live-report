@@ -1,5 +1,5 @@
 set :stage, :staging
-set :branch, "migration_deploy"
+set :branch, "feature/mapbox"
 
 
 server "new-web.pp-staging.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}

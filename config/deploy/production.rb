@@ -1,12 +1,15 @@
 set :stage, :production
-set :branch, "master"
+set :branch, "new_production_deploy"
 
-server "web-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
-set :application, "pp-live-report"
-set :server_name, "pp-live-report.web-production.linode.unep-wcmc.org"
+server "new-web.pp-production.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}
+
+set :application, "livereport"
+set :server_name, "livereport"
 set :sudo_user, "wcmc"
 set :app_port, "80"
+
+
 
 # server-based syntax
 # ======================

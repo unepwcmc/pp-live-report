@@ -25,14 +25,17 @@
         default: false
       },
       legend: Array,
+      palette: {
+        type: Array,
+        default: () => ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
+      }
     },
 
     data () {
       return {
-        defaultFill: '#dedede',
+        defaultFill: '#AEAEAE',
         min: 0,
         max: 0,
-        palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781'],
         legendColours: [],
         dataset: {}
       }

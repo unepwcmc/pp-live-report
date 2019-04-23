@@ -200,6 +200,12 @@ class ChaptersController < ApplicationController
         { title: '10% - 17%', value: 3 },
         { title: 'Over 17%', value: 4 }
       ],
+      palette: [
+        '#B3CDE3',
+        '#3F67AC',
+        '#8856A7',
+        '#810F7C'
+      ]
     }
 
     @map_3 = {
@@ -555,6 +561,12 @@ class ChaptersController < ApplicationController
         { title: '10% - 30%', value: 2 },
         { title: '30% - 60%', value: 3 },
         { title: 'Over 60%', value: 4 }
+      ],
+      palette: [
+        '#B3CDE3',
+        '#3F67AC',
+        '#8856A7',
+        '#810F7C'
       ]
     }
 
@@ -779,6 +791,13 @@ class ChaptersController < ApplicationController
         { title: '12% - 17%', value: 3 },
         { title: '17% - 25%', value: 4 },
         { title: 'Over 25%', value: 5 }
+      ],
+      palette: [
+        '#B3CDE3',
+        '#3F67AC',
+        '#8856A7',
+        '#810F7C',
+        '#3F006B'
       ]
     }
 
@@ -791,14 +810,16 @@ class ChaptersController < ApplicationController
         { title: 'B1. Permeability of unprotected lands between PAs', value: 4 },
         { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
         { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
-      ]
+      ],
+      palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
     }
 
     @map_3 = {
       countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_C_categorical.csv'),
       legend: [
         { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
-      ]
+      ],
+      palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
     }
   end
 

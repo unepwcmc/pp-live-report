@@ -11,7 +11,8 @@
   <div class="container--medium">
     <map-infographic 
       :countries="<%= @map[:countries].to_json %>" 
-      :legend="<%= @map[:legend].to_json %>">
+      :legend="<%= @map[:legend].to_json %>"
+      :palette="<%= @map[:palette] %>">
     </map-infographic>
 
     <span class="smallprint"><%= @data['map_1_source'] %></span>

@@ -6,7 +6,6 @@
         <span class="chart__bar" :style="{ height: column.percent + '%' }"></span> 
 
         <p class="chart__label">
-          <span class="chart__label-index">{{ index + 1 }}.</span>
           <span class="fw-black">{{ column.label }}</span>
         </p>
       </div>

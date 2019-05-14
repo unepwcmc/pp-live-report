@@ -1,10 +1,11 @@
 class ChaptersController < ApplicationController
   include Helpers
+  include ApplicationHelper
   layout 'chapter'
 
   def chapter_1
     @chapter_number = 1
-    @chapter_last_updated = 'July 2018'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_2_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
@@ -27,7 +28,7 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @chapter_last_updated = 'January 2019'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
@@ -687,6 +688,8 @@ class ChaptersController < ApplicationController
     ].to_json
 
     column_chart_data_2 = CsvParser.country_perc('Figure_13.csv', 'Count of PAME evaluations')
+    column_chart_data_2.each{|key,value| column_chart_data_2[key] = commaify(value.to_i)}
+    # byebug
     @column_chart_2 = [
       {
         label: 'Africa',
@@ -727,7 +730,7 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_6
-    values = ['194.836', '7.632', '13.105', '1.377', '21.613']
+    values = ['194,836', '7,632', '13,105', '1,377', '21,613']
     @column_chart = []
     @chapter_number = 6
     @chapter_last_updated = 'July 2018'

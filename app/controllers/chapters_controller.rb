@@ -689,7 +689,6 @@ class ChaptersController < ApplicationController
 
     column_chart_data_2 = CsvParser.country_perc('Figure_13.csv', 'Count of PAME evaluations')
     column_chart_data_2.each{|key,value| column_chart_data_2[key] = commaify(value.to_i)}
-    # byebug
     @column_chart_2 = [
       {
         label: 'Africa',

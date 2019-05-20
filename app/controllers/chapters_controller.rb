@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
 
   def chapter_1
     @chapter_number = 1
-    @chapter_last_updated = 'July 2018'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_2_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
@@ -27,7 +27,7 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @chapter_last_updated = 'January 2019'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
@@ -647,104 +647,18 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    column_chart_data = CsvParser.country_perc('Figure 12 PAME_JUL18_REGIONAL.csv', 'PER_PAME_COVERAGE')
-    @column_chart = [
-      {
-        label: 'Africa',
-        percent: column_chart_data['Africa'],
-        value: "#{column_chart_data['Africa']}%"
-      },
-      {
-        label: 'Asia & Pacific',
-        percent: column_chart_data['Asia + Pacific'],
-        value: "#{column_chart_data['Asia + Pacific']}%"
-      },
-      {
-        label: 'Europe',
-        percent: column_chart_data['Europe'],
-        value: "#{column_chart_data['Europe']}%"
-      },
-      {
-        label: 'Latin America & Caribbean',
-        percent: column_chart_data['Latin America + Caribbean'],
-        value: "#{column_chart_data['Latin America + Caribbean']}%"
-      },
-      {
-        label: 'North America',
-        percent: column_chart_data['North America'],
-        value: "#{column_chart_data['North America']}%"
-      },
-      {
-        label: 'Polar',
-        percent: column_chart_data['Polar'],
-        value: "#{column_chart_data['Polar']}%"
-      },
-      {
-        label: 'West Asia',
-        percent: column_chart_data['West Asia'],
-        value: "#{column_chart_data['West Asia']}%"
-      }
-    ].to_json
-
-    column_chart_data_2 = CsvParser.country_perc('Figure_13.csv', 'Count of PAME evaluations')
-    @column_chart_2 = [
-      {
-        label: 'Africa',
-        percent: 13,
-        value: column_chart_data_2['Africa']
-      },
-      {
-        label: 'Asia & Pacific',
-        percent: 38,
-        value: column_chart_data_2['Asia + Pacific']
-      },
-      {
-        label: 'Europe',
-        percent: 92,
-        value: column_chart_data_2['Europe']
-      },
-      {
-        label: 'Latin America & Caribbean',
-        percent: 14,
-        value: column_chart_data_2['Latin America + Caribbean']
-      },
-      {
-        label: 'North America',
-        percent: 0.089,
-        value: column_chart_data_2['North America']
-      },
-      {
-        label: 'Polar',
-        percent: 0,
-        value: column_chart_data_2['Polar']
-      },
-      {
-        label: 'West Asia',
-        percent: 0.033,
-        value: column_chart_data_2['West Asia']
-      }
-    ].to_json
+    @column_chart = PerPameCoverageSerializer.new(CsvParser.per_pame_coverage).serialize
+    @column_chart_2 = CountOfPameEvaluationsSerializer.new(CsvParser.count_of_pame_evaluations).serialize
   end
 
   def chapter_6
-    values = ['194.836', '7.632', '13.105', '1.377', '21.613']
-    @column_chart = []
     @chapter_number = 6
     @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
-
-    governance_types_data = CsvParser.governance_type
-
-    governance_types_data.each_with_index do |data, index|
-      @column_chart << {
-        label: data.keys.first.to_s,
-        value: values[index],
-        percent: data.values.first
-      }
-    end
-    @column_chart = @column_chart.to_json
+    
+    @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
     country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
     legend = []

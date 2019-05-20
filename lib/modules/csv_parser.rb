@@ -43,24 +43,21 @@ module CsvParser
     prog_lev
   end
 
-  def self.country_perc(filename, column)
-    country_perc = {}
-    csv_file = file_reader(filename)
-    CSV.parse(csv_file, headers: true) do |row|
-      key = row[0]
-      row = row.to_hash.slice(column)
-      country_perc[key] = row[column].to_f.round(2)
-    end
-    country_perc
+  def self.per_pame_coverage
+    country_perc('Figure 12 PAME_JUL18_REGIONAL.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
+  end
+
+  def self.count_of_pame_evaluations
+    country_perc('Figure_13.csv', 'Count of PAME evaluations')
   end
 
   def self.governance_type
-    gov_types = []
+    gov_types = {}
     csv_file = file_reader('chapter 6 Box_10_first_figure (1).csv')
     CSV.parse(csv_file, headers: true) do |row|
-      type = row[0]
-      row = row.to_hash.slice('%')
-      gov_types << { "#{type}": row['%'] }
+      key = row[0]
+      row = row.to_hash['Count'].to_i
+      gov_types[key] = row
     end
     gov_types
   end
@@ -112,5 +109,18 @@ module CsvParser
 
   def self.file_reader(file_name)
     File.read("#{Rails.root}/lib/data/file/#{file_name}")
+  end
+
+  private
+
+  def self.country_perc(filename, column)
+    country_perc = {}
+    csv_file = file_reader(filename)
+    CSV.parse(csv_file, headers: true) do |row|
+      key = row[0]
+      row = row.to_hash.slice(column)
+      country_perc[key] = row[column].to_f.round(2)
+    end
+    country_perc
   end
 end

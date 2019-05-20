@@ -50,7 +50,7 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['column_chart_title'], intro: @data['column_chart_description'] } %>
 
   <div class="container--medium">
-    <chart-column :columns="<%= @column_chart %>"></chart-column>
+    <chart-column :columns="<%= @column_chart %>" units="%"></chart-column>
 
     <span class="smallprint"><%= @data['column_chart_smallprint'] %></span>
   </div>

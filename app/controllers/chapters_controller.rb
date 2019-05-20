@@ -1,6 +1,5 @@
 class ChaptersController < ApplicationController
   include Helpers
-  include ApplicationHelper
   layout 'chapter'
 
   def chapter_1

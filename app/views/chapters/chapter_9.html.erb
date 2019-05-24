@@ -19,7 +19,8 @@
   title="<%= @data['map_title'] %>" 
   :layers="<%= @map_1[:layers].to_json %>"
   tiles-url="<%= @map_1[:tiles_url] %>"
-  source="<%= @data['map_smallprint'] %>">
+  source="<%= @data['map_smallprint'] %>"
+  description="<%= @data['map_description'] %>">
 </map-statistics>
 
 <section class="section-padding">

@@ -2,6 +2,20 @@ class ChaptersController < ApplicationController
   include Helpers
   layout 'chapter'
 
+  DEFAULT_COLOUR = '#A6A6A6'.freeze
+  TRICOLOR_PALETTE = [
+    '#0571b0',
+    '#92c5de',
+    '#E9624D'
+  ].freeze
+  BLUE_PURPLE_SCHEME = [
+    '#B3CDE3',
+    '#8c96c6',
+    '#8856A7',
+    '#810F7C',
+    '#4d004b'
+  ].freeze
+
   def chapter_1
     @chapter_number = 1
     @chapter_last_updated = 'May 2019'
@@ -44,28 +58,28 @@ class ChaptersController < ApplicationController
         {
           id: "terrestrial-" + random_number,
           text_large: land_percentage + '%',
-          text_small: "Terrestrial Protected Areas",
+          text_small: "of terrestrial areas",
           source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
           colour: "#86BF37"
         },
         {
           id: "marine-" + random_number,
           text_large: sea_percentage + '%',
-          text_small: "Marine & Coastal Protected Areas",
+          text_small: "of marine areas",
           source_layers: {poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast'},
           colour: "#133151",
           sublayers: [
             {
               id: "eez-" + random_number,
               text_large: eez_percentage + '%',
-              text_small: "Exclusive Economic Zones (EEZ)",
+              text_small: "of the global EEZ",
               source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
               colour: "#6FD9F2"
             },
             {
               id: "abnj-" + random_number,
               text_large: abnj_percentage + '%',
-              text_small: "Areas beyond National Jurisdiction (ABNJ)",
+              text_small: "of global ABNJ",
               source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
               colour: "#207D94"
             }
@@ -200,12 +214,7 @@ class ChaptersController < ApplicationController
         { title: '10% - 17%', value: 3 },
         { title: 'Over 17%', value: 4 }
       ],
-      palette: [
-        '#B3CDE3',
-        '#3F67AC',
-        '#8856A7',
-        '#810F7C'
-      ]
+      palette: BLUE_PURPLE_SCHEME
     }
 
     @map_3 = {
@@ -217,35 +226,35 @@ class ChaptersController < ApplicationController
           text_large: 'Over 10%',
           source_layers: { poly: 'Ch2_Fg5_Mar' },
           filter_id: 6,
-          colour: '#453385'
+          colour: BLUE_PURPLE_SCHEME[3]
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
           source_layers: { poly: 'Ch2_Fg5_Mar' },
           filter_id: 5,
-          colour: '#64579a'
+          colour: BLUE_PURPLE_SCHEME[2]
         },
         {
           id: 'three-to-six-' + random_number,
           text_large: '3% – 6%',
           source_layers: { poly: 'Ch2_Fg5_Mar' },
           filter_id: 4,
-          colour: '#8479af'
+          colour: BLUE_PURPLE_SCHEME[1]
         },
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
           source_layers: { poly: 'Ch2_Fg5_Mar' },
           filter_id: 3,
-          colour: '#a59cc4'
+          colour: BLUE_PURPLE_SCHEME[0]
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
           source_layers: { poly: 'Ch2_Fg5_Mar' },
           filter_id: 2,
-          colour: '#A6A6A6'
+          colour: DEFAULT_COLOUR
         }
       ]
     }
@@ -268,21 +277,21 @@ class ChaptersController < ApplicationController
           text_large: @percentage['Within'],
           text_small: "Fully within Protected Areas",
           source_layers: { poly: 'KBAs_fully_within' },
-          colour: '#2179a7',
+          colour: TRICOLOR_PALETTE[0],
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
           text_small: "Partially within Protected Areas",
           source_layers: { poly: 'KBAs_partially_within' },
-          colour: '#86bf37',
+          colour: TRICOLOR_PALETTE[1],
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
           text_small: "Outside Protected Areas",
           source_layers: { poly: 'KBAs_not_within' },
-          colour: '#E9624D',
+          colour: TRICOLOR_PALETTE[2],
         }
       ]
     }
@@ -332,25 +341,25 @@ class ChaptersController < ApplicationController
             {
               id: 'under-5' + random_number,
               text_large: 'Under 5%',
-              colour: '#a59cc4',
+              colour: BLUE_PURPLE_SCHEME[0],
               source_layers: { poly: 'Ch4_Fg8_tcat1_noATA' }
             },
             {
               id: 'five-to-ten' + random_number,
               text_large: '5% - 10%',
-              colour: '#8479af',
+              colour: BLUE_PURPLE_SCHEME[1],
               source_layers: { poly: 'Ch4_Fg8_tcat2' }
             },
             {
               id: 'ten-to-seventeen' + random_number,
               text_large: '10% - 17%',
-              colour: '#64579a',
+              colour: BLUE_PURPLE_SCHEME[2],
               source_layers: { poly: 'Ch4_Fg8_tcat3' }
             },
             {
               id: 'over-seventeen' + random_number,
               text_large: 'Over 17%',
-              colour: '#453385',
+              colour: BLUE_PURPLE_SCHEME[3],
               source_layers: { poly: 'Ch4_Fg8_tcat4' }
             }
           ]
@@ -361,25 +370,25 @@ class ChaptersController < ApplicationController
             {
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
-              colour: '#a59cc4',
+              colour: BLUE_PURPLE_SCHEME[0],
               source_layers: { poly: 'Ch4_Fg8_mcat5' }
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
-              colour: '#8479af',
+              colour: BLUE_PURPLE_SCHEME[1],
               source_layers: { poly: 'Ch4_Fg8_mcat6' }
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
-              colour: '#64579a',
+              colour: BLUE_PURPLE_SCHEME[2],
               source_layers: { poly: 'Ch4_Fg8_mcat7' }
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
-              colour: '#453385',
+              colour: BLUE_PURPLE_SCHEME[3],
               source_layers: { poly: 'Ch4_Fg8_mcat8' }
             }
           ]
@@ -390,25 +399,25 @@ class ChaptersController < ApplicationController
             {
               id: 'under-3' + random_number,
               text_large: 'Under 3%',
-              colour: '#a59cc4',
+              colour: BLUE_PURPLE_SCHEME[0],
               source_layers: { poly: 'Ch4_Fg8_mcat9' }
             },
             {
               id: 'three-to-six' + random_number,
               text_large: '3% - 6%',
-              colour: '#8479af',
+              colour: BLUE_PURPLE_SCHEME[1],
               source_layers: { poly: 'Ch4_Fg8_mcat10' }
             },
             {
               id: 'six-to-ten' + random_number,
               text_large: '6% - 10%',
-              colour: '#64579a',
+              colour: BLUE_PURPLE_SCHEME[2],
               source_layers: { poly: 'Ch4_Fg8_mcat11' }
             },
             {
               id: 'over-ten' + random_number,
               text_large: 'Over 10%',
-              colour: '#453385',
+              colour: BLUE_PURPLE_SCHEME[3],
               source_layers: { poly: 'Ch4_Fg8_mcat12' }
             }
           ]
@@ -428,35 +437,35 @@ class ChaptersController < ApplicationController
               text_large: 'Under -10%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 2,
-              colour: '#A6A6A6'
+              colour: DEFAULT_COLOUR
             },
             {
               id: 'ten-to-five' + random_number,
               text_large: '-10% - -5%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 3,
-              colour: '#a59cc4'
+              colour: BLUE_PURPLE_SCHEME[0]
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 4,
-              colour: '#8479af'
+              colour: BLUE_PURPLE_SCHEME[1]
             },
             {
               id: 'zero-to-five' + random_number,
               text_large: '0% - +5%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 5,
-              colour: '#64579a'
+              colour: BLUE_PURPLE_SCHEME[2]
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over +5%',
               source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
               filter_id: 6,
-              colour: '#453385'
+              colour: BLUE_PURPLE_SCHEME[3]
             }
           ]
         },
@@ -468,35 +477,35 @@ class ChaptersController < ApplicationController
               text_large: 'Under -5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 2,
-              colour: '#A6A6A6'
+              colour: DEFAULT_COLOUR
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 3,
-              colour: '#a59cc4'
+              colour: BLUE_PURPLE_SCHEME[0]
             },
             {
               id: 'zero-to-two' + random_number,
               text_large: '0% - +2.5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 4,
-              colour: '#8479af'
+              colour: BLUE_PURPLE_SCHEME[1]
             },
             {
               id: 'two-to-five' + random_number,
               text_large: '2.5% - +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 5,
-              colour: '#64579a'
+              colour: BLUE_PURPLE_SCHEME[2]
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
               filter_id: 6,
-              colour: '#453385'
+              colour: BLUE_PURPLE_SCHEME[3]
             }
           ]
         },
@@ -508,35 +517,35 @@ class ChaptersController < ApplicationController
               text_large: 'Under -5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 2,
-              colour: '#A6A6A6'
+              colour: DEFAULT_COLOUR
             },
             {
               id: 'five-to-zero' + random_number,
               text_large: '-5% - 0%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 3,
-              colour: '#a59cc4'
+              colour: BLUE_PURPLE_SCHEME[0]
             },
             {
               id: 'zero-to-two' + random_number,
               text_large: '0% - +2.5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 4,
-              colour: '#8479af'
+              colour: BLUE_PURPLE_SCHEME[1]
             },
             {
               id: 'two-to-five' + random_number,
               text_large: '+2.5% - +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 5,
-              colour: '#64579a'
+              colour: BLUE_PURPLE_SCHEME[2]
             },
             {
               id: 'over-five' + random_number,
               text_large: 'Over +5%',
               source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
               filter_id: 6,
-              colour: '#453385'
+              colour: BLUE_PURPLE_SCHEME[3]
             }
           ]
         }
@@ -562,12 +571,7 @@ class ChaptersController < ApplicationController
         { title: '30% - 60%', value: 3 },
         { title: 'Over 60%', value: 4 }
       ],
-      palette: [
-        '#B3CDE3',
-        '#3F67AC',
-        '#8856A7',
-        '#810F7C'
-      ]
+      palette: BLUE_PURPLE_SCHEME
     }
 
     progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
@@ -706,13 +710,7 @@ class ChaptersController < ApplicationController
         { title: '17% - 25%', value: 4 },
         { title: 'Over 25%', value: 5 }
       ],
-      palette: [
-        '#B3CDE3',
-        '#3F67AC',
-        '#8856A7',
-        '#810F7C',
-        '#3F006B'
-      ]
+      palette: BLUE_PURPLE_SCHEME
     }
 
     @map_2 = {
@@ -725,7 +723,7 @@ class ChaptersController < ApplicationController
         { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
         { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
       ],
-      palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
+      palette: ['#2179A7', '#53CCF7', '#a50f15', '#de2d26', '#fb6a4a', '#fcae91', '#423781']
     }
 
     @map_3 = {
@@ -733,7 +731,7 @@ class ChaptersController < ApplicationController
       legend: [
         { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
       ],
-      palette: ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
+      palette: Array.new(7, '#423781')
     }
   end
 
@@ -757,22 +755,22 @@ class ChaptersController < ApplicationController
       tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
-          id: 'wild' + random_number,
-          text_small: 'Wild',
-          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
-          colour: '#2179a7'
-        },
-        {
           id: 'not-wild' + random_number,
           text_small: 'Not wild',
           source_layers: { poly: 'LWPv2_Low_Impact_notwild' },
-          colour: '#E9624D'
+          colour: TRICOLOR_PALETTE[2]
+        },
+        {
+          id: 'wild' + random_number,
+          text_small: 'Wild',
+          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
+          colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'protected-areas' + random_number,
           text_small: 'Protected areas',
           source_layers: {poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019'},
-          colour: '#86bf37'
+          colour: TRICOLOR_PALETTE[1]
         }
       ]
     }

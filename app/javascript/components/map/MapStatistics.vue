@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getMapboxLayerId, getLayerIdFromMapboxLayerId, getFirstSymbolLayerId } from './map-helpers'
+import { getMapboxLayerId, getLayerIdFromMapboxLayerId, getFirstTopLayerId } from './map-helpers'
 import MapStatisticsToggles from './MapStatisticsToggles'
 import Tab from '../tabs/Tab'
 import Tabs from '../tabs/Tabs'
@@ -54,7 +54,7 @@ export default {
       map: {},
       mapboxToken: process.env.MAPBOX_TOKEN,
       allLayers: [],
-      firstSymbolLayerId: ''
+      firstTopLayerId: ''
     }
   },
 
@@ -113,7 +113,7 @@ export default {
       this.map.scrollZoom.disable()
       this.map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-left')
       this.map.on("load", () => { 
-        this.firstSymbolLayerId = getFirstSymbolLayerId(this.map)
+        this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers() 
       })
     },
@@ -164,18 +164,16 @@ export default {
         options['paint'] = { 
           'circle-radius': 2,
           'circle-color': layer.colour,
-          'circle-opacity': .8
         }
       } else {
         options['type'] = 'fill'
         options['paint'] = {
           'fill-color': layer.colour,
-          'fill-opacity': .8,
           'fill-outline-color': 'transparent'
         }
       }
 
-      this.map.addLayer(options, this.firstSymbolLayerId)
+      this.map.addLayer(options, this.firstTopLayerId)
     },
 
     hideLayers (ids) {

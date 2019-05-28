@@ -755,16 +755,16 @@ class ChaptersController < ApplicationController
       tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
-          id: 'wild' + random_number,
-          text_small: 'Wild',
-          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
-          colour: TRICOLOR_PALETTE[1]
-        },
-        {
           id: 'not-wild' + random_number,
           text_small: 'Not wild',
           source_layers: { poly: 'LWPv2_Low_Impact_notwild' },
           colour: TRICOLOR_PALETTE[2]
+        },
+        {
+          id: 'wild' + random_number,
+          text_small: 'Wild',
+          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
+          colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'protected-areas' + random_number,

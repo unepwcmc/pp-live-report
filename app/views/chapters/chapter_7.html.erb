@@ -37,7 +37,8 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'], intro: @data['map_2_description'] } %>
 
   <div class="container--medium">
-    <map-infographic 
+    <map-infographic
+      class="map--vertical-legend"
       :countries="<%= @map_2[:countries].to_json %>" 
       :legend="<%= @map_2[:legend].to_json %>"
       :palette="<%= @map_2[:palette] %>">

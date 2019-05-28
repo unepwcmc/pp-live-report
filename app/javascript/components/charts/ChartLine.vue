@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <chart-legend v-if="legend" :rows="legend" :colours="legendColours"></chart-legend>
+    <chart-legend v-if="legend" :show-numbers="true" :rows="legend" :colours="legendColours"></chart-legend>
   </div>  
 </template>
 

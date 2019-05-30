@@ -65,7 +65,7 @@ h2 {
     @include breakpoint($medium) { font-size: rem-calc(70); }
   }
 
-  &.map {
+  &.heading--map {
     font-size: rem-calc(20);
 
     @include breakpoint($small) { font-size: rem-calc(25); }

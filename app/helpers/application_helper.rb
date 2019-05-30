@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ActionView::Helpers::NumberHelper
+  
   def site_title 
     'Protected Planet Digital Report'
   end
@@ -76,5 +78,9 @@ module ApplicationHelper
     end 
     
     @main_nav = @main_nav
+  end
+
+  def commaify number
+    number_with_delimiter(number, delimeter: ',')
   end
 end

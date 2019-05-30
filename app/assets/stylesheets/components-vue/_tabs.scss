@@ -8,15 +8,23 @@
 // tab
 //--------------------------------------------------
 .tab {
-  &--active {
-    background-color: $primary;
-  }
-  
-  &__triggers {
+  background-color: $grey;
 
+  &__triggers {
+    
   }
 
     &__trigger {
-      
+      background-color: transparent;
+      border: none;
+      color: $white;
+      cursor: pointer;
+      font-size: rem-calc(22);
+      font-weight: $bold;
+      padding: rem-calc(16);
+
+      &.tab--active { background-color: $grey; }
     }
+
+      &__title { cursor: pointer; }
 }

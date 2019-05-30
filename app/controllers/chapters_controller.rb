@@ -1,9 +1,24 @@
 class ChaptersController < ApplicationController
+  include Helpers
   layout 'chapter'
+
+  DEFAULT_COLOUR = '#A6A6A6'.freeze
+  TRICOLOR_PALETTE = [
+    '#66c2a5',
+    '#8da0cb',
+    '#fc8d62'
+  ].freeze
+  BLUE_PURPLE_SCHEME = [
+    '#B3CDE3',
+    '#8c96c6',
+    '#8856A7',
+    '#810F7C',
+    '#4d004b'
+  ].freeze
 
   def chapter_1
     @chapter_number = 1
-    @chapter_last_updated = 'July 2018'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_2_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
@@ -26,7 +41,7 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @chapter_last_updated = 'January 2019'
+    @chapter_last_updated = 'May 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
@@ -36,24 +51,37 @@ class ChaptersController < ApplicationController
     eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
     abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
 
-    @mapbox = {
-      source: "(Source text)",
+    @map_1 = {
+      id: "map_1",
+      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
-          title: "Terrestrial Protected Areas",
-          percentage: land_percentage
+          id: "terrestrial-" + random_number,
+          text_large: land_percentage + '%',
+          text_small: "of terrestrial areas",
+          source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
+          colour: "#86BF37"
         },
         {
-          title: "Marine & Coastal Protected Areas",
-          percentage: sea_percentage,
+          id: "marine-" + random_number,
+          text_large: sea_percentage + '%',
+          text_small: "of marine areas",
+          source_layers: {poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast'},
+          colour: "#133151",
           sublayers: [
             {
-              title: "Exclusive Economic Zones (EEZ)",
-              percentage: eez_percentage
+              id: "eez-" + random_number,
+              text_large: eez_percentage + '%',
+              text_small: "of the global EEZ",
+              source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
+              colour: "#6FD9F2"
             },
             {
-              title: "Areas beyond National Jurisdiction (ABNJ)",
-              percentage: abnj_percentage
+              id: "abnj-" + random_number,
+              text_large: abnj_percentage + '%',
+              text_small: "of global ABNJ",
+              source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
+              colour: "#207D94"
             }
           ]
         }
@@ -177,19 +205,56 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    @map = {
+    @map_2 = {
+      countries: CsvMapParser.categ_country_stats('Monthly_PA_National_Coverage_Jan19_categorical.csv'),
       legend: [
+        { title: 'Data deficient', value: 'default' },
+        { title: 'Under 5%', value: 1 },
+        { title: '5% - 10%', value: 2 },
+        { title: '10% - 17%', value: 3 },
+        { title: 'Over 17%', value: 4 }
+      ],
+      palette: BLUE_PURPLE_SCHEME
+    }
+
+    @map_3 = {
+      id: "map_3",
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/Ch2_Fg5/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      layers: [
         {
-          title: 'Data deficient'
+          id: 'over-ten-' + random_number,
+          text_large: 'Over 10%',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 6,
+          colour: BLUE_PURPLE_SCHEME[3]
         },
         {
-          title: '0 - 10%'
+          id: 'six-to-ten-' + random_number,
+          text_large: '6% - 10%',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 5,
+          colour: BLUE_PURPLE_SCHEME[2]
         },
         {
-          title: '10% - 50%'
+          id: 'three-to-six-' + random_number,
+          text_large: '3% – 6%',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 4,
+          colour: BLUE_PURPLE_SCHEME[1]
         },
         {
-          title: '50% - 100%'
+          id: 'less-than-3-' + random_number,
+          text_large: 'Under 3%',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 3,
+          colour: BLUE_PURPLE_SCHEME[0]
+        },
+        {
+          id: 'data-deficient-' + random_number,
+          text_large: 'Data deficient',
+          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          filter_id: 2,
+          colour: DEFAULT_COLOUR
         }
       ]
     }
@@ -201,21 +266,32 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
+    @percentage = CsvMapParser.percentage_stats('Ch3_map_percentage.csv')
 
-    @mapbox = {
-      source: "(Source text)",
+    @map_1 = {
+      id: 'kba',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
-          title: "Fully within Protected Area's",
-          percentage: 10
+          id: 'inside-' + random_number,
+          text_large: @percentage['Within'],
+          text_small: "Fully within Protected Areas",
+          source_layers: { poly: 'KBAs_fully_within' },
+          colour: TRICOLOR_PALETTE[0],
         },
         {
-          title: "Partially within Protected Area's",
-          percentage: 10
+          id: 'partial-' + random_number,
+          text_large: @percentage['Partially'],
+          text_small: "Partially within Protected Areas",
+          source_layers: { poly: 'KBAs_partially_within' },
+          colour: TRICOLOR_PALETTE[1],
         },
         {
-          title: "Outside Protected Area's",
-          percentage: 10
+          id: 'outside-' + random_number,
+          text_large: @percentage['Outside'],
+          text_small: "Outside Protected Areas",
+          source_layers: { poly: 'KBAs_not_within' },
+          colour: TRICOLOR_PALETTE[2],
         }
       ]
     }
@@ -255,22 +331,227 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_5_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
 
-    @map = {
-      legend: [
+    @map_1 = {
+      id: "map_1",
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
         {
-          title: 'Data deficient'
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'over-seventeen' + random_number,
+              text_large: 'Over 17%',
+              colour: BLUE_PURPLE_SCHEME[3],
+              source_layers: { poly: 'Ch4_Fg8_tcat4' }
+            },
+            {
+              id: 'ten-to-seventeen' + random_number,
+              text_large: '10% - 17%',
+              colour: BLUE_PURPLE_SCHEME[2],
+              source_layers: { poly: 'Ch4_Fg8_tcat3' }
+            },
+            {
+              id: 'five-to-ten' + random_number,
+              text_large: '5% - 10%',
+              colour: BLUE_PURPLE_SCHEME[1],
+              source_layers: { poly: 'Ch4_Fg8_tcat2' }
+            },
+            {
+              id: 'under-5' + random_number,
+              text_large: 'Under 5%',
+              colour: BLUE_PURPLE_SCHEME[0],
+              source_layers: { poly: 'Ch4_Fg8_tcat1_noATA' }
+            }
+          ]
         },
         {
-          title: '0 - 10%'
+          title: 'Marine',
+          layers: [
+            {
+              id: 'over-ten' + random_number,
+              text_large: 'Over 10%',
+              colour: BLUE_PURPLE_SCHEME[3],
+              source_layers: { poly: 'Ch4_Fg8_mcat8' }
+            },
+            {
+              id: 'six-to-ten' + random_number,
+              text_large: '6% - 10%',
+              colour: BLUE_PURPLE_SCHEME[2],
+              source_layers: { poly: 'Ch4_Fg8_mcat7' }
+            },
+            {
+              id: 'three-to-six' + random_number,
+              text_large: '3% - 6%',
+              colour: BLUE_PURPLE_SCHEME[1],
+              source_layers: { poly: 'Ch4_Fg8_mcat6' }
+            },
+            {
+              id: 'under-3' + random_number,
+              text_large: 'Under 3%',
+              colour: BLUE_PURPLE_SCHEME[0],
+              source_layers: { poly: 'Ch4_Fg8_mcat5' }
+            }
+          ]
         },
         {
-          title: '10% - 50%'
-        },
-        {
-          title: '50% - 100%'
+          title: 'Province',
+          layers: [
+            {
+              id: 'over-ten' + random_number,
+              text_large: 'Over 10%',
+              colour: BLUE_PURPLE_SCHEME[3],
+              source_layers: { poly: 'Ch4_Fg8_mcat12' }
+            },
+            {
+              id: 'six-to-ten' + random_number,
+              text_large: '6% - 10%',
+              colour: BLUE_PURPLE_SCHEME[2],
+              source_layers: { poly: 'Ch4_Fg8_mcat11' }
+            },
+            {
+              id: 'three-to-six' + random_number,
+              text_large: '3% - 6%',
+              colour: BLUE_PURPLE_SCHEME[1],
+              source_layers: { poly: 'Ch4_Fg8_mcat10' }
+            },
+            {
+              id: 'under-3' + random_number,
+              text_large: 'Under 3%',
+              colour: BLUE_PURPLE_SCHEME[0],
+              source_layers: { poly: 'Ch4_Fg8_mcat9' }
+            }
+          ]
         }
       ]
     }
+
+    @map_2 = {
+      id: 'map_2',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg9/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
+        {
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'over-five' + random_number,
+              text_large: 'Over 5%',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 6,
+              colour: BLUE_PURPLE_SCHEME[3]
+            },
+            {
+              id: 'zero-to-five' + random_number,
+              text_large: '0% to 5%',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 5,
+              colour: BLUE_PURPLE_SCHEME[2]
+            },
+            {
+              id: 'five-to-zero' + random_number,
+              text_large: '-5% to 0%',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 4,
+              colour: BLUE_PURPLE_SCHEME[1]
+            },
+            {
+              id: 'ten-to-five' + random_number,
+              text_large: '-10% to -5%',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 3,
+              colour: BLUE_PURPLE_SCHEME[0]
+            },
+            {
+              id: 'under-ten' + random_number,
+              text_large: 'Under -10%',
+              source_layers: { poly: 'wwf_terr_ecos_PA_perc_join_CHANGE' },
+              filter_id: 2,
+              colour: DEFAULT_COLOUR
+            }
+          ]
+        },
+        {
+          title: 'Marine',
+          layers: [
+            {
+              id: 'over-five' + random_number,
+              text_large: 'Over 5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 6,
+              colour: BLUE_PURPLE_SCHEME[3]
+            },
+            {
+              id: 'two-to-five' + random_number,
+              text_large: '2.5% to 5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 5,
+              colour: BLUE_PURPLE_SCHEME[2]
+            },
+            {
+              id: 'zero-to-two' + random_number,
+              text_large: '0% to 2.5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 4,
+              colour: BLUE_PURPLE_SCHEME[1]
+            },
+            {
+              id: 'five-to-zero' + random_number,
+              text_large: '-5% to 0%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 3,
+              colour: BLUE_PURPLE_SCHEME[0]
+            },
+            {
+              id: 'under-five' + random_number,
+              text_large: 'Under -5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_MEOWonly_PA_perc_join_CHANGE' },
+              filter_id: 2,
+              colour: DEFAULT_COLOUR
+            }
+          ]
+        },
+        {
+          title: 'Province',
+          layers: [
+            {
+              id: 'over-five' + random_number,
+              text_large: 'Over 5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 6,
+              colour: BLUE_PURPLE_SCHEME[3]
+            },
+            {
+              id: 'two-to-five' + random_number,
+              text_large: '2.5% to 5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 5,
+              colour: BLUE_PURPLE_SCHEME[2]
+            },
+            {
+              id: 'zero-to-two' + random_number,
+              text_large: '0% to 2.5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 4,
+              colour: BLUE_PURPLE_SCHEME[1]
+            },
+            {
+              id: 'five-to-zero' + random_number,
+              text_large: '-5% to 0%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 3,
+              colour: BLUE_PURPLE_SCHEME[0]
+            },
+            {
+              id: 'under-five' + random_number,
+              text_large: 'Under -5%',
+              source_layers: { poly: 'WCMC_036_MEOW_PPOW_2007_2012_NoCoast_PPOWonly_PA_perc_join_Change' },
+              filter_id: 2,
+              colour: DEFAULT_COLOUR
+            }
+          ]
+        }
+      ]
+    }
+
     @row_charts = CsvParser.biogeographical_regions
   end
 
@@ -282,20 +563,15 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
+      countries: CsvMapParser.categ_country_stats('Ch5_Figure_10_categorical.csv'),
       legend: [
-        {
-          title: 'Data deficient'
-        },
-        {
-          title: '0 - 10%'
-        },
-        {
-          title: '10% - 50%'
-        },
-        {
-          title: '50% - 100%'
-        }
-      ]
+        { title: 'No Assessments', value: 'default' },
+        { title: 'Under 10%', value: 1 },
+        { title: '10% - 30%', value: 2 },
+        { title: '30% - 60%', value: 3 },
+        { title: 'Over 60%', value: 4 }
+      ],
+      palette: BLUE_PURPLE_SCHEME
     }
 
     progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
@@ -375,104 +651,18 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    column_chart_data = CsvParser.country_perc('Figure 12 PAME_JUL18_REGIONAL.csv', 'PER_PAME_COVERAGE')
-    @column_chart = [
-      {
-        label: 'Africa',
-        percent: column_chart_data['Africa'],
-        value: "#{column_chart_data['Africa']}%"
-      },
-      {
-        label: 'Asia & Pacific',
-        percent: column_chart_data['Asia + Pacific'],
-        value: "#{column_chart_data['Asia + Pacific']}%"
-      },
-      {
-        label: 'Europe',
-        percent: column_chart_data['Europe'],
-        value: "#{column_chart_data['Europe']}%"
-      },
-      {
-        label: 'Latin America & Caribbean',
-        percent: column_chart_data['Latin America + Caribbean'],
-        value: "#{column_chart_data['Latin America + Caribbean']}%"
-      },
-      {
-        label: 'North America',
-        percent: column_chart_data['North America'],
-        value: "#{column_chart_data['North America']}%"
-      },
-      {
-        label: 'Polar',
-        percent: column_chart_data['Polar'],
-        value: "#{column_chart_data['Polar']}%"
-      },
-      {
-        label: 'West Asia',
-        percent: column_chart_data['West Asia'],
-        value: "#{column_chart_data['West Asia']}%"
-      }
-    ].to_json
-
-    column_chart_data_2 = CsvParser.country_perc('Figure_13.csv', 'Count of PAME evaluations')
-    @column_chart_2 = [
-      {
-        label: 'Africa',
-        percent: 13,
-        value: column_chart_data_2['Africa']
-      },
-      {
-        label: 'Asia & Pacific',
-        percent: 38,
-        value: column_chart_data_2['Asia + Pacific']
-      },
-      {
-        label: 'Europe',
-        percent: 92,
-        value: column_chart_data_2['Europe']
-      },
-      {
-        label: 'Latin America & Caribbean',
-        percent: 14,
-        value: column_chart_data_2['Latin America + Caribbean']
-      },
-      {
-        label: 'North America',
-        percent: 0.089,
-        value: column_chart_data_2['North America']
-      },
-      {
-        label: 'Polar',
-        percent: 0,
-        value: column_chart_data_2['Polar']
-      },
-      {
-        label: 'West Asia',
-        percent: 0.033,
-        value: column_chart_data_2['West Asia']
-      }
-    ].to_json
+    @column_chart = PerPameCoverageSerializer.new(CsvParser.per_pame_coverage).serialize
+    @column_chart_2 = CountOfPameEvaluationsSerializer.new(CsvParser.count_of_pame_evaluations).serialize
   end
 
   def chapter_6
-    values = ['194.836', '7.632', '13.105', '1.377', '21.613']
-    @column_chart = []
     @chapter_number = 6
     @chapter_last_updated = 'July 2018'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
     @next_chapter_link = chapter_7_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
-
-    governance_types_data = CsvParser.governance_type
-
-    governance_types_data.each_with_index do |data, index|
-      @column_chart << {
-        label: data.keys.first.to_s,
-        value: values[index],
-        percent: data.values.first
-      }
-    end
-    @column_chart = @column_chart.to_json
+    
+    @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
     country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
     legend = []
@@ -510,45 +700,38 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_8_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
-    @mapbox = {
-      source: "(Source text)",
-      layers: [
-        {
-          title: '<4'
-        },
-        {
-          title: '<4% - 8%'
-        },
-        {
-          title: '<8% - 12%'
-        },
-        {
-          title: '<12% - 17%'
-        },
-        {
-          title: '<17% - 25%'
-        },
-        {
-          title: '>25%'
-        }
-      ]
+    @map_1 = {
+      countries: CsvMapParser.categ_country_stats('Ch7_Figure_14_categorical.csv'),
+      legend: [
+        { title: 'Under 4%', value: 'default' },
+        { title: '4% - 8%', value: 1 },
+        { title: '8% - 12%', value: 2 },
+        { title: '12% - 17%', value: 3 },
+        { title: '17% - 25%', value: 4 },
+        { title: 'Over 25%', value: 5 }
+      ],
+      palette: BLUE_PURPLE_SCHEME
     }
 
-    @map = {
+    @map_2 = {
+      countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_AB_categorical.csv'),
       legend: [
-        {
-          title: 'Data deficient'
-        },
-        {
-          title: '0 - 10%'
-        },
-        {
-          title: '10% - 50%'
-        },
-        {
-          title: '50% - 100%'
-        }
-      ]
+        { title: 'A1. General increase of PA coverage', value: 1 },
+        { title: 'A2. Targeted designation of connecting PAs', value: 2 },
+        { title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)', value: 3 },
+        { title: 'B1. Permeability of unprotected lands between PAs', value: 4 },
+        { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
+        { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
+      ],
+      palette: ['#2179A7', '#53CCF7', '#a50f15', '#de2d26', '#fb6a4a', '#fcae91', '#423781']
+    }
+
+    @map_3 = {
+      countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_C_categorical.csv'),
+      legend: [
+        { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
+      ],
+      palette: Array.new(7, '#423781')
     }
   end
 
@@ -567,14 +750,27 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_10_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
 
-    @mapbox = {
-      source: "(Source text)",
+    @map_1 = {
+      id: "map_1",
+      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
       layers: [
         {
-          title: 'Protected Areas'
+          id: 'not-wild' + random_number,
+          text_small: 'Not wild',
+          source_layers: { poly: 'LWPv2_Low_Impact_notwild' },
+          colour: TRICOLOR_PALETTE[2]
         },
         {
-          title: 'Areas of low human impact'
+          id: 'wild' + random_number,
+          text_small: 'Wild',
+          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
+          colour: TRICOLOR_PALETTE[1]
+        },
+        {
+          id: 'protected-areas' + random_number,
+          text_small: 'Protected areas',
+          source_layers: {poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019'},
+          colour: TRICOLOR_PALETTE[0]
         }
       ]
     }

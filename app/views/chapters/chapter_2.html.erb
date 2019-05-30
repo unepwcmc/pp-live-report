@@ -4,23 +4,13 @@
   </div>
 </section>
 
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'] } %>
-
-  <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-2-spatial-distribution.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Terrestrial protected areas' }, { title: 'Marine protected areas' }]"
-      :colours="['#339900', '#004da8']">
-    </chart-legend>
-    
-    <span class="smallprint"><%= @data['map_smallprint'] %></span>
-  </div>
-</section>
-
-<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
+<map-statistics 
+  id="<%= @map_1[:id] %>"
+  title="<%= @data['map_1_title'] %>"
+  tiles-url="<%= @map_1[:tiles_url] %>" 
+  :layers="<%= @map_1[:layers].to_json %>" 
+  source="<%= @data['map_1_source'] %>"
+></map-statistics>
 
 <section class="section-padding">
 
@@ -56,44 +46,31 @@
       :axis="<%= @line_chart[:axis].to_json %>">
     </chart-line>
 
-    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
   </div>
 </section>
 
 <section class="section-padding">
 
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'] } %>
 
   <div class="container--medium">
-    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
+    <map-infographic 
+      :countries="<%= @map_2[:countries].to_json %>" 
+      :legend="<%= @map_2[:legend].to_json %>"
+      :palette="<%= @map_2[:palette].to_json %>">
+    </map-infographic>
 
-    <%= image_tag 'maps/map-chapter-2-extent-of-coverage.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Data Deficient' }, { title: '<5%' }, { title: '5% – 10%' }, { title: '10% - 17%' }, { title: '>17% ' }]"
-      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
-    </chart-legend>
-
-    <span class="smallprint"><%= @data['static_map_smallprint'] %></span>
+    <span class="smallprint"><%= @data['map_2_source'] %></span>
   </div>
 </section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
 
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['static_map_title'] } %>
-
-  <div class="container--medium">
-    <!-- <map-infographic :legend="<%#= @map[:legend].to_json %>"></map-infographic> -->
-
-    <%= image_tag 'maps/map-chapter-2.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Data Deficient' }, { title: '<3%' }, { title: '3% – 6%' }, { title: '6% - 10%' }, { title: '>10%' }]"
-      :colours="['#cccccc', '#ffffcc', '#99cc99', '#669999', '#339966']">
-    </chart-legend>
-
-    <span class="smallprint"><%= @data['static_map_smallprint_2'] %></span>
-  </div>
-</section>
+<map-statistics 
+  id="<%= @map_3[:id] %>"
+  title="<%= @data['map_3_title'] %>" 
+  :layers="<%= @map_3[:layers].to_json %>" 
+  tiles-url="<%= @map_3[:tiles_url] %>"
+  source="<%= @data['map_3_source'] %>"
+></map-statistics>

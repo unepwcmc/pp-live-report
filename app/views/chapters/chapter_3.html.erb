@@ -6,27 +6,14 @@
   </div>
 </section>
 
-<!-- <map-statistics title="<%#= @data['map_title'] %>" :layers="<%#= @mapbox[:layers].to_json %>" source="<%#= @mapbox[:source] %>"></map-statistics> -->
-
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_title'], intro: @data['map_description'] } %>
-
-  <div class="container--medium">
-    <%= image_tag 'maps/map-chapter-3-key-biodiversity-areas.jpg', class: 'map--image' %>
-
-    <chart-legend 
-      :rows="[{ title: 'Fully within protected areas' }, { title: 'Partially within protected areas' }, { title: 'Outside protected areas' }]"
-      :colours="['#339900', '#ff9900', '#990000']">
-    </chart-legend>
-
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['map_smallprint'] %></span>
-  </div>
-</section>
+<map-statistics 
+  id="<%= @map_1[:id] %>"
+  title="<%= @data['map_1_title'] %>" 
+  description="<%= @data['map_1_description'] %>" 
+  :layers="<%= @map_1[:layers].to_json %>"
+  tiles-url="<%= @map_1[:tiles_url] %>"
+  source="<%= @data['map_1_source'] %>">
+</map-statistics>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
 
@@ -42,11 +29,7 @@ smallprint"><%= @data['map_smallprint'] %></span>
       :axis="<%= @line_chart[:axis].to_json %>">
     </chart-line>
 
-    <span class="smallprint
-smallprint
-smallprint
-smallprint
-smallprint"><%= @data['line_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 

@@ -1,12 +1,36 @@
 //--------------------------------------------------
 // map mixins
 //--------------------------------------------------
-@mixin layer-percentage {
+@mixin text-large {
   font-weight: $bold;
   margin-right: rem-calc(12);
-
+  min-width: rem-calc(90);
+  
   display: inline-block;
   position: relative;
+}
+
+@mixin layer-button {
+  background-color: $grey;
+  border: solid 2px $white;
+  border-radius: 100%;
+  margin: 0;
+  
+  display: block;
+  justify-self: center;
+  position: relative;
+}
+
+@mixin layer-button-inner {
+  background-color: $green;
+  border: solid 2px $white;
+  border-radius: 100%;
+
+  display: block;
+  position: absolute;
+
+  transform: scale(0);
+  transition: transform .2s ease-in-out;
 }
 
 //--------------------------------------------------
@@ -56,107 +80,116 @@
         }
       }
 
-        &__panel-layer {
-          background-color: $grey;
-          font-size: rem-calc(14);
-          margin-bottom: rem-calc(8);
-          padding: rem-calc(16 14);
-
-          @include breakpoint($small) { font-size: rem-calc(18); }
-        } 
-
-        &__panel-sublayer {
-          margin-top: rem-calc(12);
+        &__panel-description {
+          line-height: 1.2;
         }
 
-          &__panel-layer-title {
-            width: 70%;
-          }
-
-          &__panel-layer-stat {
-            align-self: flex-start;
-            text-align: right;
-            width: 40%;
-            
-            @include breakpoint($small) { 
-              align-self: center;
-              width: rem-calc(144); 
-            }
-
-            @include breakpoint($medium) { 
-              align-self: flex-start;
-              width: rem-calc(156); 
-            }
-          }
+        &__panel-toggle {
+          cursor: pointer;
           
-          &__panel-layer-button {
+          align-items: center;
+          display: flex;
+
+          &.active { 
+            .map__panel-layer-button-inner,
+            .map__panel-sublayer-button-inner { 
+              transform: scale(1);
+            } 
+          }
+
+          &.disabled {
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.5;
+          }
+        }
+
+          &__panel-layer {
             background-color: $grey;
-            border: solid 2px $white;
-            border-radius: 100%;
-            margin-right: rem-calc(14);
-            width: rem-calc(30); height: rem-calc(30);
+            font-size: rem-calc(16);
+            margin-bottom: rem-calc(8);
+            padding: rem-calc(16 14 16 8);
 
-            display: block;
-            position: relative;
-            
-            &::after {
-              background-color: $green;
-              border: solid 2px $white;
-              border-radius: 100%;
-              content: '';
-              width: rem-calc(16); height: rem-calc(16);
+            @include breakpoint($small) { font-size: rem-calc(18); }
+          } 
 
-              display: block;
-              position: absolute;
-              top: rem-calc(3);
-              left: rem-calc(3);
+          &__panel-sublayer {
+            cursor: pointer;
+            margin-top: rem-calc(12);
+          }
+
+            &__panel-layer-text-large {
+              @include text-large; 
+              font-size: rem-calc(22);
+              height: 1em;
+              width: auto;
+
+              @include breakpoint($small) { font-size: rem-calc(26); }
             }
-          }
 
-          &__panel-layer-percentage {
-            @include layer-percentage;
-            font-size: rem-calc(20);
+            &__panel-sublayer-text-large {
+              @include text-large; 
+              font-size: rem-calc(18);
 
-            @include breakpoint($small) { font-size: rem-calc(40); }
-          }
+              align-items: stretch;
 
-          &__panel-sublayer-button {
-            background-color: $grey;
-            border: solid 1px $white;
-            border-radius: 100%;
-            margin-right: rem-calc(10);
-            width: rem-calc(22); height: rem-calc(22);
-
-            display: block;
-            position: relative;
-            
-            &::after {
-              background-color: $green;
-              border: solid 1px $white;
-              border-radius: 100%;
-              content: '';
-              width: rem-calc(14); height: rem-calc(14);
-
-              display: block;
-              position: absolute;
-              top: rem-calc(2);
-              left: rem-calc(2);
+              @include breakpoint($small) { font-size: rem-calc(24); }
             }
-          }
 
-          &__panel-sublayer-percentage {
-            @include layer-percentage;
-            font-size: rem-calc(15);
+            &__panel-layer-text {
+              width: 50%;
 
-            @include breakpoint($small) { font-size: rem-calc(30); }
-          }
+              display: inline-block;
+            }
 
-        &__source {
-          font-size: rem-calc(14);
-          font-style: italic;
+            &__panel-button-wrapper {
+              width: rem-calc(50);
 
-          @include breakpoint($small) { font-size: rem-calc(18); }
-        }      
+              flex-shrink: 0;
+            }
+            
+            &__panel-layer-button {
+              @include layer-button;
+              width: rem-calc(30); height: rem-calc(30);
+            }
+
+              &__panel-layer-button-inner {
+                @include layer-button-inner;
+                width: rem-calc(20); height: rem-calc(20);
+
+                top: rem-calc(3);
+                left: rem-calc(3);
+              }
+
+            &__panel-sublayer-button {
+              @include layer-button;
+              width: rem-calc(22); height: rem-calc(22);
+            }
+
+              &__panel-sublayer-button-inner {
+                @include layer-button-inner;
+                width: rem-calc(14); height: rem-calc(14);
+
+                top: rem-calc(2);
+                left: rem-calc(2);
+              }
+
+          &__source {
+            font-size: rem-calc(12);
+            font-style: italic;
+
+            @include breakpoint($small) { font-size: rem-calc(14); }
+          }      
     }
+  }
+}
+
+//--------------------------------------------------
+// map legend overrides
+//--------------------------------------------------
+
+.map--vertical-legend {
+  .chart__legend-item {
+    width: 100%;
   }
 }

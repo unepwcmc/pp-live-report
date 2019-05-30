@@ -8,6 +8,8 @@
 // - dimensions
 // - positioning
 // - margin & padding
+// - backgrounds
+// - user interaction
 //
 //--------------------------------------------------
 // fouc (flash of unstyled content)
@@ -87,4 +89,15 @@ i { font-style: normal; }
     left: 0;
     z-index: -1;
   }
+}
+
+//--------------------------------------------------
+// user interaction
+//--------------------------------------------------
+.no-select {
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
 }

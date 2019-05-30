@@ -1,3 +1,6 @@
+// polyfills
+import 'babel-polyfill'
+
 // libraries
 import Vue from 'vue/dist/vue.esm'
 import TurbolinksAdapter from 'vue-turbolinks'

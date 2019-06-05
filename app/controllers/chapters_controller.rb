@@ -41,7 +41,7 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @chapter_last_updated = 'May 2019'
+    @chapter_last_updated = 'June 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_3_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
@@ -219,40 +219,40 @@ class ChaptersController < ApplicationController
 
     @map_3 = {
       id: "map_3",
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/Ch2_Fg5/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg5_June19/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
-          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          source_layers: { poly: 'ch2_eez_coverage' },
           filter_id: 6,
           colour: BLUE_PURPLE_SCHEME[3]
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
-          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          source_layers: { poly: 'ch2_eez_coverage' },
           filter_id: 5,
           colour: BLUE_PURPLE_SCHEME[2]
         },
         {
           id: 'three-to-six-' + random_number,
           text_large: '3% – 6%',
-          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          source_layers: { poly: 'ch2_eez_coverage' },
           filter_id: 4,
           colour: BLUE_PURPLE_SCHEME[1]
         },
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
-          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          source_layers: { poly: 'ch2_eez_coverage' },
           filter_id: 3,
           colour: BLUE_PURPLE_SCHEME[0]
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          source_layers: { poly: 'Ch2_Fg5_Mar' },
+          source_layers: { poly: 'ch2_eez_coverage' },
           filter_id: 2,
           colour: DEFAULT_COLOUR
         }
@@ -557,7 +557,7 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @chapter_number = 5
-    @chapter_last_updated = 'July 2018'
+    @chapter_last_updated = 'June 2019'
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_6_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))

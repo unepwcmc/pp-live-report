@@ -1,6 +1,14 @@
 require 'csv'
 
 module CsvMapParser
+  def self.ch2_map2_categorical
+    categ_country_stats('Ch2_Figure_4_categorical.csv')
+  end
+
+  def self.ch5_map_categorical
+    categ_country_stats('Ch5_Figure_10_categorical.csv')
+  end
+
   def self.categ_country_stats(file_name)
     csv_file = file_reader(file_name)
     data = []

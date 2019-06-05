@@ -206,7 +206,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      countries: CsvMapParser.categ_country_stats('Monthly_PA_National_Coverage_Jan19_categorical.csv'),
+      countries: CsvMapParser.ch2_map2_categorical,
       legend: [
         { title: 'Data deficient', value: 'default' },
         { title: 'Under 5%', value: 1 },
@@ -563,7 +563,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
 
     @map = {
-      countries: CsvMapParser.categ_country_stats('Ch5_Figure_10_categorical.csv'),
+      countries: CsvMapParser.ch5_map_categorical,
       legend: [
         { title: 'No Assessments', value: 'default' },
         { title: 'Under 10%', value: 1 },

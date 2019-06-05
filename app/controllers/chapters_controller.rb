@@ -266,7 +266,7 @@ class ChaptersController < ApplicationController
     @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['menu_title']
     @next_chapter_link = chapter_4_path
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
-    @percentage = CsvMapParser.percentage_stats('Ch3_map_percentage.csv')
+    @percentage = CsvMapParser.ch3_map1_percentage
 
     @map_1 = {
       id: 'kba',
@@ -701,7 +701,7 @@ class ChaptersController < ApplicationController
     @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
 
     @map_1 = {
-      countries: CsvMapParser.categ_country_stats('Ch7_Figure_14_categorical.csv'),
+      countries: CsvMapParser.ch7_map1_categorical,
       legend: [
         { title: 'Under 4%', value: 'default' },
         { title: '4% - 8%', value: 1 },
@@ -714,7 +714,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_AB_categorical.csv'),
+      countries: CsvMapParser.ch7_map2_categorical,
       legend: [
         { title: 'A1. General increase of PA coverage', value: 1 },
         { title: 'A2. Targeted designation of connecting PAs', value: 2 },
@@ -727,7 +727,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_3 = {
-      countries: CsvMapParser.categ_country_stats('Ch7_Figure_15_C_categorical.csv'),
+      countries: CsvMapParser.ch7_map3_categorical,
       legend: [
         { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
       ],

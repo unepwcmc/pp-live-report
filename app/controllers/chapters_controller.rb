@@ -1,5 +1,6 @@
 class ChaptersController < ApplicationController
   include Helpers
+  include YamlHelpers
   layout 'chapter'
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
@@ -19,9 +20,9 @@ class ChaptersController < ApplicationController
   def chapter_1
     @chapter_number = 1
     @chapter_last_updated = 'May 2019'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-2.yml")['menu_title']
     @next_chapter_link = chapter_2_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-1.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-1.yml")
 
     @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
@@ -41,15 +42,12 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @chapter_last_updated = 'June 2019'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-3.yml")['menu_title']
     @next_chapter_link = chapter_3_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-2.yml", 'r'))
-    global_data = CsvParser.global_coverage_stats
-    land_percentage = global_data.select { |d| d['Type'].include?('Total for the land') }.first['PAs %']
-    sea_percentage = global_data.select { |d| d['Type'].include?('Total for the sea') }.first['PAs %']
-    eez_percentage = global_data.select{ |d| d['Type'].include?('Economic') }.first['PAs %']
-    abnj_percentage = global_data.select{ |d| d['Type'].include?('ABNJ') }.first['PAs %']
+
+    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.global_monthly_stats).serialize
+    @data = load_yaml('lib/data/content/chapter-2.yml', global_monthly_stats)
+    @chapter_last_updated = global_monthly_stats['last_updated']
 
     @map_1 = {
       id: "map_1",
@@ -57,28 +55,28 @@ class ChaptersController < ApplicationController
       layers: [
         {
           id: "terrestrial-" + random_number,
-          text_large: land_percentage + '%',
+          text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
           text_small: "of terrestrial areas",
           source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
           colour: "#86BF37"
         },
         {
           id: "marine-" + random_number,
-          text_large: sea_percentage + '%',
+          text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
           text_small: "of marine areas",
           source_layers: {poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast'},
           colour: "#133151",
           sublayers: [
             {
               id: "eez-" + random_number,
-              text_large: eez_percentage + '%',
+              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
               text_small: "of the global EEZ",
               source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
               colour: "#6FD9F2"
             },
             {
               id: "abnj-" + random_number,
-              text_large: abnj_percentage + '%',
+              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
               text_small: "of global ABNJ",
               source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
               colour: "#207D94"
@@ -103,7 +101,7 @@ class ChaptersController < ApplicationController
           cssPercent: 71,
           protected_areas: {
             title: "1.",
-            percent: sea_percentage
+            percent: global_monthly_stats['total_ocean_pa_coverage_percentage']
           }
         },
         {
@@ -113,7 +111,7 @@ class ChaptersController < ApplicationController
           cssPercent: 29,
           protected_areas: {
             title: "1.",
-            percent: land_percentage
+            percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
         }
       ]
@@ -134,7 +132,7 @@ class ChaptersController < ApplicationController
           class: "abnj",
           protected_areas: {
             title: "1.",
-            percent: abnj_percentage
+            percent: global_monthly_stats['high_seas_pa_coverage_percentage']
           }
         },
         {
@@ -144,7 +142,7 @@ class ChaptersController < ApplicationController
           class: "eez",
           protected_areas: {
             title: "1.",
-            percent: eez_percentage
+            percent: global_monthly_stats['national_waters_pa_coverage_percentage']
           }
         },
         {
@@ -155,7 +153,7 @@ class ChaptersController < ApplicationController
           active: false,
           protected_areas: {
             title: "1.",
-            percent: land_percentage
+            percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
         },
       ]
@@ -263,9 +261,9 @@ class ChaptersController < ApplicationController
   def chapter_3
     @chapter_number = 3
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-4.yml")['menu_title']
     @next_chapter_link = chapter_4_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-3.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-3.yml")
     @percentage = CsvMapParser.ch3_map1_percentage
 
     @map_1 = {
@@ -327,9 +325,9 @@ class ChaptersController < ApplicationController
   def chapter_4
     @chapter_number = 4
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-5.yml")['menu_title']
     @next_chapter_link = chapter_5_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-4.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-4.yml")
 
     @map_1 = {
       id: "map_1",
@@ -558,9 +556,9 @@ class ChaptersController < ApplicationController
   def chapter_5
     @chapter_number = 5
     @chapter_last_updated = 'June 2019'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-6.yml")['menu_title']
     @next_chapter_link = chapter_6_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-5.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-5.yml")
 
     @map = {
       countries: CsvMapParser.ch5_map_categorical,
@@ -658,9 +656,9 @@ class ChaptersController < ApplicationController
   def chapter_6
     @chapter_number = 6
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))['title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-7.yml")['title']
     @next_chapter_link = chapter_7_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-6.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-6.yml")
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
@@ -696,9 +694,9 @@ class ChaptersController < ApplicationController
   def chapter_7
     @chapter_number = 7
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-8.yml")['menu_title']
     @next_chapter_link = chapter_8_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-7.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-7.yml")
 
     @map_1 = {
       countries: CsvMapParser.ch7_map1_categorical,
@@ -738,17 +736,17 @@ class ChaptersController < ApplicationController
   def chapter_8
     @chapter_number = 8
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-9.yml")['menu_title']
     @next_chapter_link = chapter_9_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-8.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-8.yml")
   end
 
   def chapter_9
     @chapter_number = 9
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))['menu_title']
+    @next_chapter_title = load_yaml("lib/data/content/chapter-10.yml")['menu_title']
     @next_chapter_link = chapter_10_path
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-9.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-9.yml")
 
     @map_1 = {
       id: "map_1",
@@ -779,6 +777,6 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @chapter_last_updated = 'July 2018'
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-10.yml", 'r'))
+    @data = load_yaml("lib/data/content/chapter-10.yml")
   end
 end

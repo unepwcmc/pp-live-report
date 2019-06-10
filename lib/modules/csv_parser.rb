@@ -1,13 +1,12 @@
 require 'csv'
 
 module CsvParser
-  def self.global_coverage_stats
-    global_cov = []
-    csv_file = file_reader('Ch2_Fig2_Global_Coverage_Stats.csv')
-    CSV.parse(csv_file, headers: true) do |row|
-      global_cov << row.to_hash
+  def self.global_monthly_stats
+    stats = {}
+    CSV.parse(file_reader('PP_Global_Monthly_Stats.csv'), headers: true) do |row|
+      stats[row['type']] = row['value']
     end
-    global_cov
+    stats
   end
 
   def self.timeseries

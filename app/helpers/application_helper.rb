@@ -80,7 +80,7 @@ module ApplicationHelper
     @main_nav = @main_nav
   end
 
-  def commaify number
+  def commaify(number)
     number_with_delimiter(number, delimeter: ',')
   end
 end

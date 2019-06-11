@@ -22,7 +22,7 @@ class GlobalMonthlyStatsSerializer
         'total_land_pa_coverage_percentage',
         'high_seas_pa_coverage_percentage'
       ].each do |key|
-        @data[key] = "%.2f" % @data[key]
+        @data[key] = "%.1f" % @data[key]
       end
     end
 end

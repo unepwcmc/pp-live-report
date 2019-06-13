@@ -1,5 +1,6 @@
 module ApplicationHelper
   include ActionView::Helpers::NumberHelper
+  include YamlHelpers
   
   def site_title 
     'Protected Planet Digital Report'
@@ -68,7 +69,7 @@ module ApplicationHelper
     @main_nav = Array.new
 
     (1..10).each do |i|
-      data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
+      data = load_yaml("lib/data/content/chapter-#{i}.yml")
 
       @main_nav.push({
         'title': data['menu_title'],

@@ -1,15 +1,17 @@
 class HomeController < ApplicationController
   layout 'home'
+  include YamlHelpers
   
   def index
-    @data = YAML.load(File.open("#{Rails.root}/lib/data/content/home.yml", 'r'))
+    @data = load_yaml("lib/data/content/home.yml")
+    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.global_monthly_stats).serialize
+    @last_updated_date = global_monthly_stats['last_updated'] 
 
-    @last_updated_date = 'January 2019'
 
     @chapters = Array.new
 
     (1..10).each do |i|
-      data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
+      data = load_yaml("lib/data/content/chapter-#{i}.yml")
 
       @chapters.push({
         'title': data['menu_title'],

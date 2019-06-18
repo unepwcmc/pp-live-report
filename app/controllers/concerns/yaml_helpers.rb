@@ -2,7 +2,7 @@ module YamlHelpers
   def load_yaml(file_path, values=nil)
     data = YAML.load(File.open("#{Rails.root}/#{file_path}", 'r'))
 
-    if values.present? then 
+    if values.present? 
       data.each do |key, value|
         data[key] = yaml_str_replace(value, values)
       end

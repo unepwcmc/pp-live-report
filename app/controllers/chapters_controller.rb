@@ -20,9 +20,9 @@ class ChaptersController < ApplicationController
   def chapter_1
     @chapter_number = 1
     @chapter_last_updated = 'May 2019'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-2.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-2.yml")['menu_title']
     @next_chapter_link = chapter_2_path
-    @data = load_yaml("lib/data/content/chapter-1.yml")
+    @data = load_yaml("#{content_base_path}/chapter-1.yml")
 
     @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
@@ -42,11 +42,11 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
-    @next_chapter_title = load_yaml("lib/data/content/chapter-3.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-3.yml")['menu_title']
     @next_chapter_link = chapter_3_path
 
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.global_monthly_stats).serialize
-    @data = load_yaml('lib/data/content/chapter-2.yml', global_monthly_stats)
+    @data = load_yaml("#{content_base_path}/chapter-2.yml", global_monthly_stats)
     @chapter_last_updated = global_monthly_stats['last_updated']
 
     @map_1 = {
@@ -262,9 +262,9 @@ class ChaptersController < ApplicationController
   def chapter_3
     @chapter_number = 3
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-4.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-4.yml")['menu_title']
     @next_chapter_link = chapter_4_path
-    @data = load_yaml("lib/data/content/chapter-3.yml")
+    @data = load_yaml("#{content_base_path}/chapter-3.yml")
     @percentage = CsvMapParser.ch3_map1_percentage
 
     @map_1 = {
@@ -326,9 +326,9 @@ class ChaptersController < ApplicationController
   def chapter_4
     @chapter_number = 4
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-5.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-5.yml")['menu_title']
     @next_chapter_link = chapter_5_path
-    @data = load_yaml("lib/data/content/chapter-4.yml")
+    @data = load_yaml("#{content_base_path}/chapter-4.yml")
 
     @map_1 = {
       id: "map_1",
@@ -557,9 +557,9 @@ class ChaptersController < ApplicationController
   def chapter_5
     @chapter_number = 5
     @chapter_last_updated = 'June 2019'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-6.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-6.yml")['menu_title']
     @next_chapter_link = chapter_6_path
-    @data = load_yaml("lib/data/content/chapter-5.yml")
+    @data = load_yaml("#{content_base_path}/chapter-5.yml")
 
     @map = {
       countries: CsvMapParser.ch5_map_categorical,
@@ -657,9 +657,9 @@ class ChaptersController < ApplicationController
   def chapter_6
     @chapter_number = 6
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-7.yml")['title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-7.yml")['title']
     @next_chapter_link = chapter_7_path
-    @data = load_yaml("lib/data/content/chapter-6.yml")
+    @data = load_yaml("#{content_base_path}/chapter-6.yml")
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
@@ -695,9 +695,9 @@ class ChaptersController < ApplicationController
   def chapter_7
     @chapter_number = 7
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-8.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-8.yml")['menu_title']
     @next_chapter_link = chapter_8_path
-    @data = load_yaml("lib/data/content/chapter-7.yml")
+    @data = load_yaml("#{content_base_path}/chapter-7.yml")
 
     @map_1 = {
       countries: CsvMapParser.ch7_map1_categorical,
@@ -737,17 +737,17 @@ class ChaptersController < ApplicationController
   def chapter_8
     @chapter_number = 8
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-9.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-9.yml")['menu_title']
     @next_chapter_link = chapter_9_path
-    @data = load_yaml("lib/data/content/chapter-8.yml")
+    @data = load_yaml("#{content_base_path}/chapter-8.yml")
   end
 
   def chapter_9
     @chapter_number = 9
     @chapter_last_updated = 'July 2018'
-    @next_chapter_title = load_yaml("lib/data/content/chapter-10.yml")['menu_title']
+    @next_chapter_title = load_yaml("#{content_base_path}/chapter-10.yml")['menu_title']
     @next_chapter_link = chapter_10_path
-    @data = load_yaml("lib/data/content/chapter-9.yml")
+    @data = load_yaml("#{content_base_path}/chapter-9.yml")
 
     @map_1 = {
       id: "map_1",
@@ -778,6 +778,6 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @chapter_last_updated = 'July 2018'
-    @data = load_yaml("lib/data/content/chapter-10.yml")
+    @data = load_yaml("#{content_base_path}/chapter-10.yml")
   end
 end

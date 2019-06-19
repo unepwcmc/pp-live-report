@@ -65,22 +65,6 @@ module ApplicationHelper
     request.fullpath == test_path
   end
 
-  def main_nav
-    @main_nav = Array.new
-
-    (1..10).each do |i|
-      data = load_yaml("lib/data/content/chapter-#{i}.yml")
-
-      @main_nav.push({
-        'title': data['menu_title'],
-        'subtitle': data['subtitle'],
-        'url': send("chapter_#{i}_path")
-      })
-    end 
-    
-    @main_nav = @main_nav
-  end
-
   def commaify(number)
     number_with_delimiter(number, delimeter: ',')
   end

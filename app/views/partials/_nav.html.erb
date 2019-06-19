@@ -1,5 +1,5 @@
 <nav-burger classes="nav--burger">
-  <% @main_nav.each_with_index do |chapter, index| %>
+  <% @chapters.each_with_index do |chapter, index| %>
     <nav-link 
       href="<%= chapter[:url] %>" 
       :current-page="<%= active_nav_item? chapter[:url] %>" 

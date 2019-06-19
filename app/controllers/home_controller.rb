@@ -5,22 +5,6 @@ class HomeController < ApplicationController
   def index
     @data = load_yaml("#{content_base_path}/home.yml")
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.global_monthly_stats).serialize
-    @last_updated_date = global_monthly_stats['last_updated'] 
-
-
-    @chapters = Array.new
-
-    (1..10).each do |i|
-      data = load_yaml("#{content_base_path}/chapter-#{i}.yml")
-
-      @chapters.push({
-        'title': data['menu_title'],
-        'subtitle': data['subtitle'],
-        'intro': data['intro'],
-        'url': send("chapter_#{i}_path")
-      })
-    end 
-    
-    @chapters = @chapters.to_json
+    @last_updated_date = global_monthly_stats['last_updated']
   end
 end

@@ -1,3 +1,10 @@
+MAP_COVERAGE_PERCENTAGE_KEYS = [
+  'national_waters_pa_coverage_percentage',
+  'total_ocean_pa_coverage_percentage',
+  'total_land_pa_coverage_percentage',
+  'high_seas_pa_coverage_percentage'
+]
+
 class GlobalMonthlyStatsSerializer
 
   def initialize(data)
@@ -15,13 +22,8 @@ class GlobalMonthlyStatsSerializer
   end
 
   private
-    def map_coverage_percentages_to_2_dp
-      [
-        'national_waters_pa_coverage_percentage',
-        'total_ocean_pa_coverage_percentage',
-        'total_land_pa_coverage_percentage',
-        'high_seas_pa_coverage_percentage'
-      ].each do |key|
+    def map_coverage_percentages_to_1_dp
+      MAP_COVERAGE_PERCENTAGE_KEYS.each do |key|
         @data[key] = "%.1f" % @data[key]
       end
     end

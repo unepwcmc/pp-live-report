@@ -16,7 +16,7 @@ class GlobalMonthlyStatsSerializer
 
     @data['last_updated'] = last_updated.strftime('%B %Y')
     @data['last_updated_year'] = last_updated.strftime('%Y')
-    map_coverage_percentages_to_2_dp
+    map_coverage_percentages_to_1_dp
 
     @data
   end

@@ -1,5 +1,6 @@
 module ApplicationHelper
   include ActionView::Helpers::NumberHelper
+  include YamlHelpers
   
   def site_title 
     'Protected Planet Digital Report'
@@ -64,23 +65,7 @@ module ApplicationHelper
     request.fullpath == test_path
   end
 
-  def main_nav
-    @main_nav = Array.new
-
-    (1..10).each do |i|
-      data = YAML.load(File.open("#{Rails.root}/lib/data/content/chapter-#{i}.yml", 'r'))
-
-      @main_nav.push({
-        'title': data['menu_title'],
-        'subtitle': data['subtitle'],
-        'url': send("chapter_#{i}_path")
-      })
-    end 
-    
-    @main_nav = @main_nav
-  end
-
-  def commaify number
+  def commaify(number)
     number_with_delimiter(number, delimeter: ',')
   end
 end

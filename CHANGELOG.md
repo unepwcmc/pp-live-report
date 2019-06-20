@@ -10,3 +10,8 @@ Update figure sources and add last updated date to chapter hero (Feb 2019)
 
 Add dynamic and interactive maps
 Set up a csv parser for map and chart data
+
+0.2.1
+
+Update June statistics and use these to include dynamic stats in yaml content
+Refactor to make use of serializers and simplify controller

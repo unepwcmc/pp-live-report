@@ -573,7 +573,7 @@ class ChaptersController < ApplicationController
       palette: BLUE_PURPLE_SCHEME
     }
 
-    progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+    progress_level_data = CsvParser.ch5_figure2_stats
     terrestrial = progress_level_data['Land']
     marine = progress_level_data['Marine']
     @stacked_row_charts = {
@@ -663,7 +663,7 @@ class ChaptersController < ApplicationController
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
-    country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
+    country_governance_data = CsvParser.ch6_figure2_stats
     legend = []
     country_governance_data.first.second.keys.each do |gov|
       legend << { title: gov }

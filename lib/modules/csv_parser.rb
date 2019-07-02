@@ -31,15 +31,12 @@ module CsvParser
     kba_timeseries
   end
 
-  def self.progress_level(filename, column)
-    prog_lev = {}
-    csv_file = file_reader(filename)
-    CSV.parse(csv_file, headers: true) do |row|
-      type = row[0]
-      row = row.to_hash.except!(column)
-      prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
-    end
-    prog_lev
+  def self.ch5_figure2_stats
+    progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+  end
+  
+  def self.ch6_figure2_stats
+    CsvParser.progress_level('Ch6_Figure_2.csv', 'Region')
   end
 
   def self.per_pame_coverage
@@ -52,7 +49,7 @@ module CsvParser
 
   def self.governance_type
     gov_types = {}
-    csv_file = file_reader('chapter 6 Box_10_first_figure (1).csv')
+    csv_file = file_reader('Ch6_Figure_1.csv')
     CSV.parse(csv_file, headers: true) do |row|
       key = row[0]
       row = row.to_hash['Count'].to_i
@@ -121,5 +118,16 @@ module CsvParser
       country_perc[key] = row[column].to_f.round(2)
     end
     country_perc
+  end
+
+  def self.progress_level(filename, column)
+    prog_lev = {}
+    csv_file = file_reader(filename)
+    CSV.parse(csv_file, headers: true) do |row|
+      type = row[0]
+      row = row.to_hash.except!(column)
+      prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
+    end
+    prog_lev
   end
 end

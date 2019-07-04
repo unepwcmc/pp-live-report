@@ -100,7 +100,7 @@ class ChaptersController < ApplicationController
           percent: 71,
           cssPercent: 71,
           protected_areas: {
-            title: "1.",
+            title: "",
             percent: global_monthly_stats['total_ocean_pa_coverage_percentage']
           }
         },
@@ -110,7 +110,7 @@ class ChaptersController < ApplicationController
           percent: 29,
           cssPercent: 29,
           protected_areas: {
-            title: "1.",
+            title: "",
             percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
         }
@@ -131,7 +131,7 @@ class ChaptersController < ApplicationController
           cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
           class: "abnj",
           protected_areas: {
-            title: "1.",
+            title: "",
             percent: global_monthly_stats['high_seas_pa_coverage_percentage']
           }
         },
@@ -141,7 +141,7 @@ class ChaptersController < ApplicationController
           cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
           class: "eez",
           protected_areas: {
-            title: "1.",
+            title: "",
             percent: global_monthly_stats['national_waters_pa_coverage_percentage']
           }
         },
@@ -152,7 +152,7 @@ class ChaptersController < ApplicationController
           cssPercent: 29,
           active: false,
           protected_areas: {
-            title: "1.",
+            title: "",
             percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
         },

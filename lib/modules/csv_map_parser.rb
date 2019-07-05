@@ -61,7 +61,7 @@ module CsvMapParser
       percentage = row_hash.select{|s| s == config[:header_name]}.values.first
 
       config[:boundaries].each do |boundary|
-        if percentage.to_f > boundary then category += 1 end
+        category += 1 if percentage.to_f > boundary
       end
     else
       category = row_hash.select{|s| s.include?('categorical')}.values.first

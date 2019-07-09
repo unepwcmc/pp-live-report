@@ -5,7 +5,7 @@ CATEGORICAL_MAP_STATS = {
   ch2_map2_categorical: {
     boundaries: [0,5,10,17],
     header_name: 'percentage_pa_land_cover',
-    csv: 'Ch2_Figure_4_categorical.csv'
+    csv: 'chapter2_national_pa_statistics.csv'
   },
   ch5_map_categorical: {
     boundaries: [0,10,30,60],

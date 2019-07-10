@@ -15,3 +15,9 @@ Set up a csv parser for map and chart data
 
 Update June statistics and use these to include dynamic stats in yaml content
 Refactor to make use of serializers and simplify controller
+
+0.2.2
+
+July stats update
+Use continuous data in map csvs rather than categorical
+Import csv of last and next updated dates

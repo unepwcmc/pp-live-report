@@ -19,7 +19,6 @@ class ChaptersController < ApplicationController
 
   def chapter_1
     @chapter_number = 1
-    @chapter_last_updated = 'May 2019'
     @next_chapter_title = @chapters_data[1]['menu_title']
     @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
@@ -45,8 +44,7 @@ class ChaptersController < ApplicationController
     @next_chapter_title = @chapters_data[2]['menu_title']
     @next_chapter_link = chapter_3_path
 
-    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.global_monthly_stats).serialize
-    @chapter_last_updated = global_monthly_stats['last_updated']
+    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.chapter2_global_pa_statistics).serialize
     @data = @chapters_data[1]
 
     @map_1 = {
@@ -261,7 +259,6 @@ class ChaptersController < ApplicationController
 
   def chapter_3
     @chapter_number = 3
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[3]['menu_title']
     @next_chapter_link = chapter_4_path
     @data = @chapters_data[2]
@@ -325,7 +322,6 @@ class ChaptersController < ApplicationController
 
   def chapter_4
     @chapter_number = 4
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[4]['menu_title']
     @next_chapter_link = chapter_5_path
     @data = @chapters_data[3]
@@ -556,7 +552,6 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @chapter_number = 5
-    @chapter_last_updated = 'June 2019'
     @next_chapter_title = @chapters_data[5]['menu_title']
     @next_chapter_link = chapter_6_path
     @data = @chapters_data[4]
@@ -573,7 +568,7 @@ class ChaptersController < ApplicationController
       palette: BLUE_PURPLE_SCHEME
     }
 
-    progress_level_data = CsvParser.progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+    progress_level_data = CsvParser.ch5_figure2_stats
     terrestrial = progress_level_data['Land']
     marine = progress_level_data['Marine']
     @stacked_row_charts = {
@@ -656,14 +651,13 @@ class ChaptersController < ApplicationController
 
   def chapter_6
     @chapter_number = 6
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[6]['title']
     @next_chapter_link = chapter_7_path
     @data = @chapters_data[5]
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
-    country_governance_data = CsvParser.progress_level('chapter 6 Box_10_second_figure (2).csv', 'Region')
+    country_governance_data = CsvParser.ch6_figure2_stats
     legend = []
     country_governance_data.first.second.keys.each do |gov|
       legend << { title: gov }
@@ -694,7 +688,6 @@ class ChaptersController < ApplicationController
 
   def chapter_7
     @chapter_number = 7
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[7]['menu_title']
     @next_chapter_link = chapter_8_path
     @data = @chapters_data[6]
@@ -736,7 +729,6 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @chapter_number = 8
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[8]['menu_title']
     @next_chapter_link = chapter_9_path
     @data = @chapters_data[7]
@@ -744,7 +736,6 @@ class ChaptersController < ApplicationController
 
   def chapter_9
     @chapter_number = 9
-    @chapter_last_updated = 'July 2018'
     @next_chapter_title = @chapters_data[9]['menu_title']
     @next_chapter_link = chapter_10_path
     @data = @chapters_data[8]
@@ -777,7 +768,6 @@ class ChaptersController < ApplicationController
 
   def chapter_10
     @chapter_number = 10
-    @chapter_last_updated = 'July 2018'
     @data = @chapters_data[9]
   end
 end

@@ -1,9 +1,20 @@
 require 'csv'
 
 module CsvParser
-  def self.global_monthly_stats
+  def self.chapter_dates
+    dates = {}
+    CSV.parse(file_reader('all_chapter_update_dates.csv'), headers: true) do |row|
+      dates["chapter_#{row['chapter']}"] = {
+        'last_updated' => row['last_updated'],
+        'next_updated' => row['next_updated']
+      }
+    end
+    dates
+  end
+
+  def self.chapter2_global_pa_statistics
     stats = {}
-    CSV.parse(file_reader('PP_Global_Monthly_Stats.csv'), headers: true) do |row|
+    CSV.parse(file_reader('chapter2_global_pa_statistics.csv'), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -31,15 +42,12 @@ module CsvParser
     kba_timeseries
   end
 
-  def self.progress_level(filename, column)
-    prog_lev = {}
-    csv_file = file_reader(filename)
-    CSV.parse(csv_file, headers: true) do |row|
-      type = row[0]
-      row = row.to_hash.except!(column)
-      prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
-    end
-    prog_lev
+  def self.ch5_figure2_stats
+    progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+  end
+  
+  def self.ch6_figure2_stats
+    progress_level('chapter6_pas_per_govtype.csv', 'Region')
   end
 
   def self.per_pame_coverage
@@ -52,7 +60,7 @@ module CsvParser
 
   def self.governance_type
     gov_types = {}
-    csv_file = file_reader('chapter 6 Box_10_first_figure (1).csv')
+    csv_file = file_reader('chapter6_pas_per_govtype_per_region.csv')
     CSV.parse(csv_file, headers: true) do |row|
       key = row[0]
       row = row.to_hash['Count'].to_i
@@ -121,5 +129,16 @@ module CsvParser
       country_perc[key] = row[column].to_f.round(2)
     end
     country_perc
+  end
+
+  def self.progress_level(filename, column)
+    prog_lev = {}
+    csv_file = file_reader(filename)
+    CSV.parse(csv_file, headers: true) do |row|
+      type = row[0]
+      row = row.to_hash.except!(column)
+      prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
+    end
+    prog_lev
   end
 end

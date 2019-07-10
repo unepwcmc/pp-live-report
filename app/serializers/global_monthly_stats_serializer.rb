@@ -12,19 +12,10 @@ class GlobalMonthlyStatsSerializer
   end
 
   def serialize
-    last_updated = Date.strptime(@data['last_updated'], '%d/%m/%Y')
-
-    @data['last_updated'] = last_updated.strftime('%B %Y')
-    @data['last_updated_year'] = last_updated.strftime('%Y')
-    map_coverage_percentages_to_1_dp
-
+    MAP_COVERAGE_PERCENTAGE_KEYS.each do |key|
+      @data[key] = "%.1f" % @data[key]
+    end
+    
     @data
   end
-
-  private
-    def map_coverage_percentages_to_1_dp
-      MAP_COVERAGE_PERCENTAGE_KEYS.each do |key|
-        @data[key] = "%.1f" % @data[key]
-      end
-    end
 end

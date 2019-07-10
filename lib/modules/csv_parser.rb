@@ -47,7 +47,7 @@ module CsvParser
   end
   
   def self.ch6_figure2_stats
-    CsvParser.progress_level('chapter6_pas_per_govtype.csv', 'Region')
+    progress_level('chapter6_pas_per_govtype.csv', 'Region')
   end
 
   def self.per_pame_coverage

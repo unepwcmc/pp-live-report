@@ -21,3 +21,7 @@ Refactor to make use of serializers and simplify controller
 July stats update
 Use continuous data in map csvs rather than categorical
 Import csv of last and next updated dates
+
+0.2.3
+
+Add next updated date to heroes

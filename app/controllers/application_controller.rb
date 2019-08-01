@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   def set_data
     @chapter_dates = ChapterDatesSerializer.new(CsvParser.chapter_dates).serialize
-    @last_updated_date = last_updated_date
     @chapters_data = chapters_data
     @chapters = chapters
+    set_updated_dates
   end
 
   def chapters_data
@@ -43,12 +43,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def last_updated_date
-    if params[:controller] == 'chapters'
-      @chapter_dates[params[:action]]['last_updated'] 
-    else
-      @chapter_dates['home']['last_updated']
-    end
+  def set_updated_dates
+    dates = params[:controller] == 'chapters' ? 
+      @chapter_dates[params[:action]] : 
+      @chapter_dates['home']
+
+    @last_updated_date = dates['last_updated'] 
+    @next_updated_date = dates['next_updated'] 
   end
 
   def yaml_replace_data

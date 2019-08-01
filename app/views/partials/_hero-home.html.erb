@@ -7,5 +7,8 @@
     <p class="hero__intro center-margin"><%= @data['intro'] %></p>
   </div>
 
-  <p class="hero__last-updated">Last data update: <span class="hero__last-updated-date"><%= @last_updated_date %></span></p>
+  <div class="hero__dates">
+    <p class="hero__date">Updated: <%= @last_updated_date %></p>
+    <p class="hero__date">Next update: <%= @next_updated_date %></p>
+  </div>
 </header>

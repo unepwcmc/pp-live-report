@@ -328,7 +328,7 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: "map_1",
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8_Sep19/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
           title: 'Terrestrial',

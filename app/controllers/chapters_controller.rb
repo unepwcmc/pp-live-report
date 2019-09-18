@@ -44,7 +44,7 @@ class ChaptersController < ApplicationController
     @next_chapter_title = @chapters_data[2]['menu_title']
     @next_chapter_link = chapter_3_path
 
-    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.chapter2_global_pa_statistics).serialize
+    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[1]
 
     @map_1 = {

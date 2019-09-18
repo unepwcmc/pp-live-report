@@ -12,9 +12,9 @@ module CsvParser
     dates
   end
 
-  def self.chapter2_global_pa_statistics
+  def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader('chapter2_global_pa_statistics.csv'), headers: true) do |row|
+    CSV.parse(file_reader('PP_Global_Monthly_Stats.csv'), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -47,7 +47,7 @@ module CsvParser
   end
   
   def self.ch6_figure2_stats
-    progress_level('chapter6_pas_per_govtype.csv', 'Region')
+    progress_level('chapter6_pas_per_govtype_per_region.csv', 'Region')
   end
 
   def self.per_pame_coverage
@@ -60,7 +60,7 @@ module CsvParser
 
   def self.governance_type
     gov_types = {}
-    csv_file = file_reader('chapter6_pas_per_govtype_per_region.csv')
+    csv_file = file_reader('chapter6_pas_per_govtype.csv')
     CSV.parse(csv_file, headers: true) do |row|
       key = row[0]
       row = row.to_hash['Count'].to_i
@@ -70,7 +70,7 @@ module CsvParser
   end
 
   def self.biogeographical_regions
-    csv_file = file_reader('PPR-chapter4.csv')
+    csv_file = file_reader('chapter4_count_statistics.csv')
     region_type = ''
     data = {}
 

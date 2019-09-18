@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
 
   def yaml_replace_data
     data = {
-      'chapter_2' => GlobalMonthlyStatsSerializer.new(CsvParser.chapter2_global_pa_statistics).serialize
+      'chapter_2' => GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     }
 
     data.keys.each do |chapter|

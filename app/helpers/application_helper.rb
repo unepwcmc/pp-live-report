@@ -73,9 +73,10 @@ module ApplicationHelper
     if filename == nil then return '' end
 
     style = ''
-
+    puts filename
     if asset_exists?(filename)
       url = image_url(filename)
+      puts url
       style = 'style="background-image: url(' + url + ');"'.html_safe
     end
 

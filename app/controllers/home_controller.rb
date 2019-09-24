@@ -4,5 +4,7 @@ class HomeController < ApplicationController
   
   def index
     @data = load_yaml("#{content_base_path}/home.yml")
+    @hero = @data['hero'].sample
+    @data['photo_credits'] = @hero['credits']
   end
 end

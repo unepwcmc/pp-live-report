@@ -1,6 +1,6 @@
 <header 
   class="hero--home parallax"
-  style="background-image: url(<%= image_url(@hero['image']) %>)"
+  <%= style_background_image(@hero['image']).html_safe %>
 >
   <%= render 'partials/topbar' %>
   

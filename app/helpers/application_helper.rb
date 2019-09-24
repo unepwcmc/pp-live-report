@@ -68,4 +68,25 @@ module ApplicationHelper
   def commaify(number)
     number_with_delimiter(number, delimeter: ',')
   end
+
+  def style_background_image filename
+    if filename == nil then return '' end
+
+    style = ''
+
+    if asset_exists?(filename)
+      url = image_url(filename)
+      style = 'style="background-image: url(' + url + ');"'.html_safe
+    end
+
+    style
+  end
+
+  def asset_exists?(path)
+    if Rails.env.staging? || Rails.env.production?
+      Rails.application.assets_manifest.assets[path].present?
+    else
+      Rails.application.assets.resolve(path).present?
+    end
+  end
 end

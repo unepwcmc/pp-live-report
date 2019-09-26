@@ -25,3 +25,9 @@ Import csv of last and next updated dates
 0.2.3
 
 Add next updated date to heroes
+
+0.2.4
+
+Add new randomly selected hero images for homepage
+Update stats and chapter hero images
+Add Google Analytics tracking for WDPA download

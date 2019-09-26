@@ -51,11 +51,11 @@ module CsvParser
   end
 
   def self.per_pame_coverage
-    country_perc('Figure 12 PAME_JUL18_REGIONAL.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
+    country_perc('chapter5_regional_pame_perccov.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
   end
 
   def self.count_of_pame_evaluations
-    country_perc('Figure_13.csv', 'Count of PAME evaluations')
+    country_perc('chapter5_regional_pame_count.csv', 'Count of PAME evaluations')
   end
 
   def self.governance_type

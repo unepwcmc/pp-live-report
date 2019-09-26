@@ -19,7 +19,7 @@
         &__row {
           background-color: $grey-xlight;
           font-size: rem-calc(14);
-          font-weight: $light;
+          font-weight: $normal;
           margin-bottom: rem-calc(6);
           padding-right: rem-calc(20);
           width: 100%; height: rem-calc(54);
@@ -32,23 +32,29 @@
           }
 
           &.chart-theme--blue {
+
             &:nth-child(1) { .chart__bar { background-color: $chart-blue-light; } }
             &:nth-child(2) { .chart__bar { background-color: $chart-blue; } }
+            &:nth-child(3) { .chart__bar { 
+              background-color: $chart-blue-dark; } }
           }
 
           &.chart-theme--green {
             &:nth-child(1) { .chart__bar { background-color: $chart-green-light; } }
             &:nth-child(2) { .chart__bar { background-color: $chart-green; } }
+            &:nth-child(3) { .chart__bar { background-color: $chart-green-dark; } }
           }
 
           &.chart-theme--pelagic {
-            &:nth-child(1) { .chart__bar { background-color: #87dbdb; } }
-            &:nth-child(2) { .chart__bar { background-color: #339999; } }
+            &:nth-child(1) { .chart__bar { background-color: #9aeeee; } }
+            &:nth-child(2) { .chart__bar { background-color: #51c4c4; } }
+            &:nth-child(3) { .chart__bar { background-color: #308c8c; } }
           }
         }
 
           &__bar {
             background-color: $grey-dark;
+            opacity: 0.9;
 
             position: absolute;
             top: 0;

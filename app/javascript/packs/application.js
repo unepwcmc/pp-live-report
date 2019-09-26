@@ -3,10 +3,16 @@ import 'babel-polyfill'
 
 // libraries
 import Vue from 'vue/dist/vue.esm'
+import VueAnalytics from 'vue-analytics'
 import TurbolinksAdapter from 'vue-turbolinks'
 
 Vue.config.productionTip = false
 
+if (window._railsEnv === 'production') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-129227134-1'
+  })
+}
 Vue.use(TurbolinksAdapter)
 
 // store
@@ -23,6 +29,7 @@ import ChartLine from '../components/charts/ChartLine'
 import ChartLegend from '../components/charts/ChartLegend'
 import ChartRow from '../components/charts/ChartRow'
 import ChartRowStacked from '../components/charts/ChartRowStacked'
+import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
 import NavBurger from '../components/nav/NavBurger'
@@ -33,7 +40,6 @@ import SocialShare from '../components/social/SocialShare'
 export const eventHub = new Vue()
 
 // create vue instance and attach to the DOM
-// document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#v-app',
@@ -49,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
       ChartLine,
       ChartRow,
       ChartRowStacked,
+      Download,
       MapInfographic,
       MapStatistics,
       NavBurger,

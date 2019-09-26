@@ -1,4 +1,7 @@
-<header class="hero--home parallax">
+<header 
+  class="hero--home parallax"
+  <%= style_background_image(@hero['image']).html_safe %>
+>
   <%= render 'partials/topbar' %>
   
   <div class="container hero__content">

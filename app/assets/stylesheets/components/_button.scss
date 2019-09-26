@@ -58,8 +58,13 @@
   &--download {
     @extend .flex;
     @extend .flex-v-center;
+    background-color: transparent;
+    border: none;
     color: white;
+    cursor: pointer;
+    font-size: inherit;
     font-weight: $light;
+    text-align: left;
     text-decoration: none;
 
     &__text { 

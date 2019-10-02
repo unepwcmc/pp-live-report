@@ -19,10 +19,11 @@
     <map-infographic 
       :countries="<%= @map_1[:countries].to_json %>" 
       :legend="<%= @map_1[:legend].to_json %>"
-      :palette="<%= @map_1[:palette] %>">
+      :palette="<%= @map_1[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_1_source'] %>"
+    >
     </map-infographic>
-    
-    <p class="smallprint"><%= @data['map_1_source'] %></p>
   </div>
 </section>
 
@@ -41,10 +42,11 @@
       class="map--vertical-legend"
       :countries="<%= @map_2[:countries].to_json %>" 
       :legend="<%= @map_2[:legend].to_json %>"
-      :palette="<%= @map_2[:palette] %>">
+      :palette="<%= @map_2[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_2_source'] %>"
+    >
     </map-infographic>
-
-    <p class="smallprint"><%= @data['map_2_source'] %></p>
   </div>
 </section>
 
@@ -54,9 +56,10 @@
     <map-infographic 
       :countries="<%= @map_3[:countries].to_json %>" 
       :legend="<%= @map_3[:legend].to_json %>"
-      :palette="<%= @map_3[:palette] %>">
+      :palette="<%= @map_3[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_3_source'] %>"
+    >
     </map-infographic>
-
-    <p class="smallprint"><%= @data['map_3_source'] %></p>
   </div>
 </section>

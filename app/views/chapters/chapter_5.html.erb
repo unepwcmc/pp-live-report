@@ -12,10 +12,11 @@
     <map-infographic 
       :countries="<%= @map[:countries].to_json %>" 
       :legend="<%= @map[:legend].to_json %>"
-      :palette="<%= @map[:palette] %>">
+      :palette="<%= @map[:palette] %>"
+      source="<%= @data['map_1_source'] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+    >
     </map-infographic>
-
-    <span class="smallprint"><%= @data['map_1_source'] %></span>
   </div>
 </section>
 

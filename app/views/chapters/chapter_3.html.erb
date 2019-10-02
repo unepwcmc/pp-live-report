@@ -12,7 +12,9 @@
   description="<%= @data['map_1_description'] %>" 
   :layers="<%= @map_1[:layers].to_json %>"
   tiles-url="<%= @map_1[:tiles_url] %>"
-  source="<%= @data['map_1_source'] %>">
+  source="<%= @data['map_1_source'] %>"
+  disclaimer="<%= @shared_data['map_disclaimer'] %>"
+>
 </map-statistics>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>

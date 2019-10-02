@@ -26,7 +26,12 @@ strong, .bold { font-weight: $bold; }
 .italic { font-style: italic; }
 i { font-style: normal; }
 
-.smallprint { font-size: rem-calc(12); }
+.smallprint { 
+  font-size: rem-calc(12);
+  font-style: italic;
+  margin-bottom: rem-calc(6);
+  opacity: 0.5;
+}
 
 //--------------------------------------------------
 // dimensions

@@ -220,13 +220,13 @@ class ChaptersController < ApplicationController
         {
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat1' },
+          source_layers: { poly: 'Ch2_Fg5_mcat5' },
           colour: BLUE_PURPLE_SCHEME[3]
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat2' },
+          source_layers: { poly: 'Ch2_Fg5_mcat4' },
           colour: BLUE_PURPLE_SCHEME[2]
         },
         {
@@ -238,13 +238,13 @@ class ChaptersController < ApplicationController
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
-          source_layers: { poly: 'Ch2_Fg5_mcat4' },
+          source_layers: { poly: 'Ch2_Fg5_mcat2' },
           colour: BLUE_PURPLE_SCHEME[0]
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          source_layers: { poly: 'Ch2_Fg5_mcat5' },
+          source_layers: { poly: 'Ch2_Fg5_mcat1' },
           colour: DEFAULT_COLOUR
         }
       ]

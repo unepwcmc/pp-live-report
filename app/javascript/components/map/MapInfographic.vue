@@ -3,6 +3,8 @@
     <div class="map--infographic" ref="map"></div>
 
     <chart-legend :rows="legend" :colours="legendColours"></chart-legend>
+    <p class="smallprint">{{ source }}</p>
+    <p class="smallprint">{{ disclaimer }}</p>
   </div>
 </template>
 
@@ -28,7 +30,9 @@
       palette: {
         type: Array,
         default: () => ['#2179A7', '#53CCF7', '#9A014F', '#E9624D', '#F7BA02', '#86BF37', '#423781']
-      }
+      },
+      source: String,
+      disclaimer: String
     },
 
     data () {

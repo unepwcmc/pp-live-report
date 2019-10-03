@@ -213,44 +213,38 @@ class ChaptersController < ApplicationController
       palette: BLUE_PURPLE_SCHEME
     }
 
-    source_layer_id = 'ch2_eez_coverage'
     @map_3 = {
       id: "map_3",
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg5_June19/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/Ch2_Fg5_Oct19/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
-          source_layers: { poly: source_layer_id },
-          filter_id: 6,
+          source_layers: { poly: 'Ch2_Fg5_mcat5' },
           colour: BLUE_PURPLE_SCHEME[3]
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
-          source_layers: { poly: source_layer_id },
-          filter_id: 5,
+          source_layers: { poly: 'Ch2_Fg5_mcat4' },
           colour: BLUE_PURPLE_SCHEME[2]
         },
         {
           id: 'three-to-six-' + random_number,
           text_large: '3% – 6%',
-          source_layers: { poly: source_layer_id },
-          filter_id: 4,
+          source_layers: { poly: 'Ch2_Fg5_mcat3' },
           colour: BLUE_PURPLE_SCHEME[1]
         },
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
-          source_layers: { poly: source_layer_id },
-          filter_id: 3,
+          source_layers: { poly: 'Ch2_Fg5_mcat2' },
           colour: BLUE_PURPLE_SCHEME[0]
         },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          source_layers: { poly: source_layer_id },
-          filter_id: 2,
+          source_layers: { poly: 'Ch2_Fg5_mcat1' },
           colour: DEFAULT_COLOUR
         }
       ]

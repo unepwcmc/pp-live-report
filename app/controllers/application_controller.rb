@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_data
 
   def set_data
+    @shared_data = load_yaml("#{content_base_path}/shared.yml")
     @chapter_dates = ChapterDatesSerializer.new(CsvParser.chapter_dates).serialize
     @chapters_data = chapters_data
     @chapters = chapters

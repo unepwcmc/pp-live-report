@@ -174,11 +174,9 @@
                 left: rem-calc(2);
               }
 
-          &__source {
-            font-size: rem-calc(12);
-            font-style: italic;
-
-            @include breakpoint($small) { font-size: rem-calc(14); }
+          &__smallprint {
+            margin-top: rem-calc(26);
+            margin-bottom: rem-calc(26);
           }      
     }
   }

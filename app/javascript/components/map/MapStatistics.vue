@@ -18,7 +18,10 @@
         <map-statistics-toggles :map-id="id" :layers="layers"></map-statistics-toggles>
       </template>
 
-      <span class="map__source">{{ source }}</span>
+    </div>
+    <div class="map__smallprint container--medium">
+      <p class="smallprint">{{ source }}</p>
+      <p class="smallprint">{{ disclaimer }}</p>
     </div>
   </div>
 </template>
@@ -46,7 +49,8 @@ export default {
     tabs: Array,
     layers: Array,
     tilesUrl: String,
-    source: String
+    source: String,
+    disclaimer: String
   },
 
   data () {

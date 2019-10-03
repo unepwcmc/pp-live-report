@@ -14,7 +14,7 @@ cta_title_1: "Assessing the contribution of protected areas to ecosystem service
 cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
 cta_url_1: "http://wcmc.io/pp-ch3-cta1"
 line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
-line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2018)"
+line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2018), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (January 2018)."
 content_2:
   -
     "To assess how many threatened and rare species found within KBAs are within protected areas, we looked at important species found in 5,011 KBAs in 29 Biodiversity Hotspots identified by the Critical Ecosystem Partnership Fund (CEPF):"

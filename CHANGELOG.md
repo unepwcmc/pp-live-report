@@ -31,3 +31,7 @@ Add next updated date to heroes
 Add new randomly selected hero images for homepage
 Update stats and chapter hero images
 Add Google Analytics tracking for WDPA download
+
+0.2.5
+
+October stats updates

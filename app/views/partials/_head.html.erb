@@ -27,11 +27,15 @@
 <meta name="msapplication-TileColor" content="#71a32b">
 <meta name="theme-color" content="#ffffff">
 
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_pack_tag 'application' %>
 
 <%= javascript_tag do %>
   window._railsEnv = "<%= Rails.env %>"
+<% end %>
+
+<% if Rails.env.production? %>
+  <%= render 'partials/google_analytics' %>
 <% end %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

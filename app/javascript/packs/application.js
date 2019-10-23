@@ -10,7 +10,8 @@ Vue.config.productionTip = false
 
 if (window._railsEnv === 'production') {
   Vue.use(VueAnalytics, {
-    id: 'UA-129227134-1'
+    id: 'UA-129227134-1',
+    checkDuplicatedScript: true
   })
 }
 Vue.use(TurbolinksAdapter)

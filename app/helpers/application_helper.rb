@@ -27,11 +27,11 @@ module ApplicationHelper
   end
 
   def social_image
-    image_url('social.jpg')
+    image_url('social.png')
   end
 
   def social_image_alt
-    'Guanaco Torres del Paine Chile Gregoire Dubois'
+    'Protect Planet Live Report Homepage'
   end
 
   def create_sharing_facebook_link

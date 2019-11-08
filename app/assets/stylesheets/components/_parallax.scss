@@ -6,7 +6,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  @include breakpoint($medium) { background-attachment: fixed; }
+  background-attachment: fixed;
+  @include portrait { background-attachment: scroll; }
 
   .chapter-1 & { background-image: $chapter-image-1; }
   .chapter-2 & { background-image: $chapter-image-2; }

@@ -16,6 +16,12 @@
   } 
 }
 
+@mixin portrait() {
+  @media screen and (orientation:portrait) {
+    @content;
+  } 
+}
+
 //--------------------------------------------------
 // helper classes
 //--------------------------------------------------

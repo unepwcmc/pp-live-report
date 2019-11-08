@@ -35,3 +35,7 @@ Add Google Analytics tracking for WDPA download
 0.2.5
 
 October stats updates
+
+0.2.6
+
+Update image styling and social image

@@ -43,3 +43,7 @@ Update image styling and social image
 0.2.7
 
 November stats updates
+
+0.2.8
+
+December stats updates

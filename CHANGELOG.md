@@ -51,3 +51,7 @@ December stats updates
 0.2.9
 
 Jan 2020 stats updates
+
+0.2.10
+
+Feb 2020 stats updates

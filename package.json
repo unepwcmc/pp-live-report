@@ -2,7 +2,7 @@
   "name": "natgeo",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "3.6",
     "babel-polyfill": "^6.26.0",
     "datamaps": "^0.5.9",
     "dotenv": "^6.1.0",

@@ -9,12 +9,12 @@ content_1:
     "Between 2010 and 2020 average protected area coverage of KBAs has increased in marine, terrestrial and freshwater KBAs at more or less the same pace. The highest growth has been in marine KBAs (41% - 46%) followed by freshwater KBAs (38% - 41%) and terrestrial KBAs (41% - 44%)."
 map_1_title: "Key Biodiversity Areas"
 map_1_description: "Map of Key Biodiversity Areas fully within (blue), partially within (green) or outside (red) protected areas on land and in the ocean (within EEZ)."
-map_1_source: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (January 2020)."
+map_1_source: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
 cta_title_1: "Assessing the contribution of protected areas to ecosystem services"
 cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
 cta_url_1: "http://wcmc.io/pp-ch3-cta1"
 line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
-line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (January 2020)."
+line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
 content_2:
   -
     "As of 2018, 21% (5,510) of globally threatened species on The IUCN Red List of Threatened Species™ are found within KBAs in Biodiversity Hotspots. Of these sites, 13% are currently fully within protected areas, while another 31% are covered only in part by protected areas."

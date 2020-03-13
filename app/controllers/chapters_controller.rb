@@ -288,7 +288,7 @@ class ChaptersController < ApplicationController
 
     kba_data = CsvParser.kba_timeseries
     lines = []
-    ['Terrestrial KBAs', 'Marine KBAs', 'Freshwater KBAs'].each do |type|
+    [ 'Freshwater KBAs', 'Marine KBAs','Terrestrial KBAs' ].each do |type|
       datapoints = []
       ('2000'..'2018').each do |year|
         datapoints << { x: year, y: kba_data[year][type] }
@@ -302,14 +302,14 @@ class ChaptersController < ApplicationController
       },
       legend: [
         {
-          title: "Terrestrial"
+          title: "Freshwater"
         },
         {
           title: "Marine"
         },
         {
-          title: "Freshwater"
-        }
+          title: "Terrestrial"
+        },
       ]
     }
   end

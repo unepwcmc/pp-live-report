@@ -260,27 +260,27 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'kba',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
           text_small: "Fully within Protected Areas",
-          source_layers: { poly: 'KBAs_fully_within' },
+          source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0],
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
           text_small: "Partially within Protected Areas",
-          source_layers: { poly: 'KBAs_partially_within' },
+          source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1],
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
           text_small: "Outside Protected Areas",
-          source_layers: { poly: 'KBAs_not_within' },
+          source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2],
         }
       ]
@@ -298,7 +298,7 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: lines,
       axis: {
-        y: ["Area", "(Million km²)"]
+        y: ["Average Percentage", "Covered"]
       },
       legend: [
         {

@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader('Figure_7__chapter_3_PPR2018.csv')
+    csv_file = file_reader('chapter3_global_kba_timeseries_statistics.csv')
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')

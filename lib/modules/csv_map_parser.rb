@@ -35,7 +35,7 @@ module CsvMapParser
   end
 
   def ch3_map1_percentage
-    percentage_stats('Ch3_map_percentage.csv')
+    percentage_stats('chapter3_global_kba_statistics.csv')
   end
 
   private
@@ -75,7 +75,7 @@ module CsvMapParser
     data = {}
     
     CSV.parse(csv_file, headers: true) do |row|
-      data[row[0]] = row[1]
+      data[row[0]] = "#{row[1]}%"
     end
 
     data

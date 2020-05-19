@@ -3,7 +3,7 @@ require 'csv'
 module CsvParser
   def self.chapter_dates
     dates = {}
-    CSV.parse(file_reader('all_chapter_update_dates.csv'), headers: true) do |row|
+    CSV.parse(file_reader('all_chapter_update_table.csv'), headers: true) do |row|
       dates["chapter_#{row['chapter']}"] = {
         'last_updated' => row['last_updated'],
         'next_updated' => row['next_updated']
@@ -14,7 +14,7 @@ module CsvParser
 
   def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader('PP_Global_Monthly_Stats.csv'), headers: true) do |row|
+    CSV.parse(file_reader('chapter2_global_pa_statistics.csv'), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats

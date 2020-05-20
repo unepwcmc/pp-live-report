@@ -63,3 +63,9 @@ March 2020 stats updates
 0.2.12
 
 April 2020 stats updates
+
+0.2.13
+
+May 2020 stats updates i.a...
+Some files have been renamed to reflect the 
+format on Sharepoint

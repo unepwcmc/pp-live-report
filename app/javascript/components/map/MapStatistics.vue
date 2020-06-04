@@ -8,7 +8,7 @@
       
       <template v-if="tabs">
         <tabs :id="`tabs-${id}`">
-          <tab v-for="tab, index in tabs" :id="getTabId(index)" :title="tab.title">
+          <tab v-for="(tab, index) in tabs" :key="`tab-${index}`" :id="getTabId(index)" :title="tab.title">
             <map-statistics-toggles :map-id="id" :parent-tab-id="getTabId(index)" :layers="tab.layers"></map-statistics-toggles>
           </tab>
         </tabs>

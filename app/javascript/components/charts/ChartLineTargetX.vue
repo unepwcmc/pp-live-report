@@ -4,7 +4,7 @@
     <path v-else :d="path" :stroke="colour" stroke-width="4" stroke-linecap="round" />
 
     <text v-if="label" :x="x + 10" :y="`50%`" font-size="16" font-weight="300">
-      <tspan v-for="t in label" :x="x + 10" :dy="24">{{ t }}</tspan>
+      <tspan v-for="(t, index) in label" :key="`t-${index}`" :x="x + 10" :dy="24">{{ t }}</tspan>
     </text>
   </g>
 </template>

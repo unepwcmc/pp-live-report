@@ -1,13 +1,13 @@
 type,value
-total_protected_areas,"245,000"
-total_terrestrial_protected_areas,"228,205"
-total_marine_protected_areas,"16,991"
+total_protected_areas," 245,210 "
+total_terrestrial_protected_areas,"228,168"
+total_marine_protected_areas,"17,042"
 total_land_pa_coverage_percentage,15.15
-total_land_area_protected,"20,445,062"
-total_ocean_pa_coverage_percentage,7.43
-total_ocean_area_protected,"26,928,113"
-national_waters_pa_coverage_percentage,17.22
-national_waters_pa_coverage_area,"24,309,960"
+total_land_area_protected,"20,323,301"
+total_ocean_pa_coverage_percentage,7.437235637
+total_ocean_area_protected,"26,947,375"
+national_waters_pa_coverage_percentage,17.23082066
+national_waters_pa_coverage_area,"24,329,222"
 high_seas_pa_coverage_percentage,1.18
 high_seas_pa_coverage_area,"2,618,153"
 national_waters_percentage,39

@@ -1,6 +1,6 @@
 <template>
   <ul class="chart--legend ul-unstyled flex flex-wrap">
-    <li v-for="row, index in rows" class="chart__legend-item flex flex-v-center" :class="themeClass">
+    <li v-for="(row, index) in rows" :key="`chart-${index}`" class="chart__legend-item flex flex-v-center" :class="themeClass">
       <span v-if="row.line" class="chart__legend-key flex-no-shrink" :style="lineStyle"></span>
       <span v-else class="chart__legend-key flex-no-shrink" :style="style(index)"></span>
       <span v-if="showNumbers" class="chart__legend-text fw-black">{{ index + 1 }}.</span> 

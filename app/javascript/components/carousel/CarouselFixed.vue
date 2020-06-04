@@ -11,7 +11,7 @@
     </div>
 
     <div class="carousel__nav flex flex-column flex-v-end">
-      <div v-for="slide, index in slides" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
+      <div v-for="(slide, index) in slides" :key="`slide-${index}`" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
         <span class="carousel__nav-text">{{ slide.title }}</span>
         <span @click="changeSlide(index)" class="carousel__nav-button flex flex-center"> {{ index + 1 }}</span>
       </div>

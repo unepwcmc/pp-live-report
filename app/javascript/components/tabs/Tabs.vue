@@ -2,7 +2,7 @@
   <div class="tabs">
     <div class="tabs__triggers flex flex-nowrap">
       <button 
-        v-for="child, index in children"
+        v-for="(child, index) in children" :key="`child-${index}`"
         :id="triggerId(child)"
         :aria-controls="child.tabId"
         :aria-selected="child.isActive"

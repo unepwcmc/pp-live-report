@@ -1,7 +1,7 @@
 <template>
   <div class="chart--column">
     <div class="chart__chart flex flex-h-between">
-      <div v-for="column, index in columns" class="chart__column flex flex-column flex-h-end" :style="{ width: width }">
+      <div v-for="(column, index) in columns" :key="`chart-${index}`" class="chart__column flex flex-column flex-h-end" :style="{ width: width }">
         <span class="chart__percent flex-vs-center">{{ getColumnValue(column) }}</span>
         <span class="chart__bar" :style="{ height: getColumnHeight(column) + '%' }"></span> 
 

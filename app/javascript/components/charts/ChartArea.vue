@@ -1,7 +1,7 @@
 <template>
   <div class="chart--area">
     <div class="chart__chart flex">
-      <div v-for="dataset in datasets" class="chart__dataset" :style="style(dataset.cssPercent)">
+      <div v-for="(dataset, index) in datasets" :key="`chart-${index}`" class="chart__dataset" :style="style(dataset.cssPercent)">
         <div class="chart__bar" :class="['chart__bar-' + dataset.class]" :style="{ height: height + 'px' }">
           <p class="chart__label no-margin">{{ dataset.title }} <span class="chart__label-percentage">{{dataset.percent }}%</span></p>
         </div>

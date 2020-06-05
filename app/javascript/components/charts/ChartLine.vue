@@ -12,10 +12,11 @@
               fill="#EBEBEB" />
 
             <text v-if="axis" x="-70" y="-90" font-size="18">
-              <tspan v-for="t in axis.y" x="-70" :dy="24">{{ t }}</tspan>
+              <tspan v-for="(t, index) in axis.y" :key="`t-${index}`" x="-70" :dy="24">{{ t }}</tspan>
             </text>
 
-            <text v-for="y in yAxis" 
+            <text v-for="(y, index) in yAxis"
+              :key="`y-${index}`" 
               :x="-x.chartPadding" 
               :y="y.coord "
               text-anchor="end"
@@ -23,7 +24,8 @@
               font-weight="300"
               transform="translate(0, 5)">{{ y.labelText }}</text>
 
-            <text v-for="x in xAxis" 
+            <text v-for="(x, index) in xAxis"
+              :key="`x-${index}`" 
               :x="x.coord" 
               :y="y.chartHeight + y.chartPadding" 
               font-size="18"
@@ -31,7 +33,8 @@
               text-anchor="middle">{{ x.labelText }}</text>
 
             <chart-line-dataset 
-              v-for="line, index in lines"
+              v-for="(line, index) in lines"
+              :key="`line-${index}`"
               :index="index"
               :path="getPath(line.datapoints)"
               :middle="getPathMiddle(line.datapoints)"
@@ -39,7 +42,8 @@
             </chart-line-dataset>
 
             <template v-if="targets">
-              <chart-line-target-y v-for="target, index in targets"
+              <chart-line-target-y v-for="(target, index) in targets"
+                :key="`target-${index}`"
                 :minX="normaliseX(x.min)" 
                 :maxX="normaliseX(x.max)" 
                 :y="normaliseY(target.y)" 
@@ -49,7 +53,8 @@
             </template>
 
             <template v-if="commitments">
-              <chart-line-target-x v-for="commitment, index in commitments"
+              <chart-line-target-x v-for="(commitment, index) in commitments"
+                :key="`commitment-${index}`"
                 :minY="normaliseY(y.min)" 
                 :maxY="normaliseY(y.max)" 
                 :x="normaliseX(commitment.x)"

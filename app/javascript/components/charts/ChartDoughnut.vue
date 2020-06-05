@@ -6,7 +6,8 @@
         
         <g transform="rotate(-26)">
 
-          <g v-for="dataset, index in datasets" 
+          <g v-for="(dataset, index) in datasets"
+            :key="`chart-${index}`" 
             @click="clickSegment(dataset)"
             class="chart__segment"
             :class="{ 'active': getSegmentStatus(dataset.title) }"> 

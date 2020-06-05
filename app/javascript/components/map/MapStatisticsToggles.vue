@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="layer in layers" class="map__panel-layer">
+    <div v-for="(layer, index) in layers" :key="`layer-${index}`" class="map__panel-layer">
       <map-statistics-toggle :map-id="mapId" :parent-tab-id="parentTabId" :ids="getMapboxLayerIds(layer)">
         <div class="map__panel-button-wrapper">
           <p class="map__panel-layer-button">
@@ -12,7 +12,7 @@
       </map-statistics-toggle>
 
       <template v-if="layer.sublayers">
-        <map-statistics-toggle v-for="sublayer in layer.sublayers" :map-id="mapId" :parent-tab-id="parentTabId" :ids="getMapboxLayerIds(sublayer)" class="map__panel-sublayer">
+        <map-statistics-toggle v-for="(sublayer, index) in layer.sublayers" :key="`sublayer-${index}`" :map-id="mapId" :parent-tab-id="parentTabId" :ids="getMapboxLayerIds(sublayer)" class="map__panel-sublayer">
           <div class="map__panel-button-wrapper">
             <p class="map__panel-sublayer-button">
               <span class="map__panel-sublayer-button-inner" :style="{ 'background-color': sublayer.colour }"></span>

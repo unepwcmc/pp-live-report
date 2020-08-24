@@ -15,7 +15,7 @@ CATEGORICAL_MAP_STATS = {
   ch7_map1_categorical: {
     boundaries: [4,8,12,17,25],
     header_name: 'ProtConn_B',
-    csv: 'Ch7_Figure_14_categorical.csv'
+    csv: 'chapter7_national_connectivity_perccov_mar20.csv'
   },
   ch7_map2_categorical: {
     csv: 'Ch7_Figure_15_AB_categorical.csv'

@@ -1,5 +1,5 @@
 set :stage, :staging
-set :branch, "updates/sept-2020"
+set :branch, "develop"
 
 
 server "new-web.pp-staging.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}

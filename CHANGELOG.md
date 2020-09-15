@@ -73,3 +73,9 @@ format on Sharepoint
 0.2.14 
 
 August 2020 stats updates 
+
+0.2.15
+
+September 2020 stats updates 
+- Updated chapter 8 text - adding how many OECMs there are now at the bottom 
+and linking up to the docs published since the chapter was first published.

@@ -79,3 +79,7 @@ August 2020 stats updates
 September 2020 stats updates 
 - Updated chapter 8 text - adding how many OECMs there are now at the bottom 
 and linking up to the docs published since the chapter was first published.
+
+0.2.16
+
+Oct 2020 stats updates

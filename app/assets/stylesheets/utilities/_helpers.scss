@@ -106,3 +106,29 @@ i { font-style: normal; }
   -ms-user-select: none; 
   user-select: none; 
 }
+
+//--------------------------------------------------
+// shapes
+//--------------------------------------------------
+
+@mixin triangle ($base, $height, $color, $direction:'up') {
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-left: $base/2 solid transparent;
+  border-right: $base/2 solid transparent;
+  
+  border-bottom: $height solid $color;
+
+  display: block;
+
+  @if ($direction == 'right') {
+    transform: rotate(90deg);
+  }
+  @if ($direction == 'down') {
+    transform: rotate(180deg);
+  }
+  @if ($direction == 'left') {
+    transform: rotate(270deg);
+  }
+}

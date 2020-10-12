@@ -2,12 +2,16 @@
 // topbar
 //--------------------------------------------------
 .topbar {
+  &--primary {
+    background-color: $black;
+    height: rem-calc(74);
+  }
+
   &__site-link {
     text-decoration: none;
   }
   
     &__logo {
-      opacity: .8;
       width: auto; height: rem-calc(24);
 
       @include breakpoint($small) { height: rem-calc(44); }

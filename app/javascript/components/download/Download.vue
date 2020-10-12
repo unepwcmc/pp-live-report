@@ -4,8 +4,8 @@
     class="button--download"
     @click="onClick"
   >
-    <i class="icon--download"></i>
     <span class="button--download__text">{{ text }}</span>
+    <i class="icon--download"></i>
   </button>
 </template>
 
@@ -20,18 +20,18 @@ export default {
       type: String,
       default: ''
     },
-    downloadUrl: {
-      type: String,
-      required: true
+    downloadLinks: {
+      type: Array,
+      default: () => ([])
     }
   },
 
   methods: {
     onClick () {
-      if (this.$ga) {
-        this.$ga.event(this.eventElement, 'Download')
-      }
-      window.open(this.downloadUrl, '_blank')
+      // if (this.$ga) {
+      //   this.$ga.event(this.eventElement, 'Download')
+      // }
+      // window.open(this.downloadUrl, '_blank')
     }
   }
 }

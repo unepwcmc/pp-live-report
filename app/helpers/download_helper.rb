@@ -1,7 +1,7 @@
 module DownloadHelper
   def download_links_array
     [
-      'pdf/Protected_Planet_Report_2018.pdf'
+      { url: 'pdf/Protected_Planet_Report_2018.pdf', title: '2018 report' }
     ].to_json
   end
 end

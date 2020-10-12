@@ -8,25 +8,16 @@
   &--home {
     @include background-overlay($black-gradient);
     background-color: $black;
-    border-top: solid rem-calc(8) $primary;
     color: $white;
-    padding-top: rem-calc(12);
     padding-bottom: rem-calc(20);
 
     z-index: 2;
     
     @include breakpoint($small) { 
-      padding-top: rem-calc(24);
       min-height: 100vh; 
     }
 
     .hero {
-      &__content { 
-        margin-top: 10%; 
-        
-        @include breakpoint($medium) { margin-top: 6%; }
-      }
-
       &__subtitle {
         font-size: rem-calc(20);
         font-weight: $bold;

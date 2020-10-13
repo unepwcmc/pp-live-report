@@ -9,21 +9,22 @@
       <i class="icon--download"></i>
     </button>
     <div :class="[ isActive ? 'download__target--active' : 'download__target' ]">
-      <download-popup
+      <popup
         :options="downloadLinks"
         event-element="Individual report download"
-        @downloadStarted="clickDownloadOption"
+        :classes="'download__popup'"
+        @optionSelected="clickDownloadOption"
       />
     </div>
   </div>
 </template>
 
 <script>
-import DownloadPopup from './DownloadPopup.vue';
+import Popup from '../dropdown/Popup.vue';
 
 export default {
   name: 'Download',
-  components: { DownloadPopup },
+  components: { Popup },
   props: {
     text: {
       type: String,
@@ -35,7 +36,12 @@ export default {
     },
     downloadLinks: {
       type: Array,
-      default: () => ([])
+      default: () => (
+              [
+                { url: 'pdf/Protected_Planet_Report_2018.pdf', title: '2018 report' },
+                { url: 'pdf/Test_report.pdf', title: 'test report' }
+              ]
+      )
     }
   },
   data() {
@@ -45,16 +51,16 @@ export default {
   },
   methods: {
     togglePopup() {
-      if (this.isActive === false) {
-        this.$ga.event(this.eventElement, 'Download Open')
-      }
+      // if (this.isActive === false) {
+      //   this.$ga.event(this.eventElement, 'Download Open')
+      // }
       this.isActive = !this.isActive
     },
     clickDownloadOption() {
       this.isActive = false
-      if (this.$ga) {
-        this.$ga.event(this.eventElement, 'Download Report')
-      }
+      // if (this.$ga) {
+      //   this.$ga.event(this.eventElement, 'Download Report')
+      // }
       // window.open(this.downloadUrl, '_blank')
     }
   }

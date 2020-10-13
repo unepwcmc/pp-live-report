@@ -20,11 +20,16 @@ $grey-xdark: #202020;
 
 $black: #000000;
 
+$blue: #004DA8;
+
+$green-bright: #38A800;
 $green-light: #9DC37E;
 $green: #71A32B;
 
+$orange: #D9B143;
+
 $primary: $green;
-$secondary: blue;
+$accent: green;
 
 $chart-blue-light: #96D6E6;
 $chart-blue: #53CCF7;
@@ -46,7 +51,9 @@ $chart-marine: #03B0DA;
 $chart-abnj: #207D94;
 $chart-eez: #6FD9F2;
 
-$accent: green;
+$oecm: $orange;
+$marine: $blue;
+$terrestrial: $green-bright;
 
 $theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
 $theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;

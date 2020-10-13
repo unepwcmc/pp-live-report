@@ -6,6 +6,22 @@
   </div>
 </div>
 
+<am-chart-gauge
+  id="gauge-terrestrial"
+  :target="17"
+  theme="#29A245"
+  :value="15"
+  :legend-data="<%= @chart_gauge_terrestrial[:legend].to_json %>"
+></am-chart-gauge>
+
+<am-chart-gauge
+  id="gauge-marine"
+  :legend-data="<%= @chart_gauge_marine[:legend].to_json %>"
+  :target="10"
+  theme="#004DA8"
+  :value="7"
+></am-chart-gauge>
+
 <section class="section-padding">
   <div class="container--small">
     <% @data['aichi_text_2'].each do |t| %>

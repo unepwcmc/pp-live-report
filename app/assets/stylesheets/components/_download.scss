@@ -7,25 +7,26 @@ $popup-download-arrow-height: rem-calc(8);
 
     &--active {
       display: block;
+      position: relative;
     }
   }
 
   &__popup {
-    background-color: $grey-dark;
+    background-color: $grey;
     border-radius: 3px;
     padding: rem-calc(10 20);
     width: max-content;
 
     position: absolute;
-    top: calc(100% + #{$popup-download-arrow-height});
-    right: 0;
+    top: calc(100% + #{$popup-download-arrow-height * 1.5});
+    right: 8%;
 
     a {
       text-decoration: none;
     }
 
     &:before {
-      @include triangle(rem-calc(38), $popup-download-arrow-height, $grey-dark);
+      @include triangle(rem-calc(38), $popup-download-arrow-height, $grey);
 
       position: absolute;
       top: -$popup-download-arrow-height;
@@ -36,7 +37,9 @@ $popup-download-arrow-height: rem-calc(8);
   &__link {
     color: $white;
     cursor: pointer;
-    padding: rem-calc(5 0);
+    padding-top: rem-calc(5);
+    padding-bottom: rem-calc(5);
+    padding-right: rem-calc(60);
 
     display: block;
 

@@ -10,6 +10,7 @@
           :href="option.url"
           target="_blank"
           :title="option.title"
+          v-html="option.title"
         />
       </li>
     </ul>

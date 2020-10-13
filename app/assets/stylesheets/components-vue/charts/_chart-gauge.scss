@@ -1,0 +1,11 @@
+.am-chart--gauge {
+  width: rem-calc(220); height: rem-calc(200);
+
+  .chart__chart {
+    height: 100%;
+  }
+
+  .chart__svg {
+    height: 100%;
+  }
+}

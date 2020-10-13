@@ -37,26 +37,6 @@ class ChaptersController < ApplicationController
         'url': item['url']
       })
     end
-
-    @chart_gauge_terrestrial = {
-      legend: [{
-        name: 'Current progress',
-        fill: '#29A245'
-      }, {
-        name: 'Terrestrial target',
-        fill: '#bcbcbc'
-      }]
-  }
-
-    @chart_gauge_marine = {
-      legend: [{
-        name: 'Current progress',
-        fill: '#004DA8'
-      }, {
-        name: 'Marine target',
-        fill: '#bcbcbc'
-      }]
-    }
   end
 
   def chapter_2

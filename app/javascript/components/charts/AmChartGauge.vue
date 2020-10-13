@@ -1,5 +1,6 @@
 <template>
-  <div class="am-chart--pie">
+  <div class="am-chart--gauge">
+    <p v-if="title">{{ title }}</p>
     <div class="chart__chart">
       <div 
         class="chart__svg"
@@ -28,6 +29,9 @@ export default {
     target: {
       type: Number
     },
+    title: {
+      String: Number
+    },
     theme: {
       default: '#000',
       type: String,
@@ -51,17 +55,24 @@ export default {
     am4core.useTheme(am4themes_animated)
 
     setInterval(() => {
-      var animation = new am4core.Animation(this.hand, {
+      new am4core.Animation(this.hand, {
         property: "value",
         to: this.value
       }, 1000, am4core.ease.cubicOut).start()
+
+      new am4core.Animation(this.range, {
+        property: "endValue",
+        to: this.value
+      }, 1000, am4core.ease.cubicOut).start()
+
     }, 1000)
   },
 
   methods: {
     createChart () {
       this.chart = am4core.create(this.id, am4charts.GaugeChart)
-      this.chart.innerRadius = 60
+      this.chart.paddingBottom = 90
+      this.chart.innerRadius = 100
 
       this.createAxis()
       this.createRange()
@@ -73,10 +84,10 @@ export default {
       this.axis = this.chart.xAxes.push(new am4charts.ValueAxis());
       this.axis.min = 0
       this.axis.max = 100
+      this.axis.renderer.radius = 100
       this.axis.strictMinMax = true
       this.axis.renderer.line.strokeOpacity = 1
       this.axis.renderer.labels.template.opacity = 0
-      this.axis.renderer.grid.template.disabled = true
 
       this.axisInner = this.chart.xAxes.push(new am4charts.ValueAxis());
       this.axisInner.min = 0
@@ -85,15 +96,15 @@ export default {
       this.axisInner.strictMinMax = true
       this.axisInner.renderer.line .strokeOpacity = 1
       this.axisInner.renderer.labels.template.opacity = 0
-      this.axisInner.renderer.ticks.opacity = 0
+      this.axisInner.renderer.grid.template.disabled = true
     },
 
     createRange () {
-      let range = this.axis.axisRanges.create()
-        range.value = 0
-        range.endValue = this.value
-        range.axisFill.fillOpacity = 1
-        range.axisFill.fill = am4core.color(this.theme)
+      this.range = this.axisInner.axisRanges.create()
+      this.range.value = 0
+      this.range.endValue = 0
+      this.range.axisFill.fillOpacity = 1
+      this.range.axisFill.fill = am4core.color(this.theme)
     },
 
     createHands () {
@@ -102,18 +113,24 @@ export default {
         handTarget.value = this.target
         handTarget.startWidth = 1
         handTarget.stroke = am4core.color("#bcbcbc")
+        handTarget.pin.strokeOpacity = 0
+        handTarget.zIndex = -1
       }
       
       this.hand = this.chart.hands.push(new am4charts.ClockHand())
+      this.hand.axis = this.axis
       this.hand.startWidth = 1
       this.hand.value = 0
+      this.hand.pin.radius = 8
     },
 
     createLegend () {
       this.legend = new am4charts.Legend();
+      this.legend.clickable = false
+      this.legend.contentAlign = 'left'
       this.legend.isMeasured = false
       this.legend.y = am4core.percent(100)
-      this.legend.verticalCenter = "bottom"
+      // this.legend.verticalCenter = "bottom"
       this.legend.parent = this.chart.chartContainer
       this.legend.data = this.legendData.map((item) => {
         return { 

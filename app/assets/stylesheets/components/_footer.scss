@@ -3,75 +3,109 @@
 //--------------------------------------------------
 .footer {
   &__main {
-    align-items: flex-start;
+    @include flex;
+    @include flex-column;
+    @include flex-v-center;
     background-color: $black;
-    flex-direction: column;
+    border: 1px solid $white; // To be removed but just put in place so you can see the outline of the footer
     color: $white;
-    padding-top: rem-calc(20);
+    padding-top: rem-calc(70);
     padding-bottom: rem-calc(20);
 
-    display: flex;
-
-    @include breakpoint($medium) { 
-      align-items: center;
-      flex-direction: row;
+    // Padding increased for prev/next buttons
+    @include breakpoint($small) {
+      padding-top: rem-calc(95);
     }
   }
 
-    &__partner-logos {
-      margin-top: rem-calc(20);
+  &__partner-logos {
+    @include flex;
+    margin: rem-calc(60) auto;
+    max-width: rem-calc(320);
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-      @include breakpoint($medium) {
-        align-items: center;
-        display: flex;
-      }
+    @include breakpoint($small) {
+      margin-top: rem-calc(80);
+      margin-bottom: rem-calc(80);
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__a {
+    margin-bottom: rem-calc(20);
+    text-decoration: none;
+
+    display: block;
+
+    @include breakpoint($small) {
+      display: inline-block;
+      margin: rem-calc(0 0 0 28);
     }
 
-      &__a {
-        margin: rem-calc(4 12 4 0);
-        text-decoration: none;
+    @include breakpoint($medium) {
+      margin: rem-calc(0 0 0 38);
+    }
 
-        display: inline-block;
+    &:first-child {
+      @include breakpoint($small) {
+        margin-left: 0;
+      }
+    }
+  }
 
-        @include breakpoint($small) { margin: rem-calc(0 0 0 28); }
-        @include breakpoint($medium) { margin: rem-calc(0 0 0 38); }
+  &__logo {
+    opacity: 0.8;
+    width: auto;
+    height: rem-calc(28);
 
-        &:first-child {
-          @include breakpoint($small) { margin-left: 0; }
-        }
+    @include breakpoint($small) {
+      height: rem-calc(34);
+    }
+
+    @include breakpoint($medium) {
+      width: rem-calc(110);
+      height: rem-calc(36); // width: auto; doesn't work in IE11
+    }
+
+    &.logo--iucn {
+      height: rem-calc(43);
+
+      @include breakpoint($medium) {
+        width: rem-calc(40);
       }
 
-        &__logo {
-          opacity: .4;
-           width: auto; height: rem-calc(20); 
+      // width: auto; doesn't work in IE11
+    }
+  }
 
-          @include breakpoint($small) { height: rem-calc(24); }
-          @include breakpoint($medium) { 
-            width: rem-calc(110); height: rem-calc(36); // width: auto; doesn't work in IE11
-          }
-
-          &.logo--iucn { 
-            @include breakpoint($medium) { width: rem-calc(40); } // width: auto; doesn't work in IE11
-          }
-        }
+  &__credits {
+    margin-top: rem-calc(22);
+    margin-bottom: rem-calc(22);
+  }
 
   &__photo-credits {
-    font-size: rem-calc(10);
+    font-size: rem-calc(12);
     line-height: 1.2;
-    margin-bottom: rem-calc(8);
-    max-width: rem-calc(600);
+    max-width: rem-calc(460);
 
-    @include breakpoint($small) { font-size: rem-calc(12); }
+    @include breakpoint($small) {
+      font-size: rem-calc(12);
+    }
   }
 
   &__citation {
-    font-size: rem-calc(10);
+    font-size: rem-calc(12);
     line-height: 1.2;
-    margin-bottom: rem-calc(8);
+    margin-top: rem-calc(22);
+    margin-bottom: rem-calc(22);
     opacity: .6;
-    max-width: rem-calc(600);
+    max-width: rem-calc(460);
 
-    @include breakpoint($small) { font-size: rem-calc(12); }
+    @include breakpoint($small) {
+      font-size: rem-calc(12);
+    }
   }
 
   &__copyright {
@@ -80,5 +114,21 @@
     line-height: 1.2;
     opacity: .6;
     max-width: rem-calc(600);
+  }
+
+  &__hr {
+    margin: 0;
+    opacity: 0.8;
+    width: 100%;
+  }
+
+
+  &__text {
+    width: 100%;
+    display: block;
+
+    @include breakpoint($small) {
+      display: flex;
+    }
   }
 }

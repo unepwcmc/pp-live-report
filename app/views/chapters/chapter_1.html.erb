@@ -1,13 +1,25 @@
-<% gauge_charts.each do |chart| %>
-  <am-chart-gauge
-    id="<%= chart[:id] %>"
-    :legend-data="<%= chart[:legend].to_json %>"
-    :target="<%= chart[:target] %>"
-    theme="<%= chart[:theme] %>"
-    title="<%= chart[:title] %>"
-    :value="<%= chart[:value] %>"
-  ></am-chart-gauge>
-<% end %>
+<div class="container">
+  <div class="aichi-target">
+    <div class="box__text">
+      <h2>Did we reach the target?</h2>
+      <p>By 2020, at least 17 percent of terrestrial and inland water areas and 10 percent of costal and marine.</p>
+      <%= link_to 'Explore all progress towards Aichi Target 11', 'https://www.protectedplanet.net/en/thematic-areas/global-partnership-on-aichi-target-11', title: 'Explore all progress towards Aichi Target 11 on Protected Planet', target: '_blank', class: '' %>
+    </div>
+    <div class="box__charts">
+      <% gauge_charts.each do |chart| %>
+        <am-chart-gauge
+          id="<%= chart[:id] %>"
+          class="box__chart"
+          :legend-data="<%= chart[:legend].to_json %>"
+          :target="<%= chart[:target] %>"
+          theme="<%= chart[:theme] %>"
+          title="<%= chart[:title] %>"
+          :value="<%= chart[:value] %>"
+        ></am-chart-gauge>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="content--x-large">
   <div class="container--medium">

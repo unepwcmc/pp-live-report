@@ -5,11 +5,13 @@ module ChaptersHelper
         id: 'gauge-terrestrial',
         legend: [
           {
-            name: 'Current progress: 15%', #TODO - put in latest figure
-            fill: '#29A245'
+            fill: '#29A245',
+            name: 'Current progress: ', 
+            percent: 15 #TODO - put in latest figure
           }, {
-            name: 'Terrestrial target: 17%',
-            fill: '#bcbcbc'
+            fill: '#bcbcbc',
+            name: 'Terrestrial target: ',
+            percent: 17
           }
         ],
         target: 17,
@@ -21,11 +23,13 @@ module ChaptersHelper
         id: 'gauge-marine',
         legend: [
           {
-            name: 'Current progress: 7%', #TODO - put in latest figure
-            fill: '#004DA8'
+            fill: '#004DA8',
+            name: 'Current progress: ', 
+            percent: 7 #TODO - put in latest figure
           }, {
-            name: 'Marine target: 10%',
-            fill: '#bcbcbc'
+            fill: '#bcbcbc',
+            name: 'Marine target: ',
+            percent: 10
           }
         ],
         target: 10,

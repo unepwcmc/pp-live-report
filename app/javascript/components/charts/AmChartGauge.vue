@@ -77,13 +77,15 @@ export default {
   methods: {
     createChart () {
       this.chart = am4core.create(this.id, am4charts.GaugeChart)
+      
       this.chart.paddingBottom = 90
+      this.chart.paddingLeft = 0
       this.chart.innerRadius = 100
 
       this.createAxis()
       this.createRange()
       this.createHands()
-      this.createLegend ()
+      this.createLegend()
     },
 
     createAxis () {
@@ -135,24 +137,27 @@ export default {
       this.legend = new am4charts.Legend();
       this.legend.clickable = false
       this.legend.contentAlign = 'left'
+      this.legend.height = 7
       this.legend.isMeasured = false
       this.legend.y = am4core.percent(100)
       this.legend.parent = this.chart.chartContainer
       this.legend.data = this.legendData.map((item) => {
         return { 
-          "name": item.name,
+          "name": `${item.name}[bold]${item.percent}%[/bold]`,
           "fill": am4core.color(item.fill)  
         }
       })
-      
-      console.log(this.legend.list)
 
-      this.legend.labels.template.fontSize = 12
+      this.legend.labels.template.fontSize = 14
       this.legend.labels.template.truncate = false
       this.legend.labels.template.paddingTop = 0
 
-      this.legend.markers.template.width = 20
-      this.legend.markers.template.height = 2
+      this.legend.markers.template.width = 12
+      this.legend.markers.template.height = 12
+
+      let marker = this.legend.markers.template.children.getIndex(0)
+
+      marker.cornerRadius(12, 12, 12, 12)
     }
   }
 }

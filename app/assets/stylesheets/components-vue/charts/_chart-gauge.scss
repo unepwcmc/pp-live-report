@@ -10,16 +10,19 @@
   }
 
   .chart__title {
+    font-size: rem-calc(16);
     font-weight: $bold;
+    margin-bottom: 0;
   }
 }
 
 .aichi-target {
+  @include flex;
   background-color: $grey-xlight;
   padding: rem-calc(20 24);
 
   @include breakpoint($small) {
-    padding: rem-calc(40 50);
+    padding: rem-calc(24 50);
   }
 
   .box__text {
@@ -27,18 +30,17 @@
 
     @include breakpoint($small) {
       font-size: rem-calc(16);
-      width: 49%;
-
-      display: inline-block;
+      width: 40%;
+      
+      align-self: center;
     }
   }
 
   .box__charts {
     @include breakpoint($small) {
       @include flex;
+      margin-left: auto;
       width: 50%;
-
-      display: inline-block;
     }
   }
 
@@ -48,8 +50,6 @@
     @include breakpoint($small) {
       padding: rem-calc(0 10);
       width: 49%;
-
-      display: inline-block;
     }
   }
 }

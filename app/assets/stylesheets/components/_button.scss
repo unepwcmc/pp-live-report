@@ -25,6 +25,26 @@
   }
 }
 
+@mixin button-nav($image) {
+  background-image: image-url($image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+
+  &:hover { opacity: .75; } 
+
+  height: rem-calc(9);
+  width: rem-calc(5);
+
+  @include breakpoint($small) {
+    height: rem-calc(14);
+    width: rem-calc(8);
+  }
+}
+
+
 //--------------------------------------------------
 // buttons
 //--------------------------------------------------
@@ -85,11 +105,12 @@
   }
 
   &--previous {
-
+    @include button-nav('icons/previous.svg');
+ 
   }
 
   &--next {
-    
+    @include button-nav('icons/next.svg');
   }
 
   &--reset {

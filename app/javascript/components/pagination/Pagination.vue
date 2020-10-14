@@ -1,16 +1,16 @@
 <template>
- <div class="flex flex-h-between flex-v-center">
+ <div class="pagination__panel">
   <div class="pagination__previous">
    <a
     class="button--previous"
-    :disabled="!previousChapter"
+    v-if="previousChapter"
     :href="previousChapter.url"
    ></a>
-   <p class="pagination_text">{{ previousChapterText }}</p>
+   <p class="pagination__text">{{ previousChapterText }}</p>
   </div>
   <div class="pagination__next">
-   <p class="pagination_text">{{ nextChapterText }}</p>
-   <a class="button--next" :disabled="!nextChapter" :href="nextChapter.url"></a>
+   <p class="pagination__text">{{ nextChapterText }}</p>
+   <a class="button--next" v-if="nextChapter" :href="nextChapter.url"></a>
   </div>
  </div>
 </template>

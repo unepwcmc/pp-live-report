@@ -1,12 +1,10 @@
 //--------------------------------------------------
-// pagination variables
-//--------------------------------------------------
-$iconSmall: 24;
-$iconMedium: 40;
-//--------------------------------------------------
 // pagination
 //--------------------------------------------------
 .pagination {
+  @include flex;
+  @include flex-v-center;
+
   background-color: rgba($black, 0.8);
   color: $white;
   
@@ -14,31 +12,35 @@ $iconMedium: 40;
     height: rem-calc(74);
   }
 
-  &__next, &__previous {
-    margin-top: rem-calc(14);
-    padding-top: rem-calc(18);
+  &__panel {
+    @include flex;
+    @include flex-h-between;
+    @include flex-v-center;
+    width: 100%;
+  }
 
-    @include breakpoint($small) {
-      max-width: rem-calc(400);
-    }
+  &__next, &__previous {
+    @include flex;
+    @include flex-v-center;
+  }
+
+  &__next {
+    margin-right: rem-calc(13);
+  }
+  
+  &__previous {
+    margin-left: rem-calc(13);
   }
 
   &__text {
     font-size: rem-calc(18);
-    width: calc(100% - #{$iconSmall}px);
+    margin-right: rem-calc(10);
+    margin-bottom: 0;
+    margin-left: rem-calc(10);
 
     @include breakpoint($small) { 
       font-size: rem-calc(18);
-      width: calc(100% - #{$iconMedium}px); 
-    }
-  }
-
-  &__icon {
-    margin-left: rem-calc(18); 
-    width: rem-calc($iconSmall); height: rem-calc(15);
-
-    @include breakpoint($small) {
-      width: rem-calc($iconMedium); height: rem-calc(19);
+      max-width: rem-calc(600);
     }
   }
 }

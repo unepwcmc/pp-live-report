@@ -15,9 +15,9 @@ export default {
     this.updateWindowSize()
 
     // allow for multiple functions to be called on window resize
-    window.addEventListener('resize', () => this.$eventHub.$emit('windowResized'))
+    window.addEventListener('resize', () => this.$root.$emit('windowResized'))
 
-    this.$eventHub.$on('windowResized', this.updateWindowSize)
+    this.$root.$on('windowResized', this.updateWindowSize)
   },
 
   methods: {

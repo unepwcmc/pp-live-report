@@ -6,9 +6,9 @@
       <popup
         :options="media"
         :classes="'social__popup'"
-        :showText="true"
-        event-element="Shared via social media"
-        @optionSelected="clickOption"
+        :showText="false"
+        :event-element="'Shared via social media'"
+        @optionSelected="clickOption(option)"
       ></popup>
     </div>
   </template>
@@ -38,7 +38,7 @@ export default {
   media: {
    type: Array,
    required: true,
-  },
+  }
  },
 
  data() {
@@ -48,18 +48,23 @@ export default {
   };
  },
  mounted() {
-  this.isMobile = this.isSmall === true ? true : false;
+  this.currentBreakpoint === 'small' ? this.isMobile = true : this.isMobile = false;
  },
  methods: {
   togglePopup() {
    this.isActive = !this.isActive;
   },
-  clickOption() {
+  clickOption(option) {
    this.isActive = false;
-   // if (this.$ga) {
-   //   this.$ga.event(this.eventElement, 'Download Report')
-   // }
+   if (this.$ga) {
+     this.$ga.event(this.eventElement, `Shared via ${option.title}`);
+   }
   },
  },
+watch: {
+  currentBreakpoint(val) {
+    val === 'small' ? this.isMobile = true : this.isMobile = false;
+  }
+}
 };
 </script>

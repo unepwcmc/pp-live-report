@@ -31,6 +31,12 @@ $popup-share-arrow-height: rem-calc(11);
   &:first-child { 
     margin-top: rem-calc(10);
   }
+
+  @include breakpoint($small) {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 //--------------------------------------------------

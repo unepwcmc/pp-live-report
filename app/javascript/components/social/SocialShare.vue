@@ -1,23 +1,39 @@
 <template>
- <div>
-  <a
-   v-for="(medium, index) in media"
-   :key="index"
-   :href="medium.url"
-   :class="medium.customClass"
-   target="_blank"
-  >
-  </a>
-  <popup :options="media" :classes="'social__popup'" v-if="isMobile"></popup>
+ <div class="flex flex-v-center">
+  <template v-if="isMobile">
+   <button @click="togglePopup" class="button--share icon--share"></button>
+    <div :class="[ isActive ? 'social__target--active' : 'social__target' ]">
+      <popup
+        :options="media"
+        :classes="'social__popup'"
+        :showText="true"
+        event-element="Shared via social media"
+        @optionSelected="clickOption"
+      ></popup>
+    </div>
+  </template>
+  <template v-else>
+   <a
+    v-for="(medium, index) in media"
+    :key="index"
+    :href="medium.url"
+    :class="medium.customClass"
+    target="_blank"
+   >
+   </a>
+  </template>
  </div>
 </template>
 
 <script>
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
+import mixinResponsive from "../../mixins/mixin-responsive";
 import Popup from "../dropdown/Popup.vue";
 
 export default {
  name: "social-share",
  components: { Popup },
+ mixins: [ mixinResponsive, mixinPopupCloseListeners({closeCallback: 'togglePopup', toggleVariable: 'isActive'}) ],
  props: {
   media: {
    type: Array,
@@ -28,15 +44,21 @@ export default {
  data() {
   return {
    isMobile: false,
-   isActive: false
+   isActive: false,
   };
  },
  mounted() {
-
+  this.isMobile = this.isSmall === true ? true : false;
  },
  methods: {
-  toggle() {
+  togglePopup() {
    this.isActive = !this.isActive;
+  },
+  clickOption() {
+   this.isActive = false;
+   // if (this.$ga) {
+   //   this.$ga.event(this.eventElement, 'Download Report')
+   // }
   },
  },
 };

@@ -4,7 +4,9 @@
 .topbar {
   &--primary {
     background-color: $black;
-    height: rem-calc(74);
+    height: rem-calc(48);
+
+    @include breakpoint($medium) { height: rem-calc(74); }
   }
 
   &__site-link {

@@ -13,6 +13,7 @@
         :options="downloadLinks"
         event-element="Individual report download"
         :classes="'download__popup'"
+        :showText="false"
         @optionSelected="clickDownloadOption"
       />
     </div>
@@ -20,11 +21,13 @@
 </template>
 
 <script>
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
 import Popup from '../dropdown/Popup.vue';
 
 export default {
   name: 'Download',
   components: { Popup },
+  mixins: [ mixinPopupCloseListeners({closeCallback: 'togglePopup', toggleVariable: 'isActive'}) ],
   props: {
     text: {
       type: String,
@@ -61,7 +64,6 @@ export default {
       // if (this.$ga) {
       //   this.$ga.event(this.eventElement, 'Download Report')
       // }
-      // window.open(this.downloadUrl, '_blank')
     }
   }
 }

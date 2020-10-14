@@ -23,6 +23,10 @@ $popup-download-arrow-height: rem-calc(8);
 
     a {
       text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     &:before {

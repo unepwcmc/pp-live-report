@@ -10,7 +10,7 @@
           :href="option.url"
           target="_blank"
           :title="option.title"
-          v-html="option.title"
+          :v-html="{ showText: option.title }"
         />
       </li>
     </ul>
@@ -22,6 +22,10 @@
     name: 'Popup',
     props: {
       classes: String,
+      showText: {
+        type: Boolean,
+        required: true
+      },
       options: {
         type: Array,
         default: () => ([

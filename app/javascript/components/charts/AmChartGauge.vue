@@ -1,6 +1,12 @@
 <template>
   <div class="am-chart--gauge">
-    <p v-if="title">{{ title }}</p>
+    <p 
+      v-if="title"
+      class="chart__title"
+    >
+      {{ title }}
+    </p>
+
     <div class="chart__chart">
       <div 
         class="chart__svg"
@@ -97,6 +103,7 @@ export default {
       this.axisInner.renderer.line .strokeOpacity = 1
       this.axisInner.renderer.labels.template.opacity = 0
       this.axisInner.renderer.grid.template.disabled = true
+      this.axisInner.zIndex = -1
     },
 
     createRange () {
@@ -108,6 +115,12 @@ export default {
     },
 
     createHands () {
+      this.hand = this.chart.hands.push(new am4charts.ClockHand())
+      this.hand.axis = this.axis
+      this.hand.startWidth = 1
+      this.hand.value = 0
+      this.hand.pin.radius = 8
+
       if(this.target) {
         const handTarget = this.chart.hands.push(new am4charts.ClockHand())
         handTarget.value = this.target
@@ -116,12 +129,6 @@ export default {
         handTarget.pin.strokeOpacity = 0
         handTarget.zIndex = -1
       }
-      
-      this.hand = this.chart.hands.push(new am4charts.ClockHand())
-      this.hand.axis = this.axis
-      this.hand.startWidth = 1
-      this.hand.value = 0
-      this.hand.pin.radius = 8
     },
 
     createLegend () {
@@ -130,7 +137,6 @@ export default {
       this.legend.contentAlign = 'left'
       this.legend.isMeasured = false
       this.legend.y = am4core.percent(100)
-      // this.legend.verticalCenter = "bottom"
       this.legend.parent = this.chart.chartContainer
       this.legend.data = this.legendData.map((item) => {
         return { 
@@ -138,10 +144,15 @@ export default {
           "fill": am4core.color(item.fill)  
         }
       })
+      
+      console.log(this.legend.list)
 
-      const markerTemplate = this.legend.markers.template
-      markerTemplate.width = 20
-      markerTemplate.height = 2
+      this.legend.labels.template.fontSize = 12
+      this.legend.labels.template.truncate = false
+      this.legend.labels.template.paddingTop = 0
+
+      this.legend.markers.template.width = 20
+      this.legend.markers.template.height = 2
     }
   }
 }

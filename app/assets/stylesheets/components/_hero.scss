@@ -65,7 +65,6 @@
     @include background-overlay($black-gradient);
     background-color: $black;
     color: $white;
-    padding-top: rem-calc(24);
     padding-bottom: rem-calc(50);
 
     z-index: 2;

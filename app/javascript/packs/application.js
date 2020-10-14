@@ -34,6 +34,7 @@ import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
 import NavBurger from '../components/nav/NavBurger'
+import NavButtons from '../components/nav/NavButtons'
 import NavLink from '../components/nav/NavLink'
 import SocialShare from '../components/social/SocialShare'
 
@@ -60,6 +61,7 @@ document.addEventListener('turbolinks:load', () => {
       MapInfographic,
       MapStatistics,
       NavBurger,
+      NavButtons,
       NavLink,
       SocialShare
     }

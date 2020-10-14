@@ -4,9 +4,12 @@
 .pagination {
   @include flex;
   @include flex-v-center;
-
   background-color: rgba($black, 0.8);
   color: $white;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   
   @include breakpoint($small) { 
     height: rem-calc(74);

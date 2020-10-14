@@ -26,6 +26,7 @@
 }
 
 @mixin button-nav($image) {
+  // TODO - need icons with a border 
   background-image: image-url($image);
   background-position: center;
   background-repeat: no-repeat;

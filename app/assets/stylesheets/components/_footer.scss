@@ -8,12 +8,12 @@
     @include flex-v-center;
     background-color: $black;
     color: $white;
-    padding-top: rem-calc(70);
-    padding-bottom: rem-calc(20);
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(70);
 
     // Padding increased for prev/next buttons
     @include breakpoint($small) {
-      padding-top: rem-calc(95);
+      padding-bottom: rem-calc(95);
     }
   }
 

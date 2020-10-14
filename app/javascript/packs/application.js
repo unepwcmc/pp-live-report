@@ -34,8 +34,8 @@ import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
 import NavBurger from '../components/nav/NavBurger'
-import NavButtons from '../components/nav/NavButtons'
 import NavLink from '../components/nav/NavLink'
+import Pagination from '../components/pagination/Pagination'
 import SocialShare from '../components/social/SocialShare'
 
 // create event hub and export so that it can be imported into .vue files
@@ -61,8 +61,8 @@ document.addEventListener('turbolinks:load', () => {
       MapInfographic,
       MapStatistics,
       NavBurger,
-      NavButtons,
       NavLink,
+      Pagination,
       SocialShare
     }
   })

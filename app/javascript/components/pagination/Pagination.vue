@@ -1,23 +1,23 @@
 <template>
  <div class="flex flex-h-between flex-v-center">
-  <div v-if="previousChapter">
+  <div class="pagination__previous">
    <a
-    class="nav__previous"
+    class="button--previous"
     :disabled="!previousChapter"
     :href="previousChapter.url"
    ></a>
-   <p>{{ previousChapterText }}</p>
+   <p class="pagination_text">{{ previousChapterText }}</p>
   </div>
-  <div v-if="nextChapter">
-   <p>{{ nextChapterText }}</p>
-   <a class="nav__next" :disabled="!nextChapter" :href="nextChapter.url"></a>
+  <div class="pagination__next">
+   <p class="pagination_text">{{ nextChapterText }}</p>
+   <a class="button--next" :disabled="!nextChapter" :href="nextChapter.url"></a>
   </div>
  </div>
 </template>
 
 <script>
 export default {
- name: "NavButtons",
+ name: "PaginationButtons",
  props: {
   currentChapter: {
    type: Number,
@@ -40,10 +40,10 @@ export default {
  },
  computed: {
   previousChapterText() {
-   return `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}`;
+   return this.previousChapter ? `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}` : '';
   },
   nextChapterText() {
-   return `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}`;
+   return this.nextChapter ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}` : '';
   },
  },
 };

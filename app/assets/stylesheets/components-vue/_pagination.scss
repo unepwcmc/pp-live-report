@@ -1,0 +1,44 @@
+//--------------------------------------------------
+// pagination variables
+//--------------------------------------------------
+$iconSmall: 24;
+$iconMedium: 40;
+//--------------------------------------------------
+// pagination
+//--------------------------------------------------
+.pagination {
+  background-color: rgba($black, 0.8);
+  color: $white;
+  
+  @include breakpoint($small) { 
+    height: rem-calc(74);
+  }
+
+  &__next, &__previous {
+    margin-top: rem-calc(14);
+    padding-top: rem-calc(18);
+
+    @include breakpoint($small) {
+      max-width: rem-calc(400);
+    }
+  }
+
+  &__text {
+    font-size: rem-calc(18);
+    width: calc(100% - #{$iconSmall}px);
+
+    @include breakpoint($small) { 
+      font-size: rem-calc(18);
+      width: calc(100% - #{$iconMedium}px); 
+    }
+  }
+
+  &__icon {
+    margin-left: rem-calc(18); 
+    width: rem-calc($iconSmall); height: rem-calc(15);
+
+    @include breakpoint($small) {
+      width: rem-calc($iconMedium); height: rem-calc(19);
+    }
+  }
+}

@@ -1,8 +1,8 @@
-<div class="pagination">
-  <nav-buttons
+<div class="pagination flex flex-h-between flex-v-center">
+  <pagination
     :current-chapter="<%= @chapter_number.to_i %>"
     :previous-chapter="<%= previous_chapter(@chapter_number) %>"
     :next-chapter="<%= next_chapter(@chapter_number) %>"
-  ></nav-buttons>
+  ></pagination>
 </div>
 

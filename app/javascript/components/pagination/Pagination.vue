@@ -36,16 +36,22 @@ export default {
   return {
    previousChapterNumber: this.currentChapter - 1,
    nextChapterNumber: this.currentChapter + 1,
+   isMobile: false
   };
+ },
+ mounted() {
+
  },
  computed: {
   previousChapterText() {
+   if (this.previousChapter && this.isMobile) { return 'Previous'; }
    return this.previousChapter ? `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}` : '';
   },
   nextChapterText() {
+    if (this.nextChapter && this.isMobile) { return 'Next'; }
    return this.nextChapter ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}` : '';
-  },
- },
+  }
+ }
 };
 </script>
 

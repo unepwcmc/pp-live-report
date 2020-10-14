@@ -6,7 +6,7 @@
     background-color: $black;
     height: rem-calc(48);
 
-    @include breakpoint($small) { height: rem-calc(61) };
+    @include breakpoint($small) { height: rem-calc(61); }
 
     @include breakpoint($medium) { height: rem-calc(74); }
   }

@@ -7,7 +7,6 @@
     @include flex-column;
     @include flex-v-center;
     background-color: $black;
-    border: 1px solid $white; // To be removed but just put in place so you can see the outline of the footer
     color: $white;
     padding-top: rem-calc(70);
     padding-bottom: rem-calc(20);
@@ -101,10 +100,13 @@
     margin-top: rem-calc(22);
     margin-bottom: rem-calc(22);
     opacity: .6;
-    max-width: rem-calc(460);
-
+    
     @include breakpoint($small) {
       font-size: rem-calc(12);
+      max-width: rem-calc(400);
+    }
+    @include breakpoint($medium) {
+      max-width: rem-calc(460);
     }
   }
 

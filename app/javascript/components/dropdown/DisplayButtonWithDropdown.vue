@@ -2,6 +2,7 @@
  <div>
   <button class="button--display">
    <span class="button--display text">{{ selectedOption | upcase }}</span>
+   <i class="icon--dropdown"></i>
    <!-- Popup goes here -->
   </button>
  </div>

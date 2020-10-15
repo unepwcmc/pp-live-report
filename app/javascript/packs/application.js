@@ -14,6 +14,12 @@ if (window._railsEnv === 'production') {
     checkDuplicatedScript: true
   })
 }
+else if (window._railsEnv === 'staging') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-129227134-2',
+    checkDuplicatedScript: true
+  })
+}
 Vue.use(TurbolinksAdapter)
 
 // store

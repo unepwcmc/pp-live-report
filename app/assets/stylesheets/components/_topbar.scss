@@ -16,7 +16,7 @@
   }
   
     &__logo {
-      width: auto; height: rem-calc(24);
+      width: auto; height: rem-calc(30);
 
       @include breakpoint($small) { height: rem-calc(44); }
       @include breakpoint($medium) { height: rem-calc(48); }

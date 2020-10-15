@@ -17,11 +17,13 @@
 
 <script>
 import mixinResponsive from '../../mixins/mixinResponsive.js';
+import mixinSlideOut from '../../mixins/mixinSlideOut.js';
 
 export default {
- name: "PaginationButtons",
+ name: "Pagination",
  mixins: [ 
-   mixinResponsive
+   mixinResponsive,
+   mixinSlideOut
   ],
  props: {
   currentChapter: {

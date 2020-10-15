@@ -1,0 +1,8 @@
+.multilingual {
+  background-color: $grey-xdark;
+  min-height: rem-calc(630);
+
+  @include breakpoint($small) {
+    min-height: rem-calc(650);
+  }
+}

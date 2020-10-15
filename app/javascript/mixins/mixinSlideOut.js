@@ -1,12 +1,12 @@
 export default ({scrollPoint = 150, className, offset}) => ({
-  created () {
-    window.addEventListener('scroll', this.slideOutOnScroll(className, offset));
+  created() {
+    window.addEventListener('scroll', this.slideOutOnScroll);
   },
-  destroyed () {
-    window.removeEventListener('scroll', this.slideOutOnScroll(className, offset));
+  destroyed() {
+    window.removeEventListener('scroll', this.slideOutOnScroll);
   },
   methods: {
-    slideOutOnScroll(className, offset) {
+    slideOutOnScroll() {
       if (document.body.scrollTop > scrollPoint || document.documentElement.scrollTop > scrollPoint) {
         document.querySelector(className).style.bottom = "0";
       } else {

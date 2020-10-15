@@ -23,7 +23,10 @@ export default {
  name: "Pagination",
  mixins: [ 
    mixinResponsive,
-   mixinSlideOut('.pagination', '-74px')
+   mixinSlideOut({ 
+    className: '.pagination', 
+    offset: '-74px' 
+  })
   ],
  props: {
   currentChapter: {

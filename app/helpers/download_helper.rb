@@ -1,8 +1,12 @@
 module DownloadHelper
+  PDF_DIR = 'public'
+
   def download_links_array
-    # TODO - to_json renders a string...why? Not rendering an array properly
-    [
-      { url: 'pdf/Protected_Planet_Report_2018.pdf', title: '2018 report' }
-    ].to_json
+    Dir.glob('**/*.pdf', base: PDF_DIR).each do |pdf|
+      {
+        url: pdf,
+        title: "#{pdf.match(/\d+/)[0]} Report"
+      }
+    end.to_json 
   end
 end

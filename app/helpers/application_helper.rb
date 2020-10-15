@@ -26,8 +26,6 @@ module ApplicationHelper
     url_encode(request.base_url)
   end
 
- 
-
   def active_nav_item?(test_path)
     request.fullpath == test_path
   end

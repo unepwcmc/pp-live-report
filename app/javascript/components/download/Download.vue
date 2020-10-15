@@ -44,9 +44,7 @@ export default {
   },
   downloadLinks: {
    type: Array,
-   default: () => [
-    { url: "pdf/Protected_Planet_Report_2018.pdf", title: "2018 report" }
-   ],
+   required: true,
   },
  },
  data() {

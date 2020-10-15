@@ -2,15 +2,15 @@
  <div class="flex flex-v-center">
   <template v-if="isMobile">
    <button @click="togglePopup" class="button--share icon--share"></button>
-    <div :class="[ isActive ? 'social__target--active' : 'social__target' ]">
-      <popup
-        :options="media"
-        :classes="'social__popup'"
-        :showText="false"
-        :event-element="'Shared via social media'"
-        @optionSelected="clickOption(option)"
-      ></popup>
-    </div>
+   <div :class="[isActive ? 'social__target--active' : 'social__target']">
+    <popup
+     :options="media"
+     :classes="'social__popup'"
+     :showText="false"
+     :event-element="'Shared via social media'"
+     @optionSelected="clickOption(option)"
+    ></popup>
+   </div>
   </template>
   <template v-else>
    <a
@@ -33,12 +33,18 @@ import Popup from "../dropdown/Popup.vue";
 export default {
  name: "social-share",
  components: { Popup },
- mixins: [ mixinResponsive, mixinPopupCloseListeners({closeCallback: 'togglePopup', toggleVariable: 'isActive'}) ],
+ mixins: [
+  mixinResponsive,
+  mixinPopupCloseListeners({
+   closeCallback: "togglePopup",
+   toggleVariable: "isActive",
+  }),
+ ],
  props: {
   media: {
    type: Array,
    required: true,
-  }
+  },
  },
 
  data() {
@@ -48,7 +54,9 @@ export default {
   };
  },
  mounted() {
-  this.currentBreakpoint === 'small' ? this.isMobile = true : this.isMobile = false;
+  this.currentBreakpoint === "small"
+   ? (this.isMobile = true)
+   : (this.isMobile = false);
  },
  methods: {
   togglePopup() {
@@ -57,14 +65,14 @@ export default {
   clickOption(option) {
    this.isActive = false;
    if (this.$ga) {
-     this.$ga.event(this.eventElement, `Shared via ${option.title}`);
+    this.$ga.event(this.eventElement, `Shared via ${option.title}`);
    }
   },
  },
-watch: {
+ watch: {
   currentBreakpoint(val) {
-    val === 'small' ? this.isMobile = true : this.isMobile = false;
-  }
-}
+   val === "small" ? (this.isMobile = true) : (this.isMobile = false);
+  },
+ },
 };
 </script>

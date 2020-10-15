@@ -3,6 +3,8 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
+  before_action :load_summary_text
+
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
     '#66c2a5',
@@ -763,5 +765,12 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @data = @chapters_data[9]
+  end
+
+  private
+
+  def load_summary_text 
+    # TODO - need summary text in different languages 
+    
   end
 end

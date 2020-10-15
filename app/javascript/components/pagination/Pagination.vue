@@ -16,6 +16,10 @@
 </template>
 
 <script>
+// TODO - I want to import SASS variables from the pagination partial stylesheet
+// so I can use them as the offset variable and control is placed in the hands of 
+// SCSS rather than allowing the offset to be arbitrarily set here in the component
+
 import mixinResponsive from "../../mixins/mixinResponsive.js";
 import mixinSlideOut from "../../mixins/mixinSlideOut.js";
 
@@ -25,7 +29,7 @@ export default {
   mixinResponsive,
   mixinSlideOut({
    className: ".pagination",
-   offset: '-74px'
+   offset: '-74px' // NB: This offset should match the height of the button bar for best results
   }),
  ],
  props: {

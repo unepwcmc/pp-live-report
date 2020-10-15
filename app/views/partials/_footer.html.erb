@@ -1,13 +1,5 @@
 <footer>
-  <div class="footer__main gutters flex flex-v-center flex-h-between">
-    <div>
-      <p class="footer__photo-credits no-margin"><%= @data['photo_credits'].html_safe %></p>
-
-      <p class="footer__citation no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
-
-      <p class="footer__copyright no-margin">Protected Planet <%= Date.today.year %>. All rights reserved.</p>
-    </div>
-    
+  <div class="footer__main gutters">  
     <div class="footer__partner-logos">
       <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
@@ -28,6 +20,14 @@
       <%= link_to 'https://protectedplanet.net/', title: 'Visit Protected Planet', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'logos/logo-protected-planet.svg', alt: 'Protected Planet logo', class: 'footer__logo' %>
       <% end %>
+    </div>
+    <hr class="footer__hr"/>
+    <div class="footer__text flex flex-h-between">
+      <p class="footer__citation no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
+      <div class="footer__credits">
+        <p class="footer__photo-credits no-margin"><%= @data['photo_credits'].html_safe %></p>
+        <p class="footer__copyright no-margin">Protected Planet <%= Date.today.year %>. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>

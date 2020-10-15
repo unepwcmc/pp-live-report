@@ -16,8 +16,13 @@
 </template>
 
 <script>
+import mixinResponsive from '../../mixins/mixinResponsive.js';
+
 export default {
  name: "PaginationButtons",
+ mixins: [ 
+   mixinResponsive
+  ],
  props: {
   currentChapter: {
    type: Number,
@@ -40,7 +45,7 @@ export default {
   };
  },
  mounted() {
-
+  this.isMobile = this.currentBreakpoint === 'small' ? true : false;
  },
  computed: {
   previousChapterText() {
@@ -51,7 +56,12 @@ export default {
     if (this.nextChapter && this.isMobile) { return 'Next'; }
    return this.nextChapter ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}` : '';
   }
- }
+ },
+ watch: {
+   currentBreakpoint(val) {
+     this.isMobile = val === 'small' ? true : false;
+   }
+ },
 };
 </script>
 

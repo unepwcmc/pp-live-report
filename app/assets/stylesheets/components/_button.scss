@@ -84,6 +84,12 @@
     font-weight: $medium;
   }
 
+  &--multilingual {
+    border: 1.5px solid $white;
+    border-radius: 1px;
+    width: rem-calc(90);
+  }
+
   &--reset {
     cursor: pointer;
     margin: 0;

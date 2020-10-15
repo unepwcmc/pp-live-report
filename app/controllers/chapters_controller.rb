@@ -772,13 +772,16 @@ class ChaptersController < ApplicationController
   def load_summary_text 
     # TODO - need actual summary text in different languages 
     summaries_path = 'config/locales/summary'.freeze
-    summaries = []
 
-    Dir.children(summaries_path).each do |locale|
+    @summaries = Dir.children(summaries_path).map do |locale|
       yml = YAML.load_file(File.join(Rails.root, summaries_path, locale))
-      summaries << yml["#{locale.split('.')[0]}"]['summary']['text']
-    end
-
-    summaries
+      locale_iso = locale.split('.')[0]
+      
+      {
+        title: yml["#{locale_iso}"]['summary']['title'],
+        text: yml["#{locale_iso}"]['summary']['text'],
+        locale: locale_iso
+      }
+    end.to_json
   end
 end

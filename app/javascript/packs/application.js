@@ -62,7 +62,7 @@ document.addEventListener('turbolinks:load', () => {
       MapStatistics,
       NavBurger,
       NavLink,
-      SelectText
+      SelectText,
       SocialShare
     }
   })

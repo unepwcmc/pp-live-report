@@ -1,0 +1,10 @@
+.multilingual {
+  padding-top: rem-calc(100);
+  padding-bottom: rem-calc(100);
+  background-color: $grey-xdark;
+  height: rem-calc(630);
+
+  @include breakpoint($small) {
+    height: rem-calc(650);
+  }
+}

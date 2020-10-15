@@ -1,0 +1,25 @@
+.select {
+  &--text {
+    margin: 0 auto;
+    width: rem-calc(768);
+
+    &__text {
+      color: $white;
+      font-size: rem-calc(16);
+      overflow-y: scroll;
+      max-height: rem-calc(330);
+    }
+
+    &__title {
+      color: $white;
+    }
+
+    &__top-section {
+      @include flex;
+      @include flex-h-between;
+      @include flex-v-center;
+    }
+
+  }
+
+}

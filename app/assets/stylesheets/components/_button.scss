@@ -84,10 +84,22 @@
     font-weight: $medium;
   }
 
-  &--multilingual {
-    border: 1.5px solid $white;
-    border-radius: 1px;
+  &--display {
+    @include flex;
+    @include flex-h-between;
+    @include flex-v-center;
+    background-color: transparent;
+    border: 2px solid rgba($white, 0.8);
+    border-radius: 2px;
+    padding: rem-calc(4 6);
     width: rem-calc(90);
+
+    &.text {
+      border: none;
+      color: rgba($white, 0.8);
+      font-size: rem-calc(16);
+      opacity: 0.8;
+    }
   }
 
   &--reset {

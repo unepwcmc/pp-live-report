@@ -1,21 +1,20 @@
 <template>
- <div>
-  <div class="multilingual__top-section">
-   <h1>{{ selectedOption.title }}</h1>
+ <div class="select--text">
+  <div class="select--text__top-section">
+   <h2 class="select--text__title">{{ selectedOption.title }}</h2>
    <display-button-with-dropdown
-    class="button---multilingual"
     :options="languages"
     :selected-option="languages[0]"
    ></display-button-with-dropdown>
   </div>
-  <p class="multilingual__text">{{ selectedOption.text }}</p>
+  <p class="select--text__text">{{ selectedOption.text }}</p>
  </div>
 </template>
 
 <script>
 // TODO - wait for topbar + download branch to be merged in first
-// import Popup from '../../dropdown/Popup.vue'
-import DisplayButtonWithDropdown from "../../dropdown/DisplayButtonWithDropdown.vue";
+// import Popup from '../dropdown/Popup.vue'
+import DisplayButtonWithDropdown from "../dropdown/DisplayButtonWithDropdown.vue";
 
 export default {
  name: "SelectText",
@@ -32,7 +31,7 @@ export default {
  data() {
   return {
    selectedOption: this.text[0],
-   languages: this.text.map((obj) => { obj.locale })
+   languages: this.text.map((obj) => { return obj.locale })
   };
  },
  methods: {

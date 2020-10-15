@@ -16,18 +16,18 @@
 </template>
 
 <script>
-import mixinResponsive from '../../mixins/mixinResponsive.js';
-import mixinSlideOut from '../../mixins/mixinSlideOut.js';
+import mixinResponsive from "../../mixins/mixinResponsive.js";
+import mixinSlideOut from "../../mixins/mixinSlideOut.js";
 
 export default {
  name: "Pagination",
- mixins: [ 
-   mixinResponsive,
-   mixinSlideOut({ 
-    className: '.pagination', 
-    offset: '-74px' 
-  })
-  ],
+ mixins: [
+  mixinResponsive,
+  mixinSlideOut({
+   className: ".pagination",
+   offset: '-74px'
+  }),
+ ],
  props: {
   currentChapter: {
    type: Number,
@@ -46,26 +46,34 @@ export default {
   return {
    previousChapterNumber: this.currentChapter - 1,
    nextChapterNumber: this.currentChapter + 1,
-   isMobile: false
+   isMobile: false,
   };
  },
  mounted() {
-  this.isMobile = this.currentBreakpoint === 'small' ? true : false;
+  this.isMobile = this.currentBreakpoint === "small" ? true : false;
  },
  computed: {
   previousChapterText() {
-   if (this.previousChapter && this.isMobile) { return 'Previous'; }
-   return this.previousChapter ? `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}` : '';
+   if (this.previousChapter && this.isMobile) {
+    return "Previous";
+   }
+   return this.previousChapter
+    ? `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}`
+    : "";
   },
   nextChapterText() {
-    if (this.nextChapter && this.isMobile) { return 'Next'; }
-   return this.nextChapter ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}` : '';
-  }
+   if (this.nextChapter && this.isMobile) {
+    return "Next";
+   }
+   return this.nextChapter
+    ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}`
+    : "";
+  },
  },
  watch: {
-   currentBreakpoint(val) {
-     this.isMobile = val === 'small' ? true : false;
-   }
+  currentBreakpoint(val) {
+   this.isMobile = val === "small" ? true : false;
+  },
  },
 };
 </script>

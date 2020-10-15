@@ -12,12 +12,14 @@
 
     &__title {
       color: $white;
+      margin-bottom: 0;
     }
 
     &__top-section {
       @include flex;
       @include flex-h-between;
       @include flex-v-center;
+      margin-bottom: rem-calc(90);
     }
 
   }

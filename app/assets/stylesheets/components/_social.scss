@@ -26,7 +26,7 @@ $popup-share-arrow-height: rem-calc(11);
 
 @mixin social-icon-white ($image) {
   @include social-basic($image);
-  width: rem-calc(26); height: rem-calc(30);
+  width: rem-calc(41); height: rem-calc(41);
 
   &:first-child { 
     margin-top: rem-calc(10);

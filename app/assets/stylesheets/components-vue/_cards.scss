@@ -1,21 +1,36 @@
-&--themes {
-  .cards {
-    &__cards { 
-      @include flex; 
-      @include flex-h-between; 
-      @include flex-wrap; 
+.cards {
+  &--case-studies {
+    background-color: $grey;
+    margin-top: rem-calc(42);
+    margin-bottom: rem-calc(55);
+
+    .cards {
+      &__cards { 
+        @include flex; 
+        @include flex-h-between; 
+        @include flex-wrap; 
+      }
+    }
+  
+    .card--case-study {
+      @include flex;
+      @include flex-column;
+      border: 1px solid $black;
+      border-radius: 3px;
+      padding: rem-calc(26 141 0 31);
+      margin-bottom: rem-calc(22);
+      text-decoration: none;
+      height: rem-calc(360);
+      width: 100%;
+      
+      @include breakpoint($medium) { width: calc(50% - 10px); };
+  
+      &:nth-child(3n) { 
+        width: 100%; height: rem-calc(460); 
+  
+        @include breakpoint($medium) { padding-right: 60%; };
+      }
     }
   }
 
-  .card--theme {
-    width: 100%;
-    
-    @include breakpoint($medium) { width: calc(50% - 10px); };
-
-    &:nth-child(3n) { 
-      width: 100%; height: rem-calc(460); 
-
-      @include breakpoint($medium) { padding-right: 50%; };
-    }
-  }
 }

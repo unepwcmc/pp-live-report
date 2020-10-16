@@ -2,6 +2,8 @@ class ChaptersController < ApplicationController
   include Helpers
   include YamlHelpers
   layout 'chapter'
+  
+  before_action :populate_case_studies
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -763,5 +765,17 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @data = @chapters_data[9]
+  end
+
+  private
+
+  def populate_case_studies
+    # TODO - Get case study texts 
+    temp_title = "Case Study"
+    temp_text = "The World Database on Protected Areas (WDPA) is the most comprehensive global database on terrestrial and marine protected areas."
+    @items = []
+    4.times.each do
+      @items << { text: temp_text, title: temp_title, full_path: '#' }
+    end
   end
 end

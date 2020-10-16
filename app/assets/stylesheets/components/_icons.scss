@@ -9,6 +9,17 @@
 
     display: inline-block;
   }
+  
+  &--circle-chevron-white { 
+    background-image: image_url("icons/circle-chevron-white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+
+    width: rem-calc(34); height: rem-calc(34);
+  }
 
   &--download {
     background-image: image-url('icons/download.svg');
@@ -29,4 +40,5 @@
 
     @include breakpoint($small) { width: rem-calc(30); height: rem-calc(28); }
   }
+
 }

@@ -1,7 +1,7 @@
-<div class="cards--themes container">
+<div class="cards--case-studies container">
   <div class="cards__cards">
-    <% @items[:cards].each do |card| %>
-      <%= render partial: 'partials/sub_partials/themes', locals: { theme: card } %>
+    <% @items.each do |card| %>
+      <%= render partial: 'partials/sub_partials/case-study', locals: { case_study: card } %>
     <% end %>
   </div>
 </div>

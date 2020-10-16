@@ -1,0 +1,19 @@
+.card {
+  &--case-study {
+    color: $white;
+
+    .icon--circle-chevron-white {
+      margin-bottom: rem-calc(28);
+    }
+  }
+
+  &__title {
+    font-weight: $bold;
+  }
+
+  &__summary {
+    font-size: rem-calc(16);
+    flex-grow: 1;
+  }
+
+}

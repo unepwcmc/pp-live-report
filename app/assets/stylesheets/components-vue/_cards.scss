@@ -1,6 +1,23 @@
+// Background image population of cards - may need a unique fourth picture in the event of four case studies
+$card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x.png');
+$background-gradient: linear-gradient(270deg, rgba($white, 0.1) 0%, rgba($black, 0.5) 100%);
+
+// Mixin applying background image 
+@mixin background-image($images, $gradient: '') {
+  @for $i from 1 through length($images) { 
+    &:nth-child(#{$i}) {
+      $image: nth($images, $i);
+
+      background: $gradient, image-url("cards/#{$image}");
+      background-position: center;
+      background-size: cover;
+    } 
+  }
+}
+
+// Styles
 .cards {
   &--case-studies {
-    background-color: $grey;
     margin-top: rem-calc(42);
     margin-bottom: rem-calc(55);
 
@@ -13,10 +30,9 @@
     }
   
     .card--case-study {
+      @include background-image($card-images, $background-gradient);
       @include flex;
       @include flex-column;
-      border: 1px solid $black;
-      border-radius: 3px;
       padding: rem-calc(26 141 0 31);
       margin-bottom: rem-calc(22);
       text-decoration: none;
@@ -24,7 +40,7 @@
       width: 100%;
       
       @include breakpoint($medium) { width: calc(50% - 10px); };
-  
+
       &:nth-child(3n) { 
         width: 100%; height: rem-calc(460); 
   

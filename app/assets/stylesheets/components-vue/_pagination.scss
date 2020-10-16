@@ -50,6 +50,9 @@ $pagination-height-lg: rem-calc(74);
 
     @include breakpoint($small) { 
       font-size: rem-calc(18);
+      max-width: rem-calc(300);
+    }
+    @include breakpoint($medium) {
       max-width: rem-calc(600);
     }
   }

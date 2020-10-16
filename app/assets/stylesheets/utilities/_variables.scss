@@ -57,10 +57,13 @@ $black-gradient: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%
 //--------------------------------------------------
 // fonts
 //--------------------------------------------------
-$font-museo: 'MuseoSans', sans-serif;
+$hind-siliguri: 'Hind Siliguri';
+$playfair-display: 'Playfair Display';
 
-$body-font: $font-museo;
+$body-font: $hind-siliguri;
 $body-font-color: $black;
+
+$header-font: $playfair-display;
 
 $body-line-height: 1.4;
 

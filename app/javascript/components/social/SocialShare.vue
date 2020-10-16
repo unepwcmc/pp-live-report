@@ -18,7 +18,6 @@
     :key="index"
     :href="medium.url"
     :class="medium.customClass"
-    :event-element="`Shared via ${medium.title}`"
     target="_blank"
     @click="recordShare(medium.title)"
    >
@@ -47,6 +46,10 @@ export default {
    type: Array,
    required: true,
   },
+  eventElement: {
+    type: String,
+    default: ""
+  }
  },
 
  data() {

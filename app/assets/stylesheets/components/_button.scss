@@ -26,7 +26,6 @@
 }
 
 @mixin button-nav($image) {
-  // TODO - need icons with a border 
   background-image: image-url($image);
   background-position: center;
   background-repeat: no-repeat;
@@ -36,12 +35,12 @@
 
   &:hover { opacity: .75; } 
 
-  height: rem-calc(9);
-  width: rem-calc(5);
+  height: rem-calc(24);
+  width: rem-calc(24);
 
   @include breakpoint($small) {
-    height: rem-calc(14);
-    width: rem-calc(8);
+    height: rem-calc(40);
+    width: rem-calc(40);
   }
 }
 
@@ -107,7 +106,6 @@
 
   &--previous {
     @include button-nav('icons/previous.svg');
- 
   }
 
   &--next {

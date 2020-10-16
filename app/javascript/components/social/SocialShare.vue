@@ -7,7 +7,7 @@
      :options="media"
      :classes="'social__popup'"
      :showText="false"
-     :event-element="'Shared via social media'"
+     :event-element="'Share button clicked'"
      @optionSelected="clickOption"
     ></popup>
    </div>

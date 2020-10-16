@@ -8,7 +8,7 @@
      :classes="'social__popup'"
      :showText="false"
      :event-element="'Shared via social media'"
-     @optionSelected="clickOption(option)"
+     @optionSelected="clickOption"
     ></popup>
    </div>
   </template>
@@ -18,7 +18,9 @@
     :key="index"
     :href="medium.url"
     :class="medium.customClass"
+    :event-element="`Shared via ${medium.title}`"
     target="_blank"
+    @click="recordShare(medium.title)"
    >
    </a>
   </template>
@@ -64,10 +66,13 @@ export default {
   },
   clickOption(option) {
    this.isActive = false;
-   if (this.$ga) {
-    this.$ga.event(this.eventElement, `Shared via ${option.title}`);
-   }
+   this.recordShare(option.title);
   },
+  recordShare(value) {
+    if (this.$ga) {
+     this.$ga.event(this.eventElement, `Shared via ${value}`);
+    }
+  }
  },
  watch: {
   currentBreakpoint(val) {

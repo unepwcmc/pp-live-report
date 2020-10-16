@@ -13,6 +13,7 @@ body {
 }
 
 h1 {
+  font-family: $header-font;
   font-weight: $thin;
   line-height: 1.1;
   margin: 0; 
@@ -43,6 +44,7 @@ h1 {
 }
 
 h2 {
+  font-family: $header-font;
   font-size: rem-calc(20);
   font-weight: $light;
   margin: rem-calc(0 0 14 0);
@@ -73,6 +75,7 @@ h2 {
 }
 
 h3 {
+  font-family: $header-font;
   font-size: rem-calc(16);
   font-weight: $fw-black;
   margin: rem-calc(0 0 6 0);
@@ -113,6 +116,7 @@ h3 {
 }
 
 h4 {
+  font-family: $header-font;
   font-size: rem-calc(14);
   font-weight: $light;
   margin: rem-calc(0 0 6 0);
@@ -150,9 +154,6 @@ ul {
 
 li {  
   margin-bottom: rem-calc(10);
-}
-
-blockquote {
 }
 
 //--------------------------------------------------

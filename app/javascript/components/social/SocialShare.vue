@@ -73,7 +73,7 @@ export default {
   },
   recordShare(value) {
     if (this.$ga) {
-     this.$ga.event(this.eventElement, `Shared via ${value}`);
+     this.$ga.event(this.eventElement, value);
     }
   }
  },

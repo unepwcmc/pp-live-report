@@ -1,8 +1,12 @@
 // Background image population of cards - may need a unique fourth picture in the event of four case studies
 $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x.png');
-$background-gradient: linear-gradient(270deg, rgba($white, 0.1) 0%, rgba($black, 0.5) 100%);
 
-// Mixin applying background image 
+// Background gradient mixin - takes two colours at present
+@function background-gradient($orientation, $first-colour, $second-colour, $first-percent: 0%, $second-percent: 100%) {
+  @return linear-gradient($orientation, $first-colour $first-percent, $second-colour $second-percent);
+}
+
+// Mixin applying background image - takes an optional gradient argument
 @mixin background-image($images, $gradient: '') {
   @for $i from 1 through length($images) { 
     &:nth-child(#{$i}) {
@@ -30,9 +34,10 @@ $background-gradient: linear-gradient(270deg, rgba($white, 0.1) 0%, rgba($black,
     }
   
     .card--case-study {
-      @include background-image($card-images, $background-gradient);
+      @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.5)));
       @include flex;
       @include flex-column;
+      border-radius: 5px;
       padding: rem-calc(26 141 0 31);
       margin-bottom: rem-calc(22);
       text-decoration: none;
@@ -41,8 +46,12 @@ $background-gradient: linear-gradient(270deg, rgba($white, 0.1) 0%, rgba($black,
       
       @include breakpoint($medium) { width: calc(50% - 10px); };
 
+      &:hover {
+        @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.8)));
+      }
+
       &:nth-child(3n) { 
-        width: 100%; height: rem-calc(460); 
+        flex-grow: 1; 
   
         @include breakpoint($medium) { padding-right: 60%; };
       }

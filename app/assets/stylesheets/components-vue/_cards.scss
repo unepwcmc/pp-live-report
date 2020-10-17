@@ -10,11 +10,13 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
 @mixin background-image($images, $gradient: '') {
   @for $i from 1 through length($images) { 
     &:nth-child(#{$i}) {
-      $image: nth($images, $i);
-
-      background: $gradient, image-url("cards/#{$image}");
-      background-position: center;
-      background-size: cover;
+      div:nth-of-type(1) {
+        $image: nth($images, $i);
+  
+        background: $gradient, image-url("cards/#{$image}");
+        background-position: center;
+        background-size: cover;
+      }
     } 
   }
 }
@@ -30,32 +32,22 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
         @include flex; 
         @include flex-h-between; 
         @include flex-wrap; 
-      }
-    }
-  
-    .card--case-study {
-      @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.5)));
-      @include flex;
-      @include flex-column;
-      border-radius: 5px;
-      padding: rem-calc(26 141 0 31);
-      margin-bottom: rem-calc(22);
-      text-decoration: none;
-      height: rem-calc(360);
-      width: 100%;
+
+        .card--case-study {
+          @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4)));
+
+          &:hover {
+            @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), $black));
+          }
+
+          &:nth-child(3n) { 
+            flex-grow: 1; 
       
-      @include breakpoint($medium) { width: calc(50% - 10px); };
-
-      &:hover {
-        @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.8)));
-      }
-
-      &:nth-child(3n) { 
-        flex-grow: 1; 
-  
-        @include breakpoint($medium) { padding-right: 60%; };
+            @include breakpoint($medium) { padding-right: 60%; };
+          }
+      
+        }
       }
     }
   }
-
 }

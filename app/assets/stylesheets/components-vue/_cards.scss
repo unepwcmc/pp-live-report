@@ -8,16 +8,17 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
 
 // Mixin applying background image - takes an optional gradient argument
 @mixin background-image($images, $gradient: '') {
-  @for $i from 1 through length($images) { 
+  @for $i from 1 through length($images) {
     &:nth-child(#{$i}) {
       div:nth-of-type(1) {
         $image: nth($images, $i);
-  
-        background: $gradient, image-url("cards/#{$image}");
+
+        background: $gradient,
+        image-url("cards/#{$image}");
         background-position: center;
         background-size: cover;
       }
-    } 
+    }
   }
 }
 
@@ -28,10 +29,10 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
     margin-bottom: rem-calc(55);
 
     .cards {
-      &__cards { 
-        @include flex; 
-        @include flex-h-between; 
-        @include flex-wrap; 
+      &__cards {
+        @include flex;
+        @include flex-h-between;
+        @include flex-wrap;
 
         .card--case-study {
           @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4)));
@@ -39,13 +40,6 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
           &:hover {
             @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), $black));
           }
-
-          &:nth-child(3n) { 
-            flex-grow: 1; 
-      
-            @include breakpoint($medium) { padding-right: 60%; };
-          }
-      
         }
       }
     }

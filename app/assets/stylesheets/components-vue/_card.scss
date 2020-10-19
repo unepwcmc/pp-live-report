@@ -9,10 +9,14 @@
     padding: 0;
     text-align: left;
     text-decoration: none;
-    height: rem-calc(360);
+    height: rem-calc(190);
     width: 100%;
     overflow: hidden;
     position: relative;
+
+    @include breakpoint($small) {
+      height: rem-calc(360);
+    }
     
     @include breakpoint($medium) { 
       width: calc(50% - 10px); 
@@ -51,18 +55,37 @@
     @include flex;
     @include flex-column;
     border-radius: 5px;
-    padding: rem-calc(26 141 0 31);
+    padding: rem-calc(15 0 20 20);
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: 2;
+
+    @include breakpoint($small) {
+      padding: rem-calc(26 141 0 31);
+    }
   }
 
   &__summary {
-    font-size: rem-calc(16);
+    display: none;
+
+    @include breakpoint($small){
+      font-size: rem-calc(16);
+      flex-grow: 1;
+      display: block;
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(32);
     flex-grow: 1;
+
+    @include breakpoint($small) {
+      font-size: rem-calc(40);
+      flex-grow: 0;
+    }
   }
 
 }

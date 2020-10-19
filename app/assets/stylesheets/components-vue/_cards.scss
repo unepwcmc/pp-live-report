@@ -3,10 +3,10 @@
 $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x.png');
 
 // Mixin applying background image - takes an optional gradient argument
-@mixin background-image($images, $gradient: '') {
+@mixin background-image($images, $classname, $gradient: '') {
   @for $i from 1 through length($images) {
     &:nth-child(#{$i}) {
-      & > div:nth-of-type(1) {
+      & > #{$classname} {
         $image: nth($images, $i);
 
         background: $gradient,
@@ -31,10 +31,10 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
         @include flex-wrap;
 
         .card--case-study {
-          @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4)));
+          @include background-image($card-images, '.card__image', background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4)));
 
           &:hover {
-            @include background-image($card-images, background-gradient(270deg, rgba($white, 0.1), $black));
+            @include background-image($card-images, '.card__image', background-gradient(270deg, rgba($white, 0.1), $black));
           }
         }
       }

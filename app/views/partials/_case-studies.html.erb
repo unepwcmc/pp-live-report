@@ -1,7 +1,9 @@
 <div class="cards--case-studies container">
   <div class="cards__cards">
     <% @items.each do |card| %>
-      <%= render partial: 'partials/sub_partials/case-study', locals: { case_study: card } %>
+      <card-image
+        :case-study="<%= card.to_json %>"
+      ></card-image>
     <% end %>
   </div>
 </div>

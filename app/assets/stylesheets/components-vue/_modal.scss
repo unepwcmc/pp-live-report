@@ -28,10 +28,12 @@
   left: 0;
   z-index: 5;
 
+  overflow-y: scroll;
+
   @include breakpoint($small) {
     border-radius: $radius-global;
     padding: rem-calc(89 118);
-    width: 60%; height: 90vh;
+    width: 67%; height: 90vh;
 
     top: 50%;
     left: 50%;
@@ -62,9 +64,5 @@
   .modal__title { 
     font-weight: $bold;
     margin-top: 0; 
-  }
-
-  .modal__text {
-    overflow-y: scroll;
   }
 }

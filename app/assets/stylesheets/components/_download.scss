@@ -18,7 +18,7 @@ $popup-download-arrow-height: rem-calc(8);
     width: max-content;
 
     position: absolute;
-    top: calc(100% + #{$popup-download-arrow-height * 1.5});
+    top: calc(100% + #{$popup-download-arrow-height * 2});
     right: 8%;
 
     a {
@@ -34,7 +34,7 @@ $popup-download-arrow-height: rem-calc(8);
 
       position: absolute;
       top: -$popup-download-arrow-height;
-      right: calc(#{$popup-download-arrow-height}*2);
+      right: calc(#{$popup-download-arrow-height}*1.6);
     }
   }
 

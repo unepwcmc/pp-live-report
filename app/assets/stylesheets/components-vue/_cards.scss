@@ -6,7 +6,7 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
 @mixin background-image($images, $gradient: '') {
   @for $i from 1 through length($images) {
     &:nth-child(#{$i}) {
-      div:nth-of-type(1) {
+      & > div:nth-of-type(1) {
         $image: nth($images, $i);
 
         background: $gradient,

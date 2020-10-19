@@ -1,6 +1,15 @@
 //--------------------------------------------------
 // buttons mixins
 //--------------------------------------------------
+@mixin button-basic {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  &:hover { text-decoration: none; }
+}
+
 @mixin button-cta {
   background-color: $primary;
   color: $black;
@@ -23,6 +32,11 @@
 
     display: inline-block;
   }
+}
+
+@mixin button-close {
+  @include button-basic; 
+  @include icon-cross;
 }
 
 //--------------------------------------------------

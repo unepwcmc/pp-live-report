@@ -1,27 +1,50 @@
 <template>
-  <a href="#" :title="`View the case study: ${caseStudy.title}`" class="card--case-study" @click="openModal">
-    <div class="card__image"></div>
-      <div class="card__overlay">
-        <h2 class="card__title">{{ caseStudy.title }}</h2>
-        <p class="card__summary">{{ caseStudy.text }}</p>
-        <i class="icon--circle-chevron-white"></i>
-      </div>
-  </a>
+ <button
+  :title="`View the case study: ${caseStudy.title}`"
+  class="card--case-study"
+  @click="openModal"
+ >
+  <modal
+   v-if="isActive"
+   :text="caseStudy.text"
+   :is-active="isActive"
+   @modalClose="closeModal()"
+  ></modal>
+  <div class="card__image"></div>
+  <div class="card__overlay">
+   <h2 class="card__title">{{ caseStudy.title }}</h2>
+   <p class="card__summary">{{ caseStudy.summary }}</p>
+   <i class="icon--circle-chevron-white"></i>
+  </div>
+ </button>
 </template>
 
 <script>
-  export default {
-    name: 'CardImage',
-    props: {
-      caseStudy: {
-        type: Object,
-        required: true
-      },
-    },
-    methods: {
-      openModal() {
-        
-      }
-    },
+import Modal from "../modal/Modal.vue";
+
+export default {
+ name: "CardImage",
+ components: {
+  Modal,
+ },
+ props: {
+  caseStudy: {
+   type: Object,
+   required: true,
+  },
+ },
+ data() {
+  return {
+   isActive: false,
+  };
+ },
+ methods: {
+  openModal() {
+   this.isActive = true;
+  },
+  closeModal() {
+    this.isActive = false;
   }
+ },
+};
 </script>

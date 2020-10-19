@@ -21,6 +21,19 @@
     width: rem-calc(34); height: rem-calc(34);
   }
 
+  &--cross {
+    background-image: image_url("icons/cross.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+    width: rem-calc(23); 
+    height: rem-calc(23);
+
+
+  }
+
   &--download {
     background-image: image-url('icons/download.svg');
     background-size: cover;

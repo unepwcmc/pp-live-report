@@ -7,9 +7,14 @@
 
 .card {
   &--case-study {
+    appearance: none;
+    border: none;
     border-radius: 5px;
     color: $white;
+    cursor: pointer;
     margin-bottom: rem-calc(22);
+    padding: 0;
+    text-align: left;
     text-decoration: none;
     height: rem-calc(360);
     width: 100%;
@@ -22,7 +27,7 @@
       &:nth-child(3n) {
         flex-grow: 1;
 
-        div:nth-of-type(2) {
+        & > div:nth-of-type(2) {
           padding-right: 60%;
         }
       }

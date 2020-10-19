@@ -3,10 +3,10 @@
   <div class="modal-overlay" />
   <div class="modal--case-study">
    <div class="modal__content">
-    <button class="modal__close icon--cross" @click.self="closeModal()" />
-    <p class="modal__report">{{ text.report }}</p>
-    <h2 class="modal__title">{{ text.title }}</h2>
-    <p>{{ text.text }}</p>
+      <button class="modal__close icon--cross" @click.self="closeModal()" />
+      <p class="modal__report">{{ text.report }}</p>
+      <h2 class="modal__title">{{ text.title }}</h2>
+      <p>{{ text.text }}</p>
    </div>
   </div>
  </div>

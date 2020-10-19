@@ -4,7 +4,9 @@
 .modal-wrapper {
   display: none;
 
-  &.modal--active { display: block; }
+  &--active { 
+    display: block; 
+  }
 }
 
 .modal-overlay {
@@ -28,11 +30,9 @@
   left: 0;
   z-index: 5;
 
-  overflow-y: scroll;
-
   @include breakpoint($small) {
     border-radius: $radius-global;
-    padding: rem-calc(89 118);
+    padding: rem-calc(89 18 0 118);
     width: 67%; height: 90vh;
 
     top: 50%;
@@ -43,26 +43,42 @@
 
   .modal__content {
     color: black;
+    height: 100%;
+    padding-right: rem-calc(92);
+
     position: relative;
-  }
 
-  .modal__close {
-    border: none;
-    background-color: transparent;
-    color: none;
+    overflow-y: scroll;
 
-    position: absolute;
-    top: rem-calc(-70);
-    right: rem-calc(-100);
-  }
+    &::-webkit-scrollbar {
+      width: rem-calc(8);
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $grey-dark;
+      border-radius: $radius-global;
+    }
+    
+      .modal__close {
+        border: none;
+        background-color: transparent;
+        color: none;
+    
+        position: absolute;
+        top: rem-calc(-70);
+        right: rem-calc(-100);
+      }
+    
+      .modal__report {
+        color: rgba($grey, 0.8);
+        font-weight: $bold;
 
-  .modal__report {
-    color: rgba($grey, 0.8);
-    font-weight: $bold;
-  }
-
-  .modal__title { 
-    font-weight: $bold;
-    margin-top: 0; 
+        margin-top: rem-calc(10);
+      }
+    
+      .modal__title { 
+        font-weight: $bold;
+        margin-top: 0; 
+      }
   }
 }

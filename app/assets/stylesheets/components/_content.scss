@@ -27,9 +27,9 @@
     .content {
       &__icon {
         margin-bottom: rem-calc(30);
-        width: rem-calc(50); height: rem-calc(50);
+        width: rem-calc(60); height: rem-calc(60);
 
-        @include breakpoint($small) { width: rem-calc(60); height: rem-calc(60); }
+        @include breakpoint($small) { width: rem-calc(83); height: rem-calc(83); }
         @include breakpoint($medium) { 
           width: rem-calc(83); 
           height: rem-calc(83); 
@@ -51,7 +51,7 @@
         @include breakpoint($small) { 
           font-size: rem-calc(20); 
           line-height: 1.4;
-          max-width: rem-calc(750);
+          max-width: 52vw;
         }
 
         @include breakpoint($medium) { 

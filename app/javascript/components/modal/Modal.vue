@@ -1,7 +1,7 @@
 <template>
- <div :class="[isActive ? 'modal-wrapper--active' : 'modal-wrapper']">
+ <div :class="[ isActive ? 'modal-wrapper--active' : 'modal-wrapper' ]">
   <div class="modal--case-study">
-   <button class="modal__close icon--cross" @click.self="closeModal()" />
+   <button class="modal__close icon--cross" @click.self="modalClose" />
    <div class="modal__content">
     <p class="modal__report">{{ text.report }}</p>
     <h2 class="modal__title">{{ text.title }}</h2>
@@ -16,18 +16,18 @@ export default {
  name: "Modal",
 
  props: {
+   isActive: {
+     type: Boolean,
+     required: true
+   },
   text: {
    type: Object,
    required: true,
-  },
-  isActive: {
-   type: Boolean,
-   required: true,
-  },
+  }
  },
  methods: {
-  closeModal() {
-   this.$emit("closeModal");
+  modalClose() {
+   this.$emit('close-modal');
   },
  },
 };

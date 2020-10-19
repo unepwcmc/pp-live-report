@@ -4,12 +4,7 @@
   class="card--case-study"
   @click="openModal"
  >
-  <modal
-   v-if="isActive"
-   :text="caseStudy.text"
-   :is-active="isActive"
-   @modalClose="closeModal()"
-  ></modal>
+  <modal :text="caseStudy.text" :is-active="isActive" @close-modal="closeModal"></modal>
   <div class="card__image"></div>
   <div class="card__overlay">
    <h2 class="card__title">{{ caseStudy.title }}</h2>
@@ -43,8 +38,8 @@ export default {
    this.isActive = true;
   },
   closeModal() {
-    this.isActive = false;
-  }
+   return this.isActive = false;
+  },
  },
 };
 </script>

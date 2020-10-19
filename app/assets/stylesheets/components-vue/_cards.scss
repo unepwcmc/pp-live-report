@@ -1,10 +1,6 @@
+// LOCAL MIXINS
 // Background image population of cards - may need a unique fourth picture in the event of four case studies
 $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x.png');
-
-// Background gradient mixin - takes two colours at present
-@function background-gradient($orientation, $first-colour, $second-colour, $first-percent: 0%, $second-percent: 100%) {
-  @return linear-gradient($orientation, $first-colour $first-percent, $second-colour $second-percent);
-}
 
 // Mixin applying background image - takes an optional gradient argument
 @mixin background-image($images, $gradient: '') {

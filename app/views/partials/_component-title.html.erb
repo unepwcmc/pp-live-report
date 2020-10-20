@@ -1,7 +1,13 @@
-<div class="container--small">
+<div class="container--small <%= 'reduced-width--outer' if local_assigns[:reduced_width] %>">
+  <% if local_assigns[:reduced_width] %>
+    <div class="reduced-width--inner">
+  <% end %>
   <h2><%= title %></h2>
 
   <% if (defined? intro)  %>
     <p><%= intro %></p>
+  <% end %>
+  <% if local_assigns[:reduced_width] %>
+    </div>
   <% end %>
 </div>

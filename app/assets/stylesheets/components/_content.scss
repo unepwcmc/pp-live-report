@@ -40,18 +40,15 @@
       &__text {
         border-left: 4px solid $grey-light;
         color: $black;
-        font-family: $header-font;
-        font-size: rem-calc(18);
-        font-weight: $light;
+        font-weight: $normal;
+        font-size: rem-calc(20); 
         line-height: 1.7;
         padding-left: rem-calc(17);
 
         z-index: 1;
 
         @include breakpoint($small) { 
-          font-size: rem-calc(20); 
           line-height: 1.4;
-          max-width: 52vw;
         }
 
         @include breakpoint($medium) { 

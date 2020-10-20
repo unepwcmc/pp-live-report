@@ -50,12 +50,17 @@ export default {
   },
  },
  mounted() {
-  const controller = new ScrollMagic.Controller();
-  const scene = new ScrollMagic.Scene({
-   triggerElement: ".chart__chart",
-   reverse: false,
-  }).setClassToggle(".chart__bar", "bar-animate");
-  controller.addScene(scene);
+  this.animateOnScroll();
+ },
+ methods: {
+  animateOnScroll() {
+   const controller = new ScrollMagic.Controller();
+   const scene = new ScrollMagic.Scene({
+    triggerElement: ".chart--row__subtitle",
+    reverse: false,
+   }).setClassToggle(".chart__bar", "bar-animate");
+   scene.addTo(controller);
+  },
  },
  computed: {
   themeClass() {

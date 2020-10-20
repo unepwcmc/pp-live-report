@@ -1,20 +1,4 @@
 //--------------------------------------------------
-// Animations
-//--------------------------------------------------
-.bar-animate {
-  transform-origin: left;
-  animation: show-bar 5s 0.3s forwards;
-}
-
-@-webkit-keyframes show-bar {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
-//--------------------------------------------------
 // row chart
 //--------------------------------------------------
   &--row {
@@ -77,12 +61,21 @@
             background-color: $grey-dark;
             opacity: 0.9;
             transform-origin: left;
-            transform: scaleX(0);
+            // transform: scaleX(0);
+            transition: transform 5s ease-out;
 
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
+            
+            // TODO - why isn't this working? 
+            // Animation  
+            .bar-animate {
+              transform-origin: left;
+              // animation: show-bar 5s 0.3s forwards;
+              transform: scaleX(1);
+            }
           }
 
           &__percent {

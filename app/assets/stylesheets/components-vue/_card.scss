@@ -74,14 +74,13 @@
     display: none;
 
     @include breakpoint($small){
-      font-size: rem-calc(16);
       flex-grow: 1;
       display: block;
     }
   }
 
   &__title {
-    font-size: rem-calc(32);
+    font-weight: $normal;
     flex-grow: 1;
 
     @include breakpoint($small) {

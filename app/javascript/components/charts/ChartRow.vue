@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import ScrollMagic from "scrollmagic";
+
 export default {
  name: "chart-row",
 
@@ -47,14 +49,21 @@ export default {
    default: 0,
   },
  },
-
+ mounted() {
+  const controller = new ScrollMagic.Controller();
+  const scene = new ScrollMagic.Scene({
+   triggerElement: ".chart__chart",
+   reverse: false,
+  }).setClassToggle(".chart__bar", "bar-animate");
+  controller.addScene(scene);
+ },
  computed: {
   themeClass() {
    return `chart-theme--${this.theme}`;
   },
   legendClass() {
-    return `${this.theme}`;
-  }
+   return `${this.theme}`;
+  },
  },
 };
 </script>

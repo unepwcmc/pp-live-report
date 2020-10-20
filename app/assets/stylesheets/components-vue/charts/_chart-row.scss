@@ -76,6 +76,18 @@
               // animation: show-bar 5s 0.3s forwards;
               transform: scaleX(1);
             }
+
+            &--oecm {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+            }
+
+            &--wdpa {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+            }
           }
 
           &__percent {

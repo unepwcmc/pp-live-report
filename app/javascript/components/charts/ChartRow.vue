@@ -10,6 +10,16 @@
     :class="themeClass"
    >
     <span class="chart__bar" :style="{ width: row.percent + '%' }"></span>
+    <span
+     class="chart__bar--oecm"
+     v-if="oecmPercent > 0"
+     :style="{ width: oecmPercent + '%', left: row.percent + '%' }"
+    ></span>
+    <span
+     class="chart__bar--wdpa"
+     v-if="wdpaPercent > 0"
+     :style="{ width: wdpaPercent + '%', left: (row.percent + oecmPercent) + '%' }"
+    ></span>
     <span class="chart__percent">{{ row.percent }}%</span>
     <span class="chart__label">{{ row.label }}</span>
    </div>
@@ -50,7 +60,7 @@ export default {
   },
  },
  mounted() {
-  this.animateOnScroll();
+  // this.animateOnScroll();
  },
  methods: {
   animateOnScroll() {

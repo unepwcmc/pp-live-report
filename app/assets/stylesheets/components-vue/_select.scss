@@ -1,25 +1,60 @@
 .select {
   &--text {
+    width: 86vw;
     margin: 0 auto;
-    width: rem-calc(768);
+
+    @include breakpoint($medium) {
+      width: rem-calc(768);
+    }
 
     &__text {
       color: $white;
       font-size: rem-calc(16);
-      overflow-y: scroll;
-      max-height: rem-calc(330);
+
+      @include breakpoint($small) {
+        padding-right: rem-calc(10);
+        overflow-y: scroll;
+        max-height: rem-calc(400);
+
+        &::-webkit-scrollbar {
+          width: rem-calc(10);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $grey-light;
+          border-radius: $radius-global;
+        }
+      }
+
+      @include breakpoint($medium) {
+        max-height: rem-calc(330);
+      }
     }
 
     &__title {
       color: $white;
-      margin-bottom: 0;
+      font-size: rem-calc(32);
+      margin-bottom: rem-calc(14);
+
+      @include breakpoint($small) {
+        margin-bottom: 0;
+      }
     }
 
     &__top-section {
-      @include flex;
-      @include flex-h-between;
-      @include flex-v-center;
-      margin-bottom: rem-calc(90);
+      display: block;
+      margin-bottom: rem-calc(18);
+
+      @include breakpoint($small) {
+        @include flex;
+        @include flex-h-between;
+        @include flex-v-center;
+        margin-bottom: rem-calc(54);
+      }
+
+      @include breakpoint($medium) {
+        margin-bottom: rem-calc(90);
+      }
     }
 
   }

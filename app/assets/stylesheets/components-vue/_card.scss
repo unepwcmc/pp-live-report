@@ -18,6 +18,8 @@
       height: rem-calc(360);
     }
     
+    // TODO - Need to work out how to shrink third card back down to correct width
+    // when four or more cards are present
     @include breakpoint($medium) { 
       width: calc(50% - 10px); 
 

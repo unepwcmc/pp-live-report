@@ -1,7 +1,7 @@
 <template>
  <div :class="[ isActive ? 'modal-wrapper--active' : 'modal-wrapper' ]">
   <div class="modal--case-study">
-   <button class="modal__close icon--cross" @click.self="modalClose" />
+   <button class="modal__close icon--cross" @click="modalClose" />
    <div class="modal__content">
     <p class="modal__report">{{ text.report }}</p>
     <h2 class="modal__title">{{ text.title }}</h2>
@@ -27,7 +27,7 @@ export default {
  },
  methods: {
   modalClose() {
-   this.$emit('close-modal');
+    this.$emit('close-modal');
   },
  },
 };

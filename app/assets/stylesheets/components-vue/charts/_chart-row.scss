@@ -7,6 +7,11 @@
     
     @include breakpoint($small) { width: 48%; }
 
+    &__subtitle {
+      font-weight: $bold;
+      margin-bottom: rem-calc(10);
+    }
+
     .chart {
       &__chart {
 
@@ -20,7 +25,7 @@
           background-color: $grey-xlight;
           font-size: rem-calc(14);
           font-weight: $normal;
-          margin-bottom: rem-calc(6);
+          margin-bottom: rem-calc(10);
           padding-right: rem-calc(20);
           width: 100%; height: rem-calc(54);
 
@@ -28,7 +33,7 @@
 
           @include breakpoint($small) { 
             font-size: rem-calc(20);
-            height: rem-calc(64); 
+            height: rem-calc(40); 
           }
 
           &.chart-theme--blue {
@@ -46,9 +51,9 @@
           }
 
           &.chart-theme--pelagic {
-            &:nth-child(1) { .chart__bar { background-color: #9aeeee; } }
-            &:nth-child(2) { .chart__bar { background-color: #51c4c4; } }
-            &:nth-child(3) { .chart__bar { background-color: #308c8c; } }
+            &:nth-child(1) { .chart__bar { background-color: #96A2FF; } }
+            &:nth-child(2) { .chart__bar { background-color: #6D78CC; } }
+            &:nth-child(3) { .chart__bar { background-color: #424C9A; } }
           }
         }
 

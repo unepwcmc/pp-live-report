@@ -38,7 +38,7 @@
 
   <div class="container--medium">
     <% @row_charts.each do |item| %>
-      <h3><%= item[:title] %></h3>
+      <p class="chart--row__subtitle"><%= item[:title] %></p>
       
       <div class="flex flex-wrap flex-h-between">
         <% item[:charts].each do |chart| %>

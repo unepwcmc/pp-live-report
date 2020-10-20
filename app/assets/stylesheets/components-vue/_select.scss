@@ -9,7 +9,7 @@
 
     &__text {
       color: $white;
-      font-size: rem-calc(16);
+      // font-size: rem-calc(16);
 
       @include breakpoint($small) {
         padding-right: rem-calc(10);
@@ -33,7 +33,7 @@
 
     &__title {
       color: $white;
-      font-size: rem-calc(32);
+      font-weight: $normal;
       margin-bottom: rem-calc(14);
 
       @include breakpoint($small) {

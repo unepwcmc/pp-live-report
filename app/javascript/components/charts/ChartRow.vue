@@ -20,7 +20,7 @@
      v-if="wdpaPercent > 0"
      :style="{ width: wdpaPercent + '%', left: (row.percent + oecmPercent) + '%' }"
     ></span>
-    <span class="chart__percent">{{ row.percent }}%</span> 
+    <span class="chart__percent">{{ totalPercent(row.percent) }}%</span> 
     <!-- If OECM/WDPA % present, will need to change the above value to the combined percentage -->
     <span class="chart__label">{{ row.label }}</span>
    </div>
@@ -55,8 +55,8 @@ export default {
  data() {
    return {
     //  TODO - set oecmPercent and wdpaPercent as keys of row 
-     oecmPercent: 0,
-     wdpaPercent: 0
+     oecmPercent: 4,
+     wdpaPercent: 5
    }
  },
  mounted() {
@@ -71,6 +71,9 @@ export default {
    }).setClassToggle('.chart__bar, .chart__bar--oecm, .chart__bar--wdpa', "bar-animate");
    scene.addTo(controller);
   },
+  totalPercent(percent) {
+    return percent + this.wdpaPercent + this.oecmPercent;
+  }
  },
  computed: {
   themeClass() {
@@ -78,7 +81,7 @@ export default {
   },
   legendClass() {
    return `${this.theme}`;
-  },
+  }
  },
 };
 </script>

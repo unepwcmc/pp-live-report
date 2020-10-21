@@ -42,24 +42,11 @@ i { font-style: normal; }
 .h-100 { height: 100%; }
 
 .reduced-width {
-  &--outer {
-    width: 100%;
-    
-    @include breakpoint($medium) {
-      width: 83%;
-    }
-    @include breakpoint($large) {
-      width: 52%;
-    }
-  }
-
-  &--inner {
     width: 100%;
 
     @include breakpoint($small) {
       width: 50%;
     }
-  }
 }
 
 //--------------------------------------------------

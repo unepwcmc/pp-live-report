@@ -1,3 +1,42 @@
+// Colour schemes
+
+$oecm-legend: (
+  'blue': $oecm-blue,
+  'green': $oecm-green,
+  'pelagic': $oecm-pelagic
+);
+
+$wdpa-legend: (
+  'blue': $wdpa-blue,
+  'green': $wdpa-green,
+  'pelagic': $wdpa-pelagic
+);
+
+
+//--------------------------------------------------
+// LOCAL MIXINS
+//--------------------------------------------------
+
+@mixin chart-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin bar-animation {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s ease-in;
+
+  &.bar-animate {
+    transform: scaleX(1);
+  }
+}
+
+@mixin fetch-colour($colour, $colours) {
+  background-color: map-get($map: $colours, $key: $colour);
+}
+
 //--------------------------------------------------
 // row chart
 //--------------------------------------------------
@@ -58,33 +97,23 @@
         }
 
           &__bar {
+            @include bar-animation;
+            @include chart-bar;
             background-color: $grey-dark;
             opacity: 0.9;
-            transform-origin: left;
-            transform: scaleX(0);
-            transition: transform 1.2s ease-out;
-
-            position: absolute;
-            top: 0;
-            bottom: 0;
+           
             left: 0;
-            
-            // TODO - why isn't this working? 
-            // Animation  
-            &.bar-animate {
-              transform: scaleX(1);
-            }
 
             &--oecm {
-              position: absolute;
-              top: 0;
-              bottom: 0;
+              @include bar-animation;
+              @include chart-bar;
+              background-color: #24475C;
             }
 
             &--wdpa {
-              position: absolute;
-              top: 0;
-              bottom: 0;
+              @include bar-animation;
+              @include chart-bar;
+              background-color: #333E23;
             }
           }
 
@@ -121,37 +150,45 @@
               height: rem-calc(17); width: rem-calc(17);
               
               &__oecm {
-                &--blue {
+                &--#{$colour} {
                   @extend .chart-key;
-                  background-color: #24475C;
+                  @include fetch-colour($colour, $oecm-legend);
                 }
+                // &--blue {
+                //   @extend .chart-key;
+                //   background-color: #24475C;
+                // }
     
-                &--green {
-                  @extend .chart-key;
-                  background-color: #333E23;
-                }
+                // &--green {
+                //   @extend .chart-key;
+                //   background-color: #333E23;
+                // }
   
-                &--pelagic {
-                  @extend .chart-key;
-                  background-color: #1F2341;
-                }
+                // &--pelagic {
+                //   @extend .chart-key;
+                //   background-color: #1F2341;
+                // }
               }
 
               &__wdpa {
-                &--blue {
+                &--#{$colour} {
                   @extend .chart-key;
-                  background-color: #3a85b4;
+                  @include fetch-colour($colour, $oecm-legend);
                 }
+                // &--blue {
+                //   @extend .chart-key;
+                //   background-color: #3a85b4;
+                // }
     
-                &--green {
-                  @extend .chart-key;
-                  background-color: #6aa116;
-                }
+                // &--green {
+                //   @extend .chart-key;
+                //   background-color: #6aa116;
+                // }
   
-                &--pelagic {
-                  @extend .chart-key;
-                  background-color: #0b1986;
-                }
+                // &--pelagic {
+                //   @extend .chart-key;
+                //   background-color: #0b1986;
+                // }
               }
             }
           }

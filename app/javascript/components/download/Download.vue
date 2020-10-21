@@ -16,7 +16,7 @@
     :event-element="'Individual report download'"
     :classes="'download__popup'"
     :showText="true"
-    @optionSelected="clickDownloadOption(option)"
+    @optionSelected="clickDownloadOption"
    />
   </div>
  </div>
@@ -64,7 +64,7 @@ export default {
   clickDownloadOption(option) {
    this.isActive = false;
    if (this.$ga) {
-    this.$ga.event(this.eventElement, `${option.title} downloaded`);
+    this.$ga.event(this.eventElement, option.title + 'downloaded');
    }
   },
  },

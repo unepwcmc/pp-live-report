@@ -775,7 +775,7 @@ class ChaptersController < ApplicationController
     temp_text = 'The World Database on Protected Areas (WDPA) is the most comprehensive global database on terrestrial and marine protected areas.'
 
     @items = []
-    4.times.each do
+    3.times.each do
       @items << { summary: temp_text, title: temp_title, text: case_study_text }
     end
   end

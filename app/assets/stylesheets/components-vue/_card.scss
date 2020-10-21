@@ -18,15 +18,13 @@
       height: rem-calc(360);
     }
     
-    // TODO - Need to work out how to shrink third card back down to correct width
-    // when four or more cards are present
     @include breakpoint($medium) { 
       width: calc(50% - 10px); 
 
       &:nth-child(3n) {
-        flex-grow: 1;
+        width: 100%;
 
-        & > div:nth-of-type(2) {
+        & > div:nth-of-type(3) {
           padding-right: 60%;
         }
       }

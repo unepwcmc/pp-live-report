@@ -6,7 +6,7 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
 @mixin background-image($images, $classname, $gradient: '') {
   @for $i from 1 through length($images) {
     &:nth-child(#{$i}) {
-      & > #{$classname} {
+      &>#{$classname} {
         $image: nth($images, $i);
 
         background: $gradient,
@@ -29,6 +29,16 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
         @include flex;
         @include flex-h-between;
         @include flex-wrap;
+
+        button:first-child:nth-last-child(4),
+        button:first-child:nth-last-child(4)~button {
+          @include breakpoint($medium) {
+            width: calc(50% - 10px);
+            & > div:nth-of-type(3) {
+              padding: rem-calc(26 141 0 31);
+            }
+          }
+        }
 
         .card--case-study {
           @include background-image($card-images, '.card__image', background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4)));

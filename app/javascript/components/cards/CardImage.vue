@@ -4,7 +4,11 @@
   class="card--case-study"
   @click="openModal"
  >
-  <modal :text="caseStudy.text" :is-active="isActive"></modal>
+  <modal
+   :text="caseStudy.text"
+   :is-active="isActive"
+   @close-modal="closeModal"
+  ></modal>
   <div class="card__image"></div>
   <div class="card__overlay">
    <h2 class="card__title">{{ caseStudy.title }}</h2>
@@ -29,10 +33,10 @@ export default {
   },
  },
  mounted() {
-   this.$el.addEventListener('close-modal', this.closeModal);
+  this.$el.addEventListener("close-modal", this.closeModal);
  },
  destroyed() {
-    this.$el.removeEventListener('close-modal', this.closeModal);
+  this.$el.removeEventListener("close-modal", this.closeModal);
  },
  data() {
   return {
@@ -44,9 +48,8 @@ export default {
    this.isActive = true;
   },
   closeModal() {
-    // TODO - modal isn't closing even though event to close is being emitted
-    this.isActive = false;
-  }
+   this.isActive = false;
+  },
  },
 };
 </script>

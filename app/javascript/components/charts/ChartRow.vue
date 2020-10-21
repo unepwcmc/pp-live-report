@@ -11,12 +11,12 @@
    >
     <span class="chart__bar" :style="{ width: row.percent + '%' }"></span>
     <span
-     class="chart__bar--oecm"
+     :class="`chart__bar--oecm ${legendClass}`"
      v-if="oecmPercent > 0"
      :style="{ width: oecmPercent + '%', left: row.percent + '%' }"
     ></span>
     <span
-     class="chart__bar--wdpa"
+     :class="`chart__bar--wdpa ${legendClass}`"
      v-if="wdpaPercent > 0"
      :style="{ width: wdpaPercent + '%', left: (row.percent + oecmPercent) + '%' }"
     ></span>

@@ -33,6 +33,10 @@ $wdpa-legend: (
   }
 }
 
+@mixin chart-colour($colour, $colours) {
+  background-color: map-get($map: $colours, $key: $colour);
+}
+
 @mixin legend-key($colour, $colours) {
   &--#{$colour} {
     background-color: map-get($map: $colours, $key: $colour);
@@ -112,13 +116,35 @@ $wdpa-legend: (
             &--oecm {
               @include bar-animation;
               @include chart-bar;
-              background-color: #24475C;
+              
+              &.blue {
+                @include chart-colour('blue', $oecm-legend);
+              }
+
+              &.green {
+                @include chart-colour('green', $oecm-legend);
+              }
+
+              &.pelagic {
+                @include chart-colour('pelagic', $oecm-legend);
+              }
             }
 
             &--wdpa {
               @include bar-animation;
               @include chart-bar;
-              background-color: #333E23;
+              
+              &.blue {
+                @include chart-colour('blue', $wdpa-legend);
+              }
+
+              &.green {
+                @include chart-colour('green', $wdpa-legend);
+              }
+
+              &.pelagic {
+                @include chart-colour('pelagic', $wdpa-legend);
+              }
             }
           }
 

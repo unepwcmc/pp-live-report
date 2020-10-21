@@ -54,7 +54,7 @@
 
 .modal--case-study {
   background-color: white;
-  padding: rem-calc(48 16 48 32);
+  padding: rem-calc(48 16 48 14);
   width: 100%; height: 100vh;
   
   position: relative;
@@ -91,7 +91,8 @@
     @include beautify-scrollbar();
     color: black;
     height: 100%;
-    padding-right: rem-calc(10);
+    padding-bottom: rem-calc(41);
+    padding-right: rem-calc(13);
     position: relative;
     
     overflow-y: scroll;
@@ -102,6 +103,23 @@
 
     @include breakpoint($medium) {
       padding-right: rem-calc(92);
+    }
+
+    .modal__image {
+      width: 100%;
+      margin-bottom: rem-calc(14);
+    }
+
+    .modal__image-caption {
+      font-size: rem-calc(14);
+      font-weight: $normal;
+      margin-bottom: rem-calc(10);
+    }
+
+    .modal__image-source {
+      color: $grey;
+      font-size: rem-calc(14);
+      font-weight: $light;
     }
 
     .modal__report {

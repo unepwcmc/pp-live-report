@@ -6,6 +6,11 @@
     <p class="modal__report">{{ text.report }}</p>
     <h2 class="modal__title">{{ text.title }}</h2>
     <p>{{ text.text }}</p>
+    <div>
+      <img :src="text.image" class="modal__image"/>
+      <p class="modal__image-caption">{{ text.caption }}</p>
+      <small class="modal__image-source">{{ text.source }}</small>
+    </div>
    </div>
   </div>
  </div>

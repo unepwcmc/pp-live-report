@@ -780,11 +780,14 @@ class ChaptersController < ApplicationController
     end
   end
 
-  def case_study_text 
+  def case_study_text
     {
-      report: '2018 report',  
+      report: '2018 report',
       title: 'Human Footprint: Areas under intense human pressure',
-      text: 'There has been a remarkable growth in marine protected areas (MPAs) in recent years. As highlighted at the UN Oceans Conference (2018), MPAs have increased more than 15-fold since 1993 when the CBD entered into force. A larger area of the ocean is now protected than on land, though proportionally the much larger ocean realm has lower percentage coverage than does the terrestrial realm. Since April 2016, more than 8 million km2 of new marine protected areas have been added to the WDPA, strengthening protection of ecological regions and Key Biodiversity Areas in the marine realm (4th International Marine Protected Areas Congress, 2017) (see also Chapter 4). This growth in marine protection is largely the result of several countries declaring very large reserves, e.g. Brazil, Mexico, and some protecting their entire EEZ, e.g. the designation of the approximately 2 million km2 Marae Moana Marine Park in the Cook Islands in 2017. The four largest marine protected areas were created or expanded in the last two years (CBD Secretariat, 2018a). With continuous efforts from governments to implement existing commitments, the global coverage targets of Aichi Target 11 are likely to be met in the oceans, with the target already met for areas within EEZ. Despite this trend, an additional 10 million km2 is still required by 2020 to meet the ocean Target.'
+      text: 'There has been a remarkable growth in marine protected areas (MPAs) in recent years. As highlighted at the UN Oceans Conference (2018), MPAs have increased more than 15-fold since 1993 when the CBD entered into force. A larger area of the ocean is now protected than on land, though proportionally the much larger ocean realm has lower percentage coverage than does the terrestrial realm. Since April 2016, more than 8 million km2 of new marine protected areas have been added to the WDPA, strengthening protection of ecological regions and Key Biodiversity Areas in the marine realm (4th International Marine Protected Areas Congress, 2017) (see also Chapter 4). This growth in marine protection is largely the result of several countries declaring very large reserves, e.g. Brazil, Mexico, and some protecting their entire EEZ, e.g. the designation of the approximately 2 million km2 Marae Moana Marine Park in the Cook Islands in 2017. The four largest marine protected areas were created or expanded in the last two years (CBD Secretariat, 2018a). With continuous efforts from governments to implement existing commitments, the global coverage targets of Aichi Target 11 are likely to be met in the oceans, with the target already met for areas within EEZ. Despite this trend, an additional 10 million km2 is still required by 2020 to meet the ocean Target.',
+      image: URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png')),
+      caption: 'Example of marine ecosystem services coral coastal protection and coral fisheries and their location in relation to protected areas in south Sulawesi, Indonesia.', 
+      source: 'UNEP-WCMC and IUCN. 2018a. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.*'
     }
   end
 end

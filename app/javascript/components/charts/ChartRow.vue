@@ -20,7 +20,8 @@
      v-if="wdpaPercent > 0"
      :style="{ width: wdpaPercent + '%', left: (row.percent + oecmPercent) + '%' }"
     ></span>
-    <span class="chart__percent">{{ row.percent }}%</span>
+    <span class="chart__percent">{{ row.percent }}%</span> 
+    <!-- If OECM/WDPA % present, will need to change the above value to the combined percentage -->
     <span class="chart__label">{{ row.label }}</span>
    </div>
   </div>
@@ -44,23 +45,22 @@ export default {
  name: "chart-row",
 
  props: {
-  oecmPercent: {
-   type: Number,
-   default: 0,
-  },
   title: String,
   theme: String,
   rows: {
    type: Array,
    required: true,
   },
-  wdpaPercent: {
-   type: Number,
-   default: 0,
-  },
+ },
+ data() {
+   return {
+    //  TODO - set oecmPercent and wdpaPercent as keys of row 
+     oecmPercent: 0,
+     wdpaPercent: 0
+   }
  },
  mounted() {
-  // this.animateOnScroll();
+  this.animateOnScroll();
  },
  methods: {
   animateOnScroll() {
@@ -68,7 +68,7 @@ export default {
    const scene = new ScrollMagic.Scene({
     triggerElement: ".chart--row__subtitle",
     reverse: false,
-   }).setClassToggle(".chart__bar", "bar-animate");
+   }).setClassToggle('.chart__bar, .chart__bar--oecm, .chart__bar--wdpa', "bar-animate");
    scene.addTo(controller);
   },
  },

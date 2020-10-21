@@ -61,7 +61,7 @@
             background-color: $grey-dark;
             opacity: 0.9;
             transform-origin: left;
-            // transform: scaleX(0);
+            transform: scaleX(0);
             transition: transform 5s ease-out;
 
             position: absolute;
@@ -72,8 +72,6 @@
             // TODO - why isn't this working? 
             // Animation  
             .bar-animate {
-              transform-origin: left;
-              // animation: show-bar 5s 0.3s forwards;
               transform: scaleX(1);
             }
 

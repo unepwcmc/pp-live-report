@@ -13,11 +13,14 @@
   &--download {
     background-image: image-url('icons/download.svg');
     background-size: cover;
-    width: rem-calc(17); height: rem-calc(19);
+    width: rem-calc(17); height: rem-calc(16);
 
     display: block;
 
-    @include breakpoint($small) { width: rem-calc(25); height: rem-calc(28); }
+    @include breakpoint($small) { 
+      width: rem-calc(20); 
+      height: rem-calc(19); 
+    }
   }
 
   &--share {

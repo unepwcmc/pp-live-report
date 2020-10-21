@@ -1,0 +1,62 @@
+$popup-download-arrow-height: rem-calc(8); 
+
+.download {
+  &__target {
+    display: none;
+    position: relative;
+
+    &--active {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__popup {
+    background-color: $grey;
+    border-radius: 3px;
+    padding: rem-calc(10 20);
+    width: max-content;
+
+    position: absolute;
+    top: calc(100% + #{$popup-download-arrow-height * 2});
+    right: 8%;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      @include triangle(rem-calc(38), $popup-download-arrow-height, $grey);
+
+      position: absolute;
+      top: -$popup-download-arrow-height;
+      right: calc(#{$popup-download-arrow-height}*1.6);
+    }
+  }
+
+  &__link {
+    color: $white;
+    cursor: pointer;
+    padding-top: rem-calc(5);
+    padding-bottom: rem-calc(5);
+    padding-right: rem-calc(60);
+
+    display: block;
+
+    @include breakpoint($small) {
+      font-size: rem-calc(18);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

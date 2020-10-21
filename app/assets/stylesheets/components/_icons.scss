@@ -17,8 +17,11 @@
     background-size: contain;
     
     display: block;
+    width: rem-calc(20); height: rem-calc(20);
 
-    width: rem-calc(34); height: rem-calc(34);
+    @include breakpoint($small) {
+      width: rem-calc(34); height: rem-calc(34);
+    }
   }
 
   &--cross {
@@ -30,8 +33,6 @@
     display: block;
     width: rem-calc(23); 
     height: rem-calc(23);
-
-
   }
 
   &--download {

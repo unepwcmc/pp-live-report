@@ -32,12 +32,6 @@ export default {
    required: true,
   },
  },
- mounted() {
-  this.$el.addEventListener("close-modal", this.closeModal);
- },
- destroyed() {
-  this.$el.removeEventListener("close-modal", this.closeModal);
- },
  data() {
   return {
    isActive: false,

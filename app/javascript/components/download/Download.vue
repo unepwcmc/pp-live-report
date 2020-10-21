@@ -64,11 +64,7 @@ export default {
   clickDownloadOption(option) {
    this.isActive = false;
    if (this.$ga) {
-<<<<<<< HEAD
     this.$ga.event(this.eventElement, option.title + ' downloaded');
-=======
-    this.$ga.event(this.eventElement, option.title + 'downloaded');
->>>>>>> 1f2b13c68626b9aaaf2c68c17bc936b044961c7d
    }
   },
  },

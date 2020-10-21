@@ -16,21 +16,13 @@
 </template>
 
 <script>
-// TODO - I want to import SASS variables from the pagination partial stylesheet
-// so I can use them as the offset variable and control is placed in the hands of 
-// SCSS rather than allowing the offset to be arbitrarily set here in the component
-
+import scrollMagic from "scrollmagic";
 import mixinResponsive from "../../mixins/mixinResponsive.js";
-import mixinSlideOut from "../../mixins/mixinSlideOut.js";
 
 export default {
  name: "Pagination",
  mixins: [
-  mixinResponsive,
-  mixinSlideOut({
-   className: ".pagination",
-   offset: '-74px' // NB: This offset should match the height of the button bar for best results
-  }),
+  mixinResponsive
  ],
  props: {
   currentChapter: {
@@ -55,6 +47,20 @@ export default {
  },
  mounted() {
   this.isMobile = this.currentBreakpoint === "small" ? true : false;
+  this.slideUpOnScroll();
+ },
+ methods: {
+  slideUpOnScroll() {
+   //  Set offset to height of panel 
+   const offset = document.querySelector('.pagination').offsetHeight;
+
+   const controller = new scrollMagic.Controller();
+   const scene = new scrollMagic.Scene({ offset: offset }).setClassToggle(
+    ".pagination",
+    "show"
+   );
+   scene.addTo(controller);
+  },
  },
  computed: {
   previousChapterText() {

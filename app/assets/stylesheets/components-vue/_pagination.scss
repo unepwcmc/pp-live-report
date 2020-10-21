@@ -22,6 +22,11 @@ $pagination-height-lg: rem-calc(74);
     transition: bottom 0.4s;
   }
 
+  // Dynamic class
+  &.show {
+    bottom: 0;
+  }
+
   &__panel {
     @include flex;
     @include flex-h-between;
@@ -36,10 +41,18 @@ $pagination-height-lg: rem-calc(74);
 
   &__next {
     margin-right: rem-calc(13);
+
+    &:nth-child(2) {
+      text-align: right;
+    }
   }
   
   &__previous {
     margin-left: rem-calc(13);
+
+    &:nth-child(2) {
+      text-align: left;
+    }
   }
 
   &__text {
@@ -50,10 +63,12 @@ $pagination-height-lg: rem-calc(74);
 
     @include breakpoint($small) { 
       font-size: rem-calc(18);
-      max-width: rem-calc(300);
+      min-width: rem-calc(200);
+      max-width: rem-calc(400);
     }
     @include breakpoint($medium) {
-      max-width: rem-calc(600);
+      min-width: rem-calc(400);
+      max-width: 40vw;
     }
   }
 }

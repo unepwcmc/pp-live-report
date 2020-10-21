@@ -1,7 +1,12 @@
 <template>
  <div :class="classes">
-  <ul class="ul-unstyled">
-   <li v-for="option in options" :key="option._uid">
+  <ul class="ul-unstyled" role="listbox">
+   <li
+    v-for="option in options"
+    :key="option._uid"
+    role="option"
+    aria-labelledby="option-text"
+   >
     <a
      :class="[
       option.hasOwnProperty('customClass')
@@ -13,7 +18,7 @@
      :title="option.title"
      @click="clickOption(option)"
     >
-     <span v-html="showTextIfPresent(option)"></span>
+     <span id="option-text" v-html="showTextIfPresent(option)"></span>
     </a>
    </li>
   </ul>
@@ -27,11 +32,11 @@ export default {
   classes: String,
   showText: {
    type: Boolean,
-   required: true
+   required: true,
   },
   options: {
    type: Array,
-   default: () => ([])
+   default: () => [],
   },
  },
  methods: {
@@ -41,7 +46,7 @@ export default {
   showTextIfPresent(option) {
    return this.showText ? option.title : "";
   },
- }
+ },
 };
 </script>
 

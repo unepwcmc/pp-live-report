@@ -1,7 +1,13 @@
 <template>
  <div class="flex flex-v-center">
   <template v-if="isMobile">
-   <button @click="togglePopup" class="button--share icon--share"></button>
+   <button
+    @click="togglePopup"
+    id="share-button-expand"
+    class="button--share icon--share"
+    aria-haspopup="listbox"
+    aria-label="share-button-expand"
+   ></button>
    <div :class="[isActive ? 'social__target--active' : 'social__target']">
     <popup
      :options="media"
@@ -47,9 +53,9 @@ export default {
    required: true,
   },
   eventElement: {
-    type: String,
-    default: ""
-  }
+   type: String,
+   default: "",
+  },
  },
 
  data() {
@@ -72,10 +78,10 @@ export default {
    this.recordShare(option.title);
   },
   recordShare(value) {
-    if (this.$ga) {
-     this.$ga.event(this.eventElement, value);
-    }
-  }
+   if (this.$ga) {
+    this.$ga.event(this.eventElement, value);
+   }
+  },
  },
  watch: {
   currentBreakpoint(val) {

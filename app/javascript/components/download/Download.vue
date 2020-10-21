@@ -4,8 +4,10 @@
    title="Download reports in PDF format"
    class="button--download"
    @click="togglePopup"
+   aria-haspopup="listbox"
+   aria-labelledby="download-text"
   >
-   <span class="button--download__text">{{ text }}</span>
+   <span class="button--download__text" id="download-text">{{ text }}</span>
    <i class="icon--download"></i>
   </button>
   <div :class="[isActive ? 'download__target--active' : 'download__target']">
@@ -14,7 +16,7 @@
     :event-element="'Individual report download'"
     :classes="'download__popup'"
     :showText="true"
-    @optionSelected="clickDownloadOption"
+    @optionSelected="clickDownloadOption(option)"
    />
   </div>
  </div>
@@ -59,10 +61,10 @@ export default {
    }
    this.isActive = !this.isActive;
   },
-  clickDownloadOption() {
+  clickDownloadOption(option) {
    this.isActive = false;
    if (this.$ga) {
-    this.$ga.event(this.eventElement, 'Report downloaded');
+    this.$ga.event(this.eventElement, `${option.title} downloaded`);
    }
   },
  },

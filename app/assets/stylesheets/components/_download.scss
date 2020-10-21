@@ -29,6 +29,10 @@ $popup-download-arrow-height: rem-calc(8);
       }
     }
 
+    li {
+      margin-bottom: 0;
+    }
+
     &:before {
       @include triangle(rem-calc(38), $popup-download-arrow-height, $grey);
 

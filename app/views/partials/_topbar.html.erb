@@ -1,16 +1,15 @@
-<div class="topbar--primary flex flex-h-between gutters">
+<div class="topbar--primary flex flex-h-between flex-v-center gutters">
   <%= link_to root_path, title: site_title, class: 'topbar__site-link' do %>
     <%= image_tag 'logos/logo-protected-planet-digital-report.svg', alt: site_title + ' logo', class: "topbar__logo" %>
   <% end %>
   
   <div class="flex flex-v-center">
     <download 
-      text="2018 printed report download" 
+      text="<%= t('download.text') %>" 
+      :download-links="<%= download_links_array %>"
       event-element="Download report link"
-      download-url="pdf/Protected_Planet_Report_2018.pdf"
     ></download>
 
     <%= render 'partials/social-sharing' %>
-    <%= render 'partials/nav' %>
   </div>
 </div>

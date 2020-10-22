@@ -14,6 +14,12 @@ if (window._railsEnv === 'production') {
     checkDuplicatedScript: true
   })
 }
+else if (window._railsEnv === 'staging') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-129227134-2',
+    checkDuplicatedScript: true
+  })
+}
 Vue.use(TurbolinksAdapter)
 
 // store
@@ -33,9 +39,9 @@ import ChartRowStacked from '../components/charts/ChartRowStacked'
 import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
-import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
 import SelectText from '../components/select/SelectText'
+import Pagination from '../components/pagination/Pagination'
 import SocialShare from '../components/social/SocialShare'
 
 // create event hub and export so that it can be imported into .vue files
@@ -60,9 +66,9 @@ document.addEventListener('turbolinks:load', () => {
       Download,
       MapInfographic,
       MapStatistics,
-      NavBurger,
       NavLink,
       SelectText,
+      Pagination,
       SocialShare
     }
   })

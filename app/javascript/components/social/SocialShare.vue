@@ -14,7 +14,6 @@
      :classes="'social__popup'"
      :showText="false"
      :event-element="'Share button clicked'"
-     @option-selected="clickOption"
     ></popup>
    </div>
   </template>
@@ -33,6 +32,7 @@
 </template>
 
 <script>
+import { eventHub } from "../../packs/application.js";
 import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
 import mixinResponsive from "../../mixins/mixin-responsive";
 import Popup from "../dropdown/Popup.vue";
@@ -57,7 +57,9 @@ export default {
    default: "",
   },
  },
-
+ mounted() {
+  eventHub.$on("option-selected", this.clickOption);
+ },
  data() {
   return {
    isMobile: false,

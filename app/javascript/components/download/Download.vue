@@ -16,13 +16,13 @@
     :event-element="'Individual report download'"
     :classes="'download__popup'"
     :showText="true"
-    @option-selected="clickDownloadOption"
    />
   </div>
  </div>
 </template>
 
 <script>
+import { eventHub } from '../../packs/application.js'
 import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
 import Popup from "../dropdown/Popup.vue";
 
@@ -48,6 +48,9 @@ export default {
    type: Array,
    required: true,
   },
+ },
+ mounted () {
+   eventHub.$on('option-selected', this.clickDownloadOption);
  },
  data() {
   return {

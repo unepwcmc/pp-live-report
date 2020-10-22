@@ -37,7 +37,6 @@ export default {
  },
  methods: {
   changeText(option) {
-    // console.log('success');
     this.selectedOption = this.text.find((obj) => { return obj.locale.iso === option.iso });
   }
  },

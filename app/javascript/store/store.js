@@ -13,8 +13,8 @@ export default new Vuex.Store({
     multilingual
   },
   plugins: [
-    createPersistedState({
-      paths: ['data']
-    })
+    // createPersistedState({
+
+    // })
   ]
 })

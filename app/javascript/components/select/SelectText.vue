@@ -42,9 +42,11 @@ export default {
  },
  methods: {
   changeText(option) {
-   this.$store.dispatch('multilingual/changeLang', this.text.find((obj) => {
+    const newLanguage = this.text.find((obj) => {
     return obj.locale.iso === option.iso;
-   }));
+   })
+   this.$store.dispatch('multilingual/changeLang', newLanguage);
+   this.selectedOption = newLanguage;
   },
  },
 };

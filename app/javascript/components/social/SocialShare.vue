@@ -58,7 +58,7 @@ export default {
   },
  },
  mounted() {
-  eventHub.$on("option-selected", this.clickOption);
+  eventHub.$on("link-clicked", this.clickOption);
  },
  data() {
   return {

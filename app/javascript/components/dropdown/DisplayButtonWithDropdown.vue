@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import { eventHub } from '../../packs/application.js';
+import { eventHub } from "../../packs/application.js";
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
 import Popup from "./Popup.vue";
 
 export default {
@@ -23,6 +24,12 @@ export default {
  components: {
   Popup,
  },
+ mixins: [
+   mixinPopupCloseListeners({
+   closeCallback: "togglePopup",
+   toggleVariable: "isActive",
+  }),
+ ],
  props: {
   options: {
    type: Array,
@@ -34,12 +41,12 @@ export default {
   },
  },
  mounted() {
-   eventHub.$on('option-selected', this.changeSelection);
+  eventHub.$on("option-selected", this.changeSelection);
  },
  data() {
   return {
    isActive: false,
-   currentOption: this.selectedOption
+   currentOption: this.selectedOption,
   };
  },
  filters: {
@@ -55,8 +62,8 @@ export default {
    this.isActive = !this.isActive;
   },
   changeSelection(option) {
-    this.currentOption = option;
-  }
+   this.currentOption = option;
+  },
  },
 };
 </script>

@@ -50,7 +50,7 @@ export default {
   },
  },
  mounted () {
-   eventHub.$on('option-selected', this.clickDownloadOption);
+   eventHub.$on('link-clicked', this.clickDownloadOption);
  },
  data() {
   return {

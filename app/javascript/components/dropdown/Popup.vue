@@ -17,7 +17,7 @@
       :href="option.url"
       target="_blank"
       :title="option.title"
-      @click="clickOption(option)"
+      @click="clickLink(option)"
      >
       <span id="option-text" v-html="showTextIfPresent(option)"></span>
      </a>
@@ -57,6 +57,9 @@ export default {
  methods: {
   clickOption(option) {
    eventHub.$emit("option-selected", option);
+  },
+  clickLink(link) {
+    eventHub.$emit("link-clicked", link);
   },
   showTextIfPresent(option) {
    return this.showText ? option.title : "";

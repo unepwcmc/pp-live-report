@@ -10,9 +10,16 @@
   
     position: absolute;
     top: calc(100% + #{$popup-download-arrow-height * 2});
-    right: 0;
+    left: 0;
+    right: auto;
+
+    @include breakpoint($small) {
+      left: auto;
+      right: 0;
+    }
 
     li {
+      font-size: rem-calc(18);
       margin-bottom: rem-calc(10);
       text-align: left;
       
@@ -29,11 +36,17 @@
     }
   
     &:before {
-      @include triangle(rem-calc(15), $popup-download-arrow-height, $grey);
+      @include triangle(rem-calc(39), $popup-download-arrow-height, $grey);
   
       position: absolute;
       top: -$popup-download-arrow-height;
-      right: calc(#{$popup-download-arrow-height}*1.6);
+      left: calc(#{$popup-download-arrow-height}*1.6);
+      right: auto;
+      
+      @include breakpoint($small) {
+        left: auto;
+        right: calc(#{$popup-download-arrow-height}*1.6);
+      }
     }
   }
 

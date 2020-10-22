@@ -12,6 +12,7 @@
 </template>
 
 <script>
+// TODO - Add Vue store to store language selected
 import { eventHub } from '../../packs/application.js';
 import DisplayButtonWithDropdown from "../dropdown/DisplayButtonWithDropdown.vue";
 

@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  include Helpers
+  include RandomNumberHelper
   include YamlHelpers
   layout 'chapter'
 

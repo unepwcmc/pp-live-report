@@ -769,6 +769,15 @@ class ChaptersController < ApplicationController
 
   private
 
+  LANGUAGES = { 
+    'ar': 'العربية',
+    'es': 'Español',
+    'en': 'English',
+    'fr': 'Français',
+    'ru': 'Русский',
+    'zh': '中文'
+}.freeze
+
   def load_summary_text 
     # TODO - need actual summary text in different languages 
     summaries_path = 'config/locales/summary'.freeze
@@ -780,7 +789,7 @@ class ChaptersController < ApplicationController
       {
         title: yml["#{locale_iso}"]['summary']['title'],
         text: yml["#{locale_iso}"]['summary']['text'],
-        locale: locale_iso
+        locale: { title: LANGUAGES[locale_iso.to_sym], iso: locale_iso }
       }
     end.to_json
   end

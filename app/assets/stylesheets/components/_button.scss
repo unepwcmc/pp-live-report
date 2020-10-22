@@ -118,8 +118,14 @@
     background-color: transparent;
     border: 2px solid rgba($white, 0.8);
     border-radius: 2px;
-    padding: rem-calc(4 6);
-    width: rem-calc(90);
+    padding: rem-calc(2 6);
+    width: rem-calc(82);
+
+    position: relative;
+
+    &:focus {
+      outline: 0;
+    }
 
     &.text {
       border: none;
@@ -128,7 +134,7 @@
       opacity: 0.8;
     }
   }
-  
+
   &--previous {
     @include button-nav('icons/previous.svg');
   }

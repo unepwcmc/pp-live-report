@@ -1,0 +1,40 @@
+// Styles for the popup triggered by the display button with dropdown component
+
+.display {
+  &__popup {
+    background-color: $grey;
+    border-radius: 3px;
+    color: white;
+    padding: rem-calc(10 20 0 20);
+    width: rem-calc(177);
+  
+    position: absolute;
+    top: calc(100% + #{$popup-download-arrow-height * 2});
+    right: 0;
+
+    li {
+      margin-bottom: rem-calc(10);
+      text-align: left;
+      
+      span {
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-bottom: 1px solid white;
+        }
+      }
+
+    }
+  
+    &:before {
+      @include triangle(rem-calc(15), $popup-download-arrow-height, $grey);
+  
+      position: absolute;
+      top: -$popup-download-arrow-height;
+      right: calc(#{$popup-download-arrow-height}*1.6);
+    }
+  }
+
+
+}

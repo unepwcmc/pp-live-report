@@ -12,21 +12,22 @@
 </template>
 
 <script>
-// TODO - wait for topbar + download branch to be merged in first
-// import Popup from '../dropdown/Popup.vue'
+import { eventHub } from '../../packs/application.js';
 import DisplayButtonWithDropdown from "../dropdown/DisplayButtonWithDropdown.vue";
 
 export default {
  name: "SelectText",
  components: {
-  // Popup,
-  DisplayButtonWithDropdown,
+  DisplayButtonWithDropdown
  },
  props: {
   text: {
    type: Array,
    required: true,
   },
+ },
+ mounted () {
+   eventHub.$on('option-selected', this.changeText);
  },
  data() {
   return {
@@ -35,9 +36,10 @@ export default {
   };
  },
  methods: {
-  changeSelection(selected) {
-   this.selected = selected;
-  },
+  changeText(option) {
+    // console.log('success');
+    this.selectedOption = this.text.find((obj) => { return obj.locale.iso === option.iso });
+  }
  },
 };
 </script>

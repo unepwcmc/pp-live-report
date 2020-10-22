@@ -14,7 +14,7 @@
      :classes="'social__popup'"
      :showText="false"
      :event-element="'Share button clicked'"
-     @optionSelected="clickOption"
+     @option-selected="clickOption"
     ></popup>
    </div>
   </template>

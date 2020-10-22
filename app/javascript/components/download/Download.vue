@@ -16,7 +16,7 @@
     :event-element="'Individual report download'"
     :classes="'download__popup'"
     :showText="true"
-    @optionSelected="clickDownloadOption"
+    @option-selected="clickDownloadOption"
    />
   </div>
  </div>

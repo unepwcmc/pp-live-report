@@ -12,14 +12,14 @@
 </template>
 
 <script>
-// TODO - Add Vue store to store language selected
-import { eventHub } from '../../packs/application.js';
+import 'lodash';
+import { eventHub } from "../../packs/application.js";
 import DisplayButtonWithDropdown from "../dropdown/DisplayButtonWithDropdown.vue";
 
 export default {
  name: "SelectText",
  components: {
-  DisplayButtonWithDropdown
+  DisplayButtonWithDropdown,
  },
  props: {
   text: {
@@ -27,19 +27,25 @@ export default {
    required: true,
   },
  },
- mounted () {
-   eventHub.$on('option-selected', this.changeText);
+ mounted() {
+  eventHub.$on("option-selected", this.changeText);
  },
  data() {
   return {
-   selectedOption: this.text[0],
-   languages: this.text.map((obj) => { return obj.locale })
+   selectedOption: _.isEmpty(this.$store.state.multilingual.selectedLanguage)
+    ? this.text[0]
+    : this.$store.state.multilingual.selectedLanguage,
+   languages: this.text.map((obj) => {
+    return obj.locale;
+   }),
   };
  },
  methods: {
   changeText(option) {
-    this.selectedOption = this.text.find((obj) => { return obj.locale.iso === option.iso });
-  }
+   this.$store.dispatch('multilingual/changeLang', this.text.find((obj) => {
+    return obj.locale.iso === option.iso;
+   }));
+  },
  },
 };
 </script>

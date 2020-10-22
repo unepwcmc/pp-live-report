@@ -23,6 +23,8 @@ $wdpa-legend: (
   bottom: 0;
 }
 
+// Might need to change this to an animation because the OECM and WDPA segments need to 
+// animate AFTER the main segment
 @mixin bar-animation {
   transform-origin: left;
   transform: scaleX(0);

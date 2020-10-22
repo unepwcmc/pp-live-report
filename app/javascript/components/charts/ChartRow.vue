@@ -18,10 +18,12 @@
     <span
      :class="`chart__bar--wdpa ${legendClass}`"
      v-if="wdpaPercent > 0"
-     :style="{ width: wdpaPercent + '%', left: (row.percent + oecmPercent) + '%' }"
+     :style="{
+      width: wdpaPercent + '%',
+      left: row.percent + oecmPercent + '%',
+     }"
     ></span>
-    <span class="chart__percent">{{ totalPercent(row.percent) }}%</span> 
-    <!-- If OECM/WDPA % present, will need to change the above value to the combined percentage -->
+    <span class="chart__percent">{{ totalPercent(row.percent) }}%</span>
     <span class="chart__label">{{ row.label }}</span>
    </div>
   </div>
@@ -53,11 +55,11 @@ export default {
   },
  },
  data() {
-   return {
-    //  TODO - set oecmPercent and wdpaPercent as keys of row 
-     oecmPercent: 4,
-     wdpaPercent: 5
-   }
+  return {
+   //  TODO - set oecmPercent and wdpaPercent as keys of row
+   oecmPercent: 4,
+   wdpaPercent: 5,
+  };
  },
  mounted() {
   this.animateOnScroll();
@@ -68,12 +70,15 @@ export default {
    const scene = new ScrollMagic.Scene({
     triggerElement: ".chart--row__subtitle",
     reverse: false,
-   }).setClassToggle('.chart__bar, .chart__bar--oecm, .chart__bar--wdpa', "bar-animate");
+   }).setClassToggle(
+    ".chart__bar, .chart__bar--oecm, .chart__bar--wdpa",
+    "bar-animate"
+   );
    scene.addTo(controller);
   },
   totalPercent(percent) {
-    return percent + this.wdpaPercent + this.oecmPercent;
-  }
+   return percent + this.wdpaPercent + this.oecmPercent;
+  },
  },
  computed: {
   themeClass() {
@@ -81,7 +86,7 @@ export default {
   },
   legendClass() {
    return `${this.theme}`;
-  }
+  },
  },
 };
 </script>

@@ -1,13 +1,13 @@
 <template>
  <div class="select--text">
   <div class="select--text__top-section">
-   <h2 class="select--text__title">{{ selectedOption.title }}</h2>
+   <h2 dir="auto" class="select--text__title">{{ selectedOption.title }}</h2>
    <display-button-with-dropdown
     :options="languages"
     :selected-option="languages[0]"
    ></display-button-with-dropdown>
   </div>
-  <p class="select--text__text">{{ selectedOption.text }}</p>
+  <p dir="auto" class="select--text__text">{{ selectedOption.text }}</p>
  </div>
 </template>
 

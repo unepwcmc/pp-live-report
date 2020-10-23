@@ -24,13 +24,9 @@
   <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
 
   <div class="container--medium">
-    <!-- <chart-line 
-      :lines="<%#= @line_chart[:lines].to_json %>" 
-      :targets="<%#= @line_chart[:targets].to_json %>"
-      :legend="<%#= @line_chart[:legend].to_json %>"
-      :axis="<%#= @line_chart[:axis].to_json %>">
-    </chart-line> --> 
-    
+    <am-chart
+      :raw-data="<%= @line_chart %>"
+    ></am-chart>
 
     <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>

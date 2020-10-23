@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import "lodash";
 import { eventHub } from "../../packs/application.js";
 import DisplayButtonWithDropdown from "../dropdown/DisplayButtonWithDropdown.vue";
 
@@ -28,11 +29,15 @@ export default {
  },
  mounted() {
   eventHub.$on("option-selected", this.changeText);
-  this.selectedOption = this.$store.state.multilingual.selectedLanguage;
+  this.selectedOption = _.isEmpty(
+   this.$store.state.multilingual.selectedLanguage
+  )
+   ? this.text[0]
+   : this.$store.state.multilingual.selectedLanguage;
  },
  data() {
   return {
-   selectedOption: '',
+   selectedOption: "",
    languages: this.text.map((obj) => {
     return obj.locale;
    }),
@@ -40,10 +45,10 @@ export default {
  },
  methods: {
   changeText(option) {
-    const newLanguage = this.text.find((obj) => {
+   const newLanguage = this.text.find((obj) => {
     return obj.locale.iso === option.iso;
-   })
-   this.$store.dispatch('multilingual/changeLang', newLanguage);
+   });
+   this.$store.dispatch("multilingual/changeLang", newLanguage);
    this.selectedOption = newLanguage;
   },
  },

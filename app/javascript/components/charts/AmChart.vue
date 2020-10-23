@@ -1,9 +1,9 @@
 <template>
- <div class="am-chart--line">
-  <div class="chart__wrapper-ie11">
-   <div class="chart__scrollable">
-    <div class="chart__chart">
-     <div class="chart__svg" id="chartdiv" />
+ <div class="chart--amchart">
+  <div class="chart--amchart__wrapper-ie11">
+   <div class="chart--amchart__scrollable">
+    <div class="chart--amchart__bounding-box">
+     <div class="chart--amchart__svg" id="chartdiv" />
     </div>
    </div>
   </div>
@@ -46,7 +46,7 @@ export default {
  },
  methods: {
   chartInit() {
-   this.totalSeries = Object.keys(this.data.datapoints[0]).length - 1;
+   this.totalSeries = Object.keys(this.rawData.datapoints[0]).length - 1;
 
    this.createChart();
    this.createAxis();
@@ -67,7 +67,7 @@ export default {
    xAxis.renderer.ticks.template.length = 6;
 
    this.yAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
-   this.yAxis.title.text = `[bold]${this.data.units}[/]`;
+   this.yAxis.title.text = `[bold]${this.rawData.units}[/]`;
    this.yAxis.title.rotation = 0;
    this.yAxis.title.valign = "top";
    this.yAxis.title.dy = -50;
@@ -82,7 +82,7 @@ export default {
    am4core.options.autoSetClassName = true;
 
    this.chart = am4core.create("chartdiv", am4charts.XYChart);
-   this.chart.data = this.data.datapoints;
+   this.chart.data = this.rawData.datapoints;
    this.chart.paddingTop = 70;
    this.chart.paddingRight = 40;
    this.chart.paddingLeft = -20;
@@ -104,7 +104,7 @@ export default {
     const series = this.chart.series.push(new am4charts.LineSeries());
     series.dataFields.valueY = i + 1;
     series.dataFields.dateX = "x";
-    series.name = this.data.legend[i];
+    series.name = this.rawData.legend[i];
     series.stroke = am4core.color(this.colours[i]);
     series.strokeWidth = 3;
     series.yAxis = this.yAxis;

@@ -3,8 +3,9 @@
   <div class="select--text__top-section">
    <h2 dir="auto" class="select--text__title">{{ selectedOption.title }}</h2>
    <display-button-with-dropdown
+    v-if="selectedOption"
     :options="languages"
-    :selected-option="languages[0]"
+    :selected-option="selectedOption.locale"
    ></display-button-with-dropdown>
   </div>
   <p dir="auto" class="select--text__text">{{ selectedOption.text }}</p>
@@ -51,6 +52,6 @@ export default {
    this.$store.dispatch("multilingual/changeLang", newLanguage);
    this.selectedOption = newLanguage;
   },
- },
+ }
 };
 </script>

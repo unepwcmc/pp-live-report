@@ -15,6 +15,7 @@ $pagination-height-lg: rem-calc(74);
   left: 0;
   bottom: -$pagination-height-sm;
   transition: bottom 0.7s;
+  z-index: 5;
   
   @include breakpoint($small) { 
     height: $pagination-height-lg;

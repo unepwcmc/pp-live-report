@@ -43,6 +43,7 @@ export default {
    chart: null,
    colours: ["#64BAD9", "#A54897", "#65C9B2"], // see $theme-chart in settings.scss
    totalSeries: 0,
+   xAxis: null,
    yAxis: null,
   };
  },
@@ -58,14 +59,14 @@ export default {
   },
 
   createXAxis() {
-   let xAxis = this.chart.xAxes.push(new am4charts.DateAxis());
-   this.styleAxisLine(xAxis);
+   this.xAxis = this.chart.xAxes.push(new am4charts.DateAxis());
+   this.styleAxisLine(this.xAxis);
 
-   xAxis.renderer.minGridDistance = 50;
-   xAxis.renderer.ticks.template.disabled = false;
-   xAxis.renderer.ticks.template.strokeOpacity = 1;
-   xAxis.renderer.ticks.template.stroke = STROKE_COLOUR;
-   xAxis.renderer.ticks.template.length = 6;
+   this.xAxis.renderer.minGridDistance = 50;
+   this.xAxis.renderer.ticks.template.disabled = false;
+   this.xAxis.renderer.ticks.template.strokeOpacity = 1;
+   this.xAxis.renderer.ticks.template.stroke = STROKE_COLOUR;
+   this.xAxis.renderer.ticks.template.length = 6;
   },
 
   createYAxis() {
@@ -73,9 +74,11 @@ export default {
     this.yAxis.title.text = `[bold]${this.rawData.units}[/]`;
     this.yAxis.title.rotation = 0;
     this.yAxis.title.valign = "top";
+    this.yAxis.title.wrap = "true";
+    this.yAxis.maxWidth = 200; 
     this.yAxis.title.dy = -50;
     this.yAxis.title.dx = 30;
-    
+
     this.styleAxisLine(this.yAxis);
   },
 

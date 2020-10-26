@@ -1,3 +1,13 @@
+// Mixins
+@mixin icon() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}
+
+
+
 //--------------------------------------------------
 // icons
 //--------------------------------------------------
@@ -32,10 +42,9 @@
   }
 
   &--minus-white {
+    @include icon;
     background-image: image-url('icons/minus-white.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+
     width: rem-calc(22); height: rem-calc(20);
 
     display: block;

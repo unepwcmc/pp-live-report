@@ -265,21 +265,21 @@ class ChaptersController < ApplicationController
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
-          text_small: "Fully within Protected Areas",
+          text_small: "Fully within",
           source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0],
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
-          text_small: "Partially within Protected Areas",
+          text_small: "Partially within",
           source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1],
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
-          text_small: "Outside Protected Areas",
+          text_small: "Outside",
           source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2],
         }

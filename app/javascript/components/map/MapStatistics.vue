@@ -2,7 +2,7 @@
  <div class="map--statistics">
   <div :id="id" class="map__map"></div>
 
-  <div class="map__panel gutters">
+  <div class="map__panel">
    <div class="map__panel-top">
     <h2 class="heading--map">{{ title }}</h2>
     <i
@@ -10,9 +10,9 @@
      @click="togglePanel"
     ></i>
    </div>
-   <p v-if="description" class="map__panel-description">{{ description }}</p>
 
    <template v-if="isActive">
+    <p v-if="description" class="map__panel-description gutters">{{ description }}</p>
     <template v-if="tabs">
      <tabs :id="`tabs-${id}`">
       <tab

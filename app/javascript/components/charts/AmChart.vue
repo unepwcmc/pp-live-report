@@ -71,13 +71,15 @@ export default {
 
   createYAxis() {
     this.yAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+    this.yAxis.title.maxWidth = 120;
     this.yAxis.title.text = `[bold]${this.rawData.units}[/]`;
     this.yAxis.title.rotation = 0;
     this.yAxis.title.valign = "top";
     this.yAxis.title.wrap = "true";
-    this.yAxis.maxWidth = 200; 
-    this.yAxis.title.dy = -50;
-    this.yAxis.title.dx = 30;
+    this.yAxis.marginLeft = 0;
+    this.yAxis.maxWidth = 190; 
+    this.yAxis.title.dy = -65;
+    this.yAxis.title.dx = 70;
 
     this.styleAxisLine(this.yAxis);
   },
@@ -119,6 +121,11 @@ export default {
     series.stroke = am4core.color(this.colours[i]);
     series.strokeWidth = 3;
     series.yAxis = this.yAxis;
+    
+    // Animation durations - can be tweaked
+    series.hiddenState.transitionDuration = 500;
+    series.interpolationDuration = 500;
+    series.sequencedInterpolation = false;
 
     if (this.dots) {
      this.createDots(series, i);

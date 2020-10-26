@@ -1,6 +1,10 @@
+// Variables
+$ie11-padding: calc((690/420)*1%);
+$mobile-width: calc((420/690)*100%);
+
+
+
 &--amchart {
-  $ie11-padding: calc((750/405)*1%);
-  $mobile-width: calc((405/750)*100%);
 
   &__wrapper-ie11 {
 
@@ -15,14 +19,14 @@
 
   &__scrollable {
     @include breakpoint-down($small) {
-      overflow-x: auto;
-
+      overflow-x: scroll;
       display: flex;
+
     }
   }
 
   &__bounding-box {
-    height: rem-calc(405);
+    height: rem-calc(450);
 
     @include breakpoint-down($small) {
       min-width: $mobile-width;
@@ -30,10 +34,11 @@
   }
 
   &__svg {
-    width: 100%;
+    width: rem-calc(600);
     height: 100%;
 
     @include breakpoint($small) {
+      width: 100%;
       position: absolute;
       top: 0;
       left: 0;

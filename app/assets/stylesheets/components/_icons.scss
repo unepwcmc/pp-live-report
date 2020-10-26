@@ -23,6 +23,24 @@
     }
   }
 
+  &--close-white {
+    background-image: image-url('icons/cross-white.svg');
+    background-size: cover;
+    width: rem-calc(17); height: rem-calc(16);
+
+    display: block;
+  }
+
+  &--minus-white {
+    background-image: image-url('icons/minus-white.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: rem-calc(22); height: rem-calc(20);
+
+    display: block;
+  }
+
   &--share {
     background-image: image-url('icons/share.svg');
     background-size: cover;

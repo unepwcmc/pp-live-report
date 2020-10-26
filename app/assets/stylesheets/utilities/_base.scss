@@ -70,8 +70,13 @@ h2 {
 
   &.heading--map {
     font-size: rem-calc(20);
+    font-weight: $normal;
+    margin-bottom: 0;
 
-    @include breakpoint($small) { font-size: rem-calc(25); }
+    @include breakpoint($small) { 
+      font-size: rem-calc(22); 
+      max-width: rem-calc(350);
+    }
   }
 }
 

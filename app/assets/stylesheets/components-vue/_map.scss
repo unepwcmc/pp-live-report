@@ -74,11 +74,21 @@
 
           position: absolute;
           top: calc(668px * .5);
-          right: 0;
+          right: rem-calc(20);
 
           transform: translateY(-50%);
         }
       }
+
+        &__panel-top {
+          @include flex;
+          @include flex-h-between;
+          @include flex-v-center; 
+
+          @include breakpoint($small) {
+            min-height: rem-calc(65);
+          }
+        }
 
         &__panel-description {
           line-height: 1.2;
@@ -177,7 +187,11 @@
           &__smallprint {
             margin-top: rem-calc(26);
             margin-bottom: rem-calc(26);
-          }      
+          }   
+          
+          .icon--close-white {
+
+          }
     }
   }
 }

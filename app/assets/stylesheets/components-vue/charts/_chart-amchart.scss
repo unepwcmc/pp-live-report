@@ -1,16 +1,11 @@
 // Variables
-$ie11-padding: calc((690/420)*1%);
 $mobile-width: calc((420/690)*100%);
-
-
 
 &--amchart {
 
   &__wrapper-ie11 {
-
-    // do not remove - this is required to set the sizing for ie11
     @include breakpoint($small) {
-      padding-bottom: $ie11-padding;
+      padding-bottom: rem-calc(5);
       width: 100%;
 
       position: relative;
@@ -21,7 +16,6 @@ $mobile-width: calc((420/690)*100%);
     @include breakpoint-down($small) {
       overflow-x: scroll;
       display: flex;
-
     }
   }
 

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import scrollMagic from 'scrollmagic';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -23,6 +24,7 @@ export default {
  name: "AmChart",
  mounted() {
   this.chartInit();
+  this.startAnimation();
  },
  props: {
   chartBackgroundColour: {
@@ -54,8 +56,17 @@ export default {
    this.createChart();
    this.createXAxis();
    this.createYAxis();
-   this.createSeries();
    this.createLegend();
+  },
+
+  startAnimation() {
+    const vm = this;
+    const controller = new scrollMagic.Controller();
+    const scene = new scrollMagic.Scene({ triggerElement: '.chart--amchart', reverse: false })
+    scene.on('enter', function(event) {
+     vm.createSeries();
+    })
+    return scene.addTo(controller);
   },
 
   createXAxis() {
@@ -78,7 +89,7 @@ export default {
     this.yAxis.title.wrap = "true";
     this.yAxis.marginLeft = 0;
     this.yAxis.maxWidth = 190; 
-    this.yAxis.title.dy = -65;
+    this.yAxis.title.dy = -80;
     this.yAxis.title.dx = 70;
 
     this.styleAxisLine(this.yAxis);
@@ -96,7 +107,7 @@ export default {
 
    this.chart = am4core.create("chartdiv", am4charts.XYChart);
    this.chart.data = this.rawData.datapoints;
-   this.chart.paddingTop = 70;
+   this.chart.paddingTop = 90;
    this.chart.paddingRight = 40;
    this.chart.paddingLeft = -20;
    this.chart.background.fill = this.chartBackgroundColour;
@@ -121,17 +132,21 @@ export default {
     series.stroke = am4core.color(this.colours[i]);
     series.strokeWidth = 3;
     series.yAxis = this.yAxis;
-    
-    // Animation durations - can be tweaked
-    series.hiddenState.transitionDuration = 500;
-    series.interpolationDuration = 500;
-    series.sequencedInterpolation = false;
+
+    this.animateSeries(series);
 
     if (this.dots) {
      this.createDots(series, i);
     }
    }
   },
+
+  animateSeries(series) {
+    // Animation durations - can be tweaked
+    series.hiddenState.transitionDuration = 500;
+    series.interpolationDuration = 500;
+    series.sequencedInterpolation = false;
+  }
  },
 };
 </script>

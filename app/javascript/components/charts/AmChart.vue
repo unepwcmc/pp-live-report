@@ -17,6 +17,8 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
 
+const STROKE_COLOUR = am4core.color("#c8c8c8");
+
 export default {
  name: "AmChart",
  mounted() {
@@ -49,33 +51,39 @@ export default {
    this.totalSeries = Object.keys(this.rawData.datapoints[0]).length - 1;
 
    this.createChart();
-   this.createAxis();
+   this.createXAxis();
+   this.createYAxis();
    this.createSeries();
    this.createLegend();
   },
 
-  createAxis() {
+  createXAxis() {
    let xAxis = this.chart.xAxes.push(new am4charts.DateAxis());
-   xAxis.renderer.grid.template.disabled = true;
-   xAxis.renderer.line.strokeOpacity = 1;
-   xAxis.renderer.line.strokeWidth = 1;
-   xAxis.renderer.line.stroke = am4core.color("#c8c8c8");
+   this.styleAxisLine(xAxis);
+
    xAxis.renderer.minGridDistance = 50;
    xAxis.renderer.ticks.template.disabled = false;
    xAxis.renderer.ticks.template.strokeOpacity = 1;
-   xAxis.renderer.ticks.template.stroke = am4core.color("#c8c8c8");
+   xAxis.renderer.ticks.template.stroke = STROKE_COLOUR;
    xAxis.renderer.ticks.template.length = 6;
+  },
 
-   this.yAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
-   this.yAxis.title.text = `[bold]${this.rawData.units}[/]`;
-   this.yAxis.title.rotation = 0;
-   this.yAxis.title.valign = "top";
-   this.yAxis.title.dy = -50;
-   this.yAxis.title.dx = 40;
-   this.yAxis.renderer.grid.template.disabled = true;
-   this.yAxis.renderer.line.strokeOpacity = 1;
-   this.yAxis.renderer.line.strokeWidth = 1;
-   this.yAxis.renderer.line.stroke = am4core.color("#c8c8c8");
+  createYAxis() {
+    this.yAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+    this.yAxis.title.text = `[bold]${this.rawData.units}[/]`;
+    this.yAxis.title.rotation = 0;
+    this.yAxis.title.valign = "top";
+    this.yAxis.title.dy = -50;
+    this.yAxis.title.dx = 30;
+    
+    this.styleAxisLine(this.yAxis);
+  },
+
+  styleAxisLine(axis) {
+    axis.renderer.grid.template.disabled = true;
+    axis.renderer.line.strokeOpacity = 1;
+    axis.renderer.line.strokeWidth = 1;
+    axis.renderer.line.stroke = STROKE_COLOUR;
   },
 
   createChart() {

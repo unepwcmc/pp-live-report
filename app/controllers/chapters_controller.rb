@@ -297,7 +297,7 @@ class ChaptersController < ApplicationController
     end
     @line_chart = {
       datapoints: lines,
-      units: '%',
+      units: 'Average percentage covered %',
       legend: types.map { |t| t.gsub(/(KBAs)/, '').squish }
     }.to_json
   end

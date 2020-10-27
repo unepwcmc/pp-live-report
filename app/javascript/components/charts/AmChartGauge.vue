@@ -20,6 +20,7 @@
 import * as am4core from "@amcharts/amcharts4/core"
 import * as am4charts from "@amcharts/amcharts4/charts"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated"
+import ScrollMagic from 'scrollmagic'
 
 export default {
   name: 'AmChartGauge',
@@ -35,12 +36,15 @@ export default {
     target: {
       type: Number
     },
-    title: {
-      String: Number
-    },
     theme: {
       default: '#000',
       type: String,
+    },
+    title: {
+      String: Number
+    },
+    trigger: { 
+      type: String
     },
     value: {
       required: true,
@@ -60,7 +64,14 @@ export default {
 
     am4core.useTheme(am4themes_animated)
 
-    setInterval(() => {
+    if(this.trigger) {
+      this.scrollMagicHandlers()
+    }
+  },
+
+  methods: {
+    animation () {
+      console.log('animation')
       new am4core.Animation(this.hand, {
         property: "value",
         to: this.value
@@ -70,11 +81,8 @@ export default {
         property: "endValue",
         to: this.value
       }, 1000, am4core.ease.cubicOut).start()
+    },
 
-    }, 1000)
-  },
-
-  methods: {
     createChart () {
       this.chart = am4core.create(this.id, am4charts.GaugeChart)
       
@@ -158,6 +166,16 @@ export default {
       let marker = this.legend.markers.template.children.getIndex(0)
 
       marker.cornerRadius(12, 12, 12, 12)
+    },
+
+    scrollMagicHandlers () {
+      const controllerChart = new ScrollMagic.Controller()
+
+      new ScrollMagic.Scene({ triggerElement: `.${this.trigger}`, reverse: false })
+        .on('start', () => { 
+          this.animation()
+        })
+        .addTo(controllerChart)
     }
   }
 }

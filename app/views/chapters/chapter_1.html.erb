@@ -1,5 +1,5 @@
 <div class="container section-padding">
-  <div class="aichi-target">
+  <div class="aichi-target sm-trigger-aichi-chart">
     <div class="box__text">
       <h3>Did we reach the target?</h3>
       <p class="p--small">By 2020, at least 17 percent of terrestrial and inland water areas and 10 percent of costal and marine.</p>
@@ -14,6 +14,7 @@
           :target="<%= chart[:target] %>"
           theme="<%= chart[:theme] %>"
           title="<%= chart[:title] %>"
+          trigger="sm-trigger-aichi-chart"
           :value="<%= chart[:value] %>"
         ></am-chart-gauge>
       <% end %>

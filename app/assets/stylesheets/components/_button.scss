@@ -72,7 +72,7 @@
     color: $body-font-color;
     
     &:after {
-      background-image: image-url('icons/external-link.svg');
+      background-image: image-url('icons/chevron-circle-right.svg');
       content: '';
       width: rem-calc(10); height: rem-calc(10);
       

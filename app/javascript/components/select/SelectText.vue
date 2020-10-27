@@ -33,7 +33,7 @@ export default {
   this.selectedOption = _.isEmpty(
    this.$store.state.multilingual.selectedLanguage
   )
-   ? this.text[0]
+   ? this.text.find((obj) => { return obj.locale.iso === 'en' })
    : this.$store.state.multilingual.selectedLanguage;
  },
  data() {

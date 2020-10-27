@@ -782,7 +782,7 @@ class ChaptersController < ApplicationController
     # TODO - need actual summary text in different languages 
     summaries_path = 'config/locales/summary'.freeze
 
-    @summaries = Dir.children(summaries_path).map do |locale|
+    @summaries = Dir.children(summaries_path).sort.map do |locale|
       yml = YAML.load_file(File.join(Rails.root, summaries_path, locale))
       locale_iso = locale.split('.')[0]
       

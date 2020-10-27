@@ -9,8 +9,7 @@
 
     &__text {
       color: $white;
-      // font-size: rem-calc(16);
-
+      
       @include breakpoint($small) {
         padding-right: rem-calc(10);
         overflow-y: scroll;

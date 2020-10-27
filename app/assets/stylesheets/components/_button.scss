@@ -44,17 +44,6 @@
     }
   }
 
-  &--cta-external {
-    @include button-cta;
-
-    &::after {
-      background-image: image-url('icons/external-link.svg');
-      width: rem-calc(23); height: rem-calc(23);
-
-      transform: translateY(3px);
-    }
-  }
-
   &--download {
     @extend .flex;
     @extend .flex-v-center;
@@ -81,6 +70,14 @@
 
   &--external {
     color: $body-font-color;
+    
+    &:after {
+      background-image: image-url('icons/external-link.svg');
+      content: '';
+      width: rem-calc(10); height: rem-calc(10);
+      
+      display: block;
+    }
   }
 
   &--link {

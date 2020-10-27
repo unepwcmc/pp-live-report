@@ -2,11 +2,11 @@
   width: 100%; height: 100%;
 
   .chart__chart {
-    height: 100%;
+    width: 100%; height: 100%;
   }
 
   .chart__svg {
-    height: 100%;
+    width: 100%; height: 100%;
   }
 
   .chart__title {
@@ -15,42 +15,3 @@
     margin-bottom: 0;
   }
 }
-
-.aichi-target {
-  @include flex;
-  background-color: $grey-xlight;
-  padding: rem-calc(20 24);
-
-  @include breakpoint($small) {
-    padding: rem-calc(24 50);
-  }
-
-  .box__text {
-    font-size: rem-calc(14);
-
-    @include breakpoint($small) {
-      font-size: rem-calc(16);
-      width: 40%;
-      
-      align-self: center;
-    }
-  }
-
-  .box__charts {
-    @include breakpoint($small) {
-      @include flex;
-      margin-left: auto;
-      width: 50%;
-    }
-  }
-
-  .box__chart {
-    margin: rem-calc(20 0);
-
-    @include breakpoint($small) {
-      padding: rem-calc(0 10);
-      width: 49%;
-    }
-  }
-}
-

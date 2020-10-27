@@ -74,9 +74,12 @@
     &:after {
       background-image: image-url('icons/chevron-circle-right.svg');
       content: '';
-      width: rem-calc(10); height: rem-calc(10);
+      margin-left: rem-calc(10);
+      width: rem-calc(24); height: rem-calc(24);
       
-      display: block;
+      display: inline-block;
+      
+      transform: translateY(7px);
     }
   }
 

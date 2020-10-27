@@ -11,7 +11,7 @@
   .box__text {
     font-size: rem-calc(14);
 
-    @include breakpoint($small) {
+    @include breakpoint($medium) {
       font-size: rem-calc(16);
       width: 40%;
       
@@ -22,12 +22,12 @@
   .box__charts {
     text-align: center;
 
-    @include breakpoint($small) {
+    @include breakpoint($medium) {
       margin-left: auto;
       width: 60%;
     }
 
-    @include breakpoint($medium) {
+    @include breakpoint($large) {
       width: 50%;
     }
   }

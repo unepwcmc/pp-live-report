@@ -56,6 +56,8 @@ import Tabs from "../tabs/Tabs";
 
 import { eventHub } from "../../packs/application.js";
 
+const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73"
+
 export default {
  name: "map-statistics",
 
@@ -134,7 +136,7 @@ export default {
 
    this.map = new mapboxgl.Map({
     container: this.id,
-    style: "mapbox://styles/unepwcmc/cjo95gdrg0qzh2roan77pelcj",
+    style: MAPBOX_STYLE,
     center: [0.0, -0.0],
     zoom: 1.3,
    });

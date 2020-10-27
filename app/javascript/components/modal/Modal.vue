@@ -1,15 +1,19 @@
 <template>
- <div :class="[ isActive ? 'modal-wrapper--active' : 'modal-wrapper' ]">
+ <div :class="[isActive ? 'modal-wrapper--active' : 'modal-wrapper']">
   <div v-if="isActive" class="modal--case-study">
    <button class="modal__close icon--cross" @click.stop="modalClose" />
    <div class="modal__content">
-    <p class="modal__report">{{ text.report }}</p>
+    <p v-if="text.report" class="modal__report">{{ text.report }}</p>
     <h2 class="modal__title">{{ text.title }}</h2>
-    <p>{{ text.text }}</p>
+    <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
+    <p v-if="text.org" class="modal__org">{{ text.org }}</p>
+    <p v-for="(paragraph, index) in text.text" :key="index">{{ paragraph }}</p>
     <div>
-      <img :src="text.image" class="modal__image"/>
-      <p class="modal__image-caption">{{ text.caption }}</p>
-      <small class="modal__image-source">{{ text.source }}</small>
+     <img v-if="text.image" :src="text.image" class="modal__image" />
+     <p v-if="text.caption" class="modal__image-caption">{{ text.caption }}</p>
+     <small v-if="text.source" class="modal__image-source">{{
+      text.source
+     }}</small>
     </div>
    </div>
   </div>
@@ -21,18 +25,18 @@ export default {
  name: "Modal",
 
  props: {
-   isActive: {
-     type: Boolean,
-     required: true
-   },
+  isActive: {
+   type: Boolean,
+   required: true,
+  },
   text: {
    type: Object,
    required: true,
-  }
+  },
  },
  methods: {
   modalClose() {
-    this.$emit('close-modal');
+   this.$emit("close-modal");
   },
  },
 };

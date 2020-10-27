@@ -24,3 +24,11 @@ cta_title_2: "IUCN World Heritage Outlook: Tracking conservation in the planet's
 cta_text_2: "The IUCN World Heritage Outlook 2 tracks changes in the conservation prospects of the 241 natural World Heritage sites."
 cta_url_2: "https://www.worldheritageoutlook.iucn.org/home-page"
 photo_credits: "Photo credits: &copy; Sasin Tipchai"
+case_studies:
+  - 
+    title: 'Tracking management effectiveness after 2020'
+    authors: 'Sue Stolton'
+    org: 'Equilibrium Research '
+    text: "Effectiveness needs to start from the ground up, ensuring sites are in the places most needing conservation management, that they are subject to good governance and that they deliver their goals effectively. Many tools have been developed, and adapted, for site-based management effectiveness assessments; descriptions of these tools, and details of the many thousands of sites that have used them, can be found on Protected Planet’s GD-PAME pages. What has proved difficult however is taking these site- or sometimes system-based assessments and extracting one or two indicators for global effectiveness reporting. One problem has been a confusion in what is being reported; while site-level assessments are more focussed on management, the demand at the global level has often been for data on conservation outcomes. Most PAME methodologies cannot deliver this, and often explicitly state that outcome monitoring needs other tools, systems and processes to complement management effectiveness assessment. \n
+           There is an opportunity for the post-2020 effectiveness indicators to address this disparity in global and site-level expectations of effectiveness assessments, in addition to providing clarity on both the criteria and the method of reporting. One option for globally consistent indicators is to build on the advances made in remote sensing and other technologies. Appropriate resolution in time and space, data quality, and open access will be important, as will data validation. Such global indicators still need to be complemented by site-level indicators. These should focus on the condition of the biodiversity elements for which the site is valued and be based on finer-scale biodiversity inventories and capture details of change that more coarse-scale remote sensed measures cannot (Maxwell et al, 2020)."
+           

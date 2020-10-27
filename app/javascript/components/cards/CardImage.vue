@@ -5,7 +5,7 @@
   @click="openModal"
  >
   <modal
-   :text="caseStudy.text"
+   :text="caseStudy"
    :is-active="isActive"
    @close-modal="closeModal"
   ></modal>

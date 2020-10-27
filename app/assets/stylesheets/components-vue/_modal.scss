@@ -105,6 +105,10 @@
       padding-right: rem-calc(92);
     }
 
+    .modal__authors {
+      font-size: rem-calc(18);
+    }
+
     .modal__image {
       width: 100%;
       margin-bottom: rem-calc(14);
@@ -120,6 +124,11 @@
       color: $grey;
       font-size: rem-calc(14);
       font-weight: $light;
+    }
+
+    .modal__org {
+      font-weight: $light;
+      font-style: italic;
     }
 
     .modal__report {

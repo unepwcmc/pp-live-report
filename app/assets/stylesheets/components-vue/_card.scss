@@ -68,7 +68,7 @@
     z-index: 2;
 
     @include breakpoint($small) {
-      padding: rem-calc(26 141 0 31);
+      padding: rem-calc(26 100 0 31);
     }
   }
 

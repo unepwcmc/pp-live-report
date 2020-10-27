@@ -3,7 +3,10 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
-  before_action :populate_case_studies
+  # Messy way of getting chapter number and passing it to before action!
+  before_action do
+    populate_case_studies(params[:action].match(/\d+/)[0].to_i)
+  end
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -769,25 +772,33 @@ class ChaptersController < ApplicationController
 
   private
 
-  def populate_case_studies
-    # TODO: - Get case study texts
-    temp_title = 'Case Study'
-    temp_text = 'The World Database on Protected Areas (WDPA) is the most comprehensive global database on terrestrial and marine protected areas.'
+  CASE_STUDY_ATTRIBUTES = %w(report authors org title text image caption source).freeze
 
-    @items = []
-    3.times.each do
-      @items << { summary: temp_text, title: temp_title, text: case_study_text }
-    end
+  def populate_case_studies(chapter_number)
+    # TODO: - Update case study texts
+    return if @chapters_data[chapter_number - 1]['case_studies'].nil?
+
+    @items = @chapters_data[chapter_number - 1]['case_studies'].map do |case_study|
+                case_study['text'] = case_study['text'].split("\n")  
+                contents = case_study_contents
+                contents['image'] = case_study_image(case_study)
+                contents['summary'] = helpers.truncate(case_study['text'][0], length: 120)
+                contents.merge(case_study.deep_stringify_keys)
+            end
   end
 
-  def case_study_text
-    {
-      report: '2018 report',
-      title: 'Human Footprint: Areas under intense human pressure',
-      text: 'There has been a remarkable growth in marine protected areas (MPAs) in recent years. As highlighted at the UN Oceans Conference (2018), MPAs have increased more than 15-fold since 1993 when the CBD entered into force. A larger area of the ocean is now protected than on land, though proportionally the much larger ocean realm has lower percentage coverage than does the terrestrial realm. Since April 2016, more than 8 million km2 of new marine protected areas have been added to the WDPA, strengthening protection of ecological regions and Key Biodiversity Areas in the marine realm (4th International Marine Protected Areas Congress, 2017) (see also Chapter 4). This growth in marine protection is largely the result of several countries declaring very large reserves, e.g. Brazil, Mexico, and some protecting their entire EEZ, e.g. the designation of the approximately 2 million km2 Marae Moana Marine Park in the Cook Islands in 2017. The four largest marine protected areas were created or expanded in the last two years (CBD Secretariat, 2018a). With continuous efforts from governments to implement existing commitments, the global coverage targets of Aichi Target 11 are likely to be met in the oceans, with the target already met for areas within EEZ. Despite this trend, an additional 10 million km2 is still required by 2020 to meet the ocean Target.',
-      image: URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png')),
-      caption: 'Example of marine ecosystem services coral coastal protection and coral fisheries and their location in relation to protected areas in south Sulawesi, Indonesia.', 
-      source: 'UNEP-WCMC and IUCN. 2018a. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.*'
-    }
+  def case_study_contents
+    # Build a hash out of all possible keys 
+    attributes = Hash.new
+    CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
+    attributes
+  end
+
+  def case_study_image(case_study)
+    if case_study['image']
+      URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
+    else
+      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
+    end
   end
 end

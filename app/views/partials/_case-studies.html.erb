@@ -1,9 +1,11 @@
 <div class="cards--case-studies container">
   <div class="cards__cards">
-    <% @items.each do |card| %>
-      <card-image
-        :case-study="<%= card.to_json %>"
-      ></card-image>
+    <% if @items %>
+      <% @items.each do |card| %>
+        <card-image
+          :case-study="<%= card.to_json %>"
+        ></card-image>
+      <% end %>
     <% end %>
   </div>
 </div>

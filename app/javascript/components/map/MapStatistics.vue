@@ -3,7 +3,7 @@
   <div :id="id" class="map__map"></div>
 
   <div class="map__panel">
-   <div class="map__panel-top">
+   <div class="map__panel-top gutters">
     <h2 class="heading--map">{{ title }}</h2>
     <i
      :class="[isActive ? 'icon--close-white' : 'icon--minus-white']"

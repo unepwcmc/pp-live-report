@@ -12,7 +12,7 @@
 
 @mixin layer-button {
   background-color: $grey;
-  border: solid 2px $white;
+  border: solid 1px $white;
   border-radius: 100%;
   margin: 0;
   
@@ -23,7 +23,7 @@
 
 @mixin layer-button-inner {
   background-color: $green;
-  border: solid 2px $white;
+  border: solid 1px $white;
   border-radius: 100%;
 
   display: block;
@@ -84,8 +84,6 @@
         @include flex-h-between;
         @include flex-v-center; 
         background-color: $black;
-        padding-left: rem-calc(19);
-        padding-right: rem-calc(19);
 
         @include breakpoint($small) {
           padding-top: rem-calc(20);
@@ -103,6 +101,7 @@
 
         &__panel-toggle {
           @include flex;
+          @include flex-v-center;
           cursor: pointer;
           padding: rem-calc(2 10);
           
@@ -120,8 +119,11 @@
           }
 
           &__panel-layer {
+            @include flex;
             background-color: $grey;
+            margin-bottom: rem-calc(5);
             text-align: center;
+            height: rem-calc(40);
           } 
 
           &__panel-sublayer {
@@ -148,6 +150,7 @@
             }
 
             &__panel-layer-text {
+              font-size: rem-calc(16);
               display: inline-block;
             }
 
@@ -163,7 +166,7 @@
 
               &__panel-layer-button-inner {
                 @include layer-button-inner;
-                width: rem-calc(15); height: rem-calc(15);
+                width: rem-calc(12); height: rem-calc(12);
 
                 top: rem-calc(3);
                 left: rem-calc(3);

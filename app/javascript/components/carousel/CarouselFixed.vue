@@ -6,7 +6,7 @@
         <p class="carousel__subtitle">{{ subtitle}}</p>
         <h2 class="heading--carousel carousel__title">{{ title }}</h2>
         <p class="carousel__intro">{{ intro}}</p>
-        <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
+        <a :href="url" :title="'View chapter: #{title}'" class="button--cta">Explore chapter</a>
       </div>
     </div>
 

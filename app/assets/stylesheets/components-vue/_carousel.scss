@@ -22,9 +22,15 @@
   }
 
   &__content {
+    opacity: 0;
+
+    transition: opacity ease-in 800ms;
+
     @include breakpoint($medium) {
       padding-right: 50%;
     }
+
+    &.active { opacity: 1; }
   }
 }
 

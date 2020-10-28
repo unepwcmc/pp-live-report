@@ -23,7 +23,7 @@
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
         <h2 class="carousel__title">{{ slide.title }}</h2>
         <p class="carousel__intro">{{ slide.intro}}</p>
-        <a :href="url" :title="'View chapter: #{slide.title}'" class="button--cta">View chapter</a>
+        <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="button--cta">View chapter</a>
       </div>
     </section>
   </div>
@@ -55,24 +55,6 @@ export default {
     }
   },
 
-  computed: {
-    title () {
-      return this.slides[this.activeIndex]['title']
-    },
-
-    subtitle () {
-      return this.slides[this.activeIndex]['subtitle']
-    },
-
-    intro () {
-      return this.slides[this.activeIndex]['intro']
-    },
-
-    url () {
-      return this.slides[this.activeIndex]['url']
-    }
-  },
-
   mounted () {
     this.scrollMagicHandlers()
     this.nav()
@@ -92,7 +74,7 @@ export default {
       //   .addTo(controller)
 
       // change behaviour of controller to animate scroll instead of jump
-      this.controller.scrollTo(function (newpos) {
+      this.controller.scrollTo(newpos => {
         gsap.to(window, 0.5, {scrollTo: {y: newpos}})
       })
 
@@ -107,24 +89,45 @@ export default {
     scrollMagicHandlers () {
       const controller = new ScrollMagic.Controller({
         globalSceneOptions: {
-          triggerHook: 'onLeave',
           duration: "200%" // this works just fine with duration 0 as well
           // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
           // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
         }
       })
 
-      var slides = this.$refs['animated-slide']
+      const controllerContent = new ScrollMagic.Controller({
+        globalSceneOptions: {
+          triggerHook: 'onEnter',
+          // duration: "200%"
+        }
+      })
+
+      // var slides = this.$refs['animated-slide']
       // document.querySelectorAll("section.panel");
 
       // create scene for every slide
-      for (var i=0; i<slides.length; i++) {
+      for (var i=1; i<this.slides.length; i++) {
+        const idSlide = `#chapter-${i}`
+        const idSlideContent = `#chapter-${i} .carousel__content`
+
+        console.log(idSlide)
+        console.log(idSlideContent)
+        
         new ScrollMagic.Scene({
-          triggerElement: slides[i]
+          triggerElement: idSlide
         })
-        .setPin(slides[i], {pushFollowers: false})
-        .addTo(controller);
+        .triggerHook('onLeave')
+        .setPin(idSlide, {pushFollowers: false})
+        .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: idSlideContent
+        })
+        .triggerHook('onEnter')
+        .setClassToggle(idSlideContent, 'active')
+        .addTo(controller)
       }
+      
     } 
   }
 }

@@ -88,6 +88,8 @@
         padding-right: rem-calc(19);
 
         @include breakpoint($small) {
+          padding-top: rem-calc(20);
+          padding-bottom: rem-calc(20);
           min-height: rem-calc(65);
         }
       }
@@ -101,18 +103,10 @@
 
         &__panel-toggle {
           @include flex;
-          @include flex-h-center;
-          border: 1px solid rgba($grey-light, 0.4);
-          border-radius: rem-calc(20);
           cursor: pointer;
           padding: rem-calc(2 10);
           
           align-items: center;
-          display: flex;
-
-          &.active { 
-            background-color: $green;
-          }
 
           &.disabled {
             cursor: default;
@@ -121,15 +115,13 @@
           }
         }
           &__panel-layers {
-            @include flex;
-            @include flex-h-between;
             list-style-type: none;
             width: 100%;
           }
 
           &__panel-layer {
+            background-color: $grey;
             text-align: center;
-            margin: auto auto rem-calc(8) auto;
           } 
 
           &__panel-sublayer {
@@ -156,24 +148,22 @@
             }
 
             &__panel-layer-text {
-
               display: inline-block;
             }
 
             &__panel-button-wrapper {
-              width: rem-calc(50);
-
+              margin-right: rem-calc(12);
               flex-shrink: 0;
             }
             
             &__panel-layer-button {
               @include layer-button;
-              width: rem-calc(30); height: rem-calc(30);
+              width: rem-calc(20); height: rem-calc(20);
             }
 
               &__panel-layer-button-inner {
                 @include layer-button-inner;
-                width: rem-calc(20); height: rem-calc(20);
+                width: rem-calc(15); height: rem-calc(15);
 
                 top: rem-calc(3);
                 left: rem-calc(3);

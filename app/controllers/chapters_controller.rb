@@ -50,39 +50,41 @@ class ChaptersController < ApplicationController
     @map_1 = {
       id: "map_1",
       tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf",
-      layers: [
+      tabs: [
         {
-          id: "terrestrial-" + random_number,
-          text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-          text_small: "of terrestrial areas",
-          source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
-          colour: "#86BF37"
-        },
-        {
-          id: "marine-" + random_number,
-          text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-          text_small: "of marine areas",
-          source_layers: {poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast'},
-          colour: "#133151",
-          sublayers: [
+          title: 'Terrestrial',
+          layers: [
             {
-              id: "eez-" + random_number,
-              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_small: "of the global EEZ",
-              source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
-              colour: "#6FD9F2"
-            },
-            {
-              id: "abnj-" + random_number,
-              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_small: "of global ABNJ",
-              source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
-              colour: "#207D94"
+              id: "terrestrial-" + random_number,
+              text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
+              text_small: "Terrestrial",
+              source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
+              colour: "#86BF37"
             }
           ]
-        }
-      ]
-    }
+        },
+        {
+          title: 'Marine',
+          layers: [
+            # TODO - Need to restructure below into % categories
+                {
+                  id: "eez-" + random_number,
+                  text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
+                  text_small: "of the global EEZ",
+                  source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
+                  colour: "#6FD9F2"
+                },
+                {
+                  id: "abnj-" + random_number,
+                  text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
+                  text_small: "of global ABNJ",
+                  source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
+                  colour: "#207D94"
+                }
+              ]
+          }
+        ]
+      }
 
     @global_area_chart = {
       id: "global-area-chart",

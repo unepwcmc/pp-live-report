@@ -10,7 +10,7 @@ module NavigationHelper
     previous_ch_number = current_chapter - 1
     previous_ch = load_yaml("#{CONTENT_BASE_PATH}/chapter-#{previous_ch_number}.yml")
 
-    populate_chapter_json(previous_ch_number, previous_ch['title'])
+    populate_chapter_json(previous_ch_number)
   end
 
   def next_chapter(current_chapter)
@@ -18,10 +18,10 @@ module NavigationHelper
     next_ch_number = current_chapter + 1
     next_ch = load_yaml("#{CONTENT_BASE_PATH}/chapter-#{next_ch_number}.yml")
 
-    populate_chapter_json(next_ch_number, next_ch['title'])
+    populate_chapter_json(next_ch_number)
   end
 
-  def populate_chapter_json(ch_number, title)
-    { url: URI.join(root_url, "/chapter-#{ch_number}"), title: title }.to_json
+  def populate_chapter_json(ch_number)
+    URI.join(root_url, "/chapter-#{ch_number}")
   end
 end

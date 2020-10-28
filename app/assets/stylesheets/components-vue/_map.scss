@@ -22,7 +22,6 @@
 }
 
 @mixin layer-button-inner {
-  background-color: $green;
   border: solid 1px $white;
   border-radius: 100%;
 
@@ -111,6 +110,14 @@
             cursor: default;
             pointer-events: none;
             opacity: 0.5;
+          }
+
+          &.active { 
+            .map__panel-layer-button-inner,
+            .map__panel-sublayer-button-inner { 
+              background-color: $green;
+              transform: scale(1);
+            } 
           }
         }
           &__panel-layers {

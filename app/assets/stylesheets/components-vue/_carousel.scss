@@ -1,19 +1,44 @@
 //--------------------------------------------------
 // carousel wipes
 //--------------------------------------------------
-.panel {
-  background-color: $white;
+.carousel--wipes {
+  background-color: $black;
+  color: $white;
+}
 
-  width: 100%; height: 100vh; 
+.carousel {
+  &__nav {
+    background-color: red;
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    z-index: 1;
+  }
 
-  
+  &__slide {
+    @include flex;
+    @include flex-v-center;
+    width: 100%; height: 100vh;
+  }
+
+  &__content {
+    @include breakpoint($medium) {
+      padding-right: 50%;
+    }
+  }
 }
 
 .scrollmagic-pin-spacer {
-  &:nth-child(1) { background-color: red; }
-  &:nth-child(2) { background-color: blue; }
-  &:nth-child(3) { background-color: green; }
-  &:nth-child(4) { background-color: yellow; }
+  &:nth-child(1) .carousel__slide { background-image: $chapter-image-1; }
+  &:nth-child(2) .carousel__slide { background-image: $chapter-image-2; }
+  &:nth-child(3) .carousel__slide { background-image: $chapter-image-3; }
+  &:nth-child(4) .carousel__slide { background-image: $chapter-image-4; }
+  &:nth-child(5) { background-image: $chapter-image-5; }
+  &:nth-child(6) { background-image: $chapter-image-6; }
+  &:nth-child(7) { background-image: $chapter-image-7; }
+  &:nth-child(8) { background-image: $chapter-image-8; }
+  &:nth-child(9) { background-image: $chapter-image-9; }
+  &:nth-child(10) { background-image: $chapter-image-10; }
 }
 
 

@@ -1,23 +1,27 @@
 <template>
-<div>
-  <div class="nav">
-    <a href="#chapter-1" @click="scroll($event, '#chapter-1')">1</a>
-    <a href="#chapter-2" @click="scroll($event, '#chapter-2')">2</a>
-    <a href="#chapter-3" @click="scroll($event, '#chapter-3')">3</a>
-    <a href="#chapter-4" @click="scroll($event, '#chapter-4')">4</a>
+<div class="carousel--wipes">
+  <div class="carousel__nav">
+    <p
+      v-for="(slide, index) in slides"
+      :key="slide._uid"
+      @click="scroll($event, `#chapter-${index + 1}`)"
+    >
+      Chapter {{ index + 1 }}
+    </p>
   </div>
 
-  <div>
+  <div class="carousel__slides">
     <section 
-      v-for="slide in slides"
+      v-for="(slide, index) in slides"
       :key="slide._uid"
-      id="chapter-1" 
-      class="panel blue"
+      :id="`chapter-${index + 1}`" 
+      class="carousel__slide"
+      ref="animated-slide"
     >
       <div 
-        :class="['carousel__content', { 'animate': changingSlide }]" ref="animated-slide">
+        :class="['carousel__content container', { 'animate': changingSlide }]">
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
-        <h2 class="heading--carousel carousel__title">{{ slide.title }}</h2>
+        <h2 class="carousel__title">{{ slide.title }}</h2>
         <p class="carousel__intro">{{ slide.intro}}</p>
         <a :href="url" :title="'View chapter: #{slide.title}'" class="button--cta">View chapter</a>
       </div>
@@ -110,7 +114,8 @@ export default {
         }
       })
 
-      var slides = document.querySelectorAll("section.panel");
+      var slides = this.$refs['animated-slide']
+      // document.querySelectorAll("section.panel");
 
       // create scene for every slide
       for (var i=0; i<slides.length; i++) {

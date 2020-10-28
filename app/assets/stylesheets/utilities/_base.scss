@@ -60,14 +60,6 @@ h2 {
     margin-bottom: rem-calc(30);
   }
 
-  &.heading--carousel {
-    font-size: rem-calc(25);
-    font-weight: $light;
-
-    @include breakpoint($small) { font-size: rem-calc(60); }
-    @include breakpoint($medium) { font-size: rem-calc(70); }
-  }
-
   &.heading--map {
     font-size: rem-calc(20);
 

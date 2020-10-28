@@ -89,7 +89,7 @@ export default {
 
  computed: {
   initialLayers() {
-   return this.tabs ? this.tabs[0].layers : this.allLayers;
+   return this.tabs ? this.tabs[0].layers[0] : this.layers[0];
   },
  },
 
@@ -122,11 +122,11 @@ export default {
   getLayerById(id) {
    let layer = null;
 
-   this.allLayers.forEach((l) => {
+  this.allLayers.forEach((l) => {
     if (l.id === id) {
-     layer = l;
+      layer = l;
     }
-   });
+  });
 
    return layer;
   },
@@ -153,10 +153,8 @@ export default {
   },
 
   addInitialLayers() {
-   if (this.initialLayers.length) {
-    this.initialLayers.forEach((layer) => {
-     this.addLayerAndSubLayers(layer);
-    });
+   if (this.initialLayers) {
+     this.addLayerAndSubLayers(this.initialLayers);
    }
   },
 
@@ -211,24 +209,34 @@ export default {
   },
 
   hideLayers(ids) {
-   this.setVisibilityOfLayers(ids, false);
+   this.hideVisibilityOfLayers(ids);
   },
 
   showLayers(ids) {
-   this.setVisibilityOfLayers(ids, true);
+   this.setVisibilityOfLayers(ids);
   },
 
-  setVisibilityOfLayers(ids, isVisible) {
+  hideVisibilityOfLayers(ids) {
    if (ids.mapId !== this.id) {
     return;
    }
 
-   const newVisibility = isVisible ? "visible" : "none";
+   ids.layerIds.forEach((mapboxLayerId) => {
+      if (this.map.getLayer(mapboxLayerId)) {
+      this.map.setLayoutProperty(mapboxLayerId, "visibility", "none");
+      }
+    });
+  },
+
+  setVisibilityOfLayers(ids) {
+   if (ids.mapId !== this.id) {
+    return;
+   }
 
    ids.layerIds.forEach((mapboxLayerId) => {
     if (this.map.getLayer(mapboxLayerId)) {
-     this.map.setLayoutProperty(mapboxLayerId, "visibility", newVisibility);
-    } else if (isVisible) {
+     this.map.setLayoutProperty(mapboxLayerId, "visibility", "visible");
+    } else {
      const baseLayer = this.getLayerById(
       this.getLayerIdFromMapboxLayerId(mapboxLayerId)
      );

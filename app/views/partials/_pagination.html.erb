@@ -1,8 +1,8 @@
 <div class="pagination">
   <pagination
     :current-chapter="<%= @chapter_number.to_i %>"
-    :previous-chapter="<%= previous_chapter(@chapter_number) %>"
-    :next-chapter="<%= next_chapter(@chapter_number) %>"
+    :previous-chapter="'<%= previous_chapter(@chapter_number) %>'"
+    :next-chapter="'<%= next_chapter(@chapter_number) %>'"
   ></pagination>
 </div>
 

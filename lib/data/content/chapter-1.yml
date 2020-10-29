@@ -1,15 +1,50 @@
-title: "Introduction to Protected Planet Report"
+title: "Introduction"
 menu_title: "Introduction"
 subtitle: "Chapter 1"
 intro: "In this edition of the Protected Planet Report, we review and update progress made at the global level towards achieving Aichi Target 11, with each chapter of this report looking at a specific element of the target."
 aichi_target: "Aichi Target 11"
 aichi_image: "icons/aichi-11.svg"
 aichi_text: "Aichi Biodiversity Target 11 of the Strategic Plan for Biodiversity 2010-2020 calls for Parties to achieve the following: ‘By 2020, at least 17 per cent of terrestrial and inland water areas and 10 per cent of coastal and marine areas, especially areas of particular importance for biodiversity and ecosystem services, are conserved through effectively and equitably managed, ecologically representative and well-connected systems of protected areas and other effective area-based conservation measures, and integrated into the wider landscape and seascape’."
-aichi_text_2:  
+
+main_text: 
+  - 
+    "As the pace of biodiversity loss continues to accelerate (IPBES, 2019; CBD 2020; WWF 2020), the links between this loss and other global challenges are becoming better understood. Even before the COVID-19 pandemic (Box 2) forced the problems of wildlife exploitation into the public consciousness (UNEP, 2020), awareness was increasing of the connections between biodiversity loss and the climate crisis (ref). As we enter the new decade, it is clear that biodiversity loss needs to be addressed not only for the sake of species and ecosystems, but also to ensure the survival of human societies."
+  
+  - 
+    "Protected and conserved areas (see a note on terminology below) have long been considered a vital tool in tackling the decline in biodiversity, and have an important role to play in achieving many of the Aichi Targets and Sustainable Development Goals (CBD 2020). In 2010, the governments of the world reiterated their commitment to expanding protected and conserved areas by agreeing to conserve 17% of the world’s land and inland water ecosystems, and 10% of its coastal waters and oceans, by 2020. The Protected Planet Report 2020 is the last in a series tracking progress towards this target, known as Aichi Biodiversity Target 11. It is published as the Aichi Targets make way for a new set of goals and targets in the Post-2020 Global Biodiversity Framework. In addition to assessing whether Aichi Target 11 has been met, the report considers the lessons that should be taken forward into the coming decade. It discusses emerging methodologies for monitoring progress, and recommends areas in need of greater attention. Looking ahead, the report’s findings provide a baseline for measuring progress against elements of the Post-2020 Global Biodiversity Framework." 
+
   -
-    "Protected and conserved areas have long been a successful management tool to conserve biodiversity, and without them, the global loss of biodiversity would likely be even greater. IUCN defines a protected area as ‘a clearly defined geographical space, recognised, dedicated and managed, through legal or other effective means, to achieve the long term conservation of nature with associated ecosystem services and cultural values’."
+    "This Protected Planet Report 2020 is the first to look beyond protected areas by factoring in data on other effective area-based conservation measures (OECMs). Although Aichi Target 11 refers to ‘systems of protected areas and other effective area-based conservation measures’, OECMs were not formally defined until 2018 (CBD, 2018). While protected areas must have conservation as a primary objective, there is no restriction on the management objectives of OECMs, provided those objectives result in effective long-term conservation. Both protected areas and OECMs can exist under the governance of governments, indigenous peoples, local communities, private actors, and combinations of these."  
+
+  - 
+    "In 2019, the World Database on Other Effective Area-based Conservation Measures (WD-OECM) was established to record data on OECMs. As a result, this Protected Planet Report is based upon both the World Database on Protected Areas (WDPA) – which informed all previous reports – and the WD-OECM (Box 1). Readers should keep in mind that the WD-OECM is newly established and not well-populated. Although OECMs make only a minor contribution to most of the metrics presented here, in reality they are likely to have an extensive influence in the future (refs), once they have been identified and reported to the WD-OECM at scale."
+
   -
-    "Protected Planet Reports are biennial landmark publications that assess the state of protected areas around the world. The Report Series started in 2012, when Parties to the CBD encouraged UNEP-WCMC and IUCN ‘to continue to report on progress towards achieving Aichi Biodiversity Target 11 and related targets through the Protected Planet Report’. These reports use the data contained in the World Database on Protected Areas (WDPA) and other relevant information sources to evaluate progress towards global commitments related to protected areas. In this edition of the Protected Planet Report, we review and update progress made at the global level towards achieving Aichi Target 11, with each chapter looking at each specific element of the target."
+    "The report begins by discussing whether the percentage coverage targets have been met. Beyond coverage, Aichi Target 11 has six quality elements, requiring the world’s protected area and conserved area network to:":
+
+      - "Cover areas of importance for biodiversity and ecosystem services;" 
+
+      - "Cover a representative sample of species and ecosystems;"  
+
+      - "Be effectively managed;" 
+
+      - "Be equitably managed;"
+
+      - "Be well-connected; and"  
+
+      - "Be integrated into the wider landscape and seascape."  
+
+  - 
+    Each of these quality elements is essential to a successful network of protected and conserved areas, and each has its own section in this report.  
+
+  -
+    The methodology and analytical scripts used to produce this report can be accessed here.  
+
+  - 
+    A note on terminology 
+    
+  -
+    Throughout this report, the term ‘protected and conserved areas’ is used to collectively describe all sites that aim to achieve, or are effective in achieving, conservation outcomes. Conserved areas include a wide range of sites that deliver effective conservation outcomes, but where the site may have been established for other reasons. Included in this broad range of conserved areas are those defined by the Convention on Biological Diversity as OECMs. Although we refer broadly to ‘conserved areas’ throughout the text, the statistics, maps and figures are derived specifically from data on OECMs, rather than conserved areas more broadly.  '
 
 doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
 doughnut_chart_intro: "<p>As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'</p>"

@@ -6,13 +6,7 @@
   </div>
 </div>
 
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['aichi_text_2'].each do |t| %>
-      <p class="content__text"><%= t.html_safe %></p>
-    <% end %>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['main_text'] } %>
 
 <section class="section-padding">
 

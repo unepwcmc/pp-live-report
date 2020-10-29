@@ -8,6 +8,11 @@
 
     @include breakpoint($small) { 
       height: rem-calc(80); 
+      width: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     @include breakpoint($medium) { height: rem-calc(90); }

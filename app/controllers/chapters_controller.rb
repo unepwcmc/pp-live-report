@@ -22,8 +22,15 @@ class ChaptersController < ApplicationController
     @next_chapter_title = @chapters_data[1]['menu_title']
     @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
+  end
 
-    @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
+  def chapter_2
+    @chapter_number = 2
+    @next_chapter_title = @chapters_data[2]['menu_title']
+    @next_chapter_link = chapter_3_path
+
+    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
+    @data = @chapters_data[1]
 
     doughnut_chart = @data['doughnut_chart_data']
     @doughnut_chart = []
@@ -37,15 +44,8 @@ class ChaptersController < ApplicationController
         'url': item['url']
       })
     end
-  end
 
-  def chapter_2
-    @chapter_number = 2
-    @next_chapter_title = @chapters_data[2]['menu_title']
-    @next_chapter_link = chapter_3_path
-
-    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
-    @data = @chapters_data[1]
+    @smallprint = @data['smallprint']
 
     @map_1 = {
       id: "map_1",

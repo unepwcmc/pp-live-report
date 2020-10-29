@@ -3,16 +3,47 @@
   background-color: $black;
   color: $white;
 
-  &__nav {
-    background-color: red;
-    position: fixed;
-    top: 100px;
-    right: 100px;
-    z-index: 1;
+  &__content {
+    @include breakpoint($medium) {
+      padding-right: 50%;
+    }
   }
+
+  &__nav {
+    position: fixed;
+    top: 50%;
+    right: $gutter-small;
+    z-index: 1;
+
+    transform: translateY(-50%);
+
+    @include breakpoint($small) { right: rem-calc(30); }
+    @include breakpoint($medium) { right: rem-calc(80); }
+  }
+
+  &__nav-item {
+    opacity: .8;
     
+    &:active { opacity: 1; }
+
+    &::after {
+      background-color: $white;
+      border-radius: 100%;
+      content: '';
+      width: rem-calc(6); height: rem-calc(6);
+
+      display: inline-block;
+    }
+
+    &:active::after { 
+      background-color: $primary;
+      opacity: 1; 
+      width: rem-calc(19); height: rem-calc(19);
+    }
+  }
 
   &__slide {
+    @include background-overlay($black-gradient);
     @include flex;
     @include flex-v-center;
     width: 100%; height: 100vh;
@@ -32,48 +63,3 @@
   }
 }
 
-
-
-// //--------------------------------------------------
-// // carousel wipes
-// //--------------------------------------------------
-// .carousel--wipes {
-//   background-color: $black;
-//   color: $white;
-// }
-
-// .carousel {
-//   
-
-//   &__slide {
-    
-    // width: 100%; height: 100vh;
-
-    
-//   }
-
-//   &__content {
-//     // opacity: 0;
-
-//     transition: opacity ease-in 800ms;
-
-//     @include breakpoint($medium) {
-//       padding-right: 50%;
-//     }
-
-//     &.active { opacity: 1; }
-//   }
-// }
-
-// .scrollmagic-pin-spacer {
-//   &:nth-child(1) .carousel__slide { background-image: $chapter-image-1; }
-//   &:nth-child(2) .carousel__slide { background-image: $chapter-image-2; }
-//   &:nth-child(3) .carousel__slide { background-image: $chapter-image-3; }
-//   &:nth-child(4) .carousel__slide { background-image: $chapter-image-4; }
-//   &:nth-child(5) .carousel__slide { background-image: $chapter-image-5; }
-//   &:nth-child(6) .carousel__slide { background-image: $chapter-image-6; }
-//   &:nth-child(7) .carousel__slide { background-image: $chapter-image-7; }
-//   &:nth-child(8) .carousel__slide { background-image: $chapter-image-8; }
-//   &:nth-child(9) .carousel__slide { background-image: $chapter-image-9; }
-//   &:nth-child(10) .carousel__slide { background-image: $chapter-image-10; }
-// }

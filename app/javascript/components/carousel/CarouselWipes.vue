@@ -4,7 +4,8 @@
     <p
       v-for="(slide, index) in slides"
       :key="slide._uid"
-      @click="scroll($event, `#chapter-${index + 1}`)"
+      @click="scroll(index)"
+      :class="['carousel__nav-item', { 'active': isActive(index) }]"
     >
       Chapter {{ index + 1 }}
     </p>
@@ -60,14 +61,24 @@ export default {
   },
 
   methods: {
+    isActive (index) {
+      return this.activeIndex == index
+    },
+
+    scroll (index) {
+      this.activeIndex = index
+
+      const slide = `#chapter-${index + 1}`
+
+      gsap.to(window, { scrollTo: slide })
+    },
+
     scrollTriggerHandlers () {
-      // gsap.utils.toArray(".carousel__slide").forEach((slide, i) => {
       for (var i=1; i<this.slides.length; i++) {
         const idSlide = `#chapter-${i}`
         const idSlideContent = `#chapter-${i} .carousel__content`
 
         ScrollTrigger.create({
-          markers: true,
           trigger: idSlide,
           start: "top top",
           end: () => "+=" + document.querySelector(".carousel").offsetWidth,
@@ -85,25 +96,17 @@ export default {
         tl.from(idSlideContent, { opacity: 0, })
 
         ScrollTrigger.create({
-          
           markers: true,
           animation: tl,
           trigger: idSlide,
           start: "top 80%",
+          end: "+= 200",
           end: () => "+=" + document.querySelector(".carousel").offsetWidth,
           scrub: true
         })
       }
 
-      // let tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "#chapter-1", //trigger: ".container",
-      //     pin: true,   // pin the trigger element while active
-      //     pinSpacing:false,
-      //     markers: true,
-      //     start: "top top", // when the top of the trigger hits the top of the viewport
-      //     end: "+=300px", // end after scrolling 500px beyond the start
-      //     // scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      
       //     // snap: {
       //     //   snapTo: "labels", // snap to the closest label in the timeline
       //     //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)

@@ -71,7 +71,6 @@ export default {
 
   methods: {
     animation () {
-      console.log('animation')
       new am4core.Animation(this.hand, {
         property: "value",
         to: this.value
@@ -110,7 +109,7 @@ export default {
       this.axisInner.max = 100
       this.axisInner.renderer.radius = 60
       this.axisInner.strictMinMax = true
-      this.axisInner.renderer.line .strokeOpacity = 1
+      this.axisInner.renderer.line.strokeOpacity = 1
       this.axisInner.renderer.labels.template.opacity = 0
       this.axisInner.renderer.grid.template.disabled = true
       this.axisInner.zIndex = -1

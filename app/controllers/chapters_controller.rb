@@ -22,6 +22,8 @@ class ChaptersController < ApplicationController
     @next_chapter_title = @chapters_data[1]['menu_title']
     @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
+  
+
   end
 
   def chapter_2
@@ -43,6 +45,8 @@ class ChaptersController < ApplicationController
         'description': item['description'],
         'url': item['url']
       })
+
+      
     end
 
     @smallprint = @data['smallprint']

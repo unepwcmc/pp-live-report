@@ -1,9 +1,16 @@
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content'].html_safe %></p>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
+<!-- Map of toggleable OECMS -->
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+
+<!-- Timeseries graphs -->
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
+
+<!-- [map showing national coverage (marine and terrestrial) – toggleable OECMs]  -->
+
+<!-- old layout -->
 <map-statistics 
   id="<%= @map_1[:id] %>"
   title="<%= @data['map_1_title'] %>"

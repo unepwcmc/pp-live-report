@@ -1,18 +1,22 @@
 <section class="section-padding">
   <div class="container--small">
-    <% text.each do |t| %>
-      <% if t.is_a?(Hash) %>
-        <p><%= t.keys[0] %></p>
-        <% t.values.flatten.each do |bullet_point| %>
-          <ul>
-            <li>
-              <p class="content__text"><%= bullet_point.html_safe %></p>
-            </li>
-          </ul>
+    <% if text.is_a?(Array) %>
+      <% text.each do |t| %>
+        <% if t.is_a?(Hash) %>
+          <p><%= t.keys[0] %></p>
+          <% t.values.flatten.each do |bullet_point| %>
+            <ul>
+              <li>
+                <p class="content__text"><%= bullet_point.html_safe %></p>
+              </li>
+            </ul>
+          <% end %>
+        <% else %>
+          <p class="content__text"><%= t.html_safe %></p>
         <% end %>
-      <% else %>
-        <p class="content__text"><%= t.html_safe %></p>
       <% end %>
+    <% else %>
+      <p><%= text %></p>
     <% end %>
   </div>
 </section>

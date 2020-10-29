@@ -1,10 +1,12 @@
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['content_1'].each do |p| %>
-      <p><%= p %></p>
-    <% end %>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
+
+<!-- [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs] -->
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+
+<!-- [Graph of ecoregion coverage – I think you already have the mock up of how OECMs should be displayed]  -->
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
 
 <map-statistics 
   id="<%= @map_1[:id] %>"

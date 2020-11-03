@@ -16,13 +16,13 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
-am4core.useTheme(am4themes_animated);
 
 const STROKE_COLOUR = am4core.color("#c8c8c8");
 
 export default {
  name: "AmChart",
  mounted() {
+  am4core.useTheme(am4themes_animated);
   this.chartInit();
   this.startAnimation();
  },
@@ -57,14 +57,23 @@ export default {
    this.createXAxis();
    this.createYAxis();
    this.createLegend();
+   this.createSeries();
   },
 
   startAnimation() {
-    const vm = this;
     const controller = new scrollMagic.Controller();
     const scene = new scrollMagic.Scene({ triggerElement: '.chart--amchart', reverse: false })
-    scene.on('enter', function(event) {
-     vm.createSeries();
+    scene.on('enter', function() {
+      new am4core.Animation(
+        this.chart,
+        {
+          property: 'data',
+          from: 0,
+          to: this.chart.data[-1]
+        },
+        5000,
+        am4core.ease.cubicOut
+      ).start()
     })
     return scene.addTo(controller);
   },
@@ -111,6 +120,7 @@ export default {
    this.chart.paddingRight = 40;
    this.chart.paddingLeft = -20;
    this.chart.background.fill = this.chartBackgroundColour;
+   console.log(this.chart)
   },
 
   createDots(series, i) {
@@ -132,20 +142,12 @@ export default {
     series.stroke = am4core.color(this.colours[i]);
     series.strokeWidth = 3;
     series.yAxis = this.yAxis;
-
-    this.animateSeries(series);
+    series.showOnInit = false;
 
     if (this.dots) {
      this.createDots(series, i);
     }
    }
-  },
-
-  animateSeries(series) {
-    // Animation durations - can be tweaked
-    series.hiddenState.transitionDuration = 500;
-    series.interpolationDuration = 500;
-    series.sequencedInterpolation = false;
   }
  },
 };

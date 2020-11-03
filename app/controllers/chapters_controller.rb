@@ -776,19 +776,25 @@ class ChaptersController < ApplicationController
 
   def populate_case_studies(chapter_number)
     # TODO: - Update case study texts
-    return if @chapters_data[chapter_number - 1]['case_studies'].nil?
+    case_study_data = @chapters_data[chapter_number - 1]['case_studies']
+    return if case_study_data.nil?
 
-    @items = @chapters_data[chapter_number - 1]['case_studies'].map do |case_study|
+    @items = case_study_data.map do |case_study|
                 case_study['text'] = case_study['text'].split("\n")  
-                contents = case_study_contents
-                contents['image'] = case_study_image(case_study)
+                contents = case_study_contents.merge(case_study.deep_stringify_keys)
+
+                # TODO - In lieu of an actual summary, just truncating the text for the time being
                 contents['summary'] = helpers.truncate(case_study['text'][0], length: 120)
-                contents.merge(case_study.deep_stringify_keys)
+
+                contents['image'] = case_study_image(case_study)
+                contents
             end
   end
 
   def case_study_contents
     # Build a hash out of all possible keys 
+    # This allows more data to be easily added to the case studies in the YML file at a later date
+    # e.g. if authors or a caption for an image is needed to be inserted
     attributes = Hash.new
     CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
     attributes

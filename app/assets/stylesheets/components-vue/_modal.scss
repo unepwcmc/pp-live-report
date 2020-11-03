@@ -109,22 +109,23 @@
       font-size: rem-calc(18);
     }
 
-    .modal__image {
-      width: 100%;
-      margin-bottom: rem-calc(14);
-    }
+      .modal__image {
+        margin-bottom: rem-calc(14);
+        min-width: 30%;
+        max-width: 100%;
+      }
 
-    .modal__image-caption {
-      font-size: rem-calc(14);
-      font-weight: $normal;
-      margin-bottom: rem-calc(10);
-    }
+      .modal__image-caption {
+        font-size: rem-calc(14);
+        font-weight: $normal;
+        margin-bottom: rem-calc(10);
+      }
 
-    .modal__image-source {
-      color: $grey;
-      font-size: rem-calc(14);
-      font-weight: $light;
-    }
+      .modal__image-source {
+        color: $grey;
+        font-size: rem-calc(14);
+        font-weight: $light;
+      }
 
     .modal__org {
       font-weight: $light;

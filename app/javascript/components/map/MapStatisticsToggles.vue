@@ -13,7 +13,7 @@
      :map-id="mapId"
      :parent-tab-id="parentTabId"
      :ids="getMapboxLayerIds(layer)"
-     :is-active="index === 0"
+     :is-active="index === currentSelectedLayer"
      :layer-no="index"
     >
      <div class="map__panel-button-wrapper">
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { eventHub } from "../../packs/application.js";
 import { getMapboxLayerIds } from "./map-helpers";
 import MapOecmToggle from "./MapOECMToggle";
 import MapStatisticsToggle from "./MapStatisticsToggle";
@@ -49,10 +50,20 @@ export default {
   parentTabId: String,
   mapId: String,
  },
-
+ mounted () {
+  eventHub.$on("hideOtherLayers", this.hideNonSelectedLayers);
+ },
+  data() {
+    return {
+      currentSelectedLayer: 0
+    }
+  },
  methods: {
   getMapboxLayerIds(layer) {
    return getMapboxLayerIds(layer);
+  },
+  hideNonSelectedLayers(obj) {
+    this.currentSelectedLayer = obj.layerNo
   },
   toggleOECM(boolean) {
     // console.log('hello');

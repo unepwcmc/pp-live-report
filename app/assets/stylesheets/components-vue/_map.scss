@@ -5,7 +5,7 @@
   font-weight: $bold;
   margin-right: rem-calc(12);
   min-width: rem-calc(90);
-  
+
   display: inline-block;
   position: relative;
 }
@@ -15,7 +15,7 @@
   border: solid 1px $white;
   border-radius: 100%;
   margin: 0;
-  
+
   display: block;
   justify-self: center;
   position: relative;
@@ -36,33 +36,40 @@
 // map
 //--------------------------------------------------
 .map {
-  &--image { max-width: 100%; }
+  &--image {
+    max-width: 100%;
+  }
 
-//--------------------------------------------------
-// infographic map
-//--------------------------------------------------
+  //--------------------------------------------------
+  // infographic map
+  //--------------------------------------------------
   &--infographic {
     height: rem-calc(180);
 
-    @include breakpoint($small) { height: rem-calc(300); }
-    @include breakpoint($medium) { height: rem-calc(480); }
+    @include breakpoint($small) {
+      height: rem-calc(300);
+    }
+
+    @include breakpoint($medium) {
+      height: rem-calc(480);
+    }
   }
 
-//--------------------------------------------------
-// statistics map
-//--------------------------------------------------
+  //--------------------------------------------------
+  // statistics map
+  //--------------------------------------------------
   &--statistics {
     position: relative;
 
     .button--download {
       padding: rem-calc(11 15);
 
-      &__text { 
+      &__text {
         display: none;
-        
+
         @include breakpoint($medium) {
           width: rem-calc(125);
-  
+
           display: block;
         }
       }
@@ -70,10 +77,16 @@
 
     .map {
       &__map {
-        width: 100%; height: rem-calc(210);
+        width: 100%;
+        height: rem-calc(210);
 
-        @include breakpoint($small) { height: rem-calc(400); }
-        @include breakpoint($medium) { height: rem-calc(668); }
+        @include breakpoint($small) {
+          height: rem-calc(400);
+        }
+
+        @include breakpoint($medium) {
+          height: rem-calc(668);
+        }
       }
 
       &__oecm-toggle {
@@ -91,8 +104,8 @@
 
         width: 100%;
 
-        @include breakpoint($medium) { 
-          width: rem-calc(440); 
+        @include breakpoint($medium) {
+          width: rem-calc(440);
 
           position: absolute;
           top: calc(668px * .5);
@@ -105,7 +118,7 @@
       &__panel-top {
         @include flex;
         @include flex-h-between;
-        @include flex-v-center; 
+        @include flex-v-center;
         background-color: $black;
 
         @include breakpoint($small) {
@@ -115,114 +128,114 @@
         }
       }
 
-        &__panel-description {
-          font-size: rem-calc(16);
-          line-height: 1.2;
-          padding-top: rem-calc(15);
-          opacity: 0.65;
+      &__panel-description {
+        font-size: rem-calc(16);
+        line-height: 1.2;
+        padding-top: rem-calc(15);
+        opacity: 0.65;
+      }
+
+      &__panel-toggle {
+        @include flex;
+        @include flex-v-center;
+        cursor: pointer;
+        padding: rem-calc(2 10);
+
+        align-items: center;
+
+        &.disabled {
+          cursor: default;
+          pointer-events: none;
+          opacity: 0.5;
         }
 
-        &__panel-toggle {
-          @include flex;
-          @include flex-v-center;
-          cursor: pointer;
-          padding: rem-calc(2 10);
-          
-          align-items: center;
-
-          &.disabled {
-            cursor: default;
-            pointer-events: none;
-            opacity: 0.5;
-          }
-
-          &.active { 
-            .map__panel-layer-button-inner { 
-              background-color: $green;
-              transform: scale(1);
-            } 
+        &.active {
+          .map__panel-layer-button-inner {
+            background-color: $green;
+            transform: scale(1);
           }
         }
+      }
 
-        &__panel-gradient {
-          position: relative;
+      &__panel-gradient {
+        position: relative;
 
-          &::after {
-            background: linear-gradient(360deg, $grey-dark 0%, transparent 100%);
-            content: '';
+        &::after {
+          background: linear-gradient(360deg, $grey-dark 0%, transparent 100%);
+          content: '';
 
-            position: absolute;
-            bottom: 0;
-            left: $gutter-small;
+          position: absolute;
+          bottom: 0;
+          left: $gutter-small;
 
-            height: 5%;
-            width: calc(100% - #{$gutter-small * 2});
-            z-index: 1;
+          height: 5%;
+          width: calc(100% - #{$gutter-small * 2});
+          z-index: 1;
 
-            @include breakpoint($small) { 
-              left: $gutter-medium;
-              width: calc(100% - #{$gutter-medium * 2}); 
-            }
-            @include breakpoint($medium) { 
-              left: $gutter-large;
-              width: calc(100% - #{$gutter-large * 2}); 
-            }
+          @include breakpoint($small) {
+            left: $gutter-medium;
+            width: calc(100% - #{$gutter-medium * 2});
+          }
+
+          @include breakpoint($medium) {
+            left: $gutter-large;
+            width: calc(100% - #{$gutter-large * 2});
           }
         }
+      }
 
-          &__panel-layers {
-            list-style-type: none;
-            margin-top: 0;
-            padding: 0;
-            overflow-y: scroll;
-            width: 100%;
-            max-height: rem-calc(200);
-          }
+      &__panel-layers {
+        list-style-type: none;
+        margin-top: 0;
+        padding: 0;
+        overflow-y: scroll;
+        width: 100%;
+        max-height: rem-calc(200);
+      }
 
-          &__panel-layer {
-            @include flex;
-            background-color: $grey;
-            margin-bottom: rem-calc(5);
-            text-align: center;
-            height: rem-calc(40);
-          } 
+      &__panel-layer {
+        @include flex;
+        background-color: $grey;
+        margin-bottom: rem-calc(5);
+        text-align: center;
+        height: rem-calc(40);
+      }
 
-            &__panel-layer-text-large {
-              @include text-large; 
-              font-size: rem-calc(22);
-              height: 1em;
-              width: auto;
+      &__panel-layer-text-large {
+        @include text-large;
+        font-size: rem-calc(22);
+        height: 1em;
+        width: auto;
 
-              @include breakpoint($small) { font-size: rem-calc(26); }
-            }
+        @include breakpoint($small) {
+          font-size: rem-calc(26);
+        }
+      }
 
-            &__panel-layer-text {
-              font-size: rem-calc(16);
-              display: inline-block;
-            }
+      &__panel-layer-text {
+        font-size: rem-calc(16);
+        display: inline-block;
+      }
 
-            &__panel-button-wrapper {
-              margin-right: rem-calc(12);
-              flex-shrink: 0;
-            }
-            
-            &__panel-layer-button {
-              @include layer-button;
-              width: rem-calc(20); height: rem-calc(20);
-            }
+      &__panel-button-wrapper {
+        margin-right: rem-calc(12);
+        flex-shrink: 0;
+      }
 
-              &__panel-layer-button-inner {
-                @include layer-button-inner;
-                width: rem-calc(12); height: rem-calc(12);
+      &__panel-layer-button {
+        @include layer-button;
+        width: rem-calc(20);
+        height: rem-calc(20);
+      }
 
-                top: rem-calc(3);
-                left: rem-calc(3);
-              }
+      &__panel-layer-button-inner {
+        @include layer-button-inner;
+        width: rem-calc(12);
+        height: rem-calc(12);
 
-          &__smallprint {
-            margin-top: rem-calc(26);
-            margin-bottom: rem-calc(26);
-          }   
+        top: rem-calc(3);
+        left: rem-calc(3);
+      }
     }
   }
 }
@@ -267,7 +280,7 @@
     padding: rem-calc(2 4 0);
 
     height: 100%;
-    
+
     display: inline-flex;
     align-items: center;
   }

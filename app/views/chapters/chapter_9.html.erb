@@ -19,8 +19,8 @@
   title="<%= @data['map_title'] %>" 
   :layers="<%= @map_1[:layers].to_json %>"
   tiles-url="<%= @map_1[:tiles_url] %>"
-  source="<%= @data['map_smallprint'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
+  :file-download="'#'" 
+  :disclaimer="<%= map_disclaimer(@data['map_smallprint']) %>"
   description="<%= @data['map_description'] %>"
 >
 </map-statistics>

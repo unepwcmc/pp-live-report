@@ -137,16 +137,43 @@
           }
 
           &.active { 
-            .map__panel-layer-button-inner,
-            .map__panel-sublayer-button-inner { 
+            .map__panel-layer-button-inner { 
               background-color: $green;
               transform: scale(1);
             } 
           }
         }
+
+        &__panel-gradient {
+          position: relative;
+
+          &::after {
+            background: linear-gradient(360deg, $grey-dark 0%, transparent 100%);
+            content: '';
+
+            position: absolute;
+            bottom: 0;
+            left: $gutter-small;
+
+            height: 5%;
+            width: calc(100% - #{$gutter-small * 2});
+            z-index: 1;
+
+            @include breakpoint($small) { 
+              left: $gutter-medium;
+              width: calc(100% - #{$gutter-medium * 2}); 
+            }
+            @include breakpoint($medium) { 
+              left: $gutter-large;
+              width: calc(100% - #{$gutter-large * 2}); 
+            }
+          }
+        }
+
           &__panel-layers {
             list-style-type: none;
             margin-top: 0;
+            padding: 0;
             overflow-y: scroll;
             width: 100%;
             max-height: rem-calc(200);
@@ -160,11 +187,6 @@
             height: rem-calc(40);
           } 
 
-          &__panel-sublayer {
-            cursor: pointer;
-            margin-top: rem-calc(12);
-          }
-
             &__panel-layer-text-large {
               @include text-large; 
               font-size: rem-calc(22);
@@ -172,15 +194,6 @@
               width: auto;
 
               @include breakpoint($small) { font-size: rem-calc(26); }
-            }
-
-            &__panel-sublayer-text-large {
-              @include text-large; 
-              font-size: rem-calc(18);
-
-              align-items: stretch;
-
-              @include breakpoint($small) { font-size: rem-calc(24); }
             }
 
             &__panel-layer-text {
@@ -204,19 +217,6 @@
 
                 top: rem-calc(3);
                 left: rem-calc(3);
-              }
-
-            &__panel-sublayer-button {
-              @include layer-button;
-              width: rem-calc(22); height: rem-calc(22);
-            }
-
-              &__panel-sublayer-button-inner {
-                @include layer-button-inner;
-                width: rem-calc(14); height: rem-calc(14);
-
-                top: rem-calc(2);
-                left: rem-calc(2);
               }
 
           &__smallprint {

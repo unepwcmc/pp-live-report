@@ -1,9 +1,9 @@
 <template>
- <div>
-  <span class="map__oecm-toggle gutters"
+ <div class="map__panel-gradient gutters">
+  <span class="map__oecm-toggle"
    >Include OECM contribution<map-oecm-toggle @oecm-toggle="toggleOECM"></map-oecm-toggle
   ></span>
-  <ul class="map__panel-layers gutters">
+  <ul class="map__panel-layers">
    <li
     v-for="(layer, index) in layers"
     :key="`layer-${index}`"

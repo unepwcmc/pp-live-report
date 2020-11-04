@@ -11,8 +11,15 @@
     name: 'map-statistics-toggle',
 
     props: {
+      isActive: {
+        type: Boolean
+      },
       ids: {
         type: Array,
+        required: true
+      },
+      layerNo: {
+        type: Number,
         required: true
       },
       parentTabId: String,
@@ -21,7 +28,6 @@
 
     data () {
       return {
-        isActive: !this.parentTabId || this.parentTabId === 'tab-0',
         isDisabled: true
       }
     },
@@ -50,6 +56,7 @@
       },
 
       showLayers () {
+        if (this.layerNo !== 0) { return }
         this.isActive = true
         eventHub.$emit('showLayers', {mapId: this.mapId, layerIds: this.ids})
       },

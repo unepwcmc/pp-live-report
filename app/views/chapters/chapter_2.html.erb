@@ -4,14 +4,15 @@
   </div>
 </section>
 
+<!-- TODO - Need CSV download links for maps -->
 <map-statistics 
   id="<%= @map_1[:id] %>"
   title="<%= @data['map_1_title'] %>"
   tiles-url="<%= @map_1[:tiles_url] %>" 
   :tabs="<%= @map_1[:tabs].to_json %>"
   :layers="<%= @map_1[:layers].to_json %>" 
-  source="<%= @data['map_1_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
+  :file-download="'#'" 
+  :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
 ></map-statistics>
 
 <section class="section-padding">
@@ -73,6 +74,6 @@
   title="<%= @data['map_3_title'] %>" 
   :layers="<%= @map_3[:layers].to_json %>" 
   tiles-url="<%= @map_3[:tiles_url] %>"
-  source="<%= @data['map_3_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
+  :file-download="'#'" 
+  :disclaimer="<%= map_disclaimer(@data['map_3_source']) %>"
 ></map-statistics>

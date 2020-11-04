@@ -3,6 +3,8 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
+  helper_method :map_disclaimer
+
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
     '#66c2a5',
@@ -70,14 +72,14 @@ class ChaptersController < ApplicationController
                 {
                   id: "eez-" + random_number,
                   text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-                  text_small: "of the global EEZ",
+                  text_small: "Global EEZ",
                   source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
                   colour: "#6FD9F2"
                 },
                 {
                   id: "abnj-" + random_number,
                   text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-                  text_small: "of global ABNJ",
+                  text_small: "Global ABNJ",
                   source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
                   colour: "#207D94"
                 }
@@ -765,5 +767,14 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @data = @chapters_data[9]
+  end
+
+  private
+
+  def map_disclaimer(source)
+    {
+      source: source,
+      text: @shared_data['map_disclaimer']
+  }.to_json
   end
 end

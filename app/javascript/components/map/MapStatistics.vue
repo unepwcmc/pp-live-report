@@ -42,16 +42,12 @@
     <download
      text="CSV Download"
      title="Download reports in PDF format"
-     :file-download="true"
+     :file-download="fileDownload"
      event-element="Download report link"
     ></download>
     <button class="button--grey">Map disclaimer</button>
-    <!-- Modal component needs to go here for map disclaimer -->
+    <!-- Modal component needs to go here for map disclaimer - may need a separate component for this -->
    </div>
-  </div>
-  <div class="map__smallprint container--medium">
-   <p class="smallprint">{{ source }}</p>
-   <p class="smallprint">{{ disclaimer }}</p>
   </div>
  </div>
 </template>
@@ -81,13 +77,13 @@ export default {
    type: String,
    required: true,
   },
+  fileDownload: String,
   title: String,
   description: String,
   tabs: Array,
   layers: Array,
   tilesUrl: String,
-  source: String,
-  disclaimer: String,
+  disclaimer: Object,
  },
 
  data() {

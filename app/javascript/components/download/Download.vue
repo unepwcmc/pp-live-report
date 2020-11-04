@@ -24,15 +24,16 @@
     </div>
   </template>
   <template v-else-if="fileDownload">
-    <button
+    <a
     :title="title"
     class="button--download"
-    @click="downloadFile"
+    target="_blank"
+    :href="fileDownload"
     aria-labelledby="download-text"
     >
       <span class="button--download__text" id="download-text">{{ text }}</span>
       <i class="icon--download"></i>
-    </button>
+    </a>
   </template>
  </div>
 </template>
@@ -64,11 +65,11 @@ export default {
    default: "",
   },
   fileDownload: {
-   type: Boolean,
-   default: false
+   type: String,
+   default: ""
   },
   downloadLinks: {
-   type: Array,
+   type: Array
   },
  },
  data() {
@@ -77,7 +78,6 @@ export default {
   };
  },
  methods: {
-  downloadFile() {},
   togglePopup() {
    if (this.$ga) {
     this.$ga.event(this.eventElement, "Download Open");

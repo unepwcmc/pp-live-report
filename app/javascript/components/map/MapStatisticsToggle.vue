@@ -37,6 +37,7 @@ export default {
 
  created() {
   eventHub.$on("change-tab", this.handleTabChange);
+  eventHub.$on("hideOtherLayers", this.hideLayerIfNotSelected);
  },
 
  computed: {
@@ -79,6 +80,11 @@ export default {
     layerNo: this.layerNo,
    });
   },
+
+  hideLayerIfNotSelected(obj) {
+    if (obj.layerNo === this.layerNo) { return }
+    this.hideLayers();
+  }
  },
 };
 </script>

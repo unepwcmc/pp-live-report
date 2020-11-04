@@ -106,6 +106,15 @@
     }
   }
 
+  &--grey {
+    background-color: $grey;
+    border: 1px solid $grey;
+    border-radius: 2px;
+    font-size: rem-calc(16);
+    color: $white;
+    padding: rem-calc(11 30);
+  }
+
   &--link {
     color: $white;
     font-weight: $medium;

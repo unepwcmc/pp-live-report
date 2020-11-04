@@ -54,6 +54,20 @@
   &--statistics {
     position: relative;
 
+    .button--download {
+      padding: rem-calc(11 15);
+
+      &__text { 
+        display: none;
+        
+        @include breakpoint($medium) {
+          width: rem-calc(125);
+  
+          display: block;
+        }
+      }
+    }
+
     .map {
       &__map {
         width: 100%; height: rem-calc(210);
@@ -62,9 +76,19 @@
         @include breakpoint($medium) { height: rem-calc(668); }
       }
 
+      &__oecm-toggle {
+        @include flex;
+        @include flex-v-center;
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(10);
+        height: rem-calc(26);
+      }
+
       &__panel {
         background-color: $grey-dark;
         color: $white;
+        padding-bottom: rem-calc(25);
+
         width: 100%;
 
         @include breakpoint($medium) { 
@@ -122,8 +146,10 @@
         }
           &__panel-layers {
             list-style-type: none;
-            margin-top: rem-calc(10);
+            margin-top: 0;
+            overflow-y: scroll;
             width: 100%;
+            max-height: rem-calc(200);
           }
 
           &__panel-layer {

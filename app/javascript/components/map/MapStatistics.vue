@@ -12,7 +12,9 @@
    </div>
 
    <template v-if="isActive">
-    <p v-if="description" class="map__panel-description gutters">{{ description }}</p>
+    <p v-if="description" class="map__panel-description gutters">
+     {{ description }}
+    </p>
     <template v-if="tabs">
      <tabs :id="`tabs-${id}`">
       <tab
@@ -36,6 +38,16 @@
      ></map-statistics-toggles>
     </template>
    </template>
+   <div class="flex gutters">
+    <download
+     text="CSV Download"
+     title="Download reports in PDF format"
+     :file-download="true"
+     event-element="Download report link"
+    ></download>
+    <button class="button--grey">Map disclaimer</button>
+    <!-- Modal component needs to go here for map disclaimer -->
+   </div>
   </div>
   <div class="map__smallprint container--medium">
    <p class="smallprint">{{ source }}</p>
@@ -50,18 +62,19 @@ import {
  getLayerIdFromMapboxLayerId,
  getFirstTopLayerId,
 } from "./map-helpers";
+import Download from "../download/Download";
 import MapStatisticsToggles from "./MapStatisticsToggles";
 import Tab from "../tabs/Tab";
 import Tabs from "../tabs/Tabs";
 
 import { eventHub } from "../../packs/application.js";
 
-const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73"
+const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73";
 
 export default {
  name: "map-statistics",
 
- components: { MapStatisticsToggles, Tab, Tabs },
+ components: { Download, MapStatisticsToggles, Tab, Tabs },
 
  props: {
   id: {
@@ -122,11 +135,11 @@ export default {
   getLayerById(id) {
    let layer = null;
 
-  this.allLayers.forEach((l) => {
+   this.allLayers.forEach((l) => {
     if (l.id === id) {
-      layer = l;
+     layer = l;
     }
-  });
+   });
 
    return layer;
   },
@@ -154,7 +167,7 @@ export default {
 
   addInitialLayers() {
    if (this.initialLayers) {
-     this.addLayerAndSubLayers(this.initialLayers);
+    this.addLayerAndSubLayers(this.initialLayers);
    }
   },
 
@@ -222,10 +235,10 @@ export default {
    }
 
    ids.layerIds.forEach((mapboxLayerId) => {
-      if (this.map.getLayer(mapboxLayerId)) {
-      this.map.setLayoutProperty(mapboxLayerId, "visibility", "none");
-      }
-    });
+    if (this.map.getLayer(mapboxLayerId)) {
+     this.map.setLayoutProperty(mapboxLayerId, "visibility", "none");
+    }
+   });
   },
 
   setVisibilityOfLayers(ids) {

@@ -1,6 +1,8 @@
 <template>
  <div>
-  <span class="gutters">Include OECM contribution<map-oecm-toggle></map-oecm-toggle></span>
+  <span class="map__oecm-toggle gutters"
+   >Include OECM contribution<map-oecm-toggle @oecm-toggle="toggleOECM"></map-oecm-toggle
+  ></span>
   <ul class="map__panel-layers gutters">
    <li
     v-for="(layer, index) in layers"
@@ -52,6 +54,9 @@ export default {
   getMapboxLayerIds(layer) {
    return getMapboxLayerIds(layer);
   },
+  toggleOECM(boolean) {
+    // console.log('hello');
+  }
  },
 };
 </script>

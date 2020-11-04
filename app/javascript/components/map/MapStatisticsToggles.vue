@@ -1,5 +1,6 @@
 <template>
  <div>
+  <span class="gutters">Include OECM contribution<map-oecm-toggle></map-oecm-toggle></span>
   <ul class="map__panel-layers gutters">
    <li
     v-for="(layer, index) in layers"
@@ -30,12 +31,13 @@
 
 <script>
 import { getMapboxLayerIds } from "./map-helpers";
+import MapOecmToggle from "./MapOECMToggle";
 import MapStatisticsToggle from "./MapStatisticsToggle";
 
 export default {
  name: "map-statistics-toggles",
 
- components: { MapStatisticsToggle },
+ components: { MapOecmToggle, MapStatisticsToggle },
 
  props: {
   layers: {

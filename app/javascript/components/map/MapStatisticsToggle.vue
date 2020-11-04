@@ -46,7 +46,7 @@
 
     methods: {
       handleTabChange (ids) {
-        if ('tabs-' + this.mapId !== ids.tabGroup) { return }
+        if ('tabs-' + this.mapId !== ids.tabGroup || this.layerNo !== 0 ) { return }
 
         this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers()
       },
@@ -56,7 +56,6 @@
       },
 
       showLayers () {
-        if (this.layerNo !== 0) { return }
         this.isActive = true
         eventHub.$emit('showLayers', {mapId: this.mapId, layerIds: this.ids})
       },

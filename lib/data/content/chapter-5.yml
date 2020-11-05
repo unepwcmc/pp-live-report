@@ -1,24 +1,31 @@
-title: "Ecologically Representative"
-menu_title: "Ecologically Representative"
-subtitle: "Chapter 4"
-intro: "TBD"
-content_1: 
+title: "Areas of Particular Importance for Biodiversity and Ecosystem Services"
+menu_title: "Areas of Particular Importance for Biodiversity and Ecosystem Services"
+subtitle: "Chapter 5"
+intro: "TBD" 
+content_1:
   -
-    "Systems of protected and conserved areas will not function effectively if they do not cover a representative sample of the world’s ecosystems and species. It is possible to assess ecological representation based on the proportion of species’ distributions covered by protected and conserved areas. However, coverage of ecoregions (ecological units of land, ocean or freshwater that share the same biological characteristics (Olson et al. 2001; Spalding et al. 2007 and 2012)) is more generally used to assess this element of Aichi Target 11 (Gannon et al. 2019). This is the metric used here."
-  - 
-    "Since 2012, the percentage of terrestrial ecoregions reaching the 17% target has increased by xx%. The improvement is even more pronounced in the marine realm, with an increase of xx%. Furthermore, the percentage of ecoregions entirely lacking protection (less than 1% coverage by protected areas) has decreased from xx% to xx%."
-map_1_title: "Coverage of the world’s ecoregions"
-map_1_description: "Protected area coverage of the world’s terrestrial, marine and province ecoregions of the world."
-map_1_source: "Source: UNEP-WCMC and IUCN. 2019. Protected Planet: The World Database on Protected Areas (WDPA), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
-content_2: "However, if Aichi Target 11’s coverage goals are assumed to apply to ecoregions, many remain under-protected. The proportion of terrestrial ecoregions with at least 17% protected area coverage is only 44.0% (362 ecoregions (rising to xxx when OECMs are factored in)). Among marine ecoregions and pelagic provinces, the proportion with at least 10% coverage by protected areas is 50.4% (117 ecoregions (rising to xxx when OECMs are factored in)). This figure increases to 61.3% when considering only nearshore marine ecoregions. It drops to 13.5% in pelagic provinces, which fall largely outside national jurisdiction. Methodologies and datasets for assessing coverage of freshwater ecoregions vary, but studies agree they are less than 25% protected in total (refs).  "
-map_2_title: "Evolution of coverage of ecoregions"
-map_2_description: "Change in the protected area coverage of the world’s terrestrial and marine ecoregions and pelagic provinces between April 2016 and 2018."
-map_2_source: "Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
-content_3: "There remains a clear need to improve ecoregion representation, and attention is particularly needed in ecoregions that lack protection entirely, such as the Angolan montane forest-grassland mosaic ecoregion, South China Sea Islands ecoregion, and Eastern Anatolian deciduous forests ecoregion. Two options for increasing ecological representation include greater use of systematic conservation planning (Box 7) and consideration of nationally-differentiated targets (Box 8)."
-row_chart_title: "Coverage of different biogeographical units"
-row_chart_description: "Percentages of terrestrial and marine biogeographical units meeting the coverage element of Aichi Target 11 in 2016, 2018 and 2019."
-row_chart_smallprint: "Sources: Terrestrial ecoregions, realms and biomes from Olson et al. (2001). Marine ecoregions, realms and provinces from Spalding et al. (2007); pelagic provinces from Spalding et al. (2012)."
-cta_title: "Protected area coverage of freshwater ecosystems"
-cta_text: "The level of protection to freshwater ecosystems at the global level remains low, with various estimates having been made using different methodologies."
-photo_credits: "Photo credits: Elephant family &copy; Jody / Adobe Stock"
-cta_url: "http://wcmc.io/pp-ch4-cta1"
+    "Aichi Target 11 states that protected and conserved areas should cover ‘areas of particular importance for biodiversity and ecosystem services’. The two most widely used methods – which can be used in combination (Smith et al., 2018) – for identifying such areas are Systematic Conservation Planning (Section 4, Box 7) and the Key Biodiversity Area (KBA) Standard (BirdLife International, 2018; Smith et al., 2019). With some exceptions, KBAs are recommended as suitable sites for the designation of protected areas (Butchart et al., 2012), and are used as the basis for this section.  "
+  -
+    "Globally at the close of 2020, xx% of terrestrial and inland water KBAs are fully covered by protected areas, but xx% still lack protection entirely. In coastal waters and the ocean, xx% are fully covered and xx% lie completely outside protected areas (Figure x). Collating more comprehensive data on OECMs may change this picture in the future, as there is evidence that potential OECMs may be prevalent in KBAs (Donald et al., 2019). For example, Canada’s recently documented OECMs increase the proportion of KBAs with full or partial coverage from xx% to xx%.  "
+content_2: "At the national level, the average percentage of each KBA within protected areas [and OECMs] is xx% for terrestrial, xx% for inland water, and xx% for marine (within EEZ). These figures have steadily increased since the Aichi Targets were adopted in 2010 (Figure x), reflecting a positive trend towards increased representation of areas important for biodiversity.  "
+content_3: "After 2020, this positive trend can be extended through the targeted designation of protected areas and recognition of existing conserved areas. In the process, greater consideration should be given to areas of importance for ecosystem services (Box 6) and the use of Systematic Conservation Planning (Section 4, Box 7). Other measures of biodiversity importance may also prove useful, such as EDGE of Extinction sites (Zoological Society of London, 2020), Wilderness Areas (Watson et al., 2016; Di Marco et al., 2019), Ecologically or Biologically Sensitive Marine Areas (EBSAs) (Johnson et al., 2019), and nationally-defined areas of importance (Box 5).  "
+
+map_1_title: "Key Biodiversity Areas"
+map_1_description: "Map of Key Biodiversity Areas fully within (blue), partially within (green) or outside (red) protected areas on land and in the ocean (within EEZ)."
+map_1_source: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
+cta_title_1: "Assessing the contribution of protected areas to ecosystem services"
+cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
+cta_url_1: "http://wcmc.io/pp-ch3-cta1"
+line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
+line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
+content_4:
+  -
+    "As of 2018, 21% (5,510) of globally threatened species on The IUCN Red List of Threatened Species™ are found within KBAs in Biodiversity Hotspots. Of these sites, 13% are currently fully within protected areas, while another 31% are covered only in part by protected areas."
+  -
+    "Another approach is based on the ‘Evolutionary Distinctiveness’ (the unique contribution of a species to total evolutionary history) and ‘Global Endangerment’ (extinction risk derived from the IUCN Red List) of species. A total of 1,261 or 43% of all EDGE species are found in 2,803 KBAs in 21 Biodiversity Hotspots, with 14% of these sites with EDGE species being fully within protected areas and 35% partially within protected areas."
+  -
+    "There is currently no global dataset or analysis that provides a measure of how well protected areas cover ‘areas of particular importance for ecosystem services’, which constitutes a clear gap to be addressed to fully report progress in the achievement of Aichi Target 11."
+cta_title_2: "Protected areas’ contribution to climate change mitigation, with a case study in Paraguay"
+cta_text_2: "This case study in Paraguay describes the REDD+ mechanism and provides an example of the contribution of protected areas’ to climate change mitigation."
+photo_credits: "Photo credits: Nepal &copy; Giuseppe Mondì"
+cta_url_2: "http://wcmc.io/pp-ch3-cta2"

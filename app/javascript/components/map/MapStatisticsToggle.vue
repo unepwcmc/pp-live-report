@@ -50,11 +50,11 @@ export default {
 
  methods: {
   handleTabChange(ids) {
-   if ("tabs-" + this.mapId !== ids.tabGroup || this.layerNo !== 0) {
+   if ("tabs-" + this.mapId !== ids.tabGroup || !this.isActive ) {
     return;
    }
 
-   this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
+    this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
   },
 
   toggleLayer() {

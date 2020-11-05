@@ -57,6 +57,7 @@ export default {
  },
  mounted () {
   eventHub.$on("hide-other-layers", this.hideNonSelectedLayers);
+  eventHub.$on("change-tab", this.handleTabChange);
  },
  methods: {
   getMapboxLayerIds(layer) {
@@ -65,6 +66,10 @@ export default {
   hideNonSelectedLayers(obj) {
     if (obj.mapId !== this.mapId || this.parentTabId !== obj.tab) { return }
     this.currentLayer = obj.layerNo
+  },
+  handleTabChange(obj) {
+    if (this.parentTabId === obj.tab) { return }
+    this.currentLayer = 0 
   },
   toggleOECM(boolean) {
     // console.log('hello');

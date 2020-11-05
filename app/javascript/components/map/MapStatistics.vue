@@ -105,6 +105,7 @@ export default {
  mounted() {
    eventHub.$on("hide-layers", this.hideLayers);
    eventHub.$on("show-layers", this.showLayers);
+    eventHub.$on("hide-other-layers", this.hideLayers);
   this.getAllLayers();
   this.createMap();
  },

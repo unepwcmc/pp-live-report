@@ -1,7 +1,6 @@
 <template>
   <div
     class="map-oecm-toggle"
-    tabindex="0"
     :class="{ 'map-oecm-toggle--active': isActive }"
     @keyup.enter.stop.prevent="toggle"
     @click.stop="toggle"
@@ -34,11 +33,7 @@ export default {
   },
   computed: {
     actionText () {
-      if (this.isActive) {
-        return this.onText
-      }
-
-      return this.offText
+      return this.isActive ? this.onText : this.offText;
     }
   },
   methods: {

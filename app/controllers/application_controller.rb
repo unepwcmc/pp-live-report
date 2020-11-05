@@ -10,32 +10,20 @@ class ApplicationController < ActionController::Base
   end
 
   def chapters_data
-    chapters_data = []
-
-    (1..10).each do |i|
-      yaml_data = load_yaml("#{content_base_path}/chapter-#{i}.yml", yaml_replace_data["chapter_#{i}"])
-
-      chapters_data.push(yaml_data)
+    (1..10).map do |i|
+      load_yaml("#{content_base_path}/chapter-#{i}.yml", yaml_replace_data["chapter_#{i}"])
     end
-    
-    chapters_data
   end
 
   def chapters
-    chapters = []
-
-    (1..10).each do |i|
-      chapter_data = @chapters_data[i-1]
-
-      chapters.push({
+    @chapters_data.each_with_index.map do |chapter_data, index|
+      {
         'title': chapter_data['menu_title'],
         'subtitle': chapter_data['subtitle'],
         'intro': chapter_data['intro'],
-        'url': send("chapter_#{i}_path")
-      })
-    end 
-    
-    chapters
+        'url': send("chapter_#{index + 1}_path")
+      }
+    end
   end
 
   def content_base_path

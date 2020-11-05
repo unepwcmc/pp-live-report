@@ -62,15 +62,20 @@
     position: relative;
 
     .button--download {
-      padding: rem-calc(11 15);
+      padding: rem-calc(10 16);
+
+      @include breakpoint($small) {
+        padding: rem-calc(8 15);
+      }
 
       &__text {
-        display: none;
+        display: block;
+        font-size: rem-calc(14);
+        width: rem-calc(100);
 
         @include breakpoint($medium) {
+          font-size: $button-font-size-small;
           width: rem-calc(125);
-
-          display: block;
         }
       }
     }
@@ -120,11 +125,21 @@
         @include flex-h-between;
         @include flex-v-center;
         background-color: $black;
+        padding-top: rem-calc(13);
+        padding-bottom: rem-calc(13);
+        min-height: rem-calc(65);
 
         @include breakpoint($small) {
           padding-top: rem-calc(20);
           padding-bottom: rem-calc(20);
-          min-height: rem-calc(65);
+        }
+
+        .icon--close-white {
+          display: none;
+
+          @include breakpoint($small) {
+            display: block;
+          }
         }
       }
 
@@ -161,6 +176,7 @@
         position: relative;
 
         &::after {
+          @include width-with-gutters;
           background: linear-gradient(360deg, $grey-dark 0%, transparent 100%);
           content: '';
 
@@ -169,17 +185,14 @@
           left: $gutter-small;
 
           height: 5%;
-          width: calc(100% - #{$gutter-small * 2});
           z-index: 1;
 
           @include breakpoint($small) {
             left: $gutter-medium;
-            width: calc(100% - #{$gutter-medium * 2});
           }
 
           @include breakpoint($medium) {
             left: $gutter-large;
-            width: calc(100% - #{$gutter-large * 2});
           }
         }
       }

@@ -4,17 +4,15 @@
 .tabs {
   &__triggers {
     @include flex;
-    // border-bottom: 1px solid $white;
+    @include width-with-gutters;
     margin-top: rem-calc(20);
     margin-bottom: rem-calc(15);
-    // padding-bottom: rem-calc(15);
+    overflow-x: scroll;
   }
 
   &__splitter {
+    @include width-with-gutters;
     opacity: 0.2;
-    width: calc(100% - #{$gutter-small * 2});
-    @include breakpoint($small) { width: calc(100% - #{$gutter-medium * 2}); }
-    @include breakpoint($medium) { width: calc(100% - #{$gutter-large * 2}); }
   }
 }
 
@@ -22,18 +20,18 @@
 // tab
 //--------------------------------------------------
 .tab {
-    &__trigger {
-      background-color: transparent;
-      border: 1px solid rgba($grey-light, 0.4);
-      border-radius: rem-calc(20);
-      color: $white;
-      cursor: pointer;
-      font-size: rem-calc(20);
-      margin-right: rem-calc(10);
-      padding: rem-calc(1 17);
+  &__trigger {
+    background-color: transparent;
+    border: 1px solid rgba($grey-light, 0.4);
+    border-radius: rem-calc(20);
+    color: $white;
+    cursor: pointer;
+    font-size: rem-calc(20);
+    margin-right: rem-calc(10);
+    padding: rem-calc(1 17);
 
-      &.tab--active { background-color: $green; }
-    }
+    &.tab--active { background-color: $green; }
+  }
 
-      &__title { cursor: pointer; }
+  &__title { cursor: pointer; }
 }

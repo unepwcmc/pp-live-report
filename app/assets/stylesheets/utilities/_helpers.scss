@@ -39,6 +39,12 @@ i { font-style: normal; }
 .w-100 { width: 100%; }
 .h-100 { height: 100%; }
 
+@mixin width-with-gutters {
+  width: calc(100% - #{$gutter-small * 2});
+  @include breakpoint($small) { width: calc(100% - #{$gutter-medium * 2}); }
+  @include breakpoint($medium) { width: calc(100% - #{$gutter-large * 2}); }
+}
+
 //--------------------------------------------------
 // lists
 //--------------------------------------------------

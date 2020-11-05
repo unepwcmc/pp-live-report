@@ -38,15 +38,14 @@
      ></map-statistics-toggles>
     </template>
    </template>
-   <div class="flex gutters">
+   <div class="flex flex-v-center gutters" v-if="isActive">
     <download
      text="CSV Download"
      title="Download reports in PDF format"
      :file-download="fileDownload"
      event-element="Download report link"
     ></download>
-    <button class="button--grey">Map disclaimer</button>
-    <!-- Modal component needs to go here for map disclaimer - may need a separate component for this -->
+    <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
    </div>
   </div>
  </div>
@@ -59,6 +58,7 @@ import {
  getFirstTopLayerId,
 } from "./map-helpers";
 import Download from "../download/Download";
+import MapDisclaimer from "./MapDisclaimer";
 import MapStatisticsToggles from "./MapStatisticsToggles";
 import Tab from "../tabs/Tab";
 import Tabs from "../tabs/Tabs";
@@ -70,7 +70,7 @@ const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73";
 export default {
  name: "map-statistics",
 
- components: { Download, MapStatisticsToggles, Tab, Tabs },
+ components: { Download, MapDisclaimer, MapStatisticsToggles, Tab, Tabs },
 
  props: {
   id: {
@@ -97,14 +97,14 @@ export default {
  },
 
  computed: {
-  initialLayers() {
+  initialLayer() {
    return this.tabs ? this.tabs[0].layers[0] : this.layers[0];
   },
  },
 
  mounted() {
-   eventHub.$on("hideLayers", this.hideLayers);
-  eventHub.$on("showLayers", this.showLayers);
+   eventHub.$on("hide-layers", this.hideLayers);
+   eventHub.$on("show-layers", this.showLayers);
   this.getAllLayers();
   this.createMap();
  },
@@ -162,9 +162,7 @@ export default {
   },
 
   addInitialLayers() {
-   if (this.initialLayers) {
-    this.addLayerAndSubLayers(this.initialLayers);
-   }
+    this.addLayerAndSubLayers(this.initialLayer);
   },
 
   addLayerAndSubLayers(layer) {
@@ -226,7 +224,7 @@ export default {
   },
 
   hideVisibilityOfLayers(ids) {
-    // If more than one map is present on the same page
+   // If more than one map is present on the same page
    if (ids.mapId !== this.id) {
     return;
    }

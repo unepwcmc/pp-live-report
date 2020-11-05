@@ -13,7 +13,7 @@
      :map-id="mapId"
      :parent-tab-id="parentTabId"
      :ids="getMapboxLayerIds(layer)"
-     :is-active="index === currentSelectedLayer"
+     :is-active="index === currentLayer"
      :layer-no="index"
     >
      <div class="map__panel-button-wrapper">
@@ -50,20 +50,21 @@ export default {
   parentTabId: String,
   mapId: String,
  },
- mounted () {
-  eventHub.$on("hideOtherLayers", this.hideNonSelectedLayers);
+ data() {
+   return {
+     currentLayer: 0
+   }
  },
-  data() {
-    return {
-      currentSelectedLayer: 0
-    }
-  },
+ mounted () {
+  eventHub.$on("hide-other-layers", this.hideNonSelectedLayers);
+ },
  methods: {
   getMapboxLayerIds(layer) {
    return getMapboxLayerIds(layer);
   },
   hideNonSelectedLayers(obj) {
-    this.currentSelectedLayer = obj.layerNo
+    if (obj.mapId !== this.mapId || this.parentTabId !== obj.tab) { return }
+    this.currentLayer = obj.layerNo
   },
   toggleOECM(boolean) {
     // console.log('hello');

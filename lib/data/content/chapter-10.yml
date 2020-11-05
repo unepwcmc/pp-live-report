@@ -1,82 +1,21 @@
-title: "Conclusions and Recommendations"
-menu_title: "Conclusions"
-subtitle: "Chapter 10"
-intro: "Since the Aichi Biodiversity Targets were agreed in 2010, there has been significant progress towards achieving elements of Target 11 in terms of land and sea coverage. However, a significant amount of work still needs to be done to achieve other elements of the target. "
-accordion_title: "Aichi Target 11: progress and recommendations"
-accordion_intro: "Summary of key progress towards each element of Aichi Target 11 and recommendations."
-accordion:
+title: "Integrated into the Wider Landscape and Seascape"
+menu_title: "Integrated into the Wider Landscape and Seascape"
+subtitle: "Chapter 9"
+intro: "TBD"
+content_1: "Aichi Target 11 requires that protected and conserved areas be ‘integrated into the wider landscape and seascape’ i.e. that the design and management of protected areas, corridors and the surrounding matrix fosters a connected, functional ecological network”. Protected areas throughout the world are coming under widespread human pressures that have profound impacts on biodiversity and ecosystem services."
+cta_title_1: "Human Footprint: Areas under intense human pressure"
+cta_text_1: "One way to assess how protected areas can be linked into the wider land and seascape is to map areas of varying levels of human footprint. Here, we present a global assessment of human pressures on terrestrial protected areas."
+cta_url_1: "http://wcmc.io/pp-ch9-cta1"
+content_2:
   -
-    title: "Global Coverage"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "Protected area coverage (Chapter 2) has increased significantly, with almost 15% of terrestrial areas and over 7% of marine areas protected, mainly within EEZs. With concerted efforts from governments to implement national commitments, this quantitative element is on track to be achieved."
-      -
-        title: "Recommendations"
-        text: "Recent efforts to expand protected area networks to reach these global goals should be enhanced, and in particular mechanisms agreed for the protection of ABNJs. In particular, identification and recognition of OECMs (see below) is likely to increase both coverage and ecological representativeness and should not be seen in isolation. If implemented strategically, improving coverage will also contribute to enhance other qualitative elements of Aichi Target 11, such as connectivity and integration into the wider landscape and seascape."
+    "Some authors have used a revised Human Footprint map to measure habitat conversion and showed that in recent years protected area establishment outpaced habitat conversion across all biomes and the majority of ecoregions globally. It has also been shown that over the past two decades the Earth’s wilderness areas have been disappearing at a rate that has significantly outpaced their protection."
   -
-    title: "Areas of Importance for Biodiversity and Ecosystem Services"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "There has been some progress in protecting areas that are important for biodiversity and ecosystem services (Chapter 3). Currently, on average, almost half of each terrestrial, freshwater and marine Key Biodiversity Areas lie within protected areas.Significant steps are required to address the conservation of further important areas, and many countries have made commitments to do so."
-      -
-        title: "Recommendations"
-        text: "Any newly designated protected or conserved areas need to be targeted towards documented areas of importance for biodiversity, such as Key Biodiversity Areas. The protection of threatened and rare species should be enhanced, and ecosystem services should be better identified, mapped and protected. The recognition OECMs will likely improve understanding of the status of coverage of these priority areas."
-  -
-    title: "Ecologically  Representative"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "The ecological representation of protected areas across terrestrial and marine ecoregions is variable (Chapter 4). However, the coverage of some ecological regions has improved, particularly in the ocean, mostly due to the recent rapid expansion of the marine protected area network, including the declaration of several very large MPAs."
-      -
-        title: "Recommendations"
-        text: "The expansion in the global protected area network needs to be better targeted to increase the representativeness of different biogeographical areas, both in the terrestrial and marine realms."
-  -
-    title: "Effectively Managed"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "Management effectiveness (Chapter 5) has now been assessed and reported in GD-PAME for about 20% of the global coverage of all protected areas in the WDPA. It is however difficult to track progress on this element of the target given the lack of systematic reporting, the absence of consistent data and the diversity of tools being used to assess effectiveness. "
-      -
-        title: "Recommendations"
-        text: "Many countries are conducting management effectiveness assessments, but these are still not always reported in GD-PAME. More resources need to be directed towards assessing the effectiveness of management activities, and assessments should be systematically reported and included into the database. More studies are also needed to improve our understanding of the links between management and biodiversity outcomes."
-  -
-    title: "Equitably Managed"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "Some progress has been made on measuring protected area equity (Chapter 6), with a number of methodologies recently developed. However, only a very small sample of protected areas have been assessed, and this remains a priority for further development and application. The importance of gender equality should also be taken into consideration in protected area governance and management."
-      -
-        title: "Recommendations"
-        text: "Although some recent studies of equity have been carried out, and a set of principles for measuring equity has been established, there is still no globally applied systematic assessment of equitable management. A set of measurable global indicators (that also integrate a gender perspective) needs to be developed and agreed in order to provide reliable assessments of protected area equity and to enable tracking of progress."
-  -
-    title: "Well-Connected Systems"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "Some interesting initiatives have been implemented to enhance connectivity between protected areas. Some metrics have also been developed to measure connectivity at the global level, and one study has shown that 30% of countries currently meet the connectivity element of Aichi Target 11. However, due to ongoing habitats destruction and fragmentation, there remain important challenges in strengthening connectivity across systems of protected and conserved areas (Chapter 7)."
-      -
-        title: "Recommendations"
-        text: "Some connectivity initiatives have been implemented, but the principles of connectivity need to be integrated into institutional and legal frameworks, as well as national spatial planning, and climate change adaptation programmes. The development of new global indicators has shown that the connectivity of the protected area networks of most countries still needs to be improved. "
-  -
-    title: "Other Effective Area-Based Conservation Measures"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "A definition and criteria for identification of Other Effective Area-Based Conservation Measures (Chapter 8) has been adopted at the CBD COP14."
-      -
-        title: "Recommendations"
-        text: "All OECMs need to be officially recognised and reported, and a concerted effort should be made to collate information on these areas, including their spatial data, to support and enable their effective and equitable governance and management."
-  -
-    title: "Integrated in the Wider Landscape and Seascape"
-    content: 
-      -
-        title: "Progress at the global level"
-        text: "Few countries have developed spatial plans that take into account protected and conserved areas, and have incorporated these plans into relevant policies. However, tracking progress for this element remains difficult and greater efforts still need to be invested in mainstreaming biodiversity conservation, including strengthening integration of protected and conserved areas in the wider landscape and seascape (Chapter 9)."
-      -
-        title: "Recommendations"
-        text: "Protected areas are an essential tool to address a number of global threats such as climate change, food and water security. However, they need to be better integrated into national planning and decision making, to enhance both biodiversity and social outcomes. In addition, threats facing biodiversity, both within and outside protected areas, need to be properly addressed, and the opportunities of protected and conserved areas for contributing towards sustainable development realised."
-next_steps_title: "Next steps looking post-2020"
-next_steps_text: "In 2020, governments will agree a new global biodiversity framework. This framework will provide both the context and the level of ambition for action to address threats to biodiversity, including in relation to protected and conserved areas. The Convention has already agreed a 2050 Vision of ‘Living in harmony with nature’, which provides context for the post-2020 global framework. In developing a post-2020 strategy, Aichi Target 11 will be reviewed and Parties to the CBD are anticipated to agree on new targets and measures for area-based conservation."
-photo_credits: "Photo credits: Noraville, Australia &copy; Leah-Anne Thompson"
+    "To address gaps in knowledge, the National Geographic Society (NGS) is developing a Human Impact Map aimed at identifying the planet’s remaining, relatively untouched terrestrial landscapes. Based on these data, 20.4% of the earth’s remaining areas of low human impact are within protected areas, while 11.5% of the world is both protected and under low human impact."
+map_title: "Human impact and protected areas"
+map_description: "Overlap of the Earth’s remaining areas of low human impact with protected areas."
+map_smallprint: "Source: Human Impact Map (NGS); UNEP-WCMC and IUCN. 2018a. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
+content_3: "Increasing pressures on protected areas require efforts targeted not only at improving their governance or management, but also within the context of better planning and decision-making in the wider production landscape and seascape, and better integration of protected areas and OECMs in sector policies and programmes. The role of protected areas in contributing solutions to a multitude of global challenges beyond their conservation benefits would be facilitated by this integration."
+cta_title_2: "PANORAMA – Solutions for a Healthy Planet"
+cta_text_2: "PANORAMA is a partnership initiative to document and promote examples of inspiring, replicable solutions across a range of conservation and sustainable development topics."
+cta_url_2: "https://panorama.solutions/en"
+photo_credits: "Photo credits: Mount Fuji, Japan &copy; Luciano Mortula-LGM / Adobe Stock"

@@ -24,9 +24,14 @@ class ChaptersController < ApplicationController
 
   def chapter_2
     @chapter_number = 2
+    @data = @chapters_data[1]
+  end
+
+  def chapter_3
+    @chapter_number = 3
 
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
-    @data = @chapters_data[1]
+    @data = @chapters_data[2]
 
     @doughnut_chart = @data['doughnut_chart_data'].map do |item|
                       {
@@ -195,7 +200,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      countries: CsvMapParser.ch2_map2_categorical,
+      countries: CsvMapParser.ch3_map2_categorical,
       legend: [
         { title: 'Data deficient', value: 'default' },
         { title: 'Under 5%', value: 1 },
@@ -244,10 +249,10 @@ class ChaptersController < ApplicationController
     }
   end
 
-  def chapter_3
-    @chapter_number = 3
-    @data = @chapters_data[2]
-    @percentage = CsvMapParser.ch3_map1_percentage
+  def chapter_4
+    @chapter_number = 4
+    @data = @chapters_data[3]
+    @percentage = CsvMapParser.ch4_map1_percentage
 
     @map_1 = {
       id: 'kba',
@@ -305,9 +310,9 @@ class ChaptersController < ApplicationController
     }
   end
 
-  def chapter_4
-    @chapter_number = 4
-    @data = @chapters_data[3]
+  def chapter_5
+    @chapter_number = 5
+    @data = @chapters_data[4]
 
     @map_1 = {
       id: "map_1",
@@ -533,12 +538,12 @@ class ChaptersController < ApplicationController
     @row_charts = CsvParser.biogeographical_regions
   end
 
-  def chapter_5
-    @chapter_number = 5
-    @data = @chapters_data[4]
+  def chapter_6
+    @chapter_number = 6
+    @data = @chapters_data[5]
 
     @map = {
-      countries: CsvMapParser.ch5_map_categorical,
+      countries: CsvMapParser.ch6_map_categorical,
       legend: [
         { title: 'No Assessments', value: 'default' },
         { title: 'Under 10%', value: 1 },
@@ -549,7 +554,7 @@ class ChaptersController < ApplicationController
       palette: BLUE_PURPLE_SCHEME
     }
 
-    progress_level_data = CsvParser.ch5_figure2_stats
+    progress_level_data = CsvParser.ch6_figure2_stats
     terrestrial = progress_level_data['Land']
     marine = progress_level_data['Marine']
     @stacked_row_charts = {
@@ -630,13 +635,13 @@ class ChaptersController < ApplicationController
     @column_chart_2 = CountOfPameEvaluationsSerializer.new(CsvParser.count_of_pame_evaluations).serialize
   end
 
-  def chapter_6
-    @chapter_number = 6
-    @data = @chapters_data[5]
+  def chapter_7
+    @chapter_number = 7
+    @data = @chapters_data[6]
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
-    country_governance_data = CsvParser.ch6_figure2_stats
+    country_governance_data = CsvParser.ch7_figure2_stats
     legend = []
     country_governance_data.first.second.keys.each do |gov|
       legend << { title: gov }
@@ -665,12 +670,12 @@ class ChaptersController < ApplicationController
     }
   end
 
-  def chapter_7
-    @chapter_number = 7
-    @data = @chapters_data[6]
+  def chapter_8
+    @chapter_number = 8
+    @data = @chapters_data[7]
 
     @map_1 = {
-      countries: CsvMapParser.ch7_map1_categorical,
+      countries: CsvMapParser.ch8_map1_categorical,
       legend: [
         { title: 'Under 4%', value: 'default' },
         { title: '4% - 8%', value: 1 },
@@ -683,7 +688,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_2 = {
-      countries: CsvMapParser.ch7_map2_categorical,
+      countries: CsvMapParser.ch8_map2_categorical,
       legend: [
         { title: 'A1. General increase of PA coverage', value: 1 },
         { title: 'A2. Targeted designation of connecting PAs', value: 2 },
@@ -696,7 +701,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_3 = {
-      countries: CsvMapParser.ch7_map3_categorical,
+      countries: CsvMapParser.ch8_map3_categorical,
       legend: [
         { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
       ],
@@ -704,14 +709,14 @@ class ChaptersController < ApplicationController
     }
   end
 
-  def chapter_8
-    @chapter_number = 8
-    @data = @chapters_data[7]
-  end
-
   def chapter_9
     @chapter_number = 9
     @data = @chapters_data[8]
+  end
+
+  def chapter_10
+    @chapter_number = 10
+    @data = @chapters_data[9]
 
     @map_1 = {
       id: "map_1",
@@ -739,8 +744,8 @@ class ChaptersController < ApplicationController
     }
   end
 
-  def chapter_10
-    @chapter_number = 10
-    @data = @chapters_data[9]
+  def chapter_11
+    @chapter_number = 11
+    @data = @chapters_data[10]
   end
 end

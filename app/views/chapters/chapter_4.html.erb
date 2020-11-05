@@ -1,54 +1,48 @@
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_1'] %></p>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
 <map-statistics 
-  id="<%= @map_1[:id] %>" 
+  id="<%= @map_1[:id] %>"
   title="<%= @data['map_1_title'] %>" 
   description="<%= @data['map_1_description'] %>" 
-  :tabs="<%= @map_1[:tabs].to_json %>"
-  tiles-url="<%= @map_1[:tiles_url] %>" 
+  :layers="<%= @map_1[:layers].to_json %>"
+  tiles-url="<%= @map_1[:tiles_url] %>"
   source="<%= @data['map_1_source'] %>"
   disclaimer="<%= @shared_data['map_disclaimer'] %>"
 >
-</map-statistics> 
+</map-statistics>
 
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_2'] %></p>
-  </div>
-</section>
-
- <map-statistics 
-  id="<%= @map_2[:id] %>"
-  title="<%= @data['map_2_title'] %>"
-  description="<%= @data['map_2_description'] %>"
-  :tabs="<%= @map_2[:tabs].to_json %>"
-  tiles-url="<%= @map_2[:tiles_url] %>"
-  source="<%= @data['map_2_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
->
-</map-statistics> 
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
 
   <div class="container--medium">
-    <% @row_charts.each do |item| %>
-      <h3><%= item[:title] %></h3>
-      
-      <div class="flex flex-wrap flex-h-between">
-        <% item[:charts].each do |chart| %>
-          <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
-        <% end %>
-      </div>
-    <% end %>
+    <chart-line 
+      :lines="<%= @line_chart[:lines].to_json %>" 
+      :targets="<%= @line_chart[:targets].to_json %>"
+      :legend="<%= @line_chart[:legend].to_json %>"
+      :axis="<%= @line_chart[:axis].to_json %>">
+    </chart-line>
 
-    <span class="smallprint"><%= @data['row_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
+
+
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
+
+
+
+<section class="section-padding">
+  <div class="container--small">
+    <% @data['content_4'].each do |p| %>
+      <p><%= p %></p>
+    <% end %>
+  </div>
+</section>
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

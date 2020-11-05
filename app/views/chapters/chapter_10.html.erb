@@ -1,23 +1,34 @@
 <section class="section-padding">
-  <%= render partial: 'partials/component-title', locals: { title: @data['accordion_title'], intro: @data['accordion_intro'] } %>
-
-  <div class="container--medium">
-    <accordion>
-      <% @data['accordion'].each_with_index do |item, index| %>
-        <accordion-item id="accordion-item-<%= index %>" title="<%= item['title'] %>">
-          <% item['content'].each do |content| %>
-            <p class="accordion-item__content-title"><%= content['title'] %></p>
-            <p><%= content['text'] %></p>
-          <% end %>
-        </accordion-item>
-      <% end %>
-    </accordion>
+  <div class="container--small">
+    <p><%= @data['content_1'] %></p>
   </div>
 </section>
 
-<section class="section-padding content--next-steps">
-  <div class="container">
-    <h2 class="content__title"><%= @data['next_steps_title'] %></h2>
-    <p class="content__text"><%= @data['next_steps_text'] %></p>
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
+
+<section class="section-padding">
+  <div class="container--small">
+    <% @data['content_2'].each do |p| %>
+      <p><%= p %></p>
+    <% end %>
   </div>
 </section>
+
+<map-statistics 
+  id="<%= @map_1[:id] %>" 
+  title="<%= @data['map_title'] %>" 
+  :layers="<%= @map_1[:layers].to_json %>"
+  tiles-url="<%= @map_1[:tiles_url] %>"
+  source="<%= @data['map_smallprint'] %>"
+  disclaimer="<%= @shared_data['map_disclaimer'] %>"
+  description="<%= @data['map_description'] %>"
+>
+</map-statistics>
+
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
+
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

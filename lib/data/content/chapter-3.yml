@@ -1,31 +1,140 @@
-title: "Areas of Importance for Biodiversity and Ecosystem Services"
-menu_title: "Areas of Importance for Biodiversity and Ecosystem Services"
-subtitle: "Chapter 3"
-intro: "TBD" 
-content_1:
+title: "Coverage"
+menu_title: "Coverage"
+subtitle: "Chapter 2"
+intro: "Despite concerted global efforts and significant progress, the absolute targets to conserve 17% of land and inland water areas, and 10% of coastal and marine areas, have not yet been met. As of December 2020, XX km2 (x%) of land and inland water ecosystems, and XX km2 (x%) of coastal waters and the ocean, are within protected areas and OECMs. Despite the shortfalls, major gains in coverage have been made over the past decade, particularly in coastal waters and the oceans."
+content: 
   -
-    "Systems of protected and conserved areas will not function effectively if they do not cover a representative sample of the world’s ecosystems and species. It is possible to assess ecological representation based on the proportion of species’ distributions covered by protected and conserved areas. However, coverage of ecoregions (ecological units of land, ocean or freshwater that share the same biological characteristics (Olson et al. 2001; Spalding et al. 2007 and 2012)) is more generally used to assess this element of Aichi Target 11 (Gannon et al. 2019). This is the metric used here.  "
-  -
-    "Since 2012, the percentage of terrestrial ecoregions reaching the 17% target has increased by xx%. The improvement is even more pronounced in the marine realm, with an increase of xx%. Furthermore, the percentage of ecoregions entirely lacking protection (less than 1% coverage by protected areas) has decreased from xx% to xx%.  "
-content_2: "However, if Aichi Target 11’s coverage goals are assumed to apply to ecoregions, many remain under-protected. The proportion of terrestrial ecoregions with at least 17% protected area coverage is only 44.0% (362 ecoregions (rising to xxx when OECMs are factored in)). Among marine ecoregions and pelagic provinces, the proportion with at least 10% coverage by protected areas is 50.4% (117 ecoregions (rising to xxx when OECMs are factored in)). This figure increases to 61.3% when considering only nearshore marine ecoregions. It drops to 13.5% in pelagic provinces, which fall largely outside national jurisdiction. Methodologies and datasets for assessing coverage of freshwater ecoregions vary, but studies agree they are less than 25% protected in total (refs).  "
-content_3: "There remains a clear need to improve ecoregion representation, and attention is particularly needed in ecoregions that lack protection entirely, such as the Angolan montane forest-grassland mosaic ecoregion, South China Sea Islands ecoregion, and Eastern Anatolian deciduous forests ecoregion. Two options for increasing ecological representation include greater use of systematic conservation planning (Box 7) and consideration of nationally-differentiated targets (Box 8).  "
+    "The WDPA has been the key tool for assessing the area covered by protected areas, and progress towards achieving Aichi Target 11, over the last decade (refs: IPBES, GEO, GBO). In the first Protected Planet Report in 2012, and in every report since, the narrative has been one of growth (refs: PP 2012, 2014, 2016, 2018). Since 2012, an additional XXX km2 of land and inland water ecosystems, and XXX km2 of coastal waters and the ocean, has been placed within protected areas. These figures, however, do not tell the entire story (Box 3) and omit many non-state protected areas (Box 4). Factoring in the limited available data on OECMs adds a further xx km2 on land and xx km2 in coastal waters and the ocean."  
 
-map_1_title: "Key Biodiversity Areas"
-map_1_description: "Map of Key Biodiversity Areas fully within (blue), partially within (green) or outside (red) protected areas on land and in the ocean (within EEZ)."
-map_1_source: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
-cta_title_1: "Assessing the contribution of protected areas to ecosystem services"
-cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
-cta_url_1: "http://wcmc.io/pp-ch3-cta1"
-line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
-line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
-content_2:
   -
-    "As of 2018, 21% (5,510) of globally threatened species on The IUCN Red List of Threatened Species™ are found within KBAs in Biodiversity Hotspots. Of these sites, 13% are currently fully within protected areas, while another 31% are covered only in part by protected areas."
+    "Despite this progress, neither of Aichi Target 11’s coverage goals (17% of land and inland water ecosystems and 10% of coastal waters and the ocean) were met by the close of 2020, with coverage now at xx% and xx% respectively. The same is true of Sustainable Development Goal 14.5, which also concluded in 2020 and shares the 10% target. Marine coverage can be further broken down into national waters and areas beyond national jurisdiction (ABNJ), painting a more complex picture. While great successes have been observed within national jurisdiction, where protected areas and OECMs now cover xx%, ABNJ lags behind at xx%."
+
+content_2: "In spite of the shortfalls, much has been achieved over the past ten years, most notably in the marine realm. In recent years, terrestrial growth has been outpaced by growth in coastal waters and the oceans by [orders of magnitude?], thanks in large part to the designation of very large marine protected areas. This trend appears likely to continue into the next decade, with a further xxx km2 planned for protection at the start of 2020, spanning just x proposed marine protected areas. In comparison, since the publication of the 2012 report, terrestrial protected areas have expanded by XXX km2. "
+content_3: "The Post-2020 Global Biodiversity Framework is likely to go further than the 2020 targets by proposing a coverage goal of 30%. The continued expansion of protected and conserved areas (both through new designations and through the recognition of existing measures) will be imperative to achieving the ambitious goals of the Framework and the CBD’s 2050 vision. However, it is also essential to consider the quality elements beyond coverage, in order to ensure that systems of protected and conserved areas are effective and achieve real conservation outcomes. These elements are discussed in the following sections.  "
+
+map_1_title: "Spatial distribution of the world’s protected areas"
+map_1_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+area_charts_title: "Proportional coverage of protected areas"
+area_charts_description: "On average, coverage of marine protected areas continues to increase rapidly since 2016, whilst the growth in terrestrial protection has largely tapered off. The extent of protected area coverage is highly variable between countries in both land and ocean. Information on future commitments collected by the CBD Secretariat suggests that with concerted efforts from governments, coverage of protected areas will increase significantly over the next two years."
+area_chart_1_title: "Proportional coverage of protected areas in the land and ocean."
+area_chart_2_title: "Proportional coverage of protected areas in the land and ocean (including in EEZ versus ABNJ)."
+area_chart_2_smallprint: "EEZ: Exclusive Economic Zone; ABNJ: Areas Beyond National Jurisdiction. Source UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+line_chart_title: "Growth in protected area coverage on land and in the ocean"
+line_chart_description: "Growth in protected area coverage on land and in the ocean (EEZ and ABNJ) between 1990 and 2018 and projected growth to 2020 according to commitments from countries and territories."
+line_chart_smallprint: "Source: Unpublished data from the CBD Secretariat<br>Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
+map_2_title: "Extent of terrestrial protected area coverage between countries and territories"
+map_2_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+cta_title: "Trends and trajectories of marine protection"
+cta_text: "There has been a remarkable increase in marine protected area coverage in recent years. This article explores the consequences and meaning of this growth in marine protection."
+cta_url: "http://wcmc.io/pp-ch2-cta1"
+map_3_title: "Extent of marine protected area coverage between countries and territories"
+map_3_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+photo_credits: "Photo credits: Yosemite &copy; Paul / Adobe Stock"
+
+doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
+doughnut_chart_intro: "<p>As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'</p>"
+doughnut_chart_data:
   -
-    "Another approach is based on the ‘Evolutionary Distinctiveness’ (the unique contribution of a species to total evolutionary history) and ‘Global Endangerment’ (extinction risk derived from the IUCN Red List) of species. A total of 1,261 or 43% of all EDGE species are found in 2,803 KBAs in 21 Biodiversity Hotspots, with 14% of these sites with EDGE species being fully within protected areas and 35% partially within protected areas."
+    title: "No poverty"
+    colour: "#E5243B"
+    icon: 'icons/sdg-goal-01.png'
+    description: "Biodiversity supports a range of economic activities. In particular, subsistence agriculture and fisheries provide livelihoods for many of the world’s rural poor. Protected areas in several countries are already expected to report on their contribution to poverty reduction targets and there is growing pressure to ensure that protected areas contribute to supporting the livelihoods of the more socially and economically vulnerable."
+    url: "https://www.un.org/sustainabledevelopment/poverty/"
   -
-    "There is currently no global dataset or analysis that provides a measure of how well protected areas cover ‘areas of particular importance for ecosystem services’, which constitutes a clear gap to be addressed to fully report progress in the achievement of Aichi Target 11."
-cta_title_2: "Protected areas’ contribution to climate change mitigation, with a case study in Paraguay"
-cta_text_2: "This case study in Paraguay describes the REDD+ mechanism and provides an example of the contribution of protected areas’ to climate change mitigation."
-photo_credits: "Photo credits: Nepal &copy; Giuseppe Mondì"
-cta_url_2: "http://wcmc.io/pp-ch3-cta2"
+    title: "Zero hunger"
+    colour: "#DDA63A"
+    icon: 'icons/sdg-goal-02.png'
+    description: "All food systems depend on biodiversity and ecosystem services that support agricultural productivity, soil fertility, and water quality and supply. By protecting these key ecosystem services, protected areas can contribute to enhance food security. Protected areas also provide basic supporting services such as soil production and stabilisation of water supplies, as well as buffering against extreme climatic events."
+    url: "https://www.un.org/sustainabledevelopment/hunger/"
+  -
+    title: "Good Health and Well-being"
+    colour: "#4C9F38"
+    icon: 'icons/sdg-goal-03.png'
+    description: "The link between biodiversity and human health is increasingly recognized. By protecting ecosystems, protected areas help mitigate the spread and impact of pollution. For instance, protecting forests help regulate water flow and improve water quality. Medicines are also be derived from biodiversity. Finally, by offering recreational opportunities, protected areas also contribute to enhancing physical and mental well-being."
+    url: "https://www.un.org/sustainabledevelopment/health/"
+  -
+    title: "Quality education"
+    colour: "#C5192D"
+    icon: 'icons/sdg-goal-04.png'
+    description: "Raising awareness of the importance of protecting biodiversity for sustainable development, notably through the creation of protected areas and other conservation measures, will be key to achieving this and other SDGs. In particular, protected areas located close to urban centres can provide basic knowledge on the importance of ecosystem functioning."
+    url: "https://www.un.org/sustainabledevelopment/education/"
+  -
+    title: "Gender equality"
+    colour: "#FF3A21"
+    icon: 'icons/sdg-goal-05.png'
+    description: "Women are often the primary users of natural resources and play a key role in their management. However, they often do not have ownership and control over land and resources and they tend to be disproportionally affected by the loss of biodiversity and ecosystem services. However, if empowered, they can contribute to the sustainability of resource use. For instance, if protected areas are equitably managed, they can help reducing gender inequalities."
+    url: "https://www.un.org/sustainabledevelopment/gender-equality/"
+  -
+    title: "Clean water and sanitation"
+    colour: "#26BDE2"
+    icon: 'icons/sdg-goal-06.png'
+    description: "The delivery of water supplies and water quality require healthy ecosystems, which can also help prevent water-related hazards and disasters. Protected areas provide a significant proportion of the drinking water for many of the world’s largest cities. Protection of water towers, cloud forests, forested catchments for water, and natural floodplains is therefore essential to ensure freshwater supply and reduce disaster risks."
+    url: "https://www.un.org/sustainabledevelopment/water-and-sanitation/"
+  -
+    title: "Affordable and clean energy"
+    colour: "#FCC30B"
+    icon: 'icons/sdg-goal-07.png'
+    description: "Renewable energy generated based on ecosystems, such as hydropower systems, provide important alternative sources of clean, reliable and affordable energy. Ecosystem-based approaches to food production can also reduce the dependency on fossil fuels by improving the use of natural, local and renewable resources."
+    url: "https://www.un.org/sustainabledevelopment/energy/"
+  -
+    title: "Decent work and economic growth"
+    colour: "#A21942"
+    icon: 'icons/sdg-goal-08.png'
+    description: "Biodiversity supports the provision of ecosystem services which are key to almost all economic activities. By preserving ecosystem functions, protected areas can lead to higher productivity and more efficient resource use. They can also offer opportunities for business development, especially in rural and remote areas. Nature tourism, including visits to protected areas, is one of the fastest-growing sectors."
+    url: "https://www.un.org/sustainabledevelopment/economic-growth/"
+  -
+    title: "Industry, innovation and infrastructure"
+    colour: "#FD6925"
+    icon: 'icons/sdg-goal-09.png'
+    description: "Biodiversity and healthy ecosystems can provide reliable and affordable natural infrastructure. For instance, coral reefs and mangrove forests protect coasts against flooding that are expected to increase with climate change. It is therefore particularly important for these areas to be protected."
+    url: "https://www.un.org/sustainabledevelopment/infrastructure-industrialization/"
+  -
+    title: "Reduced inequalities"
+    colour: "#DD1367"
+    icon: 'icons/sdg-goal-10.png'
+    description: "Larger income inequality within countries have been shown to be related to greater biodiversity loss. In recent years, there has been a significant shift from protected areas solely managed by governments to protected areas managed by indigenous and local communities, or under shared governance. Increasing the recognition of the role of indigenous and local people in protected area management will contribute to reducing inequalities."
+    url: "https://www.un.org/sustainabledevelopment/inequality/"
+  -
+    title: "Sustainable cites and communities"
+    colour: "#FD9D24"
+    icon: 'icons/sdg-goal-11.png'
+    description: "The global urban population is expected to reach 5 billion by 2030. Ecosystems and biodiversity deliver all the basic services that enable human production, consumption and habitation, such as protection from extreme weather events. Urban planning that integrates biodiversity, for instance through the creation of urban parks, can provide important buffers for urban centres and contribute to more sustainable cities."
+    url: "https://www.un.org/sustainabledevelopment/cities/"
+  -
+    title: "Responsible consumption and production"
+    colour: "#BF8B2E"
+    icon: 'icons/sdg-goal-12.png'
+    description: "Consumption and production of all goods and services rely on the use of natural resources, which in turn impacts biodiversity. Unsustainable consumption patterns can undermine the ability of ecosystems to provide these services. Supporting local communities, especially the ones living in and around protected areas, is necessary to ensure the sustainable use of natural resources."
+    url: "https://www.un.org/sustainabledevelopment/sustainable-consumption-production/"
+  -
+    title: "Climate action"
+    colour: "#3F7E44"
+    icon: 'icons/sdg-goal-13.png'
+    description: "Species and ecosystems are already being impacted by climate change. It is therefore crucial to protect them, not only to preserve biodiversity, but also their capacity to contribute to climate mitigation and adaptation. Indeed, many natural ecosystems provide globally significant carbon stores, and healthy ecosystems are key to enhance resilience to climate change, for instance by acting as natural buffers against extreme climatic events."
+    url: "https://www.un.org/sustainabledevelopment/climate-change-2/"
+  -
+    title: "Life below water"
+    colour: "#0A97D9"
+    icon: 'icons/sdg-goal-14.png'
+    description: "Marine protected areas contribute directly to this goal. The conservation and sustainable use of biodiversity in marine and coastal ecosystems is key to sustainable development. Biodiversity indeed underpins all fishing and aquaculture activities. Protecting marine and coastal areas is thus essential to ensure that the world’s oceans, seas and marine resources are preserved."
+    url: "https://www.un.org/sustainabledevelopment/oceans/"
+  -
+    title: "Life on land"
+    colour: "#56C02B"
+    icon: 'icons/sdg-goal-15.png'
+    description: "Terrestrial protected areas contribute directly to this goal. Although there has been a marked increase in protected area coverage, many areas important for biodiversity are still not adequately protected. The designation of protected areas has played a crucial role in preventing deforestation and is likely to have contributed to the conservation of several vertebrate species. Protected areas are thus key to protect terrestrial habitats, species, and ecosystem services."
+    url: "https://www.un.org/sustainabledevelopment/biodiversity/"
+  -
+    title: "Peace, justice and strong institutions"
+    colour: "#00689D"
+    icon: 'icons/sdg-goal-16.png'
+    description: "Environmental crime undermine sustainable development and threaten global security. Furthermore, conflicts over natural resources and environmental degradation can lead to social insecurity. Enhancing the role of law and equity for governance of biodiversity, including protected areas, can contribute to building an inclusive society based on justice and democratic values."
+    url: "https://www.un.org/sustainabledevelopment/peace-justice/"
+  -
+    title: "Partnerships for the goals"
+    colour: "#19486A"
+    icon: 'icons/sdg-goal-17.png'
+    description: "The 2030 Agenda is consistent with other existing international commitments, including the Strategic Plan for Biodiversity of the CBD, which provides a global framework for international cooperation on science, technology and innovation related to the conservation and sustainable use of biodiversity. The SDGs and the Strategic Plan for Biodiversity are therefore mutually supportive and reinforcing."
+    url: "https://www.un.org/sustainabledevelopment/globalpartnerships/"
+  
+smallprint: "Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."

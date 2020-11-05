@@ -1,6 +1,6 @@
 <section class="section-padding">
   <div class="container--small">
-    <%= @data['content_1'].html_safe %>
+    <p><%= @data['content_1'] %></p>
   </div>
 </section>
 
@@ -8,6 +8,58 @@
 
 <section class="section-padding">
   <div class="container--small">
-    <p><%= @data['content_2'].html_safe %></p>
+    <p><%= @data['content_2'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
+
+  <div class="container--medium">
+    <map-infographic 
+      :countries="<%= @map_1[:countries].to_json %>" 
+      :legend="<%= @map_1[:legend].to_json %>"
+      :palette="<%= @map_1[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_1_source'] %>"
+    >
+    </map-infographic>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container--small">
+    <p><%= @data['content_3'] %></p>
+  </div>
+</section>
+
+<section class="section-padding">
+
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'], intro: @data['map_2_description'] } %>
+
+  <div class="container--medium">
+    <map-infographic
+      class="map--vertical-legend"
+      :countries="<%= @map_2[:countries].to_json %>" 
+      :legend="<%= @map_2[:legend].to_json %>"
+      :palette="<%= @map_2[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_2_source'] %>"
+    >
+    </map-infographic>
+  </div>
+</section>
+
+<section class="section-padding">
+
+  <div class="container--medium">
+    <map-infographic 
+      :countries="<%= @map_3[:countries].to_json %>" 
+      :legend="<%= @map_3[:legend].to_json %>"
+      :palette="<%= @map_3[:palette] %>"
+      disclaimer="<%= @shared_data['map_disclaimer'] %>"
+      source="<%= @data['map_3_source'] %>"
+    >
+    </map-infographic>
   </div>
 </section>

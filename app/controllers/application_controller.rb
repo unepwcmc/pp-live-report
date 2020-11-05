@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def chapters_data
-    (1..10).map do |i|
+    (1..11).map do |i|
       load_yaml("#{content_base_path}/chapter-#{i}.yml", yaml_replace_data["chapter_#{i}"])
     end
   end
@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
 
   def yaml_replace_data
     data = {
-      'chapter_2' => GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize,
-      'chapter_5' => {}
+      'chapter_3' => GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize,
+      'chapter_6' => {}
     }
 
     data.keys.each do |chapter|

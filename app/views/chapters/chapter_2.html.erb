@@ -1,94 +1,12 @@
-<%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
-
-<!-- Map of toggleable OECMS -->
-
-<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
-
-<!-- Timeseries graphs -->
-
-<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
-
-<!-- [map showing national coverage (marine and terrestrial) – toggleable OECMs]  -->
-
-<!-- old layout -->
-<map-statistics 
-  id="<%= @map_1[:id] %>"
-  title="<%= @data['map_1_title'] %>"
-  tiles-url="<%= @map_1[:tiles_url] %>" 
-  :layers="<%= @map_1[:layers].to_json %>" 
-  source="<%= @data['map_1_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
-></map-statistics>
-
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['area_charts_title'], intro: @data['area_charts_description'] } %>
-
-  <div class="container--medium section-padding--top">
-    <h3><%= @data['area_chart_1_title'] %></h3>
-    <div <%= @global_area_chart[:id] %>>
-      <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
-    </div>
-  </div>
-
+<div class="content--x-large">
   <div class="container--medium">
-    <h3><%= @data['area_chart_2_title'] %></h3>
-    <div <%= @marine_area_chart[:id] %>>
-      <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
-    </div>
-
-    <span class="smallprint"><%= @data['area_chart_2_smallprint'] %></span>
+    <%= image_tag @data['aichi_image'], alt: "#{@data['aichi_target']} logo", class: 'content__icon' %>
+    <p class="content__background"><%= @data['aichi_target'] %></p>
+    <p class="content__text"><%= @data['aichi_text'].html_safe %></p>
   </div>
-</section>
+</div>
 
-<section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
-
-  <div class="container--medium">
-    <chart-line 
-      :lines="<%= @line_chart[:lines].to_json %>" 
-      :targets="<%= @line_chart[:targets].to_json %>"
-      :commitments="<%= @line_chart[:commitments].to_json %>"
-      :legend="<%= @line_chart[:legend].to_json %>"
-      :axis="<%= @line_chart[:axis].to_json %>">
-    </chart-line>
-
-    <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
-  </div>
-</section>
-
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'] } %>
-  <div class="container--medium">
-    <map-infographic 
-      :countries="<%= @map_2[:countries].to_json %>" 
-      :legend="<%= @map_2[:legend].to_json %>"
-      :palette="<%= @map_2[:palette].to_json %>"
-      source="<%= @data['map_2_source'] %>"
-      disclaimer="<%= @shared_data['map_disclaimer'] %>"
-    ></map-infographic>
-  </div>
-</section>
-
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['doughnut_chart_title'], intro: @data['doughnut_chart_intro'].html_safe } %>
-  
-  <div class="container--medium">
-    <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @smallprint %>"></chart-doughnut>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['main_text'] } %>
 
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
-
-<map-statistics 
-  id="<%= @map_3[:id] %>"
-  title="<%= @data['map_3_title'] %>" 
-  :layers="<%= @map_3[:layers].to_json %>" 
-  tiles-url="<%= @map_3[:tiles_url] %>"
-  source="<%= @data['map_3_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
-></map-statistics>

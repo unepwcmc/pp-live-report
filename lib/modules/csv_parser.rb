@@ -14,7 +14,7 @@ module CsvParser
 
   def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader('chapter2_global_pa_statistics.csv'), headers: true) do |row|
+    CSV.parse(file_reader('chapter3_global_pa_statistics.csv'), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -22,7 +22,7 @@ module CsvParser
 
   def self.timeseries
     timeseries = {}
-    csv_file = file_reader('Ch2_Fig3_Global_PA_Timeseries.csv')
+    csv_file = file_reader('Ch3_Fig3_Global_PA_Timeseries.csv')
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader('chapter3_global_kba_timeseries_statistics.csv')
+    csv_file = file_reader('chapter4_global_kba_timeseries_statistics.csv')
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -47,20 +47,20 @@ module CsvParser
   end
   
   def self.ch6_figure2_stats
-    progress_level('chapter6_pas_per_govtype_per_region.csv', 'Region')
+    progress_level('chapter7_pas_per_govtype_per_region.csv', 'Region')
   end
 
   def self.per_pame_coverage
-    country_perc('chapter5_regional_pame_perccov.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
+    country_perc('chapter6_regional_pame_perccov.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
   end
 
   def self.count_of_pame_evaluations
-    country_perc('chapter5_regional_pame_count.csv', 'Count of PAME evaluations')
+    country_perc('chapter6_regional_pame_count.csv', 'Count of PAME evaluations')
   end
 
   def self.governance_type
     gov_types = {}
-    csv_file = file_reader('chapter6_pas_per_govtype.csv')
+    csv_file = file_reader('chapter7_pas_per_govtype.csv')
     CSV.parse(csv_file, headers: true) do |row|
       key = row[0]
       row = row.to_hash['Count'].to_i
@@ -70,7 +70,7 @@ module CsvParser
   end
 
   def self.biogeographical_regions
-    csv_file = file_reader('chapter4_count_statistics.csv')
+    csv_file = file_reader('chapter5_count_statistics.csv')
     region_type = ''
     data = {}
 

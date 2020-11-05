@@ -19,35 +19,24 @@ class ChaptersController < ApplicationController
 
   def chapter_1
     @chapter_number = 1
-    @next_chapter_title = @chapters_data[1]['menu_title']
-    @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
-  
-
   end
 
   def chapter_2
     @chapter_number = 2
-    @next_chapter_title = @chapters_data[2]['menu_title']
-    @next_chapter_link = chapter_3_path
 
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[1]
 
-    doughnut_chart = @data['doughnut_chart_data']
-    @doughnut_chart = []
-
-    doughnut_chart.each do |item|
-      @doughnut_chart.push({
-        'title': item['title'],
-        'colour': item['colour'],
-        'icon': ActionController::Base.helpers.image_url(item['icon']),
-        'description': item['description'],
-        'url': item['url']
-      })
-
-      
-    end
+    @doughnut_chart = @data['doughnut_chart_data'].map do |item|
+                      {
+                        'title': item['title'],
+                        'colour': item['colour'],
+                        'icon': ActionController::Base.helpers.image_url(item['icon']),
+                        'description': item['description'],
+                        'url': item['url']
+                      }
+                    end
 
     @smallprint = @data['smallprint']
 
@@ -257,8 +246,6 @@ class ChaptersController < ApplicationController
 
   def chapter_3
     @chapter_number = 3
-    @next_chapter_title = @chapters_data[3]['menu_title']
-    @next_chapter_link = chapter_4_path
     @data = @chapters_data[2]
     @percentage = CsvMapParser.ch3_map1_percentage
 
@@ -320,8 +307,6 @@ class ChaptersController < ApplicationController
 
   def chapter_4
     @chapter_number = 4
-    @next_chapter_title = @chapters_data[4]['menu_title']
-    @next_chapter_link = chapter_5_path
     @data = @chapters_data[3]
 
     @map_1 = {
@@ -550,8 +535,6 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @chapter_number = 5
-    @next_chapter_title = @chapters_data[5]['menu_title']
-    @next_chapter_link = chapter_6_path
     @data = @chapters_data[4]
 
     @map = {
@@ -649,8 +632,6 @@ class ChaptersController < ApplicationController
 
   def chapter_6
     @chapter_number = 6
-    @next_chapter_title = @chapters_data[6]['title']
-    @next_chapter_link = chapter_7_path
     @data = @chapters_data[5]
     
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
@@ -686,8 +667,6 @@ class ChaptersController < ApplicationController
 
   def chapter_7
     @chapter_number = 7
-    @next_chapter_title = @chapters_data[7]['menu_title']
-    @next_chapter_link = chapter_8_path
     @data = @chapters_data[6]
 
     @map_1 = {
@@ -727,15 +706,11 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @chapter_number = 8
-    @next_chapter_title = @chapters_data[8]['menu_title']
-    @next_chapter_link = chapter_9_path
     @data = @chapters_data[7]
   end
 
   def chapter_9
     @chapter_number = 9
-    @next_chapter_title = @chapters_data[9]['menu_title']
-    @next_chapter_link = chapter_10_path
     @data = @chapters_data[8]
 
     @map_1 = {

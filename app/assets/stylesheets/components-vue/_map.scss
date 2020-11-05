@@ -81,6 +81,10 @@
     }
 
     .map {
+      &__buttons {
+        padding-bottom: rem-calc(25);
+      }
+
       &__map {
         width: 100%;
         height: rem-calc(210);
@@ -105,7 +109,6 @@
       &__panel {
         background-color: $grey-dark;
         color: $white;
-        padding-bottom: rem-calc(25);
 
         width: 100%;
 

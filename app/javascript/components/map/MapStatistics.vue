@@ -38,7 +38,7 @@
      ></map-statistics-toggles>
     </template>
    </template>
-   <div class="flex flex-v-center gutters" v-if="isActive">
+   <div class="map__buttons flex flex-v-center gutters" v-if="isActive">
     <download
      text="CSV Download"
      title="Download reports in PDF format"

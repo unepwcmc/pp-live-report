@@ -11,6 +11,7 @@
   tiles-url="<%= @map_1[:tiles_url] %>" 
   :tabs="<%= @map_1[:tabs].to_json %>"
   :layers="<%= @map_1[:layers].to_json %>" 
+  :oecm-present="true"
   :file-download="'#'" 
   :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
 ></map-statistics>
@@ -53,27 +54,15 @@
   </div>
 </section>
 
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['map_2_title'] } %>
-  <div class="container--medium">
-    <map-infographic 
-      :countries="<%= @map_2[:countries].to_json %>" 
-      :legend="<%= @map_2[:legend].to_json %>"
-      :palette="<%= @map_2[:palette].to_json %>"
-      source="<%= @data['map_2_source'] %>"
-      disclaimer="<%= @shared_data['map_disclaimer'] %>"
-    ></map-infographic>
-  </div>
-</section>
-
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
 
+<!-- TODO - Need terrestrial map layers for this map -->
 <map-statistics 
   id="<%= @map_3[:id] %>"
   title="<%= @data['map_3_title'] %>" 
   :layers="<%= @map_3[:layers].to_json %>" 
   tiles-url="<%= @map_3[:tiles_url] %>"
   :file-download="'#'" 
+  :oecm-present="true"
   :disclaimer="<%= map_disclaimer(@data['map_3_source']) %>"
 ></map-statistics>

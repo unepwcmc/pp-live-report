@@ -1,6 +1,6 @@
 <template>
  <div class="map__panel-gradient gutters">
-  <span class="map__oecm-toggle"
+  <span class="map__oecm-toggle" v-if="oecmPresent"
    >Include OECM contribution<map-oecm-toggle @oecm-toggle="toggleOECM"></map-oecm-toggle
   ></span>
   <ul class="map__panel-layers">
@@ -47,6 +47,7 @@ export default {
    type: Array,
    required: true,
   },
+  oecmPresent: Boolean,
   parentTabId: String,
   mapId: String,
  },

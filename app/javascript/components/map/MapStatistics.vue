@@ -27,6 +27,7 @@
         :map-id="id"
         :parent-tab-id="getTabId(index)"
         :layers="tab.layers"
+        :oecm-present="oecmPresent"
        ></map-statistics-toggles>
       </tab>
      </tabs>
@@ -35,6 +36,7 @@
      <map-statistics-toggles
       :map-id="id"
       :layers="layers"
+      :oecm-present="oecmPresent"
      ></map-statistics-toggles>
     </template>
    </template>
@@ -82,6 +84,7 @@ export default {
   description: String,
   tabs: Array,
   layers: Array,
+  oecmPresent: Boolean,
   tilesUrl: String,
   disclaimer: Object,
  },

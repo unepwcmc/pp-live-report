@@ -7,7 +7,7 @@
 <section class="section-padding">
 
   <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
-
+  <!-- TODO - Think map type needs to be changed to interactive -->
   <div class="container--medium">
     <map-infographic 
       :countries="<%= @map[:countries].to_json %>" 

@@ -702,27 +702,6 @@ class ChaptersController < ApplicationController
       ],
       palette: BLUE_PURPLE_SCHEME
     }
-
-    @map_2 = {
-      countries: CsvMapParser.ch7_map2_categorical,
-      legend: [
-        { title: 'A1. General increase of PA coverage', value: 1 },
-        { title: 'A2. Targeted designation of connecting PAs', value: 2 },
-        { title: 'B1 + B2. Permeability of unprotected lands (B1) and coordinated management of adjacent PAs (B2)', value: 3 },
-        { title: 'B1. Permeability of unprotected lands between PAs', value: 4 },
-        { title: 'B2. Coordinated management of adjacent PAs in the country', value: 5 },
-        { title: 'B3. No specific priority other than PA management effectiveness for connectivity', value: 6 },
-      ],
-      palette: ['#2179A7', '#53CCF7', '#a50f15', '#de2d26', '#fb6a4a', '#fcae91', '#423781']
-    }
-
-    @map_3 = {
-      countries: CsvMapParser.ch7_map3_categorical,
-      legend: [
-        { title: 'C. Coordinated management of transboundary PA linkages', value: 7 }
-      ],
-      palette: Array.new(7, '#423781')
-    }
   end
 
   def chapter_8

@@ -11,6 +11,7 @@
   :tabs="<%= @map_1[:tabs].to_json %>"
   tiles-url="<%= @map_1[:tiles_url] %>" 
   :file-download="'#'" 
+  :oecm-present="true"
   :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
 >
 </map-statistics> 
@@ -28,6 +29,7 @@
   :tabs="<%= @map_2[:tabs].to_json %>"
   tiles-url="<%= @map_2[:tiles_url] %>"
   :file-download="'#'" 
+  :oecm-present="true"
   :disclaimer="<%= map_disclaimer(@data['map_2_source']) %>"
 >
 </map-statistics> 

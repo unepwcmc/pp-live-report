@@ -1,5 +1,6 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
+<!-- TODO - [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  -->
 <map-statistics 
   id="<%= @map_1[:id] %>"
   title="<%= @data['map_1_title'] %>" 
@@ -15,17 +16,20 @@
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
 
   <div class="container--medium">
-    <chart-line 
-      :lines="<%= @line_chart[:lines].to_json %>" 
-      :targets="<%= @line_chart[:targets].to_json %>"
-      :legend="<%= @line_chart[:legend].to_json %>"
-      :axis="<%= @line_chart[:axis].to_json %>">
-    </chart-line>
+    <% @row_charts.each do |item| %>
+      <h3><%= item[:title] %></h3>
+      
+      <div class="flex flex-wrap flex-h-between">
+        <% item[:charts].each do |chart| %>
+          <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
+        <% end %>
+      </div>
+    <% end %>
 
-    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['row_chart_smallprint'] %></span>
   </div>
 </section>
 
@@ -33,16 +37,4 @@
 
 
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
-
-
-
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['content_4'].each do |p| %>
-      <p><%= p %></p>
-    <% end %>
-  </div>
-</section>
-
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>
+<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

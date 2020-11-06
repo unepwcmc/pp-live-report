@@ -1,13 +1,3 @@
-<section class="section-padding">
-  <div class="container--small">
-    <%= @data['content_1'].html_safe %>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
-
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_2'].html_safe %></p>
-  </div>
-</section>

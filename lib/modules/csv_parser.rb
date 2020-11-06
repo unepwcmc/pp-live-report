@@ -42,11 +42,11 @@ module CsvParser
     kba_timeseries
   end
 
-  def self.ch5_figure2_stats
-    progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
+  def self.ch6_figure2_stats
+    progress_level('Figure 11 PAME_JUL18_GROUPING.csv', 'Type')
   end
   
-  def self.ch6_figure2_stats
+  def self.ch7_figure2_stats
     progress_level('chapter7_pas_per_govtype_per_region.csv', 'Region')
   end
 

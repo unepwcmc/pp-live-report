@@ -1,34 +1,5 @@
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_1'] %></p>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
-
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['content_2'].each do |p| %>
-      <p><%= p %></p>
-    <% end %>
-  </div>
-</section>
-
-<map-statistics 
-  id="<%= @map_1[:id] %>" 
-  title="<%= @data['map_title'] %>" 
-  :layers="<%= @map_1[:layers].to_json %>"
-  tiles-url="<%= @map_1[:tiles_url] %>"
-  source="<%= @data['map_smallprint'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
-  description="<%= @data['map_description'] %>"
->
-</map-statistics>
-
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_3'] %></p>
-  </div>
-</section>
 
 <%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>

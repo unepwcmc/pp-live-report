@@ -25,6 +25,16 @@ class ChaptersController < ApplicationController
   def chapter_2
     @chapter_number = 2
     @data = @chapters_data[1]
+
+    @doughnut_chart = @data['doughnut_chart_data'].map do |item|
+      {
+        'title': item['title'],
+        'colour': item['colour'],
+        'icon': ActionController::Base.helpers.image_url(item['icon']),
+        'description': item['description'],
+        'url': item['url']
+      }
+    end
   end
 
   def chapter_3
@@ -32,18 +42,6 @@ class ChaptersController < ApplicationController
 
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
-
-    @doughnut_chart = @data['doughnut_chart_data'].map do |item|
-                      {
-                        'title': item['title'],
-                        'colour': item['colour'],
-                        'icon': ActionController::Base.helpers.image_url(item['icon']),
-                        'description': item['description'],
-                        'url': item['url']
-                      }
-                    end
-
-    @smallprint = @data['smallprint']
 
     @map_1 = {
       id: "map_1",
@@ -79,79 +77,6 @@ class ChaptersController < ApplicationController
             }
           ]
         }
-      ]
-    }
-
-    @global_area_chart = {
-      id: "global-area-chart",
-      legend: [
-        {
-          title: "Proportion of cover by protected areas"
-        }
-      ],
-      datasets: [
-        {
-          title: "Ocean",
-          class: "marine",
-          percent: 71,
-          cssPercent: 71,
-          protected_areas: {
-            title: "",
-            percent: global_monthly_stats['total_ocean_pa_coverage_percentage']
-          }
-        },
-        {
-          title: "Land",
-          class: "land",
-          percent: 29,
-          cssPercent: 29,
-          protected_areas: {
-            title: "",
-            percent: global_monthly_stats['total_land_pa_coverage_percentage']
-          }
-        }
-      ]
-    }
-
-    @marine_area_chart = {
-      id: "marine-area-chart",
-      legend: [
-        {
-          title: "Proportion of cover by protected areas"
-        }
-      ],
-      datasets: [
-        {
-          title: "ABNJ",
-          percent: 43,
-          cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
-          class: "abnj",
-          protected_areas: {
-            title: "",
-            percent: global_monthly_stats['high_seas_pa_coverage_percentage']
-          }
-        },
-        {
-          title: "EEZ",
-          percent: 28,
-          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
-          class: "eez",
-          protected_areas: {
-            title: "",
-            percent: global_monthly_stats['national_waters_pa_coverage_percentage']
-          }
-        },
-        {
-          title: "Land",
-          class: "land",
-          percent: 29,
-          cssPercent: 29,
-          active: false,
-          protected_areas: {
-            title: "",
-            percent: global_monthly_stats['total_land_pa_coverage_percentage']
-          }
-        },
       ]
     }
 
@@ -282,32 +207,7 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    kba_data = CsvParser.kba_timeseries
-    lines = []
-    [ 'Freshwater KBAs', 'Marine KBAs','Terrestrial KBAs' ].each do |type|
-      datapoints = []
-      ('2000'..'2018').each do |year|
-        datapoints << { x: year, y: kba_data[year][type] }
-      end
-      lines << { datapoints: datapoints }
-    end
-    @line_chart = {
-      lines: lines,
-      axis: {
-        y: ["Average Percentage", "Covered"]
-      },
-      legend: [
-        {
-          title: "Freshwater"
-        },
-        {
-          title: "Marine"
-        },
-        {
-          title: "Terrestrial"
-        },
-      ]
-    }
+    @row_charts = CsvParser.biogeographical_regions
   end
 
   def chapter_5
@@ -535,7 +435,32 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    @row_charts = CsvParser.biogeographical_regions
+    kba_data = CsvParser.kba_timeseries
+    lines = []
+    [ 'Freshwater KBAs', 'Marine KBAs','Terrestrial KBAs' ].each do |type|
+      datapoints = []
+      ('2000'..'2018').each do |year|
+        datapoints << { x: year, y: kba_data[year][type] }
+      end
+      lines << { datapoints: datapoints }
+    end
+    @line_chart = {
+      lines: lines,
+      axis: {
+        y: ["Average Percentage", "Covered"]
+      },
+      legend: [
+        {
+          title: "Freshwater"
+        },
+        {
+          title: "Marine"
+        },
+        {
+          title: "Terrestrial"
+        },
+      ]
+    }
   end
 
   def chapter_6
@@ -553,127 +478,18 @@ class ChaptersController < ApplicationController
       ],
       palette: BLUE_PURPLE_SCHEME
     }
-
-    progress_level_data = CsvParser.ch6_figure2_stats
-    terrestrial = progress_level_data['Land']
-    marine = progress_level_data['Marine']
-    @stacked_row_charts = {
-      legend: [
-        {
-          title: "Over 60%"
-        },
-        {
-          title: "30-60%"
-        },
-        {
-          title: "10-30%"
-        },
-        {
-          title: "Under 10%"
-        },
-        {
-          title: 'No Assessments'
-        }
-      ],
-      charts: [
-        {
-          chart_title: "Terrestrial",
-          theme: "green",
-          rows: [
-            {
-              percent: terrestrial['Over 60%'].to_f.round,
-              label: "1."
-            },
-            {
-              percent: terrestrial['30-60%'].to_f.round,
-              label: "2."
-            },
-            {
-              percent: terrestrial['10-30%'].to_f.round,
-              label: "3."
-            },
-            {
-              percent: terrestrial['Under 10%'].to_f.round,
-              label: "4."
-            },
-            {
-              percent: 29,
-              label: "5."
-            }
-          ]
-        },
-        {
-          chart_title: "Marine",
-          theme: "blue",
-          rows: [
-            {
-              percent: 16,
-              label: "1."
-            },
-            {
-              percent: marine['30-60%'].to_f.round,
-              label: "2."
-            },
-            {
-              percent: marine['10-30%'].to_f.round,
-              label: "3."
-            },
-            {
-              percent: marine['Under 10%'].to_f.round,
-              label: "4."
-            },
-            {
-              percent: marine['No Assessments'].to_f.round,
-              label: "5."
-            }
-          ]
-        }
-      ]
-    }
-
-    @column_chart = PerPameCoverageSerializer.new(CsvParser.per_pame_coverage).serialize
-    @column_chart_2 = CountOfPameEvaluationsSerializer.new(CsvParser.count_of_pame_evaluations).serialize
   end
 
   def chapter_7
     @chapter_number = 7
     @data = @chapters_data[6]
-    
-    @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
-
-    country_governance_data = CsvParser.ch7_figure2_stats
-    legend = []
-    country_governance_data.first.second.keys.each do |gov|
-      legend << { title: gov }
-    end
-    data_array = []
-    country_governance_data.each do |k, hash|
-      charts = {}
-      rows = []
-      charts[:chart_title] = k
-      count = 1
-      hash.each do |_, value|
-        rows << {
-          percent: value.round(1),
-          label: "#{count}."
-        }
-        count += 1
-      end
-      charts[:rows] = rows
-      data_array << charts
-    end
-
-    @stacked_row_charts = {
-      theme: 'rainbow',
-      legend: legend,
-      charts: data_array
-    }
   end
 
   def chapter_8
     @chapter_number = 8
     @data = @chapters_data[7]
 
+    # TODO - May need to remove or change map style from infographic to interactive
     @map_1 = {
       countries: CsvMapParser.ch8_map1_categorical,
       legend: [
@@ -717,31 +533,6 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @data = @chapters_data[9]
-
-    @map_1 = {
-      id: "map_1",
-      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
-      layers: [
-        {
-          id: 'not-wild' + random_number,
-          text_small: 'Not wild',
-          source_layers: { poly: 'LWPv2_Low_Impact_notwild' },
-          colour: TRICOLOR_PALETTE[2]
-        },
-        {
-          id: 'wild' + random_number,
-          text_small: 'Wild',
-          source_layers: { poly: 'LWPv2_Low_Impact_wild' },
-          colour: TRICOLOR_PALETTE[1]
-        },
-        {
-          id: 'protected-areas' + random_number,
-          text_small: 'Protected areas',
-          source_layers: {poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019'},
-          colour: TRICOLOR_PALETTE[0]
-        }
-      ]
-    }
   end
 
   def chapter_11

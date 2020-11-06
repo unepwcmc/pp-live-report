@@ -1,15 +1,27 @@
+<!-- Below spaghetti erb code is flexible in that it allows -->
 <section class="section-padding">
   <div class="container--small">
     <% if text.is_a?(Array) %>
       <% text.each do |t| %>
         <% if t.is_a?(Hash) %>
           <p><%= t.keys[0] %></p>
-          <% t.values.flatten.each do |bullet_point| %>
+          <% if t.length == 1 %>
             <ul>
-              <li>
-                <p class="content__text"><%= bullet_point.html_safe %></p>
-              </li>
+              <% t.values.flatten.each do |value| %>
+                <li>
+                  <p class="content__text"><%= value.html_safe %></p>
+                </li>
+              <% end %>
             </ul>
+          <% else %>
+            <ol>
+              <% t.values.each do |value| %>
+                <% next if value.nil? %>
+                  <li>
+                    <p class="content__text"><%= value.html_safe %></p>
+                  </li>
+              <% end %>
+            </ol>
           <% end %>
         <% else %>
           <p class="content__text"><%= t.html_safe %></p>

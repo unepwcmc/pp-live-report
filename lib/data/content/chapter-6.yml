@@ -18,20 +18,11 @@ map_1_source: "UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World 
 cta_title_1: "The IUCN Green List of Protected and Conserved Areas"
 cta_text_1: "The IUCN Green List is a global programme to recognise and increase the number of protected and conserved areas that are equitably governed and effectively managed and deliver positive conservation outcomes."
 cta_url_1: "https://protectedplanet.net/c/green-list"
-stacked_row_chart_title: "Country progress towards management effectiveness assessment target"
-stacked_row_chart_description: "Percentage of countries with varying levels of progress towards the 60% management effectiveness assessment target, a) for terrestrial areas, and b) for marine areas, as per information contained in the GD-PAME."
-stacked_row_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
 content_2: 
   - 
     "The clear limitation of this indicator is that it does not reveal how effectively the world’s protected areas are managed; it simply tells us where assessments have been carried out. Efforts to develop a more meaningful global measure of effectiveness have been hindered by a number of challenges: many countries do not have established mechanisms, or sufficient resources and capacity, to report information; willingness to report can be limited by political sensitivities (e.g. a concern that poor performance will result in the withdrawal of funding); and it is challenging to develop methodologies that are suitable for global-level reporting while also being flexible enough to adapt to local conditions and capacities. Natural World Heritage Sites are one group of protected areas for which results are available. The finding that fewer than half of these sites have effective protection and management (Osipova et al., 2017) is troubling, and reinforces the need for transparent reporting across all protected areas." 
   - 
     "The IUCN Green List of Protected and Conserved Areas has an important role to play as the global standard for effective and equitable governance and management (IUCN and WCPA, 2017). Beyond providing a standard for management effectiveness, the Green List links management to governance and successful conservation outcomes – elements that have been lacking from indicators on the effectiveness of the world’s conservation network. As the number of jurisdictions and sites committed to applying the IUCN Green List Standard increases, it may become a powerful tool to assess protected area performance, including quality metrics, into the future. Box 9 further considers the evolution of management effectiveness assessments.  "
-column_chart_title: "Percentage coverage of management effectiveness assessments per region"
-column_chart_description: "Percentage coverage of all protected areas per region assessed for management effectiveness using different Protected Area Management Effectiveness (PAME) tools."
-column_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2019. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
-column_chart_2_title: "Number of management effectiveness assessments by region"
-column_chart_2_description: "Number of reported management effectiveness assessments within UN Environment regions, including repeat assessments of the same site"
-column_chart_2_smallprint: "Source: UNEP-WCMC and IUCN. 2019. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
 cta_title_2: "IUCN World Heritage Outlook: Tracking conservation in the planet's most outstanding natural places"
 cta_text_2: "The IUCN World Heritage Outlook 2 tracks changes in the conservation prospects of the 241 natural World Heritage sites."
 cta_url_2: "https://www.worldheritageoutlook.iucn.org/home-page"

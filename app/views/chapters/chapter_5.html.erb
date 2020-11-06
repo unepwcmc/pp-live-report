@@ -13,6 +13,7 @@
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
+<!-- Not sure if second map is needed -->
  <map-statistics 
   id="<%= @map_2[:id] %>"
   title="<%= @data['map_2_title'] %>"
@@ -26,20 +27,17 @@
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
 
   <div class="container--medium">
-    <% @row_charts.each do |item| %>
-      <h3><%= item[:title] %></h3>
-      
-      <div class="flex flex-wrap flex-h-between">
-        <% item[:charts].each do |chart| %>
-          <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
-        <% end %>
-      </div>
-    <% end %>
+    <chart-line 
+      :lines="<%= @line_chart[:lines].to_json %>" 
+      :targets="<%= @line_chart[:targets].to_json %>"
+      :legend="<%= @line_chart[:legend].to_json %>"
+      :axis="<%= @line_chart[:axis].to_json %>">
+    </chart-line>
 
-    <span class="smallprint"><%= @data['row_chart_smallprint'] %></span>
+    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
   </div>
 </section>
 

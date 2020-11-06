@@ -1,6 +1,8 @@
 <div class="content--x-large">
   <div class="container--medium flex flex-column flex-v-center">
-    <%= image_tag @data['aichi_image'], alt: "#{@data['aichi_target']} logo", class: 'content__icon' %>
+    <% if @data['blockquote_image'] %>
+      <%= image_tag @data['blockquote_image'], alt: @data['blockquote_alt'] ? @data['blockquote_alt'] : 'Blockquote icon', class: 'content__icon' %>
+    <% end %>
     <h4 class="content__text"><%= locals[:text] %></h4>
   </div>
 </div>

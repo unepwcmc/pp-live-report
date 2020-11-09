@@ -157,49 +157,7 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    timeseries_data = CsvParser.timeseries
-    lines = []
-    %w[ABNJ EEZ Land].each do |type|
-      datapoints = []
-      ('1990'..'2020').each do |year|
-        datapoints << { x: year, y: timeseries_data[year][type].round(2) }
-      end
-      lines << { datapoints: datapoints }
-    end
-    @line_chart = {
-      lines: lines,
-      axis: {
-        y: ['Area', '(Million km²)']
-      },
-      targets: [
-        {
-          y: 36,
-          title: 'Marine target (10%)'
-        },
-        {
-          y: 23,
-          title: 'Terrestrial target (17%)'
-        }
-      ],
-      commitments: [
-        {
-          x: 2018,
-          line: true,
-          label: %w[Future Commitments]
-        }
-      ],
-      legend: [
-        {
-          title: 'ABNJ'
-        },
-        {
-          title: 'EEZ'
-        },
-        {
-          title: 'Land'
-        }
-      ]
-    }
+    # TODO - Needs data for the new timeseries graph with OECMs
 
     @map_2 = {
       countries: CsvMapParser.ch2_map2_categorical,

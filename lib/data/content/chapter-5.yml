@@ -26,6 +26,7 @@ cta_url_2: "https://www.worldheritageoutlook.iucn.org/home-page"
 photo_credits: "Photo credits: &copy; Sasin Tipchai"
 case_studies:
   - 
+    label: 'Box 8'
     title: 'Tracking management effectiveness after 2020'
     authors: 'Sue Stolton'
     org: 'Equilibrium Research '

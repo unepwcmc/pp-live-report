@@ -10,6 +10,7 @@ content_2: "<p>Currently, due to historical data collection methods and reportin
 photo_credits: "Photo credits: Thailand &copy; CHATCHAI / Adobe Stock"
 case_studies:
   - 
+    label: 'Box 12'
     title: 'Economic benefits of marine protected areas'
     authors: 'Enric Sala'
     org: 'Explorer-in-Residence, National Geographic Society'

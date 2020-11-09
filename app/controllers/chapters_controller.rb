@@ -772,7 +772,7 @@ class ChaptersController < ApplicationController
 
   private
 
-  CASE_STUDY_ATTRIBUTES = %w(report authors org title text image caption source).freeze
+  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
 
   def populate_case_studies(chapter_number)
     # TODO: - Update case study texts
@@ -782,9 +782,6 @@ class ChaptersController < ApplicationController
     @items = case_study_data.map do |case_study|
                 case_study['text'] = case_study['text'].split("\n")  
                 contents = case_study_contents.merge(case_study.deep_stringify_keys)
-
-                # TODO - In lieu of an actual summary, just truncating the text for the time being
-                contents['summary'] = helpers.truncate(case_study['text'][0], length: 120)
 
                 contents['image'] = case_study_image(case_study)
                 contents

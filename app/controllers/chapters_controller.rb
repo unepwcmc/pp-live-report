@@ -289,7 +289,7 @@ class ChaptersController < ApplicationController
     kba_data = CsvParser.kba_timeseries
     types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
     lines = ('2000'..'2018').map do |year|
-      { "x": Time.new(year.to_i) }.merge!({
+      { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
         "1": kba_data[year][types[0]], 
         "2": kba_data[year][types[1]], 
         "3": kba_data[year][types[2]] 

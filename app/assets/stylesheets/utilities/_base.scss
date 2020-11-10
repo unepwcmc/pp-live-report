@@ -73,7 +73,11 @@ h2 {
     font-weight: $bold;
     margin-bottom: 0;
 
-    @include breakpoint($small) { 
+    @include breakpoint($small) {
+      font-size: rem-calc(22); 
+    }
+
+    @include breakpoint($medium) { 
       font-size: rem-calc(22); 
       max-width: rem-calc(350);
     }

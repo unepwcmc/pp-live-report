@@ -116,10 +116,8 @@
           width: rem-calc(440);
 
           position: absolute;
-          top: calc(668px * .5);
+          top: rem-calc(150);
           right: rem-calc(20);
-
-          transform: translateY(-50%);
         }
       }
 
@@ -140,7 +138,7 @@
         .icon--close-white {
           display: none;
 
-          @include breakpoint($small) {
+          @include breakpoint($medium) {
             display: block;
           }
         }

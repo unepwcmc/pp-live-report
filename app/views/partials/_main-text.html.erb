@@ -4,13 +4,11 @@
 <section class="section-padding">
   <div class="container--small">
     <% if text.is_a?(Array) %>
-      <% text.each do |t| %>
-        <% if t.is_a?(Hash) %>
-          <% is_unordered_list = t.length == 1 %>
-          <p><%= content.preceding_clause(t) %></p>
-          <%= sanitize(content.get_list_items(t, is_unordered_list)) %>
+      <% text.each do |element| %>
+        <% if element.is_a?(Hash) %>
+          <%= sanitize(content.get_list_items(element)) %>
         <% else %>
-          <p class="content__text"><%= t.html_safe %></p>
+          <p class="content__text"><%= element.html_safe %></p>
         <% end %>
       <% end %>
     <% else %>

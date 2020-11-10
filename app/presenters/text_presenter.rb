@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Extracts logic out of views/partials/_main-text to make it less ugly
-# This is because the text (in the YML files) can be an array of strings, a mixed array
+# This is because the 'text' variable (in the YML files) can be an array of strings, a mixed array
 # of strings/string with a sub-array of strings (to form an ordered/unordered HTML list) 
 # or finally a single paragraph of text (one long string).
 class TextPresenter
@@ -9,13 +9,14 @@ class TextPresenter
     @text = text
   end
 
-  def get_list_items(list, is_unordered_list)
+  def get_list_items(list)
     @list_items = list.values
+    is_unordered_list = list.length == 1
 
     if is_unordered_list
-      "<ul>#{individual_list_items}</ul>".html_safe
+      "<p>#{preceding_clause(list)}</p><ul>#{individual_list_items}</ul>".html_safe
     else
-      "<ol>#{individual_list_items}</ol>".html_safe
+      "<p>#{preceding_clause(list)}</p><ol>#{individual_list_items}</ol>".html_safe
     end
   end
 

@@ -4,10 +4,11 @@
     <p
       v-for="(slide, index) in slides"
       :key="slide._uid"
-      @click="scroll(index)"
-      :class="['carousel__nav-item', { 'active': isActive(index) }]"
+      @click="scroll(index + 1)"
+      :class="['carousel__nav-item', { 'active': isActive(index + 1) }]"
     >
-      Chapter {{ index + 1 }}
+      <span class="carousel__nav-item-text">Chapter {{ index + 1 }}</span>
+      <span :class="['carousel__nav-item-icon', { 'active': isActive(index + 1) }]" />
     </p>
   </div>
 
@@ -75,6 +76,7 @@ export default {
 
     scrollTriggerHandlers () {
       for (var i=1; i<this.slides.length; i++) {
+        const index = i
         const idSlide = `#chapter-${i}`
         const idSlideContent = `#chapter-${i} .carousel__content`
 
@@ -88,6 +90,22 @@ export default {
           // scrub: true
         })
 
+        ScrollTrigger.create({
+          markers: true,
+          trigger: idSlide,
+          start: "top 50%",
+          end: "top -50%",
+          // end: () => "+=" + document.querySelector(".carousel").offsetWidth,
+          // pin: true,
+          // pinSpacing: false,
+          onToggle: self => {
+            if(self.isActive) { this.activeIndex = index }
+            console.log("toggled. active?", `${index} ${self.isActive}`)
+          }
+          // snap: 1 / (this.slides.length - 1),
+          // scrub: true
+        })
+
         let tl = gsap.timeline({
           
         })
@@ -96,7 +114,7 @@ export default {
         tl.from(idSlideContent, { opacity: 0, })
 
         ScrollTrigger.create({
-          markers: true,
+          // markers: true,
           animation: tl,
           trigger: idSlide,
           start: "top 80%",

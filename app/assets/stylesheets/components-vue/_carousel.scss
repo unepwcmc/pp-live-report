@@ -22,23 +22,28 @@
   }
 
   &__nav-item {
-    opacity: .8;
+    @include flex;
+    @include flex-h-end;
+    @include flex-v-center;
+    opacity: .7;
     
-    &:active { opacity: 1; }
+    &.active { opacity: 1; }
+  }
+  
+  &__nav-item-icon {
+    background-color: $white;
+    border-radius: 100%;
+    margin-left: rem-calc(18);
+    width: rem-calc(6); height: rem-calc(6);
 
-    &::after {
-      background-color: $white;
-      border-radius: 100%;
-      content: '';
-      width: rem-calc(6); height: rem-calc(6);
+    display: block;
 
-      display: inline-block;
-    }
+    transform: scale(1);
+    transition: background-color .1s linear, transform .2s ease-in;
 
-    &:active::after { 
+    &.active { 
       background-color: $primary;
-      opacity: 1; 
-      width: rem-calc(19); height: rem-calc(19);
+      transform: scale(3);
     }
   }
 

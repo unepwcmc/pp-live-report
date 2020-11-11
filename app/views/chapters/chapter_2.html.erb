@@ -10,5 +10,3 @@
     <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @data['smallprint'] %>"></chart-doughnut>
   </div>
 </section>
-
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

@@ -13,9 +13,7 @@ content_3: "After 2020, this positive trend can be extended through the targeted
 map_1_title: "Key Biodiversity Areas"
 map_1_description: "Map of Key Biodiversity Areas fully within (blue), partially within (green) or outside (red) protected areas on land and in the ocean (within EEZ)."
 map_1_source: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
-cta_title_1: "Assessing the contribution of protected areas to ecosystem services"
-cta_text_1: "This article explores the extent to which particular ecosystem services are provided by protected areas."
-cta_url_1: "http://wcmc.io/pp-ch3-cta1"
+
 line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
 line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
 content_4:
@@ -25,7 +23,6 @@ content_4:
     "Another approach is based on the ‘Evolutionary Distinctiveness’ (the unique contribution of a species to total evolutionary history) and ‘Global Endangerment’ (extinction risk derived from the IUCN Red List) of species. A total of 1,261 or 43% of all EDGE species are found in 2,803 KBAs in 21 Biodiversity Hotspots, with 14% of these sites with EDGE species being fully within protected areas and 35% partially within protected areas."
   -
     "There is currently no global dataset or analysis that provides a measure of how well protected areas cover ‘areas of particular importance for ecosystem services’, which constitutes a clear gap to be addressed to fully report progress in the achievement of Aichi Target 11."
-cta_title_2: "Protected areas’ contribution to climate change mitigation, with a case study in Paraguay"
-cta_text_2: "This case study in Paraguay describes the REDD+ mechanism and provides an example of the contribution of protected areas’ to climate change mitigation."
+
 photo_credits: "Photo credits: Nepal &copy; Giuseppe Mondì"
-cta_url_2: "http://wcmc.io/pp-ch3-cta2"
+

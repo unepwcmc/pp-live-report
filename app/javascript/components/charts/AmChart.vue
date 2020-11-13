@@ -25,6 +25,9 @@ export default {
   this.chartInit();
   this.startAnimation();
  },
+ destroyed() {
+   this.chart.dispose();
+ },
  props: {
   chartBackgroundColour: {
    default: "#ffffff",
@@ -44,7 +47,8 @@ export default {
    chart: null,
    chartData: [],
    colours: ["#64BAD9", "#A54897", "#65C9B2"], // see $theme-chart in settings.scss
-   targetColours: ["rgba(29, 125, 166, 0.4)", "rgba(113, 163, 43, 0.4)"],
+   yTargetColours: ["rgba(29, 125, 166, 0.4)", "rgba(113, 163, 43, 0.4)"],
+   xTargetColours: ["#000000"],
    totalSeries: 0,
    xAxis: null,
    yAxis: null,
@@ -60,7 +64,9 @@ export default {
    this.createYAxis(points);
    this.createLegend();
    this.createSeries();
-   this.drawTargetLines();
+
+   this.drawTargetLines(this.xAxis, this.rawData.xTargets, this.xTargetColours);
+   this.drawTargetLines(this.yAxis, this.rawData.yTargets, this.yTargetColours);
   },
 
   startAnimation() {
@@ -176,25 +182,31 @@ export default {
     }
    }
   },
+  drawTargetLines(axis, targets, colours) {
+    if (targets === undefined) {
+      return;
+    }
 
-  drawTargetLines() {
-   if (this.rawData.targets === undefined) {
-    return;
-   }
-   this.yAxis.guides = [];
-   for (
-    let targetNum = 0;
-    targetNum < this.rawData.targets.length;
-    targetNum++
-   ) {
-    this.yAxis.guides.push({
-     value: this.rawData.targets[targetNum].position,
-     toValue: this.rawData.targets[targetNum].position,
-     lineColor: this.targetColours[targetNum],
-     lineAlpha: 1,
-     inside: true,
-     label: this.rawData.targets[targetNum].name,
-    });
+   for (let targetNum = 0; targetNum < targets.length; targetNum++) {
+    const target = axis.axisRanges.create();
+
+    if (targets[targetNum].isDate === true) {
+      target.date = new Date(targets[targetNum].position);
+      target.grid.strokeDashArray = "3,3";
+      target.label.valign = "top";
+      target.label.dx = -80;
+      target.label.dy = -20;
+    }
+    else {
+      target.value = targets[targetNum].position; 
+      target.label.verticalCenter = "bottom"
+    }
+    target.grid.stroke = am4core.color(colours[targetNum]);
+    target.grid.strokeWidth = 2;
+    target.grid.strokeOpacity = 1;
+
+    target.label.inside = true;
+    target.label.text = targets[targetNum].name;
    }
   },
  },

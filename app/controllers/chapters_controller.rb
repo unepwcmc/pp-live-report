@@ -221,22 +221,14 @@ class ChaptersController < ApplicationController
       datapoints: lines,
       units: 'Area (Million km²)',
       legend: types,
-      targets: [
+      yTargets: [
         { name: 'Marine target (10%)', position: 36 }, 
         { name: 'Terrestrial target (17%)', position: 23 }
+      ],
+      xTargets: [
+        { name: 'Future Commitments', position: Time.new(2018).strftime("%Y-%m-%d"), isDate: true }
       ]
     }.to_json
-
-    #         "4": 36,
-    #  "5": 23
-    # "Marine target (10%)", "Terrestrial target (17%)"
-    #   commitments: [
-    #     {
-    #       x: 2018,
-    #       line: true,
-    #       label: %w[Future Commitments]
-    #     }
-    #   ]
   end
 
   def chapter_3

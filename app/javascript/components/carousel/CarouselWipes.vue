@@ -12,7 +12,10 @@
     </p>
   </div>
 
-  <div class="carousel__slides">
+  <div 
+    class="carousel__slides"
+    id="chapter-0" 
+  >
     <section 
       v-for="(slide, index) in slides"
       :key="slide._uid"
@@ -20,8 +23,7 @@
       class="carousel__slide"
       ref="animated-slide"
     >
-      <div 
-        :class="['carousel__content container', { 'animate': changingSlide }]">
+      <div class="carousel__content container">
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
         <h2 class="carousel__title">{{ slide.title }}</h2>
         <p class="carousel__intro">{{ slide.intro}}</p>
@@ -52,8 +54,8 @@ export default {
   data () {
     return {
       activeIndex: 0,
-      changingSlide: false,
-      endEvent: ''
+      isChangingSlide: false,
+      endEvent: '',
     }
   },
 
@@ -67,52 +69,60 @@ export default {
     },
 
     scroll (index) {
-      this.activeIndex = index
+      if(this.isChangingSlide) { return false }
+      this.isChangingSlide = true
 
-      const slide = `#chapter-${index + 1}`
-
-      gsap.to(window, { scrollTo: slide })
+      this.activeIndex = index > this.activeIndex ? index : index - 1
+      
+      const slide = `#chapter-${this.activeIndex}`
+      console.log('slide', slide)
+      gsap.to(window, { 
+        duration: 1,
+        scrollTo: slide,
+        onComplete: () => { 
+          console.log('complete')
+          this.isChangingSlide = false 
+        } 
+      })
     },
 
     scrollTriggerHandlers () {
-      for (var i=1; i<this.slides.length; i++) {
+      for (var i=1; i<=this.slides.length; i++) {
         const index = i
         const idSlide = `#chapter-${i}`
         const idSlideContent = `#chapter-${i} .carousel__content`
 
+        //Pin each slide
         ScrollTrigger.create({
+          markers: true,
           trigger: idSlide,
           start: "top top",
-          end: () => "+=" + document.querySelector(".carousel").offsetWidth,
+          end: "+=100%",
           pin: true,
           pinSpacing: false,
           // snap: 1 / (this.slides.length - 1),
           // scrub: true
         })
 
+        //Show active item in scroll to nav
         ScrollTrigger.create({
-          markers: true,
+          // markers: true,
           trigger: idSlide,
           start: "top 50%",
           end: "top -50%",
-          // end: () => "+=" + document.querySelector(".carousel").offsetWidth,
-          // pin: true,
-          // pinSpacing: false,
           onToggle: self => {
             if(self.isActive) { this.activeIndex = index }
-            console.log("toggled. active?", `${index} ${self.isActive}`)
+            // console.log("toggled. active?", `${index} ${self.isActive}`)
           }
-          // snap: 1 / (this.slides.length - 1),
-          // scrub: true
         })
 
         let tl = gsap.timeline({
           
         })
         
-
         tl.from(idSlideContent, { opacity: 0, })
-
+        
+        //Animate content of slide
         ScrollTrigger.create({
           // markers: true,
           animation: tl,
@@ -123,16 +133,6 @@ export default {
           scrub: true
         })
       }
-
-      
-      //     // snap: {
-      //     //   snapTo: "labels", // snap to the closest label in the timeline
-      //     //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-      //     //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-      //     //   ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
-      //     // }
-      //   }
-      // })
 
       // add animations and labels to the timeline
       // tl.addLabel("start")

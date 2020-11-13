@@ -3,6 +3,8 @@
   background-color: $black;
   color: $white;
 
+  position: relative;
+
   &__content {
     padding-right: rem-calc(44);
 
@@ -12,8 +14,8 @@
   }
 
   &__nav {
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top: calc(100vh/2);
     right: $gutter-small;
     z-index: 1;
 
@@ -21,6 +23,15 @@
 
     @include breakpoint($small) { right: rem-calc(30); }
     @include breakpoint($medium) { right: rem-calc(80); }
+
+    &.active { 
+      position: fixed; 
+      top: 50%;
+    }
+
+    &.end {
+      top: calc(100% - (100vh/2));
+    }
   }
 
   &__nav-item {

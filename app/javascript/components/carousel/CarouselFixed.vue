@@ -1,14 +1,15 @@
 <template>
-<div class="carousel">
-  <div class="carousel__nav">
+<div id="carousel" class="carousel">
+  <div 
+    :class="['carousel__nav', { 'active': isActive, 'end': atCarouselEnd }]">
     <p
       v-for="(slide, index) in slides"
       :key="slide._uid"
       @click="scroll(index + 1)"
-      :class="['carousel__nav-item', { 'active': isActive(index + 1) }]"
+      :class="['carousel__nav-item', { 'active': navItemActive(index + 1) }]"
     >
       <span class="carousel__nav-item-text">Chapter {{ index + 1 }}</span>
-      <span :class="['carousel__nav-item-icon', { 'active': isActive(index + 1) }]" />
+      <span :class="['carousel__nav-item-icon', { 'active': navItemActive(index + 1) }]" />
     </p>
   </div>
 
@@ -54,7 +55,9 @@ export default {
   data () {
     return {
       activeIndex: 0,
+      atCarouselEnd: false,
       endEvent: '',
+      isActive: false,
     }
   },
 
@@ -63,7 +66,7 @@ export default {
   },
 
   methods: {
-    isActive (index) {
+    navItemActive (index) {
       return this.activeIndex == index
     },
 
@@ -121,32 +124,33 @@ export default {
 
     scrollTriggerHandlerPin (id, index) {
       //Pin each slide
-      if(index == this.slides.length) { 
-        
-        const trigger = ScrollTrigger.create({
-          trigger: id,
-          start: "top top",
-          end: "+=100%",
-          pin: false,
-          pinSpacing: false,
-          scrub: true,
-          snap: 1,
-        })
+      const isNotLastSlide = index < this.slides.length
 
-        return false
-      }
-      const trigger = ScrollTrigger.create({
+      ScrollTrigger.create({
         trigger: id,
         start: "top top",
         end: "+=100%",
-        pin: true,
+        pin: isNotLastSlide,
         pinSpacing: false,
         scrub: true,
         snap: 1,
       })
     },
     
-    scrollTriggerHandlerNav (id, index){
+    scrollTriggerHandlerNav (){
+      //Fix nav
+      ScrollTrigger.create({
+        trigger: '#carousel',
+        start: "top top",
+        end: "bottom bottom",
+        onToggle: self => {
+          this.isActive = self.isActive
+          this.atCarouselEnd = self.progress == 1
+        }
+      })
+    },
+
+    scrollTriggerHandlerNavItem (id, index){
       //Show active item in scroll to nav
       ScrollTrigger.create({
         trigger: id,

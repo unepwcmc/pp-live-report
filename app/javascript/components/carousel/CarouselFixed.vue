@@ -56,7 +56,6 @@ export default {
     return {
       activeIndex: 0,
       atCarouselEnd: false,
-      endEvent: '',
       isActive: false,
     }
   },
@@ -72,7 +71,7 @@ export default {
 
     scroll (index) {
       //For some reason the .to doesn't work 
-      //when going back up so need to -1 off index
+      //when scrolling back up so need to -1 off index
       this.activeIndex = index > this.activeIndex ? index : index - 1
       
       const slide = `#chapter-${this.activeIndex}`
@@ -89,9 +88,10 @@ export default {
         const index = i,
               slideId = `#chapter-${i}`
 
-        this.scrollTriggerHandlerPin(slideId, index)
-        this.scrollTriggerHandlerNav(slideId, index)
         this.scrollTriggerHandlerContent(slideId, index)
+        this.scrollTriggerHandlerNav(slideId, index)
+        this.scrollTriggerHandlerNavItem(slideId, index)
+        this.scrollTriggerHandlerPin(slideId, index)
       }
     },
 
@@ -124,13 +124,13 @@ export default {
 
     scrollTriggerHandlerPin (id, index) {
       //Pin each slide
-      const isNotLastSlide = index < this.slides.length
+      const isLastSlide = index == this.slides.length
 
       ScrollTrigger.create({
         trigger: id,
         start: "top top",
         end: "+=100%",
-        pin: isNotLastSlide,
+        pin: !isLastSlide,
         pinSpacing: false,
         scrub: true,
         snap: 1,
@@ -157,6 +157,7 @@ export default {
         start: "top 50%",
         end: "top -50%",
         onToggle: self => {
+          console.log(self.isActive)
           if(self.isActive) { this.activeIndex = index }
         }
       })

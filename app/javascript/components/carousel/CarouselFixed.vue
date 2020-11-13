@@ -86,7 +86,7 @@ export default {
         const index = i,
               slideId = `#chapter-${i}`
 
-        this.scrollTriggerHandlerPin(slideId)
+        this.scrollTriggerHandlerPin(slideId, index)
         this.scrollTriggerHandlerNav(slideId, index)
         this.scrollTriggerHandlerContent(slideId, index)
       }
@@ -119,9 +119,23 @@ export default {
       })
     },
 
-    scrollTriggerHandlerPin (id) {
+    scrollTriggerHandlerPin (id, index) {
       //Pin each slide
-      ScrollTrigger.create({
+      if(index == this.slides.length) { 
+        
+        const trigger = ScrollTrigger.create({
+          trigger: id,
+          start: "top top",
+          end: "+=100%",
+          pin: false,
+          pinSpacing: false,
+          scrub: true,
+          snap: 1,
+        })
+
+        return false
+      }
+      const trigger = ScrollTrigger.create({
         trigger: id,
         start: "top top",
         end: "+=100%",
@@ -131,6 +145,7 @@ export default {
         snap: 1,
       })
     },
+    
     scrollTriggerHandlerNav (id, index){
       //Show active item in scroll to nav
       ScrollTrigger.create({

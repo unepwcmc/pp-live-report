@@ -4,7 +4,9 @@
   color: $white;
 
   &__content {
-    @include breakpoint($medium) {
+    padding-right: rem-calc(44);
+
+    @include breakpoint($small) {
       padding-right: 50%;
     }
   }
@@ -45,6 +47,11 @@
       background-color: $primary;
       transform: scale(3);
     }
+  }
+
+  &__nav-item-text {
+    display: none;
+    @include breakpoint($small) { display: block; }
   }
 
   &__slide {

@@ -6,16 +6,13 @@
 
   <body>
       <div id="v-app" v-cloak>
-      
+        <div class="parallax"></div>
 
-        <%# <div class="parallax"></div> %>
+        <%= render 'partials/hero-home' %>
 
-        <%#= render 'partials/hero-home' %>
-        <carousel-wipes :slides="<%= @chapters.to_json %>"></carousel-wipes>
+        <%= yield %>
 
-        <%# <%= yield %> %>
-
-        <%# <%= render 'partials/footer' %> %> %>
+        <%= render 'partials/footer' %> %>
       </div>
   </body>
 </html>

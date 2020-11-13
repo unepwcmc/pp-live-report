@@ -29,7 +29,6 @@ import store from '../store/store.js'
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
 import CarouselFixed from '../components/carousel/CarouselFixed'
-import CarouselWipes from '../components/carousel/CarouselWipes'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
 import ChartDoughnut from '../components/charts/ChartDoughnut'
@@ -56,7 +55,6 @@ document.addEventListener('turbolinks:load', () => {
       Accordion,
       AccordionItem,
       CarouselFixed,
-      CarouselWipes,
       ChartArea,
       ChartColumn,
       ChartDoughnut,

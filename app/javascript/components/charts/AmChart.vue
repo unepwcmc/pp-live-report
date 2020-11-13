@@ -88,7 +88,7 @@ export default {
    const i = setInterval(function () {
     vm.chart.addData(vm.rawData.datapoints[counter]);
     counter++;
-    if (counter === vm.rawData.datapoints.length - 1) {
+    if (counter === vm.rawData.datapoints.length) {
      clearInterval(i);
     }
    }, 10);
@@ -133,7 +133,7 @@ export default {
    this.yAxis.max = Number(
     Object.entries(points[points.length - 1])
      .slice(0, 3)
-     .sort(([, a], [, b]) => b - a)[0][1]
+     .sort(([, a], [, b]) => b - a)[0][1] + 1
    );
 
    this.styleAxisLine(this.yAxis);
@@ -194,8 +194,8 @@ export default {
       target.date = new Date(targets[targetNum].position);
       target.grid.strokeDashArray = "3,3";
       target.label.valign = "top";
-      target.label.dx = -80;
-      target.label.dy = -20;
+      target.label.dx = -85;
+      target.label.dy = -10;
     }
     else {
       target.value = targets[targetNum].position; 

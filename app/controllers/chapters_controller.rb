@@ -214,44 +214,29 @@ class ChaptersController < ApplicationController
       { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
         "1": timeseries_data[year][types[0]].round(2), 
         "2": timeseries_data[year][types[1]].round(2), 
-        "3": timeseries_data[year][types[2]].round(2) 
+        "3": timeseries_data[year][types[2]].round(2)
       })
     end
     @line_chart = {
       datapoints: lines,
       units: 'Area (Million km²)',
-      legend: types
+      legend: types,
+      targets: [
+        { name: 'Marine target (10%)', position: 36 }, 
+        { name: 'Terrestrial target (17%)', position: 23 }
+      ]
     }.to_json
 
-    #   targets: [
-    #     {
-    #       y: 36,
-    #       title: 'Marine target (10%)'
-    #     },
-    #     {
-    #       y: 23,
-    #       title: 'Terrestrial target (17%)'
-    #     }
-    #   ],
+    #         "4": 36,
+    #  "5": 23
+    # "Marine target (10%)", "Terrestrial target (17%)"
     #   commitments: [
     #     {
     #       x: 2018,
     #       line: true,
     #       label: %w[Future Commitments]
     #     }
-    #   ],
-    #   legend: [
-    #     {
-    #       title: 'ABNJ'
-    #     },
-    #     {
-    #       title: 'EEZ'
-    #     },
-    #     {
-    #       title: 'Land'
-    #     }
     #   ]
-    # }
   end
 
   def chapter_3

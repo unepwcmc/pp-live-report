@@ -44,6 +44,7 @@ export default {
    chart: null,
    chartData: [],
    colours: ["#64BAD9", "#A54897", "#65C9B2"], // see $theme-chart in settings.scss
+   targetColours: ["rgba(29, 125, 166, 0.4)", "rgba(113, 163, 43, 0.4)"],
    totalSeries: 0,
    xAxis: null,
    yAxis: null,
@@ -59,6 +60,7 @@ export default {
    this.createYAxis(points);
    this.createLegend();
    this.createSeries();
+   this.drawTargetLines();
   },
 
   startAnimation() {
@@ -148,9 +150,9 @@ export default {
    this.chart.background.fill = this.chartBackgroundColour;
   },
 
-  createDots(series, i) {
+  createDots(series, seriesNum) {
    const bullet = series.bullets.push(new am4charts.CircleBullet());
-   bullet.fill = am4core.color(this.colours[i]);
+   bullet.fill = am4core.color(this.colours[seriesNum]);
   },
 
   createLegend() {
@@ -159,19 +161,40 @@ export default {
   },
 
   createSeries() {
-   for (let i = 0; i < this.totalSeries; i++) {
+   for (let seriesNum = 0; seriesNum < this.totalSeries; seriesNum++) {
     const series = this.chart.series.push(new am4charts.LineSeries());
-    series.dataFields.valueY = i + 1;
+    series.dataFields.valueY = seriesNum + 1;
     series.dataFields.dateX = "x";
-    series.name = this.rawData.legend[i];
-    series.stroke = am4core.color(this.colours[i]);
+    series.name = this.rawData.legend[seriesNum];
+    series.stroke = am4core.color(this.colours[seriesNum]);
     series.strokeWidth = 3;
     series.yAxis = this.yAxis;
     series.showOnInit = false;
 
     if (this.dots) {
-     this.createDots(series, i);
+     this.createDots(series, seriesNum);
     }
+   }
+  },
+
+  drawTargetLines() {
+   if (this.rawData.targets === undefined) {
+    return;
+   }
+   this.yAxis.guides = [];
+   for (
+    let targetNum = 0;
+    targetNum < this.rawData.targets.length;
+    targetNum++
+   ) {
+    this.yAxis.guides.push({
+     value: this.rawData.targets[targetNum].position,
+     toValue: this.rawData.targets[targetNum].position,
+     lineColor: this.targetColours[targetNum],
+     lineAlpha: 1,
+     inside: true,
+     label: this.rawData.targets[targetNum].name,
+    });
    }
   },
  },

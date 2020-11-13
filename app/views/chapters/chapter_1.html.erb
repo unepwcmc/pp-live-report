@@ -6,7 +6,7 @@
       <%= link_to 'Explore all progress towards Aichi Target 11', 'https://www.protectedplanet.net/en/thematic-areas/global-partnership-on-aichi-target-11', title: 'Explore all progress towards Aichi Target 11 on Protected Planet', target: '_blank', class: 'button--external' %>
     </div>
     <div class="box__charts">
-      <% gauge_charts.each do |chart| %>
+      <% @gauge_charts.each do |chart| %>
         <am-chart-gauge
           id="<%= chart[:id] %>"
           class="box__chart"

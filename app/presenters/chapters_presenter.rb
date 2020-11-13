@@ -1,4 +1,7 @@
-module ChaptersHelper
+class ChaptersPresenter
+  def initialize
+  end
+  
   def gauge_charts
     [
       {

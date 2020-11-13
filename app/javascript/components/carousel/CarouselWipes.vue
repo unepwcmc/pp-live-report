@@ -27,7 +27,7 @@
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
         <h2 class="carousel__title">{{ slide.title }}</h2>
         <p class="carousel__intro">{{ slide.intro}}</p>
-        <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="button--cta">View chapter</a>
+        <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="carousel__button button--cta">View chapter</a>
       </div>
     </section>
   </div>
@@ -54,7 +54,6 @@ export default {
   data () {
     return {
       activeIndex: 0,
-      isChangingSlide: false,
       endEvent: '',
     }
   },
@@ -69,80 +68,79 @@ export default {
     },
 
     scroll (index) {
-      if(this.isChangingSlide) { return false }
-      this.isChangingSlide = true
-
+      //For some reason the .to doesn't work 
+      //when going back up so need to -1 off index
       this.activeIndex = index > this.activeIndex ? index : index - 1
       
       const slide = `#chapter-${this.activeIndex}`
-      console.log('slide', slide)
+
       gsap.to(window, { 
         duration: 1,
+        overwrite: true,
         scrollTo: slide,
-        onComplete: () => { 
-          console.log('complete')
-          this.isChangingSlide = false 
-        } 
       })
     },
 
     scrollTriggerHandlers () {
       for (var i=1; i<=this.slides.length; i++) {
-        const index = i
-        const idSlide = `#chapter-${i}`
-        const idSlideContent = `#chapter-${i} .carousel__content`
+        const index = i,
+              slideId = `#chapter-${i}`
 
-        //Pin each slide
-        ScrollTrigger.create({
-          markers: true,
-          trigger: idSlide,
-          start: "top top",
-          end: "+=100%",
-          pin: true,
-          pinSpacing: false,
-          // snap: 1 / (this.slides.length - 1),
-          // scrub: true
-        })
-
-        //Show active item in scroll to nav
-        ScrollTrigger.create({
-          // markers: true,
-          trigger: idSlide,
-          start: "top 50%",
-          end: "top -50%",
-          onToggle: self => {
-            if(self.isActive) { this.activeIndex = index }
-            // console.log("toggled. active?", `${index} ${self.isActive}`)
-          }
-        })
-
-        let tl = gsap.timeline({
-          
-        })
-        
-        tl.from(idSlideContent, { opacity: 0, })
-        
-        //Animate content of slide
-        ScrollTrigger.create({
-          // markers: true,
-          animation: tl,
-          trigger: idSlide,
-          start: "top 80%",
-          end: "+= 200",
-          end: () => "+=" + document.querySelector(".carousel").offsetWidth,
-          scrub: true
-        })
+        this.scrollTriggerHandlerPin(slideId)
+        this.scrollTriggerHandlerNav(slideId, index)
+        this.scrollTriggerHandlerContent(slideId, index)
       }
+    },
 
-      // add animations and labels to the timeline
-      // tl.addLabel("start")
-      //   .from(".box p", {scale: 0.3, rotation:45, autoAlpha: 0})
-      //   .addLabel("color")
-      //   .from(".box", {backgroundColor: "#28a92b"})
-      //   .addLabel("spin")
-      //   .to(".box", {rotation: 360})
-      //   .addLabel("end")
+    scrollTriggerHandlerContent (id, index) {
+      let tl = gsap.timeline()
+      const content = [
+        `#chapter-${index} .carousel__subtitle`,
+        `#chapter-${index} .carousel__title`,
+        `#chapter-${index} .carousel__intro`,
+        `#chapter-${index} .carousel__button`
+      ]
 
+      tl.from(content, { 
+        duration: .9, 
+        ease: "sine.inOut", 
+        opacity: 0, 
+        stagger: 0.3 
+      })
+        
+      //Animate content of slide
+      ScrollTrigger.create({
+        animation: tl,
+        start: "top 80%",
+        trigger: id,
+        onToggle: self => {
+          self.isActive ? self.animation.play() : self.animation.pause(0)  
+        },
+      })
+    },
+
+    scrollTriggerHandlerPin (id) {
+      //Pin each slide
+      ScrollTrigger.create({
+        trigger: id,
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
+        snap: 1,
+      })
+    },
+    scrollTriggerHandlerNav (id, index){
+      //Show active item in scroll to nav
+      ScrollTrigger.create({
+        trigger: id,
+        start: "top 50%",
+        end: "top -50%",
+        onToggle: self => {
+          if(self.isActive) { this.activeIndex = index }
+        }
+      })
     }
   }
 }

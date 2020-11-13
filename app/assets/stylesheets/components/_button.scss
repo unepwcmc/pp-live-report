@@ -110,16 +110,22 @@
 
   &--external {
     color: $body-font-color;
+    margin-right: rem-calc(34);
+
+    display: inline-block;
+    position: relative;
     
     &:after {
       background-image: image-url('icons/chevron-circle-right.svg');
       content: '';
-      margin-left: rem-calc(10);
       width: rem-calc(24); height: rem-calc(24);
       
       display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: rem-calc(-34);
       
-      transform: translateY(7px);
+      transform: translateY(-50%);
     }
   }
 

@@ -192,7 +192,7 @@ export default {
 
     if (targets[targetNum].isDate === true) {
       target.date = new Date(targets[targetNum].position);
-      target.grid.strokeDashArray = "3,3";
+      target.strokeDashArray = "3,3";
       target.label.valign = "top";
       target.label.dx = -85;
       target.label.dy = -10;

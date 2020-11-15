@@ -224,9 +224,6 @@ class ChaptersController < ApplicationController
       yTargets: [
         { name: 'Marine target (10%)', position: 36 }, 
         { name: 'Terrestrial target (17%)', position: 23 }
-      ],
-      xTargets: [
-        { name: 'Future Commitments', position: Time.new(2018).strftime("%Y-%m-%d"), isDate: true }
       ]
     }.to_json
   end

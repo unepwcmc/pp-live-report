@@ -1,0 +1,27 @@
+//--------------------------------------------------
+// mixins
+//--------------------------------------------------
+@mixin chart-gauage-fullsize {
+  width: 100%; height: 100%;
+}
+
+//--------------------------------------------------
+// classes
+//--------------------------------------------------
+.am-chart--gauge {
+  @include chart-gauage-fullsize;
+
+  .chart__chart {
+    @include chart-gauage-fullsize;
+  }
+
+  .chart__svg {
+    @include chart-gauage-fullsize;
+  }
+
+  .chart__title {
+    font-size: rem-calc(16);
+    font-weight: $bold;
+    margin-bottom: 0;
+  }
+}

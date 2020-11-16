@@ -41,6 +41,7 @@
         margin-top: rem-calc(22);
 
         @include breakpoint($small) { margin-top: rem-calc(32); }
+
         @include breakpoint($medium) { 
           margin-top: 0;
           margin-bottom: auto;
@@ -55,8 +56,10 @@
         margin-bottom: rem-calc(14);
         opacity: 0;
 
-        @include breakpoint($medium) { font-size: rem-calc(25); }
-        @include breakpoint($medium) { width: $small-container; }
+        @include breakpoint($medium) { 
+          font-size: rem-calc(25); 
+          padding-right: 34%;
+        }
       }
 
       &__title { 
@@ -71,8 +74,7 @@
         opacity: 0;
 
         @include breakpoint($small) { font-size: rem-calc(20); }
-
-        @include breakpoint($medium) { width: $small-container; }
+        @include breakpoint($medium) { padding-right: 34%; }
       }
 
       &__dates {

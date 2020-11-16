@@ -4,13 +4,13 @@
    <a
     class="button--previous"
     v-if="previousChapter"
-    :href="previousChapter.url"
+    :href="previousChapter"
    ></a>
    <p class="pagination__text">{{ previousChapterText }}</p>
   </div>
   <div class="pagination__next">
    <p class="pagination__text">{{ nextChapterText }}</p>
-   <a class="button--next" v-if="nextChapter" :href="nextChapter.url"></a>
+   <a class="button--next" v-if="nextChapter" :href="nextChapter"></a>
   </div>
  </div>
 </template>
@@ -30,11 +30,11 @@ export default {
    required: true,
   },
   previousChapter: {
-   type: [Object, Boolean],
+   type: [String, Boolean],
    required: true,
   },
   nextChapter: {
-   type: [Object, Boolean],
+   type: [String, Boolean],
    required: true,
   },
  },
@@ -67,17 +67,13 @@ export default {
    if (this.previousChapter && this.isMobile) {
     return "Previous";
    }
-   return this.previousChapter
-    ? `Chapter ${this.previousChapterNumber}: ${this.previousChapter.title}`
-    : "";
+   return this.previousChapter ? `Chapter ${this.previousChapterNumber}`: "";
   },
   nextChapterText() {
    if (this.nextChapter && this.isMobile) {
     return "Next";
    }
-   return this.nextChapter
-    ? `Chapter ${this.nextChapterNumber}: ${this.nextChapter.title}`
-    : "";
+   return this.nextChapter ? `Chapter ${this.nextChapterNumber}` : "";
   },
  },
  watch: {

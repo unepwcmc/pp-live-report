@@ -102,6 +102,11 @@ i { font-style: normal; }
   }
 }
 
+// Background gradient mixin - takes two colours at present
+@function background-gradient($orientation, $first-colour, $second-colour, $first-percent: 0%, $second-percent: 100%) {
+  @return linear-gradient($orientation, $first-colour $first-percent, $second-colour $second-percent);
+}
+
 //--------------------------------------------------
 // user interaction
 //--------------------------------------------------

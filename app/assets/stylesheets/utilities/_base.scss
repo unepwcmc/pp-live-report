@@ -157,8 +157,6 @@ p {
   font-weight: $light;
   line-height: 1.6;
   margin-top: 0;
-
-  @include breakpoint($medium) { font-size: rem-calc(18); }
 }
 
 a {

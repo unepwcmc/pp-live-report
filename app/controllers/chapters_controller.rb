@@ -5,6 +5,12 @@ class ChaptersController < ApplicationController
 
   helper_method :map_disclaimer
 
+  # Messy way of getting chapter number and passing it to before action!
+  before_action do
+    populate_case_studies(params[:action].match(/\d+/)[0].to_i)
+  end
+
+
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
     '#66c2a5',
@@ -25,19 +31,19 @@ class ChaptersController < ApplicationController
     @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
 
-    @smallprint="Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
+    @smallprint = 'Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017.'
 
     doughnut_chart = @data['doughnut_chart_data']
     @doughnut_chart = []
 
     doughnut_chart.each do |item|
       @doughnut_chart.push({
-        'title': item['title'],
-        'colour': item['colour'],
-        'icon': ActionController::Base.helpers.image_url(item['icon']),
-        'description': item['description'],
-        'url': item['url']
-      })
+                             'title': item['title'],
+                             'colour': item['colour'],
+                             'icon': ActionController::Base.helpers.image_url(item['icon']),
+                             'description': item['description'],
+                             'url': item['url']
+                           })
     end
   end
 
@@ -95,30 +101,30 @@ class ChaptersController < ApplicationController
       }
 
     @global_area_chart = {
-      id: "global-area-chart",
+      id: 'global-area-chart',
       legend: [
         {
-          title: "Proportion of cover by protected areas"
+          title: 'Proportion of cover by protected areas'
         }
       ],
       datasets: [
         {
-          title: "Ocean",
-          class: "marine",
+          title: 'Ocean',
+          class: 'marine',
           percent: 71,
           cssPercent: 71,
           protected_areas: {
-            title: "",
+            title: '',
             percent: global_monthly_stats['total_ocean_pa_coverage_percentage']
           }
         },
         {
-          title: "Land",
-          class: "land",
+          title: 'Land',
+          class: 'land',
           percent: 29,
           cssPercent: 29,
           protected_areas: {
-            title: "",
+            title: '',
             percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
         }
@@ -126,44 +132,44 @@ class ChaptersController < ApplicationController
     }
 
     @marine_area_chart = {
-      id: "marine-area-chart",
+      id: 'marine-area-chart',
       legend: [
         {
-          title: "Proportion of cover by protected areas"
+          title: 'Proportion of cover by protected areas'
         }
       ],
       datasets: [
         {
-          title: "ABNJ",
+          title: 'ABNJ',
           percent: 43,
-          cssPercent: 43.31, #percentage of the world [71(ocean)* 0.61(abnj)]
-          class: "abnj",
+          cssPercent: 43.31, # percentage of the world [71(ocean)* 0.61(abnj)]
+          class: 'abnj',
           protected_areas: {
-            title: "",
+            title: '',
             percent: global_monthly_stats['high_seas_pa_coverage_percentage']
           }
         },
         {
-          title: "EEZ",
+          title: 'EEZ',
           percent: 28,
-          cssPercent: 27.69, #percentage of the world [71(ocean)* 0.39(eez)]
-          class: "eez",
+          cssPercent: 27.69, # percentage of the world [71(ocean)* 0.39(eez)]
+          class: 'eez',
           protected_areas: {
-            title: "",
+            title: '',
             percent: global_monthly_stats['national_waters_pa_coverage_percentage']
           }
         },
         {
-          title: "Land",
-          class: "land",
+          title: 'Land',
+          class: 'land',
           percent: 29,
           cssPercent: 29,
           active: false,
           protected_areas: {
-            title: "",
+            title: '',
             percent: global_monthly_stats['total_land_pa_coverage_percentage']
           }
-        },
+        }
       ]
     }
 
@@ -179,34 +185,34 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: lines,
       axis: {
-        y: ["Area", "(Million km²)"]
+        y: ['Area', '(Million km²)']
       },
       targets: [
         {
           y: 36,
-          title: "Marine target (10%)"
+          title: 'Marine target (10%)'
         },
         {
           y: 23,
-          title: "Terrestrial target (17%)"
+          title: 'Terrestrial target (17%)'
         }
       ],
       commitments: [
         {
           x: 2018,
           line: true,
-          label: ["Future", "Commitments"]
+          label: %w[Future Commitments]
         }
       ],
       legend: [
         {
-          title: "ABNJ"
+          title: 'ABNJ'
         },
         {
-          title: "EEZ"
+          title: 'EEZ'
         },
         {
-          title: "Land"
+          title: 'Land'
         }
       ]
     }
@@ -224,7 +230,7 @@ class ChaptersController < ApplicationController
     }
 
     @map_3 = {
-      id: "map_3",
+      id: 'map_3',
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg5_Oct20/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
@@ -275,30 +281,30 @@ class ChaptersController < ApplicationController
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
-          text_small: "Fully within",
+          text_small: 'Fully within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
-          colour: TRICOLOR_PALETTE[0],
+          colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
-          text_small: "Partially within",
+          text_small: 'Partially within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
-          colour: TRICOLOR_PALETTE[1],
+          colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
-          text_small: "Outside",
+          text_small: 'Outside Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
-          colour: TRICOLOR_PALETTE[2],
+          colour: TRICOLOR_PALETTE[2]
         }
       ]
     }
 
     kba_data = CsvParser.kba_timeseries
     lines = []
-    [ 'Freshwater KBAs', 'Marine KBAs','Terrestrial KBAs' ].each do |type|
+    ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs'].each do |type|
       datapoints = []
       ('2000'..'2018').each do |year|
         datapoints << { x: year, y: kba_data[year][type] }
@@ -308,18 +314,18 @@ class ChaptersController < ApplicationController
     @line_chart = {
       lines: lines,
       axis: {
-        y: ["Average Percentage", "Covered"]
+        y: ['Average Percentage', 'Covered']
       },
       legend: [
         {
-          title: "Freshwater"
+          title: 'Freshwater'
         },
         {
-          title: "Marine"
+          title: 'Marine'
         },
         {
-          title: "Terrestrial"
-        },
+          title: 'Terrestrial'
+        }
       ]
     }
   end
@@ -331,7 +337,7 @@ class ChaptersController < ApplicationController
     @data = @chapters_data[3]
 
     @map_1 = {
-      id: "map_1",
+      id: 'map_1',
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch4_Fg8_Mar20/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
@@ -578,16 +584,16 @@ class ChaptersController < ApplicationController
     @stacked_row_charts = {
       legend: [
         {
-          title: "Over 60%"
+          title: 'Over 60%'
         },
         {
-          title: "30-60%"
+          title: '30-60%'
         },
         {
-          title: "10-30%"
+          title: '10-30%'
         },
         {
-          title: "Under 10%"
+          title: 'Under 10%'
         },
         {
           title: 'No Assessments'
@@ -595,54 +601,54 @@ class ChaptersController < ApplicationController
       ],
       charts: [
         {
-          chart_title: "Terrestrial",
-          theme: "green",
+          chart_title: 'Terrestrial',
+          theme: 'green',
           rows: [
             {
               percent: terrestrial['Over 60%'].to_f.round,
-              label: "1."
+              label: '1.'
             },
             {
               percent: terrestrial['30-60%'].to_f.round,
-              label: "2."
+              label: '2.'
             },
             {
               percent: terrestrial['10-30%'].to_f.round,
-              label: "3."
+              label: '3.'
             },
             {
               percent: terrestrial['Under 10%'].to_f.round,
-              label: "4."
+              label: '4.'
             },
             {
               percent: 29,
-              label: "5."
+              label: '5.'
             }
           ]
         },
         {
-          chart_title: "Marine",
-          theme: "blue",
+          chart_title: 'Marine',
+          theme: 'blue',
           rows: [
             {
               percent: 16,
-              label: "1."
+              label: '1.'
             },
             {
               percent: marine['30-60%'].to_f.round,
-              label: "2."
+              label: '2.'
             },
             {
               percent: marine['10-30%'].to_f.round,
-              label: "3."
+              label: '3.'
             },
             {
               percent: marine['Under 10%'].to_f.round,
-              label: "4."
+              label: '4.'
             },
             {
               percent: marine['No Assessments'].to_f.round,
-              label: "5."
+              label: '5.'
             }
           ]
         }
@@ -658,7 +664,7 @@ class ChaptersController < ApplicationController
     @next_chapter_title = @chapters_data[6]['title']
     @next_chapter_link = chapter_7_path
     @data = @chapters_data[5]
-    
+
     @column_chart = GovernanceTypesSerializer.new(CsvParser.governance_type).serialize
 
     country_governance_data = CsvParser.ch6_figure2_stats
@@ -724,8 +730,8 @@ class ChaptersController < ApplicationController
     @data = @chapters_data[8]
 
     @map_1 = {
-      id: "map_1",
-      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf",
+      id: 'map_1',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch9_Fg/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'not-wild' + random_number,
@@ -742,7 +748,7 @@ class ChaptersController < ApplicationController
         {
           id: 'protected-areas' + random_number,
           text_small: 'Protected areas',
-          source_layers: {poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019'},
+          source_layers: { poly: 'WDPA_poly_Mar2019', point: 'WDPA_point_Mar2019' },
           colour: TRICOLOR_PALETTE[0]
         }
       ]
@@ -761,5 +767,37 @@ class ChaptersController < ApplicationController
       source: source,
       text: @shared_data['map_disclaimer']
   }.to_json
+
+  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+
+  def populate_case_studies(chapter_number)
+    # TODO: - Update case study texts
+    case_study_data = @chapters_data[chapter_number - 1]['case_studies']
+    return if case_study_data.nil?
+
+    @items = case_study_data.map do |case_study|
+                case_study['text'] = case_study['text'].split("\n")  
+                contents = case_study_contents.merge(case_study.deep_stringify_keys)
+
+                contents['image'] = case_study_image(case_study)
+                contents
+            end
+  end
+
+  def case_study_contents
+    # Build a hash out of all possible keys 
+    # This allows more data to be easily added to the case studies in the YML file at a later date
+    # e.g. if authors or a caption for an image is needed to be inserted
+    attributes = Hash.new
+    CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
+    attributes
+  end
+
+  def case_study_image(case_study)
+    if case_study['image']
+      URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
+    else
+      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
+    end
   end
 end

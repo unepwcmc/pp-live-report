@@ -3,6 +3,11 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
+  # Messy way of getting chapter number and passing it to before action!
+  before_action do
+    populate_case_studies(params[:action].match(/\d+/)[0].to_i)
+  end
+
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
     '#66c2a5',
@@ -728,5 +733,40 @@ class ChaptersController < ApplicationController
   def chapter_10
     @chapter_number = 10
     @data = @chapters_data[9]
+  end
+
+  private
+
+  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+
+  def populate_case_studies(chapter_number)
+    # TODO: - Update case study texts
+    case_study_data = @chapters_data[chapter_number - 1]['case_studies']
+    return if case_study_data.nil?
+
+    @items = case_study_data.map do |case_study|
+                case_study['text'] = case_study['text'].split("\n")  
+                contents = case_study_contents.merge(case_study.deep_stringify_keys)
+
+                contents['image'] = case_study_image(case_study)
+                contents
+            end
+  end
+
+  def case_study_contents
+    # Build a hash out of all possible keys 
+    # This allows more data to be easily added to the case studies in the YML file at a later date
+    # e.g. if authors or a caption for an image is needed to be inserted
+    attributes = Hash.new
+    CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
+    attributes
+  end
+
+  def case_study_image(case_study)
+    if case_study['image']
+      URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
+    else
+      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
+    end
   end
 end

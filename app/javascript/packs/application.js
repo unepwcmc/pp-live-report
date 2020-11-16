@@ -29,6 +29,7 @@ import store from '../store/store.js'
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
 import AmChart from '../components/charts/AmChart'
+import CardImage from '../components/cards/CardImage'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
@@ -56,6 +57,7 @@ document.addEventListener('turbolinks:load', () => {
       Accordion,
       AccordionItem,
       AmChart,
+      CardImage,
       CarouselFixed,
       ChartArea,
       ChartColumn,

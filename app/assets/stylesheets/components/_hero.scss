@@ -1,26 +1,39 @@
 //--------------------------------------------------
-// hero
+// mixins
+//--------------------------------------------------
+@mixin hero-basic {
+  @include background-overlay($black-gradient);
+  background-color: $black;
+  color: $white;
+
+  z-index: 2;
+
+  @include breakpoint($medium) {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }  
+}
+
+@mixin hero-animation($delay: 0s) {
+  opacity: 0;
+
+  animation: fadeIn 1.5s $delay ease-in-out forwards;
+}
+
+//--------------------------------------------------
+// classes
 //--------------------------------------------------
 .hero {
 //--------------------------------------------------
 // home page hero
 //--------------------------------------------------
   &--home {
-    @include background-overlay($black-gradient);
-    background-color: $black;
-    color: $white;
+    @include hero-basic;
     padding-bottom: rem-calc(20);
-
-    z-index: 2;
     
     @include breakpoint($small) { 
       min-height: 100vh; 
-    }
-
-    @include breakpoint($medium) {
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
     }
 
     .hero {
@@ -35,25 +48,23 @@
       }
 
       &__subtitle {
+        @include hero-animation(.5s);
         font-size: rem-calc(20);
         font-weight: $bold;
         line-height: 1.4;
         margin-bottom: rem-calc(14);
         opacity: 0;
 
-        animation: fadeIn 1.5s .5s ease-in-out forwards;
-
         @include breakpoint($medium) { font-size: rem-calc(25); }
         @include breakpoint($medium) { width: $small-container; }
       }
 
       &__title { 
-        opacity: 0;
-
-        animation: fadeIn 1.5s ease-in-out forwards;
+        @include hero-animation;
       }
       
       &__intro {
+        @include hero-animation(1s);
         font-size: rem-calc(16);
         font-weight: $light;
         line-height: 1.5;
@@ -62,8 +73,6 @@
         @include breakpoint($small) { font-size: rem-calc(20); }
 
         @include breakpoint($medium) { width: $small-container; }
-
-        animation: fadeIn 1.5s 1s ease-in-out forwards;
       }
 
       &__dates {
@@ -90,21 +99,29 @@
 // chapter hero
 //--------------------------------------------------
   &--chapter {
-    @include background-overlay($black-gradient);
-    background-color: $black;
-    color: $white;
-    padding-bottom: rem-calc(30);
-
+    @include hero-basic;
+    
     @include breakpoint($small) {
-      padding-top: rem-calc(95);
-      padding-bottom: rem-calc(140);
-      position: relative;
+      
     }
 
-    z-index: 2;
+    @include breakpoint($medium) { 
+      min-height: rem-calc(512); 
+    }
 
     .hero {
+      &__content {
+        margin-top: rem-calc(22);
+
+        @include breakpoint($small) { margin-top: rem-calc(32); }
+        @include breakpoint($medium) { 
+          margin-top: 0;
+          margin-bottom: auto;
+        }
+      }
+
       &__intro {
+        @include hero-animation(1s);
         font-size: rem-calc(16);
         font-weight: $light; 
         line-height: 1.3;
@@ -123,16 +140,13 @@
       }
 
       &__subtitle { 
+        @include hero-animation;
         font-size: rem-calc(14); 
-        font-weight: $light; 
-        margin-top: rem-calc(50);
-        
-        @include breakpoint($small) { 
-          margin-top: rem-calc(34);
-        }
+        font-weight: $light;
       }
 
       &__title {
+        @include hero-animation(.5s);
         font-size: rem-calc(32);
         font-weight: $bold;
 
@@ -143,8 +157,10 @@
       }
 
       &__date {
+        @include hero-animation(1.5s);
         font-size: rem-calc(14);
         margin: 0;
+        padding-bottom: rem-calc(30);
 
         @include breakpoint($small) {
           font-size: rem-calc(16);

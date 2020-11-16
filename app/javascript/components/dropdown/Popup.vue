@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { eventHub } from '../../packs/application.js';
+import { eventHub } from '../../packs/application.js'
 
 export default {
  name: "Popup",
@@ -56,15 +56,15 @@ export default {
  },
  methods: {
   clickOption(option) {
-   eventHub.$emit("option-selected", option);
+   eventHub.$emit("option-selected", option)
   },
   clickLink(link) {
-    eventHub.$emit("link-clicked", link);
+   eventHub.$emit("link-clicked", link)
   },
   showTextIfPresent(option) {
-   return this.showText ? option.title : "";
+   return this.showText ? option.title : ""
   },
  },
-};
+}
 </script>
 

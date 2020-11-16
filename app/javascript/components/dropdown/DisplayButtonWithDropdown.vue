@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import { eventHub } from "../../packs/application.js";
-import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
-import Popup from "./Popup.vue";
+import { eventHub } from "../../packs/application.js"
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners"
+import Popup from "./Popup.vue"
 
 export default {
  name: "DisplayButtonWithDropdown",
@@ -25,7 +25,7 @@ export default {
   Popup,
  },
  mixins: [
-   mixinPopupCloseListeners({
+  mixinPopupCloseListeners({
    closeCallback: "togglePopup",
    toggleVariable: "isActive",
   }),
@@ -41,29 +41,29 @@ export default {
   },
  },
  mounted() {
-  eventHub.$on("option-selected", this.changeSelection);
+  eventHub.$on("option-selected", this.changeSelection)
  },
  data() {
   return {
    isActive: false,
    currentOption: this.selectedOption,
-  };
+  }
  },
  filters: {
   upcase(value) {
    if (!value) {
-    return "";
+    return ""
    }
-   return value.toString().toUpperCase();
+   return value.toString().toUpperCase()
   },
  },
  methods: {
   togglePopup() {
-   this.isActive = !this.isActive;
+   this.isActive = !this.isActive
   },
   changeSelection(option) {
-   this.currentOption = option;
+   this.currentOption = option
   },
  },
-};
+}
 </script>

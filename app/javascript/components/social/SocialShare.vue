@@ -32,10 +32,10 @@
 </template>
 
 <script>
-import { eventHub } from "../../packs/application.js";
-import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
-import mixinResponsive from "../../mixins/mixin-responsive";
-import Popup from "../dropdown/Popup.vue";
+import { eventHub } from "../../packs/application.js"
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners"
+import mixinResponsive from "../../mixins/mixin-responsive"
+import Popup from "../dropdown/Popup.vue"
 
 export default {
  name: "social-share",
@@ -58,37 +58,37 @@ export default {
   },
  },
  mounted() {
-  eventHub.$on("link-clicked", this.clickOption);
+  eventHub.$on("link-clicked", this.clickOption)
  },
  data() {
   return {
    isMobile: false,
    isActive: false,
-  };
+  }
  },
  mounted() {
   this.currentBreakpoint === "small"
    ? (this.isMobile = true)
-   : (this.isMobile = false);
+   : (this.isMobile = false)
  },
  methods: {
   togglePopup() {
-   this.isActive = !this.isActive;
+   this.isActive = !this.isActive
   },
   clickOption(option) {
-   this.isActive = false;
-   this.recordShare(option.title);
+   this.isActive = false
+   this.recordShare(option.title)
   },
   recordShare(value) {
    if (this.$ga) {
-    this.$ga.event(this.eventElement, value);
+    this.$ga.event(this.eventElement, value)
    }
   },
  },
  watch: {
   currentBreakpoint(val) {
-   val === "small" ? (this.isMobile = true) : (this.isMobile = false);
+   val === "small" ? (this.isMobile = true) : (this.isMobile = false)
   },
  },
-};
+}
 </script>

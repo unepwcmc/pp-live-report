@@ -28,6 +28,8 @@ import store from '../store/store.js'
 // vue components
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
+import AmChartGauge from '../components/charts/AmChartGauge'
+import CardImage from '../components/cards/CardImage'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
@@ -40,6 +42,7 @@ import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
 import NavLink from '../components/nav/NavLink'
+import SelectText from '../components/select/SelectText'
 import Pagination from '../components/pagination/Pagination'
 import SocialShare from '../components/social/SocialShare'
 
@@ -54,6 +57,8 @@ document.addEventListener('turbolinks:load', () => {
     components: {
       Accordion,
       AccordionItem,
+      AmChartGauge,
+      CardImage,
       CarouselFixed,
       ChartArea,
       ChartColumn,
@@ -66,6 +71,7 @@ document.addEventListener('turbolinks:load', () => {
       MapInfographic,
       MapStatistics,
       NavLink,
+      SelectText,
       Pagination,
       SocialShare
     }

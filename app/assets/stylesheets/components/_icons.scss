@@ -48,6 +48,14 @@
     }
   }
 
+  &--dropdown {
+    background-image: image-url('icons/dropdown.svg');
+    background-size: cover;
+    width: rem-calc(20); height: rem-calc(10);
+
+    display: inline-block;
+  }
+
   &--share {
     background-image: image-url('icons/share.svg');
     background-size: cover;

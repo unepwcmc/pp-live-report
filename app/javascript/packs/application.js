@@ -42,6 +42,7 @@ import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
 import NavLink from '../components/nav/NavLink'
+import SelectText from '../components/select/SelectText'
 import Pagination from '../components/pagination/Pagination'
 import SocialShare from '../components/social/SocialShare'
 
@@ -70,6 +71,7 @@ document.addEventListener('turbolinks:load', () => {
       MapInfographic,
       MapStatistics,
       NavLink,
+      SelectText,
       Pagination,
       SocialShare
     }

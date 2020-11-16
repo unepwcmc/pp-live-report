@@ -1,30 +1,36 @@
-title: "Equitably Managed"
-menu_title: "Equitably Managed"
+title: "Effectively Managed"
+menu_title: "Effectively Managed"
 subtitle: "Chapter 6"
-intro: "The equitable management of protected areas is a key aspect of Aichi Target 11. A framework for understanding equity in protected areas has been developed, and several methodologies have been proposed to enable the assessment of equitable management in all its dimensions. Despite these advances, assessments have been implemented in only a limited number of protected areas, and conclusions cannot yet be drawn on a broad scale. Addressing this lack of assessment at system and site scales is a priority leading up to 2020 and beyond."
-content_1: "<p>Equity in protected areas can be understood as a combination of three interlinked elements:</p><ul><li>Recognition equity relates to acknowledgement and respect for stakeholders, as well as their social and cultural diversity, and their values, rights and beliefs.</li><li>Procedural equity relates to how decisions about the protected area are made, and the extent to which stakeholders are able to participate.</li><li>Distributive equity is associated with the distribution of benefits and burdens.</li></ul>"
-cta_title_1: "Measuring equity"
-cta_text_1: "Here we present some current initiatives investigating ways to assess equity in the governance and management of protected areas."
-cta_url_1: "http://wcmc.io/pp-ch6-cta1"
-content_2: "The diversity of governance types of protected areas provides an indication of the recognition of the diverse actors involved in these conservation efforts, although it does not itself inform an understanding of whether this is good governance or equitable management. Protected areas under all IUCN governance types can be reported to the WDPA, but non-government types are currently under-reported, with 82% of recorded protected areas managed by government agencies."
-column_chart_title: "Governance types, governance quality, and equity"
-column_chart_intro: "Number of protected areas reported in the WDPA under each IUCN governance type. "
-column_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2019a. Protected Planet: The World Database on Protected Areas (WDPA), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
-content_3: "There are major regional differences in the reported occurrence of different governance types."
-stacked_row_chart_title: "Protected areas under each governance type per region"
-stacked_row_chart_intro: "Percentage of protected areas under each IUCN governance type per region."
-stacked_row_chart_smallprint: "Source: UNEP-WCMC and IUCN. 2019a. Protected Planet: The World Database on Protected Areas (WDPA), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
-content_4: "Looking beyond governance type, assessments of governance quality in protected areas can provide insights on whether sites are equitably managed."
-cta_title_2: "Case Study: Community-led governance assessment in the Mara North Community Conservancy in Kenya"
-cta_text_2: "This case study presents findings of a governance assessment led by local communities with a focus on equity."
-photo_credits: "Photo credits: Salt harvesting in Vietnam &copy; Quang Nguyen Vinh"
-cta_url_2: "http://wcmc.io/pp-ch6-cta2"
+intro: "TBD"
+content: 
+  - 
+    "This report has so far focused on the location and coverage of protected and conserved areas. Of equal importance is the quality of governance and management within these areas. Despite an increase in global protected area coverage, biodiversity continues to decline, even within some protected areas. This highlights the need for effective management, which is the focus of this section.  "
+  - 
+    "The effective management of protected areas is embedded in Aichi Target 11, but assessing whether this element of the target has been achieved is complex. It requires consideration of multiple aspects such as design and planning, management processes, outputs and biodiversity outcomes. Several methodologies have been developed to evaluate the effectiveness of protected area management. These vary in scope and content. Most rely on self-assessment and are best suited to understanding the effectiveness of management in a specific site at a given point in time. Such assessments are less well-suited to comparisons of management effectiveness between sites, limiting the extent to which they can be aggregated into global indicators.  "
+  -
+    "The management effectiveness indicator for Aichi Target 11 tracks the percentage of protected areas that have undergone management effectiveness assessments (with a target of 60% of total area). The Global Database on Protected Area Management Effectiveness (GD-PAME) is used to calculate this indicator.  "
+  -
+    "The GD-PAME stores assessments from xx countries, conducted using xx different methodologies. In total, xx% of protected areas in the WDPA have been assessed. Xx% of countries have met the target of assessing management effectiveness across 60% of their protected lands and waters. Globally, there is a shortfall of xx%."
+
+map_1_title: "Management effectiveness per country"
+map_1_description: "Percentage of the total coverage in protected areas that is assessed for management effectiveness per country"
+map_1_source: "UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN; UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+
+content_2: 
+  - 
+    "The clear limitation of this indicator is that it does not reveal how effectively the world’s protected areas are managed; it simply tells us where assessments have been carried out. Efforts to develop a more meaningful global measure of effectiveness have been hindered by a number of challenges: many countries do not have established mechanisms, or sufficient resources and capacity, to report information; willingness to report can be limited by political sensitivities (e.g. a concern that poor performance will result in the withdrawal of funding); and it is challenging to develop methodologies that are suitable for global-level reporting while also being flexible enough to adapt to local conditions and capacities. Natural World Heritage Sites are one group of protected areas for which results are available. The finding that fewer than half of these sites have effective protection and management (Osipova et al., 2017) is troubling, and reinforces the need for transparent reporting across all protected areas." 
+  - 
+    "The IUCN Green List of Protected and Conserved Areas has an important role to play as the global standard for effective and equitable governance and management (IUCN and WCPA, 2017). Beyond providing a standard for management effectiveness, the Green List links management to governance and successful conservation outcomes – elements that have been lacking from indicators on the effectiveness of the world’s conservation network. As the number of jurisdictions and sites committed to applying the IUCN Green List Standard increases, it may become a powerful tool to assess protected area performance, including quality metrics, into the future. Box 9 further considers the evolution of management effectiveness assessments.  "
+
+photo_credits: "Photo credits: &copy; Sasin Tipchai"
+
+
 case_studies:
   - 
     label: 'Box 9'
-    title: 'Governance assessments in Territories of Life'
-    authors: 'Jennifer Kelleher - Programme Lead, Governance, Equity & Rights, Global Protected Areas Programme, IUCN, Dr. Stephen Nindi - Director General National Land Use Planning Commission (NLUPC) Tanzania. '
-    text: "The IUCN approaches equity through the lens of governance; a concept that is concerned with decision making in protected and conserved areas – who has been making decisions? How have those decisions been made and who has participated? The IUCN distinguishes four main types of governance in protected and conserves areas: A. government B. shared; C. private; and D. “territories and areas conserved by indigenous peoples and local communities” or “territories of life” (also referred to as ICCAs).\n
-           Issues relating to governance were examined during a series of national dialogues held during 2017-2019, one of which was convened in Tanzania by the Global Protected Areas Programme of IUCN, together with Tanzanian authorities, traditional knowledge holders and other experts. The process revealed Tanzania as one of the richest countries on Earth with regard to its biodiversity and its governance diversity. The system of PAs includes Africa’s highest peak and four natural World Heritage Sites: Ngorongoro Conservation Area, Kilimanjaro National Park, Selous Game Reserve (now Nyerere National Park) and Serengeti National Park. It also includes shared governance models such as Wildlife Management Areas, Village Forests and Game Reserves, alongside areas conserved under Certificates of Customary Right of Occupancy (CCROs). \n
-           Governance diversity has positive implications for people and nature in Tanzania, with areas under the traditional governance, management and custodianship of indigenous peoples and local communities demonstrating long-term conservation effectiveness. Traditional institutions for landscape conservation in the Matengo Highlands illustrate how traditional knowledge under the customary Sengu system can achieve both sustainable livelihoods and conservation of the landscape. The Sengu system manages the sustainability of the steep slopes of the Ntambo landholding through traditional cultivation systems known as ngolo (four-tiered ridges). This system has its governance structure formalized in the Tanzanian regulatory framework, revealing an impressive rooting of conservation in both traditional and modern national cultural identities. Examples such as this can be of rich value to the world, demonstrating how good governance, and recognition of diverse governance types, can contribute to successful systems of protected and conserved areas."
-     
+    title: 'Tracking management effectiveness after 2020'
+    authors: 'Sue Stolton'
+    org: 'Equilibrium Research '
+    text: "Effectiveness needs to start from the ground up, ensuring sites are in the places most needing conservation management, that they are subject to good governance and that they deliver their goals effectively. Many tools have been developed, and adapted, for site-based management effectiveness assessments; descriptions of these tools, and details of the many thousands of sites that have used them, can be found on Protected Planet’s GD-PAME pages. What has proved difficult however is taking these site- or sometimes system-based assessments and extracting one or two indicators for global effectiveness reporting. One problem has been a confusion in what is being reported; while site-level assessments are more focussed on management, the demand at the global level has often been for data on conservation outcomes. Most PAME methodologies cannot deliver this, and often explicitly state that outcome monitoring needs other tools, systems and processes to complement management effectiveness assessment. \n
+           There is an opportunity for the post-2020 effectiveness indicators to address this disparity in global and site-level expectations of effectiveness assessments, in addition to providing clarity on both the criteria and the method of reporting. One option for globally consistent indicators is to build on the advances made in remote sensing and other technologies. Appropriate resolution in time and space, data quality, and open access will be important, as will data validation. Such global indicators still need to be complemented by site-level indicators. These should focus on the condition of the biodiversity elements for which the site is valued and be based on finer-scale biodiversity inventories and capture details of change that more coarse-scale remote sensed measures cannot (Maxwell et al, 2020)."
+  

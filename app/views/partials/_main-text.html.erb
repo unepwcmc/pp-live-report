@@ -1,0 +1,18 @@
+<!-- Methods called are encapsulated within TextPresenter -->
+<% content = TextPresenter.new(text) %>
+
+<section class="section-padding">
+  <div class="container--small">
+    <% if text.is_a?(Array) %>
+      <% text.each do |element| %>
+        <% if element.is_a?(Hash) %>
+          <%= sanitize(content.get_list_items(element)) %>
+        <% else %>
+          <p class="content__text"><%= element.html_safe %></p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><%= text.html_safe %></p>
+    <% end %>
+  </div>
+</section>

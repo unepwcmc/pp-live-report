@@ -1,3 +1,7 @@
+<%= render 'partials/multilingual' %>
+
+<%= render 'partials/blockquote', locals: { text: @data['aichi_text'].html_safe } %>
+
 <div class="container section-padding">
   <div class="aichi-target sm-trigger-aichi-chart">
     <div class="box__text">
@@ -21,8 +25,6 @@
     </div>
   </div>
 </div>
-
-<%= render 'partials/blockquote', locals: { text: @data['aichi_text'].html_safe } %>
 
 <section class="section-padding">
   <div class="container--small">

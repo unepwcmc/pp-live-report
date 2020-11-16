@@ -7,25 +7,36 @@
     role="option"
     aria-labelledby="option-text"
    >
-    <a
-     :class="[
-      option.hasOwnProperty('customClass')
-       ? option.customClass
-       : 'download__link',
-     ]"
-     :href="option.url"
-     target="_blank"
-     :title="option.title"
-     @click="clickOption(option)"
-    >
-     <span id="option-text" v-html="showTextIfPresent(option)"></span>
-    </a>
+    <template v-if="isLink">
+     <a
+      :class="[
+       option.hasOwnProperty('customClass')
+        ? option.customClass
+        : 'download__link',
+      ]"
+      :href="option.url"
+      target="_blank"
+      :title="option.title"
+      @click="clickLink(option)"
+     >
+      <span id="option-text" v-html="showTextIfPresent(option)"></span>
+     </a>
+    </template>
+    <template v-else>
+     <span
+      id="option-text"
+      v-html="showTextIfPresent(option)"
+      @click="clickOption(option)"
+     ></span>
+    </template>
    </li>
   </ul>
  </div>
 </template>
 
 <script>
+import { eventHub } from '../../packs/application.js'
+
 export default {
  name: "Popup",
  props: {
@@ -36,17 +47,24 @@ export default {
   },
   options: {
    type: Array,
-   default: () => [],
+   default: () => ([]),
+  },
+  isLink: {
+   type: Boolean,
+   default: true,
   },
  },
  methods: {
   clickOption(option) {
-   this.$emit("optionSelected", option);
+   eventHub.$emit("option-selected", option)
+  },
+  clickLink(link) {
+   eventHub.$emit("link-clicked", link)
   },
   showTextIfPresent(option) {
-   return this.showText ? option.title : "";
+   return this.showText ? option.title : ""
   },
  },
-};
+}
 </script>
 

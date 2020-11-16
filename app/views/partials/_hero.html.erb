@@ -1,11 +1,10 @@
 <header class="hero--chapter parallax">
   <%= render 'partials/topbar' %>
-
-  <div class="container">
-    <p class="hero__subtitle">Chapter <%= chapter_number %></p>
+ 
+  <div class="hero__content container">
+    <p class="hero__content">Chapter <%= chapter_number %></p>
     <h1 class="hero__title"><%= @data['title'] %></h1>
     <p class="hero__intro"><%= @data['intro'] %></p>
     <p class="hero__date">Updated: <%= @last_updated_date %></p>
-    <p class="hero__date">Next update: <%= @next_updated_date %></p>
   </div>
 </header>

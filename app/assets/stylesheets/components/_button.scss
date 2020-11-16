@@ -1,6 +1,15 @@
 //--------------------------------------------------
 // buttons mixins
 //--------------------------------------------------
+@mixin button-basic {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  &:hover { text-decoration: none; }
+}
+
 @mixin button-cta {
   background-color: $primary;
   color: $black;
@@ -25,6 +34,30 @@
   }
 }
 
+@mixin button-close {
+  @include button-basic; 
+  @include icon-cross;
+}
+
+@mixin button-nav($image) {
+  background-image: image-url($image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+
+  &:hover { opacity: .75; } 
+
+  height: rem-calc(24);
+  width: rem-calc(24);
+
+  @include breakpoint($small) {
+    height: rem-calc(40);
+    width: rem-calc(40);
+  }
+}
+
 //--------------------------------------------------
 // buttons
 //--------------------------------------------------
@@ -44,38 +77,55 @@
     }
   }
 
-  &--cta-external {
-    @include button-cta;
-
-    &::after {
-      background-image: image-url('icons/external-link.svg');
-      width: rem-calc(23); height: rem-calc(23);
-
-      transform: translateY(3px);
-    }
-  }
-
   &--download {
     @extend .flex;
     @extend .flex-v-center;
-    background-color: transparent;
-    border: none;
-    color: white;
+    @extend .flex-h-between;
+    background-color: $green;
+    border: 1px solid $green;
+    border-radius: 2px;
+    color: $black;
     cursor: pointer;
-    font-size: inherit;
+    font-size: $button-font-size-small;
     font-weight: $light;
     text-align: left;
     text-decoration: none;
+    padding: rem-calc(8);
+    margin-right: rem-calc(19);
+    
+    @include breakpoint($small) {
+      padding: rem-calc(10 16);
+    }
 
     &__text { 
       display: none;
       
       @include breakpoint($medium) {
-        margin-left: rem-calc(12);
-        width: rem-calc(124);
+        width: rem-calc(150);
 
         display: block;
       }
+    }
+  }
+
+  &--external {
+    color: $body-font-color;
+    margin-right: rem-calc(34);
+
+    display: inline-block;
+    position: relative;
+    
+    &:after {
+      background-image: image-url('icons/chevron-circle-right.svg');
+      content: '';
+      width: rem-calc(24); height: rem-calc(24);
+      
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: rem-calc(-34);
+      
+      transform: translateY(-50%);
     }
   }
 
@@ -84,11 +134,25 @@
     font-weight: $medium;
   }
 
+  &--previous {
+    @include button-nav('icons/previous.svg');
+  }
+
+  &--next {
+    @include button-nav('icons/next.svg');
+  }
+
   &--reset {
     cursor: pointer;
     margin: 0;
     padding: 0;
     font: inherit;
+  }
+
+  &--share {
+    appearance: none;
+    border: none;
+    background-color: transparent;
   }
 
   //--------------------------------------------------

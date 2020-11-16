@@ -14,6 +14,12 @@ if (window._railsEnv === 'production') {
     checkDuplicatedScript: true
   })
 }
+else if (window._railsEnv === 'staging') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-129227134-2',
+    checkDuplicatedScript: true
+  })
+}
 Vue.use(TurbolinksAdapter)
 
 // store
@@ -22,6 +28,8 @@ import store from '../store/store.js'
 // vue components
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
+import AmChartGauge from '../components/charts/AmChartGauge'
+import CardImage from '../components/cards/CardImage'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
@@ -33,8 +41,8 @@ import ChartRowStacked from '../components/charts/ChartRowStacked'
 import Download from '../components/download/Download'
 import MapInfographic from '../components/map/MapInfographic'
 import MapStatistics from '../components/map/MapStatistics'
-import NavBurger from '../components/nav/NavBurger'
 import NavLink from '../components/nav/NavLink'
+import Pagination from '../components/pagination/Pagination'
 import SocialShare from '../components/social/SocialShare'
 
 // create event hub and export so that it can be imported into .vue files
@@ -48,6 +56,8 @@ document.addEventListener('turbolinks:load', () => {
     components: {
       Accordion,
       AccordionItem,
+      AmChartGauge,
+      CardImage,
       CarouselFixed,
       ChartArea,
       ChartColumn,
@@ -59,8 +69,8 @@ document.addEventListener('turbolinks:load', () => {
       Download,
       MapInfographic,
       MapStatistics,
-      NavBurger,
       NavLink,
+      Pagination,
       SocialShare
     }
   })

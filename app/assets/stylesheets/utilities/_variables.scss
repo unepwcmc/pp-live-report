@@ -20,11 +20,16 @@ $grey-xdark: #202020;
 
 $black: #000000;
 
+$blue: #004DA8;
+
+$green-bright: #38A800;
 $green-light: #9DC37E;
 $green: #71A32B;
 
+$orange: #D9B143;
+
 $primary: $green;
-$secondary: blue;
+$accent: green;
 
 $chart-blue-light: #96D6E6;
 $chart-blue: #53CCF7;
@@ -60,6 +65,11 @@ $wdpa-pelagic: #6D78CC;
 
 $accent: green;
 
+$oecm: $orange;
+$marine: $blue;
+$terrestrial: $green-bright;
+
+
 $theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
 $theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;
 $theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue $grey-light;
@@ -69,15 +79,16 @@ $black-gradient: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%
 //--------------------------------------------------
 // fonts
 //--------------------------------------------------
-$hind-siliguri: 'Hind Siliguri';
 $playfair-display: 'Playfair Display';
+$hind-siliguri: 'Hind Siliguri';
 
-$body-font: $hind-siliguri;
+$header-font: $playfair-display, serif;
+$header-font-color: $black;
+$header-font-line-height: 1.1;
+
+$body-font: $hind-siliguri, sans-serif;
 $body-font-color: $black;
-
-$header-font: $playfair-display;
-
-$body-line-height: 1.4;
+$body-font-line-height: 1.3;
 
 $thin: 100;
 $light: 300;
@@ -153,3 +164,4 @@ $chapter-image-7: image-url('hero/hero-7-iquitos.jpg');
 $chapter-image-8: image-url('hero/hero-8-thailand.jpg');
 $chapter-image-9: image-url('hero/hero-9-mount-fuji.jpg');
 $chapter-image-10: image-url('hero/hero-10-noraville.jpg');
+

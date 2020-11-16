@@ -3,17 +3,18 @@
 //--------------------------------------------------
 * { 
   box-sizing: border-box;
-  font-family: $body-font;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   font-family: $body-font;
+  line-height: $body-font-line-height;
   margin: 0;
 }
 
 h1 {
   font-family: $header-font;
+  font-size: rem-calc(36);
   font-weight: $thin;
   line-height: 1.1;
   margin: 0; 
@@ -24,7 +25,7 @@ h1 {
   }
 
   @include breakpoint($medium) { 
-    font-size: rem-calc(70); 
+    font-size: rem-calc(100); 
     width: 70%;
   }
 
@@ -45,8 +46,8 @@ h1 {
 
 h2 {
   font-family: $header-font;
-  font-size: rem-calc(20);
-  font-weight: $light;
+  font-size: rem-calc(32);
+  font-weight: $bold;
   margin: rem-calc(0 0 14 0);
 
   @include breakpoint($small) { 
@@ -76,12 +77,11 @@ h2 {
 
 h3 {
   font-family: $header-font;
-  font-size: rem-calc(16);
-  font-weight: $fw-black;
+  font-size: rem-calc(32);
   margin: rem-calc(0 0 6 0);
 
   @include breakpoint($small) { 
-    font-size: rem-calc(20); 
+    font-size: rem-calc(40); 
     margin: rem-calc(0 0 10 0);
   }
 
@@ -117,11 +117,34 @@ h3 {
 
 h4 {
   font-family: $header-font;
-  font-size: rem-calc(14);
-  font-weight: $light;
+  font-size: rem-calc(20);
+  font-weight: $fw-black;
   margin: rem-calc(0 0 6 0);
 
-  @include breakpoint($small) { font-size: rem-calc(20); }
+  @include breakpoint($small) { 
+    font-size: rem-calc(22); 
+    margin: rem-calc(0 0 10 0);
+  }
+}
+
+h5 {
+  font-family: $body-font;
+  font-size: rem-calc(16);
+  font-weight: $bold;
+
+  @include breakpoint($small) { font-size: rem-calc(25); }
+}
+
+h6 {
+  font-family: $body-font;
+  font-size: rem-calc(20);
+  font-weight: $normal;
+}
+
+h7 {
+  font-family: $body-font;
+  font-size: rem-calc(16);
+  font-weight: $bold;
 }
 
 p {
@@ -131,6 +154,11 @@ p {
   margin-top: 0;
 
   @include breakpoint($medium) { font-size: rem-calc(18); }
+
+  &.p--small {
+    font-size: rem-calc(14);
+    line-height: $body-font-line-height;
+  }
 }
 
 a {

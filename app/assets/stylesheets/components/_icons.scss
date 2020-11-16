@@ -9,15 +9,43 @@
 
     display: inline-block;
   }
+  
+  &--circle-chevron-white { 
+    background-image: image_url("icons/circle-chevron-white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+    width: rem-calc(20); height: rem-calc(20);
+
+    @include breakpoint($small) {
+      width: rem-calc(34); height: rem-calc(34);
+    }
+  }
+
+  &--cross {
+    background-image: image_url("icons/cross.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+    width: rem-calc(23); 
+    height: rem-calc(23);
+  }
 
   &--download {
     background-image: image-url('icons/download.svg');
     background-size: cover;
-    width: rem-calc(17); height: rem-calc(19);
+    width: rem-calc(17); height: rem-calc(16);
 
     display: block;
 
-    @include breakpoint($small) { width: rem-calc(25); height: rem-calc(28); }
+    @include breakpoint($small) { 
+      width: rem-calc(20); 
+      height: rem-calc(19); 
+    }
   }
 
   &--share {
@@ -29,4 +57,5 @@
 
     @include breakpoint($small) { width: rem-calc(30); height: rem-calc(28); }
   }
+
 }

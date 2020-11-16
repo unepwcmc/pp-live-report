@@ -89,63 +89,20 @@ $wdpa-legend: ('blue': $wdpa-blue,
       }
 
       &.chart-theme--blue {
-
-        &:nth-child(1) {
-          .chart__bar {
-            background-color: $chart-blue-light;
-          }
-        }
-
-        &:nth-child(2) {
-          .chart__bar {
-            background-color: $chart-blue;
-          }
-        }
-
-        &:nth-child(3) {
-          .chart__bar {
-            background-color: $chart-blue-dark;
-          }
+        .chart__bar {
+          background-color: $chart-blue;
         }
       }
 
       &.chart-theme--green {
-        &:nth-child(1) {
-          .chart__bar {
-            background-color: $chart-green-light;
-          }
-        }
-
-        &:nth-child(2) {
-          .chart__bar {
-            background-color: $chart-green;
-          }
-        }
-
-        &:nth-child(3) {
-          .chart__bar {
-            background-color: $chart-green-dark;
-          }
+        .chart__bar {
+          background-color: $chart-green;
         }
       }
 
       &.chart-theme--pelagic {
-        &:nth-child(1) {
-          .chart__bar {
-            background-color: #96A2FF;
-          }
-        }
-
-        &:nth-child(2) {
-          .chart__bar {
-            background-color: #6D78CC;
-          }
-        }
-
-        &:nth-child(3) {
-          .chart__bar {
-            background-color: #424C9A;
-          }
+        .chart__bar {
+          background-color: #6D78CC;
         }
       }
     }
@@ -172,23 +129,6 @@ $wdpa-legend: ('blue': $wdpa-blue,
 
         &.pelagic {
           @include chart-colour('pelagic', $oecm-legend);
-        }
-      }
-
-      &--wdpa {
-        @include bar-animation-wdpa;
-        @include chart-bar;
-
-        &.blue {
-          @include chart-colour('blue', $wdpa-legend);
-        }
-
-        &.green {
-          @include chart-colour('green', $wdpa-legend);
-        }
-
-        &.pelagic {
-          @include chart-colour('pelagic', $wdpa-legend);
         }
       }
     }

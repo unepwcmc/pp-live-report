@@ -15,26 +15,18 @@
      v-if="oecmPercent > 0"
      :style="{ width: oecmPercent + '%', left: row.percent + '%' }"
     ></span>
-    <span
-     :class="`chart__bar--wdpa ${legendClass}`"
-     v-if="wdpaPercent > 0"
-     :style="{
-      width: wdpaPercent + '%',
-      left: row.percent + oecmPercent + '%',
-     }"
-    ></span>
     <span class="chart__percent">{{ totalPercent(row.percent) }}%</span>
     <span class="chart__label">{{ row.label }}</span>
    </div>
   </div>
   <ul class="chart__legend">
    <li>
-    <span :class="`chart-key__oecm--${legendClass}`"></span>
-    <p>OECMs {{ oecmPercent }}%</p>
-   </li>
-   <li>
     <span :class="`chart-key__wdpa--${legendClass}`"></span>
     <p>WDPAs {{ wdpaPercent }}%</p>
+   </li>
+   <li>
+    <span :class="`chart-key__oecm--${legendClass}`"></span>
+    <p>OECMs {{ oecmPercent }}%</p>
    </li>
   </ul>
  </div>
@@ -56,9 +48,8 @@ export default {
  },
  data() {
   return {
-   //  TODO - set oecmPercent and wdpaPercent as keys of row
-   oecmPercent: 4,
-   wdpaPercent: 5,
+   //  TODO - set oecmPercent as key of row
+   oecmPercent: 4
   };
  },
  mounted() {
@@ -71,13 +62,13 @@ export default {
     triggerElement: ".chart--row__subtitle",
     reverse: false,
    }).setClassToggle(
-    ".chart__bar, .chart__bar--oecm, .chart__bar--wdpa",
+    ".chart__bar, .chart__bar--oecm",
     "bar-animate"
    );
    scene.addTo(controller);
   },
   totalPercent(percent) {
-   return percent + this.wdpaPercent + this.oecmPercent;
+   return percent + this.oecmPercent;
   },
  },
  computed: {

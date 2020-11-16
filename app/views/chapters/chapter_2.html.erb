@@ -35,17 +35,14 @@
 </section>
 
 <section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
+
+ <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
 
   <div class="container--medium">
-    <chart-line 
-      :lines="<%= @line_chart[:lines].to_json %>" 
-      :targets="<%= @line_chart[:targets].to_json %>"
-      :commitments="<%= @line_chart[:commitments].to_json %>"
-      :legend="<%= @line_chart[:legend].to_json %>"
-      :axis="<%= @line_chart[:axis].to_json %>">
-    </chart-line>
+      <am-chart
+      :raw-data="<%= @line_chart %>"
+    ></am-chart>
+
 
     <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
   </div>

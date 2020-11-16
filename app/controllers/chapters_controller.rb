@@ -168,49 +168,7 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    timeseries_data = CsvParser.timeseries
-    lines = []
-    %w[ABNJ EEZ Land].each do |type|
-      datapoints = []
-      ('1990'..'2020').each do |year|
-        datapoints << { x: year, y: timeseries_data[year][type].round(2) }
-      end
-      lines << { datapoints: datapoints }
-    end
-    @line_chart = {
-      lines: lines,
-      axis: {
-        y: ['Area', '(Million km²)']
-      },
-      targets: [
-        {
-          y: 36,
-          title: 'Marine target (10%)'
-        },
-        {
-          y: 23,
-          title: 'Terrestrial target (17%)'
-        }
-      ],
-      commitments: [
-        {
-          x: 2018,
-          line: true,
-          label: %w[Future Commitments]
-        }
-      ],
-      legend: [
-        {
-          title: 'ABNJ'
-        },
-        {
-          title: 'EEZ'
-        },
-        {
-          title: 'Land'
-        }
-      ]
-    }
+    # TODO - Needs data for the new timeseries graph with OECMs
 
     @map_2 = {
       countries: CsvMapParser.ch2_map2_categorical,
@@ -260,6 +218,25 @@ class ChaptersController < ApplicationController
         }
       ]
     }
+
+    timeseries_data = CsvParser.timeseries
+    types = ['ABNJ', 'EEZ', 'Land']
+    lines = ('1990'..'2020').map do |year|
+      { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
+        "1": timeseries_data[year][types[0]].round(2), 
+        "2": timeseries_data[year][types[1]].round(2), 
+        "3": timeseries_data[year][types[2]].round(2)
+      })
+    end
+    @line_chart = {
+      datapoints: lines,
+      units: 'Area (Million km²)',
+      legend: types,
+      yTargets: [
+        { name: 'Marine target (10%)', position: 36 }, 
+        { name: 'Terrestrial target (17%)', position: 23 }
+      ]
+    }.to_json
   end
 
   def chapter_3
@@ -298,31 +275,19 @@ class ChaptersController < ApplicationController
     }
 
     kba_data = CsvParser.kba_timeseries
-    lines = []
-    ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs'].each do |type|
-      datapoints = []
-      ('2000'..'2018').each do |year|
-        datapoints << { x: year, y: kba_data[year][type] }
-      end
-      lines << { datapoints: datapoints }
+    types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
+    lines = ('2000'..'2018').map do |year|
+      { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
+        "1": kba_data[year][types[0]], 
+        "2": kba_data[year][types[1]], 
+        "3": kba_data[year][types[2]] 
+      })
     end
     @line_chart = {
-      lines: lines,
-      axis: {
-        y: ['Average Percentage', 'Covered']
-      },
-      legend: [
-        {
-          title: 'Freshwater'
-        },
-        {
-          title: 'Marine'
-        },
-        {
-          title: 'Terrestrial'
-        }
-      ]
-    }
+      datapoints: lines,
+      units: 'Average percentage covered %',
+      legend: types.map { |t| t.gsub(/(KBAs)/, '').squish }
+    }.to_json
   end
 
   def chapter_4

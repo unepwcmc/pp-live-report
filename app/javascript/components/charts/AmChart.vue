@@ -16,12 +16,13 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
+am4core.useTheme(am4themes_animated);
+
 const STROKE_COLOUR = am4core.color("#c8c8c8");
 
 export default {
  name: "AmChart",
  mounted() {
-  am4core.useTheme(am4themes_animated);
   this.chartInit();
   this.startAnimation();
  },

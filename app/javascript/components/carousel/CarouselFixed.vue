@@ -157,7 +157,6 @@ export default {
         start: "top 50%",
         end: "top -50%",
         onToggle: self => {
-          console.log(self.isActive)
           if(self.isActive) { this.activeIndex = index }
         }
       })

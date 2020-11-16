@@ -38,6 +38,7 @@ class ChaptersController < ApplicationController
   ].freeze
 
   def chapter_number
+    raise NoNumberError unless params[:action].match?(/\d+/)
     params[:action].match(/\d+/)[0].to_i
   end
 

@@ -42,15 +42,13 @@ class ApplicationController < ActionController::Base
   end
 
   def yaml_replace_data
+    chapter_3_dates = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
+
     data = {
-      'chapter_3' => GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize,
+      'chapter_3' => chapter_3_dates,
       'chapter_6' => {}
     }
 
-    data.keys.each do |chapter|
-      data[chapter].merge!(@chapter_dates[chapter])
-    end
-
-    data
+    data.each { |key, value| value.merge!(@chapter_dates[key]) }
   end
 end

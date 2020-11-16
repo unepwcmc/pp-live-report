@@ -39,8 +39,9 @@
 </template>
 
 <script>
-import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners";
-import Popup from "../dropdown/Popup.vue";
+import { eventHub } from '../../packs/application.js'
+import mixinPopupCloseListeners from "../../mixins/mixin-popup-close-listeners"
+import Popup from "../dropdown/Popup.vue"
 
 export default {
  name: "Download",
@@ -72,24 +73,27 @@ export default {
    type: Array
   },
  },
+ mounted() {
+  eventHub.$on('link-clicked', this.clickDownloadOption)
+ },
  data() {
   return {
    isActive: false,
-  };
+  }
  },
  methods: {
   togglePopup() {
    if (this.$ga) {
-    this.$ga.event(this.eventElement, "Download Open");
+    this.$ga.event(this.eventElement, 'Download Open')
    }
-   this.isActive = !this.isActive;
+   this.isActive = !this.isActive
   },
   clickDownloadOption(option) {
-   this.isActive = false;
+   this.isActive = false
    if (this.$ga) {
-    this.$ga.event(this.eventElement, option.title + " " + "downloaded");
+    this.$ga.event(this.eventElement, option.title + ' ' + 'downloaded')
    }
   },
  },
-};
+}
 </script>

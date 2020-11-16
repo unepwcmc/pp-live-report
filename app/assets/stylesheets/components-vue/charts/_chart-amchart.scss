@@ -1,0 +1,41 @@
+// Variables
+$mobile-width: calc((420/690)*100%);
+
+&--amchart {
+
+  &__wrapper-ie11 {
+    @include breakpoint($small) {
+      padding-bottom: rem-calc(5);
+      width: 100%;
+
+      position: relative;
+    }
+  }
+
+  &__scrollable {
+    @include breakpoint-down($small) {
+      overflow-x: scroll;
+      display: flex;
+    }
+  }
+
+  &__bounding-box {
+    height: rem-calc(450);
+
+    @include breakpoint-down($small) {
+      min-width: $mobile-width;
+    }
+  }
+
+  &__svg {
+    width: rem-calc(600);
+    height: 100%;
+
+    @include breakpoint($small) {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

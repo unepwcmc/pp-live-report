@@ -157,6 +157,30 @@
     font-weight: $medium;
   }
 
+  &--display {
+    @include flex;
+    @include flex-h-between;
+    @include flex-v-center;
+    background-color: transparent;
+    border: 2px solid rgba($white, 0.8);
+    border-radius: 2px;
+    padding: rem-calc(2 6);
+    width: rem-calc(82);
+
+    position: relative;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.text {
+      border: none;
+      color: rgba($white, 0.8);
+      font-size: rem-calc(18);
+      opacity: 0.8;
+    }
+  }
+
   &--previous {
     @include button-nav('icons/previous.svg');
   }

@@ -1,204 +1,91 @@
-//--------------------------------------------------
-// carousel animation
-//--------------------------------------------------
-@keyframes fadeOut {
-  0% { 
-    opacity: 1;
 
-  }
-  100% { 
-    opacity: 0; 
-    transform: translateY(-50%);
-  }
-}
-
-@keyframes fadeIn {
-  0% { 
-    opacity: 0;
-
-  }
-  100% { 
-    opacity: 1;
-  }
-}
-
-@keyframes backgroundFadeOut {
-  0% { 
-    opacity: 1;
-
-  }
-  100% { 
-    opacity: 0;
-  }
-}
-
-//--------------------------------------------------
-// carousel
-//--------------------------------------------------
 .carousel {
-  
-//--------------------------------------------------
-// fixed
-//--------------------------------------------------
-  &--fixed {
-    color: $white;
-    background-color: rgba($black, 0.9);
-    padding-right: rem-calc(70);
-    width: 100%; min-height: 100vh;
+  background-color: $black;
+  color: $white;
 
-    position: relative;
+  position: relative;
 
-    @include breakpoint($small) { 
-      padding-right: 0;
-      height: 100vh;
-    }
+  &__content {
+    padding-right: rem-calc(44);
 
-    &::after {
-      content: '';
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-
-      animation: fadeIn .8s ease-in-out;
-    }
-
-    &.animate::after {
-      animation: backgroundFadeOut .4s ease-in-out;
-    }
-
-    &.chapter-1::after { background-image: $chapter-image-1; }
-    &.chapter-2::after { background-image: $chapter-image-2; }
-    &.chapter-3::after { background-image: $chapter-image-3; }
-    &.chapter-4::after { background-image: $chapter-image-4; }
-    &.chapter-5::after { background-image: $chapter-image-5; }
-    &.chapter-6::after { background-image: $chapter-image-6; }
-    &.chapter-7::after { background-image: $chapter-image-7; }
-    &.chapter-8::after { background-image: $chapter-image-8; }
-    &.chapter-9::after { background-image: $chapter-image-9; }
-    &.chapter-10::after { background-image: $chapter-image-10; }
-
-    .carousel {
-      // &__overlay {
-      //   @include background-overlay(rgba($black, .9));
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   bottom: 0;
-      //   left: 0;
-      //   z-index: -1;
-      // }
-
-      &__nav {
-        position: absolute;
-        top: 50%;
-        right: $gutter-small;
-
-        transform: translateY(-50%);
-
-        @include breakpoint($small) { right: rem-calc(30); }
-        @include breakpoint($medium) { right: rem-calc(80); }
-      }
-
-        &__nav-item {
-          @extend %nav__item;
-          padding-bottom: 26px;
-
-          &:last-child { padding-bottom: 0; }
-
-          &.active {
-            font-weight: $normal;
-
-            .carousel__nav-text { 
-              display: none;
-
-              @include breakpoint($medium) { display: inline-block; }
-            }
-
-            .carousel__nav-button {
-              @extend %nav__button-active;
-            }
-          }
-
-          &::after {
-            height: rem-calc(26);
-            
-            left: 50%;
-
-            transform: translateX(-50%);
-          }
-        }
-
-          &__nav-text { 
-            @extend %nav__text;
-            text-align: right;
-            width: rem-calc(260);
-
-            display: none;
-            left: rem-calc(-250);
-          }
-
-          &__nav-button {
-            @extend %nav__button;
-          }
-
-      &__slide {
-        @extend .gutters;
-        font-size: rem-calc(16);
-        font-weight: $light;
-        padding-top: rem-calc(50);
-        padding-bottom: rem-calc(40);
-        // z-index: 1;
-
-        @include breakpoint($small) { 
-          font-size: rem-calc(20);
-          padding-top: 0;
-          padding-bottom: 0;
-          width: calc(100% - 100px);
-
-          position: absolute;
-          top: 50%;
-          left: 50%;
-
-          transform: translate(-50%, -50%);
-        }
-
-        @include breakpoint($medium) {
-          max-width: $site-width;
-        }
-      }
-
-        &__content {
-          animation: fadeIn .8s ease-in-out;
-
-          &.animate {
-            animation: fadeOut .4s ease-in-out;
-          }
-        }
-
-          &__title {
-            @include breakpoint($medium) { width: 50%; } 
-          }
-
-          &__subtitle { 
-            font-size: rem-calc(18);
-            margin: rem-calc(0 0 8 2); 
-
-            @include breakpoint($medium) { font-size: rem-calc(20); }
-          }
-
-
-          &__intro {
-            line-height: 1.3;
-
-            @include breakpoint($medium) { 
-              font-size: rem-calc(20);
-              width: 50%; 
-            } 
-          }
+    @include breakpoint($small) {
+      padding-right: 50%;
     }
   }
+
+  &__nav {
+    position: absolute;
+    top: 50vh;
+    right: $gutter-small;
+    z-index: 1;
+
+    transform: translateY(-50%);
+
+    @include breakpoint($small) { right: rem-calc(30); }
+    @include breakpoint($medium) { right: rem-calc(80); }
+
+    &.active { 
+      position: fixed; 
+      top: 50%;
+    }
+
+    &.end {
+      top: calc(100% - (100vh/2));
+    }
+  }
+
+  &__nav-item {
+    @include flex;
+    @include flex-h-end;
+    @include flex-v-center;
+    cursor: pointer;
+    opacity: .7;
+    
+    &.active { opacity: 1; }
+  }
+  
+  &__nav-item-icon {
+    background-color: $white;
+    border-radius: 100%;
+    margin-left: rem-calc(18);
+    width: rem-calc(6); height: rem-calc(6);
+
+    display: block;
+
+    transform: scale(1);
+    transition: background-color .1s linear, transform .2s ease-in;
+
+    &.active { 
+      background-color: $primary;
+      transform: scale(3);
+    }
+  }
+
+  &__nav-item-text {
+    display: none;
+    @include breakpoint($small) { display: block; }
+  }
+
+  &__slide {
+    @include background-overlay($black-gradient);
+    @include flex;
+    @include flex-v-center;
+    background-size: cover;
+    width: 100%; height: 100vh;
+
+    &:last-child { background-image: $chapter-image-10; }
+  }
+
+  .pin-spacer {
+    &:nth-child(1) .carousel__slide { background-image: $chapter-image-1; }
+    &:nth-child(2) .carousel__slide { background-image: $chapter-image-2; }
+    &:nth-child(3) .carousel__slide { background-image: $chapter-image-3; }
+    &:nth-child(4) .carousel__slide { background-image: $chapter-image-4; }
+    &:nth-child(5) .carousel__slide { background-image: $chapter-image-5; }
+    &:nth-child(6) .carousel__slide { background-image: $chapter-image-6; }
+    &:nth-child(7) .carousel__slide { background-image: $chapter-image-7; }
+    &:nth-child(8) .carousel__slide { background-image: $chapter-image-8; }
+    &:nth-child(9) .carousel__slide { background-image: $chapter-image-9; }
+  }
 }
+

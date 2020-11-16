@@ -13,11 +13,13 @@ class ChaptersController < ApplicationController
     'zh': '中文'
   }.freeze
 
+  helper_method :chapter_number
+
   before_action :load_summary_text
   
   # Messy way of getting chapter number and passing it to before action!
   before_action do
-    populate_case_studies(params[:action].match(/\d+/)[0].to_i)
+    populate_case_studies(chapter_number)
   end
 
 
@@ -35,16 +37,18 @@ class ChaptersController < ApplicationController
     '#4d004b'
   ].freeze
 
+  def chapter_number
+    params[:action].match(/\d+/)[0].to_i
+  end
+
   def chapter_1
     @presenter = ChaptersPresenter.new
 
-    @chapter_number = 1
     @data = @chapters_data[0]
     @gauge_charts = @presenter.gauge_charts
   end
 
   def chapter_2
-    @chapter_number = 2
     @data = @chapters_data[1]
 
     @doughnut_chart = @data['doughnut_chart_data'].map do |item|
@@ -59,8 +63,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_3
-    @chapter_number = 3
-
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 
@@ -171,7 +173,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_4
-    @chapter_number = 4
     @data = @chapters_data[3]
     @percentage = CsvMapParser.ch4_map1_percentage
 
@@ -222,7 +223,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_5
-    @chapter_number = 5
     @data = @chapters_data[4]
 
     @map_1 = {
@@ -475,7 +475,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_6
-    @chapter_number = 6
     @data = @chapters_data[5]
 
     @map = {
@@ -492,12 +491,10 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_7
-    @chapter_number = 7
     @data = @chapters_data[6]
   end
 
   def chapter_8
-    @chapter_number = 8
     @data = @chapters_data[7]
 
     # TODO - May need to remove or change map style from infographic to interactive
@@ -537,17 +534,14 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_9
-    @chapter_number = 9
     @data = @chapters_data[8]
   end
 
-  def chapter_10
-    @chapter_number = 10
+  def chapter_100
     @data = @chapters_data[9]
   end
 
-  def chapter_11
-    @chapter_number = 11
+  def chapter_111
     @data = @chapters_data[10]
   end
 

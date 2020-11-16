@@ -1,95 +1,168 @@
 <template>
-  <div class="carousel--fixed" :class="[{ 'animate': changingSlide }, `chapter-${this.activeIndex + 1}`]">
-    <span class="carousel__overlay bg-overlay"></span>
-    <div class="carousel__slide">
-      <div class="carousel__content" :class="{ 'animate': changingSlide }" ref="animated-slide">
-        <p class="carousel__subtitle">{{ subtitle}}</p>
-        <h2 class="heading--carousel carousel__title">{{ title }}</h2>
-        <p class="carousel__intro">{{ intro}}</p>
-        <a :href="url" :title="'View chapter: #{title}'" class="button--cta">View chapter</a>
-      </div>
-    </div>
+<div id="carousel" class="carousel">
+  <div 
+    :class="['carousel__nav', { 'active': isActive, 'end': atCarouselEnd }]">
+    <p
+      v-for="(slide, index) in slides"
+      :key="slide._uid"
+      @click="scroll(index + 1)"
+      :class="['carousel__nav-item', { 'active': navItemActive(index + 1) }]"
+    >
+      <span class="carousel__nav-item-text">Chapter {{ index + 1 }}</span>
+      <span :class="['carousel__nav-item-icon', { 'active': navItemActive(index + 1) }]" />
+    </p>
+  </div>
 
-    <div class="carousel__nav flex flex-column flex-v-end">
-      <div v-for="(slide, index) in slides" :key="`slide-${index}`" class="carousel__nav-item flex" :class="{ 'active': isActive(index) }">
-        <span class="carousel__nav-text">{{ slide.title }}</span>
-        <span @click="changeSlide(index)" class="carousel__nav-button flex flex-center"> {{ index + 1 }}</span>
+  <div 
+    class="carousel__slides"
+    id="chapter-0" 
+  >
+    <section 
+      v-for="(slide, index) in slides"
+      :key="slide._uid"
+      :id="`chapter-${index + 1}`" 
+      class="carousel__slide"
+      ref="animated-slide"
+    >
+      <div class="carousel__content container">
+        <p class="carousel__subtitle">{{ slide.subtitle}}</p>
+        <h2 class="carousel__title">{{ slide.title }}</h2>
+        <p class="carousel__intro">{{ slide.intro}}</p>
+        <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="carousel__button button--cta">View chapter</a>
       </div>
-    </div>
-  </div>  
+    </section>
+  </div>
+</div>
 </template>
 
 <script>
-  export default {
-    name: 'carousel-fixed',
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap } from "gsap"
 
-    props: {
-      slides: {
-        type: Array,
-        required: true
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+
+export default {
+  name: 'carousel-fixed',
+
+  props: {
+    slides: {
+      type: Array,
+      required: true
+    }
+  },
+
+  data () {
+    return {
+      activeIndex: 0,
+      atCarouselEnd: false,
+      isActive: false,
+    }
+  },
+
+  mounted () {
+    this.scrollTriggerHandlers()
+  },
+
+  methods: {
+    navItemActive (index) {
+      return this.activeIndex == index
+    },
+
+    scroll (index) {
+      //For some reason the .to doesn't work 
+      //when scrolling back up so need to -1 off index
+      const newIndex = index > this.activeIndex ? index : index - 1
+      
+      const slide = `#chapter-${newIndex}`
+
+      gsap.to(window, { 
+        duration: 1,
+        overwrite: true,
+        scrollTo: slide,
+      })
+    },
+
+    scrollTriggerHandlers () {
+      for (var i=1; i<=this.slides.length; i++) {
+        const index = i,
+              slideId = `#chapter-${i}`
+
+        this.scrollTriggerHandlerContent(slideId, index)
+        this.scrollTriggerHandlerNav(slideId, index)
+        this.scrollTriggerHandlerNavItem(slideId, index)
+        this.scrollTriggerHandlerPin(slideId, index)
       }
     },
 
-    data () {
-      return {
-        activeIndex: 0,
-        changingSlide: false,
-        endEvent: ''
-      }
+    scrollTriggerHandlerContent (id, index) {
+      let tl = gsap.timeline()
+      const content = [
+        `#chapter-${index} .carousel__subtitle`,
+        `#chapter-${index} .carousel__title`,
+        `#chapter-${index} .carousel__intro`,
+        `#chapter-${index} .carousel__button`
+      ]
+
+      tl.from(content, { 
+        duration: .9, 
+        ease: "sine.inOut", 
+        opacity: 0, 
+        stagger: 0.3 
+      })
+        
+      //Animate content of slide
+      ScrollTrigger.create({
+        animation: tl,
+        start: "top 80%",
+        trigger: id,
+        onToggle: self => {
+          self.isActive ? self.animation.play() : self.animation.pause(0)  
+        },
+      })
     },
 
-    computed: {
-      title () {
-        return this.slides[this.activeIndex]['title']
-      },
+    scrollTriggerHandlerPin (id, index) {
+      //Pin each slide
+      const isLastSlide = index == this.slides.length
 
-      subtitle () {
-        return this.slides[this.activeIndex]['subtitle']
-      },
-
-      intro () {
-        return this.slides[this.activeIndex]['intro']
-      },
-
-      url () {
-        return this.slides[this.activeIndex]['url']
-      }
+      ScrollTrigger.create({
+        trigger: id,
+        start: "top top",
+        end: "+=100%",
+        pin: !isLastSlide,
+        pinSpacing: false,
+        scrub: true,
+        snap: 1,
+      })
     },
-
-    mounted () {
-      this.endEvent = this.getEndEvent()
-    },
-
-    methods: {
-      changeSlide (index) {
-        this.changingSlide = true
-
-        this.$refs['animated-slide'].addEventListener(this.endEvent, () => {
-          this.activeIndex = index
-          this.changingSlide = false
-        }, false)
-      },
-
-      isActive (index) {
-        return this.activeIndex == index
-      },
-
-      getEndEvent () {
-        const el = document.createElement("fakeelement")
-
-        const animations = {
-          'animation'      : 'animationend',
-          'OAnimation'     : 'oAnimationEnd',
-          'MozAnimation'   : 'animationend',
-          'WebkitAnimation': 'webkitAnimationEnd'
+    
+    scrollTriggerHandlerNav (){
+      //Fix nav in place
+      ScrollTrigger.create({
+        trigger: '#carousel',
+        start: "top top",
+        end: "bottom bottom",
+        onToggle: self => {
+          this.isActive = self.isActive
+          this.atCarouselEnd = self.progress == 1
         }
+      })
+    },
 
-        for (let a in animations){
-          if (el.style[a] !== undefined){
-            return animations[a];
+    scrollTriggerHandlerNavItem (id, index){
+      //Show active item in scroll to nav
+      ScrollTrigger.create({
+        trigger: id,
+        start: "top 50%",
+        end: "top -50%",
+        onToggle: self => {
+          if(self.isActive) { 
+            this.activeIndex = index
           }
         }
-      }
+      })
     }
   }
+}
 </script>

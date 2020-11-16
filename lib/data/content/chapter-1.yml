@@ -3,3 +3,8 @@ menu_title: "Executive Summary"
 subtitle: "Chapter 1"
 photo_credits: "TBC" # Need photo
 
+case_studies:
+  - 
+    label: 'Box 0'
+    title: 'Authors and Contributors'
+    text: ""

@@ -6,16 +6,13 @@
     background-color: $black;
     height: rem-calc(60);
 
-    @include breakpoint($small) { 
-      height: rem-calc(80); 
-      width: 100%;
+    @include breakpoint($small) { height: rem-calc(80); }
+    @include breakpoint($medium) { 
+      margin-bottom: auto;
+      height: rem-calc(90);
 
-      position: absolute;
-      top: 0;
-      left: 0;
+      justify-self: flex-start;
     }
-
-    @include breakpoint($medium) { height: rem-calc(90); }
   }
 
   &__site-link {

@@ -17,7 +17,23 @@
       min-height: 100vh; 
     }
 
+    @include breakpoint($medium) {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+
     .hero {
+      &__content {
+        margin-top: rem-calc(22);
+
+        @include breakpoint($small) { margin-top: rem-calc(32); }
+        @include breakpoint($medium) { 
+          margin-top: 0;
+          margin-bottom: auto;
+        }
+      }
+
       &__subtitle {
         font-size: rem-calc(20);
         font-weight: $bold;

@@ -10,19 +10,19 @@
      :class="themeClass"
     >
      <span class="chart__bar" :style="{ width: row.percent + '%' }"></span>
+     <span class="chart__percent">{{ totalPercent(row.percent) }}%</span>
      <span
       :class="`chart__bar--oecm ${legendClass}`"
       v-if="oecmPercent > 0"
       :style="{ width: oecmPercent + '%', left: row.percent + '%' }"
      ></span>
-     <span class="chart__percent">{{ totalPercent(row.percent) }}%</span>
     </div>
    </div>
   </div>
   <ul class="chart__legend">
    <li>
     <span :class="`chart-key__wdpa--${legendClass}`"></span>
-    <p>WDPAs {{ wdpaPercent }}%</p>
+    <p>WDPAs %</p>
    </li>
    <li>
     <span :class="`chart-key__oecm--${legendClass}`"></span>
@@ -68,7 +68,7 @@ export default {
    scene.addTo(controller)
   },
   totalPercent(percent) {
-   return percent + this.oecmPercent
+   return percent
   },
  },
  computed: {

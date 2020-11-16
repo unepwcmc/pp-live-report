@@ -89,19 +89,19 @@ $wdpa-legend: ('blue': $wdpa-blue,
 
       &.chart-theme--blue {
         .chart__bar {
-          background-color: $chart-blue;
+          background-color: $wdpa-blue;
         }
       }
 
       &.chart-theme--green {
         .chart__bar {
-          background-color: $chart-green;
+          background-color: $wdpa-green;
         }
       }
 
       &.chart-theme--pelagic {
         .chart__bar {
-          background-color: #6D78CC;
+          background-color: $wdpa-pelagic;
         }
       }
     }
@@ -133,6 +133,7 @@ $wdpa-legend: ('blue': $wdpa-blue,
     }
 
     &__percent {
+      color: white;
       padding-left: rem-calc(12);
 
       z-index: 1;
@@ -148,7 +149,6 @@ $wdpa-legend: ('blue': $wdpa-blue,
     }
 
     &__legend {
-      @include flex;
       list-style-type: none;
       margin: 0;
       padding: 0;

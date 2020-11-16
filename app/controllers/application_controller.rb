@@ -37,8 +37,7 @@ class ApplicationController < ActionController::Base
       @chapter_dates[params[:action]] : 
       @chapter_dates['home']
 
-    @last_updated_date = dates['last_updated'] 
-    @next_updated_date = dates['next_updated'] 
+    @last_updated_date = dates['last_updated']
   end
 
   def yaml_replace_data

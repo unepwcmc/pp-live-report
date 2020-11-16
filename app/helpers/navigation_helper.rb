@@ -13,7 +13,7 @@ module NavigationHelper
   end
 
   def populate_chapter_json(chapter_number)
-    return false if chapter_number == ( FIRST_CHAPTER - 1 || LAST_CHAPTER + 1 )
+    return if chapter_number == ( FIRST_CHAPTER - 1 || LAST_CHAPTER + 1 )
     URI.join(root_url, "/chapter-#{chapter_number}")
   end
 end

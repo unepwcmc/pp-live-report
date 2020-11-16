@@ -68,7 +68,13 @@ class ChaptersController < ApplicationController
         {
           title: 'Marine',
           layers: [
-            # TODO - Need to restructure below into % categories
+                {
+                  id: 'marine-' + random_number,
+                  text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
+                  text_small: 'Total PA Coverage',
+                  source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
+                  colour: '#133151'
+                },
                 {
                   id: "eez-" + random_number,
                   text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',

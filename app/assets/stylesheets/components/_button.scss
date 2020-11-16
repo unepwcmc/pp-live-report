@@ -117,8 +117,7 @@
     width: rem-calc(150);
 
     @include breakpoint($small) {
-      padding: rem-calc(10 16);
-      width: rem-calc(140);
+      padding: rem-calc(11 16);
     }
 
     &__text {

@@ -6,12 +6,11 @@ class ChaptersController < ApplicationController
   helper_method :map_disclaimer
 
   before_action :load_summary_text
- 
+
   # Messy way of getting chapter number and passing it to before action!
   before_action do
     populate_case_studies(params[:action].match(/\d+/)[0].to_i)
   end
-
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -61,49 +60,49 @@ class ChaptersController < ApplicationController
     @data = @chapters_data[1]
 
     @map_1 = {
-      id: "map_1",
-      tiles_url: "https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf",
+      id: 'map_1',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
           title: 'Terrestrial',
           layers: [
             {
-              id: "terrestrial-" + random_number,
+              id: 'terrestrial-' + random_number,
               text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_small: "Terrestrial",
-              source_layers: {poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial'},
-              colour: "#86BF37"
+              text_small: 'Terrestrial',
+              source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
+              colour: '#86BF37'
             }
           ]
         },
         {
           title: 'Marine',
           layers: [
-                {
-                  id: 'marine-' + random_number,
-                  text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-                  text_small: 'Total PA Coverage',
-                  source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
-                  colour: '#133151'
-                },
-                {
-                  id: "eez-" + random_number,
-                  text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-                  text_small: "Global EEZ",
-                  source_layers: {poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ'},
-                  colour: "#6FD9F2"
-                },
-                {
-                  id: "abnj-" + random_number,
-                  text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-                  text_small: "Global ABNJ",
-                  source_layers: {poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ'},
-                  colour: "#207D94"
-                }
-              ]
-          }
-        ]
-      }
+            {
+              id: 'marine-' + random_number,
+              text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
+              text_small: 'Total PA Coverage',
+              source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
+              colour: '#133151'
+            },
+            {
+              id: 'eez-' + random_number,
+              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
+              text_small: 'Global EEZ',
+              source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
+              colour: '#6FD9F2'
+            },
+            {
+              id: 'abnj-' + random_number,
+              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
+              text_small: 'Global ABNJ',
+              source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
+              colour: '#207D94'
+            }
+          ]
+        }
+      ]
+    }
 
     @global_area_chart = {
       id: 'global-area-chart',
@@ -178,7 +177,7 @@ class ChaptersController < ApplicationController
       ]
     }
 
-    # TODO - Needs data for the new timeseries graph with OECMs
+    # TODO: - Needs data for the new timeseries graph with OECMs
 
     @map_2 = {
       countries: CsvMapParser.ch2_map2_categorical,
@@ -230,20 +229,20 @@ class ChaptersController < ApplicationController
     }
 
     timeseries_data = CsvParser.timeseries
-    types = ['ABNJ', 'EEZ', 'Land']
+    types = %w[ABNJ EEZ Land]
     lines = ('1990'..'2020').map do |year|
-      { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
-        "1": timeseries_data[year][types[0]].round(2), 
-        "2": timeseries_data[year][types[1]].round(2), 
-        "3": timeseries_data[year][types[2]].round(2)
-      })
+      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }.merge!({
+                                                                 "1": timeseries_data[year][types[0]].round(2),
+                                                                 "2": timeseries_data[year][types[1]].round(2),
+                                                                 "3": timeseries_data[year][types[2]].round(2)
+                                                               })
     end
     @line_chart = {
       datapoints: lines,
       units: 'Area (Million km²)',
       legend: types,
       yTargets: [
-        { name: 'Marine target (10%)', position: 36 }, 
+        { name: 'Marine target (10%)', position: 36 },
         { name: 'Terrestrial target (17%)', position: 23 }
       ]
     }.to_json
@@ -287,11 +286,11 @@ class ChaptersController < ApplicationController
     kba_data = CsvParser.kba_timeseries
     types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
     lines = ('2000'..'2018').map do |year|
-      { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
-        "1": kba_data[year][types[0]], 
-        "2": kba_data[year][types[1]], 
-        "3": kba_data[year][types[2]] 
-      })
+      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }.merge!({
+                                                                 "1": kba_data[year][types[0]],
+                                                                 "2": kba_data[year][types[1]],
+                                                                 "3": kba_data[year][types[2]]
+                                                               })
     end
     @line_chart = {
       datapoints: lines,
@@ -734,36 +733,38 @@ class ChaptersController < ApplicationController
 
   def map_disclaimer(source)
     {
+      title: 'Map Disclaimer',
       source: source,
       text: @shared_data['map_disclaimer']
-  }.to_json
+    }.to_json
+  end
 
-  LANGUAGES = { 
+  LANGUAGES = {
     'ar': 'العربية',
     'es': 'Español',
     'en': 'English',
     'fr': 'Français',
     'ru': 'Русский',
     'zh': '中文'
-}.freeze
+  }.freeze
 
-  def load_summary_text 
-    # TODO - need actual summary text in different languages 
+  def load_summary_text
+    # TODO: - need actual summary text in different languages
     summaries_path = 'config/locales/summary'.freeze
 
     @summaries = Dir.children(summaries_path).sort.map do |locale|
       yml = YAML.load_file(File.join(Rails.root, summaries_path, locale))
       locale_iso = locale.split('.')[0]
-      
+
       {
-        title: yml["#{locale_iso}"]['summary']['title'],
-        text: yml["#{locale_iso}"]['summary']['text'],
+        title: yml[locale_iso.to_s]['summary']['title'],
+        text: yml[locale_iso.to_s]['summary']['text'],
         locale: { title: LANGUAGES[locale_iso.to_sym], iso: locale_iso }
       }
     end.to_json
   end
-  
-  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+
+  CASE_STUDY_ATTRIBUTES = %w[label report authors org title text image caption source].freeze
 
   def populate_case_studies(chapter_number)
     # TODO: - Update case study texts
@@ -771,19 +772,19 @@ class ChaptersController < ApplicationController
     return if case_study_data.nil?
 
     @items = case_study_data.map do |case_study|
-                case_study['text'] = case_study['text'].split("\n")  
-                contents = case_study_contents.merge(case_study.deep_stringify_keys)
+      case_study['text'] = case_study['text'].split("\n")
+      contents = case_study_contents.merge(case_study.deep_stringify_keys)
 
-                contents['image'] = case_study_image(case_study)
-                contents
-            end
+      contents['image'] = case_study_image(case_study)
+      contents
+    end
   end
 
   def case_study_contents
-    # Build a hash out of all possible keys 
+    # Build a hash out of all possible keys
     # This allows more data to be easily added to the case studies in the YML file at a later date
     # e.g. if authors or a caption for an image is needed to be inserted
-    attributes = Hash.new
+    attributes = {}
     CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
     attributes
   end

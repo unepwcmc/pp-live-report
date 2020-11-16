@@ -1,8 +1,11 @@
 <template>
  <div :class="[isActive ? 'modal-wrapper--active' : 'modal-wrapper']">
-  <div v-if="isActive" class="modal--case-study">
+  <div
+   v-if="isActive && type === 'caseStudy'"
+   class="modal__window--case-study"
+  >
    <button class="modal__close icon--cross" @click.stop="modalClose" />
-   <div class="modal__content">
+   <div class="modal__content--case-study">
     <p v-if="text.report" class="modal__report">{{ text.report }}</p>
     <h2 class="modal__title">{{ text.title }}</h2>
     <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
@@ -15,6 +18,18 @@
       text.source
      }}</small>
     </div>
+   </div>
+  </div>
+
+  <div
+   v-if="isActive && type === 'disclaimer'"
+   class="modal__window--disclaimer"
+  >
+   <button class="modal__close icon--cross" @click.stop="modalClose" />
+   <div class="modal__content--disclaimer">
+    <h4 class="modal__title">{{ text.title }}</h4>
+    <p>{{ text.source }}</p>
+    <p>{{ text.text }}</p>
    </div>
   </div>
  </div>
@@ -33,13 +48,17 @@ export default {
    type: Object,
    required: true,
   },
+  type: {
+   type: String,
+   default: 'caseStudy'
+  }
  },
  methods: {
   modalClose() {
-   this.$emit("close-modal");
+   this.$emit("close-modal")
   },
  },
-};
+}
 </script>
 
 

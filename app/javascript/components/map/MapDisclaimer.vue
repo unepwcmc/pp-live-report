@@ -5,6 +5,7 @@
   </button>
   <modal
    :text="disclaimer"
+   type="disclaimer"
    :is-active="isActive"
    @close-modal="closeModal"
   ></modal>
@@ -16,6 +17,9 @@ import Modal from '../modal/Modal.vue'
 
 export default {
  name: "MapDisclaimer",
+ components: {
+   Modal,
+ },
  props: {
   disclaimer: {
    type: Object,

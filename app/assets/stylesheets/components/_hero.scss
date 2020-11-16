@@ -31,6 +31,8 @@
   &--home {
     @include hero-basic;
     padding-bottom: rem-calc(20);
+
+    position: relative;
     
     @include breakpoint($small) { 
       min-height: 100vh; 
@@ -91,9 +93,21 @@
         @include breakpoint($medium) { left: $gutter-large; }
       }
 
-        &__date {
-          margin: 0;
+      &__date {
+        margin: 0;
+      }
+
+      &__icon {
+        position: absolute;
+        bottom: rem-calc(22);
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        @include breakpoint($small) {
+          bottom: rem-calc(44);
         }
+      }
     }
   }
 
@@ -103,10 +117,6 @@
   &--chapter {
     @include hero-basic;
     
-    @include breakpoint($small) {
-      
-    }
-
     @include breakpoint($medium) { 
       min-height: rem-calc(512); 
     }

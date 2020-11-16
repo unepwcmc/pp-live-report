@@ -565,7 +565,6 @@ class ChaptersController < ApplicationController
   end
   
   def populate_case_studies(chapter_number)
-    # TODO: - Update case study texts
     case_study_data = @chapters_data[chapter_number - 1]['case_studies']
     return if case_study_data.nil?
 

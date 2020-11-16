@@ -72,9 +72,9 @@ export default {
     scroll (index) {
       //For some reason the .to doesn't work 
       //when scrolling back up so need to -1 off index
-      this.activeIndex = index > this.activeIndex ? index : index - 1
+      const newIndex = index > this.activeIndex ? index : index - 1
       
-      const slide = `#chapter-${this.activeIndex}`
+      const slide = `#chapter-${newIndex}`
 
       gsap.to(window, { 
         duration: 1,
@@ -138,7 +138,7 @@ export default {
     },
     
     scrollTriggerHandlerNav (){
-      //Fix nav
+      //Fix nav in place
       ScrollTrigger.create({
         trigger: '#carousel',
         start: "top top",
@@ -157,7 +157,9 @@ export default {
         start: "top 50%",
         end: "top -50%",
         onToggle: self => {
-          if(self.isActive) { this.activeIndex = index }
+          if(self.isActive) { 
+            this.activeIndex = index
+          }
         }
       })
     }

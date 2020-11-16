@@ -38,6 +38,7 @@
     @include flex;
     @include flex-h-end;
     @include flex-v-center;
+    cursor: pointer;
     opacity: .7;
     
     &.active { opacity: 1; }

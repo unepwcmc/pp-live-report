@@ -3,6 +3,8 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
+  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+
   # Messy way of getting chapter number and passing it to before action!
   before_action do
     populate_case_studies(params[:action].match(/\d+/)[0].to_i)
@@ -28,21 +30,6 @@ class ChaptersController < ApplicationController
     @chapter_number = 1
     @data = @chapters_data[0]
     @gauge_charts = @presenter.gauge_charts
-
-    @smallprint = 'Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017.'
-
-    doughnut_chart = @data['doughnut_chart_data']
-    @doughnut_chart = []
-
-    doughnut_chart.each do |item|
-      @doughnut_chart.push({
-                             'title': item['title'],
-                             'colour': item['colour'],
-                             'icon': ActionController::Base.helpers.image_url(item['icon']),
-                             'description': item['description'],
-                             'url': item['url']
-                           })
-    end
   end
 
   def chapter_2
@@ -57,6 +44,7 @@ class ChaptersController < ApplicationController
         'description': item['description'],
         'url': item['url']
       }
+    end
   end
 
   def chapter_3
@@ -560,9 +548,9 @@ class ChaptersController < ApplicationController
   def chapter_11
     @chapter_number = 11
     @data = @chapters_data[10]
-  private
+  end
 
-  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+  private
 
   def populate_case_studies(chapter_number)
     # TODO: - Update case study texts

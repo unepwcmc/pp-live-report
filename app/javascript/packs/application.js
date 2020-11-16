@@ -28,6 +28,7 @@ import store from '../store/store.js'
 // vue components
 import Accordion from '../components/accordion/Accordion'
 import AccordionItem from '../components/accordion/AccordionItem'
+import CardImage from '../components/cards/CardImage'
 import CarouselFixed from '../components/carousel/CarouselFixed'
 import ChartArea from '../components/charts/ChartArea'
 import ChartColumn from '../components/charts/ChartColumn'
@@ -54,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
     components: {
       Accordion,
       AccordionItem,
+      CardImage,
       CarouselFixed,
       ChartArea,
       ChartColumn,

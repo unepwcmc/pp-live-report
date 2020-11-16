@@ -39,19 +39,31 @@
         font-weight: $bold;
         line-height: 1.4;
         margin-bottom: rem-calc(14);
+        opacity: 0;
+
+        animation: fadeIn 1.5s .5s ease-in-out forwards;
 
         @include breakpoint($medium) { font-size: rem-calc(25); }
         @include breakpoint($medium) { width: $small-container; }
+      }
+
+      &__title { 
+        opacity: 0;
+
+        animation: fadeIn 1.5s ease-in-out forwards;
       }
       
       &__intro {
         font-size: rem-calc(16);
         font-weight: $light;
         line-height: 1.5;
+        opacity: 0;
 
         @include breakpoint($small) { font-size: rem-calc(20); }
 
         @include breakpoint($medium) { width: $small-container; }
+
+        animation: fadeIn 1.5s 1s ease-in-out forwards;
       }
 
       &__dates {

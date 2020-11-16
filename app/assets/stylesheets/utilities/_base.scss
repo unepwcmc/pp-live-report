@@ -3,12 +3,12 @@
 //--------------------------------------------------
 * { 
   box-sizing: border-box;
-  font-family: $body-font;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   font-family: $body-font;
+  line-height: $body-font-line-height;
   margin: 0;
 }
 
@@ -127,9 +127,13 @@ h3 {
 h4 {
   font-family: $header-font;
   font-size: rem-calc(20);
+  font-weight: $fw-black;
   margin: rem-calc(0 0 6 0);
 
-  @include breakpoint($small) { font-size: rem-calc(25); }
+  @include breakpoint($small) { 
+    font-size: rem-calc(22); 
+    margin: rem-calc(0 0 10 0);
+  }
 }
 
 h5 {
@@ -157,6 +161,13 @@ p {
   font-weight: $light;
   line-height: 1.6;
   margin-top: 0;
+
+  @include breakpoint($medium) { font-size: rem-calc(18); }
+
+  &.p--small {
+    font-size: rem-calc(14);
+    line-height: $body-font-line-height;
+  }
 }
 
 a {

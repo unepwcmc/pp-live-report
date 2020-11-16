@@ -26,10 +26,13 @@ class ChaptersController < ApplicationController
   ].freeze
 
   def chapter_1
+    @presenter = ChaptersPresenter.new
+
     @chapter_number = 1
     @next_chapter_title = @chapters_data[1]['menu_title']
     @next_chapter_link = chapter_2_path
     @data = @chapters_data[0]
+    @gauge_charts = @presenter.gauge_charts
 
     @smallprint = 'Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017.'
 

@@ -2,26 +2,26 @@ require 'csv'
 # a boundary of 0 will make the first category only those with a value of 0 
 # (used for no assessment/no data categories)
 CATEGORICAL_MAP_STATS = {
-  ch2_map2_categorical: {
+  ch3_map2_categorical: {
     boundaries: [0,5,10,17],
     header_name: 'percentage_pa_land_cover',
-    csv: 'chapter2_national_pa_statistics.csv'
+    csv: 'chapter3_national_pa_statistics.csv'
   },
-  ch5_map_categorical: {
+  ch6_map_categorical: {
     boundaries: [0,10,30,60],
     header_name: 'pame_percentage_pa_land_cover',
-    csv: 'chapter2_national_pa_statistics.csv'
+    csv: 'chapter3_national_pa_statistics.csv'
   },
-  ch7_map1_categorical: {
+  ch8_map1_categorical: {
     boundaries: [4,8,12,17,25],
     header_name: 'ProtConn_B',
-    csv: 'chapter7_national_connectivity_perccov_mar20.csv'
+    csv: 'chapter8_national_connectivity_perccov_mar20.csv'
   },
-  ch7_map2_categorical: {
-    csv: 'Ch7_Figure_15_AB_categorical.csv'
+  ch8_map2_categorical: {
+    csv: 'Ch8_Figure_15_AB_categorical.csv'
   },
-  ch7_map3_categorical: {
-    csv: 'Ch7_Figure_15_C_categorical.csv'
+  ch8_map3_categorical: {
+    csv: 'Ch8_Figure_15_C_categorical.csv'
   }
 }
 
@@ -34,8 +34,8 @@ module CsvMapParser
     end
   end
 
-  def ch3_map1_percentage
-    percentage_stats('chapter3_global_kba_statistics.csv')
+  def ch5_map1_percentage
+    percentage_stats('chapter5_global_kba_statistics.csv')
   end
 
   private

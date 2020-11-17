@@ -1,7 +1,5 @@
 <%= render 'partials/multilingual' %>
 
-<%= render 'partials/blockquote', locals: { text: @data['aichi_text'].html_safe } %>
-
 <div class="container section-padding">
   <div class="aichi-target sm-trigger-aichi-chart">
     <div class="box__text">
@@ -25,22 +23,3 @@
     </div>
   </div>
 </div>
-
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['aichi_text_2'].each do |t| %>
-      <p class="content__text"><%= t.html_safe %></p>
-    <% end %>
-  </div>
-</section>
-
-<section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['doughnut_chart_title'], intro: @data['doughnut_chart_intro'].html_safe } %>
-  
-  <div class="container--medium">
-    <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @smallprint %>"></chart-doughnut>
-  </div>
-</section>
-
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>

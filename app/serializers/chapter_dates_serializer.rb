@@ -15,7 +15,7 @@ class ChapterDatesSerializer
       end
     end
 
-    @dates['home'] = @dates['chapter_2']
+    @dates['home'] = @dates['chapter_3']
 
     @dates
   end

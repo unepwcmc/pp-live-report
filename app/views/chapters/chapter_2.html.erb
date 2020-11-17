@@ -1,65 +1,14 @@
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content'].html_safe %></p>
-  </div>
-</section>
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
 
-<!-- TODO - Need CSV download links for maps -->
-<map-statistics 
-  id="<%= @map_1[:id] %>"
-  title="<%= @data['map_1_title'] %>"
-  tiles-url="<%= @map_1[:tiles_url] %>" 
-  :tabs="<%= @map_1[:tabs].to_json %>"
-  :layers="<%= @map_1[:layers].to_json %>" 
-  :oecm-present="true"
-  :file-download="'#'" 
-  :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
-></map-statistics>
+<%= render partial: 'partials/main-text', locals: { text: @data['main_text'] } %>
 
 <section class="section-padding">
-
-  <%= render partial: 'partials/component-title', locals: { title: @data['area_charts_title'], intro: @data['area_charts_description'] } %>
-
-  <div class="container--medium section-padding--top">
-    <h3><%= @data['area_chart_1_title'] %></h3>
-    <div <%= @global_area_chart[:id] %>>
-      <chart-area id="<%= @global_area_chart[:id] %>" :datasets="<%= @global_area_chart[:datasets].to_json %>" :legend="<%= @global_area_chart[:legend].to_json %>"></chart-area>
-    </div>
-  </div>
-
+  
+  <%= render partial: 'partials/component-title', locals: { title: @data['doughnut_chart_title'], intro: @data['doughnut_chart_intro'].html_safe } %>
+  
   <div class="container--medium">
-    <h3><%= @data['area_chart_2_title'] %></h3>
-    <div <%= @marine_area_chart[:id] %>>
-      <chart-area id="<%= @marine_area_chart[:id] %>" :datasets="<%= @marine_area_chart[:datasets].to_json %>" :legend="<%= @marine_area_chart[:legend].to_json %>"></chart-area>
-    </div>
-
-    <span class="smallprint"><%= @data['area_chart_2_smallprint'] %></span>
+    <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @data['smallprint'] %>"></chart-doughnut>
   </div>
 </section>
 
-<section class="section-padding">
 
- <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
-
-  <div class="container--medium">
-      <am-chart
-      :raw-data="<%= @line_chart %>"
-    ></am-chart>
-
-
-    <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
-  </div>
-</section>
-
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
-
-<!-- TODO - Need terrestrial map layers for this map -->
-<map-statistics 
-  id="<%= @map_3[:id] %>"
-  title="<%= @data['map_3_title'] %>" 
-  :layers="<%= @map_3[:layers].to_json %>" 
-  tiles-url="<%= @map_3[:tiles_url] %>"
-  :file-download="'#'" 
-  :oecm-present="true"
-  :disclaimer="<%= map_disclaimer(@data['map_3_source']) %>"
-></map-statistics>

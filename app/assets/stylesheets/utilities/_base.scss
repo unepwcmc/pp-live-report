@@ -60,14 +60,6 @@ h2 {
     margin-bottom: rem-calc(30);
   }
 
-  &.heading--carousel {
-    font-size: rem-calc(25);
-    font-weight: $light;
-
-    @include breakpoint($small) { font-size: rem-calc(60); }
-    @include breakpoint($medium) { font-size: rem-calc(70); }
-  }
-
   &.heading--map {
     font-size: rem-calc(18);
     font-weight: $bold;
@@ -92,15 +84,6 @@ h3 {
   @include breakpoint($small) { 
     font-size: rem-calc(40); 
     margin: rem-calc(0 0 10 0);
-  }
-
-  &.heading--cta {
-    font-size: rem-calc(25);
-    font-weight: $light;
-    margin-bottom: rem-calc(12);
-
-    @include breakpoint($small) { font-size: rem-calc(30); }
-    @include breakpoint($medium) { font-size: rem-calc(40); }
   }
 
   &.heading--doughnut-chart {

@@ -19,6 +19,18 @@
 
     display: inline-block;
   }
+
+  &--arrow-down {
+    background-image: image-url('icons/arrow-down.svg');
+    background-size: cover;
+    width: rem-calc(15); height: rem-calc(24);
+
+    display: inline-block;
+
+    @include breakpoint($small) {
+      width: rem-calc(26); height: rem-calc(41);
+    }
+  }
   
   &--circle-chevron-white { 
     background-image: image_url("icons/circle-chevron-white.svg");

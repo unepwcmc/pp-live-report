@@ -538,11 +538,11 @@ class ChaptersController < ApplicationController
     @data = @chapters_data[8]
   end
 
-  def chapter_100
+  def chapter_10
     @data = @chapters_data[9]
   end
 
-  def chapter_111
+  def chapter_11
     @data = @chapters_data[10]
   end
 

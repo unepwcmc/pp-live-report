@@ -36,8 +36,19 @@ i { font-style: normal; }
 //--------------------------------------------------
 // dimensions
 //--------------------------------------------------
+.w-50 { width: 50%; }
+.w-52 { width: 52%; }
 .w-100 { width: 100%; }
 .h-100 { height: 100%; }
+
+
+.reduced-width {
+    width: 100%;
+
+    @include breakpoint($small) {
+      width: 50%;
+    }
+}
 
 @mixin width-with-gutters {
   width: calc(100% - #{$gutter-small * 2});

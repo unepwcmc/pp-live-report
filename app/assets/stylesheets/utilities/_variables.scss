@@ -51,9 +51,24 @@ $chart-marine: #03B0DA;
 $chart-abnj: #207D94;
 $chart-eez: #6FD9F2;
 
+// OECM and WDPA additions
+$oecm-blue: $black;
+$oecm-green: #0B3800;
+$oecm-pelagic: #31166C;
+
+$wdpa-blue: #1C4AAF;
+$wdpa-green: #32AC00;
+$wdpa-pelagic: #805CCC;
+
+
+
+
+$accent: green;
+
 $oecm: $orange;
 $marine: $blue;
 $terrestrial: $green-bright;
+
 
 $theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
 $theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;

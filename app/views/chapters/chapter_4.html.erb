@@ -7,11 +7,11 @@
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'], reduced_width: true } %>
 
   <div class="container--medium">
     <% @row_charts.each do |item| %>
-      <h3><%= item[:title] %></h3>
+      <p class="chart--row__subtitle"><%= item[:title] %></p>
       
       <div class="flex flex-wrap flex-h-between">
         <% item[:charts].each do |chart| %>

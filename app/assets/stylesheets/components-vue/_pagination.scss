@@ -8,7 +8,6 @@ $pagination-height-lg: rem-calc(74);
   @include flex;
   @include flex-v-center;
   background-color: rgba($black, 0.8);
-  color: $white;
   height: $pagination-height-sm;
   width: 100%;
   position: fixed;
@@ -35,6 +34,14 @@ $pagination-height-lg: rem-calc(74);
     width: 100%;
   }
 
+  &__link {
+    @include flex;
+    @include flex-v-center;
+    text-decoration: none;
+
+    &:hover { opacity: 0.75; }
+  }
+
   &__next, &__previous {
     @include flex;
     @include flex-v-center;
@@ -57,6 +64,7 @@ $pagination-height-lg: rem-calc(74);
   }
 
   &__text {
+    color: $white;
     font-size: rem-calc(22);
     margin-right: rem-calc(10);
     margin-bottom: 0;

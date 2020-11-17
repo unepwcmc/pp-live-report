@@ -1,63 +1,91 @@
 <template>
-  <div @click="toggleLayer" :class="['map__panel-toggle no-select', toggleClasses]">
-    <slot></slot>
-  </div>
+ <div
+  @click="toggleLayer"
+  :class="['map__panel-toggle no-select', toggleClasses]"
+ >
+  <slot></slot>
+ </div>
 </template>
 
 <script>
-  import { eventHub } from "../../packs/application.js";
+import { eventHub } from "../../packs/application.js";
 
-  export default {
-    name: 'map-statistics-toggle',
+export default {
+ name: "map-statistics-toggle",
 
-    props: {
-      ids: {
-        type: Array,
-        required: true
-      },
-      parentTabId: String,
-      mapId: String
-    },
+ props: {
+  isActive: {
+   type: Boolean,
+  },
+  ids: {
+   type: Array,
+   required: true,
+  },
+  layerNo: {
+   type: Number,
+   required: true,
+  },
+  parentTabId: String,
+  mapId: String,
+ },
 
-    data () {
-      return {
-        isActive: !this.parentTabId || this.parentTabId === 'tab-0',
-        isDisabled: true
-      }
-    },
+ data() {
+  return {
+   isDisabled: true,
+  };
+ },
 
-    created () {
-      eventHub.$on('change-tab', this.handleTabChange)
-    },
+ created() {
+  eventHub.$on("change-tab", this.handleTabChange);
+  eventHub.$on("hide-other-layers", this.hideLayerIfNotSelected);
+ },
 
-    computed: {
-      toggleClasses () {
-        return {
-          'active': this.isActive
-        }
-      }
-    },
+ computed: {
+  toggleClasses() {
+   return {
+    active: this.isActive,
+   };
+  },
+ },
 
-    methods: {
-      handleTabChange (ids) {
-        if ('tabs-' + this.mapId !== ids.tabGroup) { return }
+ methods: {
+  handleTabChange(ids) {
+   if ("tabs-" + this.mapId !== ids.tabGroup || !this.isActive ) {
+    return;
+   }
 
-        this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers()
-      },
+    this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
+  },
 
-      toggleLayer () {
-        this.isActive ? this.hideLayers() : this.showLayers() 
-      },
+  toggleLayer() {
+   if (this.isActive === true) {
+    return;
+   }
+   this.hideOtherLayers();
+   this.showLayers();
+  },
 
-      showLayers () {
-        this.isActive = true
-        eventHub.$emit('showLayers', {mapId: this.mapId, layerIds: this.ids})
-      },
+  showLayers() {
+   eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids });
+  },
 
-      hideLayers () {
-        this.isActive = false
-        eventHub.$emit('hideLayers', {mapId: this.mapId, layerIds: this.ids})
-      }
-    }
+  hideLayers() {
+   eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids });
+  },
+
+  hideOtherLayers() {
+   eventHub.$emit("hide-other-layers", {
+    mapId: this.mapId,
+    layerIds: this.ids,
+    layerNo: this.layerNo,
+    tab: this.parentTabId
+   });
+  },
+
+  hideLayerIfNotSelected(obj) {
+    if ( obj.layerNo === this.layerNo || obj.mapId !== this.mapId ) { return }
+    this.hideLayers();
   }
+ },
+};
 </script>

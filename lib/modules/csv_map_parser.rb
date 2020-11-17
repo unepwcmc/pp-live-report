@@ -34,8 +34,8 @@ module CsvMapParser
     end
   end
 
-  def ch4_map1_percentage
-    percentage_stats('chapter4_global_kba_statistics.csv')
+  def ch5_map1_percentage
+    percentage_stats('chapter5_global_kba_statistics.csv')
   end
 
   private

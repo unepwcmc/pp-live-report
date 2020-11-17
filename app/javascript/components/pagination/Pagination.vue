@@ -1,16 +1,18 @@
 <template>
  <div class="pagination__panel">
-  <div class="pagination__previous">
-   <a
-    class="button--previous"
-    v-if="previousChapter"
-    :href="previousChapter"
-   ></a>
-   <p class="pagination__text">{{ previousChapterText }}</p>
+   <div class="pagination__previous">
+    <a class="pagination__link" v-if="previousChapter" :href="previousChapter">
+    <i
+      class="icon--previous"
+    ></i>
+    <p class="pagination__text">{{ previousChapterText }}</p>
+    </a>
   </div>
   <div class="pagination__next">
-   <p class="pagination__text">{{ nextChapterText }}</p>
-   <a class="button--next" v-if="nextChapter" :href="nextChapter"></a>
+    <a class="pagination__link" v-if="nextChapter" :href="nextChapter">
+      <p class="pagination__text">{{ nextChapterText }}</p>
+      <i class="icon--next" ></i>
+    </a>
   </div>
  </div>
 </template>

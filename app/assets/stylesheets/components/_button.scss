@@ -39,24 +39,7 @@
   @include icon-cross;
 }
 
-@mixin button-nav($image) {
-  background-image: image-url($image);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 
-  display: inline-block;
-
-  &:hover { opacity: .75; } 
-
-  height: rem-calc(24);
-  width: rem-calc(24);
-
-  @include breakpoint($small) {
-    height: rem-calc(40);
-    width: rem-calc(40);
-  }
-}
 
 //--------------------------------------------------
 // buttons
@@ -178,14 +161,6 @@
       font-size: rem-calc(18);
       opacity: 0.8;
     }
-  }
-
-  &--previous {
-    @include button-nav('icons/previous.svg');
-  }
-
-  &--next {
-    @include button-nav('icons/next.svg');
   }
 
   &--reset {

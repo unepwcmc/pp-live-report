@@ -176,21 +176,6 @@ class ChaptersController < ApplicationController
     # TODO - Need new data for [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  map here!
 
     @row_charts = CsvParser.biogeographical_regions
-
-    kba_data = CsvParser.kba_timeseries
-    types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
-    lines = ('2000'..'2018').map do |year|
-      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }.merge!({
-                                                                 "1": kba_data[year][types[0]],
-                                                                 "2": kba_data[year][types[1]],
-                                                                 "3": kba_data[year][types[2]]
-                                                               })
-    end
-    @line_chart = {
-      datapoints: lines,
-      units: 'Average percentage covered %',
-      legend: types.map { |t| t.gsub(/(KBAs)/, '').squish }
-    }.to_json
   end
 
   def chapter_5

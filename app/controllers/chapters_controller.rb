@@ -3,25 +3,15 @@ class ChaptersController < ApplicationController
   include YamlHelpers
   layout 'chapter'
 
-  helper_method :map_disclaimer
-  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
-  LANGUAGES = { 
-    'ar': 'العربية',
-    'es': 'Español',
-    'en': 'English',
-    'fr': 'Français',
-    'ru': 'Русский',
-    'zh': '中文'
-  }.freeze
-
   helper_method :chapter_number
-
-  before_action :load_summary_text
+  helper_method :map_disclaimer
 
   # Messy way of getting chapter number and passing it to before action!
   before_action do
     populate_case_studies(chapter_number)
   end
+  
+  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -36,6 +26,14 @@ class ChaptersController < ApplicationController
     '#810F7C',
     '#4d004b'
   ].freeze
+  LANGUAGES = { 
+    'ar': 'العربية',
+    'es': 'Español',
+    'en': 'English',
+    'fr': 'Français',
+    'ru': 'Русский',
+    'zh': '中文'
+  }.freeze
 
   def chapter_number
     raise NoNumberError unless params[:action].match?(/\d+/)
@@ -44,7 +42,7 @@ class ChaptersController < ApplicationController
 
   def chapter_1
     @presenter = ChaptersPresenter.new
-
+    @summaries = load_summary_text
     @data = @chapters_data[0]
     @gauge_charts = @presenter.gauge_charts
   end
@@ -291,7 +289,7 @@ class ChaptersController < ApplicationController
     # TODO: - need actual summary text in different languages
     summaries_path = 'config/locales/summary'.freeze
 
-    @summaries = Dir.children(summaries_path).sort.map do |locale|
+    Dir.children(summaries_path).sort.map do |locale|
       yml = YAML.load_file(File.join(Rails.root, summaries_path, locale))
       locale_iso = locale.split('.')[0]
 

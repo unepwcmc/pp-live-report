@@ -62,17 +62,23 @@ export default {
   },
 
   mounted () {
-    this.scrollTriggerHandlers()
-    console.log('mounted', this.scrollTriggers)
+    if(this.scrollTriggers.length == 0) {
+      //create triggers on first load of homepage
+      this.scrollTriggerHandlers()
+    } else {
+      //enable all triggers when navigating back 
+      //to the homepage
+      this.scrollTriggers.forEach(trigger => {
+        trigger.enable()
+      })
+    }
   },
 
   beforeDestroy () {
-    //Disable all scrollTriggers  
+    //disable all scrollTriggers  
     this.scrollTriggers.forEach(trigger => {
-      trigger.kill()
+      trigger.disable()
     })
-    this.scrollTriggers = []
-    console.log('kill triggers', this.scrollTriggers)
   },
 
   methods: {
@@ -81,11 +87,10 @@ export default {
     },
 
     scroll (index) {
-      //For some reason the .to doesn't work 
+      //for some reason the .to doesn't work 
       //when scrolling back up so need to -1 off index
-      const newIndex = index > this.activeIndex ? index : index - 1
-      
-      const slide = `#chapter-${newIndex}`
+      const newIndex = index > this.activeIndex ? index : index - 1,
+            slide = `#chapter-${newIndex}`
 
       gsap.to(window, { 
         duration: 1,
@@ -95,7 +100,6 @@ export default {
     },
 
     scrollTriggerHandlers () {
-      console.log('add')
       for (var i=1; i<=this.slides.length; i++) {
         const index = i,
               slideId = `#chapter-${i}`
@@ -123,9 +127,8 @@ export default {
         stagger: 0.3 
       })
         
-      //Animate content of slide
-      const here = ScrollTrigger.create({
-        markers: true,
+      //animate content of slide
+      const trigger =  ScrollTrigger.create({
         animation: tl,
         start: "top 80%",
         trigger: id,
@@ -134,14 +137,14 @@ export default {
         },
       })
       
-      this.scrollTriggers.push(ScrollTrigger)
+      this.scrollTriggers.push(trigger)
     },
 
     scrollTriggerHandlerPin (id, index) {
-      //Pin each slide
+      //pin each slide
       const isLastSlide = index == this.slides.length
 
-      ScrollTrigger.create({
+      const trigger = ScrollTrigger.create({
         trigger: id,
         start: "top top",
         end: "+=100%",
@@ -151,12 +154,12 @@ export default {
         snap: 1,
       })
 
-      this.scrollTriggers.push(ScrollTrigger)
+      this.scrollTriggers.push(trigger)
     },
     
     scrollTriggerHandlerNav (){
-      //Fix nav in place
-      ScrollTrigger.create({
+      //fix nav in place
+      const trigger = ScrollTrigger.create({
         trigger: '#carousel',
         start: "top top",
         end: "bottom bottom",
@@ -166,12 +169,12 @@ export default {
         }
       })
 
-      this.scrollTriggers.push(ScrollTrigger)
+      this.scrollTriggers.push(trigger)
     },
 
     scrollTriggerHandlerNavItem (id, index){
-      //Show active item in scroll to nav
-      ScrollTrigger.create({
+      //show active item in scroll to nav
+      const trigger = ScrollTrigger.create({
         trigger: id,
         start: "top 50%",
         end: "top -50%",
@@ -182,7 +185,7 @@ export default {
         }
       })
 
-      this.scrollTriggers.push(ScrollTrigger)
+      this.scrollTriggers.push(trigger)
     }
   }
 }

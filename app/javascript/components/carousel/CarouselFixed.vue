@@ -57,11 +57,22 @@ export default {
       activeIndex: 0,
       atCarouselEnd: false,
       isActive: false,
+      scrollTriggers: []
     }
   },
 
   mounted () {
     this.scrollTriggerHandlers()
+    console.log('mounted', this.scrollTriggers)
+  },
+
+  beforeDestroy () {
+    //Disable all scrollTriggers  
+    this.scrollTriggers.forEach(trigger => {
+      trigger.kill()
+    })
+    this.scrollTriggers = []
+    console.log('kill triggers', this.scrollTriggers)
   },
 
   methods: {
@@ -84,6 +95,7 @@ export default {
     },
 
     scrollTriggerHandlers () {
+      console.log('add')
       for (var i=1; i<=this.slides.length; i++) {
         const index = i,
               slideId = `#chapter-${i}`
@@ -112,7 +124,8 @@ export default {
       })
         
       //Animate content of slide
-      ScrollTrigger.create({
+      const here = ScrollTrigger.create({
+        markers: true,
         animation: tl,
         start: "top 80%",
         trigger: id,
@@ -120,6 +133,8 @@ export default {
           self.isActive ? self.animation.play() : self.animation.pause(0)  
         },
       })
+      
+      this.scrollTriggers.push(ScrollTrigger)
     },
 
     scrollTriggerHandlerPin (id, index) {
@@ -135,6 +150,8 @@ export default {
         scrub: true,
         snap: 1,
       })
+
+      this.scrollTriggers.push(ScrollTrigger)
     },
     
     scrollTriggerHandlerNav (){
@@ -148,6 +165,8 @@ export default {
           this.atCarouselEnd = self.progress == 1
         }
       })
+
+      this.scrollTriggers.push(ScrollTrigger)
     },
 
     scrollTriggerHandlerNavItem (id, index){
@@ -162,6 +181,8 @@ export default {
           }
         }
       })
+
+      this.scrollTriggers.push(ScrollTrigger)
     }
   }
 }

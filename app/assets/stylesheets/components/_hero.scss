@@ -30,6 +30,7 @@
 //--------------------------------------------------
   &--home {
     @include hero-basic;
+    @include parallax;
     padding-bottom: rem-calc(20);
 
     position: relative;
@@ -116,6 +117,7 @@
 //--------------------------------------------------
   &--chapter {
     @include hero-basic;
+    @include parallax;
     
     @include breakpoint($medium) { 
       min-height: rem-calc(512); 

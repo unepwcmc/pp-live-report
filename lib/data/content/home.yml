@@ -2,23 +2,14 @@ subtitle: "Tracking progress towards global targets for protected areas"
 intro: "Protected Planet Reports are biennial landmark publications that assess the state of protected areas around the world. They are based on the data contained in the World Database on Protected Areas (WDPA), jointly managed by UNEP-WCMC and IUCN, as well as other relevant resources."
 hero:
   -
-    image: "hero/amazon-forest.jpg"
-    credits: "Amazon rainforest in Tambopata reserve, Peru &copy; Salparadis / Adobe Stock"
+    class: "home-1"
+    credits: "A hiker in a forest &copy; Restless Mind Media / Adobe Stock"
   -
-    image: "hero/bah-khiri-wong.jpg"
-    credits: "Ban Khiri Wong village, Thailand &copy; Tuayai / Adobe Stock"
+    class: "home-2"
+    credits: "A person under Skógafoss, Iceland &copy; likingthings / Adobe Stock"
   -
-    image: "hero/black-sea.jpg"
-    credits: "Black Sea coastline, Europe &copy; Nikita / Adobe Stock"
+    class: "home-3"
+    credits: "Tropical island, Philippines &copy; Gowtham / Adobe Stock"
   -
-    image: "hero/muskox-arctic.jpg"
-    credits: "Muskoxen on Vrangel island &copy; Sergey / Adobe Stock"
-  -
-    image: "hero/territory-of-tribe.jpg"
-    credits: "Evening view of the territory of the tribe Bana &copy; milosk50 / Adobe Stock"
-  -
-    image: "hero/torres-del-paine.jpg"
-    credits: "Torres del Paine National Park, Patagonia, Chile &copy; Dmitry Pichugin / Adobe Stock"
-  -
-    image: "hero/victoria-falls.jpg"
-    credits: "Victoria Falls &copy; Anna / Adobe Stock"
+    class: "home-4"
+    credits: "Spruce trees in snow &copy; Leonid Tit / Adobe Stock"

@@ -1,0 +1,42 @@
+//--------------------------------------------------
+// parallax
+//--------------------------------------------------
+@mixin parallax {
+  overflow: hidden;
+
+  &::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+
+    animation: zoomOut 2.5s ease-out;
+
+    @include portrait { background-attachment: scroll; }
+   
+    .chapter-1 & { background-image: $chapter-image-1; }
+    .chapter-2 & { background-image: $chapter-image-2; }
+    .chapter-3 & { background-image: $chapter-image-3; }
+    .chapter-4 & { background-image: $chapter-image-4; }
+    .chapter-5 & { background-image: $chapter-image-5; }
+    .chapter-6 & { background-image: $chapter-image-6; }
+    .chapter-7 & { background-image: $chapter-image-7; }
+    .chapter-8 & { background-image: $chapter-image-8; }
+    .chapter-9 & { background-image: $chapter-image-9; }
+    .chapter-10 & { background-image: $chapter-image-10; }
+    .chapter-11 & { background-image: $chapter-image-11; }
+  }
+
+  &.home-1::after { background-image: $home-image-1; }
+  &.home-2::after { background-image: $home-image-2; }
+  &.home-3::after { background-image: $home-image-3; }
+  &.home-4::after { background-image: $home-image-4; }
+}

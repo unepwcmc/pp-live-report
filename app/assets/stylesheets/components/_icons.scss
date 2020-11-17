@@ -1,3 +1,13 @@
+// Mixins
+@mixin icon() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}
+
+
+
 //--------------------------------------------------
 // icons
 //--------------------------------------------------
@@ -58,6 +68,23 @@
       width: rem-calc(20); 
       height: rem-calc(19); 
     }
+  }
+
+  &--close-white {
+    background-image: image-url('icons/cross-white.svg');
+    background-size: cover;
+    width: rem-calc(18); height: rem-calc(18);
+
+    display: block;
+  }
+
+  &--minus-white {
+    @include icon;
+    background-image: image-url('icons/minus-white.svg');
+
+    width: rem-calc(22); height: rem-calc(20);
+
+    display: block;
   }
 
   &--dropdown {

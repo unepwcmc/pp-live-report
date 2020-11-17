@@ -86,8 +86,6 @@
     border-radius: 2px;
     color: $black;
     cursor: pointer;
-    font-size: $button-font-size-small;
-    font-weight: $light;
     text-align: left;
     text-decoration: none;
     padding: rem-calc(8);
@@ -98,12 +96,36 @@
     }
 
     &__text { 
+      font-size: $button-font-size-small;
+      font-weight: $light;
       display: none;
       
       @include breakpoint($medium) {
         width: rem-calc(150);
 
         display: block;
+      }
+    }
+  }
+
+  &--grey {
+    background-color: $grey;
+    border: 1px solid $grey;
+    border-radius: 2px;
+    padding: rem-calc(11);
+
+    width: rem-calc(150);
+
+    @include breakpoint($small) {
+      padding: rem-calc(11 16);
+    }
+
+    &__text {
+      font-size: rem-calc(14);
+      color: $white;
+
+      @include breakpoint($small) {
+        font-size: rem-calc(16);
       }
     }
   }

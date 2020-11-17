@@ -1,6 +1,6 @@
 <template>
   <div class="tabs">
-    <div class="tabs__triggers flex flex-nowrap">
+    <div class="tabs__triggers gutters">
       <button 
         v-for="(child, index) in children" :key="`child-${index}`"
         :id="triggerId(child)"
@@ -11,7 +11,7 @@
         <label :for="child.tabId" class="tab__title">{{ child.title }}</label>
       </button>
     </div>
-    
+    <hr class="tabs__splitter">
     <div class="tab__container">
       <slot></slot>
     </div>

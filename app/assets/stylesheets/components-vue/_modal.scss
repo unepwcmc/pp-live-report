@@ -52,96 +52,141 @@
   }
 }
 
-.modal--case-study {
-  background-color: white;
-  padding: rem-calc(48 16 48 14);
-  width: 100%; height: 100vh;
-  
-  position: relative;
-  z-index: 5;
+.modal {
+  &__window {
+    background-color: white;
+    width: 100%; 
 
-  @include breakpoint($small) {
-    border-radius: $radius-global;
-    padding: rem-calc(89 18 30 54);
-    width: 75%; height: 90vh;
-  }
-
-  @include breakpoint($medium) {
-    padding: rem-calc(89 18 0 118);
-    width: 67%;
-  }
-
-  .modal__close {
-    border: none;
-    background-color: transparent;
-    color: none;
-
-    position: absolute;
-
-    top: rem-calc(14);
-    right: rem-calc(14);
-
-    @include breakpoint($small) {
-      top: rem-calc(22);
-      right: rem-calc(21);
-    }
-  }
-
-  .modal__content {
-    @include beautify-scrollbar();
-    color: black;
-    height: 100%;
-    padding-bottom: rem-calc(41);
-    padding-right: rem-calc(13);
     position: relative;
-    
-    overflow-y: scroll;
-    
-    @include breakpoint($small) {
-      padding-right: rem-calc(51);
-    }
+    z-index: 5;
 
-    @include breakpoint($medium) {
-      padding-right: rem-calc(92);
-    }
+    &--case-study {
+      @extend .modal__window;
+      padding: rem-calc(48 16 48 14);
+      height: 100vh;
 
-    .modal__authors {
-      font-size: rem-calc(18);
-    }
-
-      .modal__image {
-        margin-bottom: rem-calc(14);
-        min-width: 30%;
-        max-width: 100%;
+      @include breakpoint($small) {
+        border-radius: $radius-global;
+        padding: rem-calc(89 18 30 54);
+        width: 75%; height: 90vh;
       }
-
-      .modal__image-caption {
-        font-size: rem-calc(14);
-        font-weight: $normal;
-        margin-bottom: rem-calc(10);
-      }
-
-      .modal__image-source {
-        color: $grey;
-        font-size: rem-calc(14);
-        font-weight: $light;
-      }
-
-    .modal__org {
-      font-weight: $light;
-      font-style: italic;
-    }
-
-    .modal__report {
-      color: rgba($grey, 0.8);
-      font-weight: $bold;
-
-      margin-top: rem-calc(10);
-    }
   
-    .modal__title { 
-      font-weight: $bold;
-      margin-top: 0; 
+      @include breakpoint($medium) {
+        padding: rem-calc(89 18 0 118);
+        width: 67%;
+      }
+    }
+
+    &--disclaimer {
+      @extend .modal__window;
+      height: 100%;
+      width: 100%;
+
+      @include breakpoint($small) {
+        height: rem-calc(500);
+        width: 80%;
+      }
+
+      @include breakpoint($medium) {
+        height: rem-calc(380);
+        width: 67%;
+      }
+    }    
+
+    .modal__close {
+      border: none;
+      background-color: transparent;
+      color: none;
+
+      position: absolute;
+
+      top: rem-calc(14);
+      right: rem-calc(14);
+
+      @include breakpoint($small) {
+        top: rem-calc(22);
+        right: rem-calc(21);
+      }
+    }
+
+    .modal__content {
+      color: black;
+      height: 100%;
+
+      &--case-study {
+        @extend .modal__content;
+        @include beautify-scrollbar();
+        padding-bottom: rem-calc(41);
+        padding-right: rem-calc(13);
+        
+        overflow-y: scroll;
+        
+        @include breakpoint($small) {
+          padding-right: rem-calc(51);
+        }
+
+        @include breakpoint($medium) {
+          padding-right: rem-calc(92);
+        }
+
+        .modal__authors {
+          font-size: rem-calc(18);
+        }
+
+          .modal__image {
+            margin-bottom: rem-calc(14);
+            min-width: 30%;
+            max-width: 100%;
+          }
+
+          .modal__image-caption {
+            font-size: rem-calc(14);
+            font-weight: $normal;
+            margin-bottom: rem-calc(10);
+          }
+
+          .modal__image-source {
+            color: $grey;
+            font-size: rem-calc(14);
+            font-weight: $light;
+          }
+
+        .modal__org {
+          font-weight: $light;
+          font-style: italic;
+        }
+
+        .modal__report {
+          color: rgba($grey, 0.8);
+          font-weight: $bold;
+
+          margin-top: rem-calc(10);
+        }
+      
+        .modal__title { 
+          font-weight: $bold;
+          margin-top: 0; 
+        }
+      }
+
+      &--disclaimer {
+        @extend .modal__content;
+        padding: rem-calc(43 32 43 37);
+
+        @include breakpoint($medium) {
+          padding: rem-calc(59 144 61 156);
+        }
+
+        .modal__title { 
+          font-weight: $bold;
+          margin-top: 0; 
+          margin-bottom: rem-calc(20);
+        }
+
+        p {
+          font-size: rem-calc(14);
+        }
+      }
     }
   }
 }

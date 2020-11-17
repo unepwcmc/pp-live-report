@@ -2,29 +2,36 @@
 // tabs
 //--------------------------------------------------
 .tabs {
+  &__triggers {
+    @include flex;
+    @include width-with-gutters;
+    margin-top: rem-calc(20);
+    margin-bottom: rem-calc(15);
+    overflow-x: scroll;
+  }
+
+  &__splitter {
+    @include width-with-gutters;
+    opacity: 0.2;
+  }
 }
 
 //--------------------------------------------------
 // tab
 //--------------------------------------------------
 .tab {
-  background-color: $grey;
+  &__trigger {
+    background-color: transparent;
+    border: 1px solid rgba($grey-light, 0.4);
+    border-radius: rem-calc(20);
+    color: $white;
+    cursor: pointer;
+    font-size: rem-calc(20);
+    margin-right: rem-calc(10);
+    padding: rem-calc(1 17);
 
-  &__triggers {
-    
+    &.tab--active { background-color: $green; }
   }
 
-    &__trigger {
-      background-color: transparent;
-      border: none;
-      color: $white;
-      cursor: pointer;
-      font-size: rem-calc(22);
-      font-weight: $bold;
-      padding: rem-calc(16);
-
-      &.tab--active { background-color: $grey; }
-    }
-
-      &__title { cursor: pointer; }
+  &__title { cursor: pointer; }
 }

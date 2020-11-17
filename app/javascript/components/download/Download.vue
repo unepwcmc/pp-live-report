@@ -1,23 +1,40 @@
 <template>
  <div>
-  <button
-   title="Download reports in PDF format"
-   class="button--download"
-   @click="togglePopup"
-   aria-haspopup="listbox"
-   aria-labelledby="download-text"
-  >
-   <span class="button--download__text" id="download-text">{{ text }}</span>
-   <i class="icon--download"></i>
-  </button>
-  <div :class="[isActive ? 'download__target--active' : 'download__target']">
-   <popup
-    :options="downloadLinks"
-    :event-element="'Individual report download'"
-    :classes="'download__popup'"
-    :showText="true"
-   />
-  </div>
+  <template v-if="downloadLinks">
+    <button
+      :title="title"
+      class="button--download"
+      @click="togglePopup"
+      aria-haspopup="listbox"
+      aria-labelledby="download-text"
+      >
+      <span class="button--download__text" id="download-text">{{ text }}</span>
+      <i class="icon--download"></i>
+    </button>
+    <div
+    :class="[isActive ? 'download__target--active' : 'download__target']"
+    >
+      <popup
+        :options="downloadLinks"
+        :event-element="'Individual report download'"
+        :classes="'download__popup'"
+        :showText="true"
+        @optionSelected="clickDownloadOption"
+      />
+    </div>
+  </template>
+  <template v-else-if="fileDownload">
+    <a
+    :title="title"
+    class="button--download"
+    target="_blank"
+    :href="fileDownload"
+    aria-labelledby="download-text"
+    >
+      <span class="button--download__text" id="download-text">{{ text }}</span>
+      <i class="icon--download"></i>
+    </a>
+  </template>
  </div>
 </template>
 
@@ -40,13 +57,20 @@ export default {
    type: String,
    default: "",
   },
+  title: {
+   type: String,
+   default: "",
+  },
   eventElement: {
    type: String,
    default: "",
   },
+  fileDownload: {
+   type: String,
+   default: ""
+  },
   downloadLinks: {
-   type: Array,
-   required: true,
+   type: Array
   },
  },
  mounted() {

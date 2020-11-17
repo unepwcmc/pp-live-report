@@ -116,6 +116,7 @@
 //--------------------------------------------------
   &--chapter {
     @include hero-basic;
+    @include parallax;
     
     @include breakpoint($medium) { 
       min-height: rem-calc(512); 

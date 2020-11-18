@@ -7,4 +7,15 @@ case_studies:
   - 
     label: 'Box 0'
     title: 'Authors and Contributors'
-    text: ""
+    text: "Lead authors:\n
+          Chapter 1: Elise Belle; Chapter 2: Edward Lewis; Chapter 3: Diego Juffe-Bignoli; Chapter 4: Yichuan Shi;\n
+          Chapter 5: Neil Burgess; Chapter 6: Heather Bingham; Chapter 7: Elise Belle;\n
+          Chapter 8: Heather Bingham; Chapter 9: Nina Bhola; Chapter 10: Elise Belle\n
+          This report also benefited from the expertise of the following contributing authors (in alphabetical order for each institution):\n
+          William Carney, Colleen Corrigan, Marine Deguignet, Joe Gosling, Jessica Stewart, Judith Walcott and Sylvia Wicander (UNEP-WCMC);\n
+          Thomas Brooks, Marie Fischborn (Box 17), Matea Osti (Box 8) and Elena Osipova (Box 8) (IUCN);\n
+          Jonathan Baillie, Dan Myers, Enric Sala and Therese Tepe (National Geographic Society);\n
+          Sarat Babu Gidda (Convention on Biological Diversity, Secretariat);\n
+          Stuart Butchart and Andrew Plumptre (Chapter 3) (BirdLife International);\n
+          Phil Franks (Box 9) (International Institute for Environment and Development, IIED);\n and
+          Mike Hoffmann and Nisha Owen (Chapter 3) (Zoological Society of London, ZSL)."

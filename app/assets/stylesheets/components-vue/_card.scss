@@ -15,7 +15,8 @@
     position: relative;
 
     @include breakpoint($small) {
-      min-height: rem-calc(360);
+      min-height: unset;
+      height: rem-calc(360);
     }
     
     @include breakpoint($medium) { 

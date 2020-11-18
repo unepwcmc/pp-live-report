@@ -1,5 +1,5 @@
 <template>
- <div class="map--statistics">
+ <div class="map--statistics gutters">
   <div :id="id" class="map__map"></div>
 
   <div class="map__panel">

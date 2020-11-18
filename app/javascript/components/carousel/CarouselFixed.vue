@@ -57,11 +57,28 @@ export default {
       activeIndex: 0,
       atCarouselEnd: false,
       isActive: false,
+      scrollTriggers: []
     }
   },
 
   mounted () {
-    this.scrollTriggerHandlers()
+    if(this.scrollTriggers.length == 0) {
+      //create triggers on first load of homepage
+      this.scrollTriggerHandlers()
+    } else {
+      //enable all triggers when navigating back 
+      //to the homepage
+      this.scrollTriggers.forEach(trigger => {
+        trigger.enable()
+      })
+    }
+  },
+
+  beforeDestroy () {
+    //disable all scrollTriggers  
+    this.scrollTriggers.forEach(trigger => {
+      trigger.disable()
+    })
   },
 
   methods: {
@@ -70,11 +87,10 @@ export default {
     },
 
     scroll (index) {
-      //For some reason the .to doesn't work 
+      //for some reason the .to doesn't work 
       //when scrolling back up so need to -1 off index
-      const newIndex = index > this.activeIndex ? index : index - 1
-      
-      const slide = `#chapter-${newIndex}`
+      const newIndex = index > this.activeIndex ? index : index - 1,
+            slide = `#chapter-${newIndex}`
 
       gsap.to(window, { 
         duration: 1,
@@ -111,8 +127,8 @@ export default {
         stagger: 0.3 
       })
         
-      //Animate content of slide
-      ScrollTrigger.create({
+      //animate content of slide
+      const trigger =  ScrollTrigger.create({
         animation: tl,
         start: "top 80%",
         trigger: id,
@@ -120,13 +136,15 @@ export default {
           self.isActive ? self.animation.play() : self.animation.pause(0)  
         },
       })
+      
+      this.scrollTriggers.push(trigger)
     },
 
     scrollTriggerHandlerPin (id, index) {
-      //Pin each slide
+      //pin each slide
       const isLastSlide = index == this.slides.length
 
-      ScrollTrigger.create({
+      const trigger = ScrollTrigger.create({
         trigger: id,
         start: "top top",
         end: "+=100%",
@@ -135,11 +153,13 @@ export default {
         scrub: true,
         snap: 1,
       })
+
+      this.scrollTriggers.push(trigger)
     },
     
     scrollTriggerHandlerNav (){
-      //Fix nav in place
-      ScrollTrigger.create({
+      //fix nav in place
+      const trigger = ScrollTrigger.create({
         trigger: '#carousel',
         start: "top top",
         end: "bottom bottom",
@@ -148,11 +168,13 @@ export default {
           this.atCarouselEnd = self.progress == 1
         }
       })
+
+      this.scrollTriggers.push(trigger)
     },
 
     scrollTriggerHandlerNavItem (id, index){
-      //Show active item in scroll to nav
-      ScrollTrigger.create({
+      //show active item in scroll to nav
+      const trigger = ScrollTrigger.create({
         trigger: id,
         start: "top 50%",
         end: "top -50%",
@@ -162,6 +184,8 @@ export default {
           }
         }
       })
+
+      this.scrollTriggers.push(trigger)
     }
   }
 }

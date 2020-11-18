@@ -1,17 +1,11 @@
 <template>
   <div class="am-chart--gauge">
-    <p 
-      v-if="title"
-      class="chart__title"
-    >
+    <p v-if="title" class="chart__title">
       {{ title }}
     </p>
 
     <div class="chart__chart">
-      <div 
-        class="chart__svg"
-        :id="id"
-      />
+      <div class="chart__svg" :id="id" />
     </div>
   </div>
 </template>
@@ -45,7 +39,7 @@ export default {
     title: {
       String: Number
     },
-    trigger: { 
+    trigger: {
       type: String
     },
     value: {
@@ -54,23 +48,25 @@ export default {
     }
   },
 
-  date () {
+  date() {
     return {
       axis: {},
       chart: {},
     }
   },
 
-  mounted () {
+  mounted() {
     this.createChart()
 
-    if(this.trigger) {
+    if (this.trigger) {
       this.scrollMagicHandlers()
     }
   },
-
+  destroyed() {
+    this.chart.dispose()
+  },
   methods: {
-    animation () {
+    animation() {
       new am4core.Animation(this.hand, {
         property: "value",
         to: this.value
@@ -82,9 +78,9 @@ export default {
       }, 1000, am4core.ease.cubicOut).start()
     },
 
-    createChart () {
+    createChart() {
       this.chart = am4core.create(this.id, am4charts.GaugeChart)
-      
+
       this.chart.paddingBottom = 90
       this.chart.paddingLeft = 0
       this.chart.innerRadius = 100
@@ -95,8 +91,8 @@ export default {
       this.createLegend()
     },
 
-    createAxis () {
-      this.axis = this.chart.xAxes.push(new am4charts.ValueAxis());
+    createAxis() {
+      this.axis = this.chart.xAxes.push(new am4charts.ValueAxis())
       this.axis.min = 0
       this.axis.max = 100
       this.axis.renderer.radius = 100
@@ -104,7 +100,7 @@ export default {
       this.axis.renderer.line.strokeOpacity = 1
       this.axis.renderer.labels.template.opacity = 0
 
-      this.axisInner = this.chart.xAxes.push(new am4charts.ValueAxis());
+      this.axisInner = this.chart.xAxes.push(new am4charts.ValueAxis())
       this.axisInner.min = 0
       this.axisInner.max = 100
       this.axisInner.renderer.radius = 60
@@ -115,7 +111,7 @@ export default {
       this.axisInner.zIndex = -1
     },
 
-    createRange () {
+    createRange() {
       this.range = this.axisInner.axisRanges.create()
       this.range.value = 0
       this.range.endValue = 0
@@ -123,14 +119,14 @@ export default {
       this.range.axisFill.fill = am4core.color(this.theme)
     },
 
-    createHands () {
+    createHands() {
       this.hand = this.chart.hands.push(new am4charts.ClockHand())
       this.hand.axis = this.axis
       this.hand.startWidth = 1
       this.hand.value = 0
       this.hand.pin.radius = 8
 
-      if(this.target) {
+      if (this.target) {
         const handTarget = this.chart.hands.push(new am4charts.ClockHand())
         handTarget.value = this.target
         handTarget.startWidth = 1
@@ -140,8 +136,8 @@ export default {
       }
     },
 
-    createLegend () {
-      this.legend = new am4charts.Legend();
+    createLegend() {
+      this.legend = new am4charts.Legend()
       this.legend.clickable = false
       this.legend.contentAlign = 'left'
       this.legend.height = 7
@@ -149,9 +145,9 @@ export default {
       this.legend.y = am4core.percent(100)
       this.legend.parent = this.chart.chartContainer
       this.legend.data = this.legendData.map((item) => {
-        return { 
+        return {
           "name": `${item.name}[bold]${item.percent}%[/bold]`,
-          "fill": am4core.color(item.fill)  
+          "fill": am4core.color(item.fill)
         }
       })
 
@@ -167,11 +163,11 @@ export default {
       marker.cornerRadius(12, 12, 12, 12)
     },
 
-    scrollMagicHandlers () {
+    scrollMagicHandlers() {
       const controllerChart = new ScrollMagic.Controller()
 
       new ScrollMagic.Scene({ triggerElement: `.${this.trigger}`, reverse: false })
-        .on('start', () => { 
+        .on('start', () => {
           this.animation()
         })
         .addTo(controllerChart)

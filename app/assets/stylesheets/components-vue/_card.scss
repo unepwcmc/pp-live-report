@@ -9,13 +9,13 @@
     padding: 0;
     text-align: left;
     text-decoration: none;
-    height: rem-calc(190);
+    min-height: rem-calc(400);
     width: 100%;
     overflow: hidden;
     position: relative;
 
     @include breakpoint($small) {
-      height: rem-calc(360);
+      min-height: rem-calc(360);
     }
     
     @include breakpoint($medium) { 

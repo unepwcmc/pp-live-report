@@ -11,8 +11,7 @@
   ></modal>
   <div class="card__image"></div>
   <div class="card__overlay">
-   <h2 class="card__title">{{ caseStudy.label }}</h2>
-   <h4 class="card__summary">{{ caseStudy.title }}</h4>
+   <h2 class="heading--card">{{ caseStudy.title }}</h2>
    <i class="icon--circle-chevron-white"></i>
   </div>
  </button>

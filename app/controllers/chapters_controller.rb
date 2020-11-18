@@ -306,7 +306,12 @@ class ChaptersController < ApplicationController
     return if case_study_data.nil?
 
     @items = case_study_data.map do |case_study|
-      case_study['text'] = case_study['text'].split("\n")
+      if case_study['title'] == 'References'
+        case_study['text'] = @shared_data['references']
+      else
+        case_study['text'] = case_study['text'].split("\n")
+      end
+
       contents = case_study_contents.merge(case_study.deep_stringify_keys)
 
       contents['image'] = case_study_image(case_study)

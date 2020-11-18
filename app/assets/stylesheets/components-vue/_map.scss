@@ -125,7 +125,7 @@
 
           position: absolute;
           top: rem-calc(150);
-          right: rem-calc(20);
+          right: 2%;
         }
       }
 
@@ -270,7 +270,6 @@
 .map-oecm-toggle {
   border: 1px solid $grey-xlight;
   border-radius: rem-calc(14);
-  cursor: pointer;
   margin-left: rem-calc(12);
   padding: rem-calc(2);
   user-select: none;

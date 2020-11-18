@@ -32,6 +32,17 @@
     <p>{{ text.text }}</p>
    </div>
   </div>
+
+  <div
+   v-if="isActive && type === 'references'"
+   class="modal__window--references"
+  >
+   <button class="modal__close icon--cross" @click.stop="modalClose" />
+   <div class="modal__content--references">
+    <h4 class="modal__title">{{ text.title }}</h4>
+    <p v-for="(paragraph, index) in text.text" :key="index">{{ paragraph }}</p>
+   </div>
+  </div>
  </div>
 </template>
 

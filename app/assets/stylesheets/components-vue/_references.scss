@@ -1,0 +1,8 @@
+.references {
+  &__link {
+    cursor: pointer;
+    font-size: rem-calc(18);
+    font-weight: $bold;
+    text-decoration: underline;
+  }
+}

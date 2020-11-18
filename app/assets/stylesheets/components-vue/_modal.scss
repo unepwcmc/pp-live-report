@@ -60,7 +60,7 @@
     position: relative;
     z-index: 5;
 
-    &--case-study {
+    &--case-study, &--references {
       @extend .modal__window;
       padding: rem-calc(48 16 48 14);
       height: 100vh;
@@ -91,7 +91,7 @@
         height: rem-calc(380);
         width: 67%;
       }
-    }    
+    }     
 
     .modal__close {
       border: none;
@@ -113,7 +113,7 @@
       color: black;
       height: 100%;
 
-      &--case-study {
+      &--case-study, &--references {
         @extend .modal__content;
         @include beautify-scrollbar();
         padding-bottom: rem-calc(41);

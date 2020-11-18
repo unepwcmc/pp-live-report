@@ -2,7 +2,7 @@
   <div class="references">
     <span class="references__link" @click="openModal">Explore references</span>
     <modal
-      :text="references"
+      :text="referencesText"
       type="references"
       :is-active="isActive"
       @close-modal="closeModal"

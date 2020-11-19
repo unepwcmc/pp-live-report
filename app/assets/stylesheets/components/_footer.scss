@@ -27,7 +27,7 @@
 
     @include breakpoint($small) {
       margin-top: rem-calc(80);
-      margin-bottom: rem-calc(80);
+      margin-bottom: rem-calc(40);
       flex-wrap: nowrap;
     }
   }
@@ -124,6 +124,9 @@
     width: 100%;
   }
 
+  &__references {
+    margin-bottom: rem-calc(40);
+  }
 
   &__text {
     width: 100%;

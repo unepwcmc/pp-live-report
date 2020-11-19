@@ -1,1 +1,425 @@
 map_disclaimer: The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.
+
+references: 
+  - "Abell R., Lehner B., Thieme M. and Linke S. 2017. Looking beyond the fenceline: Assessing protection gaps for the world’s rivers. Conservation Letters 10(4): 384-94."
+  - "Baillie J. and Zhang Y.-P. 2018. Space for nature. Science 361 (6407): 1051."
+  - "
+Barnes M., Craigie I.D., Harrison L. et al. 2016.
+Wildlife population trends in protected areas
+predicted by national socio‐economic metrics
+and body size. Nature Communications 7, 12747,
+1-9."
+
+  - "Bingham H., Fitzsimons J.A., Redford K.H.,
+Mitchell B.A., Juan Bezaury-Creel J. and
+Cumming T.L. 2017. Privately protected areas:
+advances and challenges in guidance, policy and
+documentation. PARKS 23.1."
+  - "Borrini-Feyerabend G. et al. 2012. Bio-cultural
+diversity conserved by indigenous peoples and
+local communities - Examples and analysis,
+Cenesta for the ICCA Consortium, IUCN, UNDP
+GEF SGP and GIZ on behalf of BMZ, Tehran."
+  - "Borrini-Feyerabend G., Dudley N., Jaeger T., Lassen
+B., Pathak Broome N., Phillips A. and Sandwith
+T. 2013. Governance of Protected Areas: From
+understanding to action. Best Practice Protected
+Area Guidelines Series No. 20, Gland, Switzerland."
+  - "Brooks T.M., Akçakaya H.R., Burgess N.D., Butchart
+S.H.M., Hilton-Taylor C., Hoffmann M., Juffe-
+Bignoli D., Kingston N., MacSharry B., Parr
+M., Perianin L., Regan E.C., Rodrigues A.S.L.,
+Rondinini C., Shennan-Farpon Y. and Young B.E.
+2016 Analysing biodiversity and conservation
+knowledge products to support regional
+environmental assessments. Scientific Data 3:
+160007."
+  - "Butchart S.H., Clarke M., Smith R.J., Sykes R.E.,
+Scharlemann J.P., Harfoot M., Buchanan G.M.,
+Angulo A., Balmford A., Bertzky B. and Brooks
+T.M. 2015. Shortfalls and solutions for meeting
+national and global conservation area targets.
+Conservation Letters 8(5): 329-37."
+  - "CBD. 2018. SBSTTA Recommendation 22/5.
+Protected areas and other effective area-based
+conservation measures. CBD/SBSTTA/REC/22/5.
+07/07/2018."
+  - "CBD Secretariat. 2004. The Ecosystem Approach,
+(CBD Guidelines). Montreal: Secretariat of the
+Convention on Biological Diversity. Montreal:
+Secretariat of the Convention on Biological
+Diversity."
+  - "CBD Secretariat. 2011. Strategic Plan for Biodiversity
+2011-2020: Further Information Related to the
+Technical Rationale for the Aichi Biodiversity
+Targets, Including Potential Indicators and
+Milestones. UNEP/CBD/COP/10/INF/12/Rev.1.
+14/03/2011."
+  - "CBD Secretariat. 2014. Global Biodiversity Outlook
+4. Montréal, Canada: CBD."
+  - "CBD Secretariat. 2016. Responding to Decision
+XI/24 welcoming the IUCN World Parks
+Congress 2014 and inviting the further
+development of technical guidance towards
+achieving the full scope of Aichi Biodiversity
+Target 11. CBD/SBSTTA/20/INF/40. 05/04/2016"
+  - "CBD Secretariat. 2018a. Updated status of Aichi
+Biodiversity Target 11. Note by the Executive
+Secretary. CBD/SBSTTA/22/INF/30. 06/06/2018.
+CBD Secretariat. 2018b. Effective use of knowledge
+in developing the post-2020 global biodiversity
+framework. CBD/SBSTTA/22/INF/31 and CBD/
+SBI/2/INF/33. 16/06/2018."
+  - "CBD Secretariat. 2018c. Safeguarding space for
+nature and securing our future: Developing
+a post-2020 strategy. Note by the Executive
+Secretary. CBD/SBSTTA/22/INF/36. 27/06/2018."
+  - "Coad L., Leverington F., Knights K. et al. 2015.
+Measuring impact of protected area management
+interventions: Current and future use of the
+global database of protected area management
+effectiveness. Phil. Trans. R. Soc. B 370: 20140281."
+  - "Corrigan C., Bingham H., Pathak Broome N.,
+Hay-Edie T., Tabanao G. and Kingston N. 2016.
+Documenting local contributions to earth’s
+biodiversity heritage: the global registry. PARKS
+22.2."
+  - "Davidson N. 2014. How much wetland has the
+world lost? Long-term and recent trends in global
+wetland area. Marine and Freshwater Research
+65: 936-941."
+  - "Day J., Dudley N., Hockings M., Holmes G., Laffoley
+D., Stolton S. and Wells S. 2012. Guidelines for
+applying the IUCN Protected Area Management
+Categories to Marine Protected Areas. Gland,
+Switzerland."
+  - "Deguignet M., Arnell A., Juffe-Bignoli D., Shi Y.,
+Bingham H., MacSharry B. et al. 2017. Measuring
+the extent of overlaps in protected area
+designations. PLoS ONE 12(11): e0188681."
+  - "Den Braber B., Evans K.L. and Oldekop J.A. 2018.
+Impact of protected areas on poverty, extreme
+poverty, and inequality in Nepal. Conservation
+Letters (in press)."
+  - "Dinerstein E., Olson D., Joshi A. Vynne C. and
+Burgess N.D. 2017. An Ecoregion-Based Approach
+to Protecting Half the Terrestrial Realm.
+Bioscience 67(6): 534-545."
+  - "Dudley N. and Stolton S. 2003. Running Pure: he
+Importance of Forest Protected Areas to Drinking
+Water. World Bank/WWF Alliance for Forest
+Conservation and Sustainable Use. WWF, Gland,
+Switzerland. EarthTrends."
+  - "Dudley N., Day J., Laffoley D., Hockings M. and
+Stolton S. 2017. Defining marine protected areas:
+A response to Horta e Costa et al. Marine Policy
+77: 191–192."
+  - "Dudley N., Stolton S., Belokurov A., Krueger L.,
+Lopoukhine N., MacKinnon K., Sandwith T. and
+Sekhran N. (editors). 2010. Natural Solutions:
+Protected areas helping people cope with climate
+change, IUCN WCPA, TNC, UNDP, WCS, The
+World Bank and WWF, Gland, Switzerland,
+Washington DC and New York, USA."
+  - "Dudley, N. (Editor). 2008. Guidelines for Applying
+Protected Area Management Categories. Gland,
+Switzerland: IUCN. x + 86pp. With Stolton, S., P.
+Shadie and N. Dudley. 2013. IUCN WCPA Best
+Practice Guidance on Recognising Protected
+Areas and Assigning Management Categories and
+Governance Types, Best Practice Protected Area
+Guidelines Series No. 21, Gland, Switzerland: IUCN."
+  - "Dudley N., Ali N., Kettunen M. and MacKinnon
+K. 2017. Editorial essay: Protected areas and the
+Sustainable Development Goals. PARKS 23 (2): 9-12."
+  - "Edgar G.J., Stuart-Smith R.D., Willis T.J.,
+Kininmonth S., Baker S.C., Banks S., and
+Thomson R.J. 2014. Global conservation
+outcomes depend on marine protected areas with
+five key features. Nature 506 (7487): 216-20."
+  - "Ervin J., N. Sekhran, Dinu. A., Gidda S., Vergeichik
+M. and Mee J. 2010. Protected Areas for the 21st
+Century: Lessons from UNDP/GEF’s Portfolio.
+New York: UNDP and Montreal: CBD."
+  - "Franks P., Martin A. and Schreckenberg K. 2016.
+From livelihoods to equity for better protected
+area conservation. IIED, London, United
+Kingdom."
+  - "Franks P., Booker F. and Roe D. 2018.
+Understanding and assessing equity in protected
+area conservation: a matter of governance, rights,
+social impacts and human wellbeing. IIED Issue
+Paper. IIED, London, United Kingdom."
+  - "Gonzales A.M. and Martin A.S. 2007. Gender in
+the conservation of protected areas. Innovations
+in Conservation Series. Parks in Peril
+Program. Arlington, Virginia, USA: The Nature
+Conservancy."
+  - "Gannon P., Seyoum‐Edjigu E., Cooper D., Sandwith
+T., Ferreira de Souza Dias B., Pașca Palmer C.,
+Lang B., Ervin J. and Gidda S. 2017. Status and
+prospects for achieving Aichi Biodiversity Target
+11: Implications of national commitments and
+priority actions. PARKS 23(2): 13-26."
+  - "Garcia-Moreno J. et al. 2014 Sustaining Freshwater
+Biodiversity in the Anthropocene. In: Bhaduri
+A., Bogardi J., Leentvaar J. and Marx S. (eds).
+The Global Water System in the Anthropocene.
+Springer Water. Springer, Cham."
+  - "Garnett S.T., Burgess N.D., Fa J.E. et al. 2018. A
+spatial overview of the global importance of
+Indigenous lands for conservation. Nature
+Sustainability 1: 369-374."
+  - "Geldmann J., Barnes M., Coad L. et al. 2013.
+Effectiveness of terrestrial protected areas in
+reducing habitat loss and population declines.
+Biol. Conserv. 161: 230-238."
+  - "Geldmann J., Coad L., Barnes M., Craigie I.D.,
+Hockings M., Knights K., Leverington F., Cuadros
+I.C., Zamora C., Woodley S. and Burgess N.D.
+2015. Changes in protected area management
+effectiveness over time: A global analysis.
+Biological Conservation 191: 692-699."
+  - "Gill D.A., Mascia M.B., Ahmadia G.N. et al. 2017.
+Capacity shortfalls hinder the performance of
+marine protected areas globally. Nature 543:
+665-669."
+  - "Gray C.L., Hill S.L.L., Newbold T., Hudson L.N.,
+Börger L. et al. 2016. Local biodiversity is higher
+inside than outside terrestrial protected areas
+worldwide. Nat. Commun. 7, 12306, 1-7."
+  - "Horta e Costa B., Claudet J., Franco G., Erzini K.,
+Caro A. and Goncalves E. 2016. A regulationbased
+classification system for Marine Protected
+Areas (MPAs). Marine Policy 72:192–198."
+  - "Hutchison J., Manica A., Swetnam R., Balmford A.
+and Spalding M. 2014. Predicting Global Patterns
+in Mangrove Forest Biomass. Conservation
+Letters 7: 233-240."
+  - "Hutchison J., Philipp D.P., Claussen J.E., Aburto-
+Oropeza O., Carrasquilla-Henao M. et al. 2015.
+Building an expert-judgement-based model of
+mangrove fisheries. American Fisheries Society
+Symposium 83: 17-42."
+  - "IIED (forthcoming). Governance assessment for
+protected areas and other conserved areas: Early
+experience and results of a multi-stakeholder,
+self-assessment approach. Eds. Franks P. and
+Booker F."
+  - "IUCN. 2016. A Global Standard for the
+Identification of Key Biodiversity Areas, Version
+1.0. First edition. Gland, Switzerland."
+  - "IUCN. 2018. The IUCN Red List of Threatened
+Species. Version 2018-1. http://www.iucnredlist.org.
+Downloaded on 13 September 2018."
+  - "IUCN World Commission on Protected Areas
+(WCPA). 2018a. Applying IUCN’s Global
+Conservation Standards to Marine Protected
+Areas (MPA). Delivering effective conservation
+action through MPAs, to secure ocean health
+& sustainable development. Version 1.0. Gland,
+Switzerland."
+  - "IUCN World Commission on Protected Areas
+(WCPA). 2018b. (Draft) Guidelines for
+Recognising and Reporting Other Effective
+Area-based Conservation Measures. IUCN,
+Switzerland. Version 1."
+  - "Jones K.R., Venter O., Fuller R.A., Allan J.R.,
+Maxwell S.L., Negret P.J. and Watson J.E.M. 2018a.
+One-third of global protected land is under
+intense human pressure. Science 360 (6390):
+788-791."
+  - "Jones K.R., Klein C.J., Halpern B.S., Venter O.,
+Grantham H., Kuempel C.D., Shumway N.,
+Friedlander A.M., Possingham H.P. and Watson
+J.E.M. 2018b. The Location and Protection Status
+of Earth’s Diminishing Marine Wilderness.
+Current Biology 28 (15): 2506-2512."
+  - "Juffe-Bignoli D., Burgess N.D., Bingham H., Belle
+E.M., De Lima M.G., Deguignet M., Bertzky B.,
+Milam A.N., Martinez-Lopez J., Lewis E. and
+Eassom A. Protected planet report 2014. UNEPWCMC:
+Cambridge, UK. 2014."
+  - "Klein C., McKinnon M.C., Wright B.T., Possingham
+H.P. and Halpern B.S. 2015. Social equity
+and the probability of success of biodiversity
+conservation. Glob. Environ. Change 35: 299-306."
+  - "Knights K., Cuadros I., Zamora C., Coad L.,
+Leverington F. et al. 2014. A preliminary
+assessment of protected area management within
+the WWF ‘Coastal East Africa’ Priority Place,
+eastern Africa. PARKS 20.2: 78-88."
+  - "Leisher C., Samberg L.H., Van Buekering P. and
+Sanjayan M. 2013. Focal areas for measuring the
+human well‐being impacts of a conservation
+initiative. Sustainability 5: 997‐1010."
+  - "Lewis E., MacSharry B., Juffe-Bignoli D., Harris N.,
+Burrows G., Kingston N. and Burgess N.D. 2018.
+Dynamics in the global protected-area estate
+since 2004. Conservation Biology (in press).
+https://doi.org/10.1111/cobi.13056"
+  - "Locke H. 2015. Nature needs (At least) half: A
+necessary new agenda for protected areas.
+Protecting the Wild: Parks and Wilderness the
+Foundation for Conservation."
+  - "Maron M., Simmonds J.S. and Watson J.E.M. 2018.
+Bold nature retention targets are essential for the
+global environment agenda. Nature Ecology and
+Evolution 2(8): 1194-1195."
+  - "Mascia M.B., Claus C. A. and Naidoo R. 2010.
+Impacts of Marine Protected Areas on Fishing
+Communities. Conservation Biology 24: 1424-1429."
+  - "Melillo J.M., Lu X., Kicklighter D.W., Reilly J.M., Cai
+Y. and Sokolov A.P. 2016. Protected areas’ role in
+climate change mitigation. Ambio 45: 133-145."
+  - "Mittermeier R.A., Robles-Gil P., Hoffmann M.,
+Pilgrim J.D., Brooks T.M., Mittermeier C.G.,
+Lamoreux J.L. and Fonseca G. (eds). 2004."
+  - "Hotspots revisited: Earth’s biologically richest
+and most endangered ecoregions. Second Edition.
+Cemex, Mexico."
+  - "Millennium Ecosystem Assessment. 2015.
+Ecosystem Services and Human Well-Being:
+Wetlands & Water. Synthesis. 2005. World
+Resources Institute, Washington, DC, USA"
+  - "Mascia M.B. and Pailler S. 2011. Protected area
+downgrading, downsizing, and degazettement
+(PADDD) and its conservation implications.
+Conservation Letters 4: 9-20."
+  - "Moreaux C., Zafra-Calvo N., Vansteelant N.G.,
+Wicander S. and Burgess N.D. 2018. Can existing
+assessment tools be used to track equity in
+protected area management under Aichi Target 11?
+Biological Conservation 224, 242-247."
+  - "Mulongoy K.J. and Gidda S.B. 2008. The Value
+of Nature: Ecological, Economic, Cultural and
+Social Benefits of Protected Areas Secretariat of
+the Convention on Biological Diversity. Montreal,
+Canada."
+  - "Ojwang’ G.O., Wargute P.W., Said M.Y., Worden
+J.S., Davidson Z., Muruthi P., Kanga E., Ihwagi
+F. and Okita-Ouma B. 2017. Wildlife Migratory
+Corridors and Dispersal Areas: Kenya Rangelands
+and Coastal Terrestrial Ecosystems."
+  - "Oldekop J., Holmes G., Harris W. and Evans
+K. 2016. A global assessment of the social and
+conservation outcomes of protected areas.
+Conserv. Biol. 30, 133-141."
+  - "Olson D.M., Dinerstein E., Wikramanayake E.D. et
+al. 2001. Terrestrial ecoregions of the world: A
+new map of life on earth. Bioscience 51: 933-938."
+  - "Reis V., Hermoso V., Hamilton S.K., Ward D.,
+Fluet-Chouinard E., Lehner B. and Linke S.A.
+2017. Global assessment of inland wetland
+conservation status. Bioscience 67(6): 523-33."
+  - "Rodrigues A.S., Andelman S.J., Bakarr M.I., Boitani
+L., Brooks T.M., Cowling R.M., Fishpool L.D.,
+da Fonseca G.A., Gaston K.J., Hoffmann M.
+and Long J.S. 2004. Effectiveness of the global
+protected area network in representing species
+diversity. Nature 428(6983): 640."
+  - "Sala E., Lubchenco J., Grorud-Colvert K., Novelli
+C., Roberts C. and Rashid Sumailae U. 2018.
+Assessing real progress towards effective ocean
+protection. Marine Policy 91: 11-13."
+  - "Saura S., Bertzky B., Bastin L., Battistella L.,
+Mandrici A. and Dubois G. 2018. Protected area
+connectivity: Shortfalls in global targets and
+country-level priorities. Biological Conservation
+219: 53-67."
+  - "Spalding M., Burke L., Wood S.A., Ashpole J. and
+Hutchison J. 2017. Mapping the global value and
+distribution of coral reef tourism. Marine Policy
+82: 104-113."
+  - "Spenceley A., Kohl J., McArthur S., Myles P.,
+Notarianni M., Paleczny D. et al. 2015. Visitor
+management. In: Worboys G.L., Lockwood
+M., Kothari A., Feary S. and Pulsford I., editors.
+Protected Areas Governance and Management.
+Canberra, Australia: ANU Press, pp. 715–750."
+  - "Schreckenberg K., Franks P., Martin A. and Lang
+B. 2016. Unpacking equity for protected area
+conservation. Parks 22.2: 11-26."
+  - "Spalding M.D., Fox H.E., Allen G.R. et al.
+2007. Marine Ecoregions of the world: A
+bioregionalization of coastal and shelf areas.
+Bioscience 57: 573-583."
+  - "Spalding M.D., Agostini V.N., Rice J. and Grant
+S.M. 2012. Pelagic provinces of the world: A
+biogeographic classification of the world’s surface
+pelagic waters. Ocean Coast Management 60:
+19-30."
+  - "Tucker M.A., Böhning-Gaese K., Fagan W.F. et
+al. 2018. Moving in the Anthropocene: Global
+reductions in terrestrial mammalian movements.
+Science 359(6374): 466-469."
+  - "UNDP. 2016. National Biodiversity Strategies and
+Action Plans: Natural Catalysts for Accelerating
+Action on Sustainable Development Goals.
+Interim Report. United Nations Development
+Programme. New York."
+  - "UNEP-WCMC. 2018. United Nations List of
+Protected Areas. Supplement on protected
+area management effectiveness. UNEP-WCMC:
+Cambridge, UK."
+  - "UNEP-WCMC and IUCN. 2016. Protected
+Planet Report 2016. UNEP-WCMC and IUCN:
+Cambridge UK and Gland, Switzerland."
+  - "UNEP-WCMC and IUCN. 2018a. Protected Planet:
+The World Database on Protected Areas (WDPA),
+July 2018 version, Cambridge, UK: UNEP-WCMC
+and IUCN. Available at: www.protectedplanet.net."
+  - "UNEP-WCMC and IUCN. 2018b. Protected
+Planet: The Global Database on Protected Areas
+Management Effectiveness (GD-PAME), July
+2018 version, Cambridge, UK: UNEP-WCMC and
+IUCN. Available at: www.protectedplanet.net."
+  - "Venter O., Sanderson E.W.4, Magrach A., Allan
+J.R., Beher J., Jones K.R., Possingham H.P.,
+Laurance W.F., Wood P., Fekete B.M., Levy M.A.
+and Watson J.E. 2016. Sixteen years of change
+in the global terrestrial human footprint and
+implications for biodiversity conservation. Nat.
+Commun. 7: 12558."
+  - "Walcott J., Thorley J., Kapos V., Miles L.,
+Woroniecki S. and Blaney R. 2015. Mapping
+multiple benefits of REDD+ in Paraguay: using
+spatial information to support land-use planning.
+Cambridge, UK: UNEP-WCMC."
+  - "Watson J.E.M., Jones K.R., Fuller R.A., Di Marco
+M., Segan D.B., Butchart S.H.M., Allan J.R.,
+McDonald-Madden E. and Venter O. 2016a.
+Persistent Disparities between Recent Rates
+of Habitat Conversion and Protection and
+Implications for Future Global Conservation
+Targets. Conservation Letters 9(6): 413-421."
+  - "Watson J.E.M., Shanahan D.F., Di Marco M., Allan
+J., Laurance W.F., Sanderson E.W., Mackey B.
+and Venter O. 2016b. Catastrophic Declines
+in Wilderness Areas Undermine Global
+Environment Targets. Current Biology 26 (21):
+2929-2934."
+  - "Wilson E. O. 2016. Half-earth: Our planet’s fight for
+life (First edition). New York: Liveright Publishing
+Corporation, a division of W.W. Norton & Company."
+  - "Worboys G. L., Francis W. L. and Lockwood M.
+2010. Connectivity Conservation Management: A
+Global Guide. Earthscan."
+  - "Worboys G.L., Ament, R., Day J.C., Lausche
+B., Locke H., McClure M., Peterson C.H.,
+Pittock J., Tabor G. and Woodley S. (Editors).
+2016. Advanced Draft, Area of Connectivity
+Conservation Guidelines. IUCN, Gland,
+Switzerland."
+  - "Zafra-Calvo N., Pascual U., Brockington D.,
+Coolsaet B., Cortes-Vazquez J.A., Gross-Camp
+N., Palomo, I. and Burgess N.D. 2017. Towards an
+indicator system to assess equitable management
+in protected areas. Biological Conservation 211:
+134-141."
+  - "Zafra-Calvo N., Garmendia E., Pascual U., Palomo I.,
+Gross-Camp N., Brockington D., Cortes-Vazquez
+J., Collsaet B. and Burgess N.D. 2018. Progress
+towards Equitably Managed Protected Areas in
+Aichi Target 11: A global survey. BioScience: In
+press."

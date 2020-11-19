@@ -104,20 +104,17 @@ export default {
         const index = i,
               slideId = `#chapter-${i}`
 
+        this.scrollTriggerHandlerPin(slideId, index)
         this.scrollTriggerHandlerContent(slideId, index)
         this.scrollTriggerHandlerNav(slideId, index)
         this.scrollTriggerHandlerNavItem(slideId, index)
-        this.scrollTriggerHandlerPin(slideId, index)
       }
     },
 
     scrollTriggerHandlerContent (id, index) {
       let tl = gsap.timeline()
       const content = [
-        `#chapter-${index} .carousel__subtitle`,
-        `#chapter-${index} .carousel__title`,
-        `#chapter-${index} .carousel__intro`,
-        `#chapter-${index} .carousel__button`
+        `#chapter-${index} .carousel__content`,
       ]
 
       tl.from(content, { 
@@ -130,7 +127,7 @@ export default {
       //animate content of slide
       const trigger =  ScrollTrigger.create({
         animation: tl,
-        start: "top 80%",
+        start: "top 70%",
         trigger: id,
         onToggle: self => {
           self.isActive ? self.animation.play() : self.animation.pause(0)  
@@ -150,8 +147,7 @@ export default {
         end: "+=100%",
         pin: !isLastSlide,
         pinSpacing: false,
-        scrub: true,
-        snap: 1,
+        scrub: true
       })
 
       this.scrollTriggers.push(trigger)

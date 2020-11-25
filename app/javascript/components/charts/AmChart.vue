@@ -48,7 +48,7 @@ export default {
    chart: null,
    chartData: [],
    colours: ["#64BAD9", "#A54897", "#65C9B2"], // see $theme-chart in settings.scss
-   yTargetColours: ["rgba(29, 125, 166, 0.4)", "rgba(113, 163, 43, 0.4)"],
+   yTargetColours: ["#1C4AAF", "#32AC00"],
    xTargetColours: ["#000000"],
    totalSeries: 0,
    xAxis: null,

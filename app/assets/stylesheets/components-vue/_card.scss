@@ -1,20 +1,24 @@
 .card {
   &--case-study {
+    @include flex;
+    @include flex-column;
     appearance: none;
     border: none;
     border-radius: 5px;
     color: $white;
     cursor: pointer;
     margin-bottom: rem-calc(22);
-    padding: 0;
+    padding: rem-calc(15 20 20 20);
     text-align: left;
     text-decoration: none;
-    height: rem-calc(190);
+    min-height: rem-calc(190);
     width: 100%;
     overflow: hidden;
     position: relative;
 
     @include breakpoint($small) {
+      min-height: unset;
+      padding: rem-calc(26 100 0 31);
       height: rem-calc(360);
     }
     
@@ -25,7 +29,7 @@
         width: 100%;
 
         & > div:nth-of-type(3) {
-          padding-right: 60%;
+          padding-right: 50%;
         }
       }
     };
@@ -37,8 +41,13 @@
       }
     }
 
+    .heading--card {
+      z-index: 4;
+    }
+
     .icon--circle-chevron-white {
       margin-bottom: 0;
+      z-index: 4;
 
       @include breakpoint($small) {
         margin-bottom: rem-calc(28);
@@ -51,25 +60,9 @@
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    z-index: -1;
     transition: 0.4s;
-  }
 
-  &__overlay {
-    @include flex;
-    @include flex-column;
-    border-radius: 5px;
-    padding: rem-calc(15 0 20 20);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-
-    @include breakpoint($small) {
-      padding: rem-calc(26 100 0 31);
-    }
+    z-index: 3;
   }
 
   &__summary {
@@ -81,15 +74,4 @@
       display: block;
     }
   }
-
-  &__title {
-    font-weight: $normal;
-    flex-grow: 1;
-
-    @include breakpoint($small) {
-      font-size: rem-calc(40);
-      flex-grow: 0;
-    }
-  }
-
 }

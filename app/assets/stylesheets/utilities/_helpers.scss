@@ -50,10 +50,10 @@ i { font-style: normal; }
     }
 }
 
-@mixin width-with-gutters {
-  width: calc(100% - #{$gutter-small * 2});
-  @include breakpoint($small) { width: calc(100% - #{$gutter-medium * 2}); }
-  @include breakpoint($medium) { width: calc(100% - #{$gutter-large * 2}); }
+@mixin width-with-gutters($width: 100%) {
+  width: calc(#{$width} - #{$gutter-small * 2});
+  @include breakpoint($small) { width: calc(#{$width} - #{$gutter-medium * 2}); }
+  @include breakpoint($medium) { width: calc(#{$width} - #{$gutter-large * 2}); }
 }
 
 //--------------------------------------------------

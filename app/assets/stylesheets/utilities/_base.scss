@@ -60,6 +60,12 @@ h2 {
     margin-bottom: rem-calc(30);
   }
 
+  &.heading--card {
+    font-size: rem-calc(32);
+    font-weight: $normal;
+    flex-grow: 1;
+  }
+
   &.heading--map {
     font-size: rem-calc(18);
     font-weight: $bold;

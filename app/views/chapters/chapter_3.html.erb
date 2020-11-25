@@ -1,6 +1,6 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
-<section class="section-padding">
+<section class="section-padding gutters">
   <!-- TODO - Need CSV download links for maps -->
   <map-statistics 
     id="<%= @map_1[:id] %>"
@@ -32,7 +32,7 @@
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
 
-<section class="section-padding">
+<section class="section-padding gutters">
 
   <!-- [map showing national coverage (marine and terrestrial) – toggleable OECMs] -->
   <map-statistics 

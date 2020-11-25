@@ -13,6 +13,12 @@ $card-images: ('tropical_2x.png', 'waterfall_2x.png', 'koi_2x.png', 'tropical_2x
         image-url("cards/#{$image}");
         background-position: center;
         background-size: cover;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
     }
   }

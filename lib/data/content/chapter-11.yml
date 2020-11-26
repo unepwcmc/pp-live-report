@@ -28,6 +28,7 @@ photo_credits: "Conclusions: Mountain sunset &copy; TTstudio / Adobe Stock"
 
 case_studies: 
   - 
+    label: 'Box 16'
     title: How certain is the status of Aichi Target 11?
     text: "The Protected Planet Report relies heavily on the WDPA. Parties to the CBD recognise the database as the official source of indicators on Aichi Target 11, and almost all national governments have contributed data. The WDPA has been growing for decades, and extensive efforts have been made over the past two years to ensure that the 2020 Protected Planet Report is based on the best available data (see Box 1). However, no global database relying on 500 data-providers can be entirely accurate, and there are several key sources of uncertainty:\n
             •	The WDPA under-represents protected areas under non-state governance (see Box 4). \n
@@ -36,4 +37,5 @@ case_studies:
           In addition, OECMs remain largely undocumented, and the data available in the WD-OECM is extremely limited. The true contributions of OECMs to Aichi Target 11 are therefore not known.  However, it will be important that OECMs are appropriately recognised and supported before they are counted towards governments’ global commitments. Similarly, assessments of management effectiveness are known to be under-reported to the GD-PAME. \n
           Every effort has been made to mitigate these challenges, but a degree of uncertainty remains. As a result, future analyses may paint a different picture of the status of the world’s conservation network at the end of 2020. For now, the Protected Planet Report provides the most accurate and complete assessment of the status of Aichi Target 11. "
   - 
+    label: 'Box 17'
     title: References

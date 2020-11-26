@@ -61,9 +61,13 @@ h2 {
   }
 
   &.heading--card {
-    font-size: rem-calc(32);
+    font-size: rem-calc(20);
     font-weight: $normal;
     flex-grow: 1;
+
+    @include breakpoint($small) {
+      font-size: rem-calc(32);
+    }
   }
 
   &.heading--map {

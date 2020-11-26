@@ -10,6 +10,7 @@
       @close-modal="closeModal"
     ></modal>
     <div class="card__image"></div>
+    <p class="card__label">{{ caseStudy.label }}</p>
     <h2 class="heading--card">{{ caseStudy.title }}</h2>
     <i class="icon--circle-chevron-white"></i>
   </button>

@@ -154,14 +154,17 @@ photo_credits: "Global coverage: Aerial view of river, Iceland &copy; MAGNIFIER 
 
 case_studies:
   - 
+    label: 'Box 2'
     title: 'The road to the Protected Planet Report 2020'
     text: "As the final instalment in the series focused on Aichi Target 11, it is important that this Protected Planet Report is based on the best available data. Over the past three years, significant efforts have been made to secure those data. The Aichi Target 11 Partnership (ref) was established in 2018 to ensure coordination among partners, and to stimulate support for activities that could contribute to the achievement of Target 11. UNEP-WCMC sent notifications requesting updates to the WDPA and, where possible, the WD-OECM, to all governments in July 2019 (supported by a CBD notification) and September 2020.\n
            These notifications were met by an unprecedented response. Parties to the CBD rallied to provide data on xx,000 new protected areas to the WDPA – an increase of xx,000 on 2010 figures – bringing the total records in the database to over 260,000. Canada and Guernsey made history by being the first to record other effective area-based conservation measures in the WD-OECM. In 2020, UNEP-WCMC processed more records, added more new protected areas and updated more national protected area networks than in any other year in the WDPA’s history. This was made possible in large part by the tireless efforts of the CBD Secretariat to encourage Parties to update their data.\n
            Nevertheless, more work can be done. As discussed later in this report, protected areas under non-state governance remain under-reported to the WDPA. The potential role and importance of OECMs and other conserved areas also cannot be downplayed. Their extent may be enormous, and it is essential that they are identified, recognised and supported before being counted towards the targets of the Post-2020 Global Biodiversity Framework. While addressing the lack of data on non-state protected areas and OECMs may be a challenge, it is also an unparalleled opportunity to recognise the role of diverse actors in achieving the CBD’s 2050 vision."
   - 
+    label: 'Box 3'
     title: 'A note on terminology'
     text: 'Throughout this report, the term ‘protected and conserved areas’ is used to collectively describe all sites that aim to achieve, or are effective in achieving, conservation outcomes. Conserved areas include a wide range of sites that deliver effective conservation outcomes, but where the site may have been established for other reasons. Included in this broad range of conserved areas are those defined by the Convention on Biological Diversity as OECMs. Although we refer broadly to ‘conserved areas’ throughout the text, the statistics, maps and figures are derived specifically from data on OECMs, rather than conserved areas more broadly.'
   - 
+    label: 'Box 4'
     title: 'COVID-19: impacts on conservation areas and opportunities for change'
     authors: 'Mariana Napolitano Ferreira and Rachel Golden Kroner'
     org: 'Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas'

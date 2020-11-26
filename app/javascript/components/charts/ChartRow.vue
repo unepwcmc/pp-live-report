@@ -19,7 +19,7 @@
         <ul class="chart__legend">
           <li>
             <span :class="`chart-key__wdpa--${legendClass}`"></span>
-            <p>WDPAs {{ row.percent }} %</p>
+            <p>PAs {{ row.percent }} %</p>
           </li>
           <li>
             <span :class="`chart-key__oecm--${legendClass}`"></span>

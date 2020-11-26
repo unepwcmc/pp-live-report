@@ -14,6 +14,12 @@
   }
 
   &__nav {
+    background-color: $black;
+    border-radius: 5px;
+    opacity: 0.7;
+
+    padding: rem-calc(12 12 0 12);
+
     position: absolute;
     top: 50vh;
     right: $gutter-small;
@@ -21,7 +27,12 @@
 
     transform: translateY(-50%);
 
-    @include breakpoint($small) { right: rem-calc(30); }
+    @include breakpoint($small) { 
+      padding: rem-calc(25 20 10 20);
+
+      right: rem-calc(30); 
+    }
+
     @include breakpoint($medium) { right: rem-calc(80); }
 
     &.active { 
@@ -47,13 +58,17 @@
   &__nav-item-icon {
     background-color: $white;
     border-radius: 100%;
-    margin-left: rem-calc(18);
+
     width: rem-calc(6); height: rem-calc(6);
 
     display: block;
 
     transform: scale(1);
     transition: background-color .1s linear, transform .2s ease-in;
+
+    @include breakpoint($small) {
+      margin-left: rem-calc(18);
+    }
 
     &.active { 
       background-color: $primary;

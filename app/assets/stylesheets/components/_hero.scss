@@ -95,7 +95,11 @@
       }
 
       &__date {
-        margin: 0;
+        margin-bottom: 20%;
+
+        @include breakpoint($small) {
+          margin: 0;
+        }
       }
 
       &__icon {

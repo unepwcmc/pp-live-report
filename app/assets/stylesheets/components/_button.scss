@@ -79,6 +79,7 @@
     }
 
     &__text { 
+      font-family: $body-font;
       font-size: $button-font-size-small;
       font-weight: $light;
       display: none;

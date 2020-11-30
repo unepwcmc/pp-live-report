@@ -1,5 +1,12 @@
 <header class="hero--home parallax <%= @hero['class'] %>">
   <%= render 'partials/topbar' %>
+
+  <%= video_tag 'test.mp4', 
+    autoplay: :autoplay, 
+    loop: :loop, 
+    muted: :muted,
+    class: "hero__video" 
+  %>
   
   <div class="container hero__content">
     <h1 class="hero__title heading--home"><%= site_title %></h1>

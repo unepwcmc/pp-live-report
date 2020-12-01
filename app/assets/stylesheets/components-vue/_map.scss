@@ -132,7 +132,6 @@
       &__panel-top {
         @include flex;
         @include flex-h-between;
-        @include flex-v-center;
         background-color: $black;
         padding-top: rem-calc(13);
         padding-bottom: rem-calc(13);
@@ -144,6 +143,7 @@
         }
 
         .icon--close-white {
+          transform: translateY(7px);
           display: none;
 
           @include breakpoint($medium) {

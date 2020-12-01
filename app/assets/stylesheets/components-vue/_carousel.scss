@@ -6,7 +6,7 @@
   position: relative;
 
   &__content {
-    padding-right: rem-calc(44);
+    padding-right: rem-calc(66);
 
     @include breakpoint($small) {
       padding-right: 50%;

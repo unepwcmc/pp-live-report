@@ -142,12 +142,14 @@
           padding-bottom: rem-calc(20);
         }
 
-        .icon--close-white {
-          transform: translateY(7px);
+        .icon--close-white,
+        .icon--minus-white {
           display: none;
 
           @include breakpoint($medium) {
             display: block;
+
+            transform: translateY(7px); 
           }
         }
       }
@@ -285,6 +287,7 @@
     background-color: $grey;
     border-radius: rem-calc(14);
     color: $white;
+    cursor: pointer;
     font-size: rem-calc(10);
     font-weight: 600;
     margin-left: 0;

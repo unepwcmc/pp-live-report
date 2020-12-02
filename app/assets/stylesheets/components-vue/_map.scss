@@ -132,7 +132,6 @@
       &__panel-top {
         @include flex;
         @include flex-h-between;
-        @include flex-v-center;
         background-color: $black;
         padding-top: rem-calc(13);
         padding-bottom: rem-calc(13);
@@ -143,11 +142,14 @@
           padding-bottom: rem-calc(20);
         }
 
-        .icon--close-white {
+        .icon--close-white,
+        .icon--chevron-down-white {
           display: none;
 
           @include breakpoint($medium) {
             display: block;
+
+            transform: translateY(7px); 
           }
         }
       }
@@ -285,6 +287,7 @@
     background-color: $grey;
     border-radius: rem-calc(14);
     color: $white;
+    cursor: pointer;
     font-size: rem-calc(10);
     font-weight: 600;
     margin-left: 0;

@@ -69,7 +69,6 @@ $oecm: $orange;
 $marine: $blue;
 $terrestrial: $green-bright;
 
-
 $theme-blue: $chart-blue-xdark $chart-blue-dark $chart-blue $chart-blue-light $grey-light;
 $theme-green: $chart-green-xdark $chart-green-dark $chart-green $chart-green-light $grey-light;
 $theme-rainbow: $chart-pink $chart-yellow $chart-green $chart-blue $grey-light;
@@ -112,8 +111,8 @@ $large: 1200px;
 // dimensions
 //--------------------------------------------------
 $site-width: rem-calc($large);
-$small-container: calc(#{$site-width} * .5);
-$medium-container: calc(#{$site-width} * .83);
+// $small-container: calc(#{$site-width} * .5);
+$medium-container: calc(#{$site-width} * .64);
 
 //--------------------------------------------------
 // padding

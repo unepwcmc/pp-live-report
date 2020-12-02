@@ -7,7 +7,7 @@
 
 <section class="section-padding">
   
-  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'], reduced_width: true } %>
+  <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
 
   <div class="container--medium">
     <% @row_charts.each do |item| %>

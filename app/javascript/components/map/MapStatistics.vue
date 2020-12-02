@@ -6,7 +6,7 @@
       <div class="map__panel-top gutters">
         <h2 class="heading--map">{{ title }}</h2>
         <i
-          :class="[isActive ? 'icon--close-white' : 'icon--minus-white']"
+          :class="[isActive ? 'icon--close-white' : 'icon--chevron-down-white']"
           @click="togglePanel"
         ></i>
       </div>

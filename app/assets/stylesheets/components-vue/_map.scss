@@ -143,7 +143,7 @@
         }
 
         .icon--close-white,
-        .icon--minus-white {
+        .icon--chevron-down-white {
           display: none;
 
           @include breakpoint($medium) {

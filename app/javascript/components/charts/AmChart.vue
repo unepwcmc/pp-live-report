@@ -160,6 +160,7 @@ export default {
   createDots(series, seriesNum) {
    const bullet = series.bullets.push(new am4charts.CircleBullet());
    bullet.fill = am4core.color(this.colours[seriesNum]);
+   bullet.circle.radius = 3;
   },
 
   createLegend() {

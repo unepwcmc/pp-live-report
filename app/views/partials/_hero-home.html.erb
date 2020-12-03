@@ -1,7 +1,7 @@
 <header class="hero--home parallax <%= @hero['class'] %>">
   <%= render 'partials/topbar' %>
 
-  <%= video_tag 'test.mp4', 
+  <%= video_tag @hero['video'], 
     autoplay: :autoplay, 
     loop: :loop, 
     muted: :muted,

@@ -83,3 +83,7 @@ and linking up to the docs published since the chapter was first published.
 0.2.16
 
 Oct 2020 stats updates
+
+0.2.17
+
+Feb 2021 stats updates

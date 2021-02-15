@@ -84,6 +84,7 @@ export default {
     description: String,
     tabs: Array,
     layers: Array,
+    oecmLayer: Object,
     oecmPresent: Boolean,
     tilesUrl: String,
     disclaimer: Object,
@@ -162,6 +163,10 @@ export default {
       this.map.on("load", () => {
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
+
+        if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
+          this.addLayer(this.oecmLayer)
+        }
       })
     },
 
@@ -180,7 +185,12 @@ export default {
     },
 
     addLayer(layer) {
-      if (layer.source_layers && this.tilesUrl) {
+      if(layer.type == 'raster_tile') {
+        console.log('here - adding layer')
+
+        this.addRasterTileLayer(layer)
+
+      } else if (layer.source_layers && this.tilesUrl) {
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
             tiles: [this.tilesUrl],
@@ -217,6 +227,24 @@ export default {
       }
 
       this.map.addLayer(options, this.firstTopLayerId)
+    },
+
+    addRasterTileLayer (layer) {
+      console.log(layer.url)
+      this.map.addLayer({
+        id: layer.id,
+        type: 'raster',
+        minzoom: 0,
+        maxzoom: 22,
+        source: {
+          type: 'raster',
+          tiles: [layer.url],
+          tileSize: 128,
+        },
+        layout: {
+          visibility: 'visible'
+        }
+      }, this.firstTopLayerId)
     },
 
     hideLayers(ids) {

@@ -68,6 +68,13 @@ class ChaptersController < ApplicationController
     @map_1 = {
       id: 'map_1',
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      oecm: {
+        color: '#D9B143',
+        id: 'oecm-' + random_number,
+        isShownByDefault: true,
+        type: 'raster_tile',
+        url: 'https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_on_other_effective_area_based_conservation_measures/MapServer/tile/{z}/{y}/{x}'
+      },
       tabs: [
         {
           title: 'Terrestrial',

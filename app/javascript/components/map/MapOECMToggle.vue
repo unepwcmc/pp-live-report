@@ -40,7 +40,8 @@ export default {
     toggle () {
       this.isActive = !this.isActive
 
-      this.$emit('oecm-toggle', this.isActive)
+      // this.$emit('oecm-toggle', this.isActive)
+      this.$emit('oecm-toggle', { mapId: this.mapId, layerIds: this.ids });
 
       if(this.gaId) {
         this.$ga.event(`Toggle - Show map layer: ${this.isActive}`, 'click', this.gaId)

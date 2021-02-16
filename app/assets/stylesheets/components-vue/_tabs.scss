@@ -3,13 +3,12 @@
 //--------------------------------------------------
 .tabs {
   &__triggers {
+    @include hide-scrollbars; //needed for Windows
     @include flex;
     @include width-with-gutters;
     margin-top: rem-calc(20);
     margin-bottom: rem-calc(15);
     overflow-x: scroll;
-    
-    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
   }
 
   &__splitter {

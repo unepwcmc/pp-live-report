@@ -29,7 +29,14 @@
         padding-right: 50%;
         width: 100%;
       }
-    };
+    }
+
+    //make case study full width if there is only 1
+    &:first-child:last-child { 
+      @include breakpoint($medium) { 
+        width: 100%; 
+      }
+    }
 
     &:hover {
       .card__image {

@@ -3,7 +3,8 @@
   <span class="map__oecm-toggle" v-if="oecmPresent">
     Include OECM contribution
     <map-oecm-toggle 
-      @oecm-toggle="toggleOECM"
+      :layer="oecmLayer"
+      :map-id="mapId"
     />
   </span>
   <ul class="map__panel-layers">
@@ -51,6 +52,7 @@ export default {
    required: true,
   },
   oecmPresent: Boolean,
+  oecmLayer: Object,
   parentTabId: String,
   mapId: String,
  },
@@ -74,12 +76,6 @@ export default {
   handleTabChange(obj) {
     if (this.parentTabId === obj.tab) { return }
     this.currentLayer = 0 
-  },
-  toggleOECM(boolean) {
-    console.log('hello')
-    
-
-    // TODO - Need to dispatch an action to store/set variable etc to show OECMs with this method
   }
  },
 }

@@ -28,6 +28,7 @@
                 :parent-tab-id="getTabId(index)"
                 :layers="tab.layers"
                 :oecm-present="oecmPresent"
+                :oecm-layer="oecmLayer"
               ></map-statistics-toggles>
             </tab>
           </tabs>
@@ -112,6 +113,12 @@ export default {
     eventHub.$on("hide-other-layers", this.hideLayers)
     this.getAllLayers()
     this.createMap()
+  },
+
+  beforeDestroy() {
+    eventHub.$off("hide-layers")
+    eventHub.$off("show-layers")
+    eventHub.$off("hide-other-layers")
   },
 
   methods: {
@@ -230,7 +237,6 @@ export default {
     },
 
     addRasterTileLayer (layer) {
-      console.log(layer.url)
       this.map.addLayer({
         id: layer.id,
         type: 'raster',
@@ -242,16 +248,18 @@ export default {
           tileSize: 128,
         },
         layout: {
-          visibility: 'visible'
+          visibility: layer.isShownByDefault ? 'visible' : 'none'
         }
       }, this.firstTopLayerId)
     },
 
     hideLayers(ids) {
+      console.log('hide', ids)
       this.hideVisibilityOfLayers(ids)
     },
 
     showLayers(ids) {
+      console.log('show', ids)
       this.setVisibilityOfLayers(ids)
     },
 

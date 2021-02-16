@@ -331,8 +331,6 @@ class ChaptersController < ApplicationController
   def case_study_image(case_study)
     if case_study['image']
       URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
-    else
-      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
     end
   end
 end

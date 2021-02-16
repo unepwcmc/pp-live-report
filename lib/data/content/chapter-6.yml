@@ -27,6 +27,8 @@ photo_credits: "Equitably managed: Stilt fishing in Galle, Sri Lanka &copy; Mehm
 
 case_studies:
   - 
+    card_image: /images/case-studies/mining-in-the-amazon-rainforest-marcio-insensee-e-sa.jpg
+    card_source: Mining in the Amazon rainforest, Brazil © Marcio Isensee e Sá / Adobe Stock
     label: 'Box 10'
     title: 'Tracking management effectiveness after 2020'
     authors: 'Sue Stolton'

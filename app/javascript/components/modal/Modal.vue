@@ -21,6 +21,9 @@
           <small v-if="text.source" class="modal__image-source">{{
             text.source
           }}</small>
+          <small v-if="text.card_source" class="modal__image-source">
+            {{ text.title }}: {{ text.card_source }}
+          </small>
         </div>
       </div>
     </div>

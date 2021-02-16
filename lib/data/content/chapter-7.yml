@@ -14,6 +14,8 @@ photo_credits: "Well-connected systems: Mangroves in Krabi, Thailand &copy; kamt
          
 case_studies:
   - 
+    card_image: /images/case-studies/farmer-in-tanzania-rafal-cichawa.jpg
+    card_source: A farmer in Tanzania © Rafal Cichawa / Adobe Stock
     label: 'Box 11'
     title: 'Governance assessments in Territories of Life'
     authors: 'Jennifer Kelleher - Programme Lead, Governance, Equity & Rights, Global Protected Areas Programme, IUCN, Dr. Stephen Nindi - Director General National Land Use Planning Commission (NLUPC) Tanzania. '

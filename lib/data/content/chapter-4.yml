@@ -24,6 +24,8 @@ photo_credits: "Ecologically representative: Namib Sand Sea, Namibia &copy; Uwe 
 
 case_studies:
   - 
+    card_image: /images/case-studies/fog-over-mountain-road-sam.jpg
+    card_source: Fog over a mountain road © Sam / Adobe Stock
     label: 'Box 6'
     title: 'Systematic Conservation Planning'
     authors: 'Javier Fajardo and Andy Arnell'
@@ -32,6 +34,8 @@ case_studies:
            The approach is based on clearly stated underlying principles and target-setting, promoting transparency and accountability in decision making. Crucially, SCP should be used alongside consultations with local people and other stakeholders to identify where and how conservation efforts should be scaled up – either by establishing new protected and conserved areas, or by providing increased support to measures not previously considered part of the formal conservation network. \n
             Since its inception, SCP has been embraced by large conservation organisations and governments, providing decision support for the design and improvement of protected area networks worldwide (McIntosh et al. 2017). Examples of success span from the recent declaration of Tun Mustapha Park in Malaysia following a SCP process (Jumin et al. 2018) to the zoning of the Great Barrier Reef Marine Park in Australia (Fernandes et al. 2005) and plans for the conservation network in South Africa (Knight et al. 2006). Together with solving problems such as the smarter consideration of OECMs in addition to protected areas, or finding imaginative solutions to account for climate change, SCP is regarded as a key tool to achieve a future where humans and nature thrive together."
   - 
+    card_image: /images/case-studies/mountain-road-alexy-stiop.jpg
+    card_source: Mountain road, UAE © Alexey Stiop / Adobe Stock
     label: 'Box 7'
     title: 'Global conservation area targets will be most efficiently met through differentiated responsibilities at the country level'
     authors: 'Xiaoli Shen'

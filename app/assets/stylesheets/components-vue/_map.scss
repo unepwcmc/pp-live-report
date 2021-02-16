@@ -206,6 +206,8 @@
         overflow-y: scroll;
         width: 100%;
         max-height: rem-calc(200);
+
+        -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
       }
 
       &__panel-layer {

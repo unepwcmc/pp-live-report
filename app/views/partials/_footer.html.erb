@@ -1,5 +1,12 @@
 <footer>
   <div class="footer__main gutters">  
+    <% unless current_page?('/') %>
+      <references 
+        class="footer__references" 
+        :references-text="<%= get_references %>">
+      </references>
+    <% end %>
+
     <div class="footer__partner-logos">
       <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
@@ -22,14 +29,6 @@
       <% end %>
     </div>
     
-    <% unless current_page?('/') %>
-      <references 
-        class="footer__references" 
-        :references-text="<%= get_references %>">
-      </references>
-    <% end %>
-    
-
     <hr class="footer__hr"/>
     <div class="footer__text flex flex-h-between">
       <p class="footer__citation no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>

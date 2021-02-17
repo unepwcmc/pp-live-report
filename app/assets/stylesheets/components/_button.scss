@@ -39,7 +39,26 @@
   @include icon-cross;
 }
 
+@mixin button-external($color: $body-font-color) {
+  color: $color;
+  margin-right: rem-calc(34);
 
+  display: inline-block;
+  position: relative;
+  
+  &:after {
+    background-image: image-url('icons/chevron-circle-right.svg');
+    content: '';
+    width: rem-calc(24); height: rem-calc(24);
+    
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: rem-calc(-34);
+    
+    transform: translateY(-50%);
+  }
+}
 
 //--------------------------------------------------
 // buttons
@@ -116,24 +135,12 @@
   }
 
   &--external {
-    color: $body-font-color;
-    margin-right: rem-calc(34);
+    @include button-external();
+  }
 
-    display: inline-block;
-    position: relative;
-    
-    &:after {
-      background-image: image-url('icons/chevron-circle-right.svg');
-      content: '';
-      width: rem-calc(24); height: rem-calc(24);
-      
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      right: rem-calc(-34);
-      
-      transform: translateY(-50%);
-    }
+  &--external-white {
+    @include button-external($white);
+    font-size: rem-calc(16);
   }
 
   &--link {

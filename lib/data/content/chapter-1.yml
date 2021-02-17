@@ -5,6 +5,8 @@ photo_credits: "Introduction: Wulingyuan Scenic and Historic Interest Area, Chin
 
 case_studies:
   - 
+    card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
+    card_source: Lanikai halo © Amanda Phung / Unsplash
     label: 'Box 1'
     title: 'Authors and Contributors'
     text: "Lead authors:\n

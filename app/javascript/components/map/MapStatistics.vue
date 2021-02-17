@@ -204,8 +204,6 @@ export default {
 
     addLayer(layer) {
       if(layer.type == 'raster_tile') {
-        console.log('here - adding layer')
-
         this.addRasterTileLayer(layer)
 
       } else if (layer.source_layers && this.tilesUrl) {
@@ -265,12 +263,10 @@ export default {
     },
 
     hideLayers(ids) {
-      console.log('hide', ids)
       this.hideVisibilityOfLayers(ids)
     },
 
     showLayers(ids) {
-      console.log('show', ids)
       this.setVisibilityOfLayers(ids)
     },
 

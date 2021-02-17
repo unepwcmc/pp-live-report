@@ -3,11 +3,11 @@ module ApplicationHelper
   include YamlHelpers
   
   def site_title 
-    'Protected Planet Digital Report'
+    'Protected Planet Report 2020'
   end
 
   def site_description
-    'Protected Planet Digital Report assesses the state of protected areas around the world.'
+    'Protected Planet Report 2020 assesses the state of protected areas around the world.'
   end
 
   def page_title

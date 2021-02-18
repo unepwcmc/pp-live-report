@@ -17,7 +17,7 @@ module SocialHelper
 
   def create_sharing_twitter_link
     title = url_encode('Share ' + page_title + ' on Twitter')
-    text = url_encode('Protected Planet Report 2018')
+    text = url_encode('Protected Planet Report 2020')
     url = encoded_home_url
     href = 'https://twitter.com/intent/tweet/?text=' + text + '&url=' + url
     

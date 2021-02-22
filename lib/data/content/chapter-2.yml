@@ -4,7 +4,7 @@ subtitle: "Chapter 2"
 intro: "TBD?"
 blockquote_alt: "Aichi Target 11 logo"
 blockquote_image: "icons/aichi-11.svg"
-blockquote_text: "Aichi Biodiversity Target 11 of the Strategic Plan for Biodiversity 2010-2020 calls for Parties to achieve the following: ‘By 2020, at least 17 per cent of terrestrial and inland water areas and 10 per cent of coastal and marine areas, especially areas of particular importance for biodiversity and ecosystem services, are conserved through effectively and equitably managed, ecologically representative and well-connected systems of protected areas and other effective area-based conservation measures, and integrated into the wider landscape and seascape’."
+blockquote_text: "Aichi biodiversity target 11 of the strategic plan for biodiversity 2010-2020 calls for parties to achieve the following: ‘By 2020, at least 17 per cent of terrestrial and inland water areas and 10 per cent of coastal and marine areas, especially areas of particular importance for biodiversity and ecosystem services, are conserved through effectively and equitably managed, ecologically representative and well-connected systems of protected areas and other effective area-based conservation measures, and integrated into the wider landscape and seascape’."
 
 main_text: 
   - 
@@ -57,7 +57,7 @@ doughnut_chart_data:
     description: "All food systems depend on biodiversity and ecosystem services that support agricultural productivity, soil fertility, and water quality and supply. By protecting these key ecosystem services, protected areas can contribute to enhance food security. Protected areas also provide basic supporting services such as soil production and stabilisation of water supplies, as well as buffering against extreme climatic events."
     url: "https://www.un.org/sustainabledevelopment/hunger/"
   -
-    title: "Good Health and Well-being"
+    title: "Good health and well-being"
     colour: "#4C9F38"
     icon: 'icons/sdg-goal-03.png'
     description: "The link between biodiversity and human health is increasingly recognized. By protecting ecosystems, protected areas help mitigate the spread and impact of pollution. For instance, protecting forests help regulate water flow and improve water quality. Medicines are also be derived from biodiversity. Finally, by offering recreational opportunities, protected areas also contribute to enhancing physical and mental well-being."
@@ -150,7 +150,7 @@ doughnut_chart_data:
  
 smallprint: "Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
-photo_credits: "Global coverage: Aerial view of river, Iceland &copy; MAGNIFIER / Adobe Stock"
+photo_credits: "Aerial view of river, Iceland &copy; MAGNIFIER / Adobe Stock"
 
 case_studies:
   - 

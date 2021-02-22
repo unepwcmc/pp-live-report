@@ -21,8 +21,9 @@
  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
 
   <div class="container--medium">
-      <am-chart
+    <am-chart
       :raw-data="<%= @line_chart %>"
+      file-download="<%= @line_chart_csv_url %>" 
     ></am-chart>
 
 

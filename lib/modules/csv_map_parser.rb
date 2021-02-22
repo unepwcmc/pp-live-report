@@ -82,6 +82,6 @@ module CsvMapParser
   end
 
   def self.file_reader(file_name)
-    File.read("#{Rails.root}/lib/data/file/map/#{file_name}")
+    File.read("#{Rails.root}/public/file/map/#{file_name}")
   end
 end

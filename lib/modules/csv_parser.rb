@@ -22,7 +22,7 @@ module CsvParser
 
   def self.timeseries
     timeseries = {}
-    csv_file = file_reader('Ch3_Fig3_Global_PA_Timeseries.csv')
+    csv_file = file_reader(CSV_CH3_TIMESERIES)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -115,7 +115,7 @@ module CsvParser
   end
 
   def self.file_reader(file_name)
-    File.read("#{Rails.root}/lib/data/file/#{file_name}")
+    File.read("#{Rails.root}/public/file/#{file_name}")
   end
 
   private

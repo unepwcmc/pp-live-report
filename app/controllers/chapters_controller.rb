@@ -82,7 +82,7 @@ class ChaptersController < ApplicationController
             {
               id: 'terrestrial-' + random_number,
               text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_small: 'Terrestrial',
+              text_small: 'All terrestrial',
               source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
               colour: '#86BF37'
             }
@@ -94,21 +94,21 @@ class ChaptersController < ApplicationController
             {
               id: 'marine-' + random_number,
               text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              text_small: 'Total PA Coverage',
+              text_small: 'All marine',
               source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_small: 'Global EEZ',
+              text_small: 'National waters',
               source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_small: 'Global ABNJ',
+              text_small: 'Areas beyond national jurisdiction',
               source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
               colour: '#207D94'
             }

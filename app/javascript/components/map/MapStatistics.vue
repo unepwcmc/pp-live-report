@@ -41,6 +41,17 @@
           ></map-statistics-toggles>
         </template>
       </template>
+      <hr class="tabs__splitter">
+      <span class="map__oecm-toggle gutters" v-if="oecmPresent">
+        Include OECMs (terrestrial and marine)
+        <map-oecm-toggle 
+          :layer="oecmLayer"
+          :map-id="id"
+          v-on:hide-layers="hideLayers"
+          v-on:show-layers="showLayers"
+        />
+      </span>
+      <hr class="tabs__splitter">
       <div class="map__buttons flex flex-v-center gutters" v-if="isActive">
         <download
           text="CSV Download"
@@ -63,6 +74,7 @@ import {
 } from "./map-helpers"
 import Download from "../download/Download"
 import MapDisclaimer from "./MapDisclaimer"
+import MapOecmToggle from "./MapOECMToggle"
 import MapStatisticsToggles from "./MapStatisticsToggles"
 import Tab from "../tabs/Tab"
 import Tabs from "../tabs/Tabs"
@@ -74,7 +86,14 @@ const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73"
 export default {
   name: "map-statistics",
 
-  components: { Download, MapDisclaimer, MapStatisticsToggles, Tab, Tabs },
+  components: { 
+    Download, 
+    MapDisclaimer, 
+    MapOecmToggle,
+    MapStatisticsToggles, 
+    Tab, 
+    Tabs 
+  },
 
   props: {
     id: {

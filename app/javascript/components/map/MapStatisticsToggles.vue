@@ -1,12 +1,5 @@
 <template>
  <div class="map__panel-gradient gutters">
-  <span class="map__oecm-toggle" v-if="oecmPresent">
-    Include OECM contribution
-    <map-oecm-toggle 
-      :layer="oecmLayer"
-      :map-id="mapId"
-    />
-  </span>
   <ul class="map__panel-layers">
    <li
     v-for="(layer, index) in layers"
@@ -38,21 +31,18 @@
 <script>
 import { eventHub } from "../../packs/application.js"
 import { getMapboxLayerIds } from "./map-helpers"
-import MapOecmToggle from "./MapOECMToggle"
 import MapStatisticsToggle from "./MapStatisticsToggle"
 
 export default {
  name: "map-statistics-toggles",
 
- components: { MapOecmToggle, MapStatisticsToggle },
+ components: { MapStatisticsToggle },
 
  props: {
   layers: {
    type: Array,
    required: true,
   },
-  oecmPresent: Boolean,
-  oecmLayer: Object,
   parentTabId: String,
   mapId: String,
  },

@@ -48,7 +48,7 @@ export default {
 
       const event = this.isActive ? 'show-layers' : 'hide-layers'
 
-      eventHub.$emit(event, { mapId: this.mapId, layerIds: [this.layer.id] });
+      this.$emit(event, { mapId: this.mapId, layerIds: [this.layer.id] });
 
       if(this.gaId) {
         this.$ga.event(`Toggle - Show map layer: ${this.isActive}`, 'click', this.gaId)

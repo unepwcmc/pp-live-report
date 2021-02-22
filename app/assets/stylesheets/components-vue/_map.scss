@@ -90,6 +90,7 @@
 
     .map {
       &__buttons {
+        padding-top: rem-calc(8);
         padding-bottom: rem-calc(25);
       }
 
@@ -202,7 +203,8 @@
       &__panel-layers {
         @include hide-scrollbars; //needed for Windows
         list-style-type: none;
-        margin-top: 0;
+        margin-top: rem-calc(15);
+        margin-bottom: 0;
         padding: 0;
         overflow-y: scroll;
         width: 100%;

@@ -41,10 +41,8 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_1
-    @presenter = ChaptersPresenter.new
     @summaries = load_summary_text
     @data = @chapters_data[0]
-    @gauge_charts = @presenter.gauge_charts
   end
 
   def chapter_2
@@ -62,6 +60,9 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_3
+    @presenter = ChaptersPresenter.new
+    @gauge_charts = @presenter.gauge_charts
+
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 

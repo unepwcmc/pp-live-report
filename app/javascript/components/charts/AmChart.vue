@@ -211,7 +211,6 @@ export default {
 
         if (targets[targetNum].isDate === true) {
           target.date = new Date(targets[targetNum].position)
-          target.strokeDashArray = "3,3"
           target.label.valign = "top"
           target.label.dx = -85
           target.label.dy = -10
@@ -221,7 +220,8 @@ export default {
           target.label.verticalCenter = "bottom"
         }
         target.grid.stroke = am4core.color(colours[targetNum])
-        target.grid.strokeWidth = 2
+        target.grid.strokeDasharray = "3,3"
+        target.grid.strokeWidth = 1
         target.grid.strokeOpacity = 1
 
         target.label.inside = true

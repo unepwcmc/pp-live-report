@@ -103,7 +103,7 @@ h3 {
 
     @include breakpoint($small) { 
       font-size: rem-calc(25);
-      margin-bottom: rem-calc(30);
+      margin-bottom: rem-calc(20);
     }
   }
 

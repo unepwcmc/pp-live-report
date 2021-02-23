@@ -1,5 +1,5 @@
-title: "Ecologically Representative"
-menu_title: "Ecologically Representative"
+title: "Ecologically representative"
+menu_title: "Ecologically representative"
 subtitle: "Chapter 4"
 intro: "TBD"
 content_1: 
@@ -19,13 +19,13 @@ row_chart_title: "Coverage of different biogeographical units"
 row_chart_description: "Percentages of terrestrial and marine biogeographical units meeting the coverage element of Aichi Target 11 in 2016, 2018 and 2019."
 row_chart_smallprint: "Sources: Terrestrial ecoregions, realms and biomes from Olson et al. (2001). Marine ecoregions, realms and provinces from Spalding et al. (2007); pelagic provinces from Spalding et al. (2012)."
 
-photo_credits: "Ecologically representative: Namib Sand Sea, Namibia &copy; Uwe / Adobe Stock"
+photo_credits: "Namib Sand Sea, Namibia &copy; Uwe / Adobe Stock"
 
 
 case_studies:
   - 
     label: 'Box 7'
-    title: 'Systematic Conservation Planning'
+    title: 'Systematic conservation planning'
     authors: 'Javier Fajardo and Andy Arnell'
     org: 'UNEP-WCMC'
     text: "Systematic approaches to conservation planning (Margules & Pressey 2000) have been developed over the last three decades to provide decision support to efficiently meet conservation goals, including by ensuring that conservation networks are representative of species and ecosystems. Systematic conservation planning (SCP) typically uses spatial analysis and selection algorithms to prioritise areas for protection, thereby maximising positive outcomes for biodiversity while minimising economic and societal costs. \n

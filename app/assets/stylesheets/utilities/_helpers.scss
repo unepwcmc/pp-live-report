@@ -120,6 +120,16 @@ i { font-style: normal; }
   user-select: none; 
 }
 
+@mixin hide-scrollbars {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 //--------------------------------------------------
 // shapes
 //--------------------------------------------------

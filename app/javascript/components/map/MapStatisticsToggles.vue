@@ -1,8 +1,5 @@
 <template>
  <div class="map__panel-gradient gutters">
-  <span class="map__oecm-toggle" v-if="oecmPresent"
-   >Include OECM contribution<map-oecm-toggle @oecm-toggle="toggleOECM"></map-oecm-toggle
-  ></span>
   <ul class="map__panel-layers">
    <li
     v-for="(layer, index) in layers"
@@ -32,22 +29,20 @@
 </template>
 
 <script>
-import { eventHub } from "../../packs/application.js";
-import { getMapboxLayerIds } from "./map-helpers";
-import MapOecmToggle from "./MapOECMToggle";
-import MapStatisticsToggle from "./MapStatisticsToggle";
+import { eventHub } from "../../packs/application.js"
+import { getMapboxLayerIds } from "./map-helpers"
+import MapStatisticsToggle from "./MapStatisticsToggle"
 
 export default {
  name: "map-statistics-toggles",
 
- components: { MapOecmToggle, MapStatisticsToggle },
+ components: { MapStatisticsToggle },
 
  props: {
   layers: {
    type: Array,
    required: true,
   },
-  oecmPresent: Boolean,
   parentTabId: String,
   mapId: String,
  },
@@ -57,12 +52,12 @@ export default {
    }
  },
  mounted () {
-  eventHub.$on("hide-other-layers", this.hideNonSelectedLayers);
-  eventHub.$on("change-tab", this.handleTabChange);
+  eventHub.$on("hide-other-layers", this.hideNonSelectedLayers)
+  eventHub.$on("change-tab", this.handleTabChange)
  },
  methods: {
   getMapboxLayerIds(layer) {
-   return getMapboxLayerIds(layer);
+   return getMapboxLayerIds(layer)
   },
   hideNonSelectedLayers(obj) {
     if (obj.mapId !== this.mapId || this.parentTabId !== obj.tab) { return }
@@ -71,11 +66,7 @@ export default {
   handleTabChange(obj) {
     if (this.parentTabId === obj.tab) { return }
     this.currentLayer = 0 
-  },
-  toggleOECM(boolean) {
-    // console.log('hello');
-    // TODO - Need to dispatch an action to store/set variable etc to show OECMs with this method
   }
  },
-};
+}
 </script>

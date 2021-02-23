@@ -28,6 +28,7 @@
                 :parent-tab-id="getTabId(index)"
                 :layers="tab.layers"
                 :oecm-present="oecmPresent"
+                :oecm-layer="oecmLayer"
               ></map-statistics-toggles>
             </tab>
           </tabs>
@@ -40,6 +41,17 @@
           ></map-statistics-toggles>
         </template>
       </template>
+      <hr class="tabs__splitter">
+      <span class="map__oecm-toggle gutters" v-if="oecmPresent">
+        Include OECMs (terrestrial and marine)
+        <map-oecm-toggle 
+          :layer="oecmLayer"
+          :map-id="id"
+          v-on:hide-layers="hideLayers"
+          v-on:show-layers="showLayers"
+        />
+      </span>
+      <hr class="tabs__splitter">
       <div class="map__buttons flex flex-v-center gutters" v-if="isActive">
         <download
           text="CSV Download"
@@ -55,12 +67,14 @@
 
 <script>
 import {
+  RTL_TEXT_PLUGIN_URL,
   getMapboxLayerId,
   getLayerIdFromMapboxLayerId,
   getFirstTopLayerId,
 } from "./map-helpers"
 import Download from "../download/Download"
 import MapDisclaimer from "./MapDisclaimer"
+import MapOecmToggle from "./MapOECMToggle"
 import MapStatisticsToggles from "./MapStatisticsToggles"
 import Tab from "../tabs/Tab"
 import Tabs from "../tabs/Tabs"
@@ -72,7 +86,14 @@ const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73"
 export default {
   name: "map-statistics",
 
-  components: { Download, MapDisclaimer, MapStatisticsToggles, Tab, Tabs },
+  components: { 
+    Download, 
+    MapDisclaimer, 
+    MapOecmToggle,
+    MapStatisticsToggles, 
+    Tab, 
+    Tabs 
+  },
 
   props: {
     id: {
@@ -84,6 +105,7 @@ export default {
     description: String,
     tabs: Array,
     layers: Array,
+    oecmLayer: Object,
     oecmPresent: Boolean,
     tilesUrl: String,
     disclaimer: Object,
@@ -111,6 +133,12 @@ export default {
     eventHub.$on("hide-other-layers", this.hideLayers)
     this.getAllLayers()
     this.createMap()
+  },
+
+  beforeDestroy() {
+    eventHub.$off("hide-layers")
+    eventHub.$off("show-layers")
+    eventHub.$off("hide-other-layers")
   },
 
   methods: {
@@ -147,6 +175,16 @@ export default {
     createMap() {
       mapboxgl.accessToken = this.mapboxToken
 
+      // Add support for RTL languages
+      // Make sure this is only called once per page
+      if(mapboxgl.getRTLTextPluginStatus() == 'unavailable') {
+        mapboxgl.setRTLTextPlugin(
+          RTL_TEXT_PLUGIN_URL, 
+          null, 
+          true // Lazy loading
+        )
+      }
+
       this.map = new mapboxgl.Map({
         container: this.id,
         style: MAPBOX_STYLE,
@@ -162,6 +200,10 @@ export default {
       this.map.on("load", () => {
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
+
+        if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
+          this.addLayer(this.oecmLayer)
+        }
       })
     },
 
@@ -180,7 +222,10 @@ export default {
     },
 
     addLayer(layer) {
-      if (layer.source_layers && this.tilesUrl) {
+      if(layer.type == 'raster_tile') {
+        this.addRasterTileLayer(layer)
+
+      } else if (layer.source_layers && this.tilesUrl) {
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
             tiles: [this.tilesUrl],
@@ -217,6 +262,23 @@ export default {
       }
 
       this.map.addLayer(options, this.firstTopLayerId)
+    },
+
+    addRasterTileLayer (layer) {
+      this.map.addLayer({
+        id: layer.id,
+        type: 'raster',
+        minzoom: 0,
+        maxzoom: 22,
+        source: {
+          type: 'raster',
+          tiles: [layer.url],
+          tileSize: 128,
+        },
+        layout: {
+          visibility: layer.isShownByDefault ? 'visible' : 'none'
+        }
+      }, this.firstTopLayerId)
     },
 
     hideLayers(ids) {

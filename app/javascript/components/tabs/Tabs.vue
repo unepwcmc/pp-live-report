@@ -11,7 +11,6 @@
         <label :for="child.tabId" class="tab__title">{{ child.title }}</label>
       </button>
     </div>
-    <hr class="tabs__splitter">
     <div class="tab__container">
       <slot></slot>
     </div>

@@ -11,11 +11,16 @@
   </div>
 </template>
 <script>
+import { eventHub } from "../../packs/application.js";
+
 export default {
   name: 'MapOECMToggle',
   props: {
     gaId: {
       type: String
+    },
+    layer: {
+      type: Object
     },
     onText: {
       type: String,
@@ -24,7 +29,8 @@ export default {
     offText: {
       type: String,
       default: 'OFF'
-    }
+    },
+    mapId: String,
   },
   data() {
     return {
@@ -40,7 +46,9 @@ export default {
     toggle () {
       this.isActive = !this.isActive
 
-      this.$emit('oecm-toggle', this.isActive)
+      const event = this.isActive ? 'show-layers' : 'hide-layers'
+
+      this.$emit(event, { mapId: this.mapId, layerIds: [this.layer.id] });
 
       if(this.gaId) {
         this.$ga.event(`Toggle - Show map layer: ${this.isActive}`, 'click', this.gaId)

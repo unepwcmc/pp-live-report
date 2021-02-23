@@ -118,19 +118,15 @@
         },
         colours: [
           {
-            line: '#207D94',
+            line: '#004DA8', //$blue
             text: '#ffffff'
           },
           {
-            line: '#6FD9F2',
-            text: '#000000'
-          },
-          {
-            line: '#86BF37',
+            line: '#38A800', //$green-bright
             text: '#000000'
           }
         ],
-        legendColours: ['#207D94', '#6FD9F2', '#86BF37'],
+        legendColours: ['#004DA8', '#38A800'],
         targetColours: ['rgba(29, 125, 166, 0.4)', 'rgba(113, 163, 43, 0.4)']
       }
     },

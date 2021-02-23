@@ -63,8 +63,8 @@ export default {
     return {
       chart: null,
       chartData: [],
-      colours: ["#64BAD9", "#A54897", "#65C9B2"], // see $theme-chart in settings.scss
-      yTargetColours: ["#1C4AAF", "#32AC00"],
+      colours: ["#32AC00", "#1C4AAF"],
+      yTargetColours: ["#32AC00", "#1C4AAF"],
       xTargetColours: ["#000000"],
       totalSeries: 0,
       xAxis: null,

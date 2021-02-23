@@ -148,13 +148,12 @@ class ChaptersController < ApplicationController
     }
 
     timeseries_data = CsvParser.timeseries
-    types = %w[ABNJ EEZ Land]
+    types = %w[Land Marine]
     lines = ('1990'..'2020').map do |year|
       { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }
       .merge!({
         "1": timeseries_data[year][types[0]].round(2),
         "2": timeseries_data[year][types[1]].round(2),
-        "3": timeseries_data[year][types[2]].round(2)
       })
     end
     @line_chart = {

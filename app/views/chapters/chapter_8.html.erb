@@ -3,16 +3,17 @@
 <section class="section-padding gutters">
   <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
 
-  <div class="container--medium">
-    <map-infographic 
-      :countries="<%= @map_1[:countries].to_json %>" 
-      :legend="<%= @map_1[:legend].to_json %>"
-      :palette="<%= @map_1[:palette] %>"
-      disclaimer="<%= @shared_data['map_disclaimer'] %>"
-      source="<%= @data['map_1_source'] %>"
-    >
-    </map-infographic>
-  </div>
+  <map-statistics 
+    id="<%= @map_1[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map_1[:tiles_url] %>" 
+    :tabs="<%= @map_1[:tabs].to_json %>"
+    :layers="<%= @map_1[:layers].to_json %>" 
+    :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
+    :oecm-present="true"
+    :file-download="'#'" 
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
 </section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>

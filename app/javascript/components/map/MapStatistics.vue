@@ -106,7 +106,10 @@ export default {
     tabs: Array,
     layers: Array,
     oecmLayer: Object,
-    oecmPresent: Boolean,
+    oecmPresent: {
+      default: false,
+      type: Boolean
+    },
     tilesUrl: String,
     disclaimer: Object,
   },

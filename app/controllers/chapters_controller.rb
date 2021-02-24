@@ -238,15 +238,41 @@ class ChaptersController < ApplicationController
     @data = @chapters_data[5]
 
     @map = {
-      countries: CsvMapParser.ch6_map_categorical,
-      legend: [
-        { title: 'No Assessments', value: 'default' },
-        { title: 'Under 10%', value: 1 },
-        { title: '10% - 30%', value: 2 },
-        { title: '30% - 60%', value: 3 },
-        { title: 'Over 60%', value: 4 }
-      ],
-      palette: BLUE_PURPLE_SCHEME
+      id: 'pame',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      layers: [
+        {
+          id: 'no-assessments-' + random_number,
+          text_small: 'No Assessments',
+          source_layers: { poly: '' },
+          colour: BLUE_PURPLE_SCHEME[0]
+        },
+        {
+          id: 'under-ten-' + random_number,
+          text_small: 'Under 10%',
+          source_layers: { poly: '' },
+          colour: BLUE_PURPLE_SCHEME[1]
+        },
+        {
+          id: 'ten-to-thirty-' + random_number,
+          text_small: '10% - 30%',
+          source_layers: { poly: '' },
+          colour: BLUE_PURPLE_SCHEME[2]
+        },
+        {
+          id: 'thirty-to-sixty-' + random_number,
+          text_small: '30% - 60%
+          ',
+          source_layers: { poly: '' },
+          colour: BLUE_PURPLE_SCHEME[3]
+        },
+        {
+          id: 'over-sixty-' + random_number,
+          text_small: 'Over 60%',
+          source_layers: { poly: '' },
+          colour: BLUE_PURPLE_SCHEME[4]
+        }
+      ]
     }
   end
 

@@ -180,8 +180,30 @@ class ChaptersController < ApplicationController
   def chapter_4
     @data = @chapters_data[3]
 
-
-    # TODO - Need new data for [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  map here!
+    @map = {
+      id: 'ecoregions',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      layers: [
+        {
+          id: 'id-' + random_number,
+          text_small: '1',
+          source_layers: { poly: '' },
+          colour: TRICOLOR_PALETTE[0]
+        },
+        {
+          id: 'id-' + random_number,
+          text_small: '2',
+          source_layers: { poly: '' },
+          colour: TRICOLOR_PALETTE[1]
+        },
+        {
+          id: 'id-' + random_number,
+          text_small: '3',
+          source_layers: { poly: '' },
+          colour: TRICOLOR_PALETTE[2]
+        }
+      ]
+    }
 
     @row_charts = CsvParser.biogeographical_regions
   end

@@ -1,7 +1,17 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
 <!-- TODO - [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  -->
-<p>Map goes here</p>
+<div class="container">
+  <map-statistics 
+    id="<%= @map[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map[:tiles_url] %>" 
+    :tabs="<%= @map[:tabs].to_json %>"
+    :layers="<%= @map[:layers].to_json %>" 
+    :file-download="'#'" 
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
+</div>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 

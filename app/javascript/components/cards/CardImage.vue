@@ -9,7 +9,11 @@
       :is-active="isActive"
       @close-modal="closeModal"
     ></modal>
-    <div class="card__image"></div>
+    <span 
+      class="card__image"
+      v-bind:style="`background-image: url('${caseStudy.card_image}')`"
+    />
+    <span class="card__image-overlay" />
     <p class="card__label">{{ caseStudy.label }}</p>
     <h2 class="heading--card">{{ caseStudy.title }}</h2>
     <i class="icon--circle-chevron-white"></i>

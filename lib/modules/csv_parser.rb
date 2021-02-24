@@ -3,7 +3,7 @@ require 'csv'
 module CsvParser
   def self.chapter_dates
     dates = {}
-    CSV.parse(file_reader('all_chapter_update_table.csv'), headers: true) do |row|
+    CSV.parse(file_reader(CSV_CHAPTER_DATES), headers: true) do |row|
       dates["chapter_#{row['chapter']}"] = {
         'last_updated' => row['last_updated'],
         'next_updated' => row['next_updated']
@@ -14,7 +14,7 @@ module CsvParser
 
   def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader('chapter3_global_pa_statistics.csv'), headers: true) do |row|
+    CSV.parse(file_reader(CSV_CH3_PA_GLOBAL), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader('chapter4_global_kba_timeseries_statistics.csv')
+    csv_file = file_reader(CSV_CH4_GLOBAL_KBA)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -43,24 +43,24 @@ module CsvParser
   end
 
   def self.ch6_figure2_stats
-    progress_level('Figure 11 PAME_JUL18_GROUPING.csv', 'Type')
+    progress_level(CSV_CH11_PAME, 'Type')
   end
   
   def self.ch7_figure2_stats
-    progress_level('chapter7_pas_per_govtype_per_region.csv', 'Region')
+    progress_level(CSV_CH7_PA_GOVTYPE_REGION, 'Region')
   end
 
   def self.per_pame_coverage
-    country_perc('chapter6_regional_pame_perccov.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
+    country_perc(CSV_CH6_PAME_REGIONAL_PERCENT, 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
   end
 
   def self.count_of_pame_evaluations
-    country_perc('chapter6_regional_pame_count.csv', 'Count of PAME evaluations')
+    country_perc(CSV_CH6_PAME_REGIONAL_COUNT, 'Count of PAME evaluations')
   end
 
   def self.governance_type
     gov_types = {}
-    csv_file = file_reader('chapter7_pas_per_govtype.csv')
+    csv_file = file_reader(CSV_CH7_PA_GOVTYPE)
     CSV.parse(csv_file, headers: true) do |row|
       key = row[0]
       row = row.to_hash['Count'].to_i
@@ -70,7 +70,7 @@ module CsvParser
   end
 
   def self.biogeographical_regions
-    csv_file = file_reader('chapter5_count_statistics.csv')
+    csv_file = file_reader(CSV_CH5_COUNT)
     region_type = ''
     data = {}
 

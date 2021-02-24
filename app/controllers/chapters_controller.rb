@@ -173,7 +173,7 @@ class ChaptersController < ApplicationController
       ]
     }.to_json
 
-    @line_chart_csv_url = URI.join(root_url, '/file/Ch3_Fig3_Global_PA_Timeseries.csv')
+    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH3_TIMESERIES}")
   end
 
   def chapter_4

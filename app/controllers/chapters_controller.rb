@@ -41,10 +41,8 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_1
-    @presenter = ChaptersPresenter.new
     @summaries = load_summary_text
     @data = @chapters_data[0]
-    @gauge_charts = @presenter.gauge_charts
   end
 
   def chapter_2
@@ -62,6 +60,9 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_3
+    @presenter = ChaptersPresenter.new
+    @gauge_charts = @presenter.gauge_charts
+
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 
@@ -155,13 +156,13 @@ class ChaptersController < ApplicationController
     }
 
     timeseries_data = CsvParser.timeseries
-    types = %w[ABNJ EEZ Land]
+    types = %w[Land Marine]
     lines = ('1990'..'2020').map do |year|
-      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }.merge!({
-                                                                 "1": timeseries_data[year][types[0]].round(2),
-                                                                 "2": timeseries_data[year][types[1]].round(2),
-                                                                 "3": timeseries_data[year][types[2]].round(2)
-                                                               })
+      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }
+      .merge!({
+        "1": timeseries_data[year][types[0]].round(2),
+        "2": timeseries_data[year][types[1]].round(2),
+      })
     end
     @line_chart = {
       datapoints: lines,
@@ -172,6 +173,8 @@ class ChaptersController < ApplicationController
         { name: 'Terrestrial target (17%)', position: 23 }
       ]
     }.to_json
+
+    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH3_TIMESERIES}")
   end
 
   def chapter_4
@@ -375,8 +378,6 @@ class ChaptersController < ApplicationController
   def case_study_image(case_study)
     if case_study['image']
       URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
-    else
-      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
     end
   end
 end

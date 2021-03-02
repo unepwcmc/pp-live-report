@@ -256,58 +256,44 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @data = @chapters_data[7]
-
+    
     @map_1 = {
       id: 'map_1',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn/VectorTileServer',
+      csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
+      tiles_url: 'https://services5.arcgis.com/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
-        {
-          id: 'over-ten-' + random_number,
-          text_large: 'Over 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat5' },
-          colour: BLUE_PURPLE_SCHEME[3]
-        },
-        {
-          id: 'six-to-ten-' + random_number,
-          text_large: '6% - 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat4' },
-          colour: BLUE_PURPLE_SCHEME[2]
-        },
-        {
-          id: 'three-to-six-' + random_number,
-          text_large: '3% – 6%',
-          source_layers: { poly: 'Ch2_Fg5_mcat3' },
-          colour: BLUE_PURPLE_SCHEME[1]
-        },
-        {
-          id: 'less-than-3-' + random_number,
-          text_large: 'Under 3%',
-          source_layers: { poly: 'Ch2_Fg5_mcat2' },
-          colour: BLUE_PURPLE_SCHEME[0]
-        },
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          source_layers: { poly: 'Ch2_Fg5_mcat1' },
+          source_layers: { poly: 'protconn_cat1' },
+          colour: BLUE_PURPLE_SCHEME[3]
+        },
+        {
+          id: 'less-than-5-' + random_number,
+          text_large: '< 5%',
+          source_layers: { poly: 'protconn_cat2' },
+          colour: BLUE_PURPLE_SCHEME[2]
+        },
+        {
+          id: 'five-to-ten-' + random_number,
+          text_large: '5% - 10%',
+          source_layers: { poly: 'protconn_cat3' },
+          colour: BLUE_PURPLE_SCHEME[1]
+        },
+        {
+          id: 'ten-to-seventeen-' + random_number,
+          text_large: '10% - 17%',
+          source_layers: { poly: 'protconn_cat4' },
+          colour: BLUE_PURPLE_SCHEME[0]
+        },
+        {
+          id: 'greater-than-seventeen-' + random_number,
+          text_large: '> 17%',
+          source_layers: { poly: 'protconn_cat5' },
           colour: DEFAULT_COLOUR
         }
       ]
     }
-    
-    # TODO - May need to remove or change map style from infographic to interactive
-    # Also need new map layers
-    # @map_1 = {
-    #   countries: CsvMapParser.ch8_map1_categorical,
-    #   legend: [
-    #     { title: 'Under 4%', value: 'default' },
-    #     { title: '4% - 8%', value: 1 },
-    #     { title: '8% - 12%', value: 2 },
-    #     { title: '12% - 17%', value: 3 },
-    #     { title: '17% - 25%', value: 4 },
-    #     { title: 'Over 25%', value: 5 }
-    #   ],
-    #   palette: BLUE_PURPLE_SCHEME
-    # }
   end
 
   def chapter_9

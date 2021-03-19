@@ -11,17 +11,6 @@ CATEGORICAL_MAP_STATS = {
     boundaries: [0,10,30,60],
     header_name: 'pame_percentage_pa_land_cover',
     csv: CSV_CH3_PA_NATIONAL
-  },
-  ch8_map1_categorical: {
-    boundaries: [4,8,12,17,25],
-    header_name: 'ProtConn_B',
-    csv: CSV_CH8_NATIONAL_CONNECTIVITY
-  },
-  ch8_map2_categorical: {
-    csv: CSV_CH8_AB_CATEGORICAL
-  },
-  ch8_map3_categorical: {
-    csv: CSV_CH8_C_CATEGORICAL
   }
 }
 

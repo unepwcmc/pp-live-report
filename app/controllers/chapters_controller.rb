@@ -26,6 +26,19 @@ class ChaptersController < ApplicationController
     '#810F7C',
     '#4d004b'
   ].freeze
+  BLUE_PURPLE_SCHEME = [
+    '#0D7AE7',
+    '#0844B2',
+    '#4863A0',
+    '#163B65',
+    '#00174B'
+  ].freeze
+  GREEN_SCHEME = [
+    '#C4D6AD',
+    '#87BF37',
+    '#68853F',
+    '#333E23'
+  ].freeze
   LANGUAGES = { 
     'ar': 'العربية',
     'es': 'Español',
@@ -260,37 +273,37 @@ class ChaptersController < ApplicationController
     @map_1 = {
       id: 'map_1',
       csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
-      tiles_url: 'https://services5.arcgis.com/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'data-deficient-' + random_number,
           text_large: 'Data deficient',
-          source_layers: { poly: 'protconn_cat1' },
-          colour: BLUE_PURPLE_SCHEME[3]
+          source_layers: { poly: 'protconn_cat1_merc' },
+          colour: DEFAULT_COLOUR
         },
         {
           id: 'less-than-5-' + random_number,
           text_large: '< 5%',
-          source_layers: { poly: 'protconn_cat2' },
-          colour: BLUE_PURPLE_SCHEME[2]
+          source_layers: { poly: 'protconn_cat2_merc' },
+          colour: GREEN_SCHEME[0]
         },
         {
           id: 'five-to-ten-' + random_number,
           text_large: '5% - 10%',
-          source_layers: { poly: 'protconn_cat3' },
-          colour: BLUE_PURPLE_SCHEME[1]
+          source_layers: { poly: 'protconn_cat3_merc' },
+          colour: GREEN_SCHEME[1]
         },
         {
           id: 'ten-to-seventeen-' + random_number,
           text_large: '10% - 17%',
-          source_layers: { poly: 'protconn_cat4' },
-          colour: BLUE_PURPLE_SCHEME[0]
+          source_layers: { poly: 'protconn_cat4_merc' },
+          colour: GREEN_SCHEME[2]
         },
         {
           id: 'greater-than-seventeen-' + random_number,
           text_large: '> 17%',
-          source_layers: { poly: 'protconn_cat5' },
-          colour: DEFAULT_COLOUR
+          source_layers: { poly: 'protconn_cat5_merc' },
+          colour: GREEN_SCHEME[3]
         }
       ]
     }

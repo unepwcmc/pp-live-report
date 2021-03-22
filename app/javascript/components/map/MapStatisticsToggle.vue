@@ -21,7 +21,7 @@ export default {
       type: Array,
       required: true,
     },
-    layerNo: {
+    index: {
       type: Number,
       required: true,
     },
@@ -40,10 +40,13 @@ export default {
   },
 
   created() {
-    eventHub.$on("change-tab", this.handleTabChange);
-    eventHub.$on("hide-other-layers", this.hideLayerIfNotSelected);
+    eventHub.$on("change-tab", this.handleTabChange)
 
     if(this.setActive === true) { this.showLayers() }
+  },
+
+  beforeDestroy() {
+    eventHub.$off("change-tab")
   },
 
   computed: {
@@ -56,11 +59,15 @@ export default {
 
   methods: {
     handleTabChange(ids) {
-      if ("tabs-" + this.mapId !== ids.tabGroup || !this.isActive ) {
-        return;
+      if ("tabs-" + this.mapId !== ids.tabGroup) {
+        return
       }
 
-      this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
+      if(this.parentTabId === ids.tab && this.index === 0) {
+        this.showLayers()
+      } else {
+        this.hideLayers()
+      } 
     },
 
     toggleLayer() {
@@ -75,20 +82,6 @@ export default {
     hideLayers() {
       eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids })  
       this.isActive = false
-    },
-
-    // hideOtherLayers() {
-    //   eventHub.$emit("hide-other-layers", {
-    //     mapId: this.mapId,
-    //     layerIds: this.ids,
-    //     layerNo: this.layerNo,
-    //     tab: this.parentTabId
-    //   })
-    // },
-
-    hideLayerIfNotSelected(obj) {
-      if ( obj.layerNo === this.layerNo || obj.mapId !== this.mapId ) { return }
-      this.hideLayers();
     }
   }
 }

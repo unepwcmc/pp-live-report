@@ -130,7 +130,6 @@ export default {
   mounted() {
     eventHub.$on("hide-layers", this.hideLayers)
     eventHub.$on("show-layers", this.showLayers)
-    eventHub.$on("hide-other-layers", this.hideLayers)
     this.getAllLayers()
     this.createMap()
   },
@@ -138,7 +137,6 @@ export default {
   beforeDestroy() {
     eventHub.$off("hide-layers")
     eventHub.$off("show-layers")
-    eventHub.$off("hide-other-layers")
   },
 
   methods: {
@@ -286,12 +284,10 @@ export default {
     },
 
     showLayers(ids) {
-      console.log('show')
       this.setVisibilityOfLayers(ids)
     },
 
     hideVisibilityOfLayers(ids) {
-      console.log(ids)
       // If more than one map is present on the same page
       if (ids.mapId !== this.id) {
         return
@@ -305,7 +301,6 @@ export default {
     },
 
     setVisibilityOfLayers(ids) {
-    console.log('visible')
       if (ids.mapId !== this.id) {
         return
       }

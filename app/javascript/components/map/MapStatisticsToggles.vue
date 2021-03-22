@@ -10,7 +10,7 @@
         :map-id="mapId"
         :parent-tab-id="parentTabId"
         :ids="getMapboxLayerIds(layer)"
-        :set-active="index === 0"
+        :set-active="setActive(index)"
         v-on:toggled="toggled"
         :index="index"
         >
@@ -85,8 +85,12 @@ export default {
 
     removeIndex (index) {
       if(this.activeIndices.includes(index)) {
-        this.activeIndices = this.activeIndices.filter(i => { i !== index })
+        this.activeIndices = this.activeIndices.filter(i => i !== index )
       }
+    },
+
+    setActive (index) {
+      return  this.activeIndices.includes(index)
     }
   },
 }

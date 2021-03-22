@@ -14,9 +14,6 @@ export default {
   name: "map-statistics-toggle",
 
   props: {
-    // isActive: {
-    //   type: Boolean,
-    // },
     ids: {
       type: Array,
       required: true,

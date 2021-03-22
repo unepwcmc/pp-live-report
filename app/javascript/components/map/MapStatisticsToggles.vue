@@ -10,7 +10,7 @@
      :map-id="mapId"
      :parent-tab-id="parentTabId"
      :ids="getMapboxLayerIds(layer)"
-     :is-active="index === currentLayer"
+     :set-active="index === 0"
      :layer-no="index"
     >
      <div class="map__panel-button-wrapper">
@@ -48,7 +48,7 @@ export default {
  },
  data() {
    return {
-     currentLayer: 0
+     0: 0
    }
  },
  mounted () {

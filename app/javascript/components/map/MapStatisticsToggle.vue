@@ -14,9 +14,9 @@ export default {
   name: "map-statistics-toggle",
 
   props: {
-    isActive: {
-      type: Boolean,
-    },
+    // isActive: {
+    //   type: Boolean,
+    // },
     ids: {
       type: Array,
       required: true,
@@ -27,17 +27,23 @@ export default {
     },
     parentTabId: String,
     mapId: String,
+    setActive: {
+      type: Boolean,
+    },
   },
 
   data() {
     return {
-     isDisabled: true,
+      isActive: false,
+      isDisabled: true,
     }
   },
 
   created() {
     eventHub.$on("change-tab", this.handleTabChange);
     eventHub.$on("hide-other-layers", this.hideLayerIfNotSelected);
+
+    if(this.setActive === true) { this.showLayers() }
   },
 
   computed: {
@@ -58,31 +64,27 @@ export default {
     },
 
     toggleLayer() {
-    //  if (this.isActive === true) {
-    //   return;
-    //  }
-    //  this.hideOtherLayers();
-    //  this.showLayers();
-
       this.isActive === true ? this.hideLayers() : this.showLayers()
     },
 
     showLayers() {
-      eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids });
+      eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
+      this.isActive = true
     },
 
     hideLayers() {
-      eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids });
+      eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids })  
+      this.isActive = false
     },
 
-    hideOtherLayers() {
-      eventHub.$emit("hide-other-layers", {
-        mapId: this.mapId,
-        layerIds: this.ids,
-        layerNo: this.layerNo,
-        tab: this.parentTabId
-      })
-    },
+    // hideOtherLayers() {
+    //   eventHub.$emit("hide-other-layers", {
+    //     mapId: this.mapId,
+    //     layerIds: this.ids,
+    //     layerNo: this.layerNo,
+    //     tab: this.parentTabId
+    //   })
+    // },
 
     hideLayerIfNotSelected(obj) {
       if ( obj.layerNo === this.layerNo || obj.mapId !== this.mapId ) { return }

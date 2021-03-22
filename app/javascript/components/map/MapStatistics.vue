@@ -286,10 +286,12 @@ export default {
     },
 
     showLayers(ids) {
+      console.log('show')
       this.setVisibilityOfLayers(ids)
     },
 
     hideVisibilityOfLayers(ids) {
+      console.log(ids)
       // If more than one map is present on the same page
       if (ids.mapId !== this.id) {
         return
@@ -303,6 +305,7 @@ export default {
     },
 
     setVisibilityOfLayers(ids) {
+    console.log('visible')
       if (ids.mapId !== this.id) {
         return
       }
@@ -321,6 +324,7 @@ export default {
         }
       })
     },
+    
     togglePanel() {
       this.isActive = !this.isActive
     },

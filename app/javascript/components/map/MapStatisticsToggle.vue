@@ -69,6 +69,8 @@ export default {
 
     toggleLayer() {
       this.isActive === true ? this.hideLayers() : this.showLayers()
+
+      this.$emit('toggled', { isActive: this.isActive, index: this.index })
     },
 
     showLayers() {

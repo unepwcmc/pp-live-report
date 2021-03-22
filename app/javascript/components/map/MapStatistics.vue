@@ -113,6 +113,7 @@ export default {
 
   data() {
     return {
+      oecmUrl: '',
       map: {},
       isActive: true,
       mapboxToken: process.env.MAPBOX_TOKEN,
@@ -155,6 +156,10 @@ export default {
         })
       } else {
         this.allLayers = this.allLayers.concat(this.layers)
+      }
+
+      if(this.oecmPresent == true) { 
+        this.allLayers = this.allLayers.concat(this.createOecmLayers())
       }
     },
 
@@ -199,9 +204,9 @@ export default {
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
 
-        if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
-          this.addLayer(this.oecmLayer)
-        }
+        // if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
+        //   this.addLayer(this.oecmLayer)
+        // }
       })
     },
 
@@ -224,9 +229,11 @@ export default {
         this.addRasterTileLayer(layer)
 
       } else if (layer.source_layers && this.tilesUrl) {
+        const url = this.oecmPresent == true && layer.tilesUrl != undefined ? layer.tilesUrl : this.tilesUrl
+
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
-            tiles: [this.tilesUrl],
+            tiles: [url],
             layerType,
             layer,
           })
@@ -277,6 +284,20 @@ export default {
           visibility: layer.isShownByDefault ? 'visible' : 'none'
         }
       }, this.firstTopLayerId)
+    },
+
+    createOecmLayers () {
+      const oecmLayers = this.allLayers.map(layer => {
+        return {
+          id: layer.id + '_oecm',
+          text_large: layer.text_large,
+          tilesUrl: this.tilesUrlOecm,
+          source_layers: { poly: layer.source_layers.poly + '_oecm' },
+          colour: layer.colour
+        }
+      })
+    
+      return oecmLayers
     },
 
     hideLayers(ids) {

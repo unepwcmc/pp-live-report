@@ -11,6 +11,7 @@
         :parent-tab-id="parentTabId"
         :ids="getMapboxLayerIds(layer)"
         :set-active="index === 0"
+        v-on:toggled="toggled"
         :index="index"
         >
           <div class="map__panel-button-wrapper">
@@ -49,27 +50,43 @@ export default {
 
   data() {
     return {
-      0: 0
+      0: 0,
+      activeIndices: [0]
     }
   },
 
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
   },
-
   
-  beforeDestroy() {
+  beforeDestroy () {
     eventHub.$off("change-tab")
   },
 
   methods: {
-    getMapboxLayerIds(layer) {
+    getMapboxLayerIds (layer) {
       return getMapboxLayerIds(layer)
     },
 
-    handleTabChange(obj) {
+    handleTabChange (obj) {
       if (this.parentTabId === obj.tab) { return }
       this.currentLayer = 0 
+    },
+
+    toggled (obj) {
+      obj.isActive ? this.addIndex(obj.index) : this.removeIndex(obj.index)
+    },
+
+    addIndex (index) {
+      if(!this.activeIndices.includes(index)) {
+        this.activeIndices.push(index)
+      }
+    },
+
+    removeIndex (index) {
+      if(this.activeIndices.includes(index)) {
+        this.activeIndices = this.activeIndices.filter(i => { i !== index })
+      }
     }
   },
 }

@@ -130,7 +130,6 @@ export default {
   mounted() {
     eventHub.$on("hide-layers", this.hideLayers)
     eventHub.$on("show-layers", this.showLayers)
-    eventHub.$on("hide-other-layers", this.hideLayers)
     this.getAllLayers()
     this.createMap()
   },
@@ -138,7 +137,6 @@ export default {
   beforeDestroy() {
     eventHub.$off("hide-layers")
     eventHub.$off("show-layers")
-    eventHub.$off("hide-other-layers")
   },
 
   methods: {
@@ -321,6 +319,7 @@ export default {
         }
       })
     },
+    
     togglePanel() {
       this.isActive = !this.isActive
     },

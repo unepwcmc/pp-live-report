@@ -45,8 +45,8 @@
       <span class="map__oecm-toggle gutters" v-if="oecmPresent">
         Include OECMs (terrestrial and marine)
         <map-oecm-toggle 
-          :layer="oecmLayer"
           :map-id="id"
+          v-on:toggled="toggleOecmLayers"
           v-on:hide-layers="hideLayers"
           v-on:show-layers="showLayers"
         />
@@ -105,14 +105,20 @@ export default {
     description: String,
     tabs: Array,
     layers: Array,
-    oecmLayer: Object,
+    // oecmLayer: Object,
     oecmPresent: Boolean,
     tilesUrl: String,
+    tilesUrlOecm: String,
     disclaimer: Object,
   },
 
   data() {
     return {
+      activeTileLayer: '',
+      activeLayers: [],
+      includeOecms: false,
+      oecmLayers: [],
+      defaultLayers: [],
       oecmUrl: '',
       map: {},
       isActive: true,
@@ -131,8 +137,11 @@ export default {
   mounted() {
     eventHub.$on("hide-layers", this.hideLayers)
     eventHub.$on("show-layers", this.showLayers)
+    
     this.getAllLayers()
     this.createMap()
+
+    // if(this.oecmPresent == true) { this.oecmLayers = this.createOecmLayers() }
   },
 
   beforeDestroy() {
@@ -203,7 +212,6 @@ export default {
       this.map.on("load", () => {
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
-
         // if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
         //   this.addLayer(this.oecmLayer)
         // }
@@ -229,8 +237,13 @@ export default {
         this.addRasterTileLayer(layer)
 
       } else if (layer.source_layers && this.tilesUrl) {
-        const url = this.oecmPresent == true && layer.tilesUrl != undefined ? layer.tilesUrl : this.tilesUrl
+        
+        // const url = this.oecmPresent == true && layer.tilesUrl != undefined ? layer.tilesUrl : this.tilesUrl
 
+        const url = this.includeOecms == true ? this.tilesUrlOecm : this.tilesUrl
+        console.log('url', url)
+
+        
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
             tiles: [url],
@@ -242,13 +255,24 @@ export default {
     },
 
     addMapboxLayer({ tiles, layerType, layer }) {
+      let id = getMapboxLayerId(layer, layerType),
+        sourceLayer = layer.source_layers[layerType]
+        
+      if(this.includeOecms == true) {
+        id = `${id}_oecm`
+        sourceLayer = `${sourceLayer}_oecm`
+      }
+
+      console.log('sourceLayer', sourceLayer)
+      console.log('sourceLayer', id)
+
       const options = {
-        id: getMapboxLayerId(layer, layerType),
+        id: id,
         source: {
           type: "vector",
           tiles: tiles,
         },
-        "source-layer": layer.source_layers[layerType],
+        "source-layer": sourceLayer,
         filter: layer.filter_id ? ["==", "_symbol", layer.filter_id] : ["all"],
       }
 
@@ -270,8 +294,10 @@ export default {
     },
 
     addRasterTileLayer (layer) {
+      const id = this.includeOecms == true ? `${layer.id}_oecm` : layer.id
+
       this.map.addLayer({
-        id: layer.id,
+        id: id,
         type: 'raster',
         minzoom: 0,
         maxzoom: 22,
@@ -339,6 +365,16 @@ export default {
           }
         }
       })
+    },
+
+    toggleOecmLayers (obj) {
+      //update layers to use oecm set
+      // then set previous active ones to active
+      // const useOecmLayers = obj.includeOecms
+
+      // this.activeLayers = useOecmLayers == true ? this.oecmLayers : this.defaultLayers
+      this.includeOecms = obj.includeOecms
+      console.log('include oecms', obj.includeOecms)
     },
     
     togglePanel() {

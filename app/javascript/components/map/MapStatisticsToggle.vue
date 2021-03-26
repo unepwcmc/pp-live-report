@@ -40,9 +40,12 @@ export default {
     eventHub.$on("change-tab", this.handleTabChange)
     eventHub.$on("oecm-toggle-start", this.handleOecmToggleStart)
     eventHub.$on('oecm-toggle-end', this.handleOecmToggleEnd)
-    
 
     if(this.setActive === true) { this.showLayers() }
+  },
+  
+  mounted () {
+
   },
 
   beforeDestroy() {

@@ -121,6 +121,7 @@ export default {
       defaultLayers: [],
       oecmUrl: '',
       map: {},
+      mapLoaded: false,
       isActive: true,
       mapboxToken: process.env.MAPBOX_TOKEN,
       allLayers: [],
@@ -213,6 +214,8 @@ export default {
         "top-left"
       )
       this.map.on("load", () => {
+        console.log('loaded')
+        this.mapLoaded = true
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
         // if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
@@ -347,19 +350,24 @@ export default {
     },
 
     hideLayers(ids) {
-      this.hideVisibilityOfLayers(ids)
-    },
-
-    showLayers(ids) {
-      this.setVisibilityOfLayers(ids)
-    },
-
-    hideVisibilityOfLayers(ids) {
       // If more than one map is present on the same page
       if (ids.mapId !== this.id) {
         return
       }
 
+      this.hideVisibilityOfLayers(ids)
+    },
+
+    showLayers(ids) {
+      if (ids.mapId !== this.id) {
+        return
+      }
+      
+      //address race condition with first layer trying to be added before map created
+      this.waitUntilMapLoaded(this.setVisibilityOfLayers, ids, 100)
+    },
+
+    hideVisibilityOfLayers(ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "none")
@@ -367,11 +375,7 @@ export default {
       })
     },
 
-    setVisibilityOfLayers(ids) {
-      if (ids.mapId !== this.id) {
-        return
-      }
-      
+    setVisibilityOfLayers (ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
         console.log('id 1', mapboxLayerId)
         
@@ -382,14 +386,21 @@ export default {
             this.getLayerIdFromMapboxLayerId(mapboxLayerId)
           )
 
-          // console.log(   'baseLayer', this.getLayerIdFromMapboxLayerId(mapboxLayerId))
-
           if (baseLayer) {
-            
             this.addLayer(baseLayer)
           }
         }
       })
+    },
+
+    waitUntilMapLoaded(callback, params, delay) {
+      setTimeout(() => {
+        if(this.mapLoaded === true) {
+          callback(params)
+         } else { 
+          this.waitUntilMapLoaded(callback, params, delay)
+         }
+      }, delay)
     },
 
     toggleOecmLayers (obj) {

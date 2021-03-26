@@ -57,6 +57,8 @@ export default {
 
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
+    eventHub.$on('oecm-toggle-complete', this.handleOecmToggleEnd)
+    // eventHub.$on("toggle-oecms", this.handleOecmChange)
   },
   
   beforeDestroy () {
@@ -71,6 +73,23 @@ export default {
     handleTabChange (obj) {
       if (this.parentTabId === obj.tab) { return }
       this.currentLayer = 0 
+    },
+
+    handleOecmToggleEnd (obj) {
+      // if ("tabs-" + this.mapId !== ids.tabGroup) {
+      //   return
+      // }
+
+      // //update active layers by turning off and on again
+      // if(this.isActive) { this.showLayers() }
+
+      // if (this.mapId !== obj.mapId) {
+      //   return
+      // }
+  
+      // this.activeIndices.forEach(index => {
+
+      // })
     },
 
     toggled (obj) {

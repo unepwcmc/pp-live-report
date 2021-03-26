@@ -38,12 +38,17 @@ export default {
 
   created() {
     eventHub.$on("change-tab", this.handleTabChange)
+    eventHub.$on("oecm-toggle-start", this.handleOecmToggleStart)
+    eventHub.$on('oecm-toggle-end', this.handleOecmToggleEnd)
+    
 
     if(this.setActive === true) { this.showLayers() }
   },
 
   beforeDestroy() {
     eventHub.$off("change-tab")
+    eventHub.$off("oecm-toggle-start")
+    eventHub.$off('oecm-toggle-end')
   },
 
   computed: {
@@ -65,6 +70,35 @@ export default {
       } else {
         this.hideLayers()
       } 
+    },
+
+    handleOecmToggleStart (obj) {
+      
+      // if ("tabs-" + this.mapId !== ids.tabGroup) {
+      //   return
+      // }
+
+      if (this.mapId !== obj.mapId) {
+        return
+      }
+
+      //update active layers by turning off and on again
+      if(this.isActive) { 
+        console.log('start', this.ids)
+        this.hideLayers() }
+    },
+
+    handleOecmToggleEnd (obj) {
+      
+      if(this.setActive) { 
+        console.log('end', this.ids)
+        
+
+        // window.setTimeout( () => {
+          console.log(this.ids)
+          this.showLayers() 
+        // }, 500)
+      }
     },
 
     toggleLayer() {

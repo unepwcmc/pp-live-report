@@ -275,6 +275,7 @@ class ChaptersController < ApplicationController
       csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+tabs: [        {    title: 'Terrestrial',
       layers: [
         {
           id: 'data-deficient-' + random_number,
@@ -294,6 +295,7 @@ class ChaptersController < ApplicationController
           source_layers: { poly: 'protconn_cat3_merc' },
           colour: GREEN_SCHEME[1]
         },
+]}, {title: 'Maine', layers: [
         {
           id: 'ten-to-seventeen-' + random_number,
           text_large: '10% - 17%',
@@ -307,43 +309,7 @@ class ChaptersController < ApplicationController
           colour: GREEN_SCHEME[3]
         }
       ]
-        # },
-        # oecm: {
-        #   tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-        #   layers: [
-        #     {
-        #       id: 'data-deficient-' + random_number,
-        #       text_large: 'Data deficient',
-        #       source_layers: { poly: 'protconn_cat1_merc_oecm' },
-        #       colour: DEFAULT_COLOUR
-        #     },
-        #     {
-        #       id: 'less-than-5-' + random_number,
-        #       text_large: '< 5%',
-        #       source_layers: { poly: 'protconn_cat2_merc_oecm' },
-        #       colour: GREEN_SCHEME[0]
-        #     },
-        #     {
-        #       id: 'five-to-ten-' + random_number,
-        #       text_large: '5% - 10%',
-        #       source_layers: { poly: 'protconn_cat3_merc_oecm' },
-        #       colour: GREEN_SCHEME[1]
-        #     },
-        #     {
-        #       id: 'ten-to-seventeen-' + random_number,
-        #       text_large: '10% - 17%',
-        #       source_layers: { poly: 'protconn_cat4_merc_oecm' },
-        #       colour: GREEN_SCHEME[2]
-        #     },
-        #     {
-        #       id: 'greater-than-seventeen-' + random_number,
-        #       text_large: '> 17%',
-        #       source_layers: { poly: 'protconn_cat5_merc_oecm' },
-        #       colour: GREEN_SCHEME[3]
-        #     }
-        #   ]
-        # }
-      # ]
+}]
     }
   end
 

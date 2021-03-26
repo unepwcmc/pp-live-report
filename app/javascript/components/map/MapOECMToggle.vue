@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { eventHub } from "../../packs/application.js"
+
 export default {
   name: 'MapOECMToggle',
   props: {
@@ -31,21 +33,36 @@ export default {
     },
     mapId: String,
   },
+  
   data() {
     return {
       isActive: false
     }
   },
+
   computed: {
     actionText () {
       return this.isActive ? this.onText : this.offText;
     }
   },
+
+  mounted () {
+    eventHub.$on("change-tab", this.handleTabChange)
+  },
+  
+  beforeDestroy () {
+    eventHub.$off("change-tab")
+  },
+
   methods: {
+    handleTabChange () {
+      this.isActive = false
+
+      eventHub.$emit('reset-oecm-toggle', { mapId: this.mapId, includeOecms: this.isActive })
+    },
+
     toggle () {
       this.isActive = !this.isActive
-
-      // const event = this.isActive ? 'show-layers' : 'hide-layers'
 
       this.$emit('toggled', { mapId: this.mapId, includeOecms: this.isActive })
 

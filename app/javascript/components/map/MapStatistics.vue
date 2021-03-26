@@ -18,7 +18,7 @@
         <template v-if="tabs">
           <tabs :id="`tabs-${id}`">
             <tab
-              v-for="(tab, index) in tabs"
+              v-for="(tab, index) in tabsActive"
               :key="`tab-${index}`"
               :id="getTabId(index)"
               :title="tab.title"
@@ -28,7 +28,6 @@
                 :parent-tab-id="getTabId(index)"
                 :layers="tab.layers"
                 :oecm-present="oecmPresent"
-                :oecm-layer="oecmLayer"
               ></map-statistics-toggles>
             </tab>
           </tabs>
@@ -46,7 +45,7 @@
         Include OECMs (terrestrial and marine)
         <map-oecm-toggle 
           :map-id="id"
-          v-on:toggled="toggleOecmLayers"
+          v-on:toggled="handleOecmToggleChange"
           v-on:hide-layers="hideLayers"
           v-on:show-layers="showLayers"
         />
@@ -116,6 +115,7 @@ export default {
     return {
       activeTileLayer: '',
       activeLayers: [],
+      activeTabId: '',
       includeOecms: false,
       oecmLayers: [],
       defaultLayers: [],
@@ -125,6 +125,8 @@ export default {
       isActive: true,
       mapboxToken: process.env.MAPBOX_TOKEN,
       allLayers: [],
+      tabsActive: [],
+      tabsDefault: [],
       tabsWithOecm: [],
       firstTopLayerId: "",
     }
@@ -134,18 +136,52 @@ export default {
     initialLayer() {
       return this.tabs ? this.tabs[0].layers[0] : this.layers[0]
     },
+
+    // tabsActive: {
+    //   get () {
+    //     return this.tabsActive
+    //   },
+    //   set (obj) {
+    //     var names = newValue.split(' ')
+    //     this.firstName = names[0]
+    //     this.lastName = names[names.length - 1]
+    //   }
+    // }
+  },
+
+  created () {
+    if(this.tabs) {
+      this.tabsDefault = this.tabs
+      this.tabsActive = this.tabsDefault
+      this.activeTabId = this.getTabId(0)
+      if(this.oecmPresent == true) { this.createTabsWithOecm() }
+    } 
+
+    this.getAllDefaultLayers()
+    if(this.oecmPresent == true) { this.createLayersWithOecm() }
+    this.activeLayers = this.defaultLayers
   },
 
   mounted() {
+    eventHub.$on("change-tab", this.handleTabChange)
     eventHub.$on("hide-layers", this.hideLayers)
     eventHub.$on("show-layers", this.showLayers)
+    eventHub.$on("reset-oecm-toggle", this.resetLayers)
     
-    this.getAllDefaultLayers()
-    this.createMap()
-    
-    if(this.oecmPresent == true) { this.createOecmLayers() }
+    // this.getAllDefaultLayers()
+    // this.createMap()
 
-    this.activeLayers = this.defaultLayers
+    // if(this.tabs) {
+    //   this.tabsDefault = this.tabs
+    //   this.tabsActive = this.tabsDefault
+    // }
+    
+    // if(this.oecmPresent == true) { this.createOecmLayers() }
+
+    // this.activeLayers = this.defaultLayers
+
+    
+    this.createMap()
   },
 
   beforeDestroy() {
@@ -170,10 +206,6 @@ export default {
       } else {
         this.defaultLayers = this.defaultLayers.concat(this.layers)
       }
-
-      // if(this.oecmPresent == true) { 
-      //   this.allLayers = this.allLayers.concat(this.createOecmLayers())
-      // }
     },
 
     getLayerById(id) {
@@ -214,13 +246,9 @@ export default {
         "top-left"
       )
       this.map.on("load", () => {
-        console.log('loaded')
         this.mapLoaded = true
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
-        // if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
-        //   this.addLayer(this.oecmLayer)
-        // }
       })
     },
 
@@ -244,12 +272,8 @@ export default {
 
       } else if (layer.source_layers && this.tilesUrl) {
         
-        // const url = this.oecmPresent == true && layer.tilesUrl != undefined ? layer.tilesUrl : this.tilesUrl
-
         const url = this.includeOecms == true ? this.tilesUrlOecm : this.tilesUrl
-        console.log('url', url)
 
-        
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
             tiles: [url],
@@ -263,14 +287,6 @@ export default {
     addMapboxLayer({ tiles, layerType, layer }) {
       let id = getMapboxLayerId(layer, layerType),
         sourceLayer = layer.source_layers[layerType]
-        
-      // if(this.includeOecms == true) {
-      //   id = `${id}_oecm`
-      //   sourceLayer = `${sourceLayer}_oecm`
-      // }
-
-      // console.log('sourceLayer', sourceLayer)
-      console.log('id', id)
 
       const options = {
         id: id,
@@ -300,8 +316,6 @@ export default {
     },
 
     addRasterTileLayer (layer) {
-      // const id = this.includeOecms == true ? `${layer.id}_oecm` : layer.id
-
       this.map.addLayer({
         id: id,
         type: 'raster',
@@ -318,35 +332,55 @@ export default {
       }, this.firstTopLayerId)
     },
 
-    createOecmLayers () {
-      if(this.tabs) {
-        const tabsWithOecm = this.tabs.map(tab => {
-          return tab.layers.map(layer => {
-            return {
-              id: layer.id + '_oecm',
-              text_large: layer.text_large,
-              // tilesUrl: this.tilesUrlOecm,
-              source_layers: { poly: layer.source_layers.poly + '_oecm' },
-              colour: layer.colour
-            }
-          })
-        })
+    createTabsWithOecm () {
+      const tabsWithOecm = this.tabsDefault.map(tab => {
+        return {
+          title: tab.title,
+          layers: this.mapOecmProperties(tab.layers)
+        }
+      })
 
-        this.tabsWithOecm = tabsWithOecm
+      console.log('tabsWithOecm', tabsWithOecm)
+      this.tabsWithOecm = tabsWithOecm
+    },
 
-      } else {
-        const oecmLayers = this.defaultLayers.map(layer => {
-          return {
-            id: layer.id + '_oecm',
-            text_large: layer.text_large,
-            // tilesUrl: this.tilesUrlOecm,
-            source_layers: { poly: layer.source_layers.poly + '_oecm' },
-            colour: layer.colour
-          }
-        })
-    
-        this.oecmLayers = oecmLayers
+    createLayersWithOecm () {
+      const oecmLayers = this.mapOecmProperties(this.defaultLayers)
+  
+      this.oecmLayers = oecmLayers
+    },
+
+    mapOecmProperties (layers) {
+      return layers.map(layer => {
+        return {
+          id: layer.id + '_oecm',
+          text_large: layer.text_large,
+          source_layers: { poly: layer.source_layers.poly + '_oecm' },
+          colour: layer.colour
+        }
+      })
+    },
+
+    handleTabChange (obj) {
+      this.activeTabId = obj.tab
+    },
+
+    handleOecmToggleChange (obj) {
+      const params = { mapId: obj.mapId, activeTabId: this.activeTabId }
+      
+      eventHub.$emit('oecm-toggle-start', params)
+      
+      this.includeOecms = obj.includeOecms
+      
+      this.activeLayers = this.includeOecms == true ? this.oecmLayers : this.defaultLayers
+      
+      if(this.tabs) { 
+        this.tabsActive = obj.includeOecms == true ? this.tabsWithOecm : this.tabsDefault
       }
+
+      this.$nextTick(() => {
+        eventHub.$emit('oecm-toggle-end', params)
+      })
     },
 
     hideLayers(ids) {
@@ -377,15 +411,16 @@ export default {
 
     setVisibilityOfLayers (ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
-        console.log('id 1', mapboxLayerId)
-        
+        console.log('setVisibilityOfLayers', mapboxLayerId)
+        console.log('already on map', this.map.getLayer(mapboxLayerId))
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "visible")
         } else {
+          console.log('else', this.getLayerIdFromMapboxLayerId(mapboxLayerId))
           const baseLayer = this.getLayerById(
             this.getLayerIdFromMapboxLayerId(mapboxLayerId)
           )
-
+console.log('basel', baseLayer)
           if (baseLayer) {
             this.addLayer(baseLayer)
           }
@@ -403,35 +438,10 @@ export default {
       }, delay)
     },
 
-    toggleOecmLayers (obj) {
-      //check map
-      //update layers to use oecm set
-      eventHub.$emit('oecm-toggle-start', { mapId: obj.mapId})
+    resetLayers () {
+      this.activeLayers = this.defaultLayers
 
-      const useOecmLayers = obj.includeOecms
-
-      this.activeLayers = useOecmLayers == true ? this.oecmLayers : this.defaultLayers
-      this.includeOecms = obj.includeOecms
-
-
-      this.$nextTick(() => {
-        eventHub.$emit('oecm-toggle-end', { mapId: obj.mapId})
-      })
-
-      console.log('include oecms', obj.includeOecms)
-      
-
-      
-
-      // then set previous active ones to active
-      /* 
-      a) 
-      - hide all layers 
-      - change activelayers to oecm
-      - check the layers that were active before and make them active again
-      -   
-      */
-
+      if(this.tabs) { this.tabsActive = this.tabsDefault }
     },
     
     togglePanel() {

@@ -76,31 +76,34 @@ export default {
     },
 
     handleOecmToggleStart (obj) {
-      
-      // if ("tabs-" + this.mapId !== ids.tabGroup) {
-      //   return
-      // }
+      const isOnMap = this.mapId == obj.mapId,
+        isOnTab = this.parentTabId == obj.activeTabId,
+        isActive = this.isActive
+      console.log('handle', obj)
+      console.log('isOnMap', isOnMap)
+      console.log('isOnTab', isOnTab)
+      console.log('isActive', isActive)
 
-      if (this.mapId !== obj.mapId) {
-        return
-      }
 
-      //update active layers by turning off and on again
-      if(this.isActive) { 
+      if (isOnMap && isOnTab && isActive) {
         console.log('start', this.ids)
-        this.hideLayers() }
+        this.hideLayers()
+      }
     },
 
     handleOecmToggleEnd (obj) {
-      
-      if(this.setActive) { 
-        console.log('end', this.ids)
-        
+      const isOnMap = this.mapId == obj.mapId,
+        isOnTab = this.parentTabId == obj.activeTabId,
+        shouldBeActive = this.setActive
 
-        // window.setTimeout( () => {
-          console.log(this.ids)
-          this.showLayers() 
-        // }, 500)
+      // console.log(obj)
+      // console.log('isOnMap', isOnMap)
+      // console.log('isOnTab', isOnTab)
+      // console.log('isActive', isActive)
+      
+      if (isOnMap && isOnTab && shouldBeActive) {
+        console.log('show layer')
+        this.showLayers()  
       }
     },
 
@@ -112,6 +115,7 @@ export default {
 
     showLayers() {
       eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
+      // console.log(this.ids)
       this.isActive = true
     },
 

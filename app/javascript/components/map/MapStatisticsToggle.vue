@@ -67,9 +67,16 @@ export default {
       if ("tabs-" + this.mapId !== ids.tabGroup) {
         return
       }
-
+// console.log('ids', ids)
       if(this.parentTabId === ids.tab && this.index === 0) {
-        this.showLayers()
+        //oecm layers are always reset on tab change
+        //do not show layer here if layer is oecm
+        //wait for oecm event to avoid race condition issue
+        const oecmIds = this.ids.find(id => id.includes('oecm'))
+
+        if(oecmIds === undefined){
+          this.showLayers()
+        }
       } else {
         this.hideLayers()
       } 
@@ -79,14 +86,14 @@ export default {
       const isOnMap = this.mapId == obj.mapId,
         isOnTab = this.parentTabId == obj.activeTabId,
         isActive = this.isActive
-      console.log('handle', obj)
-      console.log('isOnMap', isOnMap)
-      console.log('isOnTab', isOnTab)
-      console.log('isActive', isActive)
+      // console.log('handle', obj)
+      // console.log('isOnMap', isOnMap)
+      // console.log('isOnTab', isOnTab)
+      // console.log('isActive', isActive)
 
 
       if (isOnMap && isOnTab && isActive) {
-        console.log('start', this.ids)
+        // console.log('start', this.ids)
         this.hideLayers()
       }
     },
@@ -102,7 +109,7 @@ export default {
       // console.log('isActive', isActive)
       
       if (isOnMap && isOnTab && shouldBeActive) {
-        console.log('show layer')
+        // console.log('show layer')
         this.showLayers()  
       }
     },
@@ -114,8 +121,9 @@ export default {
     },
 
     showLayers() {
+// console.log('show layers', this.ids)
       eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
-      // console.log(this.ids)
+      
       this.isActive = true
     },
 

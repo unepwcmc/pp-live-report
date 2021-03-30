@@ -56,9 +56,10 @@ export default {
 
   methods: {
     handleTabChange () {
+// console.log('ocem handle tab change')
       this.isActive = false
-
-      eventHub.$emit('reset-oecm-toggle', { mapId: this.mapId, includeOecms: this.isActive })
+      // this.$emit('toggled', { mapId: this.mapId, includeOecms: this.isActive })
+      // eventHub.$emit('reset-oecm-toggle', { mapId: this.mapId, includeOecms: this.isActive })
     },
 
     toggle () {

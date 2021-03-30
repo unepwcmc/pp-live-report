@@ -28,6 +28,10 @@ import { eventHub } from '../../packs/application'
       id: {
         type: String,
         default: 'tabs-unidentified'
+      },
+      mapId: {
+        type: String,
+        default: 'map-unidentified'
       }
     },
     
@@ -54,7 +58,7 @@ import { eventHub } from '../../packs/application'
       },
 
       emitChangeTab () {
-        eventHub.$emit('change-tab', {tabGroup: this.id, tab: this.selectedId})
+        eventHub.$emit('change-tab', { mapId: this.mapId, tabGroup: this.id, tab: this.selectedId})
       },
 
       initTabs () {

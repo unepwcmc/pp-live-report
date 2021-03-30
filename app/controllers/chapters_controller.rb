@@ -37,7 +37,8 @@ class ChaptersController < ApplicationController
     '#C4D6AD',
     '#87BF37',
     '#68853F',
-    '#333E23'
+    '#333E23',
+    '#1c260d',
   ].freeze
   LANGUAGES = { 
     'ar': 'العربية',
@@ -275,7 +276,7 @@ class ChaptersController < ApplicationController
       csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-tabs: [        {    title: 'Terrestrial',
+# tabs: [        {    title: 'Terrestrial',
       layers: [
         {
           id: 'data-deficient-' + random_number,
@@ -295,7 +296,7 @@ tabs: [        {    title: 'Terrestrial',
           source_layers: { poly: 'protconn_cat3_merc' },
           colour: GREEN_SCHEME[1]
         },
-]}, {title: 'Maine', layers: [
+# ]}, {title:  'Maine', layers: [
         {
           id: 'ten-to-seventeen-' + random_number,
           text_large: '10% - 17%',
@@ -305,11 +306,11 @@ tabs: [        {    title: 'Terrestrial',
         {
           id: 'greater-than-seventeen-' + random_number,
           text_large: '> 17%',
-          source_layers: { poly: 'protconn_cat5_merc_oecm' },
+          source_layers: { poly: 'protconn_cat5_merc' },
           colour: GREEN_SCHEME[3]
         }
       ]
-}]
+# }]
     }
   end
 

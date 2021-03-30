@@ -31,6 +31,7 @@
                 :parent-tab-id="getTabId(index)"
                 :layers="tab.layers"
                 :oecm-present="oecmPresent"
+                :on-a-tab="true"
               ></map-statistics-toggles>
             </tab>
           </tabs>
@@ -365,14 +366,14 @@ export default {
     },
 
     handleTabChange (obj) {
-      console.log('handle tab change', obj)
+      // console.log('handle tab change', obj)
       this.activeTabId = obj.tab
       this.handleOecmToggleChange({ mapId: obj.mapId, includeOecms: false })
       
     },
 
     handleOecmToggleChange (obj) {
-      console.log('oecm change', obj)
+      // console.log('oecm change', obj)
       const params = { mapId: obj.mapId, activeTabId: this.activeTabId }
       
       eventHub.$emit('oecm-toggle-start', params)
@@ -418,15 +419,15 @@ export default {
 
     setVisibilityOfLayers (ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
-console.log('setVisibilityOfLayers', mapboxLayerId)
-console.log('already on map', this.map.getLayer(mapboxLayerId) != undefined)
+// console.log('setVisibilityOfLayers', mapboxLayerId)
+// console.log('already on map', this.map.getLayer(mapboxLayerId) != undefined)
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "visible")
         } else {
           const baseLayer = this.getLayerById(
             this.getLayerIdFromMapboxLayerId(mapboxLayerId)
           )
-console.log('base layer', baseLayer)
+// console.log('base layer', baseLayer)
           if (baseLayer) {
             this.addLayer(baseLayer)
           }

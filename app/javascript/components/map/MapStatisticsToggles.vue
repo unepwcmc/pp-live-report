@@ -10,6 +10,7 @@
         :map-id="mapId"
         :parent-tab-id="parentTabId"
         :ids="getMapboxLayerIds(layer)"
+        :on-a-tab="onATab"
         :set-active="setActive(index)"
         v-on:toggled="toggled"
         :index="index"
@@ -44,8 +45,12 @@ export default {
       type: Array,
       required: true,
     },
-    parentTabId: String,
     mapId: String,
+    onATab: {
+      default: false,
+      type: Boolean
+    },
+    parentTabId: String
   },
 
   data() {

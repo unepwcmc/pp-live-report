@@ -14,6 +14,10 @@ export default {
   name: "map-statistics-toggle",
 
   props: {
+    onATab: {
+      default: false,
+      type: Boolean
+    },
     ids: {
       type: Array,
       required: true,
@@ -84,31 +88,39 @@ export default {
 
     handleOecmToggleStart (obj) {
       const isOnMap = this.mapId == obj.mapId,
-        isOnTab = this.parentTabId == obj.activeTabId,
+        isOnActiveTab = this.parentTabId == obj.activeTabId,
         isActive = this.isActive
       // console.log('handle', obj)
       // console.log('isOnMap', isOnMap)
       // console.log('isOnTab', isOnTab)
       // console.log('isActive', isActive)
 
+      // console.log('this.parentTabId', this.parentTabId)
 
-      if (isOnMap && isOnTab && isActive) {
-        // console.log('start', this.ids)
+      if(this.onATab === true && !isOnActiveTab) { return }
+
+
+      if (isOnMap && isActive) {
+        console.log('hide', this.ids)
         this.hideLayers()
       }
     },
 
     handleOecmToggleEnd (obj) {
       const isOnMap = this.mapId == obj.mapId,
-        isOnTab = this.parentTabId == obj.activeTabId,
+        isOnActiveTab = this.parentTabId == obj.activeTabId,
         shouldBeActive = this.setActive
 
       // console.log(obj)
       // console.log('isOnMap', isOnMap)
-      // console.log('isOnTab', isOnTab)
-      // console.log('isActive', isActive)
-      
-      if (isOnMap && isOnTab && shouldBeActive) {
+      console.log('this.onATab', this.onATab)
+      console.log('isOnActiveTab', isOnActiveTab)
+
+      if(this.onATab === true) {
+        if(!isOnActiveTab) { return }
+      }
+      console.log('isOnActiveTab', isOnActiveTab)
+      if (isOnMap && shouldBeActive) {
         // console.log('show layer')
         this.showLayers()  
       }

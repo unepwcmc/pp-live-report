@@ -20,9 +20,6 @@ export default {
     gaId: {
       type: String
     },
-    // layer: {
-    //   type: Object
-    // },
     onText: {
       type: String,
       default: 'ON',

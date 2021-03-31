@@ -47,12 +47,6 @@ export default {
     mapId: String,
   },
 
-  data() {
-    return {
-      0: 0
-    }
-  },
-
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
   },
@@ -69,7 +63,6 @@ export default {
 
     handleTabChange(obj) {
       if (this.parentTabId === obj.tab) { return }
-      this.currentLayer = 0 
     }
   },
 }

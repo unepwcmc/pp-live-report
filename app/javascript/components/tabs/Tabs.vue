@@ -58,7 +58,11 @@ import { eventHub } from '../../packs/application'
       },
 
       emitChangeTab () {
-        eventHub.$emit('change-tab', { mapId: this.mapId, tabGroup: this.id, tab: this.selectedId})
+        eventHub.$emit('change-tab', { 
+          mapId: this.mapId, 
+          tabGroup: this.id, 
+          tab: this.selectedId
+        })
       },
 
       initTabs () {

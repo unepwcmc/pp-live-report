@@ -47,10 +47,6 @@ export default {
 
     if(this.setActive === true) { this.showLayers() }
   },
-  
-  mounted () {
-
-  },
 
   beforeDestroy() {
     eventHub.$off("change-tab")
@@ -63,7 +59,7 @@ export default {
       return {
         active: this.isActive,
       }
-    },
+    }
   },
 
   methods: {
@@ -87,30 +83,33 @@ export default {
     },
 
     handleOecmToggleStart (obj) {
-      const isOnMap = this.mapId == obj.mapId,
-        isOnActiveTab = this.parentTabId == obj.activeTabId,
-        isActive = this.isActive
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
 
-      if(this.onATab === true && !isOnActiveTab) { return }
+      if(this.onATab === true && isNotOnActiveTab) { return }
 
-
-      if (isOnMap && isActive) {
+      if (this.isOnMap(obj.mapId) && this.isActive) {
         this.hideLayers()
       }
     },
 
     handleOecmToggleEnd (obj) {
-      const isOnMap = this.mapId == obj.mapId,
-        isOnActiveTab = this.parentTabId == obj.activeTabId,
-        shouldBeActive = this.setActive
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
 
       if(this.onATab === true) {
-        if(!isOnActiveTab) { return }
+        if(isNotOnActiveTab) { return }
       }
       
-      if (isOnMap && shouldBeActive) {
+      if (this.isOnMap(obj.mapId) && this.setActive) {
         this.showLayers()  
       }
+    },
+
+    isOnActiveTab (activeTabId){
+      return this.parentTabId == activeTabId
+    },
+    
+    isOnMap (mapId) {
+      return this.mapId == mapId
     },
 
     toggleLayer() {

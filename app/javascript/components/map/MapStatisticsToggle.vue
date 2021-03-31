@@ -1,91 +1,85 @@
 <template>
- <div
-  @click="toggleLayer"
-  :class="['map__panel-toggle no-select', toggleClasses]"
- >
-  <slot></slot>
- </div>
+  <div
+    @click="toggleLayer"
+    :class="['map__panel-toggle no-select', toggleClasses]"
+  >
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 import { eventHub } from "../../packs/application.js";
 
 export default {
- name: "map-statistics-toggle",
+  name: "map-statistics-toggle",
 
- props: {
-  isActive: {
-   type: Boolean,
-  },
-  ids: {
-   type: Array,
-   required: true,
-  },
-  layerNo: {
-   type: Number,
-   required: true,
-  },
-  parentTabId: String,
-  mapId: String,
- },
-
- data() {
-  return {
-   isDisabled: true,
-  };
- },
-
- created() {
-  eventHub.$on("change-tab", this.handleTabChange);
-  eventHub.$on("hide-other-layers", this.hideLayerIfNotSelected);
- },
-
- computed: {
-  toggleClasses() {
-   return {
-    active: this.isActive,
-   };
-  },
- },
-
- methods: {
-  handleTabChange(ids) {
-   if ("tabs-" + this.mapId !== ids.tabGroup || !this.isActive ) {
-    return;
-   }
-
-    this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
+  props: {
+    ids: {
+      type: Array,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+    parentTabId: String,
+    mapId: String,
+    setActive: {
+      type: Boolean,
+    },
   },
 
-  toggleLayer() {
-   if (this.isActive === true) {
-    return;
-   }
-   this.hideOtherLayers();
-   this.showLayers();
+  data() {
+    return {
+      isActive: false,
+      isDisabled: true,
+    }
   },
 
-  showLayers() {
-   eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids });
+  created() {
+    eventHub.$on("change-tab", this.handleTabChange)
+
+    if(this.setActive === true) { this.showLayers() }
   },
 
-  hideLayers() {
-   eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids });
+  beforeDestroy() {
+    eventHub.$off("change-tab")
   },
 
-  hideOtherLayers() {
-   eventHub.$emit("hide-other-layers", {
-    mapId: this.mapId,
-    layerIds: this.ids,
-    layerNo: this.layerNo,
-    tab: this.parentTabId
-   });
+  computed: {
+    toggleClasses() {
+      return {
+        active: this.isActive,
+      }
+    },
   },
 
-  hideLayerIfNotSelected(obj) {
-    if ( obj.layerNo === this.layerNo || obj.mapId !== this.mapId ) { return }
-    this.hideLayers();
+  methods: {
+    handleTabChange(ids) {
+      if ("tabs-" + this.mapId !== ids.tabGroup) {
+        return
+      }
+
+      if(this.parentTabId === ids.tab && this.index === 0) {
+        this.showLayers()
+      } else {
+        this.hideLayers()
+      } 
+    },
+
+    toggleLayer() {
+      this.isActive === true ? this.hideLayers() : this.showLayers()
+    },
+
+    showLayers() {
+      eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
+      this.isActive = true
+    },
+
+    hideLayers() {
+      eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids })  
+      this.isActive = false
+    }
   }
- },
-};
+}
 </script>

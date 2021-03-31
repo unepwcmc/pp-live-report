@@ -55,11 +55,10 @@ export default {
 
   data() {
     return {
-      0: 0,
       activeIndices: [0]
     }
   },
-
+  
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
     // eventHub.$on('oecm-toggle-complete', this.handleOecmToggleEnd)
@@ -76,6 +75,7 @@ export default {
 
     handleTabChange (obj) {
       if (this.parentTabId === obj.tab) { return }
+<<<<<<< HEAD
       this.currentLayer = 0 
       this.activeIndices = [0]
     },
@@ -98,6 +98,8 @@ export default {
 
     setActive (index) {
       return  this.activeIndices.includes(index)
+=======
+>>>>>>> map-toggles
     }
   },
 }

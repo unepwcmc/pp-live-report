@@ -61,7 +61,6 @@ export default {
   
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
-    // eventHub.$on('oecm-toggle-complete', this.handleOecmToggleEnd)
   },
   
   beforeDestroy () {

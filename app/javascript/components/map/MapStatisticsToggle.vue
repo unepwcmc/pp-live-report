@@ -71,7 +71,7 @@ export default {
       if ("tabs-" + this.mapId !== ids.tabGroup) {
         return
       }
-// console.log('ids', ids)
+      
       if(this.parentTabId === ids.tab && this.index === 0) {
         //oecm layers are always reset on tab change
         //do not show layer here if layer is oecm
@@ -90,18 +90,11 @@ export default {
       const isOnMap = this.mapId == obj.mapId,
         isOnActiveTab = this.parentTabId == obj.activeTabId,
         isActive = this.isActive
-      // console.log('handle', obj)
-      // console.log('isOnMap', isOnMap)
-      // console.log('isOnTab', isOnTab)
-      // console.log('isActive', isActive)
-
-      // console.log('this.parentTabId', this.parentTabId)
 
       if(this.onATab === true && !isOnActiveTab) { return }
 
 
       if (isOnMap && isActive) {
-        console.log('hide', this.ids)
         this.hideLayers()
       }
     },
@@ -111,17 +104,11 @@ export default {
         isOnActiveTab = this.parentTabId == obj.activeTabId,
         shouldBeActive = this.setActive
 
-      // console.log(obj)
-      // console.log('isOnMap', isOnMap)
-      console.log('this.onATab', this.onATab)
-      console.log('isOnActiveTab', isOnActiveTab)
-
       if(this.onATab === true) {
         if(!isOnActiveTab) { return }
       }
-      console.log('isOnActiveTab', isOnActiveTab)
+      
       if (isOnMap && shouldBeActive) {
-        // console.log('show layer')
         this.showLayers()  
       }
     },
@@ -133,9 +120,7 @@ export default {
     },
 
     showLayers() {
-// console.log('show layers', this.ids)
       eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
-      
       this.isActive = true
     },
 

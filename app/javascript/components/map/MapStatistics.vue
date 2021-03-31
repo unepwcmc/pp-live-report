@@ -172,19 +172,6 @@ export default {
     eventHub.$on("show-layers", this.showLayers)
     eventHub.$on("reset-oecm-toggle", this.resetLayers)
     
-    // this.getAllDefaultLayers()
-    // this.createMap()
-
-    // if(this.tabs) {
-    //   this.tabsDefault = this.tabs
-    //   this.tabsActive = this.tabsDefault
-    // }
-    
-    // if(this.oecmPresent == true) { this.createOecmLayers() }
-
-    // this.activeLayers = this.defaultLayers
-
-    
     this.createMap()
   },
 
@@ -344,7 +331,6 @@ export default {
         }
       })
 
-      // console.log('tabsWithOecm', tabsWithOecm)
       this.tabsWithOecm = tabsWithOecm
     },
 
@@ -366,14 +352,12 @@ export default {
     },
 
     handleTabChange (obj) {
-      // console.log('handle tab change', obj)
       this.activeTabId = obj.tab
       this.handleOecmToggleChange({ mapId: obj.mapId, includeOecms: false })
       
     },
 
     handleOecmToggleChange (obj) {
-      // console.log('oecm change', obj)
       const params = { mapId: obj.mapId, activeTabId: this.activeTabId }
       
       eventHub.$emit('oecm-toggle-start', params)
@@ -419,15 +403,13 @@ export default {
 
     setVisibilityOfLayers (ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
-// console.log('setVisibilityOfLayers', mapboxLayerId)
-// console.log('already on map', this.map.getLayer(mapboxLayerId) != undefined)
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "visible")
         } else {
           const baseLayer = this.getLayerById(
             this.getLayerIdFromMapboxLayerId(mapboxLayerId)
           )
-// console.log('base layer', baseLayer)
+
           if (baseLayer) {
             this.addLayer(baseLayer)
           }
@@ -444,12 +426,6 @@ export default {
          }
       }, delay)
     },
-
-    // resetLayers () {
-    //   this.activeLayers = this.defaultLayers
-
-    //   if(this.tabs) { this.tabsActive = this.tabsDefault }
-    // },
     
     togglePanel() {
       this.isActive = !this.isActive

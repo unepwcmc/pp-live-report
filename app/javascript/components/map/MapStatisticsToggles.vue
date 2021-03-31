@@ -75,8 +75,6 @@ export default {
 
     handleTabChange (obj) {
       if (this.parentTabId === obj.tab) { return }
-<<<<<<< HEAD
-      this.currentLayer = 0 
       this.activeIndices = [0]
     },
 
@@ -98,8 +96,6 @@ export default {
 
     setActive (index) {
       return  this.activeIndices.includes(index)
-=======
->>>>>>> map-toggles
     }
   },
 }

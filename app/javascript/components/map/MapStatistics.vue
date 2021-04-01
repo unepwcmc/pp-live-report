@@ -401,13 +401,16 @@ export default {
     },
 
     waitUntilMapLoaded(callback, params, delay) {
-      setTimeout(() => {
-        if(this.mapLoaded === true) {
-          callback(params)
-         } else { 
+      let interval 
+
+      if(this.mapLoaded === true) {
+        callback(params)
+        clearInterval(interval)
+      } else { 
+        interval = setInterval(() => {
           this.waitUntilMapLoaded(callback, params, delay)
-         }
-      }, delay)
+        }, delay)
+      }
     },
 
     togglePanel() {

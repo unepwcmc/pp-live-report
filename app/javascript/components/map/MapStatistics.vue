@@ -126,7 +126,6 @@ export default {
       layersOecm: [],
       mapboxToken: process.env.MAPBOX_TOKEN,
       tabsActive: [],
-      tabsDefault: [],
       tabsWithOecm: [],
       firstTopLayerId: "",
     }
@@ -140,8 +139,7 @@ export default {
 
   created () {
     if(this.tabs) {
-      this.tabsDefault = this.tabs
-      this.tabsActive = this.tabsDefault
+      this.tabsActive = this.tabs
       this.activeTabId = this.getTabId(0)
       if(this.oecmPresent == true) { this.createTabsWithOecm() }
     } 
@@ -309,7 +307,7 @@ export default {
     },
 
     createTabsWithOecm () {
-      const tabsWithOecm = this.tabsDefault.map(tab => {
+      const tabsWithOecm = this.tabs.map(tab => {
         return {
           title: tab.title,
           layers: this.mapOecmProperties(tab.layers)
@@ -352,7 +350,7 @@ export default {
       this.layersActive = this.includeOecms == true ? this.layersOecm : this.layersDefault
       
       if(this.tabs) { 
-        this.tabsActive = obj.includeOecms == true ? this.tabsWithOecm : this.tabsDefault
+        this.tabsActive = obj.includeOecms == true ? this.tabsWithOecm : this.tabs
       }
 
       this.$nextTick(() => {

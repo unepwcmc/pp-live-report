@@ -371,7 +371,6 @@ class ChaptersController < ApplicationController
       csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-# tabs: [        {    title: 'Tab1',
       layers: [
         {
           id: 'data-deficient-' + random_number,
@@ -391,7 +390,6 @@ class ChaptersController < ApplicationController
           source_layers: { poly: 'protconn_cat3_merc' },
           colour: GREEN_SCHEME[1]
         },
-# ]}, {title:  'Tab2', layers: [
         {
           id: 'ten-to-seventeen-' + random_number,
           text_large: '10% - 17%',
@@ -405,7 +403,6 @@ class ChaptersController < ApplicationController
           colour: GREEN_SCHEME[3]
         }
       ]
-# }]
     }
   end
 

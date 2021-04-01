@@ -328,9 +328,9 @@ export default {
     mapOecmProperties (layers) {
       return layers.map(layer => {
         return {
-          id: layer.id + '_oecms',
+          id: layer.id + '_oecm',
           text_large: layer.text_large,
-          source_layers: { poly: layer.source_layers.poly + '_oecms' },
+          source_layers: { poly: layer.source_layers.poly + '_oecm' },
           colour: layer.colour
         }
       })

@@ -208,7 +208,7 @@ class ChaptersController < ApplicationController
       id: 'kba',
       csv_url: URI.join(root_url, "/file/map/#{CSV_CH5_GLOBAL_KBA}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc_oecms/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,

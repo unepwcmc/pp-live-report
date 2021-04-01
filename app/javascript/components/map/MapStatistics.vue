@@ -58,9 +58,9 @@
       <div class="map__buttons flex flex-v-center gutters" v-if="isActive">
         <download
           text="CSV Download"
-          title="Download reports in PDF format"
+          title="Download data in CSV format"
           :file-download="fileDownload"
-          event-element="Download report link"
+          event-element="Download data link"
         ></download>
         <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
       </div>
@@ -328,9 +328,9 @@ export default {
     mapOecmProperties (layers) {
       return layers.map(layer => {
         return {
-          id: layer.id + '_oecm',
+          id: layer.id + '_oecms',
           text_large: layer.text_large,
-          source_layers: { poly: layer.source_layers.poly + '_oecm' },
+          source_layers: { poly: layer.source_layers.poly + '_oecms' },
           colour: layer.colour
         }
       })

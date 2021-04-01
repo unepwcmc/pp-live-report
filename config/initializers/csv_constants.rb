@@ -4,7 +4,7 @@ CSV_CH3_TIMESERIES = 'Ch3_Fig3_Global_PA_Timeseries.csv'
 CSV_CH3_PA_GLOBAL = 'chapter3_global_pa_statistics.csv'
 CSV_CH3_PA_NATIONAL = 'chapter3_national_pa_statistics.csv'
 
-CSV_CH4_GLOBAL_KBA = 'chapter4_global_kba_timeseries_statistics.csv'
+CSV_CH4_ECOREGIONS = 'chapter4_ecoregion_coverage.csv'
 CSV_CH4_MAP_ECOREGIONS = 'chapter4_map_ecoregions.csv'
 
 CSV_CH5_COUNT = 'chapter5_count_statistics.csv'

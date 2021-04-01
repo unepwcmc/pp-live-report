@@ -1,6 +1,7 @@
 class ChaptersController < ApplicationController
   include RandomNumberHelper
   include YamlHelpers
+  include ChaptersHelper
   layout 'chapter'
 
   helper_method :chapter_number
@@ -291,6 +292,7 @@ class ChaptersController < ApplicationController
     }
 
     @row_charts = CsvParser.biogeographical_regions
+    @row_charts_csv_url = get_csv_url(CSV_CH4_ECOREGIONS)
   end
 
   def chapter_5

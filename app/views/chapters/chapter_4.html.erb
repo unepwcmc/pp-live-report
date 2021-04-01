@@ -20,8 +20,14 @@
 <section class="section-padding">
   
   <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
-
+  
   <div class="container--medium">
+    <download 
+      class="section-padding--bottom"
+      file-download="<%= @row_charts_csv_url %>"
+      text="CSV Download"
+    ></download>
+
     <% @row_charts.each do |item| %>
       <p class="chart--row__subtitle"><%= item[:title] %></p>
       

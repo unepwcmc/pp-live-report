@@ -16,9 +16,12 @@
           {{ description }}
         </p>
         <template v-if="tabs">
-          <tabs :id="`tabs-${id}`">
+          <tabs 
+            :id="`tabs-${id}`"
+            :map-id="id"
+          >
             <tab
-              v-for="(tab, index) in tabs"
+              v-for="(tab, index) in tabsActive"
               :key="`tab-${index}`"
               :id="getTabId(index)"
               :title="tab.title"
@@ -28,7 +31,7 @@
                 :parent-tab-id="getTabId(index)"
                 :layers="tab.layers"
                 :oecm-present="oecmPresent"
-                :oecm-layer="oecmLayer"
+                :on-a-tab="true"
               ></map-statistics-toggles>
             </tab>
           </tabs>
@@ -36,7 +39,7 @@
         <template v-else>
           <map-statistics-toggles
             :map-id="id"
-            :layers="layers"
+            :layers="layersActive"
             :oecm-present="oecmPresent"
           ></map-statistics-toggles>
         </template>
@@ -45,8 +48,8 @@
       <span class="map__oecm-toggle gutters" v-if="oecmPresent">
         Include OECMs (terrestrial and marine)
         <map-oecm-toggle 
-          :layer="oecmLayer"
           :map-id="id"
+          v-on:toggled="handleOecmToggleChange"
           v-on:hide-layers="hideLayers"
           v-on:show-layers="showLayers"
         />
@@ -105,18 +108,26 @@ export default {
     description: String,
     tabs: Array,
     layers: Array,
-    oecmLayer: Object,
     oecmPresent: Boolean,
     tilesUrl: String,
+    tilesUrlOecm: String,
     disclaimer: Object,
   },
 
   data() {
     return {
+      activeTabId: '',
+      includeOecms: false,
       map: {},
+      mapLoaded: false,
       isActive: true,
+      layersActive: [],
+      layersDefault: [],
+      layersOecm: [],
       mapboxToken: process.env.MAPBOX_TOKEN,
-      allLayers: [],
+      tabsActive: [],
+      tabsDefault: [],
+      tabsWithOecm: [],
       firstTopLayerId: "",
     }
   },
@@ -124,21 +135,34 @@ export default {
   computed: {
     initialLayer() {
       return this.tabs ? this.tabs[0].layers[0] : this.layers[0]
-    },
+    }
+  },
+
+  created () {
+    if(this.tabs) {
+      this.tabsDefault = this.tabs
+      this.tabsActive = this.tabsDefault
+      this.activeTabId = this.getTabId(0)
+      if(this.oecmPresent == true) { this.createTabsWithOecm() }
+    } 
+
+    this.getAllDefaultLayers()
+    if(this.oecmPresent == true) { this.createLayersWithOecm() }
+    this.layersActive = this.layersDefault
   },
 
   mounted() {
+    eventHub.$on("change-tab", this.handleTabChange)
     eventHub.$on("hide-layers", this.hideLayers)
     eventHub.$on("show-layers", this.showLayers)
-    eventHub.$on("hide-other-layers", this.hideLayers)
-    this.getAllLayers()
+    
     this.createMap()
   },
 
   beforeDestroy() {
+    eventHub.$off("change-tab")
     eventHub.$off("hide-layers")
     eventHub.$off("show-layers")
-    eventHub.$off("hide-other-layers")
   },
 
   methods: {
@@ -150,20 +174,20 @@ export default {
       return getLayerIdFromMapboxLayerId(mapboxLayerId)
     },
 
-    getAllLayers() {
+    getAllDefaultLayers() {
       if (this.tabs) {
         this.tabs.forEach((tab) => {
-          this.allLayers = this.allLayers.concat(tab.layers)
+          this.layersDefault = this.layersDefault.concat(tab.layers)
         })
       } else {
-        this.allLayers = this.allLayers.concat(this.layers)
+        this.layersDefault = this.layersDefault.concat(this.layers)
       }
     },
 
     getLayerById(id) {
       let layer = null
 
-      this.allLayers.forEach((l) => {
+      this.layersActive.forEach((l) => {
         if (l.id === id) {
           layer = l
         }
@@ -198,12 +222,9 @@ export default {
         "top-left"
       )
       this.map.on("load", () => {
+        this.mapLoaded = true
         this.firstTopLayerId = getFirstTopLayerId(this.map)
         this.addInitialLayers()
-
-        if(this.oecmPresent && typeof(this.oecmLayer) == 'object' && this.oecmLayer.hasOwnProperty('url')) {
-          this.addLayer(this.oecmLayer)
-        }
       })
     },
 
@@ -226,9 +247,12 @@ export default {
         this.addRasterTileLayer(layer)
 
       } else if (layer.source_layers && this.tilesUrl) {
+        
+        const url = this.includeOecms == true ? this.tilesUrlOecm : this.tilesUrl
+
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
-            tiles: [this.tilesUrl],
+            tiles: [url],
             layerType,
             layer,
           })
@@ -237,13 +261,16 @@ export default {
     },
 
     addMapboxLayer({ tiles, layerType, layer }) {
+      let id = getMapboxLayerId(layer, layerType),
+        sourceLayer = layer.source_layers[layerType]
+
       const options = {
-        id: getMapboxLayerId(layer, layerType),
+        id: id,
         source: {
           type: "vector",
           tiles: tiles,
         },
-        "source-layer": layer.source_layers[layerType],
+        "source-layer": sourceLayer,
         filter: layer.filter_id ? ["==", "_symbol", layer.filter_id] : ["all"],
       }
 
@@ -266,7 +293,7 @@ export default {
 
     addRasterTileLayer (layer) {
       this.map.addLayer({
-        id: layer.id,
+        id: id,
         type: 'raster',
         minzoom: 0,
         maxzoom: 22,
@@ -281,20 +308,77 @@ export default {
       }, this.firstTopLayerId)
     },
 
+    createTabsWithOecm () {
+      const tabsWithOecm = this.tabsDefault.map(tab => {
+        return {
+          title: tab.title,
+          layers: this.mapOecmProperties(tab.layers)
+        }
+      })
+
+      this.tabsWithOecm = tabsWithOecm
+    },
+
+    createLayersWithOecm () {
+      const oecmLayers = this.mapOecmProperties(this.layersDefault)
+  
+      this.layersOecm = oecmLayers
+    },
+
+    mapOecmProperties (layers) {
+      return layers.map(layer => {
+        return {
+          id: layer.id + '_oecm',
+          text_large: layer.text_large,
+          source_layers: { poly: layer.source_layers.poly + '_oecm' },
+          colour: layer.colour
+        }
+      })
+    },
+
+    handleTabChange (obj) {
+      this.activeTabId = obj.tab
+      this.handleOecmToggleChange({ mapId: obj.mapId, includeOecms: false })
+      
+    },
+
+    handleOecmToggleChange (obj) {
+      const params = { mapId: obj.mapId, activeTabId: this.activeTabId }
+      
+      eventHub.$emit('oecm-toggle-start', params)
+      
+      this.includeOecms = obj.includeOecms
+      
+      this.layersActive = this.includeOecms == true ? this.layersOecm : this.layersDefault
+      
+      if(this.tabs) { 
+        this.tabsActive = obj.includeOecms == true ? this.tabsWithOecm : this.tabsDefault
+      }
+
+      this.$nextTick(() => {
+        eventHub.$emit('oecm-toggle-end', params)
+      })
+    },
+
     hideLayers(ids) {
-      this.hideVisibilityOfLayers(ids)
-    },
-
-    showLayers(ids) {
-      this.setVisibilityOfLayers(ids)
-    },
-
-    hideVisibilityOfLayers(ids) {
       // If more than one map is present on the same page
       if (ids.mapId !== this.id) {
         return
       }
 
+      this.hideVisibilityOfLayers(ids)
+    },
+
+    showLayers(ids) {
+      if (ids.mapId !== this.id) {
+        return
+      }
+      
+      //address race condition with first layer trying to be added before map created
+      this.waitUntilMapLoaded(this.setVisibilityOfLayers, ids, 100)
+    },
+
+    hideVisibilityOfLayers(ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "none")
@@ -302,11 +386,7 @@ export default {
       })
     },
 
-    setVisibilityOfLayers(ids) {
-      if (ids.mapId !== this.id) {
-        return
-      }
-
+    setVisibilityOfLayers (ids) {
       ids.layerIds.forEach((mapboxLayerId) => {
         if (this.map.getLayer(mapboxLayerId)) {
           this.map.setLayoutProperty(mapboxLayerId, "visibility", "visible")
@@ -321,6 +401,17 @@ export default {
         }
       })
     },
+
+    waitUntilMapLoaded(callback, params, delay) {
+      setTimeout(() => {
+        if(this.mapLoaded === true) {
+          callback(params)
+         } else { 
+          this.waitUntilMapLoaded(callback, params, delay)
+         }
+      }, delay)
+    },
+
     togglePanel() {
       this.isActive = !this.isActive
     },

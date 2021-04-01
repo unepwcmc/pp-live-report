@@ -5,6 +5,7 @@ CSV_CH3_PA_GLOBAL = 'chapter3_global_pa_statistics.csv'
 CSV_CH3_PA_NATIONAL = 'chapter3_national_pa_statistics.csv'
 
 CSV_CH4_GLOBAL_KBA = 'chapter4_global_kba_timeseries_statistics.csv'
+CSV_CH4_MAP_ECOREGIONS = 'chapter4_map_ecoregions.csv'
 
 CSV_CH5_COUNT = 'chapter5_count_statistics.csv'
 CSV_CH5_GLOBAL_KBA = 'chapter5_global_kba_statistics.csv'

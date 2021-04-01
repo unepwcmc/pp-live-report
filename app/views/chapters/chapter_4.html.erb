@@ -6,9 +6,11 @@
     id="<%= @map[:id] %>"
     title="<%= @data['map_1_title'] %>"
     tiles-url="<%= @map[:tiles_url] %>" 
+    tiles-url-oecm="<%= @map[:tiles_url_oecm] %>" 
     :tabs="<%= @map[:tabs].to_json %>"
     :layers="<%= @map[:layers].to_json %>" 
-    :file-download="'#'" 
+    :oecm-present="true"
+    file-download="<%= @map[:csv_url] %>"  
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
 </div>

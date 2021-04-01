@@ -19,14 +19,14 @@ class ChaptersController < ApplicationController
     '#8da0cb',
     '#fc8d62'
   ].freeze
-  BLUE_PURPLE_SCHEME = [
+  PURPLE_SCHEME = [
     '#B3CDE3',
     '#8c96c6',
     '#8856A7',
     '#810F7C',
     '#4d004b'
   ].freeze
-  BLUE_PURPLE_SCHEME = [
+  BLUE_SCHEME = [
     '#0D7AE7',
     '#0844B2',
     '#4863A0',
@@ -97,7 +97,7 @@ class ChaptersController < ApplicationController
             {
               id: 'terrestrial-' + random_number,
               text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_small: 'All terrestrial',
+              text_large: 'All terrestrial',
               source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
               colour: '#86BF37'
             }
@@ -109,21 +109,21 @@ class ChaptersController < ApplicationController
             {
               id: 'marine-' + random_number,
               text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              text_small: 'All marine',
+              text_large: 'All marine',
               source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_small: 'National waters',
+              text_large: 'National waters',
               source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_small: 'Areas beyond national jurisdiction',
+              text_large: 'Areas beyond national jurisdiction',
               source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
               colour: '#207D94'
             }
@@ -140,25 +140,25 @@ class ChaptersController < ApplicationController
           id: 'over-ten-' + random_number,
           text_large: 'Over 10%',
           source_layers: { poly: 'Ch2_Fg5_mcat5' },
-          colour: BLUE_PURPLE_SCHEME[3]
+          colour: PURPLE_SCHEME[3]
         },
         {
           id: 'six-to-ten-' + random_number,
           text_large: '6% - 10%',
           source_layers: { poly: 'Ch2_Fg5_mcat4' },
-          colour: BLUE_PURPLE_SCHEME[2]
+          colour: PURPLE_SCHEME[2]
         },
         {
           id: 'three-to-six-' + random_number,
           text_large: '3% – 6%',
           source_layers: { poly: 'Ch2_Fg5_mcat3' },
-          colour: BLUE_PURPLE_SCHEME[1]
+          colour: PURPLE_SCHEME[1]
         },
         {
           id: 'less-than-3-' + random_number,
           text_large: 'Under 3%',
           source_layers: { poly: 'Ch2_Fg5_mcat2' },
-          colour: BLUE_PURPLE_SCHEME[0]
+          colour: PURPLE_SCHEME[0]
         },
         {
           id: 'data-deficient-' + random_number,
@@ -196,25 +196,96 @@ class ChaptersController < ApplicationController
 
     @map = {
       id: 'ecoregions',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-      layers: [
+      csv_url: URI.join(root_url, "/file/map/#{CSV_CH4_MAP_ECOREGIONS}"),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
         {
-          id: 'id-' + random_number,
-          text_small: '1',
-          source_layers: { poly: '' },
-          colour: TRICOLOR_PALETTE[0]
+          title: 'Terrestial',
+          layers: [
+            {
+              id: 'id-less-than-5-' + random_number,
+              text_large: '< 5%',
+              source_layers: { poly: 'teow_cat1' },
+              colour: GREEN_SCHEME[0]
+            },
+            {
+              id: 'id-between-5-and-10' + random_number,
+              text_large: '5 - 10%',
+              source_layers: { poly: 'teow_cat2' },
+              colour: GREEN_SCHEME[1]
+            },
+            {
+              id: 'id-between-10-and-17' + random_number,
+              text_large: '10 - 17%',
+              source_layers: { poly: 'teow_cat3' },
+              colour: GREEN_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-17' + random_number,
+              text_large: '> 17%',
+              source_layers: { poly: 'teow_cat4' },
+              colour: GREEN_SCHEME[3]
+            }
+          ]
         },
         {
-          id: 'id-' + random_number,
-          text_small: '2',
-          source_layers: { poly: '' },
-          colour: TRICOLOR_PALETTE[1]
+          title: 'Marine',
+          layers: [
+            {
+              id: 'id-less-than-3-' + random_number,
+              text_large: '< 3%',
+              source_layers: { poly: 'meow_cat1' },
+              colour: BLUE_SCHEME[0]
+            },
+            {
+              id: 'id-between-3-and-6' + random_number,
+              text_large: '3 - 6%',
+              source_layers: { poly: 'meow_cat2' },
+              colour: BLUE_SCHEME[1]
+            },
+            {
+              id: 'id-between-6-and-10' + random_number,
+              text_large: '6 - 10%',
+              source_layers: { poly: 'meow_cat3' },
+              colour: BLUE_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-10' + random_number,
+              text_large: '> 10%',
+              source_layers: { poly: 'meow_cat4' },
+              colour: BLUE_SCHEME[3]
+            }
+          ]
         },
         {
-          id: 'id-' + random_number,
-          text_small: '3',
-          source_layers: { poly: '' },
-          colour: TRICOLOR_PALETTE[2]
+          title: 'Pelagic',
+          layers: [
+            {
+              id: 'id-less-than-3-' + random_number,
+              text_large: '< 3%',
+              source_layers: { poly: 'meow_cat1' },
+              colour: PURPLE_SCHEME[0]
+            },
+            {
+              id: 'id-between-3-and-6' + random_number,
+              text_large: '3 - 6%',
+              source_layers: { poly: 'meow_cat2' },
+              colour: PURPLE_SCHEME[1]
+            },
+            {
+              id: 'id-between-6-and-10' + random_number,
+              text_large: '6 - 10%',
+              source_layers: { poly: 'meow_cat3' },
+              colour: PURPLE_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-10' + random_number,
+              text_large: '> 10%',
+              source_layers: { poly: 'meow_cat4' },
+              colour: PURPLE_SCHEME[3]
+            }
+          ]
         }
       ]
     }
@@ -233,21 +304,21 @@ class ChaptersController < ApplicationController
         {
           id: 'inside-' + random_number,
           text_large: @percentage['Within'],
-          text_small: 'Fully within Protected Areas',
+          text_large: 'Fully within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
           text_large: @percentage['Partially'],
-          text_small: 'Partially within Protected Areas',
+          text_large: 'Partially within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
           text_large: @percentage['Outside'],
-          text_small: 'Outside Protected Areas',
+          text_large: 'Outside Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
         }
@@ -282,7 +353,7 @@ class ChaptersController < ApplicationController
         { title: '30% - 60%', value: 3 },
         { title: 'Over 60%', value: 4 }
       ],
-      palette: BLUE_PURPLE_SCHEME
+      palette: PURPLE_SCHEME
     }
   end
 

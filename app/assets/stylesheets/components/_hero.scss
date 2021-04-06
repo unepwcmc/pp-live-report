@@ -35,9 +35,9 @@
 
     position: relative;
     
-    @include breakpoint($small) { 
+    // @include breakpoint($small) { 
       min-height: 100vh; 
-    }
+    // }
 
     .hero {
       &__content {
@@ -115,9 +115,9 @@
       }
 
       &__video {
-        display: none; 
+        // display: none; 
         
-        @include breakpoint($medium) {
+        // @include breakpoint($medium) {
           object-fit: cover;
           width: 100vw; height: 100vh;
           
@@ -126,7 +126,7 @@
           top: 0;
           left: 0;
           z-index: -2;
-        }
+        // }
         
       }
     }

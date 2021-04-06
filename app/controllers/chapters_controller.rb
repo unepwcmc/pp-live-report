@@ -26,6 +26,20 @@ class ChaptersController < ApplicationController
     '#810F7C',
     '#4d004b'
   ].freeze
+  BLUE_PURPLE_SCHEME = [
+    '#0D7AE7',
+    '#0844B2',
+    '#4863A0',
+    '#163B65',
+    '#00174B'
+  ].freeze
+  GREEN_SCHEME = [
+    '#C4D6AD',
+    '#87BF37',
+    '#68853F',
+    '#333E23',
+    '#1c260d',
+  ].freeze
   LANGUAGES = { 
     'ar': 'العربية',
     'es': 'Español',
@@ -41,10 +55,8 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_1
-    @presenter = ChaptersPresenter.new
     @summaries = load_summary_text
     @data = @chapters_data[0]
-    @gauge_charts = @presenter.gauge_charts
   end
 
   def chapter_2
@@ -62,6 +74,9 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_3
+    @presenter = ChaptersPresenter.new
+    @gauge_charts = @presenter.gauge_charts
+
     global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 
@@ -155,13 +170,13 @@ class ChaptersController < ApplicationController
     }
 
     timeseries_data = CsvParser.timeseries
-    types = %w[ABNJ EEZ Land]
+    types = %w[Land Marine]
     lines = ('1990'..'2020').map do |year|
-      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }.merge!({
-                                                                 "1": timeseries_data[year][types[0]].round(2),
-                                                                 "2": timeseries_data[year][types[1]].round(2),
-                                                                 "3": timeseries_data[year][types[2]].round(2)
-                                                               })
+      { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }
+      .merge!({
+        "1": timeseries_data[year][types[0]].round(2),
+        "2": timeseries_data[year][types[1]].round(2),
+      })
     end
     @line_chart = {
       datapoints: lines,
@@ -172,6 +187,8 @@ class ChaptersController < ApplicationController
         { name: 'Terrestrial target (17%)', position: 23 }
       ]
     }.to_json
+
+    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH3_TIMESERIES}")
   end
 
   def chapter_4
@@ -253,20 +270,44 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @data = @chapters_data[7]
-
-    # TODO - May need to remove or change map style from infographic to interactive
-    # Also need new map layers
+    
     @map_1 = {
-      countries: CsvMapParser.ch8_map1_categorical,
-      legend: [
-        { title: 'Under 4%', value: 'default' },
-        { title: '4% - 8%', value: 1 },
-        { title: '8% - 12%', value: 2 },
-        { title: '12% - 17%', value: 3 },
-        { title: '17% - 25%', value: 4 },
-        { title: 'Over 25%', value: 5 }
-      ],
-      palette: BLUE_PURPLE_SCHEME
+      id: 'map_1',
+      csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      layers: [
+        {
+          id: 'data-deficient-' + random_number,
+          text_large: 'Data deficient',
+          source_layers: { poly: 'protconn_cat1_merc' },
+          colour: DEFAULT_COLOUR
+        },
+        {
+          id: 'less-than-5-' + random_number,
+          text_large: '< 5%',
+          source_layers: { poly: 'protconn_cat2_merc' },
+          colour: GREEN_SCHEME[0]
+        },
+        {
+          id: 'five-to-ten-' + random_number,
+          text_large: '5% - 10%',
+          source_layers: { poly: 'protconn_cat3_merc' },
+          colour: GREEN_SCHEME[1]
+        },
+        {
+          id: 'ten-to-seventeen-' + random_number,
+          text_large: '10% - 17%',
+          source_layers: { poly: 'protconn_cat4_merc' },
+          colour: GREEN_SCHEME[2]
+        },
+        {
+          id: 'greater-than-seventeen-' + random_number,
+          text_large: '> 17%',
+          source_layers: { poly: 'protconn_cat5_merc' },
+          colour: GREEN_SCHEME[3]
+        }
+      ]
     }
   end
 
@@ -338,8 +379,6 @@ class ChaptersController < ApplicationController
   def case_study_image(case_study)
     if case_study['image']
       URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
-    else
-      URI.join(root_url, helpers.image_path('case_studies/fisherman_2x.png'))
     end
   end
 end

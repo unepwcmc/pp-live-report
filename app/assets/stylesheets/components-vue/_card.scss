@@ -29,12 +29,22 @@
         padding-right: 50%;
         width: 100%;
       }
-    };
+    }
+
+    //make case study full width if there is only 1
+    &:first-child:last-child { 
+      @include breakpoint($medium) { 
+        width: 100%; 
+      }
+    }
 
     &:hover {
       .card__image {
-        border-radius: 5px;
         transform: scale(1.1);
+      }
+
+      .card__image-overlay {
+        background: background-gradient(270deg, rgba($white, 0.1), $black);
       }
     }
 
@@ -65,12 +75,33 @@
 
   &__image {
     background-color: black; /* fallback color */
+    
+    background-position: center;
+    background-size: cover;
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    transition: 0.4s;
-
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 3;
+
+    transition: 0.4s;
+    transform: scale(1);
+  }
+
+  &__image-overlay {
+    background: background-gradient(270deg, rgba($white, 0.1), rgba($black, 0.4));
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
   }
 
   &__summary {

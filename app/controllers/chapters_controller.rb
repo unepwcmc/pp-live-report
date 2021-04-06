@@ -297,29 +297,26 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
-    @percentage = CsvMapParser.ch5_map1_percentage
 
     @map_1 = {
       id: 'kba',
+      csv_url: URI.join(root_url, "/file/map/#{CSV_CH5_MAP_KBA_OCEM_OVERLAP}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
-          text_large: @percentage['Within'],
           text_large: 'Fully within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
-          text_large: @percentage['Partially'],
           text_large: 'Partially within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
-          text_large: @percentage['Outside'],
           text_large: 'Outside Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
@@ -345,18 +342,6 @@ class ChaptersController < ApplicationController
 
   def chapter_6
     @data = @chapters_data[5]
-
-    @map = {
-      countries: CsvMapParser.ch6_map_categorical,
-      legend: [
-        { title: 'No Assessments', value: 'default' },
-        { title: 'Under 10%', value: 1 },
-        { title: '10% - 30%', value: 2 },
-        { title: '30% - 60%', value: 3 },
-        { title: 'Over 60%', value: 4 }
-      ],
-      palette: PURPLE_SCHEME
-    }
   end
 
   def chapter_7

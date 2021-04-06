@@ -82,7 +82,8 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'map_1',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      # tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/test_raster_mapv2/MapServer/tile/{z}/{y}/{x}',
       oecm_layer: {
         color: '#D9B143',
         id: 'oecm-' + random_number,
@@ -96,9 +97,9 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'terrestrial-' + random_number,
-              text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_small: 'All terrestrial',
-              source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
+              text_large: 'All terrestrial',
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster3c' },
               colour: '#86BF37'
             }
           ]
@@ -108,23 +109,23 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'marine-' + random_number,
-              text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              text_small: 'All marine',
-              source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
+              text_large: 'All marine',
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
-              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_small: 'National waters',
-              source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
+              text_large: 'National waters',
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
-              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_small: 'Areas beyond national jurisdiction',
-              source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
+              text_large: 'Areas beyond national jurisdiction',
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
               colour: '#207D94'
             }
           ]

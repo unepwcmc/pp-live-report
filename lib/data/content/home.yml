@@ -4,24 +4,25 @@ hero:
   -
     class: "home-1"
     credits: "A hiker in a forest &copy; Restless Mind Media / Adobe Stock"
+    image: "hero-0-1.png"
     video: "video-1.mp4"
   -
     class: "home-2"
     credits: "A person under Skógafoss, Iceland &copy; likingthings / Adobe Stock"
+    image: "hero-0-2.png"
     video: "video-2.mp4"
   -
     class: "home-3"
     credits: "Tropical island, Philippines &copy; Gowtham / Adobe Stock"
+    image: "hero-0-3.png"
     video: "video-3.mp4"
   -
     class: "home-4"
     credits: "Spruce trees in snow &copy; Leonid Tit / Adobe Stock"
+    image: "hero-0-4.png"
     video: "video-4.mp4"
   -
     class: "home-5"
     credits: "Vestrahorn, Iceland &copy; Leonid Tit / Adobe Stock"
+    image: "hero-0-5.png"
     video: "video-5.mp4"
-  -
-    class: "home-6"
-    credits: "Stuðlagil Canyon, Iceland &copy; Jag_cz / Adobe Stock"
-    video: "video-3.mp4"

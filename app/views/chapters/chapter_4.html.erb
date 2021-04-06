@@ -1,6 +1,6 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
-<div class="container">
+<section class="section-padding gutters">
   <map-statistics 
     id="<%= @map[:id] %>"
     title="<%= @data['map_1_title'] %>"
@@ -12,7 +12,7 @@
     file-download="<%= @map[:csv_url] %>"  
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
-</div>
+</section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 

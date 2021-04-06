@@ -10,7 +10,9 @@
         :map-id="mapId"
         :parent-tab-id="parentTabId"
         :ids="getMapboxLayerIds(layer)"
-        :set-active="index === 0"
+        :on-a-tab="onATab"
+        :set-active="setActive(index)"
+        v-on:toggled="toggled"
         :index="index"
         >
           <div class="map__panel-button-wrapper">
@@ -43,26 +45,56 @@ export default {
       type: Array,
       required: true,
     },
-    parentTabId: String,
     mapId: String,
+    onATab: {
+      default: false,
+      type: Boolean
+    },
+    parentTabId: String
   },
 
+  data() {
+    return {
+      activeIndices: [0]
+    }
+  },
+  
   mounted () {
     eventHub.$on("change-tab", this.handleTabChange)
   },
-
   
-  beforeDestroy() {
+  beforeDestroy () {
     eventHub.$off("change-tab")
   },
 
   methods: {
-    getMapboxLayerIds(layer) {
+    getMapboxLayerIds (layer) {
       return getMapboxLayerIds(layer)
     },
 
-    handleTabChange(obj) {
+    handleTabChange (obj) {
       if (this.parentTabId === obj.tab) { return }
+      this.activeIndices = [0]
+    },
+
+    toggled (obj) {
+      obj.isActive ? this.addIndex(obj.index) : this.removeIndex(obj.index)
+    },
+
+    addIndex (index) {
+      if(!this.activeIndices.includes(index)) {
+        this.activeIndices.push(index)
+      }
+    },
+
+    removeIndex (index) {
+      if(this.activeIndices.includes(index)) {
+        this.activeIndices = this.activeIndices.filter(i => i !== index )
+      }
+    },
+
+    setActive (index) {
+      return  this.activeIndices.includes(index)
     }
   },
 }

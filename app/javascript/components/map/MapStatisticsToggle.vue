@@ -14,6 +14,10 @@ export default {
   name: "map-statistics-toggle",
 
   props: {
+    onATab: {
+      default: false,
+      type: Boolean
+    },
     ids: {
       type: Array,
       required: true,
@@ -38,12 +42,16 @@ export default {
 
   created() {
     eventHub.$on("change-tab", this.handleTabChange)
+    eventHub.$on("oecm-toggle-start", this.handleOecmToggleStart)
+    eventHub.$on('oecm-toggle-end', this.handleOecmToggleEnd)
 
     if(this.setActive === true) { this.showLayers() }
   },
 
   beforeDestroy() {
     eventHub.$off("change-tab")
+    eventHub.$off("oecm-toggle-start")
+    eventHub.$off('oecm-toggle-end')
   },
 
   computed: {
@@ -51,7 +59,7 @@ export default {
       return {
         active: this.isActive,
       }
-    },
+    }
   },
 
   methods: {
@@ -59,16 +67,55 @@ export default {
       if ("tabs-" + this.mapId !== ids.tabGroup) {
         return
       }
-
+      
       if(this.parentTabId === ids.tab && this.index === 0) {
-        this.showLayers()
+        //oecm layers are always reset on tab change
+        //do not show layer here if layer is oecm
+        //wait for oecm event to avoid race condition issue
+        const oecmIds = this.ids.find(id => id.includes('oecm'))
+
+        if(oecmIds === undefined){
+          this.showLayers()
+        }
       } else {
         this.hideLayers()
       } 
     },
 
+    handleOecmToggleStart (obj) {
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
+
+      if(this.onATab === true && isNotOnActiveTab) { return }
+
+      if (this.isOnMap(obj.mapId) && this.isActive) {
+        this.hideLayers()
+      }
+    },
+
+    handleOecmToggleEnd (obj) {
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
+
+      if(this.onATab === true) {
+        if(isNotOnActiveTab) { return }
+      }
+      
+      if (this.isOnMap(obj.mapId) && this.setActive) {
+        this.showLayers()  
+      }
+    },
+
+    isOnActiveTab (activeTabId){
+      return this.parentTabId == activeTabId
+    },
+    
+    isOnMap (mapId) {
+      return this.mapId == mapId
+    },
+
     toggleLayer() {
       this.isActive === true ? this.hideLayers() : this.showLayers()
+
+      this.$emit('toggled', { isActive: this.isActive, index: this.index })
     },
 
     showLayers() {

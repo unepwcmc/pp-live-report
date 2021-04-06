@@ -10,7 +10,10 @@
     </div>
   </div>
 </template>
+
 <script>
+import { eventHub } from "../../packs/application.js"
+
 export default {
   name: 'MapOECMToggle',
   props: {
@@ -24,26 +27,42 @@ export default {
     offText: {
       type: String,
       default: 'OFF'
-    }
+    },
+    mapId: String,
   },
+  
   data() {
     return {
       isActive: false
     }
   },
+
   computed: {
     actionText () {
       return this.isActive ? this.onText : this.offText;
     }
   },
+
+  mounted () {
+    eventHub.$on("change-tab", this.handleTabChange)
+  },
+  
+  beforeDestroy () {
+    eventHub.$off("change-tab")
+  },
+
   methods: {
+    handleTabChange () {
+      this.isActive = false
+    },
+
     toggle () {
       this.isActive = !this.isActive
 
-      this.$emit('oecm-toggle', this.isActive)
+      this.$emit('toggled', { mapId: this.mapId, includeOecms: this.isActive })
 
       if(this.gaId) {
-        this.$ga.event(`Toggle - Show map layer: ${this.isActive}`, 'click', this.gaId)
+        this.$ga.event(`Toggle - Include OECMs: ${this.isActive}`, 'click', this.gaId)
       }
     }
   }

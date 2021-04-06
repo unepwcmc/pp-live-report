@@ -8,24 +8,40 @@ content_1:
   - "Based on the ProtConn method, xx% of the world’s terrestrial surface is both protected and connected. Since ProtConn results were first included in the Protected Planet Report in 2018, this figure has increased by xx%, but it nevertheless remains below the 17% required by Aichi Target 11. Due to the limited available data, the degree to which OECMs influence connectivity is currently minimal. However, OECMs have significant potential to enhance connectivity once they have been more extensively identified, mapped and recognised. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses.  "
 
 content_2: "In July 2020, the IUCN WCPA Connectivity Conservation Specialist Group (CCSG) published the IUCN Guidelines for Conserving Connectivity through Ecological Networks and Corridors (ref). The Guidelines are an important step towards a coherent global approach for connectivity conservation, providing clarity on the role of ecological corridors.  "
-map_1_title: "Protected Connected land"
-map_1_description: "Map of ‘Protected Connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
+map_1_title: "Protected connected land"
+map_1_description: "Map of ‘Protected connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
 map_1_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
 
-photo_credits: "Other effective area-based conservation measures: Tikal National Park, Guatamala &copy; THPStock / Adobe Stock"
+photo_credits: "Tikal National Park, Guatamala &copy; THPStock / Adobe Stock"
 
 
 case_studies:
   - 
-    label: 'Box 13'
+    card_image: /images/case-studies/wildebeest-crossing-the-mara-river-gudkovandrey.jpg
+    card_source: Wildebeest crossing the Mara river, Tanzania © gudkovandrey / Adobe Stock
+    label: 'Box 12'
     title: 'Maintaining ecological processes, and adapting to climate change, through connectivity '
     authors: 'Gary Tabor'
     org: 'Chair, IUCN WCPA Connectivity Conservation Specialist Group'
     text: "Connectivity conservation is rapidly emerging as a critical approach to saving biodiversity in the face of habitat fragmentation and climate change. The biosphere is dynamic; its interrelated functions depend on ‘ecological connectivity’ – defined by the Convention on Migratory Species as “the unimpeded movement of species and the flow of natural processes that sustain life on Earth”. In much of the world, where large-scale human activities have fragmented nature, ecological connectivity has been eroded, putting species and natural processes at risk. However, well-connected ecological networks comprised of protected areas, OECMs and ecological corridors can mitigate the impacts of fragmentation. This is especially important for climate change adaptation, providing species with ways to move and respond to changing environmental conditions. \n
           The importance of promoting ecological connectivity is underlined throughout the 5th Global Biodiversity Outlook (GBO-5), and successful connectivity conservation approaches can span multiple cultures, geographies, and patterns of governance and ownership, all helping to achieve the 2050 Vision for Biodiversity. Methods of achieving connectivity across land, sea and air encompass wildlife corridors, marine swimways, avian and bat flyways, pollinator pathways, riparian zones, streamflow regimes and climate corridors. In response to the growing application of connectivity conservation, IUCN has also published Guidelines for Conserving Connectivity through Ecological Networks and Corridors. The guidelines advance more consistent practices to ensure well-connected terrestrial, freshwater, and marine ecosystems that underpin all dynamic aspects of nature conservation. By conserving connectivity, the circulatory system of nature is sustained."
   - 
+    card_image: /images/case-studies/hiker-in-a-forest-candy1812.jpg
+    card_source: A hiker in a forest © candy1812 / Adobe Stock
+    label: 'Box 13'
+    title: 'COVID-19: impacts on conservation areas and opportunities for change'
+    authors: 'Mariana Napolitano Ferreira and Rachel Golden Kroner'
+    org: 'Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas'
+    text: "The effects of COVID-19 on human health and economies are evident in protected areas and OECMs around the world. In addition to concerning negative impacts on management capacity, budgets and effectiveness, there have been significant impacts on the livelihoods of communities living in and around these areas.\n 
+          Nearly half of PA agencies surveyed across 19 African countries reported that they could only maintain basic operations for up to three months if the restrictions imposed by COVID-19 continued to be in force . The loss of income resulting from these restrictions significantly affected their ability to pay salaries, monitor illegal wildlife trade and protect local communities from damages caused by wildlife. The sudden closure of tourism has also caused jobs losses, undermined development projects, and weakened collaboration with investors.\n          
+          With economic recovery being a critical priority in the forthcoming years, arguments for rolling back environmental protections are gaining traction. For example, provisions that would authorise new or expanded extractive industries and infrastructure activities in protected and conserved areas. This is especially of concern in countries where these areas are already under severe pressure . Such arguments are short-sighted and could exacerbate problems such as ecosystem degradation and biodiversity loss that increase the risk of pandemics.\n
+          Protected and conserved areas could be a central piece of economic stimulus packages after COVID-19 (e.g. [ref Pakistan example]). These conservation systems provide both direct short- and long-term economic benefits, assist vulnerable communities, and address policy needs. They also bolster national economies, maintain vital ecosystem services, and mitigate climate change . Recovery plans, including the establishment of rapid response grants, the maintenance of essential services, and support to local communities, must be followed by actions. These actions include promoting the health-related benefits of protected and conserved areas, restoring management capacities, and implementing strategies that ensure equitable governance and benefit-sharing mechanisms.\n
+          Recognising the benefits of protected and conserved areas, and supporting their effectiveness, will help countries rebuild after COVID-19 while simultaneously reducing the risk of future pandemics. Encouragingly, leaders from many parts of the world, including the European Union , Finland , New Zealand , Pakistan , Iceland , Kenya , the United Kingdom , and the United States of America , have already signalled their intention to take advantage of this in their recovery plans. Other countries have the opportunity to follow, supporting protected and conserved areas to v biodiversity, climate, and Sustainable Development Goals."
+  - 
+    card_image: /images/case-studies/school-of-fish-in-shallow-water-naturepicsfilms.jpg
+    card_source: A school of fish in shallow water, Curaçao © NaturePicsFilms / Adobe Stock
     label: 'Box 14'
-    title: 'Marine Protected Area (MPA) Networks: Connectivity research from the Caribbean. '
+    title: 'Marine Protected Area (MPA) networks: connectivity research from the Caribbean. '
     authors: 'Lucy Bastin, Mariagrazia Graziano, Justin Springer'
     org: 'TODO'
     image: 'case_study_12.png'

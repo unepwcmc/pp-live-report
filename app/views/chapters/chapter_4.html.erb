@@ -1,15 +1,32 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
-<!-- TODO - [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  -->
-<p>Map goes here</p>
+<section class="section-padding gutters">
+  <map-statistics 
+    id="<%= @map[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map[:tiles_url] %>" 
+    tiles-url-oecm="<%= @map[:tiles_url_oecm] %>" 
+    :tabs="<%= @map[:tabs].to_json %>"
+    :layers="<%= @map[:layers].to_json %>" 
+    :oecm-present="true"
+    file-download="<%= @map[:csv_url] %>"  
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
+</section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
 <section class="section-padding">
   
   <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
-
+  
   <div class="container--medium">
+    <download 
+      class="section-padding--bottom"
+      file-download="<%= @row_charts_csv_url %>"
+      text="CSV Download"
+    ></download>
+
     <% @row_charts.each do |item| %>
       <p class="chart--row__subtitle"><%= item[:title] %></p>
       

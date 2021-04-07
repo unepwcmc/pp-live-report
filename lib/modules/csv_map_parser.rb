@@ -1,18 +1,4 @@
 require 'csv'
-# a boundary of 0 will make the first category only those with a value of 0 
-# (used for no assessment/no data categories)
-CATEGORICAL_MAP_STATS = {
-  ch3_map2_categorical: {
-    boundaries: [0,5,10,17],
-    header_name: 'percentage_pa_land_cover',
-    csv: CSV_CH3_PA_NATIONAL
-  },
-  ch6_map_categorical: {
-    boundaries: [0,10,30,60],
-    header_name: 'pame_percentage_pa_land_cover',
-    csv: CSV_CH3_PA_NATIONAL
-  }
-}
 
 module CsvMapParser
   extend self
@@ -21,10 +7,6 @@ module CsvMapParser
     define_method(method_name) do
       categ_country_stats(config)
     end
-  end
-
-  def ch5_map1_percentage
-    percentage_stats(CSV_CH5_GLOBAL_KBA)
   end
 
   private

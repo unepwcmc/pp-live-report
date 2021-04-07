@@ -88,10 +88,10 @@
     border-radius: 2px;
     color: $black;
     cursor: pointer;
+    padding: rem-calc(8 15);
+    margin-right: rem-calc(19);
     text-align: left;
     text-decoration: none;
-    padding: rem-calc(8);
-    margin-right: rem-calc(19);
     width: fit-content;
     
     @include breakpoint($small) {
@@ -102,14 +102,16 @@
       font-family: $body-font;
       font-size: $button-font-size-small;
       font-weight: $light;
-      display: none;
+      margin-right: rem-calc(14);
       
       @include breakpoint($medium) {
-        width: rem-calc(150);
-
-        display: block;
+        font-size: $button-font-size-medium;
       }
     }
+  }
+
+  &--download-reduced-mobile {
+    
   }
 
   &--grey {
@@ -126,11 +128,11 @@
     }
 
     &__text {
-      font-size: rem-calc(14);
+      font-size: $button-font-size-small;
       color: $white;
 
       @include breakpoint($small) {
-        font-size: rem-calc(16);
+        font-size: $button-font-size-medium;
       }
     }
   }

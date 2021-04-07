@@ -26,4 +26,22 @@
     @include breakpoint($small) { height: rem-calc(44); }
     @include breakpoint($medium) { height: rem-calc(48); }
   }
+
+  &__download {
+    .button--download {
+      @include breakpoint-down($small) {
+        padding: rem-calc(8 9);
+      }
+    }
+
+    .button--download__text {
+      display: none;
+    
+      @include breakpoint($small) {
+        font-size: rem-calc(18);
+
+        display: block;
+      }
+    }
+  }
 }

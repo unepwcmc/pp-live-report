@@ -1,5 +1,8 @@
 <template>
-  <div :class="[isActive ? 'modal-wrapper--active' : 'modal-wrapper']">
+  <div 
+    :class="[isActive ? 'modal-wrapper--active' : 'modal-wrapper']"
+    @click.stop.self="modalClose"
+  >
     <div
       v-if="isActive && type === 'caseStudy'"
       class="modal__window--case-study"
@@ -10,9 +13,7 @@
         <h2 class="modal__title">{{ text.title }}</h2>
         <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
         <p v-if="text.org" class="modal__org">{{ text.org }}</p>
-        <p v-for="(paragraph, index) in text.text" :key="index">
-          {{ paragraph }}
-        </p>
+
         <div>
           <img v-if="text.image" :src="text.image" class="modal__image" />
           <p v-if="text.caption" class="modal__image-caption">
@@ -22,6 +23,16 @@
             text.source
           }}</small>
         </div>
+
+        <p v-for="(paragraph, index) in text.text" :key="index">
+          {{ paragraph }}
+        </p>
+
+        <p>
+          <small v-if="text.card_source" class="modal__image-source">
+            {{ text.title }}: {{ text.card_source }}
+          </small>
+        </p>
       </div>
     </div>
 

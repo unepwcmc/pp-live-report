@@ -5,23 +5,12 @@ CATEGORICAL_MAP_STATS = {
   ch3_map2_categorical: {
     boundaries: [0,5,10,17],
     header_name: 'percentage_pa_land_cover',
-    csv: 'chapter3_national_pa_statistics.csv'
+    csv: CSV_CH3_PA_NATIONAL
   },
   ch6_map_categorical: {
     boundaries: [0,10,30,60],
     header_name: 'pame_percentage_pa_land_cover',
-    csv: 'chapter3_national_pa_statistics.csv'
-  },
-  ch8_map1_categorical: {
-    boundaries: [4,8,12,17,25],
-    header_name: 'ProtConn_B',
-    csv: 'chapter8_national_connectivity_perccov_mar20.csv'
-  },
-  ch8_map2_categorical: {
-    csv: 'Ch8_Figure_15_AB_categorical.csv'
-  },
-  ch8_map3_categorical: {
-    csv: 'Ch8_Figure_15_C_categorical.csv'
+    csv: CSV_CH3_PA_NATIONAL
   }
 }
 
@@ -35,7 +24,7 @@ module CsvMapParser
   end
 
   def ch5_map1_percentage
-    percentage_stats('chapter5_global_kba_statistics.csv')
+    percentage_stats(CSV_CH5_GLOBAL_KBA)
   end
 
   private

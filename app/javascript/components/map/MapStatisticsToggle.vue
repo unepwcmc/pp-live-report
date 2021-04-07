@@ -1,91 +1,132 @@
 <template>
- <div
-  @click="toggleLayer"
-  :class="['map__panel-toggle no-select', toggleClasses]"
- >
-  <slot></slot>
- </div>
+  <div
+    @click="toggleLayer"
+    :class="['map__panel-toggle no-select', toggleClasses]"
+  >
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 import { eventHub } from "../../packs/application.js";
 
 export default {
- name: "map-statistics-toggle",
+  name: "map-statistics-toggle",
 
- props: {
-  isActive: {
-   type: Boolean,
-  },
-  ids: {
-   type: Array,
-   required: true,
-  },
-  layerNo: {
-   type: Number,
-   required: true,
-  },
-  parentTabId: String,
-  mapId: String,
- },
-
- data() {
-  return {
-   isDisabled: true,
-  };
- },
-
- created() {
-  eventHub.$on("change-tab", this.handleTabChange);
-  eventHub.$on("hide-other-layers", this.hideLayerIfNotSelected);
- },
-
- computed: {
-  toggleClasses() {
-   return {
-    active: this.isActive,
-   };
-  },
- },
-
- methods: {
-  handleTabChange(ids) {
-   if ("tabs-" + this.mapId !== ids.tabGroup || !this.isActive ) {
-    return;
-   }
-
-    this.parentTabId === ids.tab ? this.showLayers() : this.hideLayers();
+  props: {
+    onATab: {
+      default: false,
+      type: Boolean
+    },
+    ids: {
+      type: Array,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+    parentTabId: String,
+    mapId: String,
+    setActive: {
+      type: Boolean,
+    },
   },
 
-  toggleLayer() {
-   if (this.isActive === true) {
-    return;
-   }
-   this.hideOtherLayers();
-   this.showLayers();
+  data() {
+    return {
+      isActive: false,
+      isDisabled: true,
+    }
   },
 
-  showLayers() {
-   eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids });
+  created() {
+    eventHub.$on("change-tab", this.handleTabChange)
+    eventHub.$on("oecm-toggle-start", this.handleOecmToggleStart)
+    eventHub.$on('oecm-toggle-end', this.handleOecmToggleEnd)
+
+    if(this.setActive === true) { this.showLayers() }
   },
 
-  hideLayers() {
-   eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids });
+  beforeDestroy() {
+    eventHub.$off("change-tab")
+    eventHub.$off("oecm-toggle-start")
+    eventHub.$off('oecm-toggle-end')
   },
 
-  hideOtherLayers() {
-   eventHub.$emit("hide-other-layers", {
-    mapId: this.mapId,
-    layerIds: this.ids,
-    layerNo: this.layerNo,
-    tab: this.parentTabId
-   });
+  computed: {
+    toggleClasses() {
+      return {
+        active: this.isActive,
+      }
+    }
   },
 
-  hideLayerIfNotSelected(obj) {
-    if ( obj.layerNo === this.layerNo || obj.mapId !== this.mapId ) { return }
-    this.hideLayers();
+  methods: {
+    handleTabChange(ids) {
+      if ("tabs-" + this.mapId !== ids.tabGroup) {
+        return
+      }
+      
+      if(this.parentTabId === ids.tab && this.index === 0) {
+        //oecm layers are always reset on tab change
+        //do not show layer here if layer is oecm
+        //wait for oecm event to avoid race condition issue
+        const oecmIds = this.ids.find(id => id.includes('oecm'))
+
+        if(oecmIds === undefined){
+          this.showLayers()
+        }
+      } else {
+        this.hideLayers()
+      } 
+    },
+
+    handleOecmToggleStart (obj) {
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
+
+      if(this.onATab === true && isNotOnActiveTab) { return }
+
+      if (this.isOnMap(obj.mapId) && this.isActive) {
+        this.hideLayers()
+      }
+    },
+
+    handleOecmToggleEnd (obj) {
+      const isNotOnActiveTab = !this.isOnActiveTab(obj.activeTabId)
+
+      if(this.onATab === true) {
+        if(isNotOnActiveTab) { return }
+      }
+      
+      if (this.isOnMap(obj.mapId) && this.setActive) {
+        this.showLayers()  
+      }
+    },
+
+    isOnActiveTab (activeTabId){
+      return this.parentTabId == activeTabId
+    },
+    
+    isOnMap (mapId) {
+      return this.mapId == mapId
+    },
+
+    toggleLayer() {
+      this.isActive === true ? this.hideLayers() : this.showLayers()
+
+      this.$emit('toggled', { isActive: this.isActive, index: this.index })
+    },
+
+    showLayers() {
+      eventHub.$emit("show-layers", { mapId: this.mapId, layerIds: this.ids })
+      this.isActive = true
+    },
+
+    hideLayers() {
+      eventHub.$emit("hide-layers", { mapId: this.mapId, layerIds: this.ids })  
+      this.isActive = false
+    }
   }
- },
-};
+}
 </script>

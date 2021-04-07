@@ -25,7 +25,18 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
 <section class="section-padding gutters">
-
+  <!-- TODO - Need CSV download links for maps -->
+  <map-statistics 
+    id="<%= @map_1[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map_1[:tiles_url] %>" 
+    :tabs="<%= @map_1[:tabs].to_json %>"
+    :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
+    :oecm-present="true"
+    :file-download="'#'" 
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
+</section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
@@ -34,6 +45,10 @@
  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'], intro: @data['line_chart_description'] } %>
 
   <div class="container--medium">
+    <am-chart
+      :raw-data="<%= @line_chart %>"
+      file-download="<%= @line_chart_csv_url %>" 
+    ></am-chart>
 
 
     <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
@@ -44,15 +59,13 @@
 
 <section class="section-padding gutters">
 
-  <!-- [map showing national coverage (marine and terrestrial) – toggleable OECMs] -->
   <map-statistics 
     id="<%= @map_2[:id] %>"
     title="<%= @data['map_2_title'] %>" 
     :tabs="<%= @map_2[:tabs].to_json %>" 
     tiles-url="<%= @map_2[:tiles_url] %>"
     tiles-url-oecm="<%= @map_2[:tiles_url_oecm] %>"
-    :file-download="'#'" 
-    :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
+    file-download="<%= @map_2[:csv_url] %>"
     :oecm-present="true"
     :disclaimer="<%= map_disclaimer(@data['map_2_source']) %>"
   ></map-statistics>

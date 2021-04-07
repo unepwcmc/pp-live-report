@@ -135,6 +135,7 @@ class ChaptersController < ApplicationController
 
     @map_2 = {
       id: 'map_2',
+      csv_url: URI.join(root_url, "/file/#{CSV_CH3_MAP_PA_NATIONAL}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
@@ -238,7 +239,7 @@ class ChaptersController < ApplicationController
 
     @map = {
       id: 'ecoregions',
-      csv_url: URI.join(root_url, "/file/map/#{CSV_CH4_MAP_ECOREGIONS}"),
+      csv_url: URI.join(root_url, "/file/#{CSV_CH4_MAP_ECOREGIONS}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
@@ -341,7 +342,7 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'kba',
-      csv_url: URI.join(root_url, "/file/map/#{CSV_CH5_MAP_KBA_OCEM_OVERLAP}"),
+      csv_url: URI.join(root_url, "/file/#{CSV_CH5_MAP_KBA_OCEM_OVERLAP}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
@@ -394,7 +395,7 @@ class ChaptersController < ApplicationController
     
     @map_1 = {
       id: 'map_1',
-      csv_url: URI.join(root_url, "/file/map/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
+      csv_url: URI.join(root_url, "/file/#{CSV_CH8_NATIONAL_CONNECTIVITY}"),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [

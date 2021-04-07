@@ -203,7 +203,7 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
-    @percentage = CsvMapParser.ch5_map1_percentage
+    @chart_csv_url = URI.join(root_url, "/file/map/#{CSV_CH5_COUNT}")
 
     @map_1 = {
       id: 'kba',

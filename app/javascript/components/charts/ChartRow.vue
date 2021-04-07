@@ -12,8 +12,8 @@
           <span class="chart__bar" :style="{ width: row.percent + '%' }"></span>
           <span
             :class="`chart__bar--oecm ${legendClass}`"
-            v-if="oecmPercent > 0"
-            :style="{ width: oecmPercent + '%', left: row.percent + '%' }"
+            v-if="row.percent_oecm > 0"
+            :style="{ width: row.percent_oecm + '%', left: row.percent + '%' }"
           ></span>
         </div>
         <ul class="chart__legend">
@@ -21,9 +21,9 @@
             <span :class="`chart-key__wdpa--${legendClass}`"></span>
             <p>PAs {{ row.percent }} %</p>
           </li>
-          <li>
+          <li v-if="row.percent_oecm > 0">
             <span :class="`chart-key__oecm--${legendClass}`"></span>
-            <p>OECMs {{ oecmPercent }}%</p>
+            <p>OECMs {{ row.percent_oecm }}%</p>
           </li>
         </ul>
       </div>
@@ -44,12 +44,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      //  TODO - set oecmPercent as key of row
-      oecmPercent: 4
-    }
   },
   mounted() {
     this.animateOnScroll()

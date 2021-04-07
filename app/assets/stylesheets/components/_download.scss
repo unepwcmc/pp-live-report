@@ -2,10 +2,10 @@
   &__target {
     display: none;
     position: relative;
+    z-index: 1;
 
-    &--active {
+    &.active {
       display: block;
-      position: relative;
     }
   }
 
@@ -13,7 +13,7 @@
     background-color: $grey;
     border-radius: 3px;
     padding: rem-calc(10 20);
-    width: max-content;
+    min-width: rem-calc(180);
 
     position: absolute;
     top: calc(100% + #{$popup-download-arrow-height * 2});
@@ -43,15 +43,11 @@
   &__link {
     color: $white;
     cursor: pointer;
+    font-size: rem-calc(18);
     padding-top: rem-calc(5);
     padding-bottom: rem-calc(5);
-    padding-right: rem-calc(60);
 
     display: block;
-
-    @include breakpoint($small) {
-      font-size: rem-calc(18);
-    }
 
     &:hover {
       text-decoration: underline;

@@ -12,7 +12,7 @@
       <i class="icon--download"></i>
     </button>
     <div
-    :class="[isActive ? 'download__target--active' : 'download__target']"
+    :class="['download__target', { 'active' : isActive }]"
     >
       <popup
         :options="downloadLinks"

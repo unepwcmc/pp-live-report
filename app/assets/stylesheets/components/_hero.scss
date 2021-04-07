@@ -40,7 +40,7 @@
 
     .hero {
       &__content {
-        @include breakpoint($small) { margin-top: rem-calc(32); }
+        margin-top: rem-calc(32);
 
         @include breakpoint($medium) { 
           margin-top: 0;

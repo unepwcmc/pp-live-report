@@ -1,15 +1,15 @@
 CSV_CHAPTER_DATES = 'all_chapter_update_table.csv'
 
-CSV_CH3_TIMESERIES = 'Ch3_Fig3_Global_PA_Timeseries.csv'
-CSV_CH3_MAP_PA_GLOBAL = 'chapter3_global_pa_statistics.csv'
-CSV_CH3_MAP_PA_NATIONAL = 'chapter3_national_pa_statistics.csv'
+CSV_CH3_TIMESERIES = 'chapter3_global_pa_timeseries.csv'
+CSV_CH3_MAP_PA_GLOBAL = 'map/chapter3_global_pa_statistics.csv'
+CSV_CH3_MAP_PA_NATIONAL = 'map/chapter3_national_pa_statistics.csv'
 
 CSV_CH4_ECOREGIONS = 'chapter4_ecoregion_coverage.csv'
-CSV_CH4_MAP_ECOREGIONS = 'chapter4_map_ecoregions.csv'
+CSV_CH4_MAP_ECOREGIONS = 'map/chapter4_map_ecoregions.csv'
 
 CSV_CH5_COUNT = 'chapter5_count_statistics.csv'
 CSV_CH5_GLOBAL_KBA = 'chapter5_global_kba_timeseries_statistics.csv'
-CSV_CH5_MAP_KBA_OCEM_OVERLAP = 'chapter5_map_kba_pa_oecm_overlap.csv'
+CSV_CH5_MAP_KBA_OCEM_OVERLAP = 'map/chapter5_map_kba_pa_oecm_overlap.csv'
 
 CSV_CH6_PAME_REGIONAL_PERCENT = 'chapter6_regional_pame_perccov.csv'
 CSV_CH6_PAME_REGIONAL_COUNT = 'chapter6_regional_pame_count.csv'

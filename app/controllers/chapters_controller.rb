@@ -12,7 +12,17 @@ class ChaptersController < ApplicationController
     populate_case_studies(chapter_number)
   end
   
-  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+  CASE_STUDY_ATTRIBUTES = {
+                            label: '',
+                            report: '',
+                            authors: '',
+                            org: '',
+                            title: '',
+                            text: '',
+                            image: '',
+                            caption: '',
+                            source: ''
+                          }.freeze
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -49,11 +59,6 @@ class ChaptersController < ApplicationController
     'ru': 'Русский',
     'zh': '中文'
   }.freeze
-
-  def chapter_number
-    raise NoNumberError unless params[:action].match?(/\d+/)
-    params[:action].match(/\d+/)[0].to_i
-  end
 
   def chapter_1
     @summaries = load_summary_text
@@ -202,7 +207,7 @@ class ChaptersController < ApplicationController
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
-          title: 'Terrestial',
+          title: 'Terrestrial',
           layers: [
             {
               id: 'id-less-than-5-' + random_number,
@@ -433,6 +438,8 @@ class ChaptersController < ApplicationController
     case_study_data = @chapters_data[chapter_number - 1]['case_studies']
     return if case_study_data.nil?
 
+    case_study_contents = CASE_STUDY_ATTRIBUTES
+
     @items = case_study_data.map do |case_study|
       if case_study['title'] == 'References'
         case_study['text'] = @shared_data['references']
@@ -447,18 +454,14 @@ class ChaptersController < ApplicationController
     end
   end
 
-  def case_study_contents
-    # Build a hash out of all possible keys
-    # This allows more data to be easily added to the case studies in the YML file at a later date
-    # e.g. if authors or a caption for an image is needed to be inserted
-    attributes = {}
-    CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
-    attributes
-  end
-
   def case_study_image(case_study)
     if case_study['image']
       URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
     end
+  end
+
+  def chapter_number
+    raise NoNumberError unless params[:action].match?(/\d+/)
+    params[:action].match(/\d+/)[0].to_i
   end
 end

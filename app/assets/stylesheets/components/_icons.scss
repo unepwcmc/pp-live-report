@@ -14,8 +14,8 @@
 
   display: inline-block;
 
-  height: rem-calc(24);
-  width: rem-calc(24);
+  height: rem-calc(28);
+  width: rem-calc(28);
 
   @include breakpoint($small) {
     height: rem-calc(40);

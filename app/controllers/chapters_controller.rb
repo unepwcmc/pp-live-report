@@ -140,7 +140,7 @@ class ChaptersController < ApplicationController
 
     @map_2 = {
       id: 'map_2',
-      csv_url: URI.join(root_url, "/file/#{CSV_CH3_MAP_PA_NATIONAL}"),
+      csv_url: get_csv_url(CSV_CH3_MAP_PA_NATIONAL),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [

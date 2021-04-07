@@ -82,15 +82,7 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'map_1',
-      # tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/test_raster_mapv2/MapServer/tile/{z}/{y}/{x}',
-      oecm_layer: {
-        color: '#D9B143',
-        id: 'oecm-' + random_number,
-        isShownByDefault: false,
-        type: 'raster_tile',
-        url: 'https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_on_other_effective_area_based_conservation_measures/MapServer/tile/{z}/{y}/{x}'
-      },
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/pa_location_merc/MapServer/tile/{z}/{y}/{x}',
       tabs: [
         {
           title: 'Terrestrial',
@@ -99,7 +91,7 @@ class ChaptersController < ApplicationController
               id: 'terrestrial-' + random_number,
               text_large: 'All terrestrial',
               type: 'raster_tile',
-              source_layers: { poly: 'test_raster3c' },
+              source_layers: { poly: 'land_pas' },
               colour: '#86BF37'
             }
           ]
@@ -111,21 +103,21 @@ class ChaptersController < ApplicationController
               id: 'marine-' + random_number,
               text_large: 'All marine',
               type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
+              source_layers: { poly: 'marine_pas' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: 'National waters',
               type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
+              source_layers: { poly: 'eez_pas' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: 'Areas beyond national jurisdiction',
               type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
+              source_layers: { poly: 'abnj_pas' },
               colour: '#207D94'
             }
           ]

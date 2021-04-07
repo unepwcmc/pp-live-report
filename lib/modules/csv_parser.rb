@@ -86,7 +86,8 @@ module CsvParser
       chart_rows = keys.map do |key|
         {
           percent: row[key].split("%").first.to_f,
-          label: key
+          percent_oecm: get_oecm_percent(row[key]),
+          label: key,
         }
       end
       theme = case unit
@@ -140,5 +141,9 @@ module CsvParser
       prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
     end
     prog_lev
+  end
+
+  def self.get_oecm_percent(string)
+    (string.include? 'oecm') ? string.split('oecm').last.to_f : 0
   end
 end

@@ -1,5 +1,15 @@
-<header class="hero--home parallax <%= @hero['class'] %>">
+<header 
+  class="hero--home parallax <%= @hero['class'] %>"
+  style="background-image: url('<%= image_url "hero/#{@hero['image']}" %>')"
+>
   <%= render 'partials/topbar' %>
+
+  <%= video_tag @hero['video'], 
+    autoplay: :autoplay, 
+    loop: :loop, 
+    muted: :muted,
+    class: "hero__video" 
+  %>
   
   <div class="container hero__content">
     <h1 class="hero__title heading--home"><%= site_title %></h1>

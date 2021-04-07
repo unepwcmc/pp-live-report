@@ -207,7 +207,7 @@ class ChaptersController < ApplicationController
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
-          title: 'Terrestial',
+          title: 'Terrestrial',
           layers: [
             {
               id: 'id-less-than-5-' + random_number,

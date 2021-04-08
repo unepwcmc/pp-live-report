@@ -132,6 +132,7 @@ export default {
       tabsActive: [],
       tabsWithOecm: [],
       firstTopLayerId: "",
+      haveSetRTLTextPlugin: false
     }
   },
 
@@ -203,13 +204,7 @@ export default {
 
       // Add support for RTL languages
       // Make sure this is only called once per page
-      if(mapboxgl.getRTLTextPluginStatus() == 'unavailable') {
-        mapboxgl.setRTLTextPlugin(
-          RTL_TEXT_PLUGIN_URL, 
-          null, 
-          true // Lazy loading
-        )
-      }
+      
 
       this.map = new mapboxgl.Map({
         container: this.id,

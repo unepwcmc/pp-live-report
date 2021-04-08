@@ -30,6 +30,7 @@
 //--------------------------------------------------
   &--home {
     @include hero-basic;
+    background-size: cover;
     padding-bottom: rem-calc(20);
 
     position: relative;
@@ -117,6 +118,7 @@
         @include breakpoint($medium) {
           object-fit: cover;
           width: 100vw; height: 100vh;
+          max-width:100%; // stop horizontal scroll on Edge/IE
           
           display: block; 
           position: absolute;

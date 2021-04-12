@@ -1,6 +1,7 @@
 class ChaptersController < ApplicationController
   include RandomNumberHelper
   include YamlHelpers
+  include ChaptersHelper
   layout 'chapter'
 
   helper_method :chapter_number
@@ -11,7 +12,17 @@ class ChaptersController < ApplicationController
     populate_case_studies(chapter_number)
   end
   
-  CASE_STUDY_ATTRIBUTES = %w(label report authors org title text image caption source).freeze
+  CASE_STUDY_ATTRIBUTES = {
+                            label: '',
+                            report: '',
+                            authors: '',
+                            org: '',
+                            title: '',
+                            text: '',
+                            image: '',
+                            caption: '',
+                            source: ''
+                          }.freeze
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -19,12 +30,26 @@ class ChaptersController < ApplicationController
     '#8da0cb',
     '#fc8d62'
   ].freeze
-  BLUE_PURPLE_SCHEME = [
+  PURPLE_SCHEME = [
     '#B3CDE3',
     '#8c96c6',
     '#8856A7',
     '#810F7C',
     '#4d004b'
+  ].freeze
+  BLUE_SCHEME = [
+    '#0D7AE7',
+    '#0844B2',
+    '#4863A0',
+    '#163B65',
+    '#00174B'
+  ].freeze
+  GREEN_SCHEME = [
+    '#C4D6AD',
+    '#87BF37',
+    '#68853F',
+    '#333E23',
+    '#1c260d',
   ].freeze
   LANGUAGES = { 
     'ar': 'العربية',
@@ -34,11 +59,6 @@ class ChaptersController < ApplicationController
     'ru': 'Русский',
     'zh': '中文'
   }.freeze
-
-  def chapter_number
-    raise NoNumberError unless params[:action].match?(/\d+/)
-    params[:action].match(/\d+/)[0].to_i
-  end
 
   def chapter_1
     @summaries = load_summary_text
@@ -83,7 +103,7 @@ class ChaptersController < ApplicationController
             {
               id: 'terrestrial-' + random_number,
               text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_small: 'All terrestrial',
+              text_large: 'All terrestrial',
               source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
               colour: '#86BF37'
             }
@@ -95,21 +115,21 @@ class ChaptersController < ApplicationController
             {
               id: 'marine-' + random_number,
               text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              text_small: 'All marine',
+              text_large: 'All marine',
               source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_small: 'National waters',
+              text_large: 'National waters',
               source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_small: 'Areas beyond national jurisdiction',
+              text_large: 'Areas beyond national jurisdiction',
               source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
               colour: '#207D94'
             }
@@ -120,37 +140,79 @@ class ChaptersController < ApplicationController
 
     @map_2 = {
       id: 'map_2',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg5_Oct20/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-      layers: [
+      csv_url: get_csv_url(CSV_CH3_MAP_PA_NATIONAL),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/nat_cov_pas_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
         {
-          id: 'over-ten-' + random_number,
-          text_large: 'Over 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat5' },
-          colour: BLUE_PURPLE_SCHEME[3]
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'terrestrial-data-deficient-' + random_number,
+              text_large: 'Data deficient',
+              source_layers: { poly: 'land_nat_cov_cat1' },
+              colour: DEFAULT_COLOUR
+            },
+            {
+              id: 'terrestrial-less-than-3-' + random_number,
+              text_large: 'Under 3%',
+              source_layers: { poly: 'land_nat_cov_cat2' },
+              colour: GREEN_SCHEME[0]
+            },
+            {
+              id: 'terrestrial-three-to-six-' + random_number,
+              text_large: '3% – 6%',
+              source_layers: { poly: 'land_nat_cov_cat3' },
+              colour: GREEN_SCHEME[1]
+            },
+            {
+              id: 'terrestrial-six-to-ten-' + random_number,
+              text_large: '6% - 10%',
+              source_layers: { poly: 'land_nat_cov_cat4' },
+              colour: GREEN_SCHEME[2]
+            },
+            {
+              id: 'terrestrial-over-ten-' + random_number,
+              text_large: 'Over 10%',
+              source_layers: { poly: 'land_nat_cov_cat5' },
+              colour: GREEN_SCHEME[3]
+            }
+          ]
         },
         {
-          id: 'six-to-ten-' + random_number,
-          text_large: '6% - 10%',
-          source_layers: { poly: 'Ch2_Fg5_mcat4' },
-          colour: BLUE_PURPLE_SCHEME[2]
-        },
-        {
-          id: 'three-to-six-' + random_number,
-          text_large: '3% – 6%',
-          source_layers: { poly: 'Ch2_Fg5_mcat3' },
-          colour: BLUE_PURPLE_SCHEME[1]
-        },
-        {
-          id: 'less-than-3-' + random_number,
-          text_large: 'Under 3%',
-          source_layers: { poly: 'Ch2_Fg5_mcat2' },
-          colour: BLUE_PURPLE_SCHEME[0]
-        },
-        {
-          id: 'data-deficient-' + random_number,
-          text_large: 'Data deficient',
-          source_layers: { poly: 'Ch2_Fg5_mcat1' },
-          colour: DEFAULT_COLOUR
+          title: 'Marine',
+          layers: [
+            {
+              id: 'marine-data-deficient-' + random_number,
+              text_large: 'Data deficient',
+              source_layers: { poly: 'sea_nat_cov_cat1' },
+              colour: DEFAULT_COLOUR
+            },
+            {
+              id: 'marine-less-than-3-' + random_number,
+              text_large: 'Under 3%',
+              source_layers: { poly: 'sea_nat_cov_cat2' },
+              colour: BLUE_SCHEME[0]
+            },
+            {
+              id: 'marine-three-to-six-' + random_number,
+              text_large: '3% – 6%',
+              source_layers: { poly: 'sea_nat_cov_cat3' },
+              colour: BLUE_SCHEME[1]
+            },
+            {
+              id: 'marine-six-to-ten-' + random_number,
+              text_large: '6% - 10%',
+              source_layers: { poly: 'sea_nat_cov_cat4' },
+              colour: BLUE_SCHEME[2]
+            },
+            {
+              id: 'marine-over-ten-' + random_number,
+              text_large: 'Over 10%',
+              source_layers: { poly: 'sea_nat_cov_cat5' },
+              colour: BLUE_SCHEME[3]
+            }
+          ]
         }
       ]
     }
@@ -174,44 +236,135 @@ class ChaptersController < ApplicationController
       ]
     }.to_json
 
-    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH3_TIMESERIES}")
+    @line_chart_csv_url = get_csv_url(CSV_CH3_TIMESERIES)
   end
 
   def chapter_4
     @data = @chapters_data[3]
 
-
-    # TODO - Need new data for [Map of ecoregion coverage: marine and terrestrial on the same map. Toggle between PAs only and PAs + OECMs]  map here!
+    @map = {
+      id: 'ecoregions',
+      csv_url: get_csv_url(CSV_CH4_MAP_ECOREGIONS),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/ecoregions_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
+        {
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'id-less-than-5-' + random_number,
+              text_large: '< 5%',
+              source_layers: { poly: 'teow_cat1' },
+              colour: GREEN_SCHEME[0]
+            },
+            {
+              id: 'id-between-5-and-10' + random_number,
+              text_large: '5 - 10%',
+              source_layers: { poly: 'teow_cat2' },
+              colour: GREEN_SCHEME[1]
+            },
+            {
+              id: 'id-between-10-and-17' + random_number,
+              text_large: '10 - 17%',
+              source_layers: { poly: 'teow_cat3' },
+              colour: GREEN_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-17' + random_number,
+              text_large: '> 17%',
+              source_layers: { poly: 'teow_cat4' },
+              colour: GREEN_SCHEME[3]
+            }
+          ]
+        },
+        {
+          title: 'Marine',
+          layers: [
+            {
+              id: 'id-less-than-3-' + random_number,
+              text_large: '< 3%',
+              source_layers: { poly: 'meow_cat1' },
+              colour: BLUE_SCHEME[0]
+            },
+            {
+              id: 'id-between-3-and-6' + random_number,
+              text_large: '3 - 6%',
+              source_layers: { poly: 'meow_cat2' },
+              colour: BLUE_SCHEME[1]
+            },
+            {
+              id: 'id-between-6-and-10' + random_number,
+              text_large: '6 - 10%',
+              source_layers: { poly: 'meow_cat3' },
+              colour: BLUE_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-10' + random_number,
+              text_large: '> 10%',
+              source_layers: { poly: 'meow_cat4' },
+              colour: BLUE_SCHEME[3]
+            }
+          ]
+        },
+        {
+          title: 'Pelagic',
+          layers: [
+            {
+              id: 'id-less-than-3-' + random_number,
+              text_large: '< 3%',
+              source_layers: { poly: 'meow_cat1' },
+              colour: BLUE_SCHEME[0]
+            },
+            {
+              id: 'id-between-3-and-6' + random_number,
+              text_large: '3 - 6%',
+              source_layers: { poly: 'meow_cat2' },
+              colour: BLUE_SCHEME[1]
+            },
+            {
+              id: 'id-between-6-and-10' + random_number,
+              text_large: '6 - 10%',
+              source_layers: { poly: 'meow_cat3' },
+              colour: BLUE_SCHEME[2]
+            },
+            {
+              id: 'id-greater-than-10' + random_number,
+              text_large: '> 10%',
+              source_layers: { poly: 'meow_cat4' },
+              colour: BLUE_SCHEME[3]
+            }
+          ]
+        }
+      ]
+    }
 
     @row_charts = CsvParser.biogeographical_regions
+    @row_charts_csv_url = get_csv_url(CSV_CH4_ECOREGIONS)
   end
 
   def chapter_5
     @data = @chapters_data[4]
-    @percentage = CsvMapParser.ch5_map1_percentage
 
     @map_1 = {
       id: 'kba',
+      csv_url: get_csv_url(CSV_CH5_MAP_KBA_OCEM_OVERLAP),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
-          text_large: @percentage['Within'],
-          text_small: 'Fully within Protected Areas',
+          text_large: 'Fully within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
-          text_large: @percentage['Partially'],
-          text_small: 'Partially within Protected Areas',
+          text_large: 'Partially within Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
-          text_large: @percentage['Outside'],
-          text_small: 'Outside Protected Areas',
+          text_large: 'Outside Protected Areas',
           source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
         }
@@ -282,20 +435,44 @@ class ChaptersController < ApplicationController
 
   def chapter_8
     @data = @chapters_data[7]
-
-    # TODO - May need to remove or change map style from infographic to interactive
-    # Also need new map layers
+    
     @map_1 = {
-      countries: CsvMapParser.ch8_map1_categorical,
-      legend: [
-        { title: 'Under 4%', value: 'default' },
-        { title: '4% - 8%', value: 1 },
-        { title: '8% - 12%', value: 2 },
-        { title: '12% - 17%', value: 3 },
-        { title: '17% - 25%', value: 4 },
-        { title: 'Over 25%', value: 5 }
-      ],
-      palette: BLUE_PURPLE_SCHEME
+      id: 'map_1',
+      csv_url: get_csv_url(CSV_CH8_NATIONAL_CONNECTIVITY),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/protconn_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      layers: [
+        {
+          id: 'data-deficient-' + random_number,
+          text_large: 'Data deficient',
+          source_layers: { poly: 'protconn_cat1_merc' },
+          colour: DEFAULT_COLOUR
+        },
+        {
+          id: 'less-than-5-' + random_number,
+          text_large: '< 5%',
+          source_layers: { poly: 'protconn_cat2_merc' },
+          colour: GREEN_SCHEME[0]
+        },
+        {
+          id: 'five-to-ten-' + random_number,
+          text_large: '5% - 10%',
+          source_layers: { poly: 'protconn_cat3_merc' },
+          colour: GREEN_SCHEME[1]
+        },
+        {
+          id: 'ten-to-seventeen-' + random_number,
+          text_large: '10% - 17%',
+          source_layers: { poly: 'protconn_cat4_merc' },
+          colour: GREEN_SCHEME[2]
+        },
+        {
+          id: 'greater-than-seventeen-' + random_number,
+          text_large: '> 17%',
+          source_layers: { poly: 'protconn_cat5_merc' },
+          colour: GREEN_SCHEME[3]
+        }
+      ]
     }
   end
 
@@ -341,6 +518,8 @@ class ChaptersController < ApplicationController
     case_study_data = @chapters_data[chapter_number - 1]['case_studies']
     return if case_study_data.nil?
 
+    case_study_contents = CASE_STUDY_ATTRIBUTES
+
     @items = case_study_data.map do |case_study|
       if case_study['title'] == 'References'
         case_study['text'] = @shared_data['references']
@@ -355,18 +534,14 @@ class ChaptersController < ApplicationController
     end
   end
 
-  def case_study_contents
-    # Build a hash out of all possible keys
-    # This allows more data to be easily added to the case studies in the YML file at a later date
-    # e.g. if authors or a caption for an image is needed to be inserted
-    attributes = {}
-    CASE_STUDY_ATTRIBUTES.map { |attr| attributes[attr] = '' }
-    attributes
-  end
-
   def case_study_image(case_study)
     if case_study['image']
       URI.join(root_url, helpers.image_path("case_studies/#{case_study['image']}"))
     end
+  end
+
+  def chapter_number
+    raise NoNumberError unless params[:action].match?(/\d+/)
+    params[:action].match(/\d+/)[0].to_i
   end
 end

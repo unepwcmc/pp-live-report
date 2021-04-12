@@ -14,7 +14,7 @@ module CsvParser
 
   def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader(CSV_CH3_PA_GLOBAL), headers: true) do |row|
+    CSV.parse(file_reader(CSV_CH3_MAP_PA_GLOBAL), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader(CSV_CH4_GLOBAL_KBA)
+    csv_file = file_reader(CSV_CH5_GLOBAL_KBA)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -86,7 +86,8 @@ module CsvParser
       chart_rows = keys.map do |key|
         {
           percent: row[key].split("%").first.to_f,
-          label: key
+          percent_oecm: get_oecm_percent(row[key]),
+          label: key,
         }
       end
       theme = case unit
@@ -140,5 +141,9 @@ module CsvParser
       prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
     end
     prog_lev
+  end
+
+  def self.get_oecm_percent(string)
+    (string.include? 'oecm') ? string.split('oecm').last.to_f : 0
   end
 end

@@ -30,7 +30,6 @@
 //--------------------------------------------------
   &--home {
     @include hero-basic;
-    @include parallax;
     padding-bottom: rem-calc(20);
 
     position: relative;
@@ -41,8 +40,6 @@
 
     .hero {
       &__content {
-        margin-top: rem-calc(22);
-
         @include breakpoint($small) { margin-top: rem-calc(32); }
 
         @include breakpoint($medium) { 
@@ -111,6 +108,21 @@
 
         @include breakpoint($small) {
           bottom: rem-calc(44);
+        }
+      }
+
+      &__video {
+        display: none; 
+        
+        @include breakpoint($medium) {
+          object-fit: cover;
+          width: 100vw; height: 100vh;
+          
+          display: block; 
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -2;
         }
       }
     }

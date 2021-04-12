@@ -92,6 +92,7 @@
     text-decoration: none;
     padding: rem-calc(8);
     margin-right: rem-calc(19);
+    width: fit-content;
     
     @include breakpoint($small) {
       padding: rem-calc(10 16);

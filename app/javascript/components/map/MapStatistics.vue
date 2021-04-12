@@ -11,7 +11,7 @@
         ></i>
       </div>
 
-      <template v-if="isActive">
+      <div v-show="isActive">
         <p v-if="description" class="map__panel-description gutters">
           {{ description }}
         </p>
@@ -43,26 +43,30 @@
             :oecm-present="oecmPresent"
           ></map-statistics-toggles>
         </template>
-      </template>
-      <hr class="tabs__splitter">
-      <span class="map__oecm-toggle gutters" v-if="oecmPresent">
-        Include OECMs (terrestrial and marine)
-        <map-oecm-toggle 
-          :map-id="id"
-          v-on:toggled="handleOecmToggleChange"
-          v-on:hide-layers="hideLayers"
-          v-on:show-layers="showLayers"
-        />
-      </span>
-      <hr class="tabs__splitter">
-      <div class="map__buttons flex flex-v-center gutters" v-if="isActive">
-        <download
-          text="CSV Download"
-          title="Download reports in PDF format"
-          :file-download="fileDownload"
-          event-element="Download report link"
-        ></download>
-        <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
+      
+        <hr class="tabs__splitter">
+        
+        <span class="map__oecm-toggle gutters" v-if="oecmPresent">
+          Include OECMs (terrestrial and marine)
+          <map-oecm-toggle 
+            :map-id="id"
+            v-on:toggled="handleOecmToggleChange"
+            v-on:hide-layers="hideLayers"
+            v-on:show-layers="showLayers"
+          />
+        </span>
+
+        <hr class="tabs__splitter">
+
+        <div class="map__buttons flex flex-v-center gutters">
+          <download
+            text="CSV Download"
+            title="Download reports in PDF format"
+            :file-download="fileDownload"
+            event-element="Download report link"
+          ></download>
+          <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
+        </div>
       </div>
     </div>
   </div>

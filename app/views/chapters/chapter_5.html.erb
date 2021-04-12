@@ -11,10 +11,9 @@
     :tabs="<%= @map_1[:tabs].to_json %>"
     :layers="<%= @map_1[:layers].to_json %>" 
     :oecm-present="true"
-    :file-download="'#'" 
+    file-download="<%= @map_1[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
-
 </section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>

@@ -31,7 +31,6 @@
     title="<%= @data['map_1_title'] %>"
     tiles-url="<%= @map_1[:tiles_url] %>" 
     :tabs="<%= @map_1[:tabs].to_json %>"
-    :layers="<%= @map_1[:layers].to_json %>" 
     :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
     :oecm-present="true"
     :file-download="'#'" 
@@ -60,13 +59,13 @@
 
 <section class="section-padding gutters">
 
-  <!-- [map showing national coverage (marine and terrestrial) – toggleable OECMs] -->
   <map-statistics 
     id="<%= @map_2[:id] %>"
     title="<%= @data['map_2_title'] %>" 
-    :layers="<%= @map_2[:layers].to_json %>" 
+    :tabs="<%= @map_2[:tabs].to_json %>" 
     tiles-url="<%= @map_2[:tiles_url] %>"
-    :file-download="'#'" 
+    tiles-url-oecm="<%= @map_2[:tiles_url_oecm] %>"
+    file-download="<%= @map_2[:csv_url] %>"
     :oecm-present="true"
     :disclaimer="<%= map_disclaimer(@data['map_2_source']) %>"
   ></map-statistics>

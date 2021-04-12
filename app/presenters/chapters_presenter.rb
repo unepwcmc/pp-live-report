@@ -1,7 +1,4 @@
-class ChaptersPresenter
-  def initialize
-  end
-  
+class ChaptersPresenter  
   def gauge_charts
     [
       {

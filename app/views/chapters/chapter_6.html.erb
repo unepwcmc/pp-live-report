@@ -6,14 +6,7 @@
 
   <div class="container--medium">
   <!-- TODO - Needs to be changed to Map showing % of PAME assessments per country, divided by terrestrial and marine. No OECM toggle needed -->
-    <map-infographic 
-      :countries="<%= @map[:countries].to_json %>" 
-      :legend="<%= @map[:legend].to_json %>"
-      :palette="<%= @map[:palette] %>"
-      source="<%= @data['map_1_source'] %>"
-      disclaimer="<%= @shared_data['map_disclaimer'] %>"
-    >
-    </map-infographic>
+    
   </div>
 </section>
 

@@ -88,7 +88,7 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'map_1',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/pa_location_merc/MapServer/tile/{z}/{y}/{x}',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live/VectorTileServer/tile/{z}/{y}/{x}',
       tabs: [
         {
           title: 'Terrestrial',
@@ -96,7 +96,7 @@ class ChaptersController < ApplicationController
             {
               id: 'terrestrial-' + random_number,
               text_large: 'All terrestrial',
-              type: 'raster_tile',
+              # type: 'raster_tile',
               source_layers: { poly: 'land_pas' },
               colour: '#86BF37'
             }
@@ -108,21 +108,21 @@ class ChaptersController < ApplicationController
             {
               id: 'marine-' + random_number,
               text_large: 'All marine',
-              type: 'raster_tile',
+              # type: 'raster_tile',
               source_layers: { poly: 'marine_pas' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: 'National waters',
-              type: 'raster_tile',
+              # type: 'raster_tile',
               source_layers: { poly: 'eez_pas' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: 'Areas beyond national jurisdiction',
-              type: 'raster_tile',
+              # type: 'raster_tile',
               source_layers: { poly: 'abnj_pas' },
               colour: '#207D94'
             }

@@ -95,15 +95,9 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'terrestrial-' + random_number,
-<<<<<<< HEAD
               text_large: 'All terrestrial',
               type: 'raster_tile',
               source_layers: { poly: 'land_pas' },
-=======
-              text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              text_large: 'All terrestrial',
-              source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
->>>>>>> pp-2020-update
               colour: '#86BF37'
             }
           ]
@@ -113,41 +107,23 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'marine-' + random_number,
-<<<<<<< HEAD
               text_large: 'All marine',
               type: 'raster_tile',
               source_layers: { poly: 'marine_pas' },
-=======
-              text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              text_large: 'All marine',
-              source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
->>>>>>> pp-2020-update
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
-<<<<<<< HEAD
               text_large: 'National waters',
               type: 'raster_tile',
               source_layers: { poly: 'eez_pas' },
-=======
-              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              text_large: 'National waters',
-              source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
->>>>>>> pp-2020-update
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
-<<<<<<< HEAD
               text_large: 'Areas beyond national jurisdiction',
               type: 'raster_tile',
               source_layers: { poly: 'abnj_pas' },
-=======
-              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              text_large: 'Areas beyond national jurisdiction',
-              source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
->>>>>>> pp-2020-update
               colour: '#207D94'
             }
           ]

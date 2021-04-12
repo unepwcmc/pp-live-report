@@ -11,8 +11,7 @@ CSV_CH5_COUNT = 'chapter5_count_statistics.csv'
 CSV_CH5_GLOBAL_KBA = 'chapter5_global_kba_timeseries_statistics.csv'
 CSV_CH5_MAP_KBA_OCEM_OVERLAP = 'map/chapter5_map_kba_pa_oecm_overlap.csv'
 
-CSV_CH6_PAME_REGIONAL_PERCENT = 'chapter6_regional_pame_perccov.csv'
-CSV_CH6_PAME_REGIONAL_COUNT = 'chapter6_regional_pame_count.csv'
+CSV_CH6_MAP_PAME = 'map/chapter6_map_pame.csv'
 
 CSV_CH7_PA_GOVTYPE_REGION = 'chapter7_pas_per_govtype_per_region.csv'
 CSV_CH7_PA_GOVTYPE = 'chapter7_pas_per_govtype.csv'

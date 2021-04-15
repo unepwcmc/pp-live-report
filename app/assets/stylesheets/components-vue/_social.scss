@@ -46,7 +46,7 @@ $popup-share-arrow-height: rem-calc(11);
 //--------------------------------------------------
 // following or sharing via social media 
 //--------------------------------------------------
-  &--media {
+  &--share {
     @include flex;
     position: relative;
 
@@ -74,15 +74,6 @@ $popup-share-arrow-height: rem-calc(11);
         }
       }
     }
-  }  
-
-  &--media-white {
-    .social__icon {
-      &--email { @include social-icon-white('icons/email-white.svg'); }
-      &--facebook { @include social-icon-white('icons/facebook-white.svg'); }
-      &--linkedin { @include social-icon-white('icons/linkedin-white.svg'); }
-      &--twitter { @include social-icon-white('icons/twitter-white.svg'); }
-    }
   }
 
   &__popup {
@@ -92,7 +83,7 @@ $popup-share-arrow-height: rem-calc(11);
     width: auto;
 
     position: absolute;
-    top: calc(100% + #{$popup-share-arrow-height * 3});
+    top: calc(100% + #{$popup-share-arrow-height * 1.7});
     right: 0;
 
     a {

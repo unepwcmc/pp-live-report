@@ -1,5 +1,5 @@
 <template>
- <div class="flex flex-v-center">
+ <div class="social--share">
   <template v-if="isMobile">
    <button
     @click="togglePopup"

@@ -61,9 +61,9 @@
         <div class="map__buttons flex flex-v-center gutters">
           <download
             text="CSV Download"
-            title="Download reports in PDF format"
+            title="Download reports in CSV format"
             :file-download="fileDownload"
-            event-element="Download report link"
+            event-element="Download data link"
           ></download>
           <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
         </div>
@@ -245,13 +245,12 @@ export default {
     },
 
     addLayer(layer) {
+      const url = this.includeOecms == true ? this.tilesUrlOecm : this.tilesUrl
+
       if(layer.type == 'raster_tile') {
-        this.addRasterTileLayer(layer)
+        this.addRasterTileLayer([url], layer)
 
       } else if (layer.source_layers && this.tilesUrl) {
-        
-        const url = this.includeOecms == true ? this.tilesUrlOecm : this.tilesUrl
-
         Object.keys(layer.source_layers).forEach((layerType) => {
           this.addMapboxLayer({
             tiles: [url],
@@ -293,21 +292,21 @@ export default {
       this.map.addLayer(options, this.firstTopLayerId)
     },
 
-    addRasterTileLayer (layer) {
-      this.map.addLayer({
-        id: id,
+    addRasterTileLayer (tiles, layer) {
+      const options = {
+        id: layer.id,
         type: 'raster',
         minzoom: 0,
         maxzoom: 22,
         source: {
+          poly: layer.source_layers['poly'],
           type: 'raster',
-          tiles: [layer.url],
+          tiles: tiles,
           tileSize: 128,
-        },
-        layout: {
-          visibility: layer.isShownByDefault ? 'visible' : 'none'
         }
-      }, this.firstTopLayerId)
+      }
+
+      this.map.addLayer(options, this.firstTopLayerId)
     },
 
     createTabsWithOecm () {

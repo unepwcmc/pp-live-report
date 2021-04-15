@@ -13,16 +13,16 @@ class ChaptersController < ApplicationController
   end
   
   CASE_STUDY_ATTRIBUTES = {
-                            label: '',
-                            report: '',
-                            authors: '',
-                            org: '',
-                            title: '',
-                            text: '',
-                            image: '',
-                            caption: '',
-                            source: ''
-                          }.freeze
+    label: '',
+    report: '',
+    authors: '',
+    org: '',
+    title: '',
+    text: '',
+    image: '',
+    caption: '',
+    source: ''
+  }.freeze
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -88,7 +88,8 @@ class ChaptersController < ApplicationController
 
     @map_1 = {
       id: 'map_1',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      # tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/test_raster_mapv2/MapServer/tile/{z}/{y}/{x}',
       oecm_layer: {
         color: '#D9B143',
         id: 'oecm-' + random_number,
@@ -102,9 +103,12 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'terrestrial-' + random_number,
-              text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
               text_large: 'All terrestrial',
-              source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster3c' },
+              # text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
+              # text_large: 'All terrestrial',
+              # source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
               colour: '#86BF37'
             }
           ]
@@ -114,23 +118,32 @@ class ChaptersController < ApplicationController
           layers: [
             {
               id: 'marine-' + random_number,
-              text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
               text_large: 'All marine',
-              source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
+              # text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
+              # text_large: 'All marine',
+              # source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
-              text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
               text_large: 'National waters',
-              source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
+              # text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
+              # text_large: 'National waters',
+              # source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
-              text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
               text_large: 'Areas beyond national jurisdiction',
-              source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
+              type: 'raster_tile',
+              source_layers: { poly: 'test_raster' },
+              # text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
+              # text_large: 'Areas beyond national jurisdiction',
+              # source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
               colour: '#207D94'
             }
           ]
@@ -344,28 +357,30 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
+    @chart_csv_url = URI.join(root_url, "/file/map/#{CSV_CH5_COUNT}")
 
     @map_1 = {
       id: 'kba',
       csv_url: get_csv_url(CSV_CH5_MAP_KBA_OCEM_OVERLAP),
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
           text_large: 'Fully within Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
           text_large: 'Partially within Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
           text_large: 'Outside Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
         }
       ]

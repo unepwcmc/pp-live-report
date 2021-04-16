@@ -4,17 +4,15 @@
 
   <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
 
-  <div class="container">
-    <map-statistics 
-      id="<%= @map[:id] %>"
-      title="<%= @data['map_1_title'] %>"
-      tiles-url="<%= @map[:tiles_url] %>" 
-      :tabs="<%= @map[:tabs].to_json %>"
-      :layers="<%= @map[:layers].to_json %>"
-      :file-download="'#'" 
-      :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
-    ></map-statistics>
-  </div>
+  <map-statistics 
+    id="<%= @map[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map[:tiles_url] %>" 
+    :tabs="<%= @map[:tabs].to_json %>"
+    :layers="<%= @map[:layers].to_json %>"
+    :file-download="'#'" 
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
 </section>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>

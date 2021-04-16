@@ -1,24 +1,28 @@
 <header 
-  class="hero--home parallax <%= @hero['class'] %>"
-  style="background-image: url('<%= image_url "hero/#{@hero['image']}" %>')"
->
+  class="hero--home <%= @hero['class'] %>"
+> 
   <%= render 'partials/topbar' %>
 
-  <%= video_tag @hero['video'], 
-    autoplay: :autoplay, 
-    loop: :loop, 
-    muted: :muted,
-    class: "hero__video" 
-  %>
-  
-  <div class="container hero__content">
-    <h1 class="hero__title heading--home"><%= site_title %></h1>
-    <p class="hero__subtitle center-margin"><%= @data['subtitle'] %></p>
-    <p class="hero__intro center-margin"><%= @data['intro'] %></p>
-  </div>
+  <div 
+    class="hero__content"
+    style="background-image: url('<%= image_url "hero/#{@hero['image']}" %>')"
+  >
+    <%= video_tag @hero['video'], 
+      autoplay: :autoplay, 
+      loop: :loop, 
+      muted: :muted,
+      class: "hero__video" 
+    %>
 
-  <div class="hero__dates">
-    <p class="hero__date">Updated: <%= @last_updated_date %></p>
+    <div class="container">
+      <h1 class="hero__title heading--home"><%= site_title %></h1>
+      <p class="hero__subtitle center-margin"><%= @data['subtitle'] %></p>
+      <p class="hero__intro center-margin"><%= @data['intro'] %></p>
+
+      <div class="hero__dates">
+        <p class="hero__date">Updated: <%= @last_updated_date %></p>
+      </div>
+    </div>
   </div>
 
   <i class="hero__icon icon--arrow-down"></i>

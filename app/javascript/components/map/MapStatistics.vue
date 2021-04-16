@@ -54,9 +54,9 @@
             v-on:hide-layers="hideLayers"
             v-on:show-layers="showLayers"
           />
-        </span>
 
-        <hr class="tabs__splitter">
+          <hr class="tabs__splitter">
+        </span>
 
         <div class="map__buttons flex flex-v-center gutters">
           <download

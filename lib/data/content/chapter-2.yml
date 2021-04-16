@@ -42,7 +42,7 @@ main_text:
     # TODO - Need URL for the above link
   
 doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
-doughnut_chart_intro: "<p>As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'</p>"
+doughnut_chart_intro: "As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'"
 doughnut_chart_data:
   -
     title: "No poverty"

@@ -6,6 +6,9 @@ import Vue from 'vue/dist/vue.esm'
 import VueAnalytics from 'vue-analytics'
 import TurbolinksAdapter from 'vue-turbolinks'
 
+// helpers
+import { setRTLPluginOnce } from "../components/map/map-helpers.js"
+
 Vue.config.productionTip = false
 
 if (window._railsEnv === 'production') {
@@ -76,6 +79,15 @@ document.addEventListener('turbolinks:load', () => {
       SelectText,
       Pagination,
       SocialShare
+    },
+
+    mounted () {
+      // Add support for RTL languages
+      // Make sure this is only called once per page
+      if(!window.RTLPluginIsSet) { 
+        setRTLPluginOnce() 
+        window.RTLPluginIsSet = true
+      }
     }
   })
 })

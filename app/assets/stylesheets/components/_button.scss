@@ -92,7 +92,8 @@
     margin-right: rem-calc(19);
     text-align: left;
     text-decoration: none;
-    width: fit-content;
+
+    display: inline-flex;
     
     @include breakpoint($small) {
       padding: rem-calc(10 16);
@@ -154,6 +155,7 @@
     background-color: transparent;
     border: 2px solid rgba($white, 0.8);
     border-radius: 2px;
+    cursor: pointer;
     padding: rem-calc(2 6);
     width: rem-calc(82);
 

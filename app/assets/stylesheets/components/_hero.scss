@@ -71,6 +71,7 @@
       &__content {
         @include hero-content;
         @include hero-image;
+        background-size: cover;
         padding-top: rem-calc(32);
         padding-bottom: rem-calc(20);
 
@@ -149,6 +150,7 @@
         @include breakpoint($medium) {
           object-fit: cover;
           width: 100vw; height: 100vh;
+          max-width:100%; // stop horizontal scroll on Edge/IE
           
           display: block; 
           position: absolute;

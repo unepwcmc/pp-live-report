@@ -61,25 +61,6 @@
   &--statistics {
     position: relative;
 
-    .button--download {
-      padding: rem-calc(10 16);
-
-      @include breakpoint($small) {
-        padding: rem-calc(8 15);
-      }
-
-      &__text {
-        display: block;
-        font-size: rem-calc(14);
-        width: rem-calc(100);
-
-        @include breakpoint($medium) {
-          font-size: $button-font-size-small;
-          width: rem-calc(120);
-        }
-      }
-    }
-
     .button--grey {
       width: rem-calc(130);
 

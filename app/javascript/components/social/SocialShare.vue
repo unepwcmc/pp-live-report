@@ -1,5 +1,5 @@
 <template>
- <div class="flex flex-v-center">
+ <div class="social--share">
   <template v-if="isMobile">
    <button
     @click="togglePopup"
@@ -8,7 +8,7 @@
     aria-haspopup="listbox"
     aria-label="share-button-expand"
    ></button>
-   <div :class="[isActive ? 'social__target--active' : 'social__target']">
+   <div :class="['social__target', { 'active': isActive}]">
     <popup
      :options="media"
      :classes="'social__popup'"

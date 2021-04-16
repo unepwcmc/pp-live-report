@@ -1,24 +1,58 @@
 //--------------------------------------------------
 // mixins
 //--------------------------------------------------
-@mixin hero-basic {
-  @include background-overlay($black-gradient);
-  background-color: $black;
-  color: $white;
-
-  z-index: 2;
-
-  @include breakpoint($medium) {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-  }  
-}
-
 @mixin hero-animation($delay: 0s) {
   opacity: 0;
 
   animation: fadeIn 1.5s $delay ease-in-out forwards;
+}
+
+@mixin hero-basic {
+  background-color: $black;
+  color: $white; 
+}
+
+@mixin hero-content {
+  @include background-overlay($black-gradient);
+}
+
+@mixin hero-image {
+  overflow: hidden;
+  
+  &::after {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+
+    animation: zoomOut 2.5s ease-out;
+
+    @include portrait { background-attachment: scroll; }
+  }
+}
+
+@mixin hero-image-chapter {
+  &::after {
+    .chapter-1 & { background-image: $chapter-image-1; }
+    .chapter-2 & { background-image: $chapter-image-2; }
+    .chapter-3 & { background-image: $chapter-image-3; }
+    .chapter-4 & { background-image: $chapter-image-4; }
+    .chapter-5 & { background-image: $chapter-image-5; }
+    .chapter-6 & { background-image: $chapter-image-6; }
+    .chapter-7 & { background-image: $chapter-image-7; }
+    .chapter-8 & { background-image: $chapter-image-8; }
+    .chapter-9 & { background-image: $chapter-image-9; }
+    .chapter-10 & { background-image: $chapter-image-10; }
+    .chapter-11 & { background-image: $chapter-image-11; }
+  }
 }
 
 //--------------------------------------------------
@@ -30,21 +64,19 @@
 //--------------------------------------------------
   &--home {
     @include hero-basic;
-    padding-bottom: rem-calc(20);
 
     position: relative;
-    
-    @include breakpoint($small) { 
-      min-height: 100vh; 
-    }
 
     .hero {
       &__content {
-        @include breakpoint($small) { margin-top: rem-calc(32); }
+        @include hero-content;
+        @include hero-image;
+        padding-top: rem-calc(32);
+        padding-bottom: rem-calc(20);
 
-        @include breakpoint($medium) { 
-          margin-top: 0;
-          margin-bottom: auto;
+        @include breakpoint($small) { 
+          padding-top: 10vh;
+          min-height: calc(100vh - #{$topbar-height-large});
         }
       }
 
@@ -133,20 +165,23 @@
 //--------------------------------------------------
   &--chapter {
     @include hero-basic;
-    @include parallax;
-    
-    @include breakpoint($medium) { 
-      min-height: rem-calc(512); 
-    }
 
     .hero {
       &__content {
-        margin-top: rem-calc(22);
+        @include hero-content;
+        @include hero-image;
+        @include hero-image-chapter;
 
-        @include breakpoint($small) { margin-top: rem-calc(32); }
+        padding-top: rem-calc(22);
+
+        @include breakpoint($small) { padding-top: rem-calc(32); }
+
         @include breakpoint($medium) { 
-          margin-top: 0;
-          margin-bottom: auto;
+          min-height: rem-calc(422);
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
       }
 

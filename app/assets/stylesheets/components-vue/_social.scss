@@ -1,92 +1,109 @@
+// Height of popup share arrow
+$popup-share-arrow-height: rem-calc(11);
 //--------------------------------------------------
-// social
+// mixins
+//--------------------------------------------------
+@mixin social-basic ($image) {
+  background-image: image-url($image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+
+  &:hover { opacity: .75; } 
+}
+
+@mixin social-icon ($image) {
+  @include social-basic($image);
+
+  @include breakpoint($small) {
+    margin-right: rem-calc(14);
+    width: rem-calc(41); 
+    height: rem-calc(41);
+  }
+}
+
+@mixin social-icon-white ($image) {
+  @include social-basic($image);
+  width: rem-calc(41); height: rem-calc(41);
+
+  &:first-child { 
+    margin-top: rem-calc(10);
+  }
+
+  @include breakpoint($small) {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+//--------------------------------------------------
+// classes
 //--------------------------------------------------
 .social {
 //--------------------------------------------------
-// social
+// following or sharing via social media 
 //--------------------------------------------------
   &--share {
+    @include flex;
     position: relative;
 
-    .social {
-      &__trigger {
-        margin: rem-calc(0 20 0 17);
+    .social__icon {
+      &--email { @include social-icon('icons/email.svg'); }
+      &--facebook {
+        @include social-icon-white('icons/facebook-white.svg');
 
-        display: block;
-        
-        @include breakpoint($small) { margin: rem-calc(0 30 0 22); }
-        @include breakpoint($medium) { display: none; }
+        @include breakpoint($small) {
+          @include social-icon('icons/facebook.svg'); 
+        } 
       }
+      &--linkedin { 
+        @include social-icon-white('icons/linkedin-white.svg');
 
-      &__target {
-        @include breakpoint_down($medium) { 
-          background-color: $grey;
-          border-radius: 2px;
-          padding: rem-calc(14 12);
-          display: none;
-          position: absolute;
-          top: rem-calc(40);
-          left: 50%;
-
-          transform: translateX(-50%);
-        }
-        
-        @include breakpoint($small) { top: rem-calc(50); }
-
-        @include breakpoint($medium) { 
-          display: block;
-          position: initial;
-        }
-
-        &::before {
-          @include breakpoint_down($medium) { 
-            border-right: rem-calc(12) solid transparent;
-            border-bottom: rem-calc(12) solid $grey;
-            border-left: rem-calc(12) solid transparent;
-            content: '';
-            width: 0; height: 0; 
-
-            position: absolute;
-            top: rem-calc(-12);
-            left: 50%;
-
-            transform: translateX(-50%);
-          }
-        }
-
-        &.active { 
-          display: block;
+        @include breakpoint($small) {
+          @include social-icon('icons/linkedin.svg'); 
         }
       }
-      
-        &__icon {
-          background-position: center;
-          background-repeat: no-repeat;
-          margin-top: rem-calc(26);
-          width: rem-calc(30); height: rem-calc(26);
+      &--twitter { 
+        @include social-icon-white('icons/twitter-white.svg');
 
-          display: block;
-
-          &:first-child { 
-            margin-top: 0;
-
-            @include breakpoint($medium) { 
-              margin-left: rem-calc(24); 
-            }
-          }
-
-          &:hover { opacity: .75; }
-
-          @include breakpoint($medium) { 
-            margin-top: 0;
-            margin-right: rem-calc(35);
-            display: inline-block; 
-          }
-
-          &--facebook { background-image: image-url('icons/facebook.svg'); }
-          &--email { background-image: image-url('icons/email.svg'); }
-          &--twitter { background-image: image-url('icons/twitter.svg'); }
+        @include breakpoint($small) {
+          @include social-icon('icons/twitter.svg'); 
         }
+      }
     }
-  }  
+  }
+
+  &__popup {
+    background-color: $grey;
+    border-radius: 3px;
+    padding: rem-calc(10 20);
+    width: auto;
+
+    position: absolute;
+    top: calc(100% + #{$popup-share-arrow-height * 1.7});
+    right: 0;
+
+    a {
+      text-decoration: none;
+    }
+
+    &:before {
+      @include triangle(rem-calc(20), $popup-share-arrow-height, $grey);
+
+      position: absolute;
+      top: calc(-#{$popup-share-arrow-height} * 0.8);
+      right: 0;
+    }
+  }
+
+  &__target {
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    &.active { display: block; }
+  }
 }

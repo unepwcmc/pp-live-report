@@ -93,8 +93,8 @@ $fw-medium: 500;
 $bold: 700;
 $fw-black: 900;
 
-$button-font-size-small: rem-calc(18);
-$button-font-size-medium: rem-calc(18);
+$button-font-size-small: rem-calc(14);
+$button-font-size-medium: rem-calc(16);
 
 //--------------------------------------------------
 // breakpoints
@@ -146,9 +146,7 @@ $radius-button: 0;
 //--------------------------------------------------
 // topbar
 //--------------------------------------------------
-$topbarHeightSmall: rem-calc(47);
-$topbarHeightMedium: rem-calc(60);
-$topbarHeightLarge: rem-calc(93);
+$topbar-height-large: rem-calc(90);
 
 //--------------------------------------------------
 // images

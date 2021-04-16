@@ -202,10 +202,6 @@ export default {
     createMap() {
       mapboxgl.accessToken = this.mapboxToken
 
-      // Add support for RTL languages
-      // Make sure this is only called once per page
-      
-
       this.map = new mapboxgl.Map({
         container: this.id,
         style: MAPBOX_STYLE,

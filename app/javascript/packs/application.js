@@ -80,8 +80,14 @@ document.addEventListener('turbolinks:load', () => {
       Pagination,
       SocialShare
     },
+
     mounted () {
-      setRTLPluginOnce()
+      // Add support for RTL languages
+      // Make sure this is only called once per page
+      if(!window.RTLPluginIsSet) { 
+        setRTLPluginOnce() 
+        window.RTLPluginIsSet = true
+      }
     }
   })
 })

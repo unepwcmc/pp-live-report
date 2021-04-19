@@ -67,8 +67,21 @@ $wdpa-legend: ('blue': $wdpa-blue,
   }
 
   &__subtitle {
+    font-size: rem-calc(16);
     font-weight: $bold;
     margin-bottom: rem-calc(10);
+
+    @include breakpoint($medium) {
+      font-size: rem-calc(20);
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(16);
+    
+    @include breakpoint($medium) {
+      font-size: rem-calc(20);
+    }
   }
 
   .chart {

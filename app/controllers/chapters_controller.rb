@@ -89,6 +89,7 @@ class ChaptersController < ApplicationController
     @map_1 = {
       id: 'map_1',
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live/VectorTileServer/tile/{z}/{y}/{x}',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live_oecm/VectorTileServer/tile/{z}/{y}/{x}',
       tabs: [
         {
           title: 'Terrestrial',

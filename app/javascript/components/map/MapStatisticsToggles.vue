@@ -17,7 +17,10 @@
         >
           <div class="map__panel-button-wrapper">
             <p class="map__panel-layer-button">
-              <span class="map__panel-layer-button-inner"></span>
+              <span 
+                class="map__panel-layer-button-inner"
+                :style="{'background-color': layer.colour}"
+              />
             </p>
           </div>
           <span v-if="layer.text_small" class="map__panel-layer-text">

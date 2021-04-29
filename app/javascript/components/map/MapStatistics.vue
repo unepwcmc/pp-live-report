@@ -56,14 +56,14 @@
           />
         </span>
 
-        <hr class="tabs__splitter">
+        <hr class="tabs__splitter" v-if="oecmPresent">
 
         <div class="map__buttons flex flex-v-center gutters">
           <download
             text="CSV Download"
-            title="Download reports in PDF format"
+            title="Download reports in CSV format"
             :file-download="fileDownload"
-            event-element="Download report link"
+            event-element="Download data link"
           ></download>
           <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
         </div>
@@ -132,6 +132,7 @@ export default {
       tabsActive: [],
       tabsWithOecm: [],
       firstTopLayerId: "",
+      haveSetRTLTextPlugin: false
     }
   },
 
@@ -200,16 +201,6 @@ export default {
 
     createMap() {
       mapboxgl.accessToken = this.mapboxToken
-
-      // Add support for RTL languages
-      // Make sure this is only called once per page
-      if(mapboxgl.getRTLTextPluginStatus() == 'unavailable') {
-        mapboxgl.setRTLTextPlugin(
-          RTL_TEXT_PLUGIN_URL, 
-          null, 
-          true // Lazy loading
-        )
-      }
 
       this.map = new mapboxgl.Map({
         container: this.id,

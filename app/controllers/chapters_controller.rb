@@ -13,16 +13,16 @@ class ChaptersController < ApplicationController
   end
   
   CASE_STUDY_ATTRIBUTES = {
-                            label: '',
-                            report: '',
-                            authors: '',
-                            org: '',
-                            title: '',
-                            text: '',
-                            image: '',
-                            caption: '',
-                            source: ''
-                          }.freeze
+    label: '',
+    report: '',
+    authors: '',
+    org: '',
+    title: '',
+    text: '',
+    image: '',
+    caption: '',
+    source: ''
+  }.freeze
 
   DEFAULT_COLOUR = '#A6A6A6'.freeze
   TRICOLOR_PALETTE = [
@@ -337,28 +337,30 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
+    @chart_csv_url = URI.join(root_url, "/file/map/#{CSV_CH5_COUNT}")
 
     @map_1 = {
       id: 'kba',
       csv_url: get_csv_url(CSV_CH5_MAP_KBA_OCEM_OVERLAP),
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch3_Fg6_Live_2020/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/kbas_pa_overlap_merc_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       layers: [
         {
           id: 'inside-' + random_number,
           text_large: 'Fully within Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_complete_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
           text_large: 'Partially within Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_partial_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
           text_large: 'Outside Protected Areas',
-          source_layers: { poly: 'KBAs_2019_02_none_pa_coverage' },
+          source_layers: { poly: 'KBAs_2020_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
         }
       ]
@@ -382,6 +384,84 @@ class ChaptersController < ApplicationController
 
   def chapter_6
     @data = @chapters_data[5]
+
+    @map = {
+      id: 'pame',
+      csv_url: get_csv_url(CSV_CH6_MAP_PAME),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/me_nat_cov_pas_merc/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tabs: [
+        {
+          title: 'Terrestrial',
+          layers: [
+            {
+              id: 'terrestrial-data-deficient-' + random_number,
+              text_large: 'Data deficient',
+              source_layers: { poly: 'me_land_nat_cov_cat1' },
+              colour: DEFAULT_COLOUR
+            },
+            {
+              id: 'terrestrial-less-than-3-' + random_number,
+              text_large: 'Under 3%',
+              source_layers: { poly: 'me_land_nat_cov_cat2' },
+              colour: GREEN_SCHEME[0]
+            },
+            {
+              id: 'terrestrial-three-to-six-' + random_number,
+              text_large: '3% – 6%',
+              source_layers: { poly: 'me_land_nat_cov_cat3' },
+              colour: GREEN_SCHEME[1]
+            },
+            {
+              id: 'terrestrial-six-to-ten-' + random_number,
+              text_large: '6% - 10%',
+              source_layers: { poly: 'me_land_nat_cov_cat4' },
+              colour: GREEN_SCHEME[2]
+            },
+            {
+              id: 'terrestrial-over-ten-' + random_number,
+              text_large: 'Over 10%',
+              source_layers: { poly: 'me_land_nat_cov_cat5' },
+              colour: GREEN_SCHEME[3]
+            }
+          ]
+        },
+        {
+          title: 'Marine',
+          layers: [
+            {
+              id: 'marine-data-deficient-' + random_number,
+              text_large: 'Data deficient',
+              source_layers: { poly: 'me_sea_nat_cov_cat1' },
+              colour: DEFAULT_COLOUR
+            },
+            {
+              id: 'marine-less-than-3-' + random_number,
+              text_large: 'Under 3%',
+              source_layers: { poly: 'me_sea_nat_cov_cat2' },
+              colour: BLUE_SCHEME[0]
+            },
+            {
+              id: 'marine-three-to-six-' + random_number,
+              text_large: '3% – 6%',
+              source_layers: { poly: 'me_sea_nat_cov_cat3' },
+              colour: BLUE_SCHEME[1]
+            },
+            {
+              id: 'marine-six-to-ten-' + random_number,
+              text_large: '6% - 10%',
+              source_layers: { poly: 'me_sea_nat_cov_cat4' },
+              colour: BLUE_SCHEME[2]
+            },
+            {
+              id: 'marine-over-ten-' + random_number,
+              text_large: 'Over 10%',
+              source_layers: { poly: 'me_sea_nat_cov_cat5' },
+              colour: BLUE_SCHEME[3]
+            }
+          ]
+        }
+      ]
+    }
   end
 
   def chapter_7

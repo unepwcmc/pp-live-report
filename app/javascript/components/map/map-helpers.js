@@ -29,3 +29,11 @@ export const getFirstTopLayerId = map => {
   }
   return firstBoundaryId || firstSymbolId
 }
+
+export const setRTLPluginOnce = () => {
+  mapboxgl.setRTLTextPlugin(
+    RTL_TEXT_PLUGIN_URL, 
+    null, 
+    true // Lazy loading
+  )
+}

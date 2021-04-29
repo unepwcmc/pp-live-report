@@ -1,16 +1,16 @@
 <template>
  <div>
-  <button class="button--display" @click="togglePopup">
+  <div class="button--display" @click="togglePopup">
    <span class="button--display text">{{ currentOption.iso | upcase }}</span>
    <i class="icon--dropdown"></i>
    <popup
-    v-if="isActive"
+    v-show="isActive"
     :classes="'display__popup'"
     :show-text="true"
     :is-link="false"
     :options="options"
    ></popup>
-  </button>
+  </div>
  </div>
 </template>
 

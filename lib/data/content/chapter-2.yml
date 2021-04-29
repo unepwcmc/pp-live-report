@@ -42,7 +42,7 @@ main_text:
     # TODO - Need URL for the above link
   
 doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
-doughnut_chart_intro: "<p>As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'</p>"
+doughnut_chart_intro: "As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'"
 doughnut_chart_data:
   -
     title: "No poverty"
@@ -150,7 +150,7 @@ doughnut_chart_data:
  
 smallprint: "Main sources: CBD technical note on ‘Biodiversity and the 2030 agenda for sustainable development’ and Natural Solutions briefing on ‘Protected areas helping to meet the Sustainable Development Goals’ prepared by Nigel Dudley, Natasha Ali and Kathy MacKinnon, October 2017."
 
-photo_credits: "Aerial view of river, Iceland &copy; MAGNIFIER / Adobe Stock"
+photo_credits: "Nā Pali Coast State Park, Hawaii"
 
 case_studies:
   - 

@@ -88,7 +88,7 @@ import Tabs from "../tabs/Tabs"
 
 import { eventHub } from "../../packs/application.js"
 
-const MAPBOX_STYLE = "mapbox://styles/unepwcmc/ckfy4y2nm0vqn19mkcmiyqo73"
+const MAPBOX_STYLE = "mapbox://styles/unepwcmc/cko1hsfi50vog17l697cr4d6p"
 
 export default {
   name: "map-statistics",

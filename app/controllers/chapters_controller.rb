@@ -325,25 +325,25 @@ class ChaptersController < ApplicationController
             {
               id: 'id-less-than-3-' + random_number,
               text_large: '< 3%',
-              source_layers: { poly: 'meow_cat1' },
+              source_layers: { poly: 'ppow_cat1' },
               colour: BLUE_SCHEME[0]
             },
             {
               id: 'id-between-3-and-6' + random_number,
               text_large: '3 - 6%',
-              source_layers: { poly: 'meow_cat2' },
+              source_layers: { poly: 'ppow_cat2' },
               colour: BLUE_SCHEME[1]
             },
             {
               id: 'id-between-6-and-10' + random_number,
               text_large: '6 - 10%',
-              source_layers: { poly: 'meow_cat3' },
+              source_layers: { poly: 'ppow_cat3' },
               colour: BLUE_SCHEME[2]
             },
             {
               id: 'id-greater-than-10' + random_number,
               text_large: '> 10%',
-              source_layers: { poly: 'meow_cat4' },
+              source_layers: { poly: 'ppow_cat4' },
               colour: BLUE_SCHEME[3]
             }
           ]

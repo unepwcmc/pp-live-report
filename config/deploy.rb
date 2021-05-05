@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 # lock "3.11.2"
 
-set :application, 'pp-live-report'
+set :application, 'pp-live-report-temp'
 
 set :repo_url, 'https://github.com/unepwcmc/pp-live-report.git'
 

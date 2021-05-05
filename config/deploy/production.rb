@@ -1,10 +1,10 @@
 set :stage, :production
-set :branch, "master"
+set :branch, "livereport_temp"
 
 
 server "new-web.pp-production.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}
 
-set :application, "livereport"
+set :application, "pp-live-report-temp"
 set :server_name, "livereport"
 set :sudo_user, "wcmc"
 set :app_port, "80"

@@ -25,7 +25,6 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
 <section class="section-padding gutters">
-  <!-- TODO - Need CSV download links for maps -->
   <map-statistics 
     id="<%= @map_1[:id] %>"
     title="<%= @data['map_1_title'] %>"
@@ -33,7 +32,7 @@
     :tabs="<%= @map_1[:tabs].to_json %>"
     :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
     :oecm-present="true"
-    :file-download="'#'" 
+    file-download="<%= @map_1[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
 </section>

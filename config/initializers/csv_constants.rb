@@ -1,8 +1,9 @@
 CSV_CHAPTER_DATES = 'all_chapter_update_table.csv'
 
 CSV_CH3_TIMESERIES = 'chapter3_global_pa_timeseries.csv'
-CSV_CH3_MAP_PA_GLOBAL = 'map/chapter3_global_pa_statistics.csv'
+CSV_CH3_MAP_WDPA = 'map/chapter3_wdpa_may.csv'
 CSV_CH3_MAP_PA_NATIONAL = 'map/chapter3_national_pa_statistics.csv'
+CSV_CH3_MAP_PA_GLOBAL = 'chapter3_global_pa_statistics.csv'
 
 CSV_CH4_ECOREGIONS = 'chapter4_ecoregion_coverage.csv'
 CSV_CH4_MAP_ECOREGIONS = 'map/chapter4_map_ecoregions.csv'

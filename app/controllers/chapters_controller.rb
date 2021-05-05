@@ -82,12 +82,11 @@ class ChaptersController < ApplicationController
   def chapter_3
     @presenter = ChaptersPresenter.new
     @gauge_charts = @presenter.gauge_charts
-
-    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 
     @map_1 = {
       id: 'map_1',
+      csv_url: get_csv_url(CSV_CH3_MAP_WDPA),
       tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live/VectorTileServer/tile/{z}/{y}/{x}',
       tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live_oecm/VectorTileServer/tile/{z}/{y}/{x}',
       tabs: [

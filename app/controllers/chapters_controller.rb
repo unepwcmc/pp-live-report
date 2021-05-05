@@ -147,28 +147,28 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'terrestrial-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'terrestrial-less-than-5-' + random_number,
+              text_large: 'Under 5%',
               source_layers: { poly: 'land_nat_cov_cat2' },
               colour: GREEN_SCHEME[0]
             },
             {
-              id: 'terrestrial-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'terrestrial-five-to-ten-' + random_number,
+              text_large: '5% – 10%',
               source_layers: { poly: 'land_nat_cov_cat3' },
               colour: GREEN_SCHEME[1]
             },
             {
-              id: 'terrestrial-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'terrestrial-ten-to-seventeen-' + random_number,
+              text_large: '10% - 17%',
               source_layers: { poly: 'land_nat_cov_cat4' },
-              colour: GREEN_SCHEME[2]
+              colour: GREEN_SCHEME[3]
             },
             {
-              id: 'terrestrial-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'terrestrial-over-seventeen-' + random_number,
+              text_large: 'Over 17%',
               source_layers: { poly: 'land_nat_cov_cat5' },
-              colour: GREEN_SCHEME[3]
+              colour: GREEN_SCHEME[4]
             }
           ]
         },
@@ -400,26 +400,26 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'terrestrial-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'terrestrial-less-than-10-' + random_number,
+              text_large: 'Under 10%',
               source_layers: { poly: 'me_land_nat_cov_cat2' },
               colour: GREEN_SCHEME[0]
             },
             {
-              id: 'terrestrial-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'terrestrial-ten-to-thirty-' + random_number,
+              text_large: '10% – 30%',
               source_layers: { poly: 'me_land_nat_cov_cat3' },
               colour: GREEN_SCHEME[1]
             },
             {
-              id: 'terrestrial-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'terrestrial-thirty-to-sixty-' + random_number,
+              text_large: '30% - 60%',
               source_layers: { poly: 'me_land_nat_cov_cat4' },
               colour: GREEN_SCHEME[2]
             },
             {
-              id: 'terrestrial-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'terrestrial-over-sixty-' + random_number,
+              text_large: 'Over 60%',
               source_layers: { poly: 'me_land_nat_cov_cat5' },
               colour: GREEN_SCHEME[3]
             }
@@ -435,26 +435,26 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'marine-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'marine-less-than-ten-' + random_number,
+              text_large: 'Under 10%',
               source_layers: { poly: 'me_sea_nat_cov_cat2' },
               colour: BLUE_SCHEME[0]
             },
             {
-              id: 'marine-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'marine-ten-to-thirty-' + random_number,
+              text_large: '10% – 30%',
               source_layers: { poly: 'me_sea_nat_cov_cat3' },
               colour: BLUE_SCHEME[1]
             },
             {
-              id: 'marine-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'marine-thirty-to-sixty-' + random_number,
+              text_large: '30% - 60%',
               source_layers: { poly: 'me_sea_nat_cov_cat4' },
               colour: BLUE_SCHEME[2]
             },
             {
-              id: 'marine-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'marine-over-sixty-' + random_number,
+              text_large: 'Over 60%',
               source_layers: { poly: 'me_sea_nat_cov_cat5' },
               colour: BLUE_SCHEME[3]
             }

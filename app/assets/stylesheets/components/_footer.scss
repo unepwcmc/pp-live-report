@@ -18,39 +18,28 @@
   }
 
   &__partner-logos {
-    @include flex;
     margin: rem-calc(60) auto;
-    max-width: rem-calc(320);
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    text-align: center;
 
     @include breakpoint($small) {
       margin-top: rem-calc(80);
       margin-bottom: rem-calc(40);
-      flex-wrap: nowrap;
     }
   }
 
   &__a {
-    margin-bottom: rem-calc(20);
+    margin: rem-calc(0 10 20 10);
     text-decoration: none;
 
-    display: block;
+    display: inline-block;
 
     @include breakpoint($small) {
       display: inline-block;
-      margin: rem-calc(0 0 0 28);
+      margin: rem-calc(0 14 20 14);
     }
 
     @include breakpoint($medium) {
-      margin: rem-calc(0 0 0 38);
-    }
-
-    &:first-child {
-      @include breakpoint($small) {
-        margin-left: 0;
-      }
+      margin: rem-calc(0 19 0 19);
     }
   }
 
@@ -68,14 +57,18 @@
       height: rem-calc(36); // width: auto; doesn't work in IE11
     }
 
+    &.logo--unep {
+      @include breakpoint($medium) {
+        width: rem-calc(40); // width: auto; doesn't work in IE11
+      }
+    }
+
     &.logo--iucn {
       height: rem-calc(43);
 
       @include breakpoint($medium) {
-        width: rem-calc(40);
+        width: rem-calc(40); // width: auto; doesn't work in IE11
       }
-
-      // width: auto; doesn't work in IE11
     }
   }
 

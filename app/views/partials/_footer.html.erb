@@ -8,6 +8,10 @@
     <% end %>
 
     <div class="footer__partner-logos">
+      <%= link_to 'http://unep.org', title: 'Visit UN Environment Programme', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-+logo+2017+white.svg', alt: 'UN Environment Programme logo', class: 'footer__logo logo--unep' %>
+      <% end %>
+
       <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
       <% end %>

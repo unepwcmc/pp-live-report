@@ -24,9 +24,11 @@
           }}</small>
         </div>
 
-        <p v-for="(paragraph, index) in text.text" :key="index">
-          {{ paragraph }}
-        </p>
+        <p 
+          v-for="(paragraph, index) in text.text" 
+          :key="index"
+          v-html="paragraph"
+        />
 
         <p>
           <small v-if="text.card_source" class="modal__image-source">

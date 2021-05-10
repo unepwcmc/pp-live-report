@@ -50,6 +50,9 @@ export default {
       type: String,
     },
     fileDownload: String,
+    options:{
+      type: Object
+    },
     rawData: {
       type: Object,
       required: true,
@@ -148,11 +151,16 @@ export default {
         .slice(0, 3)
         .sort(([, a], [, b]) => a - b)[0][1]
       )
-      this.yAxis.max = Number(
-        Object.entries(points[points.length - 1])
-        .slice(0, 3)
-        .sort(([, a], [, b]) => b - a)[0][1] + 1
-      )
+
+      if(this.options.y.max) {
+        this.yAxis.max = this.options.y.max
+      } else {
+        this.yAxis.max = Number(
+          Object.entries(points[points.length - 1])
+          .slice(0, 3)
+          .sort(([, a], [, b]) => b - a)[0][1] + 1
+        )
+      }
 
       this.styleAxisLine(this.yAxis)
     },

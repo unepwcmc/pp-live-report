@@ -44,6 +44,7 @@
 
   <div class="container--medium">
     <am-chart
+      :options='{"y": { "max": 40 }}'
       :raw-data="<%= @line_chart %>"
       file-download="<%= @line_chart_csv_url %>" 
     ></am-chart>

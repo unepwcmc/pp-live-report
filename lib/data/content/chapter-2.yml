@@ -1,26 +1,25 @@
 title: "Introduction"
 menu_title: "Introduction"
 subtitle: "Chapter 2"
-intro: "TBD?"
+intro: ""
 blockquote_alt: "Aichi Target 11 logo"
-blockquote_image: "icons/aichi-11.svg"
-blockquote_text: "Aichi biodiversity target 11 of the strategic plan for biodiversity 2010-2020 calls for parties to achieve the following: ‘By 2020, at least 17 per cent of terrestrial and inland water areas and 10 per cent of coastal and marine areas, especially areas of particular importance for biodiversity and ecosystem services, are conserved through effectively and equitably managed, ecologically representative and well-connected systems of protected areas and other effective area-based conservation measures, and integrated into the wider landscape and seascape’."
-
-main_text: 
+blockquote_1_image: "icons/aichi-11.svg"
+blockquote_1_text: "Aichi biodiversity target 11 of the strategic plan for biodiversity 2010-2020 calls for parties to achieve the following: ‘By 2020, at least 17 per cent of terrestrial and inland water areas and 10 per cent of coastal and marine areas, especially areas of particular importance for biodiversity and ecosystem services, are conserved through effectively and equitably managed, ecologically representative and well-connected systems of protected areas and other effective area-based conservation measures, and integrated into the wider landscape and seascape’."
+blockquote_2_text: As we enter the new decade, it is clear that biodiversity loss needs to be addressed not only for the sake of species and ecosystems, but also to ensure the survival of human societies.
+text_1: 
   - 
-    "As the pace of biodiversity loss continues to accelerate (IPBES, 2019; CBD 2020; WWF 2020), the links between this loss and other global challenges are becoming better understood. Even before the COVID-19 pandemic (Box 2) forced the problems of wildlife exploitation into the public consciousness (UNEP, 2020), awareness was increasing of the connections between biodiversity loss and the climate crisis (ref). As we enter the new decade, it is clear that biodiversity loss needs to be addressed not only for the sake of species and ecosystems, but also to ensure the survival of human societies."
-  
-  - 
-    "Protected and conserved areas (see a note on terminology below) have long been considered a vital tool in tackling the decline in biodiversity, and have an important role to play in achieving many of the Aichi Targets and Sustainable Development Goals (CBD 2020). In 2010, the governments of the world reiterated their commitment to expanding protected and conserved areas by agreeing to conserve 17% of the world’s land and inland water ecosystems, and 10% of its coastal waters and oceans, by 2020. The Protected Planet Report 2020 is the last in a series tracking progress towards this target, known as Aichi Biodiversity Target 11. It is published as the Aichi Targets make way for a new set of goals and targets in the Post-2020 Global Biodiversity Framework. In addition to assessing whether Aichi Target 11 has been met, the report considers the lessons that should be taken forward into the coming decade. It discusses emerging methodologies for monitoring progress, and recommends areas in need of greater attention. Looking ahead, the report’s findings provide a baseline for measuring progress against elements of the Post-2020 Global Biodiversity Framework." 
-
+    "As the pace of biodiversity loss continues largely unabated (IPBES, 2019; CBD, 2020; WWF, 2020), the links between this loss and other global challenges are becoming better understood. Even before the COVID-19 pandemic forced the problems of unsustainable exploitation of nature into the public consciousness (Gibb et al., 2020; UNEP, 2020), awareness was increasing of the connections between biodiversity loss and the climate crisis (WWF, 2020; De Lamo et al., 2020)" 
+text_2:
   -
-    "This Protected Planet Report 2020 is the first to look beyond protected areas by factoring in data on other effective area-based conservation measures (OECMs). Although Aichi Target 11 refers to ‘systems of protected areas and other effective area-based conservation measures’, OECMs were not formally defined until 2018 (CBD, 2018). While protected areas must have conservation as a primary objective, there is no restriction on the management objectives of OECMs, provided those objectives result in effective long-term conservation. Both protected areas and OECMs can exist under the governance of governments, indigenous peoples, local communities, private actors, and combinations of these."  
-
+    "Protected and conserved areas (see Box 1: a note on terminology) have long been considered the cornerstones of biodiversity conservation (IPBES, 2019), and have an important role to play in achieving many of the Aichi global biodiversity targets and the Sustainable Development Goals (CBD, 2020). Although data on effectiveness remain incomplete (Chapter 6), protected areas can prevent species extinctions (IPBES, 2019) and experience lower levels of human pressure than external areas (Geldmann et al., 2019)."
   - 
-    "In 2019, the World Database on Other Effective Area-based Conservation Measures (WD-OECM) was established to record data on OECMs. As a result, this Protected Planet Report is based upon both the World Database on Protected Areas (WDPA) – which informed all previous reports – and the WD-OECM (Box 1). Readers should keep in mind that the WD-OECM is newly established and not well-populated. Although OECMs make only a minor contribution to most of the metrics presented here, in reality they are likely to have an extensive influence in the future (refs), once they have been identified and reported to the WD-OECM at scale."
-
+    "In 2010, the governments of the world reiterated their commitment to expanding protected and conserved areas by agreeing to conserve 17% of the world’s land and inland water ecosystems, and 10% of its coastal waters and oceans, by 2020. The Protected Planet Report 2020 brings together the available data at the end of 2020 to provide an authoritative assessment of progress towards this target, known as Aichi Biodiversity Target 11. Furthermore, it provides a baseline for tracking the new set of goals and targets being developed as part of the post-2020 global biodiversity framework."
   -
-    "The report begins by discussing whether the percentage coverage targets have been met. Beyond coverage, Aichi Target 11 has six quality elements, requiring the world’s protected area and conserved area network to:":
+    This Protected Planet Report is the first in the series to include data on other effective area-based conservation measures (OECMs) in addition to protected areas (Box 2). Although Aichi Target 11 refers to ‘systems of protected areas and other effective area-based conservation measures’, OECMs were not formally defined until 2018 (CBD, 2018). While protected areas must have conservation as a primary objective, there is no restriction on the management objectives of OECMs, provided those objectives result in effective long-term conservation outcomes for biodiversity (IUCN-WCPA, 2019). Both protected areas and OECMs can exist under the governance of governments, indigenous peoples, local communities, private actors or any combination of these. In 2019, the World Database on Other Effective Area-based Conservation Measures (WD-OECM) was established by UNEP-WCMC to compile and report data on OECMs.
+  -
+    The WD-OECM is recently established and currently contains data from only five countries and territories. However, based on the substantial change in coverage seen in countries that have already reported on OECMs – Canada, Algeria and the Philippines have all achieved either 10% marine coverage or 17% terrestrial coverage thanks to OECMs - it is apparent that they will have an extensive influence on future conservation statistics. Their identification and reporting to the WD-OECM at scale is therefore a high priority for understanding both baselines and progress towards future targets relating to protected and conserved areas.
+  -
+    "The Protected Planet Report 2020 begins by discussing whether Aichi Target 11’s percentage coverage targets have been met. Beyond the quantitative element of coverage, Aichi Target 11 has six quality elements, requiring the world’s protected area and conserved area network to:":
 
       - "Cover areas of importance for biodiversity and ecosystem services;" 
 
@@ -35,11 +34,7 @@ main_text:
       - "Be integrated into the wider landscape and seascape."  
 
   - 
-    "Each of these quality elements is essential to a successful network of protected and conserved areas, and each has its own section in this report."  
-
-  - 
-    "The methodology and analytical scripts used to produce this report can be accessed <a href=\"#\" target=\"_blank\">here.</a>"  
-    # TODO - Need URL for the above link
+    "Each of these quality elements is essential to a successful network of protected and conserved areas, and each has its own section in this report."
   
 doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
 doughnut_chart_intro: "As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'"
@@ -153,23 +148,25 @@ smallprint: "Main sources: CBD technical note on ‘Biodiversity and the 2030 ag
 photo_credits: "Nā Pali Coast State Park, Hawaii"
 
 case_studies:
+  - 
+    card_image: /images/case-studies/sandstone-cliff-with-waterfall-wil-stewart-unsplash.jpg
+    card_source: Sandstone cliff with a waterfall © Wil Stewart / Unsplash 
+    label: 'Box 1'
+    title: 'A note on terminology'
+    text: 'Throughout this report, the term ‘protected and conserved areas’ is used to collectively describe all sites in terrestrial and aquatic systems that aim to achieve, or are effective in achieving, conservation outcomes. Conserved areas include a wide range of sites that deliver effective conservation outcomes, but where the sites may have been established for other primary purposes. Included in this broad range of conserved areas are those defined by the Convention on Biological Diversity (CBD) as other effective area-based conservation measures (OECMs). Although ‘conserved areas’ more broadly are referred to throughout the text, the statistics, maps and figures are derived from data specifically reported for OECMs.'
+  - 
+    card_image: /images/case-studies/mountain-sunset-biletskiy-evgeniy.jpg
+    card_source: Mountain sunset © Biletskiy Evgeniy / Adobe Stock
+    label: 'Box 2'
+    title: 'The road to the Protected Planet Report 2020'
+    text: "As the final instalment in a series of reports focused on Aichi Target 11, it is important that this Protected Planet Report is based on the best available data. Over the past three years, significant efforts have been made to update and incorporate those data into this report. The Aichi Target 11 Partnership was established in 2018 to ensure coordination among partners, and to stimulate support for activities that could contribute to the achievement of Target 11. Notifications were sent in July 2019 and September 2020 to all national CBD focal points, and focal points for the CBD Programme of Work on Protected Areas, requesting updates to the World Database on Protected Areas (WDPA) and, where possible, the WD-OECM.\n
+    These notifications were met with an unprecedented response. Parties to the CBD rallied to provide data, with the result that 89% of WDPA and WD-OECM records were either added or updated between January 2020 and May 2021, when this report was published. This was made possible in large part by the tireless efforts of Sarat Babu Gidda at the CBD Secretariat, and others, in encouraging Parties to update their data.\n
+    Nevertheless, more work can be done. As discussed later in this report, protected areas under non-state governance remain under-reported to the WDPA. The potential role and importance of OECMs and other conserved areas also cannot be downplayed. Their extent may be considerable, but it is essential that this is not taken for granted before they have been identified, recognised and appropriately supported. While addressing the lack of data on non-state protected areas and OECMs may be a challenge, it is also an unparalleled opportunity to recognise the role of diverse actors in achieving the CBD’s 2050 Vision for Biodiversity."
   -
     card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
     card_source: Lanikai halo © Amanda Phung / Unsplash
     label: ''
     title: Methodology
-    text: ""
-  - 
-    card_image: /images/case-studies/mountain-sunset-biletskiy-evgeniy.jpg
-    card_source: Mountain sunset © Biletskiy Evgeniy / Adobe Stock
-    label: 'Box 1'
-    title: 'The road to the Protected Planet Report 2020'
-    text: "As the final instalment in the series focused on Aichi Target 11, it is important that this Protected Planet Report is based on the best available data. Over the past three years, significant efforts have been made to secure those data. The Aichi Target 11 Partnership (ref) was established in 2018 to ensure coordination among partners, and to stimulate support for activities that could contribute to the achievement of Target 11. UNEP-WCMC sent notifications requesting updates to the WDPA and, where possible, the WD-OECM, to all governments in July 2019 (supported by a CBD notification) and September 2020.\n
-           These notifications were met by an unprecedented response. Parties to the CBD rallied to provide data on xx,000 new protected areas to the WDPA – an increase of xx,000 on 2010 figures – bringing the total records in the database to over 260,000. Canada and Guernsey made history by being the first to record other effective area-based conservation measures in the WD-OECM. In 2020, UNEP-WCMC processed more records, added more new protected areas and updated more national protected area networks than in any other year in the WDPA’s history. This was made possible in large part by the tireless efforts of the CBD Secretariat to encourage Parties to update their data.\n
-           Nevertheless, more work can be done. As discussed later in this report, protected areas under non-state governance remain under-reported to the WDPA. The potential role and importance of OECMs and other conserved areas also cannot be downplayed. Their extent may be enormous, and it is essential that they are identified, recognised and supported before being counted towards the targets of the Post-2020 Global Biodiversity Framework. While addressing the lack of data on non-state protected areas and OECMs may be a challenge, it is also an unparalleled opportunity to recognise the role of diverse actors in achieving the CBD’s 2050 vision."
-  - 
-    card_image: /images/case-studies/sandstone-cliff-with-waterfall-wil-stewart-unsplash.jpg
-    card_source: Sandstone cliff with a waterfall © Wil Stewart / Unsplash 
-    label: 'Box 2'
-    title: 'A note on terminology'
-    text: 'Throughout this report, the term ‘protected and conserved areas’ is used to collectively describe all sites that aim to achieve, or are effective in achieving, conservation outcomes. Conserved areas include a wide range of sites that deliver effective conservation outcomes, but where the site may have been established for other reasons. Included in this broad range of conserved areas are those defined by the Convention on Biological Diversity as OECMs. Although we refer broadly to ‘conserved areas’ throughout the text, the statistics, maps and figures are derived specifically from data on OECMs, rather than conserved areas more broadly.'
+    text: "Since Aichi Biodiversity Target 11 concluded in 2020, January 2021 has been used as the cut-off for the majority of the statistics in this report. One exception is the coverage statistics (Chapter 3), for which May 2021 was the cut-off. This is because there is often a delay between the designation of a protected area and its inclusion in the WDPA, meaning that most protected areas added to the WDPA in the first five months of 2021 were designated before the conclusion of Aichi Biodiversity Target 11. The use of the May 2021 WDPA and WD-OECM for coverage statistics means that these statistics reflect the most up-to-date information available through www.protectedplanet.net at the point of publication. In most cases, statistics were calculated for 1. protected areas only, and 2. protected areas and OECMs combined.\n
+    A flattened (dissolved) version of the WDPA and WD-OECM was used in all relevant analyses, meaning that overlapping designations have not been double-counted. For all analyses involving the WDPA and WD-OECM, points are buffered to their reported area and certain records are excluded. Details are available here. The base map used is a dataset combining Exclusive Economic Zones (EEZ; VLIZ, 2014) and terrestrial country boundaries (World Vector Shoreline, 3rd edition, National Geospatial-Intelligence Agency). A simplified version of this layer has been published at Nature Scientific Data journal (Brooks et al., 2016) and is available here.  This layer was also used for consistency with previous Protected Planet Reports. Area values were calculated using the equal-area projection Mollweide (world).\n
+    All statistics calculated by UNEP-WCMC include additional data not available in the public release of the WDPA and WD-OECM. These data have been provided to UNEP-WCMC on the condition that they are not shared externally, and cover Canada, China, Estonia, Finland, Ireland, New Zealand, and Saint Helena, Ascension and Tristan da Cunha. While India’s data were included in all statistics, the majority of the country’s data have since been restricted."

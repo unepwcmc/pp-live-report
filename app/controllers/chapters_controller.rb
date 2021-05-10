@@ -530,7 +530,6 @@ class ChaptersController < ApplicationController
   private
 
   def load_summary_text
-    # TODO: - need actual summary text in different languages
     summaries_path = 'config/locales/summary'.freeze
 
     Dir.children(summaries_path).sort.map do |locale|
@@ -539,7 +538,9 @@ class ChaptersController < ApplicationController
 
       {
         title: yml[locale_iso.to_s]['summary']['title'],
-        text: yml[locale_iso.to_s]['summary']['text'],
+        text_1: yml[locale_iso.to_s]['summary']['text_1'],
+        text_2: yml[locale_iso.to_s]['summary']['text_2'],
+        blockquote: yml[locale_iso.to_s]['summary']['blockquote'],
         locale: { title: LANGUAGES[locale_iso.to_sym], iso: locale_iso }
       }
     end.to_json

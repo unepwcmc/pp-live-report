@@ -5,7 +5,7 @@
 
   @include breakpoint($small) {
     padding: rem-calc(60 40);
-    height: rem-calc(650);
+    // height: rem-calc(650);
   }
 
   @include breakpoint($medium) {

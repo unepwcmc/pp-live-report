@@ -1,29 +1,10 @@
 title: "Executive summary"
 menu_title: "Executive summary"
 subtitle: "Chapter 1"
+intro: ""
 photo_credits: "Wulingyuan Scenic and Historic Interest Area, China &copy; aphotostory / Adobe Stock"
 
 case_studies:
-  -
-    card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
-    card_source: Lanikai halo © Amanda Phung / Unsplash
-    label: ''
-    title: Disclaimer
-    text: "© {this_year} United Nations Environment Programme\n
-    ISBN No: TBD\n
-    Job No: TBD\n
-    
-    The UN Environment Programme World Conservation Monitoring Centre (UNEP-WCMC) is a global Centre of excellence on biodiversity. The Centre operates as a collaboration between the UN Environment Programme and the UK-registered charity WCMC. Together we are confronting the global crisis facing nature.
-
-    IUCN is a membership Union composed of both government and civil society organisations. It harnesses the experience, resources and reach of its more than 1,400 Member organisations and the input of more than 18,000 experts. IUCN is the global authority on the status of the natural world and the measures needed to safeguard it.
-
-    The National Geographic Society (NGS) is a leading non-profit that invests in bold people and transformative ideas in the fields of exploration, scientific research, storytelling and education. The Society aspires to create a community of change, advancing key insights about the planet and probing some of the most pressing scientific questions of our time, all while ensuring that the next generation is armed with geographic knowledge and global understanding. Its goal is measurable impact: furthering exploration and educating people around the world to inspire solutions for the greater good.
-
-    This publication may be reproduced for educational or non-profit purposes without special permission, provided acknowledgement to the source is made. Reuse of any figures is subject to permission from the original rights holders. No use of this publication may be made for resale or any other commercial purpose without permission in writing from the UN Environment Programme. Applications for permission, with a statement of purpose and extent of reproduction, should be sent to the Director, UNEP-WCMC, 219 Huntingdon Road, Cambridge, CB3 0DL, UK.
-
-    The contents of this report do not necessarily reflect the views or policies of the UN Environment Programme, contributory organisations or editors. The designations employed and the presentations of material in this report do not imply the expression of any opinion whatsoever on the part of the UN Environment Programme or contributory organisations, editors or publishers concerning the legal status of any country, territory, city area or its authorities, or concerning the delimitation of its frontiers or boundaries or the designation of its name, frontiers or boundaries. The mention of a commercial entity or product in this publication does not imply endorsement by the UN Environment Programme.
-
-    Citation: UNEP-WCMC, IUCN and NGS (2021). Protected Planet Report 2020. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA."
   - 
     card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
     card_source: Lanikai halo © Amanda Phung / Unsplash
@@ -48,3 +29,23 @@ case_studies:
           Stuart Butchart and Andrew Plumptre (Chapter 3) (BirdLife International);\n
           Phil Franks (Box 9) (International Institute for Environment and Development, IIED);\n and
           Mike Hoffmann and Nisha Owen (Chapter 3) (Zoological Society of London, ZSL)."
+  -
+    card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
+    card_source: Lanikai halo © Amanda Phung / Unsplash
+    label: ''
+    title: Disclaimer
+    text: "© {this_year} United Nations Environment Programme\n
+    ISBN No: TBD\n
+    Job No: TBD\n
+    
+    The UN Environment Programme World Conservation Monitoring Centre (UNEP-WCMC) is a global Centre of excellence on biodiversity. The Centre operates as a collaboration between the UN Environment Programme and the UK-registered charity WCMC. Together we are confronting the global crisis facing nature.
+
+    IUCN is a membership Union composed of both government and civil society organisations. It harnesses the experience, resources and reach of its more than 1,400 Member organisations and the input of more than 18,000 experts. IUCN is the global authority on the status of the natural world and the measures needed to safeguard it.
+
+    The National Geographic Society (NGS) is a leading non-profit that invests in bold people and transformative ideas in the fields of exploration, scientific research, storytelling and education. The Society aspires to create a community of change, advancing key insights about the planet and probing some of the most pressing scientific questions of our time, all while ensuring that the next generation is armed with geographic knowledge and global understanding. Its goal is measurable impact: furthering exploration and educating people around the world to inspire solutions for the greater good.
+
+    This publication may be reproduced for educational or non-profit purposes without special permission, provided acknowledgement to the source is made. Reuse of any figures is subject to permission from the original rights holders. No use of this publication may be made for resale or any other commercial purpose without permission in writing from the UN Environment Programme. Applications for permission, with a statement of purpose and extent of reproduction, should be sent to the Director, UNEP-WCMC, 219 Huntingdon Road, Cambridge, CB3 0DL, UK.
+
+    The contents of this report do not necessarily reflect the views or policies of the UN Environment Programme, contributory organisations or editors. The designations employed and the presentations of material in this report do not imply the expression of any opinion whatsoever on the part of the UN Environment Programme or contributory organisations, editors or publishers concerning the legal status of any country, territory, city area or its authorities, or concerning the delimitation of its frontiers or boundaries or the designation of its name, frontiers or boundaries. The mention of a commercial entity or product in this publication does not imply endorsement by the UN Environment Programme.
+
+    Citation: UNEP-WCMC, IUCN and NGS (2021). Protected Planet Report 2020. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA."

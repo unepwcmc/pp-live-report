@@ -1,8 +1,6 @@
-<div class="content--x-large">
-  <div class="container--medium">
-    <% if @data['blockquote_image'] %>
-      <%= image_tag @data['blockquote_image'], alt: @data['blockquote_alt'] ? @data['blockquote_alt'] : 'Blockquote icon', class: 'content__icon' %>
-    <% end %>
-    <h4 class="content__text"><%= locals[:text] %></h4>
-  </div>
+<div class="container--medium">
+  <% if @data['blockquote_image'] %>
+    <%= image_tag @data['blockquote_image'], alt: @data['blockquote_alt'] ? @data['blockquote_alt'] : 'Blockquote icon', class: 'content__icon' %>
+  <% end %>
+  <blockquote class="content__text"><%= locals[:text] %><blockquote>
 </div>

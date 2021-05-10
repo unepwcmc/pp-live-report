@@ -212,7 +212,7 @@ class ChaptersController < ApplicationController
 
     timeseries_data = CsvParser.timeseries
     types = %w[Land Marine]
-    lines = ('1990'..'2020').map do |year|
+    lines = ('1990'..'2021').map do |year|
       { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }
       .merge!({
         "1": timeseries_data[year][types[0]].round(2),

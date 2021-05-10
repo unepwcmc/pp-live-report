@@ -8,7 +8,7 @@ case_studies:
     card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
     card_source: Lanikai halo © Amanda Phung / Unsplash
     label: ''
-    title: Copyright
+    title: Disclaimer
     text: "© 2021 United Nations Environment Programme\n
     ISBN No: TBD\n
     Job No: TBD\n
@@ -27,7 +27,7 @@ case_studies:
   - 
     card_image: /images/case-studies/lanikai-halo-amanda-phung-unsplash.jpg
     card_source: Lanikai halo © Amanda Phung / Unsplash
-    label: 'Box 1'
+    label: ''
     title: 'Authors and contributors'
     text: "Lead authors:\n
           Chapter 1: Elise Belle;\n

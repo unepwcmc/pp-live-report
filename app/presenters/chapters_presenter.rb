@@ -12,13 +12,13 @@ class ChaptersPresenter
           {
             fill: '#29A245',
             name: 'Current progress: ', 
-            percent: 15 #TODO - put in latest figure
+            percent: 16.64
           } 
         ],
         target: 17,
         theme: '#29A245',
         title: 'Terrestrial',
-        value: 15 #TODO - put in latest figure
+        value: 16.64
       },
       {
         id: 'gauge-marine',
@@ -31,13 +31,13 @@ class ChaptersPresenter
           {
             fill: '#004DA8',
             name: 'Current progress: ', 
-            percent: 7 #TODO - put in latest figure
+            percent: 7.74
           }
         ],
         target: 10,
         theme: '#004DA8',
         title: 'Marine',
-        value: 7 #TODO - put in latest figure
+        value: 7.74
       }
     ]
   end

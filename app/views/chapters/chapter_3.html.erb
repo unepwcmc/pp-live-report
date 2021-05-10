@@ -30,7 +30,6 @@
     title="<%= @data['map_1_title'] %>"
     tiles-url="<%= @map_1[:tiles_url] %>" 
     :tabs="<%= @map_1[:tabs].to_json %>"
-    :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
     :oecm-present="true"
     file-download="<%= @map_1[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"

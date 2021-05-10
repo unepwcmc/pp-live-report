@@ -9,7 +9,7 @@ case_studies:
     card_source: Lanikai halo © Amanda Phung / Unsplash
     label: ''
     title: Disclaimer
-    text: "© 2021 United Nations Environment Programme\n
+    text: "© {this_year} United Nations Environment Programme\n
     ISBN No: TBD\n
     Job No: TBD\n
     

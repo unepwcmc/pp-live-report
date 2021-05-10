@@ -555,6 +555,10 @@ class ChaptersController < ApplicationController
       if case_study['title'] == 'References'
         case_study['text'] = @shared_data['references']
       else
+        if case_study['text']['{this_year}'] 
+          case_study['text']['{this_year}'] = Date.today.year.to_s
+        end
+        
         case_study['text'] = case_study['text'].split("\n")
       end
 

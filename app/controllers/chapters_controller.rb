@@ -224,8 +224,8 @@ class ChaptersController < ApplicationController
       units: 'Area (Million km²)',
       legend: types,
       yTargets: [
-        { name: 'Marine target (10%)', position: 36 },
-        { name: 'Terrestrial target (17%)', position: 23 }
+        { name: 'Terrestrial target (17%)', position: 23 },
+        { name: 'Marine target (10%)', position: 36 }
       ]
     }.to_json
 

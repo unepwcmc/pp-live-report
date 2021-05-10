@@ -42,31 +42,12 @@ module CsvParser
     kba_timeseries
   end
 
-  def self.ch6_figure2_stats
-    progress_level(CSV_CH11_PAME, 'Type')
-  end
-  
-  def self.ch7_figure2_stats
-    progress_level(CSV_CH7_PA_GOVTYPE_REGION, 'Region')
-  end
-
   def self.per_pame_coverage
     country_perc(CSV_CH6_PAME_REGIONAL_PERCENT, 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
   end
 
   def self.count_of_pame_evaluations
     country_perc(CSV_CH6_PAME_REGIONAL_COUNT, 'Count of PAME evaluations')
-  end
-
-  def self.governance_type
-    gov_types = {}
-    csv_file = file_reader(CSV_CH7_PA_GOVTYPE)
-    CSV.parse(csv_file, headers: true) do |row|
-      key = row[0]
-      row = row.to_hash['Count'].to_i
-      gov_types[key] = row
-    end
-    gov_types
   end
 
   def self.biogeographical_regions

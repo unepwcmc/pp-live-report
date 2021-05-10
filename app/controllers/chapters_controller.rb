@@ -337,7 +337,7 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
-    @chart_csv_url = URI.join(root_url, "/file/map/#{CSV_CH5_COUNT}")
+    @chart_csv_url = URI.join(root_url, "/file/#{CSV_CH5_TIMESERIES_KBA}")
 
     @map_1 = {
       id: 'kba',

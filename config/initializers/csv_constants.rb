@@ -8,8 +8,7 @@ CSV_CH3_MAP_PA_GLOBAL = 'chapter3_global_pa_statistics.csv'
 CSV_CH4_ECOREGIONS = 'chapter4_ecoregion_coverage.csv'
 CSV_CH4_MAP_ECOREGIONS = 'map/chapter4_map_ecoregions.csv'
 
-CSV_CH5_COUNT = 'chapter5_count_statistics.csv'
-CSV_CH5_GLOBAL_KBA = 'chapter5_global_kba_timeseries_statistics.csv'
+CSV_CH5_TIMESERIES_KBA = 'chapter5_global_kba_timeseries_statistics.csv'
 CSV_CH5_MAP_KBA_OCEM_OVERLAP = 'map/chapter5_map_kba_pa_oecm_overlap.csv'
 
 CSV_CH6_MAP_PAME = 'map/chapter6_map_pame.csv'

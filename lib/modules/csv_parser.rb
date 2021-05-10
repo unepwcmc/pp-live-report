@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader(CSV_CH5_GLOBAL_KBA)
+    csv_file = file_reader(CSV_CH5_TIMESERIES_KBA)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -51,7 +51,7 @@ module CsvParser
   end
 
   def self.biogeographical_regions
-    csv_file = file_reader(CSV_CH5_COUNT)
+    csv_file = file_reader(CSV_CH4_ECOREGIONS)
     region_type = ''
     data = {}
 

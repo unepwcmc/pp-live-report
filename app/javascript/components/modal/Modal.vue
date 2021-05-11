@@ -14,7 +14,7 @@
         <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
         <p v-if="text.org" class="modal__org">{{ text.org }}</p>
 
-        <div>
+        <div class="modal__figure">
           <img v-if="text.image" :src="text.image" class="modal__image" />
           <p v-if="text.caption" class="modal__image-caption">
             {{ text.caption }}

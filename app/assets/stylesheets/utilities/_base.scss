@@ -175,7 +175,7 @@ ul {
   font-size: rem-calc(16);
   font-weight: $light;
   line-height: 1.6;
-  padding-left: rem-calc(16);
+  padding-left: rem-calc(22);
 
   @include breakpoint($medium) { font-size: rem-calc(18); }
 }

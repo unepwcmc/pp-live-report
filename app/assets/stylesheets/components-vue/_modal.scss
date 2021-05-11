@@ -153,6 +153,10 @@
             font-size: rem-calc(14);
             font-weight: $light;
           }
+        
+        .modal__figure {
+          margin-bottom: rem-calc(30);
+        }
 
         .modal__org {
           font-weight: $light;

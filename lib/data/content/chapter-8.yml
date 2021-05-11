@@ -5,12 +5,17 @@ intro: "Since 2010, methodologies have been developed for the assessment of glob
 content_1: 
   - "This section focuses on the degree to which the world’s system of protected and conserved areas is geographically connected. A well-connected conservation network is one where ecological processes and functions connect between different sites. This includes sustaining the ability of individuals or populations of species to move between sites, providing resilience against climate change (Box 11), and is an essential component of healthy ecosystem functioning. It is also one that has increasingly been impacted by human activities (Tucker <em>et al.</em>, 2018)"
   - "When the Protected Planet Report was first published in 2012, the science of measuring connectivity was in its infancy. This is one area where great strides have been taken during the lifetime of Aichi Target 11: terrestrial connectivity can now be measured, and methods are in development for marine connectivity (Box 12). Metrics such as Protected Connected (ProtConn) and PARC-Connectedness are now widely used to assess structural connectivity between protected areas."
-  - "Based on the ProtConn method, 7.84% of the world’s terrestrial surface is both protected and connected when OECMs are included, far below the 17% required by Aichi Target 11. However, since 2010 this figure has increased from 6.5% (Saura <em>et al.</em>, 2019), showing a marked improvement over the decade. Due to the limited available data, our understanding of the true degree to which OECMs influence connectivity is currently minimal. However, OECMs have significant potential to enhance the measures of connectivity once they have been more extensively identified, mapped and recognised.  Already we know that they improve the proportion of the world that is protected and connected by 0.8%, despite the extremely limited data. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses."
+  - "Based on the ProtConn method, 7.84% of the world’s terrestrial surface is both protected and connected when OECMs are included, far below the 17% required by Aichi Target 11. However, since 2010 this figure has increased from 6.5% (Saura <em>et al.</em>, 2019), showing a marked improvement over the decade. Due to the limited available data, our understanding of the true degree to which OECMs influence connectivity is currently minimal. "
 
-content_2: "In July 2020, the IUCN WCPA Connectivity Conservation Specialist Group (CCSG) published the IUCN Guidelines for Conserving Connectivity through Ecological Networks and Corridors (Hilty <em>et al.</em>, 2020). The Guidelines are an important step towards a coherent global approach for connectivity conservation, providing clarity on the role of ecological corridors."
+blockquote_text: "However, OECMs have significant potential to enhance the measures of connectivity once they have been more extensively identified, mapped and recognised.  "
+
+content_2: "Already we know that they improve the proportion of the world that is protected and connected by 0.8%, despite the extremely limited data. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses."
+
 map_1_title: "Protected connected land"
 map_1_description: "Map of ‘Protected connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
 map_1_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
+
+content_3: "In July 2020, the IUCN WCPA Connectivity Conservation Specialist Group (CCSG) published the IUCN Guidelines for Conserving Connectivity through Ecological Networks and Corridors (Hilty <em>et al.</em>, 2020). The Guidelines are an important step towards a coherent global approach for connectivity conservation, providing clarity on the role of ecological corridors."
 
 photo_credits: "Mangroves in Krabi, Thailand &copy; kamtiphat / Adobe Stock"
 case_studies:
@@ -28,8 +33,7 @@ case_studies:
     card_source: A school of fish in shallow water, Curaçao © NaturePicsFilms / Adobe Stock
     label: 'Box 12'
     title: 'Marine Protected Area (MPA) networks: connectivity research from the Caribbean. '
-    authors: 'Lucy Bastin, Mariagrazia Graziano, Justin Springer'
-    org: 'Aston University, UK; Joint Research Centre, European Commission; IUCN'
+    authors: 'Lucy Bastin - Aston University, UK; Mariagrazia Graziano - Joint Research Centre, European Commission; Justin Springer - IUCN'
     image: 'case_study_12.png'
     caption: 'Figure 1: Protected (green) and unprotected (red) areas of seagrass across the Caribbean pilot study region.'
     source: 'This analysis allows the identification of protected areas whose connection to the network is particularly vulnerable and where extra buffering or linking could be considered. The method provides additional benefits by prioritising areas where strategic interventions are feasible, highlighting the importance of comprehensive habitat maps that, when paired with local knowledge, can inform design and management decisions.'

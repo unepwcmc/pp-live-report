@@ -5,12 +5,11 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['text_2'] } %>
 
 <section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['doughnut_chart_title'], intro: @data['doughnut_chart_intro'].html_safe } %>
-  
   <div class="container">
     <chart-doughnut :datasets="<%= @doughnut_chart.to_json %>" smallprint="<%= @data['smallprint'] %>"></chart-doughnut>
   </div>
 </section>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['text_3'] } %>
 
 

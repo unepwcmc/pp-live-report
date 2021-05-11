@@ -51,6 +51,11 @@ export default {
     },
     fileDownload: String,
     options:{
+      default: function () { 
+        return {
+          y: ''
+        } 
+      },
       type: Object
     },
     rawData: {

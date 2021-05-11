@@ -333,7 +333,6 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
-    @chart_csv_url = URI.join(root_url, "/file/#{CSV_CH5_TIMESERIES_KBA}")
 
     @map_1 = {
       id: 'kba',
@@ -364,7 +363,7 @@ class ChaptersController < ApplicationController
 
     kba_data = CsvParser.kba_timeseries
     types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
-    lines = ('2000'..'2018').map do |year|
+    lines = ('2000'..'2019').map do |year|
       { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
         "1": kba_data[year][types[0]], 
         "2": kba_data[year][types[1]], 
@@ -376,6 +375,8 @@ class ChaptersController < ApplicationController
       units: 'Average percentage covered %',
       legend: types.map { |t| t.gsub(/(KBAs)/, '').squish }
     }.to_json
+
+    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH5_TIMESERIES_KBA}")
   end
 
   def chapter_6

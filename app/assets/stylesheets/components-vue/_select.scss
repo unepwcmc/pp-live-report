@@ -7,13 +7,15 @@
       width: 50vw;
     }
 
+    &__blockquote {
+      color: $white;
+    }
+
     &__text {
       color: $white;
       
       @include breakpoint($small) {
         padding-right: rem-calc(10);
-        overflow-y: scroll;
-        max-height: rem-calc(400);
 
         &::-webkit-scrollbar {
           width: rem-calc(10);
@@ -23,10 +25,6 @@
           background-color: $grey-light;
           border-radius: $radius-global;
         }
-      }
-
-      @include breakpoint($medium) {
-        max-height: rem-calc(330);
       }
     }
 

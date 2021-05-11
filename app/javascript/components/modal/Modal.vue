@@ -14,7 +14,7 @@
         <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
         <p v-if="text.org" class="modal__org">{{ text.org }}</p>
 
-        <div>
+        <div class="modal__figure">
           <img v-if="text.image" :src="text.image" class="modal__image" />
           <p v-if="text.caption" class="modal__image-caption">
             {{ text.caption }}
@@ -24,9 +24,11 @@
           }}</small>
         </div>
 
-        <p v-for="(paragraph, index) in text.text" :key="index">
-          {{ paragraph }}
-        </p>
+        <p 
+          v-for="(paragraph, index) in text.text" 
+          :key="index"
+          v-html="paragraph"
+        />
 
         <p>
           <small v-if="text.card_source" class="modal__image-source">

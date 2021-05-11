@@ -8,7 +8,23 @@
     :selected-option="selectedOption.locale"
    ></display-button-with-dropdown>
   </div>
-  <p dir="auto" class="select--text__text">{{ selectedOption.text }}</p>
+  <div 
+   dir="auto" 
+   class="select--text__text"
+   v-html="selectedOption.text_1"
+  />
+  <blockquote 
+    class="select--text__blockquote"
+    v-show="selectedOption.blockquote"
+    v-html="selectedOption.blockquote"
+    dir="auto" 
+  />
+  <div 
+   v-show="selectedOption.text_2"
+   dir="auto" 
+   class="select--text__text"
+   v-html="selectedOption.text_2"
+  />
  </div>
 </template>
 
@@ -26,7 +42,7 @@ export default {
   text: {
    type: Array,
    required: true,
-  },
+  }
  },
  mounted() {
   eventHub.$on("option-selected", this.changeText)

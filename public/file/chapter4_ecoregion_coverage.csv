@@ -1,12 +1,12 @@
-Biogeographical Unit,2010,2021,2021_oecm,,,
-Ecoregions,,,,,,
-Terrestrial,34.66%(286),43.9% (361),44.5% (366),,,
-Marine,22.41%(52),47.4% (110),47.4% (110),,,
-Realms,,,,,,
-Terrestrial,14.3%(1),42.9% (3),42.9% (3),,,
-Marine,16.7%(2),75% (9),75% (9),,,
-Biomes,,,,,,
-Terrestrial,35.7%(5),28.6% (4),35.7% (5),,,
-Provinces,,,,,,
-Pelagic,0%(0),10.8% (4),10.8% (4),,,
-Marine,24.2%(15),58.1%% (36),58.1%% (36),,,
+Biogeographical Unit,2010,2021
+Ecoregions,,
+Terrestrial,34.66%(286),43.9%(361) oecm 0.6%
+Marine,22.41%(52),47.4% (110) oecm 0%
+Realms,,
+Terrestrial,14.3%(1),42.9% (3)oecm 0%
+Marine,16.7%(2),75% (9)oecm 0%
+Biomes,,
+Terrestrial,35.7%(5),28.6% (4)oecm 7.1%
+Provinces,,
+Pelagic,0%(0),10.8% (4)oecm 0%
+Marine,24.2%(15),58.1% (36)oecm 0%

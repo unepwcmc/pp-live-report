@@ -1,15 +1,15 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
 
 <section class="section-padding gutters">
-  <map-statistics 
+  <map-statistics
     id="<%= @map[:id] %>"
     title="<%= @data['map_1_title'] %>"
-    tiles-url="<%= @map[:tiles_url] %>" 
-    tiles-url-oecm="<%= @map[:tiles_url_oecm] %>" 
+    tiles-url="<%= @map[:tiles_url] %>"
+    tiles-url-oecm="<%= @map[:tiles_url_oecm] %>"
     :tabs="<%= @map[:tabs].to_json %>"
-    :layers="<%= @map[:layers].to_json %>" 
+    :layers="<%= @map[:layers].to_json %>"
     :oecm-present="true"
-    file-download="<%= @map[:csv_url] %>"  
+    file-download="<%= @map[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
 </section>
@@ -17,11 +17,11 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
 <section class="section-padding">
-  
+
   <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
-  
+
   <div class="container--medium">
-    <download 
+    <download
       class="section-padding--bottom"
       file-download="<%= @row_charts_csv_url %>"
       text="CSV Download"
@@ -29,7 +29,7 @@
 
     <% @row_charts.each do |item| %>
       <p class="chart--row__subtitle"><%= item[:title] %></p>
-      
+
       <div class="flex flex-wrap flex-h-between">
         <% item[:charts].each do |chart| %>
           <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
@@ -41,4 +41,8 @@
   </div>
 </section>
 
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
+
 <%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_4'] } %>

@@ -27,7 +27,7 @@
       <div class="carousel__content container">
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
         <h2 class="carousel__title">{{ slide.title }}</h2>
-        <p class="carousel__intro">{{ slide.intro}}</p>
+        <p class="carousel__intro" v-html="slide.intro"/>
         <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="carousel__button button--cta">View chapter</a>
       </div>
     </section>

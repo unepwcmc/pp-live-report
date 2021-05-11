@@ -33,9 +33,6 @@ text_3:
 
   - 
     "Each of these quality elements is essential to a successful network of protected and conserved areas, and each has its own section in this report."
-  
-doughnut_chart_title: "Contribution of protected areas to achieving the UN Sustainable Development Goals"
-doughnut_chart_intro: "As the Protected Planet Report 2016 showed, the benefits that protected areas provide are critical to address environmental and societal challenges.</p><p>The interactive figure below allows you to explore the contribution of protected areas to each of the Sustainable Development Goals'"
 doughnut_chart_data:
   -
     title: "No poverty"

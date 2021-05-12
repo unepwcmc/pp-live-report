@@ -71,7 +71,7 @@ export default {
     return {
       chart: null,
       chartData: [],
-      colours: ["#32AC00", "#1C4AAF"],
+      colours: ["#32AC00", "#1C4AAF", "#64BAD9"],
       yTargetColours: ["#32AC00", "#1C4AAF"],
       xTargetColours: ["#000000"],
       totalSeries: 0,

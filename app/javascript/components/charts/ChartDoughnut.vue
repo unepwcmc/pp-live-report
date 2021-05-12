@@ -34,7 +34,7 @@
           <image :xlink:href="active.icon" width="120px" height="120px" transform="translate(-60, -100)"></image>
           
           <foreignObject transform="translate(-130, 30)" width="260" height="100">
-            <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 25px; font-weight: 300; text-align: center;">{{ active.title }}</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 23px; font-weight: 300; text-align: center;">{{ active.title }}</p>
           </foreignObject>
         </g>
       </svg>

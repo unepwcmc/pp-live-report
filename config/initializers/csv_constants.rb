@@ -13,4 +13,4 @@ CSV_CH5_MAP_KBA_OCEM_OVERLAP = 'map/chapter5_map_kba_pa_oecm_overlap.csv'
 
 CSV_CH6_MAP_PAME = 'map/chapter6_map_pame.csv'
 
-CSV_CH8_NATIONAL_CONNECTIVITY = 'chapter8_national_protected_connectivity.csv'
+CSV_CH8_NATIONAL_CONNECTIVITY = 'map/chapter8_national_protected_connectivity.csv'

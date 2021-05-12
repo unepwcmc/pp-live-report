@@ -84,12 +84,12 @@
       width: 100%;
 
       @include breakpoint($small) {
-        height: rem-calc(500);
+        height: rem-calc(525);
         width: 80%;
       }
 
       @include breakpoint($medium) {
-        height: rem-calc(380);
+        height: rem-calc(500);
         width: 67%;
       }
     }     
@@ -179,6 +179,7 @@
       &--disclaimer {
         @extend .modal__content;
         padding: rem-calc(43 32 43 37);
+        overflow-y: scroll;
 
         @include breakpoint($medium) {
           padding: rem-calc(59 144 61 156);

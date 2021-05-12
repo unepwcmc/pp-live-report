@@ -46,7 +46,7 @@
       <div class="modal__content--disclaimer">
         <h4 class="modal__title">{{ text.title }}</h4>
         <p>{{ text.source }}</p>
-        <p>{{ text.text }}</p>
+        <p v-html="text.text"/>
       </div>
     </div>
 

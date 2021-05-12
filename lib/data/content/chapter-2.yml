@@ -38,37 +38,37 @@ doughnut_chart_data:
     title: "No poverty"
     colour: "#E5243B"
     icon: 'icons/sdg-goal-01.png'
-    description: "Biodiversity supports a range of economic activities. In particular, subsistence agriculture and fisheries provide livelihoods for many of the world’s rural poor. Protected areas in several countries are already expected to report on their contribution to poverty reduction targets and there is growing pressure to ensure that protected areas contribute to supporting the livelihoods of the more socially and economically vulnerable."
+    description: "Biodiversity supports a range of economic activities. In particular, subsistence agriculture and fisheries provide livelihoods for many of the world’s rural poor. Protected and conserved areas in several countries are already expected to report on their contribution to poverty reduction targets and there is growing pressure to ensure that protected and conserved areas contribute to supporting the livelihoods of the more socially and economically vulnerable."
     url: "https://www.un.org/sustainabledevelopment/poverty/"
   -
     title: "Zero hunger"
     colour: "#DDA63A"
     icon: 'icons/sdg-goal-02.png'
-    description: "All food systems depend on biodiversity and ecosystem services that support agricultural productivity, soil fertility, and water quality and supply. By protecting these key ecosystem services, protected areas can contribute to enhance food security. Protected areas also provide basic supporting services such as soil production and stabilisation of water supplies, as well as buffering against extreme climatic events."
+    description: "All food systems depend on biodiversity and ecosystem services that support agricultural productivity, soil fertility, and water quality and supply. By protecting these key ecosystem services, protected and conserved areas can contribute to enhance food security. Protected and conserved areas also provide basic supporting services such as soil production and stabilisation of water supplies, as well as buffering against extreme climatic events."
     url: "https://www.un.org/sustainabledevelopment/hunger/"
   -
     title: "Good health and well-being"
     colour: "#4C9F38"
     icon: 'icons/sdg-goal-03.png'
-    description: "The link between biodiversity and human health is increasingly recognized. By protecting ecosystems, protected areas help mitigate the spread and impact of pollution. For instance, protecting forests help regulate water flow and improve water quality. Medicines are also be derived from biodiversity. Finally, by offering recreational opportunities, protected areas also contribute to enhancing physical and mental well-being."
+    description: "The link between biodiversity and human health is increasingly recognized. By protecting ecosystems, protected and conserved areas help mitigate the spread and impact of pollution. For instance, protecting forests help regulate water flow and improve water quality. Medicines are also be derived from biodiversity. Finally, by offering recreational opportunities, protected and conserved areas also contribute to enhancing physical and mental well-being."
     url: "https://www.un.org/sustainabledevelopment/health/"
   -
     title: "Quality education"
     colour: "#C5192D"
     icon: 'icons/sdg-goal-04.png'
-    description: "Raising awareness of the importance of protecting biodiversity for sustainable development, notably through the creation of protected areas and other conservation measures, will be key to achieving this and other SDGs. In particular, protected areas located close to urban centres can provide basic knowledge on the importance of ecosystem functioning."
+    description: "Raising awareness of the importance of protecting biodiversity for sustainable development, notably through the creation of protected and conserved areas and other conservation measures, will be key to achieving this and other SDGs. In particular, protected and conserved areas located close to urban centres can provide basic knowledge on the importance of ecosystem functioning."
     url: "https://www.un.org/sustainabledevelopment/education/"
   -
     title: "Gender equality"
     colour: "#FF3A21"
     icon: 'icons/sdg-goal-05.png'
-    description: "Women are often the primary users of natural resources and play a key role in their management. However, they often do not have ownership and control over land and resources and they tend to be disproportionally affected by the loss of biodiversity and ecosystem services. However, if empowered, they can contribute to the sustainability of resource use. For instance, if protected areas are equitably managed, they can help reducing gender inequalities."
+    description: "Women are often the primary users of natural resources and play a key role in their management. However, they often do not have ownership and control over land and resources and they tend to be disproportionally affected by the loss of biodiversity and ecosystem services. However, if empowered, they can contribute to the sustainability of resource use. For instance, if protected and conserved areas are equitably managed, they can help reducing gender inequalities."
     url: "https://www.un.org/sustainabledevelopment/gender-equality/"
   -
     title: "Clean water and sanitation"
     colour: "#26BDE2"
     icon: 'icons/sdg-goal-06.png'
-    description: "The delivery of water supplies and water quality require healthy ecosystems, which can also help prevent water-related hazards and disasters. Protected areas provide a significant proportion of the drinking water for many of the world’s largest cities. Protection of water towers, cloud forests, forested catchments for water, and natural floodplains is therefore essential to ensure freshwater supply and reduce disaster risks."
+    description: "The delivery of water supplies and water quality require healthy ecosystems, which can also help prevent water-related hazards and disasters. Protected and conserved areas provide a significant proportion of the drinking water for many of the world’s largest cities. Protection of water towers, cloud forests, forested catchments for water, and natural floodplains is therefore essential to ensure freshwater supply and reduce disaster risks."
     url: "https://www.un.org/sustainabledevelopment/water-and-sanitation/"
   -
     title: "Affordable and clean energy"
@@ -80,7 +80,7 @@ doughnut_chart_data:
     title: "Decent work and economic growth"
     colour: "#A21942"
     icon: 'icons/sdg-goal-08.png'
-    description: "Biodiversity supports the provision of ecosystem services which are key to almost all economic activities. By preserving ecosystem functions, protected areas can lead to higher productivity and more efficient resource use. They can also offer opportunities for business development, especially in rural and remote areas. Nature tourism, including visits to protected areas, is one of the fastest-growing sectors."
+    description: "Biodiversity supports the provision of ecosystem services which are key to almost all economic activities. By preserving ecosystem functions, protected and conserved areas can lead to higher productivity and more efficient resource use. They can also offer opportunities for business development, especially in rural and remote areas. Nature tourism, including visits to protected and conserved areas, is one of the fastest-growing sectors."
     url: "https://www.un.org/sustainabledevelopment/economic-growth/"
   -
     title: "Industry, innovation and infrastructure"
@@ -92,7 +92,7 @@ doughnut_chart_data:
     title: "Reduced inequalities"
     colour: "#DD1367"
     icon: 'icons/sdg-goal-10.png'
-    description: "Larger income inequality within countries have been shown to be related to greater biodiversity loss. In recent years, there has been a significant shift from protected areas solely managed by governments to protected areas managed by indigenous and local communities, or under shared governance. Increasing the recognition of the role of indigenous and local people in protected area management will contribute to reducing inequalities."
+    description: "Larger income inequality within countries have been shown to be related to greater biodiversity loss. In recent years, there has been a significant shift from protected areas solely managed by governments to protected and conserved areas managed by indigenous and local communities, or under shared governance. Increasing the recognition of the role of indigenous and local people in protected and conserved area management will contribute to reducing inequalities."
     url: "https://www.un.org/sustainabledevelopment/inequality/"
   -
     title: "Sustainable cites and communities"
@@ -104,7 +104,7 @@ doughnut_chart_data:
     title: "Responsible consumption and production"
     colour: "#BF8B2E"
     icon: 'icons/sdg-goal-12.png'
-    description: "Consumption and production of all goods and services rely on the use of natural resources, which in turn impacts biodiversity. Unsustainable consumption patterns can undermine the ability of ecosystems to provide these services. Supporting local communities, especially the ones living in and around protected areas, is necessary to ensure the sustainable use of natural resources."
+    description: "Consumption and production of all goods and services rely on the use of natural resources, which in turn impacts biodiversity. Unsustainable consumption patterns can undermine the ability of ecosystems to provide these services. Supporting local communities, especially the ones living in and around protected and conserved areas, is necessary to ensure the sustainable use of natural resources."
     url: "https://www.un.org/sustainabledevelopment/sustainable-consumption-production/"
   -
     title: "Climate action"
@@ -116,19 +116,19 @@ doughnut_chart_data:
     title: "Life below water"
     colour: "#0A97D9"
     icon: 'icons/sdg-goal-14.png'
-    description: "Marine protected areas contribute directly to this goal. The conservation and sustainable use of biodiversity in marine and coastal ecosystems is key to sustainable development. Biodiversity indeed underpins all fishing and aquaculture activities. Protecting marine and coastal areas is thus essential to ensure that the world’s oceans, seas and marine resources are preserved."
+    description: "Marine protected and conserved areas contribute directly to this goal. The conservation and sustainable use of biodiversity in marine and coastal ecosystems is key to sustainable development. Biodiversity indeed underpins all fishing and aquaculture activities. Protecting marine and coastal areas is thus essential to ensure that the world’s oceans, seas and marine resources are preserved."
     url: "https://www.un.org/sustainabledevelopment/oceans/"
   -
     title: "Life on land"
     colour: "#56C02B"
     icon: 'icons/sdg-goal-15.png'
-    description: "Terrestrial protected areas contribute directly to this goal. Although there has been a marked increase in protected area coverage, many areas important for biodiversity are still not adequately protected. The designation of protected areas has played a crucial role in preventing deforestation and is likely to have contributed to the conservation of several vertebrate species. Protected areas are thus key to protect terrestrial habitats, species, and ecosystem services."
+    description: "Terrestrial protected and conserved areas contribute directly to this goal. Although there has been a marked increase in protected and conserved area coverage, many areas important for biodiversity are still not adequately protected. The designation of protected areas has played a crucial role in preventing deforestation and is likely to have contributed to the conservation of several vertebrate species. Protected and conserved areas are thus key to protect terrestrial habitats, species, and ecosystem services."
     url: "https://www.un.org/sustainabledevelopment/biodiversity/"
   -
     title: "Peace, justice and strong institutions"
     colour: "#00689D"
     icon: 'icons/sdg-goal-16.png'
-    description: "Environmental crime undermine sustainable development and threaten global security. Furthermore, conflicts over natural resources and environmental degradation can lead to social insecurity. Enhancing the role of law and equity for governance of biodiversity, including protected areas, can contribute to building an inclusive society based on justice and democratic values."
+    description: "Environmental crime undermine sustainable development and threaten global security. Furthermore, conflicts over natural resources and environmental degradation can lead to social insecurity. Enhancing the role of law and equity for governance of biodiversity, including protected and conserved areas, can contribute to building an inclusive society based on justice and democratic values."
     url: "https://www.un.org/sustainabledevelopment/peace-justice/"
   -
     title: "Partnerships for the goals"

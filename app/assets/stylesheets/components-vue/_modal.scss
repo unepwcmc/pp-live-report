@@ -84,12 +84,12 @@
       width: 100%;
 
       @include breakpoint($small) {
-        height: rem-calc(500);
+        height: rem-calc(525);
         width: 80%;
       }
 
       @include breakpoint($medium) {
-        height: rem-calc(380);
+        height: rem-calc(550);
         width: 67%;
       }
     }     

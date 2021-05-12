@@ -80,7 +80,7 @@ doughnut_chart_data:
     title: "Decent work and economic growth"
     colour: "#A21942"
     icon: 'icons/sdg-goal-08.png'
-    description: "Biodiversity supports the provision of ecosystem services which are key to almost all economic activities. By preserving ecosystem functions, protected and conserved areas can lead to higher productivity and more efficient resource use. They can also offer opportunities for business development, especially in rural and remote areas. Nature tourism, including visits to protected areas, is a fast-growing sector but has recently been impacted by COVID-19."
+    description: "Biodiversity supports the provision of ecosystem services which are key to almost all economic activities. By preserving ecosystem functions, protected and conserved areas can lead to higher productivity and more efficient resource use. They can also offer opportunities for business development, especially in rural and remote areas. Nature tourism, including visits to protected and conserved areas, is a fast-growing sector but has recently been impacted by COVID-19."
     url: "https://www.un.org/sustainabledevelopment/economic-growth/"
   -
     title: "Industry, innovation and infrastructure"

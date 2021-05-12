@@ -89,7 +89,7 @@
       }
 
       @include breakpoint($medium) {
-        height: rem-calc(550);
+        height: rem-calc(450);
         width: 67%;
       }
     }     

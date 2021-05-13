@@ -31,8 +31,8 @@ area_chart_2_title: "Proportional coverage of protected areas in the land and oc
 area_chart_2_smallprint: "EEZ: Exclusive Economic Zone; ABNJ: Areas Beyond National Jurisdiction. Source UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
 line_chart_title: "Change in protected area and OECM coverage since 1990"
 line_chart_smallprint: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
-map_2_title: "Extent of protected area coverage between countries and territories"
-map_2_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+map_2_title: "National coverage of protected areas and OECMs"
+map_2_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
 
 photo_credits: "Aerial view of river, Iceland &copy; MAGNIFIER / Adobe Stock"
 

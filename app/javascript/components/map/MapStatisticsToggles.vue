@@ -7,7 +7,7 @@
         class="map__panel-layer"
       >
         <map-statistics-toggle
-          :event-element="`Map toggle - Map id: ${mapId}, Tab id: ${parentTabId}`"
+          :event-element="`Map Toggle - Map id: ${mapId}, Tab id: ${parentTabId}`"
           :map-id="mapId"
           :parent-tab-id="parentTabId"
           :ids="getMapboxLayerIds(layer)"

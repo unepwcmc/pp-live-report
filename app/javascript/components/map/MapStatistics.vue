@@ -18,7 +18,7 @@
         <template v-if="tabs">
           <tabs 
             :id="`tabs-${id}`"
-            :event-element="`Map Tab - Map id: ${id}`"
+            :event-element="`Map tab - Map id: ${id}`"
             :map-id="id"
           >
             <tab
@@ -62,10 +62,10 @@
 
         <div class="map__buttons flex flex-v-center gutters">
           <download
+            event-element="Map - Download CSV"
             text="CSV Download"
             title="Download reports in CSV format"
             :file-download="fileDownload"
-            event-element="Download data link"
           ></download>
           <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
         </div>

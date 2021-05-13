@@ -30,6 +30,7 @@
         target="_blank"
         :href="fileDownload"
         aria-labelledby="download-text"
+        @click="clickDownload"
       >
         <span class="button--download__text" id="download-text">{{ text }}</span>
         <i class="icon--download"></i>
@@ -97,6 +98,12 @@ export default {
         this.$ga.event(`${this.eventElement} - Download PDF`, 'click', option.title)
       }
     },
+    clickDownload() {
+      if (this.$ga) {
+        //(category, action, label)
+        this.$ga.event(this.eventElement, 'click', this.fileDownload)
+      }
+    }
   },
 }
 </script>

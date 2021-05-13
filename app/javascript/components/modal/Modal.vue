@@ -32,7 +32,7 @@
 
         <p>
           <small v-if="text.card_source" class="modal__image-source">
-            {{ text.title }}: {{ text.card_source }}
+            Photo credit: {{ text.card_source }}
           </small>
         </p>
       </div>

@@ -7,13 +7,14 @@
         class="map__panel-layer"
       >
         <map-statistics-toggle
-        :map-id="mapId"
-        :parent-tab-id="parentTabId"
-        :ids="getMapboxLayerIds(layer)"
-        :on-a-tab="onATab"
-        :set-active="setActive(index)"
-        v-on:toggled="toggled"
-        :index="index"
+          :event-element="`Map toggle - Map id: ${mapId}, TabId: ${parentTabId}`"
+          :map-id="mapId"
+          :parent-tab-id="parentTabId"
+          :ids="getMapboxLayerIds(layer)"
+          :on-a-tab="onATab"
+          :set-active="setActive(index)"
+          v-on:toggled="toggled"
+          :index="index"
         >
           <div class="map__panel-button-wrapper">
             <p class="map__panel-layer-button">

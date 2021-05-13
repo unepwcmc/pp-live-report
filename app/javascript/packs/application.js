@@ -11,18 +11,18 @@ import { setRTLPluginOnce } from "../components/map/map-helpers.js"
 
 Vue.config.productionTip = false
 
-if (window._railsEnv === 'production') {
-  Vue.use(VueAnalytics, {
-    id: 'UA-129227134-1',
+if(process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'staging') {
+  Vue.use(VueAnalytics, { 
+    id: 'UA-129227134-2', // staging
     checkDuplicatedScript: true
-  })
+  }) 
+} else if(process.env.NODE_ENV == 'production') {
+  Vue.use(VueAnalytics, { 
+    id: 'UA-129227134-1', // production
+    checkDuplicatedScript: true 
+  }) 
 }
-else if (window._railsEnv === 'staging') {
-  Vue.use(VueAnalytics, {
-    id: 'UA-129227134-2',
-    checkDuplicatedScript: true
-  })
-}
+
 Vue.use(TurbolinksAdapter)
 
 // store

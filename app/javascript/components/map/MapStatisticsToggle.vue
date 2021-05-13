@@ -14,6 +14,10 @@ export default {
   name: "map-statistics-toggle",
 
   props: {
+    eventElement: {
+      type: String,
+      default: "",
+    },
     onATab: {
       default: false,
       type: Boolean
@@ -116,6 +120,12 @@ export default {
       this.isActive === true ? this.hideLayers() : this.showLayers()
 
       this.$emit('toggled', { isActive: this.isActive, index: this.index })
+
+      if (this.$ga) {
+        const label = this.isActive ? `show layers: ${this.ids}` : `hide layers: ${this.ids}`
+        // (category, action, label)
+        this.$ga.event(this.eventElement, 'click', label)
+      }
     },
 
     showLayers() {

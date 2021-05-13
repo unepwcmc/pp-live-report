@@ -49,6 +49,7 @@
         <span class="map__oecm-toggle gutters" v-if="oecmPresent">
           Include OECMs (terrestrial and marine)
           <map-oecm-toggle 
+            :event-element="`Map OECM toggle - Map id: ${id}`"
             :map-id="id"
             v-on:toggled="handleOecmToggleChange"
             v-on:hide-layers="hideLayers"

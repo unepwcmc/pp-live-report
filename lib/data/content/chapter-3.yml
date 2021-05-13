@@ -29,9 +29,8 @@ area_charts_description: "On average, coverage of marine protected areas continu
 area_chart_1_title: "Proportional coverage of protected areas in the land and ocean."
 area_chart_2_title: "Proportional coverage of protected areas in the land and ocean (including in EEZ versus ABNJ)."
 area_chart_2_smallprint: "EEZ: Exclusive Economic Zone; ABNJ: Areas Beyond National Jurisdiction. Source UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
-line_chart_title: "Growth in protected area coverage on land and in the ocean"
-line_chart_description: "Growth in protected area coverage on land and in the ocean (EEZ and ABNJ) between 1990 and 2018 and projected growth to 2020 according to commitments from countries and territories."
-line_chart_smallprint: "Source: Unpublished data from the CBD Secretariat<br>Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
+line_chart_title: "Change in protected area and OECM coverage since 1990"
+line_chart_smallprint: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
 map_2_title: "Extent of protected area coverage between countries and territories"
 map_2_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
 

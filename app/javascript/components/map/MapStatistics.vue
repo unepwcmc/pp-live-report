@@ -18,6 +18,7 @@
         <template v-if="tabs">
           <tabs 
             :id="`tabs-${id}`"
+            :event-element="`Map Tab - Map id: ${id}`"
             :map-id="id"
           >
             <tab

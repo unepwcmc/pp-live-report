@@ -12,6 +12,7 @@ import { setRTLPluginOnce } from "../components/map/map-helpers.js"
 Vue.config.productionTip = false
 
 if(process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'staging') {
+  console.log('Google Analytics tracking for Staging')
   Vue.use(VueAnalytics, { 
     id: 'UA-129227134-2', // staging
     checkDuplicatedScript: true

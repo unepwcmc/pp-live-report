@@ -102,7 +102,6 @@ export default {
     },
 
     clickNext () {
-      console.log('next')
       if(this.$ga) {
         this.track(`Go to next page: ${this.nextChapterText}`)
       }

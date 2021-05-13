@@ -87,3 +87,7 @@ Oct 2020 stats updates
 0.2.17
 
 Feb 2021 stats updates
+
+0.2.18
+
+Add banner saying the new site is launching soon.

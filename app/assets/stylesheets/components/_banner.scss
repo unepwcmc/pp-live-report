@@ -1,0 +1,35 @@
+.banner {
+  background-color: $grey-xlight;
+
+  &__content {
+    padding-top: rem-calc(28);
+    padding-bottom: rem-calc(28);
+    text-align: center;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include breakpoint($medium) {
+      flex-direction: row;
+    }
+  }
+
+  &__text {
+    font-size: rem-calc(18);
+    line-height: 1;
+    margin-top: rem-calc(10);
+
+    display: inline-block;
+
+    @include breakpoint($medium) {
+      margin: rem-calc(0 8);
+    }
+  }
+
+  .icon--warning:last-child {
+    display: none;
+    @include breakpoint($medium) { display: inline-block; } 
+  }
+}

@@ -29,4 +29,12 @@
 
     @include breakpoint($small) { width: rem-calc(30); height: rem-calc(28); }
   }
+
+  &--warning {
+    background-image: image-url('icons/warning.svg');
+    background-size: cover;
+    width: rem-calc(19); height: rem-calc(19);
+
+    display: inline-block;
+  }
 }

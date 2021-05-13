@@ -43,8 +43,10 @@ case_studies:
     card_source: Hologram graph © denisismagilov / Adobe Stock
     label: 'Box 14'
     title: Progress on protected and conserved areas in an exceptionally biodiverse region?
-    authors: 'Cristina Lazaro'
-    org: 'UNEP-WCMC'
+    authors:
+      - 
+        name: Cristina Lazaro
+        org: 'UNEP-WCMC'
     image: 'case_study_14.png'
     caption: 'Figure: Growth in the percentage of protected area coverage in the LAC region (2000-2020). Source: Álvarez Malvido <em>et al.</em>, 2021.'
     text: "The Latin America and the Caribbean (LAC) Protected Planet Report 2020 (Álvarez Malvido <em>et al.</em>, 2021) assessed progress towards achieving the elements of Aichi Biodiversity Target 11 in the region, using the July 2020 release of the WDPA.\n
@@ -56,8 +58,10 @@ case_studies:
     card_source: A hiker in a forest © candy1812 / Adobe Stock
     label: 'Box 15'
     title: 'COVID-19: impacts on conservation areas and opportunities for change'
-    authors: 'Mariana Napolitano Ferreira and Rachel Golden Kroner'
-    org: 'Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas'
+    authors:
+      -
+        name: Mariana Napolitano Ferreira and Rachel Golden Kroner
+        org: Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas
     text: "The effects of COVID-19 on human health and economies are evident in protected areas and OECMs around the world. In addition to negative impacts on effectiveness, management capacity and budgets, communities living in and around these areas have experienced significant impacts on their livelihoods (Hockings <em>et al.</em>, 2020). \n          
           Nearly half of PA agencies surveyed across 19 African countries reported that basic operations were at risk in the short term from the restrictions imposed by COVID-19 (Waithaka, 2020). The loss of income resulting from these restrictions significantly affected their ability to pay salaries, monitor and enforce protection for wildlife and protect local communities from damage caused by wildlife. The sudden collapse of tourism revenues in protected areas has caused job losses, undermined development projects, and weakened collaboration with investors (Waithaka, 2020).\n         
           Despite commitments around the world to “build back better”, the focus on short-term economic recovery risks putting pressure on environmental protections. One example relates to provisions authorising new or expanded extractive industries and infrastructure in protected and conserved areas (Conservation International, 2020). This is especially of concern in countries where these areas are already under severe pressure. However, protected and conserved areas have a central role in addressing ecosystem degradation and biodiversity loss, and therefore reducing the risk of future zoonotic pandemics in addition to providing other economic, social and environmental benefits.\n

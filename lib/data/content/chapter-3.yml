@@ -43,8 +43,10 @@ case_studies:
     card_source: Upper Antelope Canyon, USA © vichie81 / Adobe Stock
     label: 'Box 3'
     title: 'Global figures showing net increases in coverage obscure legal rollbacks'
-    authors: 'Rachel Golden Kroner, Michael B. Mascia'
-    org: 'Conservation International'
+    authors: 
+      -
+        name: 'Rachel Golden Kroner and Michael B. Mascia'
+        org: 'Conservation International'
     image: 'case_study_3.png'
     text: "Legal changes that temper restrictions, change boundaries, or eliminate protected areas – protected area downgrading, downsizing, and degazettement (PADDD) events – are widespread (Mascia and Pailler, 2011). Although many countries have succeeded in expanding and improving their protected area networks, global coverage figures showing net growth obscure information about PADDD (Lewis <span class='italic'>et al.</span>, 2019; Golden Kroner <span class='italic'>et al.</span>, 2019), including its extent, patterns, trends, proximate causes, and impacts.
 
@@ -58,8 +60,10 @@ Known ecological impacts of PADDD include accelerated deforestation, increased c
     card_source: Boyeh Dulang, Tan Sakaran Marine Park © Hoan / Adobe Stock
     label: 'Box 4'
     title: 'Lessons from Oceania on the benefits of governance diversity'
-    authors: 'Vainuupo Jungblut'
-    org: 'Secretariat of the Pacific Regional Environment Programme (SPREP)'
+    authors: 
+      -
+        name: 'Vainuupo Jungblut'
+        org: 'Secretariat of the Pacific Regional Environment Programme (SPREP)'
     text: "A growing body of evidence suggests that sustainable interactions of people and biodiversity, often following customary law and traditional knowledge, are effective for reaching biodiversity goals (IPBES, 2018). The Nagoya Protocol further recognises the vital role that women play in access and benefit-sharing and recommends their inclusion at all levels of policy-making and implementation of biodiversity conservation. Taking into account the differentiated needs of women and men among indigenous peoples and local communities, and the varied roles they play in restoring and safeguarding biodiversity, is also key to achieving equality in environmental governance – directly impacting sustainability.
 
 In Oceania, a large proportion of land falls under customary ownership, and diverse systems of traditional governance maintain a strong influence over natural resource management (SPREP, 2016). These traditional governance systems empower local communities and provide insight into how various management approaches and area-based tools can be mutually applied to govern a common resource (Vierros <span class='italic'>et al.</span>, 2020). Govan (2015) identifies that these systems encourage rights-based, site-specific management approaches that apply a wide range of management tools, complementing the access control measures typical of many Marine Protected Areas. 

@@ -24,8 +24,10 @@ case_studies:
     card_source: Wildebeest crossing the Mara river, Tanzania © gudkovandrey / Adobe Stock
     label: 'Box 11'
     title: 'Maintaining ecological processes, and adapting to climate change, through connectivity '
-    authors: 'Gary Tabor'
-    org: 'Chair, IUCN WCPA Connectivity Conservation Specialist Group'
+    authors:
+      -
+        name: Gary Tabor
+        org: Chair, IUCN WCPA Connectivity Conservation Specialist Group
     text: "Connectivity conservation is rapidly emerging as a critical approach to saving biodiversity in the face of habitat fragmentation and climate change. The biosphere is dynamic; its interrelated functions depend on ‘ecological connectivity’ – defined by the Convention on Migratory Species as “the unimpeded movement of species and the flow of natural processes that sustain life on Earth”. In much of the world, where large-scale human activities have fragmented nature, ecological connectivity has been eroded, putting species and natural processes at risk. However, well-connected ecological networks comprising protected areas, OECMs and ecological corridors can mitigate the impacts of fragmentation. This is especially important for climate change adaptation, providing species with pathways to move and respond to changing environmental conditions. Ecological connectivity is a tried and true approach to managing biodiversity in the face of climate change.  \n
           The importance of promoting ecological connectivity is underlined throughout the 5th Global Biodiversity Outlook (CBD, 2020), and successful connectivity conservation approaches can span multiple cultures, geographies, and patterns of governance and ownership, all helping to achieve the 2050 Vision for Biodiversity. Methods of achieving connectivity across land, sea and air encompass wildlife corridors, marine swimways, avian and bat flyways, pollinator pathways, riparian zones, streamflow regimes and climate corridors. By conserving connectivity, the circulatory system of nature is sustained."
   - 
@@ -33,7 +35,10 @@ case_studies:
     card_source: A school of fish in shallow water, Curaçao © NaturePicsFilms / Adobe Stock
     label: 'Box 12'
     title: 'Marine Protected Area (MPA) networks: connectivity research from the Caribbean. '
-    authors: 'Lucy Bastin - Aston University, UK; Mariagrazia Graziano - Joint Research Centre, European Commission; Justin Springer - IUCN'
+    authors:
+      -
+        name: Lucy Bastin
+        org: Aston University, UK; Mariagrazia Graziano - Joint Research Centre, European Commission; Justin Springer - IUCN'
     image: 'case_study_12.png'
     caption: 'Figure 1: Protected (green) and unprotected (red) areas of seagrass across the Caribbean pilot study region.'
     source: 'This analysis allows the identification of protected areas whose connection to the network is particularly vulnerable and where extra buffering or linking could be considered. The method provides additional benefits by prioritising areas where strategic interventions are feasible, highlighting the importance of comprehensive habitat maps that, when paired with local knowledge, can inform design and management decisions.'

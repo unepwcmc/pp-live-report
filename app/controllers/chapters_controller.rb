@@ -82,21 +82,13 @@ class ChaptersController < ApplicationController
   def chapter_3
     @presenter = ChaptersPresenter.new
     @gauge_charts = @presenter.gauge_charts
-
-    global_monthly_stats = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
     @data = @chapters_data[2]
 
     @map_1 = {
       id: 'map_1',
-      # tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/PP_Live_Ch2_Fg1/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/test_raster_mapv2/MapServer/tile/{z}/{y}/{x}',
-      oecm_layer: {
-        color: '#D9B143',
-        id: 'oecm-' + random_number,
-        isShownByDefault: false,
-        type: 'raster_tile',
-        url: 'https://data-gis.unep-wcmc.org/server/rest/services/ProtectedSites/The_World_Database_on_other_effective_area_based_conservation_measures/MapServer/tile/{z}/{y}/{x}'
-      },
+      csv_url: get_csv_url(CSV_CH3_MAP_WDPA),
+      tiles_url: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live/VectorTileServer/tile/{z}/{y}/{x}.pbf',
+      tiles_url_oecm: 'https://tiles.arcgis.com/tiles/Mj0hjvkNtV7NRhA7/arcgis/rest/services/wdpa_prot_planet_live_oecm/VectorTileServer/tile/{z}/{y}/{x}.pbf',
       tabs: [
         {
           title: 'Terrestrial',
@@ -104,11 +96,7 @@ class ChaptersController < ApplicationController
             {
               id: 'terrestrial-' + random_number,
               text_large: 'All terrestrial',
-              type: 'raster_tile',
-              source_layers: { poly: 'test_raster3c' },
-              # text_large: global_monthly_stats['total_land_pa_coverage_percentage'] + '%',
-              # text_large: 'All terrestrial',
-              # source_layers: { poly: 'WDPA_poly_Mar2019_terrestrial', point: 'WDPA_point_Mar2019_terrestrial' },
+              source_layers: { poly: 'land_pas' },
               colour: '#86BF37'
             }
           ]
@@ -119,31 +107,19 @@ class ChaptersController < ApplicationController
             {
               id: 'marine-' + random_number,
               text_large: 'All marine',
-              type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
-              # text_large: global_monthly_stats['total_ocean_pa_coverage_percentage'] + '%',
-              # text_large: 'All marine',
-              # source_layers: { poly: 'WDPA_poly_Mar2019_Mar_Coast', point: 'WDPA_point_Mar2019_Mar_Coast' },
+              source_layers: { poly: 'marine_pas' },
               colour: '#133151'
             },
             {
               id: 'eez-' + random_number,
               text_large: 'National waters',
-              type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
-              # text_large: global_monthly_stats['national_waters_pa_coverage_percentage'] + '%',
-              # text_large: 'National waters',
-              # source_layers: { poly: 'WDPA_poly_Mar2019_EEZ', point: 'WDPA_point_Mar2019_EEZ' },
+              source_layers: { poly: 'eez_pas' },
               colour: '#6FD9F2'
             },
             {
               id: 'abnj-' + random_number,
               text_large: 'Areas beyond national jurisdiction',
-              type: 'raster_tile',
-              source_layers: { poly: 'test_raster' },
-              # text_large: global_monthly_stats['high_seas_pa_coverage_percentage'] + '%',
-              # text_large: 'Areas beyond national jurisdiction',
-              # source_layers: { poly: 'WDPA_poly_Mar2019_ABNJ', point: 'WDPA_point_Mar2019_ABNJ' },
+              source_layers: { poly: 'abnj_pas' },
               colour: '#207D94'
             }
           ]
@@ -167,28 +143,28 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'terrestrial-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'terrestrial-less-than-5-' + random_number,
+              text_large: 'Under 5%',
               source_layers: { poly: 'land_nat_cov_cat2' },
               colour: GREEN_SCHEME[0]
             },
             {
-              id: 'terrestrial-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'terrestrial-five-to-ten-' + random_number,
+              text_large: '5% – 10%',
               source_layers: { poly: 'land_nat_cov_cat3' },
               colour: GREEN_SCHEME[1]
             },
             {
-              id: 'terrestrial-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'terrestrial-ten-to-seventeen-' + random_number,
+              text_large: '10% - 17%',
               source_layers: { poly: 'land_nat_cov_cat4' },
-              colour: GREEN_SCHEME[2]
+              colour: GREEN_SCHEME[3]
             },
             {
-              id: 'terrestrial-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'terrestrial-over-seventeen-' + random_number,
+              text_large: 'Over 17%',
               source_layers: { poly: 'land_nat_cov_cat5' },
-              colour: GREEN_SCHEME[3]
+              colour: GREEN_SCHEME[4]
             }
           ]
         },
@@ -232,7 +208,7 @@ class ChaptersController < ApplicationController
 
     timeseries_data = CsvParser.timeseries
     types = %w[Land Marine]
-    lines = ('1990'..'2020').map do |year|
+    lines = ('1990'..'2021').map do |year|
       { "x": Time.new(year.to_i).strftime('%Y-%m-%d') }
       .merge!({
         "1": timeseries_data[year][types[0]].round(2),
@@ -244,8 +220,8 @@ class ChaptersController < ApplicationController
       units: 'Area (Million km²)',
       legend: types,
       yTargets: [
-        { name: 'Marine target (10%)', position: 36 },
-        { name: 'Terrestrial target (17%)', position: 23 }
+        { name: 'Terrestrial target (17%)', position: 23 },
+        { name: 'Marine target (10%)', position: 36 }
       ]
     }.to_json
 
@@ -357,7 +333,6 @@ class ChaptersController < ApplicationController
 
   def chapter_5
     @data = @chapters_data[4]
-    @chart_csv_url = URI.join(root_url, "/file/map/#{CSV_CH5_COUNT}")
 
     @map_1 = {
       id: 'kba',
@@ -387,8 +362,8 @@ class ChaptersController < ApplicationController
     }
 
     kba_data = CsvParser.kba_timeseries
-    types = ['Freshwater KBAs', 'Marine KBAs', 'Terrestrial KBAs']
-    lines = ('2000'..'2018').map do |year|
+    types = ['Terrestrial KBAs', 'Freshwater KBAs', 'Marine KBAs']
+    lines = ('2000'..'2019').map do |year|
       { "x": Time.new(year.to_i).strftime("%Y-%m-%d") }.merge!({
         "1": kba_data[year][types[0]], 
         "2": kba_data[year][types[1]], 
@@ -400,6 +375,8 @@ class ChaptersController < ApplicationController
       units: 'Average percentage covered %',
       legend: types.map { |t| t.gsub(/(KBAs)/, '').squish }
     }.to_json
+
+    @line_chart_csv_url = URI.join(root_url, "/file/#{CSV_CH5_TIMESERIES_KBA}")
   end
 
   def chapter_6
@@ -420,26 +397,26 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'terrestrial-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'terrestrial-less-than-10-' + random_number,
+              text_large: 'Under 10%',
               source_layers: { poly: 'me_land_nat_cov_cat2' },
               colour: GREEN_SCHEME[0]
             },
             {
-              id: 'terrestrial-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'terrestrial-ten-to-thirty-' + random_number,
+              text_large: '10% – 30%',
               source_layers: { poly: 'me_land_nat_cov_cat3' },
               colour: GREEN_SCHEME[1]
             },
             {
-              id: 'terrestrial-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'terrestrial-thirty-to-sixty-' + random_number,
+              text_large: '30% - 60%',
               source_layers: { poly: 'me_land_nat_cov_cat4' },
               colour: GREEN_SCHEME[2]
             },
             {
-              id: 'terrestrial-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'terrestrial-over-sixty-' + random_number,
+              text_large: 'Over 60%',
               source_layers: { poly: 'me_land_nat_cov_cat5' },
               colour: GREEN_SCHEME[3]
             }
@@ -455,26 +432,26 @@ class ChaptersController < ApplicationController
               colour: DEFAULT_COLOUR
             },
             {
-              id: 'marine-less-than-3-' + random_number,
-              text_large: 'Under 3%',
+              id: 'marine-less-than-ten-' + random_number,
+              text_large: 'Under 10%',
               source_layers: { poly: 'me_sea_nat_cov_cat2' },
               colour: BLUE_SCHEME[0]
             },
             {
-              id: 'marine-three-to-six-' + random_number,
-              text_large: '3% – 6%',
+              id: 'marine-ten-to-thirty-' + random_number,
+              text_large: '10% – 30%',
               source_layers: { poly: 'me_sea_nat_cov_cat3' },
               colour: BLUE_SCHEME[1]
             },
             {
-              id: 'marine-six-to-ten-' + random_number,
-              text_large: '6% - 10%',
+              id: 'marine-thirty-to-sixty-' + random_number,
+              text_large: '30% - 60%',
               source_layers: { poly: 'me_sea_nat_cov_cat4' },
               colour: BLUE_SCHEME[2]
             },
             {
-              id: 'marine-over-ten-' + random_number,
-              text_large: 'Over 10%',
+              id: 'marine-over-sixty-' + random_number,
+              text_large: 'Over 60%',
               source_layers: { poly: 'me_sea_nat_cov_cat5' },
               colour: BLUE_SCHEME[3]
             }
@@ -554,7 +531,6 @@ class ChaptersController < ApplicationController
   private
 
   def load_summary_text
-    # TODO: - need actual summary text in different languages
     summaries_path = 'config/locales/summary'.freeze
 
     Dir.children(summaries_path).sort.map do |locale|
@@ -563,7 +539,9 @@ class ChaptersController < ApplicationController
 
       {
         title: yml[locale_iso.to_s]['summary']['title'],
-        text: yml[locale_iso.to_s]['summary']['text'],
+        text_1: yml[locale_iso.to_s]['summary']['text_1'],
+        text_2: yml[locale_iso.to_s]['summary']['text_2'],
+        blockquote: yml[locale_iso.to_s]['summary']['blockquote'],
         locale: { title: LANGUAGES[locale_iso.to_sym], iso: locale_iso }
       }
     end.to_json
@@ -579,6 +557,10 @@ class ChaptersController < ApplicationController
       if case_study['title'] == 'References'
         case_study['text'] = @shared_data['references']
       else
+        if case_study['text']['{this_year}'] 
+          case_study['text']['{this_year}'] = Date.today.year.to_s
+        end
+        
         case_study['text'] = case_study['text'].split("\n")
       end
 

@@ -1,5 +1,9 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+
 <section class="section-padding gutters">
 
   <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
@@ -10,10 +14,10 @@
     tiles-url="<%= @map[:tiles_url] %>" 
     :tabs="<%= @map[:tabs].to_json %>"
     :layers="<%= @map[:layers].to_json %>"
-    :file-download="'#'" 
+    file-download="<%= @map[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
 </section>
 
-<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
 

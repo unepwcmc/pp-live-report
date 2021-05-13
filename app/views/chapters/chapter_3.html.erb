@@ -3,7 +3,6 @@
     <div class="box__text">
       <h4>Did we reach the target?</h4>
       <p class="p--small">By 2020, at least 17 percent of terrestrial and inland water areas and 10 percent of costal and marine.</p>
-      <%= link_to 'Explore all progress towards Aichi Target 11', 'https://www.protectedplanet.net/en/thematic-areas/global-partnership-on-aichi-target-11', title: 'Explore all progress towards Aichi Target 11 on Protected Planet', target: '_blank', class: 'button--external' %>
     </div>
     <div class="box__charts">
       <% @gauge_charts.each do |chart| %>
@@ -25,18 +24,19 @@
 <%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
 
 <section class="section-padding gutters">
-  <!-- TODO - Need CSV download links for maps -->
   <map-statistics 
     id="<%= @map_1[:id] %>"
     title="<%= @data['map_1_title'] %>"
     tiles-url="<%= @map_1[:tiles_url] %>" 
+    tiles-url-oecm="<%= @map_1[:tiles_url_oecm] %>"
     :tabs="<%= @map_1[:tabs].to_json %>"
-    :oecm-layer="<%= @map_1[:oecm_layer].to_json %>" 
     :oecm-present="true"
-    :file-download="'#'" 
+    file-download="<%= @map_1[:csv_url] %>"
     :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
   ></map-statistics>
 </section>
+
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
@@ -46,6 +46,7 @@
 
   <div class="container--medium">
     <am-chart
+      :options='{"y": { "max": 40 }}'
       :raw-data="<%= @line_chart %>"
       file-download="<%= @line_chart_csv_url %>" 
     ></am-chart>

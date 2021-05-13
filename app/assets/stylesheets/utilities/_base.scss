@@ -170,16 +170,41 @@ a {
   }
 }
 
+ol,
 ul {
   font-size: rem-calc(16);
   font-weight: $light;
-  padding-left: rem-calc(16);
+  line-height: 1.6;
+  padding-left: rem-calc(22);
 
   @include breakpoint($medium) { font-size: rem-calc(18); }
 }
 
 li {  
   margin-bottom: rem-calc(10);
+  padding-left: rem-calc(8);
+}
+
+blockquote {
+  border-left: 4px solid $grey-light;
+  color: $black;
+  font-family: $header-font;
+  font-size: rem-calc(20); 
+  font-weight: $normal;
+  line-height: 1.7;
+  padding-left: rem-calc(17);
+  text-align: left;
+
+  z-index: 1;
+
+  @include breakpoint($small) { 
+    line-height: 1.4;
+  }
+
+  @include breakpoint($medium) { 
+    font-size: rem-calc(25); 
+    padding-left: rem-calc(30);
+  }
 }
 
 //--------------------------------------------------

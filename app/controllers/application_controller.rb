@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
     @chapter_dates = ChapterDatesSerializer.new(CsvParser.chapter_dates).serialize
     @chapters_data = chapters_data
     @chapters = chapters
-    set_updated_dates
   end
 
   def chapters_data

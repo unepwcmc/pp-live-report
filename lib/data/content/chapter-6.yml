@@ -15,9 +15,9 @@ content_2:
   -
     "The GD-PAME stores assessments from 169 countries, conducted using 69 different methodologies. In total, 11% of protected areas in the WDPA have been assessed. Only 15.4% of countries have met the target of assessing management effectiveness across 60% of their protected lands and waters. Globally, management effectiveness assessments have been conducted across only 18.29% of the area covered by protected areas."
 
-map_1_title: "Management effectiveness per country"
-map_1_description: "Percentage of the total coverage in protected areas that is assessed for management effectiveness per country"
-map_1_source: "UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN; UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The Global Database on Protected Areas Management Effectiveness (GD-PAME), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+map_1_title: "Management effectiveness assessments per country"
+map_1_description: "Percentage of the area covered by protected areas where management effectiveness assessments have been conducted, per country"
+map_1_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], January 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.<br>The Global Database on Protected Areas Management Effectiveness (GD-PAME), May 2021 version, Cambridge, UK: UNEP-WCMC and IUCN."
 
 content_3: 
   - 

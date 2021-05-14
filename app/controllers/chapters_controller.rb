@@ -342,19 +342,19 @@ class ChaptersController < ApplicationController
       layers: [
         {
           id: 'inside-' + random_number,
-          text_large: 'Fully within Protected Areas',
+          text_large: 'Fully covered',
           source_layers: { poly: 'KBAs_2020_02_complete_pa_coverage' },
           colour: TRICOLOR_PALETTE[0]
         },
         {
           id: 'partial-' + random_number,
-          text_large: 'Partially within Protected Areas',
+          text_large: 'Partially covered',
           source_layers: { poly: 'KBAs_2020_02_partial_pa_coverage' },
           colour: TRICOLOR_PALETTE[1]
         },
         {
           id: 'outside-' + random_number,
-          text_large: 'Outside Protected Areas',
+          text_large: 'Not covered',
           source_layers: { poly: 'KBAs_2020_02_none_pa_coverage' },
           colour: TRICOLOR_PALETTE[2]
         }

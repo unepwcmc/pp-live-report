@@ -1,6 +1,6 @@
 es:
   summary: 
-    title: Summary text here
+    title: Sección 1. Resumen Ejecutivo
     text_1: "
     <p>Estamos entrando en una era que ofrece una oportunidad sin precedentes para abordar la crisis global que enfrenta la naturaleza.</p>
     <p>La pandemia de COVID-19 ha puesto de relieve la amenaza que representa la pérdida de biodiversidad, no solo para la salud de los ecosistemas, sino también para la salud de los seres humanos. Esto ha generado un nuevo impulso para aprovechar al máximo los beneficios de las áreas protegidas y conservadas.</p>
@@ -23,6 +23,9 @@ es:
     <li>El creciente reconocimiento del papel que pueden desempeñar las áreas protegidas y conservadas como soluciones basadas en la naturaleza frente al cambio climático y otros desafíos globales, así como su contribución al cumplimiento de múltiples Objetivos de Desarrollo Sostenible, proporciona una sólida justificación para invertir en redes nacionales y globales más eficaces.</li>   
     <li>Es probable que una mayor identificación y reconocimiento de las OMEC contribuya significativamente a mejorar el cumplimiento de todos los criterios, incluidos la conectividad, la representación ecológica, la diversidad de gobernanza y la cobertura (incluidas las áreas importantes para la diversidad biológica y los servicios ecosistémicos).</li>
     </ol>
-    <p>Estos hallazgos merecen la celebración del gran avance logrado durante los últimos diez años en el crecimiento de la red mundial de áreas protegidas y conservadas. De cara al futuro, el marco mundial de la diversidad biológica posterior a 2020 brinda una clara oportunidad para garantizar que los esfuerzos futuros tengan en cuenta en igual medida la cantidad y la calidad de las áreas protegidas y conservadas.</p>"
-    text_2: "<p>Los esfuerzos de gobiernos y otras partes interesadas para lograr la Meta 11 proporcionan una base al trabajo futuro para abordar las deficiencias existentes en la representación ecológica, la conectividad, la gobernanza equitativa y la cobertura de áreas importantes para la diversidad biológica. Esto requerirá estudiar minuciosamente cómo metas y ambiciones nacionales para un contexto específico pueden ser adoptadas, medidas y reportadas para el cumplimiento de las ambiciones globales de aumentar las áreas protegidas y conservadas efectivas.</p>
-    <p>Una red global de áreas protegidas y conservadas eficaces y equitativas desempeñará un papel fundamental en la protección de la salud de las personas y el planeta para las generaciones venideras. El <span class=\"italic\">Informe Planeta Protegido 2020</span> proporciona un sólido punto de partida para comenzar a trabajar hacia este ambicioso objetivo.</p>"
+    <p>Estos hallazgos merecen la celebración del gran avance logrado durante los últimos diez años en el crecimiento de la red mundial de áreas protegidas y conservadas. De cara al futuro, el marco mundial de la diversidad biológica posterior a 2020 brinda una clara oportunidad para garantizar que los esfuerzos futuros tengan en cuenta en igual medida la cantidad y la calidad de las áreas protegidas y conservadas.</p>
+    "
+    text_2: "
+    <p>Los esfuerzos de gobiernos y otras partes interesadas para lograr la Meta 11 proporcionan una base al trabajo futuro para abordar las deficiencias existentes en la representación ecológica, la conectividad, la gobernanza equitativa y la cobertura de áreas importantes para la diversidad biológica. Esto requerirá estudiar minuciosamente cómo metas y ambiciones nacionales para un contexto específico pueden ser adoptadas, medidas y reportadas para el cumplimiento de las ambiciones globales de aumentar las áreas protegidas y conservadas efectivas.</p>
+    <p>Una red global de áreas protegidas y conservadas eficaces y equitativas desempeñará un papel fundamental en la protección de la salud de las personas y el planeta para las generaciones venideras. El <span class=\"italic\">Informe Planeta Protegido 2020</span> proporciona un sólido punto de partida para comenzar a trabajar hacia este ambicioso objetivo.</p>
+    "

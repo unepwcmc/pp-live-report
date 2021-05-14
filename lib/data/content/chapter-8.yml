@@ -12,8 +12,8 @@ blockquote_text: "However, OECMs have significant potential to enhance the measu
 content_2: "Already we know that they improve the proportion of the world that is protected and connected by 0.8%, despite the extremely limited data. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses."
 
 map_1_title: "Protected connected land"
-map_1_description: "Map of ‘Protected connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
-map_1_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
+map_1_description: "Map of ‘Protected connected land’ per country, derived from the ProtConn indicator, for species with a median dispersal distance of 10 km"
+map_1_source: "Protected Connected Land (ProtConn), calculated by the European Commission's Joint Research Centre (JRC). Available via DOPA (https://dopa-explorer.jrc.ec.europa.eu/). More information: (https://dopa.jrc.ec.europa.eu/sites/default/files/DOPA%20Factsheet%20C1%20Connectivity.pdf)"
 
 content_3: "In July 2020, the IUCN WCPA Connectivity Conservation Specialist Group (CCSG) published the IUCN Guidelines for Conserving Connectivity through Ecological Networks and Corridors (Hilty <em>et al.</em>, 2020). The Guidelines are an important step towards a coherent global approach for connectivity conservation, providing clarity on the role of ecological corridors."
 

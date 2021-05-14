@@ -32,7 +32,7 @@
 
         <p>
           <small v-if="text.card_source" class="modal__image-source">
-            {{ text.title }}: {{ text.card_source }}
+            Photo credit: {{ text.card_source }}
           </small>
         </p>
       </div>
@@ -45,7 +45,7 @@
       <button class="modal__close icon--cross" @click.stop="modalClose" />
       <div class="modal__content--disclaimer">
         <h4 class="modal__title">{{ text.title }}</h4>
-        <p>{{ text.source }}</p>
+        <p v-html="text.source"/>
         <p v-html="text.text"/>
       </div>
     </div>

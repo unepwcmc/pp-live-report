@@ -17,8 +17,9 @@ import { eventHub } from "../../packs/application.js"
 export default {
   name: 'MapOECMToggle',
   props: {
-    gaId: {
-      type: String
+    eventElement: {
+      type: String,
+      default: "",
     },
     onText: {
       type: String,
@@ -61,8 +62,11 @@ export default {
 
       this.$emit('toggled', { mapId: this.mapId, includeOecms: this.isActive })
 
-      if(this.gaId) {
-        this.$ga.event(`Toggle - Include OECMs: ${this.isActive}`, 'click', this.gaId)
+      if(this.$ga) {
+        const label = this.isActive ? 'show layers' : 'hide layers'
+
+        // (category, action, label)
+        this.$ga.event(this.eventElement, 'click', label)
       }
     }
   }

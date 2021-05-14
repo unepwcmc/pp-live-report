@@ -23,18 +23,17 @@ content_4:
   -
     "The post-2020 global biodiversity framework is anticipated to incorporate a more ambitious coverage target on protected and conserved areas than Aichi Target 11, alongside quality elements. A focus on such elements will be essential to ensuring that systems of protected and conserved areas achieve real conservation outcomes. These elements are discussed in the following sections. "
 
-map_1_title: "Spatial distribution of the world’s protected areas"
-map_1_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+map_1_title: "Distribution of the world’s protected areas and OECMs"
+map_1_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
 area_charts_title: "Proportional coverage of protected areas"
 area_charts_description: "On average, coverage of marine protected areas continues to increase rapidly since 2016, whilst the growth in terrestrial protection has largely tapered off. The extent of protected area coverage is highly variable between countries in both land and ocean. Information on future commitments collected by the CBD Secretariat suggests that with concerted efforts from governments, coverage of protected areas will increase significantly over the next two years."
 area_chart_1_title: "Proportional coverage of protected areas in the land and ocean."
 area_chart_2_title: "Proportional coverage of protected areas in the land and ocean (including in EEZ versus ABNJ)."
 area_chart_2_smallprint: "EEZ: Exclusive Economic Zone; ABNJ: Areas Beyond National Jurisdiction. Source UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
-line_chart_title: "Growth in protected area coverage on land and in the ocean"
-line_chart_description: "Growth in protected area coverage on land and in the ocean (EEZ and ABNJ) between 1990 and 2018 and projected growth to 2020 according to commitments from countries and territories."
-line_chart_smallprint: "Source: Unpublished data from the CBD Secretariat<br>Source: UNEP-WCMC and IUCN. 2018. Protected Planet: The World Database on Protected Areas (WDPA), July 2018 version, Cambridge, UK: UNEP-WCMC and IUCN."
-map_2_title: "Extent of protected area coverage between countries and territories"
-map_2_source: "Source: UNEP-WCMC and IUCN. ${last_updated}. Protected Planet: The World Database on Protected Areas (WDPA), ${last_updated} version, Cambridge, UK: UNEP-WCMC and IUCN."
+line_chart_title: "Change in protected area and OECM coverage since 1990"
+line_chart_smallprint: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
+map_2_title: "National coverage of protected areas and OECMs"
+map_2_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], May 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net."
 
 photo_credits: "Aerial view of river, Iceland &copy; MAGNIFIER / Adobe Stock"
 
@@ -44,8 +43,10 @@ case_studies:
     card_source: Upper Antelope Canyon, USA © vichie81 / Adobe Stock
     label: 'Box 3'
     title: 'Global figures showing net increases in protected area coverage obscure legal rollbacks'
-    authors: 'Rachel Golden Kroner, Michael B. Mascia'
-    org: 'Conservation International'
+    authors: 
+      -
+        name: 'Rachel Golden Kroner and Michael B. Mascia'
+        org: 'Conservation International'
     image: 'case_study_3.png'
     text: "<blockquote>Impermanence of protected areas is more widespread than previously recognized, necessitating proactive and holistic policy responses to foster more durable conservation</blockquote>
 
@@ -55,14 +56,16 @@ case_studies:
 
     Although proximate causes vary, 61% of known enacted PADDD events were related to industrial-scale natural resource extraction and development. Smaller subsets of PADDD events were related to local pressures and land claims (28%) or conservation planning (2.5%). Notably, 10% of enacted PADDD events were later reversed, and 2.5% were offset by compensatory protected area expansions or upgrades.
 
-    Known ecological impacts of PADDD include accelerated deforestation, increased carbon emissions, and habitat fragmentation (Forrest<span class='italic'>et al.</span>, 2015; Golden Kroner<span class='italic'>et al.</span>, 2016). The growing scientific literature on PADDD demonstrates the need for comprehensive monitoring, transparency, rigorous analyses, and holistic policies that recognise the impermanence of some conservation initiatives and foster more durable conservation efforts and outcomes."
+    Known ecological impacts of PADDD include accelerated deforestation, increased carbon emissions, and habitat fragmentation (Forrest <span class='italic'>et al.</span>, 2015; Golden Kroner<span class='italic'>et al.</span>, 2016). The growing scientific literature on PADDD demonstrates the need for comprehensive monitoring, transparency, rigorous analyses, and holistic policies that recognise the impermanence of some conservation initiatives and foster more durable conservation efforts and outcomes."
   - 
     card_image: /images/case-studies/boyeh-dulang-hoan.jpg
     card_source: Boyeh Dulang, Tan Sakaran Marine Park © Hoan / Adobe Stock
     label: 'Box 4'
     title: 'Lessons from Oceania on the benefits of governance diversity'
-    authors: 'Vainuupo Jungblut'
-    org: 'Secretariat of the Pacific Regional Environment Programme (SPREP)'
+    authors: 
+      -
+        name: 'Vainuupo Jungblut'
+        org: 'Secretariat of the Pacific Regional Environment Programme (SPREP)'
     text: "<blockquote>Most protected and conserved areas in Oceania are territories and areas conserved by indigenous peoples and local communities, but many are not recognised and therefore not counted in global databases</blockquote>
     
     A growing body of evidence suggests that sustainable interactions of people and biodiversity, often following customary law and traditional knowledge, are effective for reaching biodiversity goals (IPBES, 2018). The Nagoya Protocol further recognises the vital role that women play in access and benefit-sharing and recommends their inclusion at all levels of policy-making and implementation of biodiversity conservation. Taking into account the differentiated needs of women and men among indigenous peoples and local communities, and the varied roles they play in restoring and safeguarding biodiversity, is also key to achieving equality in environmental governance – directly impacting sustainability.

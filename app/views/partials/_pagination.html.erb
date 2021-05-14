@@ -1,6 +1,7 @@
 <div class="pagination">
   <pagination
     :current-chapter="<%= chapter_number.to_i %>"
+    event-element="Pagination"
     :previous-chapter="'<%= fetch_chapter_links(chapter_number)[:previous_ch] %>'"
     :next-chapter="'<%= fetch_chapter_links(chapter_number)[:next_ch] %>'"
   ></pagination>

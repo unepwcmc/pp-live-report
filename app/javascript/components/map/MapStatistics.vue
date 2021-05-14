@@ -18,6 +18,7 @@
         <template v-if="tabs">
           <tabs 
             :id="`tabs-${id}`"
+            :event-element="`Map Tab - Map id: ${id}`"
             :map-id="id"
           >
             <tab
@@ -49,6 +50,7 @@
         <span class="map__oecm-toggle gutters" v-if="oecmPresent">
           Include OECMs (terrestrial and marine)
           <map-oecm-toggle 
+            :event-element="`Map OECM Toggle - Map id: ${id}`"
             :map-id="id"
             v-on:toggled="handleOecmToggleChange"
             v-on:hide-layers="hideLayers"
@@ -60,10 +62,10 @@
 
         <div class="map__buttons flex flex-v-center gutters">
           <download
+            event-element="Map - Download CSV"
             text="CSV Download"
             title="Download reports in CSV format"
             :file-download="fileDownload"
-            event-element="Download data link"
           ></download>
           <map-disclaimer :disclaimer="disclaimer"></map-disclaimer>
         </div>

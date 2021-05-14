@@ -11,6 +11,7 @@
     <download 
       v-if="fileDownload"
       class="chart--amchart__download"
+      event-element="Multiline Chart - Download CSV"
       :fileDownload="fileDownload"
       text="CSV Download"
     />

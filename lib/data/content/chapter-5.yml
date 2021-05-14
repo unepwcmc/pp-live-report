@@ -16,8 +16,8 @@ map_1_title: "Key Biodiversity Areas"
 map_1_description: "Map of Key Biodiversity Areas fully within (blue), partially within (green) or outside (red) protected areas on land and in the ocean (within EEZ)."
 map_1_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], January 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.<br><br>BirdLife International (2020). The World Database of Key Biodiversity Areas. Developed by the KBA Partnership: BirdLife International, International Union for the Conservation of Nature, Amphibian Survival Alliance, Conservation International, Critical Ecosystem Partnership Fund, Global Environment Facility, Global Wildlife Conservation, NatureServe, Rainforest Trust, Royal Society for the Protection of Birds, Wildlife Conservation Society and World Wildlife Fund. Available at www.keybiodiversityareas.org. [Accessed 01/12/2020]."
 
-line_chart_title: "Mean percentage coverage of each KBA by protected area since 2000"
-line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2020), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the WDPA (March 2020)."
+line_chart_title: "Change in mean percentage coverage of KBAs by protected areas and OECMs since 2000"
+line_chart_smallprint: "Source: BirdLife International, IUCN and UNEP-WCMC (2021), based on spatial overlap between polygons for Key Biodiversity Areas from the World Database of KBAs, compiled by BirdLife International and IUCN, and polygons for protected areas from the November 2020 WDPA and OECMs from the November 2020 WD-OECM."
 
 photo_credits: "Clown fish &copy; kichigin19 / Adobe Stock"
 
@@ -27,8 +27,10 @@ case_studies:
     card_source: Ik-Kil Cenote, Mexico © Subbotina Anna / Adobe Stock
     label: Box 7
     title: 'Reflections on national processes to identify priorities for biodiversity conservation in Mexico.'
-    authors: 'Andrew Rhodes Espinoza'
-    org: 'Implementation Coordinator, attached to the Foreign Affairs Ministry of Mexico'
+    authors: 
+      -
+        name: 'Andrew Rhodes Espinoza'
+        org: 'Implementation Coordinator, attached to the Foreign Affairs Ministry of Mexico'
     text: "<blockquote>In developing strategies to address conservation challenges, countries often complement international standards with national priority-setting exercises</blockquote>
 
     Despite global and national efforts to implement effective strategies to halt biodiversity loss, drive sustainable development, and ensure resilient ecosystems and communities, much remains to be done, including in the area of gender equal representation. In developing strategies to address these challenges, countries often complement international standards (such as KBAs) with national priority-setting exercises. \n
@@ -40,8 +42,10 @@ case_studies:
     card_source: Mangrove forest, The Gambia © CuriosoPhotography / Adobe Stock
     label: Box 8
     title: 'Areas of importance for ecosystem services: an overlooked element of Aichi Target 11'
-    authors: 'Nigel Dudley'
-    org: 'Equilibrium Research'
+    authors: 
+      -
+        name: 'Nigel Dudley'
+        org: 'Equilibrium Research'
     text: "<blockquote>There is an urgent need to develop more robust metrics and monitoring systems, and transparent ways of capturing the economic and other values of ecosystem services</blockquote>
     
     The importance of ecosystem services provided by protected and conserved areas is increasingly recognised (Stolton & Dudley, 2010), including for their contributions to delivering the Sustainable Development Goals (Dudley <em>et al.,</em> 2017), through food and water security, disaster risk reduction, climate change mitigation and supporting human health. Yet although Aichi Target 11 highlights “...areas of particular importance to biodiversity and ecosystem services” (our emphasis) the latter have often been ignored in reporting progress against the target. This is not surprising. Despite numerous examples of ecosystem services from individual protected and conserved areas, global or national estimates of their contributions remain inadequate. \n

@@ -35,8 +35,10 @@ case_studies:
     card_source: Mining in the Amazon rainforest, Brazil © Marcio Isensee e Sá / Adobe Stock
     label: 'Box 9'
     title: 'Tracking management effectiveness after 2020'
-    authors: 'Sue Stolton'
-    org: 'Equilibrium Research '
+    authors: 
+      - 
+        name: Sue Stolton
+        org: 'Equilibrium Research'
     text: "<blockquote>While site-level assessments are more focussed on management, the demand at the global level has often been for data on conservation outcomes</blockquote>
 
     Effectiveness needs to start from the ground up, ensuring sites are in the places most needing conservation management, that they are subject to good governance and that they deliver their goals effectively. Many tools have been developed, and adapted, for site-based management effectiveness assessments; descriptions of these tools, and details of the many thousands of sites that have used them, can be found on <a href='https://www.protectedplanet.net/en/thematic-areas/protected-areas-management-effectiveness-pame' title='Visit the Protected Planet GD PAME pages' target='_blank'>Protected Planet’s GD-PAME pages</a>. What has proved difficult however is taking these site - or sometimes system-based assessments and extracting one or two indicators for global effectiveness reporting. One problem has been a confusion in what is being reported; while site-level assessments are more focussed on management, the demand at the global level has often been for data on conservation outcomes. Most Protected Area Management Effectiveness (PAME) methodologies cannot deliver this, and often explicitly state that outcome monitoring needs other tools, systems and processes to complement management effectiveness assessment. \n

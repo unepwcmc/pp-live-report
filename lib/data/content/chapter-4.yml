@@ -31,8 +31,10 @@ case_studies:
     card_source: Fog over a mountain road © Sam / Adobe Stock
     label: 'Box 5'
     title: 'Systematic Conservation Planning'
-    authors: 'Javier Fajardo and Andy Arnell'
-    org: 'UNEP-WCMC'
+    authors: 
+      -
+        name: 'Javier Fajardo and Andy Arnell'
+        org: 'UNEP-WCMC'
     text: "<blockquote>Systematic Conservation Planning can guide the location of new protected areas, maximising benefits for people and nature, and has the potential to inform broader spatial planning in the landscape and seascape</blockquote>
 
     Building on the fields of biogeography and landscape ecology, and integrating social and economic concerns, systematic approaches to conservation planning (Margules and Pressey, 2000) have developed over the last two decades to provide decision support to efficiently meet conservation goals. Systematic Conservation Planning typically uses spatial analysis and selection algorithms to prioritise areas for protection based on representativity of priority species and/or ecosystems, thereby maximising positive outcomes for biodiversity while minimising economic and societal costs. \n
@@ -47,8 +49,10 @@ case_studies:
     card_source: Mountain road, UAE © Alexey Stiop / Adobe Stock
     label: 'Box 6'
     title: 'Global conservation area targets could be met most efficiently through differentiated responsibilities at the country level'
-    authors: 'Xiaoli Shen'
-    org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
+    authors: 
+      -
+        name: 'Xiaoli Shen'
+        org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
     image: 'case_study_4.png'
     text: "<blockquote>Adopting different percentage targets for different countries would conserve far more terrestrial vertebrate species and carbon stocks than setting uniform targets in all countries</blockquote>
     

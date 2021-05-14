@@ -11,8 +11,15 @@
       <div class="modal__content--case-study">
         <p v-if="text.report" class="modal__report">{{ text.report }}</p>
         <h2 class="modal__title">{{ text.title }}</h2>
-        <p v-if="text.authors" class="modal__authors">{{ text.authors }}</p>
-        <p v-if="text.org" class="modal__org">{{ text.org }}</p>
+        <template v-show="text.authors">
+          <p 
+            v-for="author, i in text.authors"
+            :key="`author-${Math.random(1000*i)}`"
+          >
+            <span>{{ author.name }}</span><br>
+            <span class="italic">{{ author.org }}</span>
+          </p>
+        </template>
 
         <div class="modal__figure">
           <img v-if="text.image" :src="text.image" class="modal__image" />

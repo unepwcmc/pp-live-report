@@ -43,8 +43,10 @@ case_studies:
     card_source: Hologram graph © denisismagilov / Adobe Stock
     label: 'Box 14'
     title: Progress on protected and conserved areas in an exceptionally biodiverse region
-    authors: 'Cristina Lazaro'
-    org: 'UNEP-WCMC'
+    authors:
+      - 
+        name: Cristina Lazaro
+        org: 'UNEP-WCMC'
     image: 'case_study_14.png'
     caption: 'Figure: Growth in the percentage of protected area coverage in the LAC region (2000-2020). Source: Álvarez Malvido <em>et al.</em>, 2021.'
     text: "<blockquote>Latin America and the Caribbean has an extraordinary biological and cultural diversity and the region has made great efforts to increase protection coverage</blockquote>
@@ -58,8 +60,10 @@ case_studies:
     card_source: A hiker in a forest © candy1812 / Adobe Stock
     label: 'Box 15'
     title: 'COVID-19: impacts on  on protected and conserved areas and opportunities for change'
-    authors: 'Mariana Napolitano Ferreira and Rachel Golden Kroner'
-    org: 'Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas'
+    authors:
+      -
+        name: Mariana Napolitano Ferreira and Rachel Golden Kroner
+        org: Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas
     text: "<blockquote>Protected and conserved areas have been impacted by the COVID-19 pandemic, but there is now a unique opportunity to support these areas through economic recovery plans that safeguard biodiversity, mitigate climate change, and reduce the risk of future pandemics</blockquote>
     
     The effects of COVID-19 on human health and economies are evident in protected areas and OECMs around the world. In addition to negative impacts on effectiveness, management capacity and budgets, communities living in and around these areas have experienced significant impacts on their livelihoods (Hockings <em>et al.</em>, 2020). \n          

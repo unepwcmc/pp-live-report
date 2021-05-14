@@ -28,10 +28,8 @@ case_studies:
     label: 'Box 14'
     title: 'Economic benefits of Marine Protected Areas'
 <<<<<<< HEAD
-    authors:
-      -
-        name: Enric Sala
-        org: Explorer-in-Residence, National Geographic Society
+    authors: 'Enric Sala'
+    org: 'Explorer-in-Residence, National Geographic Society'
     text: "<blockquote>Every 1 US Dollar invested in Marine Protected Areas produces a return of at least 10 US Dollars</blockquote>
     
 =======

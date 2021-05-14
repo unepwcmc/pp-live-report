@@ -24,6 +24,10 @@ import { eventHub } from '../../packs/application'
     name: 'tabs',
     
     props: {
+      eventElement: {
+        type: String,
+        default: "",
+      },
       initActiveId: String,
       id: {
         type: String,
@@ -55,6 +59,11 @@ import { eventHub } from '../../packs/application'
 
         this.selectedId = selectedChild.id
         this.emitChangeTab()
+
+        if(this.$ga) {
+          // (category, action, label)
+          this.$ga.event(this.eventElement, 'click', selectedChild.title)
+        }
       },
 
       emitChangeTab () {

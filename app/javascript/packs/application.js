@@ -18,6 +18,7 @@ if (window._railsEnv === 'production') {
   })
 }
 else if (window._railsEnv === 'staging') {
+  console.log('Google Analytics for staging')
   Vue.use(VueAnalytics, {
     id: 'UA-129227134-2',
     checkDuplicatedScript: true

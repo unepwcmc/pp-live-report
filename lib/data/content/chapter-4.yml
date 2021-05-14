@@ -4,22 +4,22 @@ subtitle: "Chapter 4"
 intro: "Compared to 10 years ago, the world’s network of protected and conserved areas covers a more representative sample of ecoregions. Nevertheless, 55.5% of terrestrial ecoregions do not yet have 17% coverage, and 52.6% of marine ecoregions do not yet have 10% coverage. Among the ocean’s pelagic provinces, largely beyond national jurisdiction, only 10.8% meet the 10% coverage target. The percentage of ecoregions entirely outside protected and conserved areas is now low in the terrestrial realm, at 5.4%, but higher in the marine realm at 15.1%."
 content_1:
   -
-    "Systems of protected and conserved areas will not deliver global biodiversity outcomes effectively if they do not include sufficient representation of the world’s ecosystems and species, a fact acknowledged through Aichi Target 11’s ‘ecologically representative’ wording. The coverage of ecoregions is generally used to assess this element of Target 11 (Gannon <em>et al.,</em> 2019), and is the metric used in this analysis."
+    "Systems of protected and conserved areas will not deliver global biodiversity outcomes effectively if they do not include sufficient representation of the world’s ecosystems and species, a fact acknowledged through Aichi Target 11’s ‘ecologically representative’ wording. The coverage of ecoregions<sup>1</sup> is generally used to assess this element of Target 11 (Gannon <em>et al.,</em> 2019), and is the metric used in this analysis."
   -
     "Since 2010, the number of the 821 terrestrial ecoregions<sup>2</sup> reaching 17% coverage has increased from 297 to 360 (rising to 365 when OECMs are factored in). The improvement is even more pronounced among the marine realm’s 232 ecoregions, with the number meeting the 10% target more than doubling from 49 to 110 (with no further additions when OECMs are factored in). Furthermore, the combined percentage of marine and terrestrial ecoregions entirely lacking protection (less than 1% coverage by protected areas and OECMs) has decreased from 15.2% to 7.4%. Although the ocean’s 37 pelagic provinces generally have limited protection, the percentage with no protection has dropped steeply from 83.8% in 2010 to 21.6% in 2020."
 map_1_title: "Extent of protected area and OECM coverage of ecoregions"
 map_1_description: "Protected area coverage of the world’s terrestrial, marine and province ecoregions of the world."
-map_1_source: "Source: UNEP-WCMC and IUCN. 2019. Protected Planet: The World Database on Protected Areas (WDPA), September 2019 version, Cambridge, UK: UNEP-WCMC and IUCN."
+map_1_source: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], January 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net. Olson D.M., Dinerstein E., Wikramanayake E.D. et al. 2001. Terrestrial ecoregions of the world: A new map of life on earth. Bioscience 51: 933-938."
 content_2: "However, many ecoregions remain under-protected. The 365 terrestrial ecoregions with at least 17% coverage by protected areas and OECMs represent fewer than half (44.5%) of all terrestrial ecoregions. Similarly, the 110 marine ecoregions with at least 10% coverage represent only 47.4% of such ecoregions. This drops further to 10.8% in pelagic provinces, which are considerably larger and fall largely outside national jurisdiction. Methodologies and datasets for assessing coverage of freshwater ecoregions vary, but studies agree they are less than 22% protected in total (Bastin <em>et al.,</em> 2019; UNEP-WCMC <em>et al.,</em> 2018)."
 blockquote_text: "Although some ecoregions contain more biodiversity than others, all ecoregions require at least some form of protection in order for the world’s protected and conserved areas to capture a representative sample of species and ecosystems."
-content_3: "There therefore remains a clear need to improve ecological representation, and attention is particularly needed in ecoregions that lack protection entirely, such as the Angolan montane forest-grassland mosaic ecoregion, Cargados Carajos/Tromelin Island ecoregion, and Eastern Anatolian deciduous forests ecoregion. Ways of increasing ecological representation include greater use of systematic conservation planning (Box 5), and consideration and wider uptake of nationally-differentiated targets (Box 6). "
-content_4: "<sup>1</sup> Ecological units of land, ocean or freshwater that share similar and geographically-distinct biological characteristics (Olson <em>et al.,</em> 2001; Spalding <em>et al.,</em> 2012, 2007).
-
-<sup>2</sup> Antarctic, Rock and Ice and Lake ecoregions have been excluded.
-"
+content_3: 
+  - "There therefore remains a clear need to improve ecological representation, and attention is particularly needed in ecoregions that lack protection entirely, such as the Angolan montane forest-grassland mosaic ecoregion, Cargados Carajos/Tromelin Island ecoregion, and Eastern Anatolian deciduous forests ecoregion. Ways of increasing ecological representation include greater use of systematic conservation planning (Box 5), and consideration and wider uptake of nationally-differentiated targets (Box 6)"
+  - "<sup>1</sup> Ecological units of land, ocean or freshwater that share similar and geographically-distinct biological characteristics (Olson <em>et al.,</em> 2001; Spalding <em>et al.,</em> 2012, 2007)."
+  - "<sup>2</sup> Antarctic, Rock and Ice and Lake ecoregions have been excluded."
 row_chart_title: "Coverage of biogeographic regions"
 row_chart_description: "Percentage of biogeographic regions meeting the coverage elements of Aichi Target 11 in 2010 and 2021."
-row_chart_smallprint: "Sources: Terrestrial ecoregions, realms and biomes from Olson et al. (2001). Marine ecoregions, realms and provinces from Spalding et al. (2007); pelagic provinces from Spalding et al. (2012)."
+row_chart_smallprint: "UNEP-WCMC and IUCN (2021) Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [On-line], January 2021, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.
+Olson D.M., Dinerstein E., Wikramanayake E.D. et al. 2001. Terrestrial ecoregions of the world: A new map of life on earth. Bioscience 51: 933-938."
 
 photo_credits: "Namib Sand Sea, Namibia &copy; Uwe / Adobe Stock"
 
@@ -30,8 +30,10 @@ case_studies:
     card_source: Fog over a mountain road © Sam / Adobe Stock
     label: 'Box 5'
     title: 'Systematic Conservation Planning'
-    authors: 'Javier Fajardo and Andy Arnell'
-    org: 'UNEP-WCMC'
+    authors: 
+      -
+        name: 'Javier Fajardo and Andy Arnell'
+        org: 'UNEP-WCMC'
     text: "<blockquote>Systematic Conservation Planning can guide the location of new protected areas, maximising benefits for people and nature, and has the potential to inform broader spatial planning in the landscape and seascape</blockquote>
 
     Building on the fields of biogeography and landscape ecology, and integrating social and economic concerns, systematic approaches to conservation planning (Margules and Pressey, 2000) have developed over the last two decades to provide decision support to efficiently meet conservation goals. Systematic Conservation Planning typically uses spatial analysis and selection algorithms to prioritise areas for protection based on representativity of priority species and/or ecosystems, thereby maximising positive outcomes for biodiversity while minimising economic and societal costs. \n
@@ -46,8 +48,10 @@ case_studies:
     card_source: Mountain road, UAE © Alexey Stiop / Adobe Stock
     label: 'Box 6'
     title: 'Global conservation area targets could be met most efficiently through differentiated responsibilities at the country level'
-    authors: 'Xiaoli Shen'
-    org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
+    authors: 
+      -
+        name: 'Xiaoli Shen'
+        org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
     image: 'case_study_4.png'
     text: "<blockquote>Adopting different percentage targets for different countries would conserve far more terrestrial vertebrate species and carbon stocks than setting uniform targets in all countries</blockquote>
     
@@ -56,4 +60,4 @@ case_studies:
         This approach will be explored in a forthcoming study, for which spatial prioritisations using potential 30% and 50% conservation targets were generated. These spatial prioritizations aimed to maximize the conservation of species diversity and carbon, ensure representativeness among ecoregions, and minimize the total cost of the solution. The findings suggested that adopting different percentage targets for different countries, adding up to a global coverage target (i.e., 30% or 50%), would conserve far more terrestrial vertebrate species and carbon stocks than setting uniform targets in all countries. However, the implied highly varied conservation targets among countries (including nearly 100% of some countries’ land mass) and greater conservation burdens for economically-poorer countries indicate substantial (and in some cases insurmountable) challenges for countries to fully adopt and achieve such differentiated conservation targets. \n
 
         However, addressing some of these challenges, including through the availability of sufficient resources, would allow for differentiated contributions to be made to the global protected and conserved area targets from nationally-appropriate targets (which might vary depending on how biodiversity, ecosystem services, or other values are prioritised). Approaches to mobilize transformative change (e.g. the Three Global Conditions, Locke <em>et al.,</em> 2019), and mechanisms to ensure fair sharing of the costs of conservation, would be needed to support the achievement of high national protection targets."
-    caption: 'Figure: percentage of current protected areas (PAs), unprotected Key Biodiversity Areas (KBAs), prioritized conservation areas (excluding PAs and KBAs), and uncovered areas (i.e., areas not identified as conservation priorities) for countries under the global scenarios to meet the 30% (Figure A) and 50% (Figure B) conservation targets, respectively. The blue circles in Figures A and B represent the 30% and 50% percentage targets, respectively. Countries with a terrestrial area < 18,000 km2 are excluded.'
+    caption: 'Figure: percentage of current protected areas (PAs), unprotected Key Biodiversity Areas (KBAs), prioritized conservation areas (excluding PAs and KBAs), and uncovered areas (i.e., areas not identified as conservation priorities) for countries under the global scenarios to meet the 30% (Figure A) and 50% (Figure B) conservation targets, respectively. The blue circles in Figures A and B represent the 30% and 50% percentage targets, respectively. Countries with a terrestrial area < 18,000 km<sup>2</sup> are excluded.'

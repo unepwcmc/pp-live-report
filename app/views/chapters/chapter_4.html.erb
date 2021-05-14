@@ -23,6 +23,7 @@
   <div class="container--medium">
     <download
       class="section-padding--bottom"
+      event-element="Row Chart - Download CSV"
       file-download="<%= @row_charts_csv_url %>"
       text="CSV Download"
     ></download>
@@ -44,5 +45,3 @@
 <%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
 
 <%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
-
-<%= render partial: 'partials/main-text', locals: { text: @data['content_4'] } %>

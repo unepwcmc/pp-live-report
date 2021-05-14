@@ -19,7 +19,7 @@ content_2: " The Aichi Targets and the ambitions that will succeed them have alw
 blockquote_text_2: "By 2050, biodiversity is valued, conserved, restored and wisely used, maintaining ecosystem services, sustaining a healthy planet and delivering benefits essential for all people."
 
 content_3: 
-  - "Achieving this vision will be challenging, but governments around the world are taking up this challenge through the development of the post-2020 global biodiversity framework as a roadmap towards the vision. Alongside the development and adoption of the framework, many governments and other actors are already committing to more ambitious action on biodiversity loss (e.g. United Nations, 2020; <a href='www.leaderspledgefornature.org/' title='Visit the Leaders Pledge for Nature' target='_blank'>Leaders' Pledge for Nature</a>). "
+  - "Achieving this vision will be challenging, but governments around the world are taking up this challenge through the development of the post-2020 global biodiversity framework as a roadmap towards the vision. Alongside the development and adoption of the framework, many governments and other actors are already committing to more ambitious action on biodiversity loss (e.g. United Nations, 2020; <a href='https://www.leaderspledgefornature.org/' title='Visit the Leaders Pledge for Nature' target='_blank'>Leaders' Pledge for Nature</a>). "
   - "No summary of the decade can be complete without an acknowledgement of the way it ended."
 
 blockquote_text_3: "COVID-19 (Box 15) has devastated lives, livelihoods and economies. It has forced us to recognise that biodiversity loss cannot continue."  
@@ -43,8 +43,10 @@ case_studies:
     card_source: Hologram graph © denisismagilov / Adobe Stock
     label: 'Box 14'
     title: Progress on protected and conserved areas in an exceptionally biodiverse region
-    authors: 'Cristina Lazaro'
-    org: 'UNEP-WCMC'
+    authors:
+      - 
+        name: Cristina Lazaro
+        org: 'UNEP-WCMC'
     image: 'case_study_14.png'
     caption: 'Figure: Growth in the percentage of protected area coverage in the LAC region (2000-2020). Source: Álvarez Malvido <em>et al.</em>, 2021.'
     text: "<blockquote>Latin America and the Caribbean has an extraordinary biological and cultural diversity and the region has made great efforts to increase protection coverage</blockquote>
@@ -58,8 +60,10 @@ case_studies:
     card_source: A hiker in a forest © candy1812 / Adobe Stock
     label: 'Box 15'
     title: 'COVID-19: impacts on  on protected and conserved areas and opportunities for change'
-    authors: 'Mariana Napolitano Ferreira and Rachel Golden Kroner'
-    org: 'Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas'
+    authors:
+      -
+        name: Mariana Napolitano Ferreira and Rachel Golden Kroner
+        org: Co-chairs IUCN WCPA Task Force on COVID-19 and Protected Areas
     text: "<blockquote>Protected and conserved areas have been impacted by the COVID-19 pandemic, but there is now a unique opportunity to support these areas through economic recovery plans that safeguard biodiversity, mitigate climate change, and reduce the risk of future pandemics</blockquote>
     
     The effects of COVID-19 on human health and economies are evident in protected areas and OECMs around the world. In addition to negative impacts on effectiveness, management capacity and budgets, communities living in and around these areas have experienced significant impacts on their livelihoods (Hockings <em>et al.</em>, 2020). \n          

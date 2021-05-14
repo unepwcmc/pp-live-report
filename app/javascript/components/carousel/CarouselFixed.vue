@@ -28,7 +28,12 @@
         <p class="carousel__subtitle">{{ slide.subtitle}}</p>
         <h2 class="carousel__title">{{ slide.title }}</h2>
         <p class="carousel__intro" v-html="slide.intro"/>
-        <a :href="slide.url" :title="'View chapter: #{slide.title}'" class="carousel__button button--cta">View chapter</a>
+        <a
+          @click="clickButton(slide.subtitle)" 
+          :href="slide.url" 
+          :title="'View chapter: #{slide.title}'" 
+          class="carousel__button button--cta"
+        >View chapter</a>
       </div>
     </section>
   </div>
@@ -46,6 +51,10 @@ export default {
   name: 'carousel-fixed',
 
   props: {
+    eventElement: {
+      type: String,
+      default: "",
+    },
     slides: {
       type: Array,
       required: true
@@ -82,6 +91,12 @@ export default {
   },
 
   methods: {
+    clickButton (chapter) {
+      if(this.$ga) {
+        this.$ga.event(this.eventElement, 'click', `Go to: ${chapter}`)
+      }
+    },
+
     navItemActive (index) {
       return this.activeIndex == index
     },

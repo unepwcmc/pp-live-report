@@ -38,7 +38,13 @@ case_studies:
     authors:
       -
         name: Lucy Bastin
-        org: Aston University, UK; Mariagrazia Graziano - Joint Research Centre, European Commission; Justin Springer - IUCN'
+        org: Aston University, UK
+      -
+        name: Mariagrazia Graziano
+        org: Joint Research Centre, European Commission
+      -
+        name: Justin Springer
+        org: IUCN
     image: 'case_study_12.png'
     caption: 'Figure 1: Protected (green) and unprotected (red) areas of seagrass across the Caribbean pilot study region.'
     source: 'This analysis allows the identification of protected areas whose connection to the network is particularly vulnerable and where extra buffering or linking could be considered. The method provides additional benefits by prioritising areas where strategic interventions are feasible, highlighting the importance of comprehensive habitat maps that, when paired with local knowledge, can inform design and management decisions.'

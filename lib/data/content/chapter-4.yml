@@ -28,8 +28,10 @@ case_studies:
     card_source: Fog over a mountain road © Sam / Adobe Stock
     label: 'Box 5'
     title: 'Systematic Conservation Planning'
-    authors: 'Javier Fajardo and Andy Arnell'
-    org: 'UNEP-WCMC'
+    authors: 
+      -
+        name: 'Javier Fajardo and Andy Arnell'
+        org: 'UNEP-WCMC'
     text: "Building on the fields of biogeography and landscape ecology, and integrating social and economic concerns, systematic approaches to conservation planning (Margules and Pressey, 2000) have developed over the last two decades to provide decision support to efficiently meet conservation goals. Systematic Conservation Planning typically uses spatial analysis and selection algorithms to prioritise areas for protection based on representativity of priority species and/or ecosystems, thereby maximising positive outcomes for biodiversity while minimising economic and societal costs. \n
 
         The approach is based on clearly stated underlying principles and target-setting, promoting transparency and accountability in decision making. Crucially, Systematic Conservation Planning should be used alongside consultations with local people and other stakeholders to identify where and how conservation efforts should be scaled up – either by establishing new protected and conserved areas, or by providing increased support to measures not previously considered part of the formal conservation network. \n
@@ -40,8 +42,10 @@ case_studies:
     card_source: Mountain road, UAE © Alexey Stiop / Adobe Stock
     label: 'Box 6'
     title: 'Global conservation area targets could be met most efficiently through differentiated responsibilities at the country level'
-    authors: 'Xiaoli Shen'
-    org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
+    authors: 
+      -
+        name: 'Xiaoli Shen'
+        org: 'Institute of Botany, Chinese Academy of Sciences (IBCAS)'
     image: 'case_study_4.png'
     text: "Countries are encouraged by CBD to adapt conservation area targets to national conditions (CBD, 2010). However, many countries have previously adopted the same percentage coverage target as the global target under previous conservation frameworks. Given that biodiversity is unevenly distributed across the planet and accounting for a wide variety of national contexts, a more efficient and effective approach to protecting global biodiversity would be for countries to adopt differentiated conservation targets as a contribution to overall global coverage targets. \n
 

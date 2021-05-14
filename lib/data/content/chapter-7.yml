@@ -22,7 +22,13 @@ case_studies:
     card_source: A farmer in Tanzania © Rafal Cichawa / Adobe Stock
     label: 'Box 10'
     title: 'Governance assessment in Tanzania reveals enormous potential for ‘Territories of Life’'
-    authors: 'Jennifer Kelleher - Programme Lead, Governance, Equity & Rights, Global Protected Areas Programme, IUCN; Dr. Stephen Nindi - Director General National Land Use Planning Commission (NLUPC) Tanzania. '
+    authors: 
+        -
+          name: Jennifer Kelleher
+          org: Programme Lead, Governance, Equity & Rights, Global Protected Areas Programme, IUCN
+        - 
+          name: Dr. Stephen Nindi
+          org: Director General National Land Use Planning Commission (NLUPC) Tanzania
     text: "Throughout history, indigenous peoples and local communities have been the main decision makers in the management of natural resources. When there is a strong bond between such a community and a body of resources, and the governing authority takes decisions that lead to voluntary, long term conservation, these areas are recognised as ICCAs or territories of life. Many ICCAs also align with the definition of a protected area or OECM, and are recognised by IUCN and the CBD as such. Many of the ancient customs still in practice today are those that belonged to the world’s oldest conservationists. These are not outdated methods, but rather dynamic and adaptive land management techniques that secure livelihoods, well-being, cultural values and conservation.\n
            A governance assessment process led by IUCN in Tanzania over 2017-2019 sought to uncover the presence of ICCAs and understand their needs and challenges for support and recognition. A series of national dialogues brought together Tanzanian authorities, traditional knowledge holders, conservation practitioners and others. Central also to this process was the recognition of the critical work of the Pastoral Women’s Council (PWC) in securing equitable protected areas. The PWC support women to secure land and property rights, so as to strengthen the key role they already play in the governance and management of ICCAs. \n
            The potential for recognising ICCAs in Tanzania is enormous. One notable example is found in the Matengo territory, an area of mountain ridge <em>ntambo</em>, steep slopes and open forest. The Sengu governing authority oversees a traditional cultivation technique, <em>ngolo</em>, which controls soil erosion, restores soil fertility and conserves the forest while allowing for livelihood improvement through the cultivation of coffee. This system has its governance structure formalised in the Tanzanian regulatory framework, revealing an impressive rooting of conservation in both traditional and modern national cultural identities. Examples such as this can be of rich value to the world, contributing to successful systems of protected and conserved areas. "

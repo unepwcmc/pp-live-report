@@ -9,7 +9,7 @@ content_1:
 
 blockquote_text: "However, OECMs have significant potential to enhance the measures of connectivity once they have been more extensively identified, mapped and recognised.  "
 
-content_2: "Already we know that they improve the proportion of the world that is protected and connected by 0.8%, despite the extremely limited data. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses."
+content_2: "Already we know that they increase the proportion of the world that is protected and connected by 0.8 percentage points, despite the extremely limited data. Furthermore, there is a need for more consideration of connectivity outside and between protected areas and OECMs. Such connectivity is provided primarily through ecological corridors. Like OECMs, ecological corridors have not yet been identified or mapped at a significant scale, and further work is needed before they can be factored into connectivity analyses."
 
 map_1_title: "Protected connected land"
 map_1_description: "Map of ‘Protected connected land’ per country, derived from the ProtConn indicator, for species with a median dispersal distance of 10 km"
@@ -48,7 +48,7 @@ case_studies:
         name: Justin Springer
         org: IUCN
     image: 'case_study_12.png'
-    caption: 'Figure: Protected (green) and unprotected (red) areas of seagrass across the Caribbean pilot study region.'
+    caption: 'Figure: Protected (black) and unprotected (white) areas of seagrass across the Caribbean pilot study region.'
     text: "<blockquote>Unprotected seagrass habitat can significantly boost the functional connectivity of protected marine habitats through 'stepping-stone' effects: a reason to consider the wider seascape in conservation and restoration planning</blockquote>
     
     Oceans are complex systems, and marine connectivity can be estimated and predicted differently depending on the approaches applied and metrics used (Bryan-Brown <em>et al.</em>, 2017). Ocean circulation, habitat structures, nutrients and genetics can exhibit diverse connectivity patterns. A multidisciplinary approach is therefore fundamental to obtaining the best guidelines for incorporating connectivity into Marine Protected Area (MPA) network design (Balbar and Metaxas, 2019). \n

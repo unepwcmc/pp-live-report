@@ -6,36 +6,23 @@ class ApplicationController < ActionController::Base
     @chapter_dates = ChapterDatesSerializer.new(CsvParser.chapter_dates).serialize
     @chapters_data = chapters_data
     @chapters = chapters
-    set_updated_dates
   end
 
   def chapters_data
-    chapters_data = []
-
-    (1..10).each do |i|
-      yaml_data = load_yaml("#{content_base_path}/chapter-#{i}.yml", yaml_replace_data["chapter_#{i}"])
-
-      chapters_data.push(yaml_data)
+    (1..11).map do |i|
+      load_yaml("#{content_base_path}/chapter-#{i}.yml", yaml_replace_data["chapter_#{i}"])
     end
-    
-    chapters_data
   end
 
   def chapters
-    chapters = []
-
-    (1..10).each do |i|
-      chapter_data = @chapters_data[i-1]
-
-      chapters.push({
+    @chapters_data.each_with_index.map do |chapter_data, index|
+      {
         'title': chapter_data['menu_title'],
         'subtitle': chapter_data['subtitle'],
         'intro': chapter_data['intro'],
-        'url': send("chapter_#{i}_path")
-      })
-    end 
-    
-    chapters
+        'url': send("chapter_#{index + 1}_path")
+      }
+    end
   end
 
   def content_base_path
@@ -49,20 +36,17 @@ class ApplicationController < ActionController::Base
       @chapter_dates[params[:action]] : 
       @chapter_dates['home']
 
-    @last_updated_date = dates['last_updated'] 
-    @next_updated_date = dates['next_updated'] 
+    @last_updated_date = dates['last_updated']
   end
 
   def yaml_replace_data
+    chapter_3_dates = GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize
+
     data = {
-      'chapter_2' => GlobalMonthlyStatsSerializer.new(CsvParser.pp_global_monthly_stats).serialize,
-      'chapter_5' => {}
+      'chapter_3' => chapter_3_dates,
+      'chapter_6' => {}
     }
 
-    data.keys.each do |chapter|
-      data[chapter].merge!(@chapter_dates[chapter])
-    end
-
-    data
+    data.each { |key, value| value.merge!(@chapter_dates[key]) }
   end
 end

@@ -1,45 +1,36 @@
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_1'] %></p>
-  </div>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
+
+<section class="section-padding gutters">
+  <map-statistics
+    id="<%= @map[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map[:tiles_url] %>"
+    tiles-url-oecm="<%= @map[:tiles_url_oecm] %>"
+    :tabs="<%= @map[:tabs].to_json %>"
+    :layers="<%= @map[:layers].to_json %>"
+    :oecm-present="true"
+    file-download="<%= @map[:csv_url] %>"
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
 </section>
 
-<map-statistics 
-  id="<%= @map_1[:id] %>" 
-  title="<%= @data['map_1_title'] %>" 
-  description="<%= @data['map_1_description'] %>" 
-  :tabs="<%= @map_1[:tabs].to_json %>"
-  tiles-url="<%= @map_1[:tiles_url] %>" 
-  source="<%= @data['map_1_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
->
-</map-statistics> 
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
 <section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_2'] %></p>
-  </div>
-</section>
 
- <map-statistics 
-  id="<%= @map_2[:id] %>"
-  title="<%= @data['map_2_title'] %>"
-  description="<%= @data['map_2_description'] %>"
-  :tabs="<%= @map_2[:tabs].to_json %>"
-  tiles-url="<%= @map_2[:tiles_url] %>"
-  source="<%= @data['map_2_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
->
-</map-statistics> 
-
-<section class="section-padding">
-  
   <%= render partial: 'partials/component-title', locals: { title: @data['row_chart_title'], intro: @data['row_chart_description'] } %>
 
   <div class="container--medium">
+    <download
+      class="section-padding--bottom"
+      event-element="Row Chart - Download CSV"
+      file-download="<%= @row_charts_csv_url %>"
+      text="CSV Download"
+    ></download>
+
     <% @row_charts.each do |item| %>
-      <h3><%= item[:title] %></h3>
-      
+      <p class="chart--row__subtitle"><%= item[:title] %></p>
+
       <div class="flex flex-wrap flex-h-between">
         <% item[:charts].each do |chart| %>
           <chart-row title="<%= chart[:chart_title] %>" theme="<%= chart[:theme] %>" :rows="<%= chart[:rows].to_json %>"></chart-row>
@@ -51,4 +42,6 @@
   </div>
 </section>
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>

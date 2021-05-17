@@ -1,0 +1,25 @@
+// Styles
+.cards {
+  &--case-studies {
+    margin-top: rem-calc(42);
+    margin-bottom: rem-calc(55);
+
+    .cards {
+      &__cards {
+        @include flex;
+        @include flex-h-between;
+        @include flex-wrap;
+
+        button:first-child:nth-last-child(4),
+        button:first-child:nth-last-child(4)~button {
+          @include breakpoint($medium) {
+            width: calc(50% - 10px);
+            & > div:nth-of-type(3) {
+              padding: rem-calc(26 141 0 31);
+            }
+          }
+        }
+      }
+    }
+  }
+}

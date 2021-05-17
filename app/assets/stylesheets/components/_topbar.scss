@@ -2,15 +2,44 @@
 // topbar
 //--------------------------------------------------
 .topbar {
+  &--primary {
+    background-color: $black;
+    height: rem-calc(60);
+
+    @include breakpoint($small) { height: rem-calc(80); }
+    @include breakpoint($medium) { 
+      margin-bottom: auto;
+      height: $topbar-height-large;
+    }
+  }
+
   &__site-link {
+    @include flex;
     text-decoration: none;
   }
   
-    &__logo {
-      opacity: .8;
-      width: auto; height: rem-calc(24);
+  &__logo {
+    width: auto; height: rem-calc(30);
 
-      @include breakpoint($small) { height: rem-calc(44); }
-      @include breakpoint($medium) { height: rem-calc(48); }
+    @include breakpoint($small) { height: rem-calc(44); }
+    @include breakpoint($medium) { height: rem-calc(48); }
+  }
+
+  &__download {
+    .button--download {
+      @include breakpoint-down($small) {
+        padding: rem-calc(8 9);
+      }
     }
+
+    .button--download__text {
+      display: none;
+    
+      @include breakpoint($small) {
+        font-size: rem-calc(18);
+
+        display: block;
+      }
+    }
+  }
 }

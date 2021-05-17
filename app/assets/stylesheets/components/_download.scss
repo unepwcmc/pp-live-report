@@ -1,0 +1,56 @@
+.download {
+  &__target {
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__popup {
+    background-color: $grey;
+    border-radius: 3px;
+    padding: rem-calc(10 20);
+    min-width: rem-calc(180);
+
+    position: absolute;
+    top: calc(100% + #{$popup-download-arrow-height * 2});
+    right: 8%;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      @include triangle(rem-calc(38), $popup-download-arrow-height, $grey);
+
+      position: absolute;
+      top: -$popup-download-arrow-height;
+      right: calc(#{$popup-download-arrow-height}*1.6);
+    }
+  }
+
+  &__link {
+    color: $white;
+    cursor: pointer;
+    font-size: rem-calc(18);
+    padding-top: rem-calc(5);
+    padding-bottom: rem-calc(5);
+
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

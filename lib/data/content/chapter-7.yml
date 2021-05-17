@@ -1,18 +1,37 @@
-title: "Well-Connected Systems"
-menu_title: "Well-Connected Systems"
+title: "Equitably managed"
+menu_title: "Equitably managed"
 subtitle: "Chapter 7"
-intro: "Connectivity between protected areas is essential to maintain the viability of species, communities and ecosystems. Metrics to measure connectivity at the global level have been developed, and reveal that about half of the global protected area network consist in connected lands, and that 30% of countries currently meet the connectivity element of Aichi Target 11. There are at present no available analyses of trends in protected area connectivity over time. However, many countries have now developed connectivity initiatives to enhance ecological connections between protected areas, in an effort to counter the ongoing fragmentation of ecosystems."
-content_1: "Connectivity is particularly important given the many threats faced by biodiversity, including from climate change, and the increasing isolation of natural habitats in many parts of the world. A number of initiatives have recently been developed at various scales to promote connectivity between protected areas and other conservation areas."
-cta_title: "Case Study: Wildlife migratory corridors and dispersal areas in Kenya"
-cta_text: "This example shows how connectivity areas can be identified and provides recommendations on how to best address the impacts of human pressure on these corridors."
-cta_url: "http://wcmc.io/pp-ch7-cta1"
-content_2: "At the global level, a new indicator, “Protected Connected” (ProtConn), was recently developed to quantify the degree to which national terrestrial protected area systems are well designed to promote connectivity. This study found that on average 7.5% of the terrestrial surface of the planet is covered by protected connected lands, which is about half of the global protected area coverage (~15.0%), and that 30% of the countries currently meet the connectivity element of Aichi Target 11."
-map_1_title: "Protected Connected land"
-map_1_description: "Map of ‘Protected Connected land’ in the world using the ProtConn indicator, for species with a median dispersal distance of 10 km."
-map_1_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
-content_3: "This study also identified key priorities for countries to enhance the connectivity of protected area networks."
-map_2_title: "Enhancing protected area connectivity"
-map_2_description: "Recommended priorities for countries in order to enhance protected area connectivity on land."
-map_2_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
-map_3_source: "Source: Saura S., Bertzky B., Bastin L., Battistella L., Mandrici A. and Dubois G. 2018. Protected area connectivity: Shortfalls in global targets and country-level priorities. Biological Conservation 219: 53-67"
-photo_credits: "Photo credits: Amazon River Iquitos, Peru &copy; Christian Vinces / Adobe Stock"
+intro: "The quality of governance in protected and conserved areas, including equity, remains challenging to assess globally. Nevertheless, significant progress has been made since 2010 in developing tools to assess and enhance equitable governance. There remains a need for equitable recognition of the contributions of diverse groups to conservation, notably those of indigenous peoples, local communities and private actors.  "
+content_1: 
+  - "The ‘equitably managed’ element of Aichi Target 11 is often understood as ‘equitably governed’ (CBD, 2018) since it relates to the quality of governance (good governance) in protected and conserved areas. In this context, equity can be understood as encompassing recognition, procedure and distribution. It covers respect for stakeholders and their rights; decision-making processes, including transparency, accountability and dispute resolution; and the fair distribution of costs and benefits. When applied equitably, these elements of governance yield important benefits. Firstly, they ensure that the costs of conservation are not borne solely by local people (often those most directly reliant on natural resources within protected and conserved areas), while its benefits are enjoyed by others. Secondly, they enable the equitable participation of all stakeholders, including women and other marginalised groups, in decision making and in the sharing of benefits arising from the management of protected and conserved areas. Thirdly, they are necessary to building conservation networks that have the support of local people, a factor that is closely linked to positive biodiversity outcomes (Oldekop <em>et al.</em>, 2016). These factors are of particular importance considering that the designation and governance of protected areas has sometimes been harmful to indigenous peoples and local communities, including by violating their rights, removing them from their lands, and revoking their access to culturally-important natural resources (Stevens <em>et al.</em>, 2016). "
+  - "There have been recent advances in our understanding of governance and equity (Zafra-Calvo <em>et al.</em>, 2019; Zafra-Calvo <em>et al.</em>, 2017; Borrini-Feyerabend <em>et al.</em>, 2014), and methodologies have been designed to assess equity and governance in the protected area context. For example, the Site-level Assessment of Governance and Equity (SAGE) methodology (IIED, 2020) (developed through the joint efforts of conservation agencies, NGOs and research organisations led by IIED) enables local stakeholders to improve the governance and equity of their conservation work. Furthermore, it generates information for stakeholders at higher levels that can help inform management oversight, improving the governance of the protected and conserved area system as a whole, and informing national and global reporting. "
+  - "SAGE takes the form of a multi-stakeholder self-assessment that distinguishes perspectives from different stakeholder groups, including by gender. The SAGE questionnaire is designed around 10 principles of equity and governance. It captures qualitative information including specific governance challenges identified by different stakeholders, reasons for differences in perspectives, and potential actions to address the challenges and promote convergence of perspectives. SAGE includes optional modules on improving governance, equity and monitoring. It is also being linked to various IUCN Green List assessments."
+
+blockquote_text: "Despite these advances, achieving equitable governance remains one of the greatest challenges faced by the world’s conservation network."
+
+content_2:
+  - "Among other things, an equitably governed conservation network is one where a diversity of governance types is recognised (Box 10). However, to date the conservation efforts of private actors, indigenous peoples and local communities remain undervalued and under-reported to the WDPA and WD-OECM, though their contributions to conservation are extensive."     
+  - "There is a need for greater recognition of the role of non-state actors in conservation, underpinned by (with their consent) improved reporting of non-state protected areas and OECMs to the WDPA and WD-OECM, and therefore availability of information on the extent of their contributions. There is also a need to roll out and refine methodologies like SAGE, establish and maintain a global reporting system for equity assessments of protected and conserved areas, and use the information reported to ensure that the world’s conservation network truly works for people as well as nature."
+
+
+photo_credits: "Stilt fishing in Galle, Sri Lanka &copy; MehmetOZB / Adobe Stock"
+         
+case_studies:
+  - 
+    card_image: /images/case-studies/farmer-in-tanzania-rafal-cichawa.jpg
+    card_source: A farmer in Tanzania © Rafal Cichawa / Adobe Stock
+    label: 'Box 10'
+    title: 'Governance assessment in Tanzania reveals enormous potential for ‘Territories of Life’'
+    authors: 
+      -
+        name: Jennifer Kelleher
+        org: IUCN
+      - 
+        name: Stephen Nindi
+        org: National Land Use Planning Commission (NLUPC), Tanzania.
+    text: "<blockquote>The conservation practices of indigenous peoples and local communities provide mutual benefits for people and biodiversity. When appropriately recognised and supported, they can strengthen networks of protected and conserved areas</blockquote>
+    
+    Throughout history, indigenous peoples and local communities have been the main decision makers in the management of natural resources. When there is a strong bond between such a community and a body of resources, and the governing authority takes decisions that lead to voluntary, long term conservation, these areas are recognised as ICCAs or territories of life. Many ICCAs also align with the definition of a protected area or OECM, and are recognised by IUCN and the CBD as such. Many of the customs still in practice today are those that belonged to the world’s oldest conservationists. These voluntary and self-directed conservation methods are dynamic and adaptive, securing livelihoods, well-being, cultural values and conservation.\n
+    A governance assessment process led by IUCN in Tanzania over 2017-2019 sought to uncover the presence of ICCAs and understand their needs and challenges for support and recognition. A series of national dialogues brought together Tanzanian authorities, representatives of ICCAs, conservation practitioners and others. Central also to this process was the recognition of the critical work of the Pastoral Women’s Council (PWC) in securing equitable protected areas. The PWC support women to secure land and property rights, so as to strengthen the key role they already play in the governance and management of ICCAs. \n
+    One notable ICCA is found in the Matengo territory, an area of mountain ridge <em>ntambo</em>, steep slopes and open forest. The Sengu governing authority oversees a traditional cultivation technique, <em>ngolo</em>, which controls soil erosion, restores soil fertility and conserves the forest while allowing for livelihood improvement through the cultivation of coffee. This system has its governance structure formalised in the Tanzanian regulatory framework, revealing an impressive rooting of conservation in both traditional and modern national cultural identities. As the national dialogues revealed, the potential for recognising and appropriately supporting ICCAs in Tanzania is enormous. Examples such as Matengo can be of rich value to the world, contributing to well-integrated systems of protected and conserved areas."
+

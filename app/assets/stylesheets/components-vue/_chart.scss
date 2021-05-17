@@ -56,7 +56,7 @@
 }
 
 //--------------------------------------------------
-// chart
+// chart 
 //--------------------------------------------------
 .chart {
 
@@ -116,6 +116,7 @@
 //--------------------------------------------------
 // charts
 //--------------------------------------------------
+  @import './charts/chart-amchart';
   @import './charts/chart-area';
   @import './charts/chart-column';
   @import './charts/chart-doughnut';
@@ -123,3 +124,5 @@
   @import './charts/chart-row';
   @import './charts/chart-stacked-row';
 }
+
+@import './charts/chart-gauge';

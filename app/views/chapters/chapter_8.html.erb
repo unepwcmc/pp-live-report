@@ -1,13 +1,23 @@
-<section class="section-padding">
-  <div class="container--small">
-    <%= @data['content_1'].html_safe %>
-  </div>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
+
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+
+<section class="section-padding gutters">
+  <%= render partial: 'partials/component-title', locals: { title: @data['map_1_title'], intro: @data['map_1_description'] } %>
+
+  <map-statistics 
+    id="<%= @map_1[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map_1[:tiles_url] %>" 
+    tiles-url-oecm="<%= @map_1[:tiles_url_oecm] %>" 
+    :tabs="<%= @map_1[:tabs].to_json %>"
+    :layers="<%= @map_1[:layers].to_json %>" 
+    :oecm-present="true"
+    file-download="<%= @map_1[:csv_url] %>" 
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
 </section>
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title'], text: @data['cta_text'], url: @data['cta_url'] } %>
-
-<section class="section-padding">
-  <div class="container--small">
-    <p><%= @data['content_2'].html_safe %></p>
-  </div>
-</section>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>

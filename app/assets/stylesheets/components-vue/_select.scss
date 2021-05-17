@@ -1,0 +1,59 @@
+.select {
+  &--text {
+    width: 86vw;
+    margin: 0 auto;
+
+    @include breakpoint($medium) {
+      width: 50vw;
+    }
+
+    &__blockquote {
+      color: $white;
+    }
+
+    &__text {
+      color: $white;
+      
+      @include breakpoint($small) {
+        padding-right: rem-calc(10);
+
+        &::-webkit-scrollbar {
+          width: rem-calc(10);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $grey-light;
+          border-radius: $radius-global;
+        }
+      }
+    }
+
+    &__title {
+      color: $white;
+      font-weight: $normal;
+      margin-bottom: rem-calc(14);
+
+      @include breakpoint($small) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__top-section {
+      display: block;
+      margin-bottom: rem-calc(18);
+
+      @include breakpoint($small) {
+        @include flex;
+        @include flex-h-between;
+        @include flex-v-center;
+        margin-bottom: rem-calc(54);
+      }
+
+      @include breakpoint($medium) {
+        margin-bottom: rem-calc(90);
+      }
+    }
+
+  }
+
+}

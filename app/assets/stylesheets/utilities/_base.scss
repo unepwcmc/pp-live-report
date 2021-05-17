@@ -3,16 +3,18 @@
 //--------------------------------------------------
 * { 
   box-sizing: border-box;
-  font-family: $body-font;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   font-family: $body-font;
+  line-height: $body-font-line-height;
   margin: 0;
 }
 
 h1 {
+  font-family: $header-font;
+  font-size: rem-calc(36);
   font-weight: $thin;
   line-height: 1.1;
   margin: 0; 
@@ -23,13 +25,13 @@ h1 {
   }
 
   @include breakpoint($medium) { 
-    font-size: rem-calc(70); 
+    font-size: rem-calc(100); 
     width: 70%;
   }
 
   &.heading--home {
     font-size: rem-calc(40);
-    font-weight: $bold;
+    font-weight: $fw-medium;
     line-height: 1.1;
     margin-bottom: rem-calc(20);
 
@@ -43,8 +45,9 @@ h1 {
 }
 
 h2 {
-  font-size: rem-calc(20);
-  font-weight: $light;
+  font-family: $header-font;
+  font-size: rem-calc(32);
+  font-weight: $fw-medium;;
   margin: rem-calc(0 0 14 0);
 
   @include breakpoint($small) { 
@@ -57,38 +60,40 @@ h2 {
     margin-bottom: rem-calc(30);
   }
 
-  &.heading--carousel {
-    font-size: rem-calc(25);
-    font-weight: $light;
+  &.heading--card {
+    font-size: rem-calc(20);
+    font-weight: $normal;
+    flex-grow: 1;
 
-    @include breakpoint($small) { font-size: rem-calc(60); }
-    @include breakpoint($medium) { font-size: rem-calc(70); }
+    @include breakpoint($small) {
+      font-size: rem-calc(32);
+    }
   }
 
   &.heading--map {
-    font-size: rem-calc(20);
+    font-size: rem-calc(18);
+    font-weight: $bold;
+    margin-bottom: 0;
 
-    @include breakpoint($small) { font-size: rem-calc(25); }
+    @include breakpoint($small) {
+      font-size: rem-calc(22); 
+    }
+
+    @include breakpoint($medium) { 
+      font-size: rem-calc(22); 
+      max-width: rem-calc(350);
+    }
   }
 }
 
 h3 {
-  font-size: rem-calc(16);
-  font-weight: $fw-black;
+  font-family: $header-font;
+  font-size: rem-calc(32);
   margin: rem-calc(0 0 6 0);
 
   @include breakpoint($small) { 
-    font-size: rem-calc(20); 
+    font-size: rem-calc(40); 
     margin: rem-calc(0 0 10 0);
-  }
-
-  &.heading--cta {
-    font-size: rem-calc(25);
-    font-weight: $light;
-    margin-bottom: rem-calc(12);
-
-    @include breakpoint($small) { font-size: rem-calc(30); }
-    @include breakpoint($medium) { font-size: rem-calc(40); }
   }
 
   &.heading--doughnut-chart {
@@ -98,7 +103,7 @@ h3 {
 
     @include breakpoint($small) { 
       font-size: rem-calc(25);
-      margin-bottom: rem-calc(30);
+      margin-bottom: rem-calc(20);
     }
   }
 
@@ -113,11 +118,29 @@ h3 {
 }
 
 h4 {
-  font-size: rem-calc(14);
-  font-weight: $light;
+  font-family: $header-font;
+  font-size: rem-calc(20);
+  font-weight: $fw-black;
   margin: rem-calc(0 0 6 0);
 
-  @include breakpoint($small) { font-size: rem-calc(20); }
+  @include breakpoint($small) { 
+    font-size: rem-calc(22); 
+    margin: rem-calc(0 0 10 0);
+  }
+}
+
+h5 {
+  font-family: $body-font;
+  font-size: rem-calc(16);
+  font-weight: $bold;
+
+  @include breakpoint($small) { font-size: rem-calc(25); }
+}
+
+h6 {
+  font-family: $body-font;
+  font-size: rem-calc(20);
+  font-weight: $normal;
 }
 
 p {
@@ -127,9 +150,16 @@ p {
   margin-top: 0;
 
   @include breakpoint($medium) { font-size: rem-calc(18); }
+
+  &.p--small {
+    font-size: rem-calc(14);
+    line-height: $body-font-line-height;
+  }
 }
 
 a {
+  color: $primary;
+  
   &:hover { text-decoration: none; }
 
   &.a--plain {
@@ -140,19 +170,41 @@ a {
   }
 }
 
+ol,
 ul {
   font-size: rem-calc(16);
   font-weight: $light;
-  padding-left: rem-calc(16);
+  line-height: 1.6;
+  padding-left: rem-calc(22);
 
   @include breakpoint($medium) { font-size: rem-calc(18); }
 }
 
 li {  
   margin-bottom: rem-calc(10);
+  padding-left: rem-calc(8);
 }
 
 blockquote {
+  border-left: 4px solid $grey-light;
+  color: $black;
+  font-family: $header-font;
+  font-size: rem-calc(20); 
+  font-weight: $normal;
+  line-height: 1.7;
+  padding-left: rem-calc(17);
+  text-align: left;
+
+  z-index: 1;
+
+  @include breakpoint($small) { 
+    line-height: 1.4;
+  }
+
+  @include breakpoint($medium) { 
+    font-size: rem-calc(25); 
+    padding-left: rem-calc(30);
+  }
 }
 
 //--------------------------------------------------
@@ -203,25 +255,11 @@ blockquote {
   @extend .site-width;
   @extend %container;
   
-  &--small {
-    @extend .gutters;
-    margin: 0 auto;
-
-    @include breakpoint($small) { width: 80%; }
-    @include breakpoint($medium) { width: 50%; }
-
-    @include breakpoint($large) { 
-      padding-right: 0;
-      padding-left: 0;
-      width: $small-container; 
-    }
-  }
-  
   &--medium {
     @extend .gutters;
     margin: 0 auto;
     
-    @include breakpoint($medium) { width: 83%; }
+    @include breakpoint($medium) { width: 64%; }
 
     @include breakpoint($large) { 
       padding-right: 0;

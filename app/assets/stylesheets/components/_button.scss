@@ -1,6 +1,15 @@
 //--------------------------------------------------
 // buttons mixins
 //--------------------------------------------------
+@mixin button-basic {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  &:hover { text-decoration: none; }
+}
+
 @mixin button-cta {
   background-color: $primary;
   color: $black;
@@ -25,6 +34,32 @@
   }
 }
 
+@mixin button-close {
+  @include button-basic; 
+  @include icon-cross;
+}
+
+@mixin button-external($color: $body-font-color) {
+  color: $color;
+  margin-right: rem-calc(34);
+
+  display: inline-block;
+  position: relative;
+  
+  &:after {
+    background-image: image-url('icons/chevron-circle-right.svg');
+    content: '';
+    width: rem-calc(24); height: rem-calc(24);
+    
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: rem-calc(-34);
+    
+    transform: translateY(-50%);
+  }
+}
+
 //--------------------------------------------------
 // buttons
 //--------------------------------------------------
@@ -44,39 +79,68 @@
     }
   }
 
-  &--cta-external {
-    @include button-cta;
-
-    &::after {
-      background-image: image-url('icons/external-link.svg');
-      width: rem-calc(23); height: rem-calc(23);
-
-      transform: translateY(3px);
-    }
-  }
-
   &--download {
     @extend .flex;
     @extend .flex-v-center;
-    background-color: transparent;
-    border: none;
-    color: white;
+    @extend .flex-h-between;
+    background-color: $green;
+    border: 1px solid $green;
+    border-radius: 2px;
+    color: $black;
     cursor: pointer;
-    font-size: inherit;
-    font-weight: $light;
+    padding: rem-calc(8 15);
+    margin-right: rem-calc(19);
     text-align: left;
     text-decoration: none;
 
+    display: inline-flex;
+    
+    @include breakpoint($small) {
+      padding: rem-calc(10 16);
+    }
+
     &__text { 
-      display: none;
+      font-family: $body-font;
+      font-size: $button-font-size-small;
+      font-weight: $light;
+      margin-right: rem-calc(14);
       
       @include breakpoint($medium) {
-        margin-left: rem-calc(12);
-        width: rem-calc(124);
-
-        display: block;
+        font-size: $button-font-size-medium;
       }
     }
+  }
+
+  &--grey {
+    background-color: $grey;
+    border: 1px solid $grey;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: rem-calc(11);
+
+    width: rem-calc(150);
+
+    @include breakpoint($small) {
+      padding: rem-calc(11 16);
+    }
+
+    &__text {
+      font-size: $button-font-size-small;
+      color: $white;
+
+      @include breakpoint($small) {
+        font-size: $button-font-size-medium;
+      }
+    }
+  }
+
+  &--external {
+    @include button-external();
+  }
+
+  &--external-white {
+    @include button-external($white);
+    font-size: rem-calc(16);
   }
 
   &--link {
@@ -84,11 +148,42 @@
     font-weight: $medium;
   }
 
+  &--display {
+    @include flex;
+    @include flex-h-between;
+    @include flex-v-center;
+    background-color: transparent;
+    border: 2px solid rgba($white, 0.8);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: rem-calc(2 6);
+    width: rem-calc(82);
+
+    position: relative;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.text {
+      border: none;
+      color: rgba($white, 0.8);
+      font-size: rem-calc(18);
+      opacity: 0.8;
+    }
+  }
+
   &--reset {
     cursor: pointer;
     margin: 0;
     padding: 0;
     font: inherit;
+  }
+
+  &--share {
+    appearance: none;
+    border: none;
+    background-color: transparent;
   }
 
   //--------------------------------------------------

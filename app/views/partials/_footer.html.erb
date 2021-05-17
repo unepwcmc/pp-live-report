@@ -1,14 +1,17 @@
 <footer>
-  <div class="footer__main gutters flex flex-v-center flex-h-between">
-    <div>
-      <p class="footer__photo-credits no-margin"><%= @data['photo_credits'].html_safe %></p>
+  <div class="footer__main gutters">  
+    <% unless current_page?('/') %>
+      <references 
+        class="footer__references" 
+        :references-text="<%= get_references %>">
+      </references>
+    <% end %>
 
-      <p class="footer__citation no-margin">Citation: UNEP-WCMC, IUCN and NGS (<%= Date.today.year %>). Protected Planet Live Report <%= Date.today.year %>. UNEP-WCMC, IUCN and NGS: Cambridge UK; Gland, Switzerland; and Washington, D.C., USA.</p>
-
-      <p class="footer__copyright no-margin">Protected Planet <%= Date.today.year %>. All rights reserved.</p>
-    </div>
-    
     <div class="footer__partner-logos">
+      <%= link_to 'http://unep.org', title: 'Visit UN Environment Programme', target: '_blank', class: 'footer__a' do %>
+        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-+logo+2017+white.svg', alt: 'UN Environment Programme logo', class: 'footer__logo logo--unep' %>
+      <% end %>
+
       <%= link_to 'http://unep-wcmc.org', title: 'Visit UN Environment World Conservation Monitoring Centre', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__logo' %>
       <% end %>
@@ -28,6 +31,19 @@
       <%= link_to 'https://protectedplanet.net/', title: 'Visit Protected Planet', target: '_blank', class: 'footer__a' do %>
         <%= image_tag 'logos/logo-protected-planet.svg', alt: 'Protected Planet logo', class: 'footer__logo' %>
       <% end %>
+    </div>
+    
+    <hr class="footer__hr"/>
+    <div class="footer__text flex flex-h-between">
+      <p class="footer__citation no-margin">UNEP-WCMC and IUCN (2021) Protected Planet Report 2020. UNEP-WCMC and IUCN: Cambridge UK; Gland, Switzerland.</p>
+      <div class="footer__credits">
+        <p class="footer__photo-credits no-margin"><%= @data['photo_credits'].html_safe %></p>
+        <p class="footer__copyright no-margin">
+          &copy; <%= Date.today.year %> United Nations Environment Programme<br>
+          ISBN No: 978-92-807-3856-8<br>
+          Job No: DEP/2354/CA<br>
+        </p>
+      </div>
     </div>
   </div>
 </footer>

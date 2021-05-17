@@ -1,3 +1,28 @@
+// Mixins
+@mixin icon() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}
+
+@mixin icon-nav($image) {
+  background-image: image-url($image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+
+  height: rem-calc(28);
+  width: rem-calc(28);
+
+  @include breakpoint($small) {
+    height: rem-calc(40);
+    width: rem-calc(40);
+  }
+}
+
 //--------------------------------------------------
 // icons
 //--------------------------------------------------
@@ -10,31 +35,95 @@
     display: inline-block;
   }
 
+  &--arrow-down {
+    background-image: image-url('icons/arrow-down.svg');
+    background-size: cover;
+    width: rem-calc(15); height: rem-calc(24);
+
+    display: inline-block;
+
+    @include breakpoint($small) {
+      width: rem-calc(26); height: rem-calc(41);
+    }
+  }
+  
+  &--circle-chevron-white { 
+    background-image: image_url("icons/circle-chevron-white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+    width: rem-calc(20); height: rem-calc(20);
+
+    @include breakpoint($small) {
+      width: rem-calc(34); height: rem-calc(34);
+    }
+  }
+
+  &--cross {
+    background-image: image_url("icons/cross.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    display: block;
+    width: rem-calc(23); 
+    height: rem-calc(23);
+  }
+
   &--download {
     background-image: image-url('icons/download.svg');
     background-size: cover;
-    width: rem-calc(17); height: rem-calc(19);
+    width: rem-calc(17); height: rem-calc(16);
 
     display: block;
 
-    @include breakpoint($small) { width: rem-calc(25); height: rem-calc(28); }
+    @include breakpoint($small) { 
+      width: rem-calc(20); 
+      height: rem-calc(19); 
+    }
+  }
+
+  &--chevron-down-white {
+    @include icon;
+    background-image: image-url('icons/chevron-down.svg');
+    cursor: pointer;
+
+    width: rem-calc(20); height: rem-calc(20);
+
+    display: block;
+  }
+
+  &--close-white {
+    @include icon;
+    background-image: image-url('icons/cross-white.svg');
+    cursor: pointer;
+    width: rem-calc(18); height: rem-calc(18);
+
+    display: block;
+  }
+
+  &--dropdown {
+    background-image: image-url('icons/dropdown.svg');
+    background-size: cover;
+    width: rem-calc(20); height: rem-calc(10);
+
+    display: inline-block;
   }
 
   &--share {
     background-image: image-url('icons/share.svg');
     background-size: cover;
-    width: rem-calc(21); height: rem-calc(19);
-
+    width: rem-calc(30); height: rem-calc(28);
     display: block;
-
-    @include breakpoint($small) { width: rem-calc(30); height: rem-calc(28); }
   }
 
-  &--warning {
-    background-image: image-url('icons/warning.svg');
-    background-size: cover;
-    width: rem-calc(19); height: rem-calc(19);
+  &--previous {
+    @include icon-nav('icons/previous.svg');
+  }
 
-    display: inline-block;
+  &--next {
+    @include icon-nav('icons/next.svg');
   }
 }

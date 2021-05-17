@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Button" transform="translate(-31 -700)">
+    <g id="Ellipse_122" data-name="Ellipse 122" transform="translate(31 700)" fill="#fff" stroke="#fff" stroke-width="1" opacity="0.548">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
+    </g>
+    <g id="Page-1" transform="translate(46.529 707.059) rotate(90)">
+      <g id="Dashboard-_Overview_" data-name="Dashboard-(Overview)">
+        <g id="Arrow-1" transform="translate(0 5.647) rotate(-90)">
+          <path id="Shape" d="M5.444,4.452,1.184.2A.693.693,0,0,0,.2,1.181l3.769,3.76L.2,8.7a.693.693,0,0,0,.981.979L5.444,5.43a.691.691,0,0,0,0-.978Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

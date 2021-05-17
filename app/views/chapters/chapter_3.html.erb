@@ -1,46 +1,79 @@
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['content_1'].each do |p| %>
-      <p><%= p %></p>
-    <% end %>
+<div class="container section-padding">
+  <div class="aichi-target sm-trigger-aichi-chart">
+    <div class="box__text">
+      <h4>Did we reach the target?</h4>
+      <p class="p--small">By 2020, at least 17 percent of terrestrial and inland water and 10 percent of coastal and marine areas... are conserved through... protected areas and other effective area-based conservation measures.</p>
+
+      By 2020, at least 17 percent of terrestrial and inland water and 10 percent of coastal and marine areas... are conserved through... protected areas and other effective area-based conservation measures
+    </div>
+    <div class="box__charts">
+      <% @gauge_charts.each do |chart| %>
+        <am-chart-gauge
+          id="<%= chart[:id] %>"
+          class="box__chart"
+          :legend-data="<%= chart[:legend].to_json %>"
+          :target="<%= chart[:target] %>"
+          theme="<%= chart[:theme] %>"
+          title="<%= chart[:title] %>"
+          trigger="sm-trigger-aichi-chart"
+          :value="<%= chart[:value] %>"
+        ></am-chart-gauge>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content'] } %>
+
+<section class="section-padding gutters">
+  <map-statistics 
+    id="<%= @map_1[:id] %>"
+    title="<%= @data['map_1_title'] %>"
+    tiles-url="<%= @map_1[:tiles_url] %>" 
+    tiles-url-oecm="<%= @map_1[:tiles_url_oecm] %>"
+    :tabs="<%= @map_1[:tabs].to_json %>"
+    :oecm-present="true"
+    file-download="<%= @map_1[:csv_url] %>"
+    :disclaimer="<%= map_disclaimer(@data['map_1_source']) %>"
+  ></map-statistics>
 </section>
 
-<map-statistics 
-  id="<%= @map_1[:id] %>"
-  title="<%= @data['map_1_title'] %>" 
-  description="<%= @data['map_1_description'] %>" 
-  :layers="<%= @map_1[:layers].to_json %>"
-  tiles-url="<%= @map_1[:tiles_url] %>"
-  source="<%= @data['map_1_source'] %>"
-  disclaimer="<%= @shared_data['map_disclaimer'] %>"
->
-</map-statistics>
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title_1'], text: @data['cta_text_1'], url: @data['cta_url_1'] } %>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
 
 <section class="section-padding">
-  
-  <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
+
+ <%= render partial: 'partials/component-title', locals: { title: @data['line_chart_title'] } %>
 
   <div class="container--medium">
-    <chart-line 
-      :lines="<%= @line_chart[:lines].to_json %>" 
-      :targets="<%= @line_chart[:targets].to_json %>"
-      :legend="<%= @line_chart[:legend].to_json %>"
-      :axis="<%= @line_chart[:axis].to_json %>">
-    </chart-line>
+    <am-chart
+      :options='{"y": { "max": 40 }}'
+      :raw-data="<%= @line_chart %>"
+      file-download="<%= @line_chart_csv_url %>" 
+    ></am-chart>
 
-    <span class="smallprint"><%= @data['line_chart_smallprint'] %></span>
+
+    <span class="smallprint"><%= @data['line_chart_smallprint'].html_safe %></span>
   </div>
 </section>
 
-<section class="section-padding">
-  <div class="container--small">
-    <% @data['content_2'].each do |p| %>
-      <p><%= p %></p>
-    <% end %>
-  </div>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>
+
+<section class="section-padding gutters">
+
+  <map-statistics 
+    id="<%= @map_2[:id] %>"
+    title="<%= @data['map_2_title'] %>" 
+    :tabs="<%= @map_2[:tabs].to_json %>" 
+    tiles-url="<%= @map_2[:tiles_url] %>"
+    tiles-url-oecm="<%= @map_2[:tiles_url_oecm] %>"
+    file-download="<%= @map_2[:csv_url] %>"
+    :oecm-present="true"
+    :disclaimer="<%= map_disclaimer(@data['map_2_source']) %>"
+  ></map-statistics>
+
 </section>
 
-<%= render partial: '/partials/cta', locals: { title: @data['cta_title_2'], text: @data['cta_text_2'], url: @data['cta_url_2'] } %>
+<%= render partial: 'partials/main-text', locals: { text: @data['content_4'] } %>
+

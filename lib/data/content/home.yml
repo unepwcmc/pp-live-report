@@ -1,24 +1,28 @@
-subtitle: "Tracking progress towards global targets for protected areas"
-intro: "Protected Planet Reports are biennial landmark publications that assess the state of protected areas around the world. They are based on the data contained in the World Database on Protected Areas (WDPA), jointly managed by UNEP-WCMC and IUCN, as well as other relevant resources."
+subtitle: "Tracking progress towards global targets for protected and conserved areas"
+intro: "Protected Planet Reports are biennial landmark publications that assess the state of protected and conserved areas around the world. The 2020 edition provides the final report on the status of Aichi Biodiversity Target 11, and looks to the future as the world prepares to adopt a new post-2020 global biodiversity framework."
 hero:
   -
-    image: "hero/amazon-forest.jpg"
-    credits: "Amazon rainforest in Tambopata reserve, Peru &copy; Salparadis / Adobe Stock"
+    class: "home-1"
+    credits: "A forest in summer © Tobias Arhelger / Adobe Stock"
+    image: "hero-0-1.png"
+    video: "video-1.mp4"
   -
-    image: "hero/bah-khiri-wong.jpg"
-    credits: "Ban Khiri Wong village, Thailand &copy; Tuayai / Adobe Stock"
+    class: "home-2"
+    credits: "Kelp forest in Cape Town, South Africa © serhii / Adobe Stock"
+    image: "hero-0-2.png"
+    video: "video-2.mp4"
   -
-    image: "hero/black-sea.jpg"
-    credits: "Black Sea coastline, Europe &copy; Nikita / Adobe Stock"
+    class: "home-3"
+    credits: "Sunrise in the Sahara © Kokhanchikov / Adobe Stock"
+    image: "hero-0-3.png"
+    video: "video-3.mp4"
   -
-    image: "hero/muskox-arctic.jpg"
-    credits: "Muskoxen on Vrangel island &copy; Sergey / Adobe Stock"
+    class: "home-4"
+    credits: "Waves against the coastline in Martinique © Scutari / Adobe Stock"
+    image: "hero-0-4.png"
+    video: "video-4.mp4"
   -
-    image: "hero/territory-of-tribe.jpg"
-    credits: "Evening view of the territory of the tribe Bana &copy; milosk50 / Adobe Stock"
-  -
-    image: "hero/torres-del-paine.jpg"
-    credits: "Torres del Paine National Park, Patagonia, Chile &copy; Dmitry Pichugin / Adobe Stock"
-  -
-    image: "hero/victoria-falls.jpg"
-    credits: "Victoria Falls &copy; Anna / Adobe Stock"
+    class: "home-5"
+    credits: "Tam Coc, Vietnam © FocusStocker / Adobe Stock"
+    image: "hero-0-5.png"
+    video: "video-5.mp4"

@@ -34,7 +34,7 @@
           <image :xlink:href="active.icon" width="120px" height="120px" transform="translate(-60, -100)"></image>
           
           <foreignObject transform="translate(-130, 30)" width="260" height="100">
-            <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 25px; font-weight: 300; text-align: center;">{{ active.title }}</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" style="font-size: 23px; font-weight: 300; text-align: center;">{{ active.title }}</p>
           </foreignObject>
         </g>
       </svg>
@@ -44,10 +44,9 @@
       <div class="chart__panel" :style="{ 'background-color': active.colour}">
         <h3 class="heading--doughnut-chart">{{ active.title }}</h3>
         <p class="chart__panel-text">{{ active.description }}</p>
-        <a :href="active.url" title="Link to SDG website" target="_blank" class="button--link">Find out more about this goal on the UN SDG website</a>
+        <a :href="active.url" title="Link to SDG website" target="_blank" class="button--external-white">Explore this goal on the UN SDG website</a>
+        <p v-if="smallprint" class="chart__smallprint">{{ smallprint }}</p>
       </div>
-
-      <p v-if="smallprint" class="chart__smallprint">{{ smallprint }}</p>
     </div>
   </div>  
 </template>

@@ -3,11 +3,11 @@ module ApplicationHelper
   include YamlHelpers
   
   def site_title 
-    'Protected Planet Digital Report'
+    'Protected Planet Report 2020'
   end
 
   def site_description
-    'Protected Planet Digital Report assesses the state of protected areas around the world.'
+    'Protected Planet Report 2020 assesses the state of protected areas around the world.'
   end
 
   def page_title
@@ -24,41 +24,6 @@ module ApplicationHelper
 
   def encoded_home_url
     url_encode(request.base_url)
-  end
-
-  def social_image
-    image_url('social.png')
-  end
-
-  def social_image_alt
-    'Protect Planet Live Report Homepage'
-  end
-
-  def create_sharing_facebook_link
-    title = url_encode('Share ' + page_title + ' on Facebook')
-    url = encoded_home_url
-    href = 'https://facebook.com/sharer/sharer.php?u=' + url
-
-    link_to '', href, title: title, class: 'social__icon social__icon--facebook', target: '_blank'
-  end
-
-  def create_sharing_twitter_link
-    title = url_encode('Share ' + page_title + ' on Twitter')
-    text = url_encode('Protected Planet Report 2018')
-    url = encoded_home_url
-    href = 'https://twitter.com/intent/tweet/?text=' + text + '&url=' + url
-    
-    link_to '', href, title: title, class: 'social__icon social__icon--twitter', target: '_blank'
-  end
-
-  def create_sharing_email_link
-    title = url_encode('Share ' + page_title + ' via Email')
-    url = encoded_home_url
-    subject = url_encode(site_title)
-    body = site_description + url_encode("\n\n") + url
-    href = 'mailto:?subject=' + subject + '&body=' + body
-
-    link_to '', href, title: title, class: 'social__icon social__icon--email', target: '_self'
   end
 
   def active_nav_item?(test_path)

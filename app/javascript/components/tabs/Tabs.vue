@@ -1,6 +1,6 @@
 <template>
   <div class="tabs">
-    <div class="tabs__triggers flex flex-nowrap">
+    <div class="tabs__triggers gutters">
       <button 
         v-for="(child, index) in children" :key="`child-${index}`"
         :id="triggerId(child)"
@@ -11,7 +11,6 @@
         <label :for="child.tabId" class="tab__title">{{ child.title }}</label>
       </button>
     </div>
-    
     <div class="tab__container">
       <slot></slot>
     </div>
@@ -25,10 +24,18 @@ import { eventHub } from '../../packs/application'
     name: 'tabs',
     
     props: {
+      eventElement: {
+        type: String,
+        default: "",
+      },
       initActiveId: String,
       id: {
         type: String,
         default: 'tabs-unidentified'
+      },
+      mapId: {
+        type: String,
+        default: 'map-unidentified'
       }
     },
     
@@ -52,10 +59,19 @@ import { eventHub } from '../../packs/application'
 
         this.selectedId = selectedChild.id
         this.emitChangeTab()
+
+        if(this.$ga) {
+          // (category, action, label)
+          this.$ga.event(this.eventElement, 'click', selectedChild.title)
+        }
       },
 
       emitChangeTab () {
-        eventHub.$emit('change-tab', {tabGroup: this.id, tab: this.selectedId})
+        eventHub.$emit('change-tab', { 
+          mapId: this.mapId, 
+          tabGroup: this.id, 
+          tab: this.selectedId
+        })
       },
 
       initTabs () {

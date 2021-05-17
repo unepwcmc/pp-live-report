@@ -1,75 +1,197 @@
+// Colour schemes
+
+$oecm-legend: ('blue': $oecm-blue,
+  'green': $oecm-green,
+  'pelagic': $oecm-pelagic);
+
+$wdpa-legend: ('blue': $wdpa-blue,
+  'green': $wdpa-green,
+  'pelagic': $wdpa-pelagic);
+
+
+//--------------------------------------------------
+// LOCAL MIXINS
+//--------------------------------------------------
+
+@mixin chart-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin bar-animation {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s ease-in;
+
+  &.bar-animate {
+    transform: scaleX(1);
+  }
+}
+
+@mixin bar-animation-oecm {
+  @include bar-animation;
+  transition: transform 0.2s ease-in;
+  transition-delay: 1.2s;
+}
+
+@mixin bar-animation-wdpa {
+  @include bar-animation-oecm;
+  transition-delay: 1.4s;
+}
+
+
+@mixin chart-colour($colour, $colours) {
+  background-color: map-get($map: $colours, $key: $colour);
+}
+
+@mixin legend-key($colour, $colours) {
+  &--#{$colour} {
+    background-color: map-get($map: $colours, $key: $colour);
+    border-radius: $radius-global;
+    margin-right: rem-calc(7);
+    height: rem-calc(17);
+    width: rem-calc(17);
+  }
+}
+
 //--------------------------------------------------
 // row chart
 //--------------------------------------------------
-  &--row {
-    margin-bottom: rem-calc(28);
-    width: 100%;
-    
-    @include breakpoint($small) { width: 48%; }
+&--row {
+  margin-bottom: rem-calc(28);
+  width: 100%;
 
-    .chart {
-      &__chart {
+  @include breakpoint($small) {
+    width: 48%;
+  }
 
-      }
+  &__subtitle {
+    font-size: rem-calc(16);
+    font-weight: $bold;
+    margin-bottom: rem-calc(10);
 
-        &__title {
-
-        }
-
-        &__row {
-          background-color: $grey-xlight;
-          font-size: rem-calc(14);
-          font-weight: $normal;
-          margin-bottom: rem-calc(6);
-          padding-right: rem-calc(20);
-          width: 100%; height: rem-calc(54);
-
-          position: relative;
-
-          @include breakpoint($small) { 
-            font-size: rem-calc(20);
-            height: rem-calc(64); 
-          }
-
-          &.chart-theme--blue {
-
-            &:nth-child(1) { .chart__bar { background-color: $chart-blue-light; } }
-            &:nth-child(2) { .chart__bar { background-color: $chart-blue; } }
-            &:nth-child(3) { .chart__bar { 
-              background-color: $chart-blue-dark; } }
-          }
-
-          &.chart-theme--green {
-            &:nth-child(1) { .chart__bar { background-color: $chart-green-light; } }
-            &:nth-child(2) { .chart__bar { background-color: $chart-green; } }
-            &:nth-child(3) { .chart__bar { background-color: $chart-green-dark; } }
-          }
-
-          &.chart-theme--pelagic {
-            &:nth-child(1) { .chart__bar { background-color: #9aeeee; } }
-            &:nth-child(2) { .chart__bar { background-color: #51c4c4; } }
-            &:nth-child(3) { .chart__bar { background-color: #308c8c; } }
-          }
-        }
-
-          &__bar {
-            background-color: $grey-dark;
-            opacity: 0.9;
-
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-          }
-
-          &__percent {
-            padding-left: rem-calc(12);
-
-            z-index: 1;
-          }
-
-          &__label {
-
-          }
+    @include breakpoint($medium) {
+      font-size: rem-calc(20);
     }
   }
+
+  &__title {
+    font-size: rem-calc(16);
+    
+    @include breakpoint($medium) {
+      font-size: rem-calc(20);
+    }
+  }
+
+  .chart {
+    &__row {
+      background-color: $grey-xlight;
+      font-size: rem-calc(14);
+      font-weight: $normal;
+      margin-bottom: rem-calc(10);
+      padding-right: rem-calc(20);
+      width: 100%;
+      height: rem-calc(54);
+      position: relative;
+
+      @include breakpoint($small) {
+        font-size: rem-calc(20);
+        height: rem-calc(40);
+      }
+
+      &.chart-theme--blue {
+        .chart__bar {
+          background-color: $wdpa-blue;
+        }
+      }
+
+      &.chart-theme--green {
+        .chart__bar {
+          background-color: $wdpa-green;
+        }
+      }
+
+      &.chart-theme--pelagic {
+        .chart__bar {
+          background-color: $wdpa-pelagic;
+        }
+      }
+    }
+
+    &__bar {
+      @include bar-animation;
+      @include chart-bar;
+      background-color: $grey-dark;
+      opacity: 0.9;
+
+      left: 0;
+
+      &--oecm {
+        @include bar-animation-oecm;
+        @include chart-bar;
+
+        &.blue {
+          @include chart-colour('blue', $oecm-legend);
+        }
+
+        &.green {
+          @include chart-colour('green', $oecm-legend);
+        }
+
+        &.pelagic {
+          @include chart-colour('pelagic', $oecm-legend);
+        }
+      }
+    }
+
+    &__percent {
+      color: white;
+      padding-left: rem-calc(12);
+
+      z-index: 1;
+    }
+
+    &__label {
+      font-size: rem-calc(14);
+      font-weight: $bold;
+
+      @include breakpoint($small) {
+        font-size: rem-calc(20);
+      }
+    }
+
+    &__legend {
+      @include flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        @include flex;
+        @include flex-v-center;
+        padding-right: rem-calc(15);
+      }
+
+      p {
+        line-height: 1.3;
+        margin-bottom: 0;
+      }
+
+      .chart-key {
+        &__oecm {
+          @include legend-key('blue', $oecm-legend);
+          @include legend-key('green', $oecm-legend);
+          @include legend-key('pelagic', $oecm-legend);
+        }
+
+        &__wdpa {
+          @include legend-key('blue', $wdpa-legend);
+          @include legend-key('green', $wdpa-legend);
+          @include legend-key('pelagic', $wdpa-legend);
+        }
+      }
+    }
+
+  }
+}

@@ -27,19 +27,20 @@
 <meta name="msapplication-TileColor" content="#71a32b">
 <meta name="theme-color" content="#ffffff">
 
+<!-- stylesheets -->
+<link href="https://fonts.googleapis.com/css?family=Hind+Siliguri:400,700|Playfair+Display:400,700&display=swap" rel="stylesheet">
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_pack_tag 'application' %>
+
+<%= render 'partials/google_analytics' %>
+<%= render 'partials/hotjar' %>
 
 <%= javascript_tag do %>
   window._railsEnv = "<%= Rails.env %>"
 <% end %>
 
-<% if Rails.env.production? %>
-  <%= render 'partials/google_analytics' %>
-<% end %>
-
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'application' %>
 
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />

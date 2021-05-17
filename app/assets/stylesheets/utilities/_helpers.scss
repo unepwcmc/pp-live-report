@@ -34,10 +34,23 @@ i { font-style: normal; }
 }
 
 //--------------------------------------------------
+// display
+//--------------------------------------------------
+.block { display: block; }
+
+//--------------------------------------------------
 // dimensions
 //--------------------------------------------------
+.w-50 { width: 50%; }
+.w-52 { width: 52%; }
 .w-100 { width: 100%; }
 .h-100 { height: 100%; }
+
+@mixin width-with-gutters($width: 100%) {
+  width: calc(#{$width} - #{$gutter-small * 2});
+  @include breakpoint($small) { width: calc(#{$width} - #{$gutter-medium * 2}); }
+  @include breakpoint($medium) { width: calc(#{$width} - #{$gutter-large * 2}); }
+}
 
 //--------------------------------------------------
 // lists
@@ -74,7 +87,7 @@ i { font-style: normal; }
 .margin-center { margin: 0 auto; }
 .margin-space-left { margin-left: rem-calc(14); }
 .margin-space-right { margin-right: rem-calc(14); }
-
+ 
 //--------------------------------------------------
 // backgrounds
 //--------------------------------------------------
@@ -96,6 +109,11 @@ i { font-style: normal; }
   }
 }
 
+// Background gradient mixin - takes two colours at present
+@function background-gradient($orientation, $first-colour, $second-colour, $first-percent: 0%, $second-percent: 100%) {
+  @return linear-gradient($orientation, $first-colour $first-percent, $second-colour $second-percent);
+}
+
 //--------------------------------------------------
 // user interaction
 //--------------------------------------------------
@@ -105,4 +123,40 @@ i { font-style: normal; }
   -moz-user-select: none; 
   -ms-user-select: none; 
   user-select: none; 
+}
+
+@mixin hide-scrollbars {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+//--------------------------------------------------
+// shapes
+//--------------------------------------------------
+
+@mixin triangle ($base, $height, $color, $direction:'up') {
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-left: $base/2 solid transparent;
+  border-right: $base/2 solid transparent;
+  
+  border-bottom: $height solid $color;
+
+  display: block;
+
+  @if ($direction == 'right') {
+    transform: rotate(90deg);
+  }
+  @if ($direction == 'down') {
+    transform: rotate(180deg);
+  }
+  @if ($direction == 'left') {
+    transform: rotate(270deg);
+  }
 }

@@ -7,40 +7,56 @@
 // extra-large
 //--------------------------------------------------
   &--x-large {
-    background-color: $grey-xdark;
+    background-color: $white;
     overflow: hidden;
-    padding: rem-calc(24 0 36 0);
-
+    padding-top: rem-calc(37);
+    padding-bottom: rem-calc(28);
+    text-align: center; //done this wasy for ie11
+  
     position: relative;
     z-index: 1;
 
     @include breakpoint($small) { padding: rem-calc(40 0 60 0); }
-    @include breakpoint($medium) { padding: rem-calc(82 0 100 0); }
+    @include breakpoint($medium) { 
+      padding-top: rem-calc(73);
+      padding-top: rem-calc(77);
+    }
 
     .content {
       &__icon {
-        width: rem-calc(50); height: rem-calc(50);
+        margin-bottom: rem-calc(30);
+        width: rem-calc(60); height: rem-calc(60);
 
-        @include breakpoint($small) { width: rem-calc(60); height: rem-calc(60); }
-        @include breakpoint($medium) { width: rem-calc(80); height: rem-calc(80); }
+        @include breakpoint($small) { 
+          width: rem-calc(83); height: rem-calc(83); 
+        }
+
+        @include breakpoint($medium) { 
+          width: rem-calc(83); 
+          height: rem-calc(83); 
+          margin-bottom: rem-calc(33);
+        }
       }
 
       &__text {
-        color: $white;
-        font-size: rem-calc(18);
-        font-weight: $light;
-        padding-top: rem-calc(10);
+        border-left: 4px solid $grey-light;
+        color: $black;
+        font-weight: $normal;
+        font-size: rem-calc(20); 
+        line-height: 1.7;
+        padding-left: rem-calc(17);
+        text-align: left;
+        width: 100%; // for ie11
 
         z-index: 1;
 
         @include breakpoint($small) { 
-          font-size: rem-calc(20); 
-          padding-top: rem-calc(14);
+          line-height: 1.4;
         }
 
         @include breakpoint($medium) { 
-          font-size: rem-calc(22); 
-          padding-top: rem-calc(24);
+          font-size: rem-calc(25); 
+          padding-left: rem-calc(30);
         }
       }
 

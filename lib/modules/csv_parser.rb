@@ -3,7 +3,7 @@ require 'csv'
 module CsvParser
   def self.chapter_dates
     dates = {}
-    CSV.parse(file_reader('all_chapter_update_table.csv'), headers: true) do |row|
+    CSV.parse(file_reader(CSV_CHAPTER_DATES), headers: true) do |row|
       dates["chapter_#{row['chapter']}"] = {
         'last_updated' => row['last_updated'],
         'next_updated' => row['next_updated']
@@ -14,7 +14,7 @@ module CsvParser
 
   def self.pp_global_monthly_stats
     stats = {}
-    CSV.parse(file_reader('chapter2_global_pa_statistics.csv'), headers: true) do |row|
+    CSV.parse(file_reader(CSV_CH3_MAP_PA_GLOBAL), headers: true) do |row|
       stats[row['type']] = row['value']
     end
     stats
@@ -22,7 +22,7 @@ module CsvParser
 
   def self.timeseries
     timeseries = {}
-    csv_file = file_reader('Ch2_Fig3_Global_PA_Timeseries.csv')
+    csv_file = file_reader(CSV_CH3_TIMESERIES)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -33,7 +33,7 @@ module CsvParser
 
   def self.kba_timeseries
     kba_timeseries = {}
-    csv_file = file_reader('chapter3_global_kba_timeseries_statistics.csv')
+    csv_file = file_reader(CSV_CH5_TIMESERIES_KBA)
     CSV.parse(csv_file, headers: true) do |row|
       year = row[0]
       row = row.to_hash.except!('Year')
@@ -42,35 +42,16 @@ module CsvParser
     kba_timeseries
   end
 
-  def self.ch5_figure2_stats
-    progress_level('Figue 11 PAME_JUL18_GROUPING.csv', 'Type')
-  end
-  
-  def self.ch6_figure2_stats
-    progress_level('chapter6_pas_per_govtype_per_region.csv', 'Region')
-  end
-
   def self.per_pame_coverage
-    country_perc('chapter5_regional_pame_perccov.csv', 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
+    country_perc(CSV_CH6_PAME_REGIONAL_PERCENT, 'PER_PAME_COVERAGE').select{|k,v| k != 'ABNJ'}
   end
 
   def self.count_of_pame_evaluations
-    country_perc('chapter5_regional_pame_count.csv', 'Count of PAME evaluations')
-  end
-
-  def self.governance_type
-    gov_types = {}
-    csv_file = file_reader('chapter6_pas_per_govtype.csv')
-    CSV.parse(csv_file, headers: true) do |row|
-      key = row[0]
-      row = row.to_hash['Count'].to_i
-      gov_types[key] = row
-    end
-    gov_types
+    country_perc(CSV_CH6_PAME_REGIONAL_COUNT, 'Count of PAME evaluations')
   end
 
   def self.biogeographical_regions
-    csv_file = file_reader('chapter4_count_statistics.csv')
+    csv_file = file_reader(CSV_CH4_ECOREGIONS)
     region_type = ''
     data = {}
 
@@ -86,7 +67,8 @@ module CsvParser
       chart_rows = keys.map do |key|
         {
           percent: row[key].split("%").first.to_f,
-          label: key
+          percent_oecm: get_oecm_percent(row[key]),
+          label: key,
         }
       end
       theme = case unit
@@ -115,7 +97,7 @@ module CsvParser
   end
 
   def self.file_reader(file_name)
-    File.read("#{Rails.root}/lib/data/file/#{file_name}")
+    File.read("#{Rails.root}/public/file/#{file_name}")
   end
 
   private
@@ -140,5 +122,9 @@ module CsvParser
       prog_lev[type] = row.each { |k, v| row[k] = v.to_f }
     end
     prog_lev
+  end
+
+  def self.get_oecm_percent(string)
+    (string.include? 'oecm') ? string.split('oecm').last.to_f : 0
   end
 end

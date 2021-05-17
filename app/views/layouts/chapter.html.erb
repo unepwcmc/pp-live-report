@@ -4,13 +4,14 @@
     <%= render 'partials/head' %>
   </head>
 
-  <body class="<%= "chapter-#{@chapter_number}" %>">
+  <body class="<%= "chapter-#{chapter_number}" %>">
       <div id="v-app" v-cloak>
         <%= render 'partials/banner' %>
         <%= render 'partials/hero' %>
         
         <%= yield %>
-      
+
+        <%= render 'partials/case-studies' %>
         <%= render 'partials/pagination' %>
         <%= render 'partials/footer' %>
       </div>

@@ -1,0 +1,9 @@
+<%= render partial: 'partials/main-text', locals: { text: @data['content_1'] } %>
+
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text'].html_safe } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_2'] } %>
+
+<%= render 'partials/blockquote', locals: { text: @data['blockquote_text_2'].html_safe } %>
+
+<%= render partial: 'partials/main-text', locals: { text: @data['content_3'] } %>

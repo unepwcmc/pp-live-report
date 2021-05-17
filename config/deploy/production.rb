@@ -1,7 +1,6 @@
 set :stage, :production
 set :branch, "livereport_temp"
 
-
 server "new-web.pp-production.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}
 
 set :application, "pp-live-report-temp"

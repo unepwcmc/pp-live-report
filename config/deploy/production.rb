@@ -1,5 +1,5 @@
 set :stage, :production
-set :branch, "master"
+set :branch, "main"
 
 
 server "new-web.pp-production.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}

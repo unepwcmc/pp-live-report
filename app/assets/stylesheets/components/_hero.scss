@@ -79,6 +79,12 @@
           padding-top: 10vh;
           min-height: calc(100vh - #{$topbar-height-large});
         }
+
+        //account for people viewing in a 'short' browser window
+        @media (max-height: 880px) and (min-width: $medium) {
+          min-height: none; 
+          padding-bottom: rem-calc(100);
+        }
       }
 
       &__subtitle {

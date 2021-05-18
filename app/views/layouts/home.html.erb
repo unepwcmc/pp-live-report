@@ -13,6 +13,8 @@
         <%= render 'partials/footer' %>
       </div>
 
-      <script id="CookieDeclaration" src="https://consent.cookiebot.com/377a4fc0-e1d0-45e0-ac6b-062f02bea907/cd.js" type="text/javascript" async></script>
+      <% if Rails.env == 'production' %>
+        <script id="CookieDeclaration" src="https://consent.cookiebot.com/377a4fc0-e1d0-45e0-ac6b-062f02bea907/cd.js" type="text/javascript" async></script>
+      <% end %>
   </body>
 </html>

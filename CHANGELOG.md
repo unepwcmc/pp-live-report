@@ -91,3 +91,15 @@ Feb 2021 stats updates
 0.2.18
 
 Add banner saying the new site is launching soon.
+
+1.0.0
+
+Launch of the new site which includes
+- Data from May 2021
+- Interative maps
+- Charts
+- PDF Dowloads for all printed reports
+- Text for new Report across the whole website
+- Additional content within modals
+- Videos in the home page hero
+

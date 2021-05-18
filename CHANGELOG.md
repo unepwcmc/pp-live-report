@@ -103,3 +103,7 @@ Launch of the new site which includes
 - Additional content within modals
 - Videos in the home page hero
 
+1.0.1
+
+- Add cookie compliance banner
+- remove duplicate text on gauge chart

@@ -32,6 +32,7 @@
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_pack_tag 'application' %>
 
+<!-- scripts -->
 <%= render 'partials/google_analytics' %>
 <%= render 'partials/hotjar' %>
 
@@ -44,3 +45,26 @@
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
+<!-- cookie consent -->
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#fff",
+      "text": "#202020"
+    },
+    "button": {
+      "background": "#71A32B",
+      "text": "#ffffff"
+    }
+  },
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience on our website.",
+    "dismiss": "Got it!",
+    "link": "Learn more",
+    "href": "http://cookies.insites.com/about-cookies"
+  }
+})});
+</script>

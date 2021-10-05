@@ -107,3 +107,8 @@ Launch of the new site which includes
 
 - Add cookie compliance banner
 - remove duplicate text on gauge chart
+
+1.0.2
+
+- Update text
+- Fix broken links

@@ -1,17 +1,25 @@
+<% if ENV['PP_2024_REPORT_FULL_LINK'] == false%>
+<div class="topbar--new-release">
+  <a href="<%= ENV['PP_2024_REPORT_FULL_LINK'] %>">Read the latest 2024 Digital Report
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">
+      <path d="M7.2 0.6C7.2 0.268629 7.46863 0 7.8 0H11.4C11.7314 0 12 0.268629 12 0.6V4.2C12 4.53137 11.7314 4.8 11.4 4.8C11.0686 4.8 10.8 4.53137 10.8 4.2V2.04853L5.22426 7.62426C4.98995 7.85858 4.61005 7.85858 4.37574 7.62426C4.14142 7.38995 4.14142 7.01005 4.37574 6.77574L9.95147 1.2H7.8C7.46863 1.2 7.2 0.931371 7.2 0.6Z" fill="currentColor"/>
+      <path d="M1.8 3C1.64087 3 1.48826 3.06321 1.37574 3.17574C1.26321 3.28826 1.2 3.44087 1.2 3.6V10.2C1.2 10.3591 1.26321 10.5117 1.37574 10.6243C1.48826 10.7368 1.64087 10.8 1.8 10.8H8.4C8.55913 10.8 8.71174 10.7368 8.82426 10.6243C8.93679 10.5117 9 10.3591 9 10.2V6.6C9 6.26863 9.26863 6 9.6 6C9.93137 6 10.2 6.26863 10.2 6.6V10.2C10.2 10.6774 10.0104 11.1352 9.67279 11.4728C9.33523 11.8104 8.87739 12 8.4 12H1.8C1.32261 12 0.864773 11.8104 0.527208 11.4728C0.189642 11.1352 0 10.6774 0 10.2V3.6C0 3.12261 0.189642 2.66477 0.527208 2.32721C0.864773 1.98964 1.32261 1.8 1.8 1.8H5.4C5.73137 1.8 6 2.06863 6 2.4C6 2.73137 5.73137 3 5.4 3H1.8Z" fill="currentColor"/>
+    </svg>
+  </a>
+</div>
+<% end %>
 <div class="topbar--primary flex flex-h-between flex-v-center gutters">
   <%= link_to root_path, title: site_title, class: 'topbar__site-link' do %>
     <%= image_tag 'logos/logo-protected-planet-report-2020.svg', alt: site_title + ' logo', class: "topbar__logo" %>
   <% end %>
-  
   <div class="flex flex-v-center">
-    <download 
+    <download
       class="topbar__download"
-      text="<%= t('download.text') %>" 
+      text="<%= t('download.text') %>"
       :title="'Download reports in PDF format'"
       :download-links="<%= download_links_array %>"
       event-element="Download Report"
     ></download>
-
     <%= render 'partials/social-sharing' %>
   </div>
 </div>

@@ -5,7 +5,7 @@ set :branch, "develop"
 server "new-web.pp-staging.linode.protectedplanet.net", user: 'wcmc', roles: %w{app web db}
 
 set :application, "pp-live-report"
-set :server_name, "pp-live-report.new-web.pp-staging.linode.protectedplanet.net"
+set :server_name, "livereport.new-web.pp-staging.linode.protectedplanet.net"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 

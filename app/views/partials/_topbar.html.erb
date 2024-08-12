@@ -1,4 +1,4 @@
-<% if ENV['PP_2024_REPORT_FULL_LINK'] == false%>
+<% if ENV['PP_2024_REPORT_FULL_LINK'].present? %>
 <div class="topbar--new-release">
   <a href="<%= ENV['PP_2024_REPORT_FULL_LINK'] %>">Read the latest 2024 Digital Report
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">

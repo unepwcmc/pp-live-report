@@ -8,7 +8,7 @@
     "datamaps": "^0.5.9",
     "dotenv": "^6.1.0",
     "es6-promise": "^4.2.5",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "scrollmagic": "^2.0.7",
     "vue": "^2.5.17",
     "vue-analytics": "^5.17.2",
